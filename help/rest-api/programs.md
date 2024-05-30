@@ -1,0 +1,552 @@
+---
+title: "Programme"
+feature: REST API, Programs
+description: "Programminformationen erstellen und bearbeiten."
+source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+workflow-type: tm+mt
+source-wordcount: '843'
+ht-degree: 2%
+
+---
+
+
+# Programme
+
+[Programmendpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
+
+Programme sind eine zentrale organisatorische Komponente der Marketo-Marketingaktivitäten. Sie können den meisten Asset-Typen übergeordnet sein und ermöglichen das Tracking der Mitgliedschaft und des Erfolgs von Leads im Kontext einzelner Marketinginitiativen. Bei Programmen kann es sich um übergeordneten Elementen zu allen Arten von Datensätzen mit Ausnahme von LP, E-Mail-Vorlagen und Dateien handeln.
+
+## Programmtypen
+
+In Marketo gibt es fünf Kernprogramme:
+
+- Standard
+- Veranstaltung
+- Veranstaltung mit Webinar
+- Interaktion
+- E-Mail
+
+Interaktionsprogramme können übergeordnete Elemente des jeweils anderen Programmtyps sein, während &quot;Standard&quot;, &quot;Ereignis&quot;und &quot;Ereignis mit Webinar&quot;nur Eltern von E-Mail-Programmen sein können.
+
+Programme haben immer einen Kanal. Sie leiten die möglichen eingerichteten Programmmitgliedstaaten von dem Kanal ab, mit dem sie erstellt wurden und der mit der Get Channels API abgerufen werden kann. Ein Programm kann auch über eine Reihe verknüpfter Tags verfügen. Tags sind anpassbare Felder, die als optional oder für einen bestimmten Programmtyp erforderlich konfiguriert werden können. Dabei wird ein Wert aus einer in Marketo Admin konfigurierten Liste ausgewählt.
+
+## Anfrage
+
+Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option zur Abfrage nach Tag-Typ und Werten. Verfügbare Tags und Werte können mit [Abrufen von Tag-Typen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
+
+### Nach ID
+
+Die [Programm nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) -Endpunkt erfordert `id` Pfadparameter.
+
+Die Programm-ID kann von der URL des Programms in der Benutzeroberfläche abgerufen werden, wo die URL ähnelt `https://app-\*\*\*.marketo.com/#PG1001A1`. In dieser URL wird die `id` ist 1001. Es wird immer zwischen dem ersten Satz von Buchstaben in der URL und dem zweiten Satz von Buchstaben stehen.
+
+```
+GET /rest/asset/v1/program/{id}.json
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "948f#14db037ec71",
+    "result": [
+        {
+            "id": 1107,
+            "name": "AAA2QueryProgramName",
+            "description": "AssetAPI: getProgram tests",
+            "createdAt": "2015-05-21T22:45:13Z+0000",
+            "updatedAt": "2015-05-21T22:45:13Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#PG1107A1",
+            "type": "Default",
+            "channel": "Online Advertising",
+            "folder": {
+                "type": "Folder",
+                "value": 1910,
+                "folderName": "ProgramQueryTestFolder"
+            },
+            "status": "",
+            "workspace": "Default",
+            "tags": [
+                {
+                    "tagType": "AAA1 Required Tag Type",
+                    "tagValue": "AAA1 RT1"
+                }
+            ],
+            "costs": null,
+            "headStart": false
+        }
+    ]
+}
+```
+
+### Nach Name
+
+Die [Programm nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/) -Endpunkt erfordert `name` Abfrageparameter. Optionale boolesche Abfrageparameter sind `includeTags` und `includeCosts` die verwendet werden, um Programm-Tags bzw. Programmkosten zurückzugeben.
+
+```
+GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "16026#14db03e070c",
+    "result": [
+        {
+            "id": 1107,
+            "name": "AAA2QueryProgramName",
+            "description": "AssetAPI: getProgram tests",
+            "createdAt": "2015-05-21T22:45:13Z+0000",
+            "updatedAt": "2015-05-21T22:45:13Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#PG1107A1",
+            "type": "Default",
+            "channel": "Online Advertising",
+            "folder": {
+                "type": "Folder",
+                "value": 1910,
+                "folderName": "ProgramQueryTestFolder"
+            },
+            "status": "",
+            "workspace": "Default",
+            "tags": [
+                {
+                    "tagType": "AAA1 Required Tag Type",
+                    "tagValue": "AAA1 RT1"
+                }
+            ],
+            "costs": null,
+            "headStart": false
+        }
+    ]
+}
+```
+
+### Durchsuchen
+
+Die [Abrufen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) -Endpunkt ermöglicht Ihnen, nach Programmen zu suchen.
+
+Das optionale `status` -Parameter können Sie nach Programmstatus filtern. Dieser Parameter gilt nur für Interaktions- und E-Mail-Programme. Die möglichen Werte sind &quot;ein&quot;und &quot;aus&quot;für Interaktionsprogramme und &quot;entsperrt&quot;für E-Mail-Programme.
+
+Das optionale `maxReturn` steuert die Anzahl der zurückzugebenden Programme (maximal 200, standardmäßig 20). Das optionale `offset` Parameter, der für Paging-Ergebnisse verwendet wird (Standard ist 0).
+
+Beachten Sie, dass Tags, die mit einem Programm verknüpft sind, von diesem Endpunkt nicht zurückgegeben werden. Programm-Tags können entweder mithilfe von [Abrufen von Programmen nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) oder [Abrufen von Programmen nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
+
+```
+GET /rest/asset/v1/programs.json
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "7a39#1511bf8a41c",
+    "result": [
+        {
+            "id": 1035,
+            "name": "clone it",
+            "description": "",
+            "createdAt": "2015-11-18T15:25:35Z+0000",
+            "updatedAt": "2015-11-18T15:25:46Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#NP1035A1",
+            "type": "Engagement",
+            "channel": "Nurture",
+            "folder": {
+                "type": "Folder",
+                "value": 28,
+                "folderName": "Nurturing"
+            },
+            "status": "on",
+            "workspace": "Default",
+            "headStart": false
+        },
+        {
+            "id": 1032,
+            "name": "email prog",
+            "description": "",
+            "createdAt": "2015-11-18T14:56:28Z+0000",
+            "updatedAt": "2015-11-18T14:56:28Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#EBP1032A1",
+            "type": "Email",
+            "channel": "Email Send",
+            "folder": {
+                "type": "Folder",
+                "value": 26,
+                "folderName": "Data Management"
+            },
+            "status": "unlocked",
+            "workspace": "Default",
+            "headStart": false
+        }
+    ]
+}
+```
+
+### Nach Datumsbereich
+
+Die `earliestUpdatedAt` und `latestUpdatedAt` Parameter an unsere [Abrufen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) -Endpunkt ermöglicht es Ihnen, niedrige und hohe Datum-Wasserzeichen für zurückgegebene Programme festzulegen, die entweder innerhalb des angegebenen Bereichs aktualisiert oder ursprünglich erstellt wurden.
+
+```
+GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
+```
+
+```json
+{
+    "success": true,
+    "errors": [],
+    "requestId": "1225a#15f82a83875",
+    "warnings": [],
+    "result": [
+        {
+            "id": 1070,
+            "name": "Bulk Import - Test",
+            "description": "",
+            "createdAt": "2017-01-13T19:34:17Z+0000",
+            "updatedAt": "2017-01-13T19:34:18Z+0000",
+            "url": "https://app-abm.marketo.com/#PG1070A1",
+            "type": "Default",
+            "channel": "Content",
+            "folder": {
+                "type": "Folder",
+                "value": 637,
+                "folderName": "Avention"
+            },
+            "status": "",
+            "workspace": "Default",
+            "headStart": false
+        },
+        {
+            "id": 1069,
+            "name": "Program With Email",
+            "description": "",
+            "createdAt": "2017-01-03T22:53:14Z+0000",
+            "updatedAt": "2017-01-03T22:53:15Z+0000",
+            "url": "https://app-abm.marketo.com/#EBP1069A1",
+            "type": "Email",
+            "channel": "Email Send",
+            "folder": {
+                "type": "Folder",
+                "value": 621,
+                "folderName": "Smartling"
+            },
+            "status": "unlocked",
+            "workspace": "Default",
+            "headStart": false
+        },
+        {
+            "id": 1071,
+            "name": "Program with Guided Landing Page Template",
+            "description": "",
+            "createdAt": "2017-01-24T22:59:21Z+0000",
+            "updatedAt": "2017-01-24T22:59:22Z+0000",
+            "url": "https://app-abm.marketo.com/#PG1071A1",
+            "type": "Default",
+            "channel": "Content",
+            "folder": {
+                "type": "Folder",
+                "value": 621,
+                "folderName": "Smartling"
+            },
+            "status": "",
+            "workspace": "Default",
+            "headStart": false
+        },
+        {
+            "id": 1047,
+            "name": "ReachForce List Update",
+            "description": "",
+            "createdAt": "2016-05-24T19:38:35Z+0000",
+            "updatedAt": "2017-01-13T19:28:09Z+0000",
+            "url": "https://app-abm.marketo.com/#PG1047A1",
+            "type": "Default",
+            "channel": "Content",
+            "folder": {
+                "type": "Folder",
+                "value": 407,
+                "folderName": "Everly Tests"
+            },
+            "status": "",
+            "workspace": "Default",
+            "headStart": false
+        }
+    ]
+}
+```
+
+### Nach Tag-Typ
+
+Die [Abrufen von Programmen nach Tag](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET) endpoint ruft eine Liste von Programmen ab, die mit dem angegebenen Tag-Typ und Tag-Werten übereinstimmen.
+
+Es gibt zwei erforderliche Parameter: `tagType` der Tag-Typ ist, nach dem gefiltert werden soll, und `tagValue` ist der Tag-Wert, nach dem gefiltert werden soll.  Es gibt eine optionale Ganzzahl `maxReturn` -Parameter, der die Anzahl der zurückzugebenden Programme steuert (maximal 200, standardmäßig 20), und eine optionale Ganzzahl `offset` Parameter, der für Paging-Ergebnisse verwendet wird (Standard ist 0).  Die Ergebnisse werden in zufälliger Reihenfolge zurückgegeben.
+
+```
+GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
+```
+
+```json
+{
+    "success" : true,
+    "warnings" : [],
+    "errors" : [],
+    "requestId" : "13b6d#152b38d5be4",
+    "result" : [{
+            "id" : 1004,
+            "name" : "It's a Program",
+            "description" : "",
+            "createdAt" : "2013-02-26T00:37:37Z+0000",
+            "updatedAt" : "2013-03-11T15:32:02Z+0000",
+            "url" : "https://app-sjst.marketo.com/#PG1004A1",
+            "type" : "Default",
+            "channel" : "Email Blast",
+            "folder" : {
+                "type" : "Folder",
+                "value" : 38,
+                "folderName" : "Test"
+            },
+            "status" : "",
+            "workspace" : "Default",
+            "tags" : [{
+                    "tagType" : "Presenter",
+                    "tagValue" : "Dennis"
+                }
+            ],
+                        "headStart": false
+    ]
+}
+```
+
+## Erstellen und Aktualisieren
+
+[Erstellen]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) -Programme folgen dem standardmäßigen Asset-Muster und haben `folder`, `name`, `type` und `channel` als erforderliche Parameter, mit `description`, `costs` und `tags` optional sein. Kanal und Typ können nur bei der Programmerstellung festgelegt werden. Nur Beschreibung, Name, `tags` und `costs` kann nach der Erstellung mit einer zusätzlichen `costsDestructiveUpdate` -Parameter zulässig. Übergeben `costsDestructiveUpdate` &quot;true&quot;bedeutet, dass alle vorhandenen Kosten gelöscht und durch alle im Aufruf enthaltenen Kosten ersetzt werden. Beachten Sie, dass in einigen Abonnements möglicherweise Tags für einige Programmtypen erforderlich sind. Dies ist jedoch konfigurationsabhängig und sollte zuerst mit Get Tags überprüft werden, um festzustellen, ob es instanzspezifische Anforderungen gibt.
+
+Beim Erstellen oder Aktualisieren eines E-Mail-Programms muss eine `startDate` und `endDate` auch weitergegeben werden.
+
+### Erstellen
+
+```
+POST /rest/asset/v1/programs.json
+```
+
+```
+Content-Type: application/x-www-form-urlencoded
+```
+
+```
+name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API Program&type=Default&channel=Email Blast&costs=[{"startDate":"2015-01-01","cost":2000}]
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "d505#14d9bd96352",
+    "result": [
+        {
+            "id": 1207,
+            "name": "newProgram",
+            "description": "This is a test",
+            "createdAt": "2015-05-28T18:47:15Z+0000",
+            "updatedAt": "2015-05-28T18:47:15Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#ME1207A1",
+            "type": "Event",
+            "channel": "channelOne",
+            "folder": {
+                "type": "Folder",
+                "value": 59,
+                "folderName": "blah blah"
+            },
+            "status": "",
+            "workspace": "Default",
+            "headStart": false
+            "tags": null,
+            "costs": [
+                {
+                    "startDate":"2015-01-01",
+                    "cost":2000
+                }
+            ]
+        }
+    ]
+}
+```
+
+### Aktualisierung
+
+Wenn Sie die Programmkosten aktualisieren möchten, fügen Sie sie einfach zu Ihrem `costs` Array. Um eine destruktive Aktualisierung durchzuführen, geben Sie Ihre neuen Kosten zusammen mit dem -Parameter weiter. `costsDestructiveUpdate` auf `true`. Um alle Kosten aus einem Programm zu löschen, befolgen Sie nicht die `costs` Parameter und übergeben Sie einfach `costsDestructiveUpdate` auf `true`.
+
+```
+POST /rest/asset/v1/program/{id}.json
+```
+
+```
+Content-Type: application/x-www-form-urlencoded
+```
+
+```
+description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "5c37#14db05608aa",
+    "result": [
+        {
+            "id": 1110,
+            "name": "Updated Program Name",
+            "description": "This is a updated description",
+            "createdAt": "2015-05-21T22:45:14Z+0000",
+            "updatedAt": "2015-06-01T18:13:58Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#NP1110A1",
+            "type": "Engagement",
+            "channel": "Nurture",
+            "folder": {
+                "type": "Folder",
+                "value": 1910,
+                "folderName": "ProgramQueryTestFolder"
+            },
+            "status": "on",
+            "workspace": "Default",
+            "headStart": false,
+            "tags": [
+                {
+                    "tagType": "AAA1 Required Tag Type",
+                    "tagValue": "AAA1 RT1"
+                },
+                {
+                    "tagType": "tagTypeOne",
+                    "tagValue": "tagTypeValue1"
+                }
+            ],
+            "costs": [
+                {
+                    "startDate": "2016-01-01",
+                    "cost": 200,
+                    "note": "Google Adwords"
+                }
+            ]
+        }
+    ]
+}
+```
+
+## Genehmigung
+
+E-Mail-Programme können remote genehmigt oder nicht genehmigt werden, was dazu führt, dass das Programm am angegebenen startDate ausgeführt und am angegebenen endDate abgeschlossen wird. Beide müssen für die Genehmigung des Programms sowie für die Konfiguration einer gültigen und genehmigten E-Mail- und Smart-Liste über die Benutzeroberfläche festgelegt sein.
+
+### Genehmigen
+
+```
+POST /rest/asset/v1/program/{id}/approve.json
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "16026#150b5bf7692",
+    "result": [
+        {
+            "id": 11062
+        }
+    ]
+}
+```
+
+### Genehmigung aufheben
+
+```
+POST /rest/asset/v1/program/{id}/unapprove.json
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "16026#150b5bf7692",
+    "result": [
+        {
+            "id": 11062
+        }
+    ]
+}
+```
+
+## Klonen
+
+[Klonen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) folgt dem standardmäßigen Asset-Muster und dem neuen Namen und Ordner als erforderliche Parameter sowie einer optionalen Beschreibung.  Die `name` muss global eindeutig sein und darf 255 Zeichen nicht überschreiten.  Die `folder` -Parameter ist der übergeordnete Ordner.  Die `folder` Das Parametertypattribut muss auf &quot;Ordner&quot;gesetzt werden und der Zielordner muss sich im selben Arbeitsbereich wie das Programm befinden, das geklont wird.
+
+Programme, die bestimmte Asset-Typen enthalten, können über diese API nicht geklont werden, darunter Push-Benachrichtigungen, In-App-Nachrichten, Berichte und Social-Assets. In-App-Programme können nicht über diese API geklont werden.
+
+```
+POST /rest/asset/v1/program/{id}/clone.json
+```
+
+```
+Content-Type: application/x-www-form-urlencoded
+```
+
+```
+name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Description
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "3a7f#14db06990cc",
+    "result": [
+        {
+            "id": 1221,
+            "name": "cloneProgram",
+            "description": "This is a description for the cloned program",
+            "createdAt": "2015-06-01T18:36:57Z+0000",
+            "updatedAt": "2015-06-01T18:36:57Z+0000",
+            "url": "https://app-devlocal1.marketo.com/#PG1221A1",
+            "type": "Default",
+            "channel": "Blog",
+            "folder": {
+                "type": "Folder",
+                "value": 59,
+                "folderName": "blah blah"
+            },
+            "status": "",
+            "workspace": "Default",
+            "headStart": false
+            "tags": null,
+            "costs": null
+        }
+    ]
+}
+```
+
+## Programm löschen
+
+Das Löschen von Programmen folgt dem standardmäßigen Asset-Löschmuster.
+
+```
+POST /rest/asset/v1/program/{id}/delete.json
+```
+
+```json
+{
+    "success": true,
+    "warnings": [],
+    "errors": [],
+    "requestId": "16501#14db042c6b7",
+    "result": [
+        {
+            "id": 1109
+        }
+    ]
+}
+```
