@@ -1,17 +1,17 @@
 ---
-title: "Erste Schritte"
-description: "Erste Schritte mit Marketo-APIs"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Erste Schritte
+description: Erste Schritte mit Marketo Engage-APIs
+exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
+source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
 workflow-type: tm+mt
-source-wordcount: '1242'
-ht-degree: 0%
+source-wordcount: '1246'
+ht-degree: 1%
 
 ---
 
-
 # Erste Schritte
 
-Marketo ist eine Marketing-Automatisierungsplattform, mit der Marketing-Experten personalisierte Multi-Channel-Programme und -Kampagnen für potenzielle Kunden und Kunden verwalten können. Die Marketo-Plattform kann mithilfe von Integrationspunkten erweitert werden. Unten finden Sie die Kernentitäten und ihre Beziehungen.
+Marketo Engage ist eine Marketing-Automatisierungsplattform, mit der Marketing-Experten personalisierte Multi-Channel-Programme und -Kampagnen für potenzielle Kunden und Kunden verwalten können. Die Marketo Engage-Plattform kann mithilfe von Integrationspunkten erweitert werden. Unten finden Sie die Kernentitäten und ihre Beziehungen.
 
 Die folgenden Objekte sind nicht über die REST-API verfügbar, wenn die native Synchronisierung aktiviert ist: Unternehmen, Chancen, Angebotsrolle, Vertriebsmitarbeiter
 
