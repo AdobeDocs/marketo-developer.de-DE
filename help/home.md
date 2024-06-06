@@ -2,7 +2,7 @@
 title: Startseite
 description: Homepage der Marketo Engage API
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: aea2812730fa5f6054e69dfa9d8045329aa724c7
+source-git-commit: c8de36d73ca2dc4ead29e6e25946bf138723e4b1
 workflow-type: tm+mt
 source-wordcount: '128'
 ht-degree: 7%
@@ -16,8 +16,8 @@ Detaillierte Dokumentationen, die Ihnen beim Master der Marketo Engage-API helfe
 <table>
 <tbody>
 <tr>
-<th><img src="assets/Smock_Book_18_N.svg" alt="Erste Schritte"></th>
-<th><a href="getting-started.md"><strong>Erste Schritte</strong></a>  Machen Sie sich mit Marketo Engage-APIs vertraut.</th>
+<td><img src="assets/Smock_Book_18_N.svg" alt="Erste Schritte"></td>
+<td><a href="getting-started.md"><strong>Erste Schritte</strong></a>  Machen Sie sich mit Marketo Engage-APIs vertraut.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_Code_18_N.svg" alt="Client-Bibliotheken"></td>
