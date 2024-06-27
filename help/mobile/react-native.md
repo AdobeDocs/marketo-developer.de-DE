@@ -1,14 +1,14 @@
 ---
-title: "React Native"
-feature: "Mobile Marketing"
-description: "Installieren von React Native for Marketo"
-source-git-commit: 416044a6cce4dac229640058a9cb0013070c9d9c
+title: React Native
+feature: Mobile Marketing
+description: Installieren von React Native für Marketo
+exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
 
 ---
-
 
 # React Native
 
@@ -47,7 +47,7 @@ Synchronisieren Sie dann Ihr Projekt mit den Gradle-Dateien.
 
 #### iOS SDK-Integration
 
-Bevor Sie eine Brücke für Ihr natives React-Projekt erstellen, müssen Sie unser SDK in Ihrem Xcode-Projekt einrichten.
+Bevor Sie eine Brücke für Ihr React Native-Projekt erstellen, müssen Sie unser SDK in Ihrem Xcode-Projekt einrichten.
 
 **SDK-Integration - Verwendung von CocoaPods**
 
@@ -81,7 +81,7 @@ Um es herunterzuladen und zu installieren, starten Sie ein Befehlszeilen-Termina
 
 ## Installationsanweisungen für native Module
 
-Manchmal muss eine native App von React auf eine native Plattform-API zugreifen, die in JavaScript nicht standardmäßig verfügbar ist, z. B. die nativen APIs für den Zugriff auf Apple oder Google Pay. Vielleicht möchten Sie einige vorhandene Objective-C-, Swift-, Java- oder C++-Bibliotheken wiederverwenden, ohne sie in JavaScript neu implementieren zu müssen, oder einen leistungsstarken Multi-Thread-Code für Dinge wie die Bildverarbeitung schreiben.
+Manchmal muss eine React Native-App auf eine native Plattform-API zugreifen, die in JavaScript standardmäßig nicht verfügbar ist, z. B. die nativen APIs für den Zugriff auf Apple oder Google Pay. Vielleicht möchten Sie einige vorhandene Objective-C-, Swift-, Java- oder C++-Bibliotheken wiederverwenden, ohne sie in JavaScript neu implementieren zu müssen, oder einen leistungsstarken Multi-Thread-Code für Dinge wie die Bildverarbeitung schreiben.
 
 Das NativeModule-System stellt Instanzen von Java/Objective-C/C++-Klassen (nativen) für JavaScript (JS) als JS-Objekte bereit und ermöglicht es Ihnen so, beliebigen nativen Code aus JS auszuführen. Wir erwarten zwar nicht, dass diese Funktion Teil des üblichen Entwicklungsprozesses ist, aber es ist wichtig, dass sie existiert. Wenn React Native keine native API exportiert, die Ihre JS-App benötigt, sollten Sie diese selbst exportieren können!
 
@@ -226,7 +226,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 Im folgenden Handbuch erstellen Sie ein natives Modul: _RNMarketoModule_, über den Sie von JavaScript aus auf die Marketo-APIs zugreifen können.
 
-Öffnen Sie zunächst das iOS-Projekt in Ihrer React Native-Anwendung in Xcode. Sie finden Ihr iOS-Projekt hier in einer nativen React-App. Es wird empfohlen, Xcode zum Schreiben Ihres nativen Codes zu verwenden. Xcode wurde für die iOS-Entwicklung entwickelt und hilft Ihnen, kleinere Fehler wie die Codesyntax schnell zu beheben.
+Öffnen Sie zunächst das iOS-Projekt in Ihrer React Native-Anwendung in Xcode. Sie finden Ihr iOS-Projekt hier in einer React Native-App. Es wird empfohlen, Xcode zum Schreiben Ihres nativen Codes zu verwenden. Xcode wurde für die iOS-Entwicklung entwickelt und hilft Ihnen, kleinere Fehler wie die Codesyntax schnell zu beheben.
 
 Erstellen Sie unsere wichtigsten benutzerdefinierten Header und Implementierungsdateien für native Module. Erstellen Sie eine neue Datei mit dem Namen `MktoBridge.h` und fügen Sie Folgendes hinzu:
 
