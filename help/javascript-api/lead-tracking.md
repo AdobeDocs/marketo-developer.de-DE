@@ -1,14 +1,14 @@
 ---
-title: "Lead-Tracking"
-description: "Lead-Tracking-API"
+title: Lead-Verfolgung
+description: Lead-Tracking-API
 feature: Munchkin Tracking Code, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '768'
 ht-degree: 0%
 
 ---
-
 
 # Lead-Tracking-API
 

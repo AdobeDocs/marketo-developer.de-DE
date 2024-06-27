@@ -69,7 +69,7 @@ Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Co
 
 ## Assets
 
-Assets beziehen sich auf Landingpages, E-Mails, Formulare und Bilder, die in einem Programm verwendet werden. Assets können entweder lokal in einem bestimmten Programm oder global sein. Globale Assets sind in allen Programmen verfügbar.
+Assets bezieht sich auf Landingpages, E-Mails, Formulare und Bilder, die in einem Programm verwendet werden. Assets kann entweder lokal für ein bestimmtes Programm oder global sein. Globale Assets sind in allen Programmen verfügbar.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
