@@ -1,14 +1,14 @@
 ---
 title: Webhooks
 feature: Webhooks
-description: "Übersicht über Webhooks"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Übersicht über Webhooks
+exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '586'
 ht-degree: 0%
 
 ---
-
 
 # Webhooks
 
@@ -20,12 +20,12 @@ Marketo ermöglicht die Verwendung von Webhooks für die Kommunikation mit Webdi
 
 Jeder einzelne Webhook verfügt über die folgenden Eigenschaften:
 
-- URL - Geben Sie die URL ein, mit der Sie Ihre Anfrage an den Webdienst senden.
-- Anfragetyp - Die HTTP-Methode.
-- Payload-Vorlage - Wenn Sie Informationen im Hauptteil der POST übermitteln möchten, geben Sie die Vorlage ein. Verwenden Sie jedes Datenformat, das die HTTP-POST unterstützt, einschließlich XML, JSON oder SOAP. Das Serialisierungsformat muss doppelte Anführungszeichen um Zeichenfolgen zulassen. Um ein Token in Ihre Vorlage einzufügen, klicken Sie auf Token einfügen .  Token vom Typ Zeichenfolge werden automatisch in doppelte Anführungszeichen gesetzt.
-- Token-Kodierung anfordern - Wenn die Token-Werte Sonderzeichen enthalten (z. B. ein kaufmännisches Und-Zeichen, &quot;&amp;&quot;), geben Sie das Format Ihrer Anfrage an (JSON oder Form/URL). Die richtige Kodierung sollte für den Text ausgewählt werden, um sicherzustellen, dass der Webhook ordnungsgemäß mit dem Webdienst kommuniziert.
-- Antworttyp - Wählen Sie das Format der Antwort aus, die Sie vom Dienst erhalten (JSON oder XML). Der richtige Antworttyp muss ausgewählt werden, um die Eigenschaften der Antwort wieder den Lead-Feldern in Marketo zuzuordnen
-- Benutzerdefinierte Kopfzeilen - Zugriff über Webhooks-Aktionen > Benutzerdefinierte Kopfzeile festlegen. Dieses Menü ermöglicht das Hinzufügen beliebiger benutzerdefinierter Schlüssel-Wert-Paare als HTTP-Kopfzeilen.
+- [!UICONTROL URL] - Geben Sie die URL ein, mit der Sie Ihre Anfrage an den Webdienst senden.
+- [!UICONTROL Anfragetyp] - Die HTTP-Methode.
+- [!UICONTROL Payload-Vorlage] - Wenn Sie Informationen im Hauptteil der POST übermitteln möchten, geben Sie die Vorlage ein. Verwenden Sie jedes Datenformat, das die HTTP-POST unterstützt, einschließlich XML, JSON oder SOAP. Das Serialisierungsformat muss doppelte Anführungszeichen um Zeichenfolgen zulassen. Um ein Token in Ihre Vorlage einzufügen, klicken Sie auf **[!UICONTROL Token einfügen]**.  Token vom Typ Zeichenfolge werden automatisch in doppelte Anführungszeichen gesetzt.
+- [!UICONTROL Token-Kodierung anfordern] - Wenn die Token-Werte Sonderzeichen enthalten (z. B. ein kaufmännisches Und-Zeichen, &quot;&amp;&quot;), geben Sie das Format Ihrer Anfrage an (JSON oder Form/URL). Die richtige Kodierung sollte für den Text ausgewählt werden, um sicherzustellen, dass der Webhook ordnungsgemäß mit dem Webdienst kommuniziert.
+- [!UICONTROL Antworttyp] - Wählen Sie das Format der Antwort aus, die Sie vom Dienst erhalten (JSON oder XML). Der richtige Antworttyp muss ausgewählt werden, um die Eigenschaften der Antwort wieder den Lead-Feldern in Marketo zuzuordnen
+- [!UICONTROL Benutzerdefinierte Kopfzeilen] - Zugriff über [!UICONTROL Webhooks-Aktionen] -> [!UICONTROL Benutzerdefinierte Kopfzeile festlegen], ermöglicht dieses Menü das Hinzufügen beliebiger benutzerdefinierter Schlüssel-Wert-Paare als HTTP-Header.
 
 Daten können mithilfe von [Reaktionszuordnungen](response-mappings.md)
 

@@ -1,14 +1,14 @@
 ---
-title: "Email Scripting"
+title: E-Mail-Skripterstellung
 feature: Email Programs
-description: "Übersicht über E-Mail-Scripting"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Übersicht über die E-Mail-Skripterstellung
+exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '963'
 ht-degree: 0%
 
 ---
-
 
 # E-Mail-Skripterstellung
 
@@ -98,7 +98,7 @@ Das Velocity-Skript wird mithilfe von E-Mail-Skript-Token in E-Mails eingeschlos
 
 ![Skript-Token](assets/script-token.png)
 
-Von hier aus können Sie den Namen des Tokens bearbeiten und den Editor über die Option Zum Bearbeiten klicken öffnen:
+Von hier aus können Sie den Namen des Tokens bearbeiten und den Editor über die [!UICONTROL Klicken zum Bearbeiten] Option:
 
 ![Skript bearbeiten](assets/script-edit.png)
 
@@ -112,11 +112,11 @@ Nachdem Sie Ihr Skript in einem Programm-My Token definiert haben, können Sie e
 
 ![Email Script](assets/email-script-marketo-email.png)
 
-Sie können Ihr Skript mithilfe der E-Mail-Aktion &quot;Beispiel-E-Mail senden&quot;im E-Mail-Designer von Marketo testen. Damit das Skript korrekt verarbeitet werden kann, müssen Sie einen vorhandenen Lead auswählen, um im Feld Lead stellvertretend agieren zu können. Wenn Sie mit `$TriggerObject`können Sie das auslösende Objekt über den Parameter &#39;Trigger&#39; auswählen. Dabei werden die Daten des zuletzt aktualisierten Objekts dieses Typs als `$TriggerObject` -Variable.
+Sie können Ihr Skript mithilfe der [!UICONTROL Beispiel-E-Mail senden] E-Mail-Aktion im Marketo-E-Mail-Designer. Damit das Skript ordnungsgemäß verarbeitet werden kann, müssen Sie einen vorhandenen Lead auswählen, der im [!UICONTROL Lead] -Feld. Wenn Sie mit `$TriggerObject`, können Sie das auslösende Objekt über die [!UICONTROL Trigger] param. Dabei werden die Daten des zuletzt aktualisierten Objekts dieses Typs als `$TriggerObject` -Variable.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 
-Sie können auch die E-Mail-Vorschau verwenden, um Ihr Skript zu testen. Wählen Sie dazu Anzeigen als: Lead-Detail und wählen Sie einen Lead aus einer verfügbaren statischen Liste aus. Dies hat den zusätzlichen Vorteil, dass Ausnahmen ausgegeben werden, die möglicherweise während der Skriptausführung aufgetreten sind:
+Sie können auch die [!UICONTROL E-Mail-Vorschau] , um Ihr Skript zu testen. Wählen Sie dazu **[!UICONTROL Anzeigen als: Lead-Detail]** und wählen Sie einen Lead aus einer verfügbaren statischen Liste aus. Dies hat den zusätzlichen Vorteil, dass Ausnahmen ausgegeben werden, die möglicherweise während der Skriptausführung aufgetreten sind:
 
 ![E-Mail anzeigen als](assets/view-as.png)
 
@@ -126,7 +126,7 @@ Die Gesamtlänge aller E-Mail-Skript-Token in einer E-Mail darf 100.000 Byte nic
 
 - Die im E-Mail-Skript referenzierten Variablen müssen in Marketo auf einem der dem Skript verfügbaren Objekte vorhanden sein.
 - Sie können benutzerdefinierte Objekte der ersten und zweiten Ebene referenzieren, die aus Ihrem nativ integrierten CRM stammen und direkt mit dem Lead oder Kontakt, aber nicht mit benutzerdefinierten Objekten der dritten Ebene verbunden sind. Benutzerdefinierte Objekte sind möglicherweise nicht die übergeordneten Elemente des Leads oder Unternehmens
-- Bei benutzerdefinierten Marketo-Objekten können Sie auf benutzerdefinierte Objekte der zweiten Ebene mit einer übergeordneten untergeordneten Beziehung verweisen. Beispiel `Lead <- Parent <- Child`. Benutzerdefinierte Objekte der zweiten Ebene können nicht mit der Edge-Bridge-Beziehung referenziert werden. Beispiel:  `Lead <- Bridge -> Edge`
+- Bei benutzerdefinierten Marketo-Objekten können Sie auf benutzerdefinierte Objekte der zweiten Ebene mit einer übergeordneten untergeordneten Beziehung verweisen. Beispiel `Lead <- Parent <- Child`. Benutzerdefinierte Objekte der zweiten Ebene können nicht mit der Beziehung zwischen Edge und Bridge referenziert werden. Beispiel:  `Lead <- Bridge -> Edge`
 - Sie können auf benutzerdefinierte Objekte verweisen, die mit einem Lead, Kontakt oder einem Konto verbunden sind, jedoch nicht mit mehreren.
 - Benutzerdefinierte Objekte können nur über eine Verbindung, Lead, Kontakt oder Konto referenziert werden
 - Sie müssen das Kontrollkästchen im Skript-Editor für die Felder aktivieren, die Sie verwenden, oder sie werden nicht verarbeitet

@@ -1,14 +1,14 @@
 ---
-title: "REST API"
+title: REST-API
 feature: REST API
-description: "REST API - Übersicht"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: REST-API - Übersicht
+exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '664'
 ht-degree: 1%
 
 ---
-
 
 # REST-API
 
@@ -30,15 +30,15 @@ Bei Ihrem ersten Marketo-Aufruf rufen Sie einen Lead-Datensatz ab. Um mit Market
 
 ![Admin-Benutzer und Rollen](assets/admin-users-and-roles.png)
 
-Klicken Sie auf [!UICONTROL Rollen] und anschließend Neue Rolle und weisen Sie mindestens die Berechtigung &quot;Schreibgeschütztes Lead&quot;(oder &quot;Schreibgeschützte Person&quot;) der Rolle in der Access-API-Gruppe zu. Geben Sie ihm einen beschreibenden Namen und klicken Sie auf [!UICONTROL Erstellen].
+Klicken Sie auf **[!UICONTROL Rollen]** und anschließend Neue Rolle und weisen Sie mindestens die Berechtigung &quot;Schreibgeschütztes Lead&quot;(oder &quot;Schreibgeschützte Person&quot;) der Rolle in der Access-API-Gruppe zu. Geben Sie ihm einen beschreibenden Namen und klicken Sie auf **[!UICONTROL Erstellen]**.
 
 ![Neue Rolle](assets/new-role.png)
 
-Kehren Sie nun zur Registerkarte Benutzer zurück und klicken Sie auf Neuen Benutzer einladen . Geben Sie Ihrem Benutzer einen beschreibenden Namen, der anzeigt, dass es sich um einen API-Benutzer handelt, und eine E-Mail-Adresse und klicken Sie auf **[!UICONTROL Nächste]**.
+Zurück zum [!UICONTROL Benutzer] Registerkarte und klicken Sie auf **[!UICONTROL Neuen Benutzer einladen]**. Geben Sie Ihrem Benutzer einen beschreibenden Namen, der anzeigt, dass es sich um einen API-Benutzer handelt, und eine E-Mail-Adresse und klicken Sie auf **[!UICONTROL Nächste]**.
 
 ![Neue Benutzerinformationen](assets/new-user-info.png)
 
-Aktivieren Sie dann die Option Nur API und weisen Sie Ihrem Benutzer die von Ihnen erstellte API-Rolle zu und klicken Sie auf **[!UICONTROL Nächste]**.
+Überprüfen Sie dann die [!UICONTROL Nur API] und verleihen Ihrem Benutzer die von Ihnen erstellte API-Rolle und klicken Sie auf **[!UICONTROL Nächste]**.
 
 ![Berechtigungen für neue Benutzer](assets/new-user-permissions.png)
 
@@ -46,23 +46,23 @@ Um den Benutzererstellungsprozess abzuschließen, klicken Sie auf **[!UICONTROL 
 
 ![Neue Benutzermeldung](assets/new-user-message.png)
 
-Navigieren Sie zum Menü &quot;Admin&quot;und klicken Sie auf **[!UICONTROL LaunchPoint]**.
+Navigieren Sie als Nächstes zum [!UICONTROL Admin] Menü und klicken Sie **[!UICONTROL LaunchPoint]**.
 
 ![Startpunkt](assets/admin-launchpoint.png)
 
-Klicken Sie auf das Menü Neu und wählen Sie [!UICONTROL Neuer Dienst]. Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie &quot;Benutzerdefiniert&quot;aus dem Dropdown-Menü Dienst . Geben Sie eine Beschreibung ein, wählen Sie dann Ihren neuen Benutzer aus dem Dropdown-Menü &quot;Nur API-Benutzer&quot;aus und klicken Sie auf [!UICONTROL Erstellen].
+Klicken Sie auf **[!UICONTROL Neu]** Menü und wählen Sie **[!UICONTROL Neuer Dienst]**. Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie **[!UICONTROL Benutzerdefiniert]** aus dem [!UICONTROL Dienst] Dropdown-Menü. Geben Sie eine Beschreibung ein und wählen Sie dann Ihren neuen Benutzer aus der [!UICONTROL Nur API-Benutzer] Dropdown-Menü und klicken Sie **[!UICONTROL Erstellen]**.
 
 ![Neuer Launchpoint-Dienst](assets/admin-launchpoint-new-service.png)
 
-Klicken Sie für Ihren neuen Dienst auf Details anzeigen , um auf die Client-ID und das Client-Geheimnis zuzugreifen. Zunächst können Sie auf die [!UICONTROL Token abrufen] -Schaltfläche, um ein Zugriffstoken zu generieren, das für eine Stunde gültig ist. Speichern Sie das Token zunächst in einer Notiz.
+Klicks **[!UICONTROL Details anzeigen]** für Ihren neuen Dienst, um auf die Client-ID und das Client-Geheimnis zuzugreifen. Zunächst können Sie auf die **[!UICONTROL Token abrufen]** -Schaltfläche, um ein Zugriffstoken zu generieren, das für eine Stunde gültig ist. Speichern Sie das Token zunächst in einer Notiz.
 
 ![Token abrufen](assets/get-token.png)
 
-Navigieren Sie dann zum Menü &quot;Admin&quot;und klicken Sie auf **[!UICONTROL Web-Services]**.
+Navigieren Sie als Nächstes zum **[!UICONTROL Admin]** Menü, dann zu **[!UICONTROL Web-Services]**.
 
 ![Web-Services](assets/admin-web-services.png)
 
-Suchen Sie den Endpunkt im Feld REST-API und speichern Sie ihn zunächst in einem Hinweis.
+Suchen Sie die [!UICONTROL Endpunkt] im Feld REST-API und speichern Sie zunächst in einem Hinweis.
 
 ![REST-Endpunkt](assets/admin-web-services-rest-endpoint-1.png)
 

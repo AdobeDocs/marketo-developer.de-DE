@@ -1,28 +1,28 @@
 ---
-title: "SOAP API"
+title: SOAP-API
 feature: SOAP
-description: "Übersicht über Marketo SOAP"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Übersicht über Marketo SOAP
+exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '246'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
-
 # SOAP-API
 
-Die SOAP-API befindet sich nicht mehr in der aktiven Entwicklung. Die Aufrufe funktionieren weiterhin, aber unsere Entwicklung konzentriert sich auf [REST](https://developer.adobe.com/marketo-apis/) in Zukunft.
+Die SOAP-API wird nicht mehr aktiv entwickelt. Die Aufrufe funktionieren weiterhin, aber unsere Entwicklung konzentriert sich auf [REST](https://developer.adobe.com/marketo-apis/) in Zukunft.
 
-Die SOAP-API von Marketo ermöglicht das Erstellen, Abrufen und Entfernen von Entitäten und Daten, die in Marketo gespeichert sind. Sie finden die [Marketo-SOAP-SDK](https://github.com/Marketo/SOAP-API-Java-Client) auf GitHub. Es gibt auch [Client-Bibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries) um Ihnen etwas Zeit zu sparen.
+Die Marketo SOAP API ermöglicht das Erstellen, Abrufen und Entfernen von Entitäten und Daten, die in Marketo gespeichert sind. Sie finden die [Marketo-SOAP-SDK](https://github.com/Marketo/SOAP-API-Java-Client) auf GitHub. Es gibt auch [Client-Bibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries) um Ihnen etwas Zeit zu sparen.
 
 Neueste API-Version: 3_1
 
 ## SOAP WSDL
 
-Rufen Sie zum Abrufen des SOAP WSDL-Dokuments Ihren SOAP-API-Endpunkt von Ihrem **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** Menü.
+Rufen Sie das SOAP WSDL-Dokument ab, um Ihren SOAP API-Endpunkt von Ihrem **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** Menü.
 
-![SOAP-Endpunkt](assets/endpoint-soap.png)
+![SOAP Endpunkt](assets/endpoint-soap.png)
 
 Ihre WSDL-URL lautet:
 
@@ -38,12 +38,12 @@ Verwenden Sie nicht den in der WSDL definierten Endpunkt. Jede Marketo-Instanz v
 
 Wir empfehlen, dass die Stapelgrößen nicht größer als 300 sind. Größere Größen werden nicht unterstützt und können dazu führen, dass Timeouts auftreten und in Extremfällen gedrosselt werden.
 
-## SOAP-API-Einstellungen in Marketo
+## SOAP API-Einstellungen in Marketo
 
-1. Gehen Sie zum Abschnitt &quot;Admin&quot;und klicken Sie auf &quot;Web Services&quot;.
+1. Navigieren Sie zu **[!UICONTROL Admin]** und klicken Sie auf **[!UICONTROL Web-Services]**.
 
 ![admin-web-services2](assets/admin-web-services2.png)
 
-1. Legen Sie einen geeigneten Verschlüsselungsschlüssel fest, klicken Sie auf &quot;Änderungen speichern&quot;und verwenden Sie die Werte &quot;SOAP API Endpoint&quot;, &quot;Benutzer-ID&quot;und &quot;Verschlüsselungsschlüssel&quot;, um die richtigen Werte zu generieren [Authentifizierungssignatur](authentication-signature.md) für jeden SOAP-API-Aufruf.
+1. Festlegen einer geeigneten [!UICONTROL Verschlüsselungsschlüssel]klicken **[!UICONTROL Änderungen speichern]** und verwenden Sie die SOAP-API [!UICONTROL Endpunkt], [!UICONTROL Benutzer-ID], und [!UICONTROL Verschlüsselungsschlüssel] Werte, um die richtige [Authentifizierungssignatur](authentication-signature.md) für jeden SOAP API-Aufruf.
 
 ![admin-web-services3](assets/admin-web-services3.png)
