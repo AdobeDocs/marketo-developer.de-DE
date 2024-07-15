@@ -32,8 +32,8 @@ ht-degree: 32%
    - [Social](javascript-api/social.md)
    - [Auslöser](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
-- Mobilnummer {#mobile}
-   - [Installieren [!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension-installation.md)
+- Mobil {#mobile}
+   - [Installieren der Erweiterung [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension.md)
    - [Erweiterter Sicherheitsmodus](mobile/advanced-security-access-mode.md)
    - [Benutzerdefinierte Aktionen](mobile/custom-actions.md)
@@ -108,7 +108,7 @@ ht-degree: 32%
    - [Benutzerkontext](rest-api/user-context.md)
    - [Benutzerverwaltung](rest-api/user-management.md)
 - SOAP {#soap}
-   - Tätigkeiten {#activities}
+   - Aktivitäten {#activities}
       - [Aktivitäten](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
