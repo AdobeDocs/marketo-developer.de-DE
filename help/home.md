@@ -2,7 +2,7 @@
 title: Startseite
 description: Homepage der Marketo Engage API
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: c8de36d73ca2dc4ead29e6e25946bf138723e4b1
+source-git-commit: bc6b8fc84ec8d54d04d9b197b593e88a8170d148
 workflow-type: tm+mt
 source-wordcount: '128'
 ht-degree: 7%
@@ -17,7 +17,7 @@ Detaillierte Dokumentationen, die Ihnen beim Master der Marketo Engage-API helfe
 <tbody>
 <tr>
 <td><img src="assets/Smock_Book_18_N.svg" alt="Erste Schritte"></td>
-<td><a href="getting-started.md"><strong>Erste Schritte</strong></a>  Machen Sie sich mit Marketo Engage-APIs vertraut.</td>
+<td><a href="getting-started.md"><strong>Erste Schritte</strong></a> Machen Sie sich mit Marketo Engage-APIs vertraut.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_Code_18_N.svg" alt="Client-Bibliotheken"></td>
@@ -25,11 +25,11 @@ Detaillierte Dokumentationen, die Ihnen beim Master der Marketo Engage-API helfe
 </tr>
 <tr>
 <td><img src="assets/Smock_EmailGear_18_N.svg" alt="E-Mail-Skripterstellung"></td>
-<td><a href="rest-api/emails.md"><strong>Email Scripting</strong></a> Verwenden Sie Marketo Engage-APIs zum Erstellen und Bearbeiten von E-Mails und E-Mail-Vorlagen.</td>
+<td><a href="email-scripting.md"><strong>E-Mail-Skripterstellung</strong></a> Verwenden Sie Marketo Engage-APIs zum Erstellen und Bearbeiten von E-Mails und E-Mail-Vorlagen.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_PeopleGroup_18_N.svg" alt="Lead-Verfolgung"></td>
-<td><a href="javascript-api/lead-tracking.md"><strong>Lead-Tracking</strong></a> Verwalten Sie Ihre KundenLeads.</td>
+<td><a href="javascript-api/lead-tracking.md"><strong>Lead-Tracking</strong></a> Verwalten Sie Ihre Kunden-Leads.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_MobileServices_18_N.svg" alt="Mobile Marketo"></td>
@@ -37,7 +37,7 @@ Detaillierte Dokumentationen, die Ihnen beim Master der Marketo Engage-API helfe
 </tr>
 <tr>
 <td><img src="assets/Smock_AppleFiles_18_N.svg" alt="REST-APIs"></td>
-<td><a href="https://developer.adobe.com/marketo-apis/"><strong>REST-API</strong></a> Lesen, schreiben und aktualisieren Sie Ihre Marketo Engage-Daten über die REST-API.</td>
+<td><a href="https://developer.adobe.com/marketo-apis/"><strong>REST API</strong></a> Lesen, Schreiben und Aktualisieren Ihrer Marketo Engage-Daten über die REST-API.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_SocialNetwork_18_N.svg" alt="Webhooks"></td>
@@ -45,7 +45,7 @@ Detaillierte Dokumentationen, die Ihnen beim Master der Marketo Engage-API helfe
 </tr>
 <tr>
 <td><img src="assets/Smock_PersonalizationField_18_N.svg" alt="Web-Personalisierung"></td>
-<td><a href="javascript-api/web-personalization.md"><strong>Web-Personalisierung</strong></a> Verwenden Sie die JavaScript-API für die Ereignisverfolgung und dynamische Anpassung einer Webseite.</td>
+<td><a href="javascript-api/web-personalization.md"><strong>Web Personalization</strong></a> Verwenden Sie die JavaScript-API für die Ereignisverfolgung und dynamische Anpassung einer Webseite.</td>
 </tr>
 </tbody>
 </table>
