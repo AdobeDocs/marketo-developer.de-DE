@@ -1,14 +1,14 @@
 ---
-title: "Aktivitätstyp-Filter"
+title: Aktivitätstypfilter
 feature: SOAP
-description: "Aktivitätstyp-Filter für SOAP-Aufrufe."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Aktivitätstyp-Filter für SOAP Aufrufe.
+exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '210'
 ht-degree: 94%
 
 ---
-
 
 # Aktivitätstypfilter
 

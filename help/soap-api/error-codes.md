@@ -1,26 +1,26 @@
 ---
-title: "Fehlercodes"
+title: Fehlercodes
 feature: SOAP
-description: "Fehlercodes für SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Fehlercodes für SOAP-Aufrufe
+exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '390'
 ht-degree: 11%
 
 ---
 
-
 # Fehlercodes
 
 Bei der Entwicklung für Marketo ist es sehr wichtig, dass Anfragen und Antworten protokolliert werden, wenn eine unerwartete Ausnahme auftritt.  Während bestimmte Arten von Ausnahmen, wie z. B. abgelaufene Authentifizierung, sicher durch erneute Authentifizierung verarbeitet werden können, erfordern andere möglicherweise Support-Interaktionen, und Anfragen und Antworten werden in diesem Szenario immer angefordert.
 
-Nachstehend finden Sie eine Liste der SOAP API-Fehlercodes.
+Nachstehend finden Sie eine Liste SOAP API-Fehlercodes.
 
 | Code | Nachricht | Hinweise |
 |--- |--- |--- |
 | 10001 | Interner Fehler | Schweres Systemversagen |
 | 20011 | Interner Fehler | API-Dienstfehler |
-| 20012 | Anfrage nicht verstanden | Unerwartete SOAP-Nachricht |
+| 20012 | Anfrage nicht verstanden | Unerwartete SOAP |
 | 20013 | Zugriff verweigert | Der Client wird vom API-Zugriff blockiert |
 | 20014 | Authentifizierung fehlgeschlagen | Der Client hat keine gültigen Anmeldeinformationen angegeben. |
 | 20015 | Anfragebeschränkung überschritten | Die Anzahl der Anrufe hat heute das Abonnementkontingent überschritten. Das standardmäßige Abonnementkontingent beträgt 10.000/Tag. |

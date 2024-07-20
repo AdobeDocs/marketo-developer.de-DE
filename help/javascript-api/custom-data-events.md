@@ -1,20 +1,20 @@
 ---
-title: "Benutzerspezifische Datenereignisse"
-description: "Custom Data Events API"
+title: Benutzerspezifische Datenereignisse
+description: Benutzerspezifische Datenereignis-API
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '223'
 ht-degree: 4%
 
 ---
 
-
 # Benutzerspezifische Datenereignisse
 
 Diese Methode sendet benutzerspezifische Ereignisse zum Tracking und zur Echtzeit-Personalisierung. Sie kann zum Senden von Drittanbieterdaten oder zum Trigger Ihres eigenen benutzerspezifischen Ereignisses basierend auf dem Besucherverhalten verwendet werden. Benutzerspezifische Datenereignisse werden einmal in der Sitzung eines Besuchers gezählt.
 
-Sie müssen Web Personalization-Kunde werden und über die [RTP-Tag bereitgestellt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site vor der Verwendung der Benutzerkontext-API.
+Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|

@@ -1,18 +1,18 @@
 ---
-title: "Tokens"
+title: Token
 feature: REST API, Tokens
-description: "Verwalten von Token in Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Verwalten von Token in Marketo.
+exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '297'
 ht-degree: 4%
 
 ---
 
-
 # Token
 
-[Token-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
+[Token-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 
 Token in Marketo sind spezielle Zeichenfolgen, die Kurzwahlnummern ähneln, die zur Laufzeit durch ein separates Datenelement ersetzt werden. In Marketo stehen verschiedene Token zur Verfügung, jedoch können nur My Tokens über die API bearbeitet werden. Meine Token sind untergeordnete Token, die für einen bestimmten Ordner oder ein bestimmtes Programm lokal verfügbar sind. Token können über die API gelesen, erstellt und gelöscht werden.
 
@@ -34,7 +34,7 @@ Dies sind die einzigen Datentypen, die beim Erstellen eines Tokens über API ver
 
 ## Anfrage
 
-[Abrufen von Token nach Ordner-ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) nimmt eine `id` als Pfadparameter entweder vom Typ Programm oder Ordner . Dieser Typ wird durch die Variable `folderType` -Parameter.
+[Token nach Ordner-ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) akzeptiert eine `id` als Pfadparameter entweder vom Typ Programm oder Ordner . Dieser Typ wird durch den Parameter `folderType` angegeben.
 
 ```curl
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -67,7 +67,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Erstellen und Aktualisieren
 
-Die [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) -Endpunkt erstellt Token, oder wenn sie vorhanden sind, aktualisieren Sie sie mit gesendeten Werten. Token werden im Kontext eines Ordners oder Programms erstellt. Die erforderlichen `id` path parameter ist die ID des Ordners, mit dem das Token verknüpft wird. Die `name`, `type`, `value`, und `folderType` sind alle erforderlichen Parameter des Tokens. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON. Die `name` -Feld des Tokens darf nicht länger als 50 Zeichen sein.
+Der Endpunkt [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) erstellt Token oder, falls vorhanden, aktualisieren diese mit den gesendeten Werten. Token werden im Kontext eines Ordners oder Programms erstellt. Der erforderliche Pfadparameter `id` ist die ID des Ordners, mit dem das Token verknüpft wird. Die Parameter `name`, `type`, `value` und `folderType` sind alle erforderlichen Parameter des Tokens. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON. Das Feld `name` des Tokens darf 50 Zeichen nicht überschreiten.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -108,7 +108,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Löschen
 
-[Token nach Namen löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) akzeptiert eine ID als Pfadparameter, entweder vom Typ Programm oder Ordner . Dieser Typ wird durch die Variable `folderType` -Parameter. Token werden basierend auf ihrem übergeordneten Ordner, dem `name`und die `type` des Tokens, von denen jede erforderlich ist. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON.
+[Löschen-Token nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) verwendet eine ID als Pfadparameter entweder vom Typ Programm oder Ordner . Dieser Typ wird durch den Parameter `folderType` angegeben. Token werden basierend auf ihrem übergeordneten Ordner, den `name` und den `type` des Tokens gelöscht, von denen jeder erforderlich ist. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

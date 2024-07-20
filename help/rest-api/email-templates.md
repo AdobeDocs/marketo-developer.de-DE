@@ -1,24 +1,24 @@
 ---
-title: "E-Mail-Vorlagen"
+title: E-Mail-Vorlagen
 feature: REST API
-description: "Erstellen Sie E-Mail-Vorlagen mit Marketo-APIs."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Erstellen Sie E-Mail-Vorlagen mit Marketo-APIs.
+exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '569'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
 
-
 # E-Mail-Vorlagen
 
-[Endpunktverweis zur E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[E-Mail-Vorlagenendpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  E-Mails können zwar durch HTML-Austausch von Vorlagen abgekoppelt werden, doch müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Inhaltseinschränkungen, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Bereich enthalten, der den Anforderungen entspricht [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  E-Mails können zwar durch HTML-Austausch von Vorlagen abgekoppelt werden, doch müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Inhaltseinschränkungen, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier beschriebenen [Anforderungen entspricht.](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0)
 
 ## Anfrage
 
-Beim Abfragen von E-Mail-Vorlagen wird das Standardmuster für Assets befolgt, das Abfragen ermöglicht [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET), [nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) einen bestimmten Ordner.
+Beim Abfragen von E-Mail-Vorlagen wird das Standardmuster für Assets befolgt, sodass Abfragen [von id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByIdUsingGET), [von name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getTemplateByNameUsingGET) und [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplatesUsingGET) von einem bestimmten Ordner ausgeführt werden.
 
 ### Nach ID
 
@@ -192,7 +192,7 @@ Beim Abfragen des Datensatzes selbst werden nur Metadaten zum Datensatz zurückg
 
 ## Erstellen und Aktualisieren
 
-[Erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) oder [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) eine Vorlage ist ziemlich einfach. Der Inhalt jeder Vorlage wird als HTML-Dokument gespeichert und muss mithilfe eines mehrteiligen Formulardaten vom Typ POST an Marketo übergeben werden. Sie müssen die entsprechende Content-Type-Kopfzeile übergeben, die eine Begrenzung enthält, wie in den RFCs für [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) und [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt).
+[Erstellen von](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) oder [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) einer Vorlage ist ziemlich einfach. Der Inhalt jeder Vorlage wird als HTML-Dokument gespeichert und muss mithilfe eines mehrteiligen Formulardaten vom Typ POST an Marketo übergeben werden. Sie müssen die entsprechende Content-Type-Kopfzeile übergeben, die eine Begrenzung enthält, wie in den RFCs für [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) und [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt) beschrieben.
 
 Zum Erstellen einer Vorlage müssen Sie drei Parameter angeben: Name, Ordner, Inhalt. Ein optionaler Beschreibungsparameter kann enthalten sein.  Das HTML-Dokument wird im Inhaltsparameter übergeben, der auch den herkömmlichen Dateinamenparameter als Teil der Content-Disposition-Kopfzeile enthalten muss.
 
@@ -257,7 +257,7 @@ Create email template using API
 }
 ```
 
-Die Aktualisierung von Inhalten erfolgt mithilfe eines [separater Endpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) erfordert die Kennung der E-Mail-Vorlage. Dieser Endpunkt ermöglicht nur die Übermittlung des Inhaltsparameters im Text. Wenn eine Aktualisierung vorgenommen wird, ersetzt der im Inhaltsparameter übergebene Inhalt den vorhandenen Inhalt der E-Mail in einem neuen Entwurf, wenn eine genehmigte Version aktualisiert wird, oder ersetzt den aktuellen Entwurf, wenn das Asset nur als Entwurf vorliegt.
+Die Aktualisierung des Inhalts erfolgt mithilfe eines [separaten Endpunkts](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST), für den die ID der E-Mail-Vorlage erforderlich ist. Dieser Endpunkt ermöglicht nur die Übermittlung des Inhaltsparameters im Text. Wenn eine Aktualisierung vorgenommen wird, ersetzt der im Inhaltsparameter übergebene Inhalt den vorhandenen Inhalt der E-Mail in einem neuen Entwurf, wenn eine genehmigte Version aktualisiert wird, oder ersetzt den aktuellen Entwurf, wenn das Asset nur als Entwurf vorliegt.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/content.json
@@ -299,7 +299,7 @@ Content-Type: text/html
 
 ## Aktualisieren von Metadaten
 
-nach [Aktualisieren der Metadaten einer Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), Name und Beschreibung verwenden, können Sie denselben Endpunkt wie zum Aktualisieren von Inhalten verwenden, übergeben jedoch stattdessen eine application/x-www-url-formencoded -POST mit den Namen- und Beschreibungsparametern.
+Um [die Metadaten, Namen und Beschreibungen einer Vorlage zu aktualisieren, können Sie denselben Endpunkt wie für die Aktualisierung von Inhalten verwenden, jedoch stattdessen eine application/x-www-url-formencoded -POST mit den Namen- und Beschreibungsparametern übergeben.](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST)
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -459,7 +459,7 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 ## Klonen
 
-Marketo bietet eine einfache Methode für [Klonen einer E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). Anders als beim Erstellen erfolgt diese Art von Anforderung mit einer POST application/x-www-url-formencoded . Sie verwendet zwei erforderliche Parameter, den Namen und den Ordner, ein eingebettetes JSON-Objekt mit ID und Typ.  Beschreibung ist auch ein optionaler Parameter.
+Marketo bietet eine einfache Methode zum [Klonen einer E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). Anders als beim Erstellen erfolgt diese Art von Anforderung mit einer POST application/x-www-url-formencoded . Sie verwendet zwei erforderliche Parameter, den Namen und den Ordner, ein eingebettetes JSON-Objekt mit ID und Typ.  Beschreibung ist auch ein optionaler Parameter.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/clone.json
@@ -501,9 +501,9 @@ name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=T
 
 ## E-Mail-Abhängigkeiten abfragen
 
-Verwenden Sie die [E-Mail-Vorlage abrufen von](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) Endpunkt zum Abrufen einer Liste von E-Mails, die von einer bestimmten E-Mail-Vorlage abhängen.  Die `id` path -Parameter gibt die übergeordnete E-Mail-Vorlage an.
+Verwenden Sie den Endpunkt [Von ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/getEmailTemplateUsedByUsingGET) verwendete E-Mail-Vorlage abrufen , um eine Liste der E-Mails abzurufen, die von einer bestimmten E-Mail-Vorlage abhängen.  Der Pfadparameter `id` gibt die übergeordnete E-Mail-Vorlage an.
 
-Es gibt 2 optionale Parameter. `maxReturn`  ist eine Ganzzahl, die die Anzahl der Ergebnisse begrenzt (standardmäßig 20, maximal 200), und `offset` ist eine Ganzzahl, die mit `maxReturn` zum Durchlesen großer Ergebnismengen (standardmäßig 0).
+Es gibt 2 optionale Parameter. `maxReturn`  ist eine Ganzzahl, die die Anzahl der Ergebnisse begrenzt (standardmäßig 20, maximal 200), und `offset` ist eine Ganzzahl, die mit `maxReturn` verwendet werden kann, um durch große Ergebnismengen zu lesen (der Standardwert lautet 0).
 
 ```
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json

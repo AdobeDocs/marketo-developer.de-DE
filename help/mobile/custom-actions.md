@@ -1,14 +1,14 @@
 ---
-title: "Benutzerdefinierte Aktionen"
-feature: "Mobile Marketing"
-description: "Übersicht über benutzerdefinierte Aktionen"
-source-git-commit: c51e1b84efdf444c13714c1a08ecc4cac677f483
+title: Benutzerdefinierte Aktionen
+feature: Mobile Marketing
+description: Übersicht über benutzerdefinierte Aktionen
+exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '291'
 ht-degree: 0%
 
 ---
-
 
 # Benutzerdefinierte Aktionen
 
@@ -115,4 +115,4 @@ sharedInstance.reportAll();
 
 Die Einrichtung benutzerdefinierter Aktionen für Mobilgeräte ist unkompliziert. Es gibt jedoch Einschränkungen hinsichtlich der Anzahl der Zeichen, die Sie vom Mobile SDK an Marketo senden können. Stellen Sie sicher, dass alle benutzerdefinierten Aktionen, die über das mobile SDK an Marketo gemeldet werden, weniger als 20 Zeichen lang sind.
 
-**Hinweis zu Anwendungsfällen für mehrere Benutzer auf einem gemeinsam genutzten Gerät:** Wenn sich ein Benutzer bei einer Mobile App anmeldet, die mit dem Marketo SDK integriert ist, wird der erste Aufruf durchgeführt, um den Lead mit der App-Installation zu verknüpfen. Nach erfolgreichem Abschluss dieses Aufrufs können weitere Benutzeraktivitäten in der App im Aktivitätsprotokoll des Leads angezeigt werden. Beachten Sie Folgendes: Dies ist ein asynchroner Aufruf, wenn unmittelbar nach der Anmeldung irgendwelche benutzerdefinierten Aktionen protokolliert werden, die möglicherweise mit dem Benutzer verknüpft werden, der zuvor angemeldet war, bis der verknüpfte Aufruf erfolgreich war.
+**Hinweis zu Anwendungsfällen für mehrere Benutzer auf einem gemeinsam genutzten Gerät:** Wenn sich ein Benutzer bei einer mobilen App anmeldet, die mit dem Marketo SDK integriert ist, wird zunächst aufgerufen, den Lead mit der App-Installation zu verknüpfen. Nach erfolgreichem Abschluss dieses Aufrufs können weitere Benutzeraktivitäten in der App im Aktivitätsprotokoll des Leads angezeigt werden. Beachten Sie Folgendes: Dies ist ein asynchroner Aufruf, wenn unmittelbar nach der Anmeldung irgendwelche benutzerdefinierten Aktionen protokolliert werden, die möglicherweise mit dem Benutzer verknüpft werden, der zuvor angemeldet war, bis der verknüpfte Aufruf erfolgreich war.

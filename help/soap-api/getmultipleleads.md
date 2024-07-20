@@ -1,26 +1,26 @@
 ---
-title: "getMultipleLeads"
+title: getMultipleLeads
 feature: SOAP
-description: "getMultipleLeads SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getMultipleLeads SOAP Aufrufe
+exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '384'
 ht-degree: 3%
 
 ---
 
-
 # getMultipleLeads
 
-liken `getLead`, `getMultipleLeads` ruft Lead-Datensätze aus Marketo ab. Anstelle von Daten für einen einzelnen Lead gibt dieser Aufruf Daten für einen Lead-Batch zurück, die den Kriterien entsprechen, die an den Parameter leadSelector übergeben werden. Die Kriterien können ein Datumsbereich sein, z. B. das letzte aktualisierte Datum, ein Array von Lead-Schlüsseln oder eine statische Liste.
+Wie `getLead` ruft `getMultipleLeads` Lead-Datensätze aus Marketo ab. Anstelle von Daten für einen einzelnen Lead gibt dieser Aufruf Daten für einen Lead-Batch zurück, die den Kriterien entsprechen, die an den Parameter leadSelector übergeben werden. Die Kriterien können ein Datumsbereich sein, z. B. das letzte aktualisierte Datum, ein Array von Lead-Schlüsseln oder eine statische Liste.
 
 Hinweis: Wenn Sie ein Array mit Lead-Schlüsseln verwenden, sind Sie auf 100 pro Batch beschränkt. Zusätzliche Schlüssel werden ignoriert.
 
-Wenn nur eine Teilmenge der Lead-Felder erforderlich ist, wird die `includeAttributes` -Parameter verwendet werden, um die gewünschten Felder anzugeben.
+Wenn nur eine Teilmenge der Lead-Felder erforderlich ist, sollte der Parameter `includeAttributes` verwendet werden, um die gewünschten Felder anzugeben.
 
-Jeder `getMultipleLeads` -Funktionsaufruf gibt bis zu 1000 Leads zurück. Wenn Sie mehr als 1000 Leads abrufen müssen, gibt das Ergebnis einen [Stream-Position](stream-position.md), die in nachfolgenden Aufrufen verwendet werden kann, um den nächsten Batch von 1000 Leads abzurufen. Die verbleibende Anzahl im Ergebnis gibt genau an, wie viele Leads noch vorhanden sind. Beim Abrufen aus einer statischen Liste ist die Bedingung zum Beenden verbleibtCount == 0.
+Jeder Funktionsaufruf von `getMultipleLeads` gibt bis zu 1000 Leads zurück. Wenn Sie mehr als 1.000 Leads abrufen müssen, gibt das Ergebnis eine [Stream-Position](stream-position.md) zurück, die in nachfolgenden Aufrufen verwendet werden kann, um den nächsten Batch von 1.000 Leads abzurufen. Die verbleibende Anzahl im Ergebnis gibt genau an, wie viele Leads noch vorhanden sind. Beim Abrufen aus einer statischen Liste ist die Bedingung zum Beenden verbleibtCount == 0.
 
-Ein gängiger Anwendungsfall für diesen Endpunkt besteht darin, Leads zu finden, die zu bestimmten Daten aktualisiert wurden. Die `LastUpdateAtSelector` ermöglicht Ihnen dies.
+Ein gängiger Anwendungsfall für diesen Endpunkt besteht darin, Leads zu finden, die zu bestimmten Daten aktualisiert wurden. Mit dem `LastUpdateAtSelector` können Sie dies tun.
 
 ## Anfrage
 
@@ -31,12 +31,12 @@ Ein gängiger Anwendungsfall für diesen Endpunkt besteht darin, Leads zu finden
 | keyValues->stringItem | Erforderlich | Liste der Schlüsselwerte. Das heißt &quot;lead@email.com&quot; |
 | LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Erforderlich | Der Zeitstempel, mit dem die Kriterien &quot;da&quot;angegeben werden. Das heißt, alle Leads zurückgeben, die seit dem angegebenen Zeitpunkt aktualisiert wurden. (W3C WSDL Datum-Uhrzeit-Format) |
 | LastUpdateAtSelector: leadSelector->latestUpdatedAt | optional | Der Zeitstempel zum Angeben der Kriterien &quot;bis&quot;. Das heißt, alle Leads zurückgeben, die bis zum angegebenen Zeitpunkt aktualisiert wurden. (W3C WSDL Datum-Uhrzeit-Format) |
-| StaticListSelector: leadSelector->staticListName | Optional, wenn `leadSelector->staticListId` ist vorhanden | Der Name der statischen Liste |
-| StaticListSelector: leadSelector->staticListId | Optional, wenn `leadSelector->staticListName` ist vorhanden | Die ID der statischen Liste |
-| lastUpdatedAt | **Veraltet** | Verwendung `LastUpdateAtSelector` anstelle |
+| StaticListSelector: leadSelector->staticListName | Optional, wenn `leadSelector->staticListId` vorhanden ist | Der Name der statischen Liste |
+| StaticListSelector: leadSelector->staticListId | Optional, wenn `leadSelector->staticListName` vorhanden ist | Die ID der statischen Liste |
+| lastUpdatedAt | **veraltet** | Verwenden Sie stattdessen `LastUpdateAtSelector` |
 | includeAttributes | optional | Liste der Attribute, die abgerufen werden sollen. Die Beschränkung der zurückgegebenen Lead-Felder kann die Antwortzeit der API verbessern. |
 | batchSize | optional | Maximale Datensatzanzahl. Systembeschränkungen auf 100 oder `batchSize`, je nachdem, welcher Wert kleiner ist |
-| streamPosition | optional | Wird verwendet, um durch eine große Anzahl von Lead-Antworten zu paginieren. Die `streamPosition` Wert wird vom Antwortfeld der vorherigen Aufrufe zurückgegeben `newStreamPosition` |
+| streamPosition | optional | Wird verwendet, um durch eine große Anzahl von Lead-Antworten zu paginieren. Der Wert `streamPosition` wird vom Antwortfeld der vorherigen Aufrufe `newStreamPosition` zurückgegeben |
 
 ## XML anfordern
 

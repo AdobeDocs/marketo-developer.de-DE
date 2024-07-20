@@ -1,20 +1,20 @@
 ---
-title: "Benutzerkontext"
+title: Benutzerkontext
 feature: REST API
-description: "Übersicht über den Benutzerkontext und API-Beschreibungen"
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Übersicht über den Benutzerkontext und API-Beschreibungen
+exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '266'
 ht-degree: 5%
 
 ---
 
-
 # Benutzerkontext
 
-Die JavaScript-API für Benutzerkontext legt Daten auf Benutzer- und Besucherebene über mehrere Sitzungen hinweg offen, um eine erweiterte Personalisierungsfunktion zu ermöglichen, die historisches Benutzerverhalten und historische Daten verwendet. Die API geht über das Lesen von Daten hinaus und stellt benutzerdefinierte Variablen bereit, mit denen Sie aussagekräftige Daten und Ereignisse zu erweiterten Segmentierungs- und Personalisierungszwecken an das RTP-Backend senden können. Zusätzliche Funktionen: [Trigger](../javascript-api/triggers.md), [Musterübereinstimmung](../javascript-api/pattern-match.md).
+Die User Context JavaScript-API stellt sitzungsübergreifend Daten auf Benutzer- und Besucherebene bereit, um eine erweiterte Personalisierungsfunktion zu ermöglichen, die historisches Benutzerverhalten und historische Daten verwendet. Die API geht über das Lesen von Daten hinaus und stellt benutzerdefinierte Variablen bereit, mit denen Sie aussagekräftige Daten und Ereignisse zu erweiterten Segmentierungs- und Personalisierungszwecken an das RTP-Backend senden können. Zusätzliche Funktionen: [Trigger](../javascript-api/triggers.md), [Musterübereinstimmung](../javascript-api/pattern-match.md).
 
-- Sie müssen Web Personalization-Kunde werden und über die [RTP-Tag bereitgestellt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site vor der Verwendung der Benutzerkontext-API.
+- Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
 - Die Benutzerkontext-API ist eine Funktion, die vom Marketo-Support auf Anfrage aktiviert werden muss. Wenn die API aktiviert ist, wird ein userContext-Objekt unter dem globalen RTP-Objekt bereitgestellt.
 
 ## Benutzerkontextattribute

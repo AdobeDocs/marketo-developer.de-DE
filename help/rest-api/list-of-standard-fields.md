@@ -1,20 +1,20 @@
 ---
-title: "Standardfelder"
+title: Standardfelder
 feature: REST API, Field Management
-description: "Eine Tabelle mit standardmäßigen Marketo-Feldern."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Eine Tabelle mit standardmäßigen Marketo-Feldern.
+exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1140'
 ht-degree: 28%
 
 ---
 
-
 # Standardfelder
 
 Im Folgenden finden Sie eine Liste der in Marketo verfügbaren Standardfelder, auf die über die API zugegriffen werden kann.
 
-Sie können die Liste aller unterstützten Feldnamen abrufen, die in Ihren Lead-Datensätzen verfügbar sind, indem Sie REST verwenden [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/) -Endpunkt.
+Sie können die Liste aller unterstützten Feldnamen abrufen, die in Ihren Lead-Datensätzen verfügbar sind, indem Sie den REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/) -Endpunkt verwenden.
 
 | REST-API-Name | SOAP-API-Name | Angezeigte Bezeichnung | Beschreibung |
 | --- | --- | --- | --- |

@@ -1,13 +1,13 @@
 ---
-title: "Data Streams"
-description: "Data Steams - Übersicht"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Daten-Streams
+description: Data Steams - Übersicht
+exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1594'
 ht-degree: 2%
 
 ---
-
 
 # Daten-Streams
 
@@ -19,7 +19,7 @@ Neben den Vorteilen von nahezu Echtzeit-Daten gibt es produktbezogene Vorteile:
 - Reduziert das Szenario der API-Beschränkungen und generiert weniger Warnhinweis-Nachrichten.
 - Aufgrund der Data Streaming-Funktion muss kein Massenexport durchgeführt werden, um Daten zu extrahieren.
 
-Daten-Streams stehen denjenigen zur Verfügung, die einen [Marketo Engage-Leistungs-Tier-Paket](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Daten-Streams sind für diejenigen verfügbar, die ein [Marketo Engage Performance Level Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) erworben haben.
 
 ## Lead-Aktivitäts-Stream-Übersicht
 
@@ -89,7 +89,7 @@ Liste der gestreamten Benutzerprüfungsereignisse:
 | Landing Page-Vorlage | Genehmigen, klonen, erstellen, löschen, draftCreate, draftDiscard, bearbeiten, umbenennen, nicht genehmigen |
 | Smart List | Klonen, erstellen, löschen, bearbeiten, exportieren, Einstellungen für Smart-Listen ändern, umbenennen |
 | Marketingordner | erstellen, bearbeiten, löschen |
-| Programm-Nurturing | Klonen, erstellen, löschen, Kanal bearbeiten, Programmeinrichtung ändern, Programmstream ändern, Programm-Token ändern, umbenennen |
+| Nurturing-Programm | Klonen, erstellen, löschen, Kanal bearbeiten, Programmeinrichtung ändern, Programmstream ändern, Programm-Token ändern, umbenennen |
 | Segment | Erstellen, Löschen, Bearbeiten, Umbenennen |
 | Segmentierung | approve, create, delete, draftCreated, draftDiscarded, rename, unapprove |
 | Intelligente Kampagne | Abbrechen, Aktivieren, Klonen, Erstellen, Deaktivieren, Löschen, Bearbeiten, Ändern des Kampagnenkalenplans, Ändern der Flussschritt-Aktion, Ändern der Einrichtung der intelligenten Liste, Verschieben, Umbenennen |
@@ -185,14 +185,14 @@ Gehen Sie wie folgt vor, um den Lead-Aktivitäts-Datenstream zu implementieren:
    1. Die URL des Endpunkts in Schritt 1
    1. Die Aktivitätstypen, die sie empfangen möchten (vollständige Liste oben)
    1. Eine Authentifizierungsmethode, mit der der Kunde überprüfen kann, ob die Anfragen korrekt sind. Entweder:
-      1. Eine Identitäts-Provider-URL, Client-ID und Client Secret für OAuth [Client Credentials-Authentifizierung](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+      1. Eine Identitäts-Provider-URL, Client-ID und Client Secret für OAuth [Client Credentials Authentication](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Ein API-Token, das in vom Lead-Aktivitäts-Datastream gesendeten Anfragen entweder in Abfrageparametern oder in einem Autorisierungs-Header (Kundenwahl) enthalten sein kann
 
 Adobe aktiviert dann den Datenstrom, an dem Kunden Daten empfangen.
 
 UML-Diagramm eines typischen Data Stream-Aufrufs für die Lead-Aktivität:
 
-![Datenstream-Diagramm für Lead-Aktivitäten](assets/lead-activity-data-stream.png)
+![Lead-Aktivitäts-Stream-Diagramm ](assets/lead-activity-data-stream.png)
 
 Beispiel für die Erstellung eines URL-Endpunkts:
 
@@ -239,7 +239,7 @@ app.listen(port,()=>{
 })
 ```
 
-Ein Codebeispiel für eine Anwendung, die den Data Stream der Lead-Aktivität in Marketo nutzt, finden Sie [here](https://github.com/ihgrant/activity-stream-consumer-example).
+Ein Codebeispiel für eine Anwendung, die den Data Stream der Lead-Aktivität von Marketo nutzt, finden Sie [hier](https://github.com/ihgrant/activity-stream-consumer-example).
 
 ### Datenstream und Benachrichtigungsdatenstream für Benutzeraudit
 
@@ -258,22 +258,22 @@ Informationen zum Einrichten von Adobe IO finden Sie unter [Einrichten von Marke
 
 ### Einrichten des Daten-Streams für die Benutzerprüfung in Marketo
 
-Der Datenstream &quot;Benutzerprüfung&quot;ist derzeit als Teil der Leistungspakete zusammen mit den anderen 3 Datenströmen verfügbar. Weitere Informationen zu den Paketen finden Sie im Abschnitt [Produktbeschreibungsseite](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und -funktionen.
+Der Datenstream &quot;Benutzerprüfung&quot;ist derzeit als Teil der Leistungspakete zusammen mit den anderen 3 Datenströmen verfügbar. Weitere Informationen zu den Paketen finden Sie auf der Seite [Produktbeschreibung](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und -funktionen.
 
 ### Einrichten von Adobe I/O
 
-[Siehe Erste Schritte mit Adobe I/O-Ereignissen .](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+[Siehe Erste Schritte mit Adobe I/O-Ereignissen](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
 Grundlegende Anweisungen für diesen Anwendungsfall, beginnend mit [console.adobe.io](https://developer.adobe.com/console):
 
-Wenn Sie dazu aufgefordert werden, wählen Sie entweder **[!UICONTROL Neues Projekt erstellen]** oder **[!UICONTROL Ereignis hinzufügen]**.
+Wählen Sie bei Aufforderung entweder **[!UICONTROL Neues Projekt erstellen]** oder **[!UICONTROL Ereignis hinzufügen]** aus.
 
 ### Erste Schritte mit Ihrem neuen Projekt
 
-Um mit der Verwendung von Adobe-Diensten zu beginnen, fügen Sie eine API, Ereignisse oder Laufzeit hinzu. Sehen Sie sich dazu unsere [Dokumentation](https://developer.adobe.com/runtime/docs/).
+Um mit der Verwendung von Adobe-Diensten zu beginnen, fügen Sie eine API, Ereignisse oder Laufzeit hinzu, sehen Sie sich unsere [Dokumentation](https://developer.adobe.com/runtime/docs/) an.
 
 ## Öffentliche Dokumentation
 
-- [Marketo Data Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
-- [Einführung in Adobe IO Events und Webhooks](https://developer.adobe.com/events/docs/guides/)
-- [Daten-Streams-Blog](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)
+- [Marketo-Daten-Streams](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
+- [Einführung in Adobe IO-Ereignisse und Webhooks](https://developer.adobe.com/events/docs/guides/)
+- [Daten-Stream-Blog](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

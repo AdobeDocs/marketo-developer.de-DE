@@ -1,24 +1,24 @@
 ---
-title: "Files"
+title: Dateien
 feature: REST API
-description: "Speichern und Bearbeiten von Marketo-Dateien."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Speichern und Bearbeiten von Marketo-Dateien
+exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '267'
 ht-degree: 1%
 
 ---
 
-
 # Dateien
 
-[Dateiendpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[Referenz zum Dateiendpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
 
 Marketo-Abonnements ermöglichen die Speicherung beliebiger Dateien wie Bilder, Skripte, Dokumente und Stylesheets. All diese Funktionen können remote über die REST-API genutzt werden. Der in Marketo-Abonnements verfügbare Speicher ist nicht für bandbreitenintensive Anwendungen optimiert, daher sollten für geeignete Audio- und Video-Streaming-Anwendungen Alternativen verwendet werden.
 
 ## Anfrage
 
-Die Abfrage von Dateien ist einfach und folgt den Standardabfragetypen für Assets von [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET), und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Die Abfrage von Dateien ist einfach und folgt den Standardabfragetypen für Assets von [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET) und [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
 
 ### Nach ID
 
@@ -53,7 +53,7 @@ GET /rest/asset/v1/file/{id}.json
 
 ### Nach Name
 
-Geben Sie den Namen der Datei mit den erforderlichen `name` -Parameter.
+Geben Sie den Namen der Datei mit dem erforderlichen Parameter `name` an.
 
 ```
 GET /rest/asset/v1/file/byName.json?name=foo.png
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Erstellen und Aktualisieren
 
-[Datei erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) erfolgt mit einem mehrteiligen Formular/Datentyp der Anforderung. Minimalerweise sind der Name, der Ordner und die Datei in der Anfrage erforderlich, mit einer optionalen Beschreibung und einem insertOnly-Flag, wodurch verhindert wird, dass ein Erstellungsaufruf eine vorhandene Datei mit demselben Namen aktualisiert. Für den Dateiparameter ist neben dem Parameter name ein &quot;filename&quot;in der Kopfzeile Content-Disposition erforderlich. Sie müssen auch einen Content-Type-Header für die Datei übergeben, der den MIME-Typ darstellt, mit dem Marketo die Datei bereitstellt.
+[Erstellen einer Datei](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) erfolgt mit einem mehrteiligen Formular-/Formulardaten-Typ der Anforderung. Minimalerweise sind der Name, der Ordner und die Datei in der Anfrage erforderlich, mit einer optionalen Beschreibung und einem insertOnly-Flag, wodurch verhindert wird, dass ein Erstellungsaufruf eine vorhandene Datei mit demselben Namen aktualisiert. Für den Dateiparameter ist neben dem Parameter name ein &quot;filename&quot;in der Kopfzeile Content-Disposition erforderlich. Sie müssen auch einen Content-Type-Header für die Datei übergeben, der den MIME-Typ darstellt, mit dem Marketo die Datei bereitstellt.
 
 ```
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[Datei aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) kann auf Grundlage seiner ID durchgeführt werden. Der einzige Parameter ist ein Dateiparameter, der dieselben Anforderungen wie die Erstellung hat.
+[Das Aktualisieren einer Datei](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) kann anhand ihrer ID durchgeführt werden. Der einzige Parameter ist ein Dateiparameter, der dieselben Anforderungen wie die Erstellung hat.
 
 ```
 POST /rest/asset/v1/file/{id}/content.json

@@ -1,14 +1,14 @@
 ---
-title: "Leistung"
+title: Leistung
 feature: REST API
-description: "Leistungstipps für die Arbeit mit der Marketo-API."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Tipps zur Leistung für die Arbeit mit der Marketo-API.
+exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '117'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # Leistung
 
@@ -32,7 +32,7 @@ Die Marketo REST-API komprimiert den Antworttext und enthält diesen Header:
 Content-Encoding: gzip
 ```
 
-Im Folgenden finden Sie ein Beispiel mit Curl zum Aufrufen der [Abrufen von Leads nach Filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) Endpunkt zum Abrufen von 5 Leads:
+Hier ist ein Beispiel für die Verwendung von Curl zum Aufrufen des Endpunkts [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) , um fünf Leads abzurufen:
 
 ```bash
 $ curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

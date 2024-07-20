@@ -1,14 +1,14 @@
 ---
-title: "Fehlercodes"
+title: Fehlercodes
 feature: REST API
-description: "Beschreibungen des Marketo-Fehlercodes."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Beschreibungen des Marketo-Fehlercodes.
+exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '2272'
 ht-degree: 3%
 
 ---
-
 
 # Fehlercodes
 
@@ -22,7 +22,7 @@ Bei der Entwicklung für Marketo ist es wichtig, dass Anforderungen und Antworte
 
 Die Marketo REST-API kann im Normalbetrieb drei verschiedene Fehlertypen zurückgeben:
 
-* HTTP-Ebene: Diese Fehler werden durch eine `4xx` Code.
+* HTTP-Ebene: Diese Fehler werden durch einen `4xx` -Code gekennzeichnet.
 * Antwortebene: Diese Fehler sind im Array &quot;errors&quot;der JSON-Antwort enthalten.
 * Record-Level: Diese Fehler sind im &quot;result&quot;-Array der JSON-Antwort enthalten und werden auf einer einzelnen Datensatzbasis mit dem &quot;status&quot;-Feld und dem &quot;reasons&quot;-Array angezeigt.
 
@@ -30,12 +30,12 @@ Für die Fehlertypen &quot;Response-Level&quot;und &quot;Record-Level&quot;wird 
 
 ### Fehler auf HTTP-Ebene
 
-Unter normalen Betriebsbedingungen sollte Marketo nur zwei HTTP-Status-Code-Fehler zurückgeben. `413 Request Entity Too Large`, und `414 Request URI Too Long`. Diese sind beide durch Auffangen des Fehlers, Ändern der Anforderung und Wiederholen wiederherstellbar, aber mit intelligenten Kodierungspraktiken sollten Sie diese niemals in der Wildnis finden.
+Unter normalen Betriebsbedingungen sollte Marketo nur zwei HTTP-Status-Code-Fehler zurückgeben: `413 Request Entity Too Large` und `414 Request URI Too Long`. Diese sind beide durch Auffangen des Fehlers, Ändern der Anforderung und Wiederholen wiederherstellbar, aber mit intelligenten Kodierungspraktiken sollten Sie diese niemals in der Wildnis finden.
 
 Marketo gibt 413 zurück, wenn die Anfrage-Payload 1 MB oder im Fall von Import-Lead 10 MB überschreitet. In den meisten Szenarien ist es unwahrscheinlich, dass diese Beschränkungen erreicht werden. Wenn Sie jedoch eine Überprüfung der Anforderungsgröße vornehmen und Datensätze verschieben, wodurch die Beschränkung auf eine neue Anforderung überschritten wird, sollten keine Umstände mehr möglich sein, die dazu führen, dass dieser Fehler von allen Endpunkten zurückgegeben wird.
 
-414 wird zurückgegeben, wenn der URI einer GET-Anfrage 8 KB überschreitet. Um dies zu vermeiden, prüfen Sie anhand der Länge Ihrer Abfragezeichenfolge, ob sie diesen Grenzwert überschreitet. Wenn Ihre Anforderung in eine POST-Methode geändert wird, geben Sie Ihre Abfragezeichenfolge als Anfrageinhalt mit dem zusätzlichen Parameter ein. `_method=GET`. Dadurch wird die Beschränkung für URIs vergessen. In den meisten Fällen ist es selten, diese Grenze zu erreichen, aber sie kommt eher häufig vor, wenn große Mengen von Datensätzen mit langen individuellen Filterwerten wie einer GUID abgerufen werden.
-Die [Identität](https://developer.adobe.com/marketo-apis/api/identity/) -Endpunkt kann einen Fehler vom Typ 401 Nicht autorisiert zurückgeben. Dies liegt normalerweise an einer ungültigen Client-ID oder einem ungültigen Client-Geheimnis. Fehlercodes auf HTTP-Ebene
+414 wird zurückgegeben, wenn der URI einer GET-Anfrage 8 KB überschreitet. Um dies zu vermeiden, prüfen Sie anhand der Länge Ihrer Abfragezeichenfolge, ob sie diesen Grenzwert überschreitet. Wenn Ihre Anforderung in eine POST-Methode geändert wird, geben Sie Ihre Abfragezeichenfolge als Anfrageinhalt mit dem zusätzlichen Parameter `_method=GET` ein. Dadurch wird die Beschränkung für URIs vergessen. In den meisten Fällen ist es selten, diese Grenze zu erreichen, aber sie kommt eher häufig vor, wenn große Mengen von Datensätzen mit langen individuellen Filterwerten wie einer GUID abgerufen werden.
+Der Endpunkt [Identität](https://developer.adobe.com/marketo-apis/api/identity/) kann einen Fehler &quot;401 Unauthorized&quot;zurückgeben. Dies liegt normalerweise an einer ungültigen Client-ID oder einem ungültigen Client-Geheimnis. Fehlercodes auf HTTP-Ebene
 
 <table>
   <thead>
@@ -62,7 +62,7 @@ Die [Identität](https://developer.adobe.com/marketo-apis/api/identity/) -Endpun
 
 #### Fehler auf Antwortebene
 
-Fehler der Antwortebene sind vorhanden, wenn die Variable `success` -Parameter der Antwort auf &quot;false&quot;festgelegt ist und wie folgt strukturiert sind:
+Fehler auf Antwortebene sind vorhanden, wenn der Parameter `success` der Antwort auf &quot;false&quot;gesetzt ist, und sind wie folgt strukturiert:
 
 ```json
 {
@@ -77,7 +77,7 @@ Fehler der Antwortebene sind vorhanden, wenn die Variable `success` -Parameter d
 }
 ```
 
-Jedes Objekt im Array &quot;errors&quot;hat zwei Mitglieder. `code`, was eine zitierte Ganzzahl von 601 bis 799 und eine `message` Geben Sie den Klartext-Grund für den Fehler an. 6xx-Codes weisen immer darauf hin, dass eine Anfrage vollständig fehlgeschlagen ist und nicht ausgeführt wurde. Ein Beispiel ist ein 601, &quot;Zugriffstoken ungültig&quot;, das durch erneutes Authentifizieren und Übergeben des neuen Zugriffstokens mit der Anfrage abgerufen werden kann. 7xx-Fehler weisen darauf hin, dass die Anfrage fehlgeschlagen ist, entweder weil keine Daten zurückgegeben wurden oder die Anfrage falsch parametrisiert wurde, z. B. weil ein ungültiges Datum angegeben wurde oder ein erforderlicher Parameter fehlt.
+Jedes Objekt im Array &quot;errors&quot;hat zwei Mitglieder, `code`, die eine zitierte Ganzzahl von 601 bis 799 und eine `message` sind, die den Klartext-Grund für den Fehler angibt. 6xx-Codes weisen immer darauf hin, dass eine Anfrage vollständig fehlgeschlagen ist und nicht ausgeführt wurde. Ein Beispiel ist ein 601, &quot;Zugriffstoken ungültig&quot;, das durch erneutes Authentifizieren und Übergeben des neuen Zugriffstokens mit der Anfrage abgerufen werden kann. 7xx-Fehler weisen darauf hin, dass die Anfrage fehlgeschlagen ist, entweder weil keine Daten zurückgegeben wurden oder die Anfrage falsch parametrisiert wurde, z. B. weil ein ungültiges Datum angegeben wurde oder ein erforderlicher Parameter fehlt.
 
 #### Fehlercodes auf Antwortebene
 
@@ -110,7 +110,7 @@ Ein API-Aufruf, der diesen Antwort-Code zurückgibt, wird nicht mit Ihrem tägli
     <tr>
       <td><a name="603"></a>603</td>
       <td>Zugriff verweigert </td>
-      <td>Die Authentifizierung ist erfolgreich, der Benutzer verfügt jedoch nicht über die nötigen Berechtigungen, um diese API aufzurufen. [Zusätzliche Berechtigungen](custom-services.md) müssen möglicherweise der Benutzerrolle zugewiesen werden, oder <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Zulassungsliste für IP-basierten API-Zugriff</a> aktiviert sein.</td>
+      <td>Die Authentifizierung ist erfolgreich, der Benutzer verfügt jedoch nicht über die nötigen Berechtigungen, um diese API aufzurufen. [Zusätzliche Berechtigungen](custom-services.md) müssen möglicherweise der Benutzerrolle zugewiesen werden, oder die <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Zulassungsliste für IP-basierten API-Zugriff</a> kann aktiviert sein.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -155,7 +155,7 @@ Ein API-Aufruf, der diesen Antwort-Code zurückgibt, wird nicht mit Ihrem tägli
     <tr>
       <td><a name="612"></a>612</td>
       <td>Ungültiger Content-Typ</td>
-      <td>Wenn dieser Fehler auftritt, fügen Sie Ihrer Anfrage eine Kopfzeile vom Inhaltstyp hinzu, in der das JSON-Format angegeben wird. Versuchen Sie beispielsweise, den Inhaltstyp "application/json"zu verwenden. <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">Siehe diese StackOverflow-Frage</a> für weitere Details.</td>
+      <td>Wenn dieser Fehler auftritt, fügen Sie Ihrer Anfrage eine Kopfzeile vom Inhaltstyp hinzu, in der das JSON-Format angegeben wird. Versuchen Sie beispielsweise, den Inhaltstyp "application/json"zu verwenden. <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">Weitere Informationen finden Sie in dieser StackOverflow-Frage</a> .</td>
     </tr>
     <tr>
       <td><a name="613"></a>613</td>
@@ -207,7 +207,7 @@ Ein API-Aufruf, der diesen Antwort-Code zurückgibt, wird nicht mit Ihrem tägli
       <td>Der Aufruf kann nicht ausgeführt werden, da er gegen eine Anforderung verstößt, ein Asset zu erstellen oder zu aktualisieren, z. B. beim Versuch, eine E-Mail ohne Vorlage zu erstellen. Es ist auch möglich, diesen Fehler zu erhalten, wenn Sie versuchen:
         <ul>
           <li>Rufen Sie Inhalte für Landingpages ab, die soziale Inhalte enthalten.</li>
-          <li>Klonen Sie ein Programm, das bestimmte Asset-Typen enthält (siehe <a href="programs.md#clone">Programmklon</a> für weitere Informationen).</li>
+          <li>Klonen Sie ein Programm, das bestimmte Asset-Typen enthält (weitere Informationen finden Sie unter <a href="programs.md#clone">Programmklon</a> ).</li>
           <li>Genehmigen Sie ein Asset ohne Entwurf (d. h. wurde bereits genehmigt).</li>
         </ul></td>
     </tr>
@@ -352,8 +352,8 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann einzeln erfolgreich sein ode
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Ungültiger Cookie-Wert "%s"</td>
-      <td>Kann auftreten, wenn die <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Cookie-Parameter.
-        Dies geschieht auch beim Aufruf von <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Abrufen von Leads nach Filtertyp</a> mit filterType=cookies und ungültigem gültigen Wert für den Parameter filterValues .</td>
+      <td>Kann auftreten, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Cookie-Parameter aufgerufen wird.
+        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit filterType=cookies und einem ungültigen gültigen Wert für den Parameter filterValues aufgerufen wird.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -469,19 +469,20 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann einzeln erfolgreich sein ode
     </tr>
     <tr>
       <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> Aufruf mit der Markierung mergeInCRM ist 4.</td>
+      <td>Der Aufruf von <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> mit der Markierung mergeInCRM ist 4.</td>
       <td>Sie erstellen einen doppelten Datensatz. Es wird empfohlen, stattdessen einen vorhandenen Datensatz zu verwenden.
         Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> Aufruf fehlgeschlagen aufgrund der "SFDC-Feldlänge"</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> ist aufgrund der "SFDC-Feldlänge"fehlgeschlagen</td>
       <td>Ein Leads-Zusammenführungsaufruf mit mergeInCRM, der auf "true"gesetzt ist, ist fehlgeschlagen, da "SFDC Field"die zulässige Zeichenbeschränkung überschreitet. Um dies zu korrigieren, reduzieren Sie die Länge von "SFDC Field"oder setzen Sie mergeInCRM auf "false".</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> -Aufruf aufgrund der gelöschten Entität fehlgeschlagen, die Kriterien für Lead-/Kontakt- oder Feldfilter stimmen nicht überein.</td>
-      <td>Zusammenführungsfehler, keine Zusammenführungsoperation im nativ synchronisierten CRM durchführen Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
+      <td>Der Aufruf von <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> schlug aufgrund einer gelöschten Entität fehl, da die Kriterien für Lead/Kontakt oder Feldfilter nicht übereinstimmen.</td>
+      <td>Zusammenführungsfehler, keine Zusammenführungsoperation in nativ synchronisiertem CRM durchführen
+        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
     </tr>
   </tbody>
 </table>

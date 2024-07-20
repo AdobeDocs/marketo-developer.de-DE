@@ -1,14 +1,14 @@
 ---
-title: "Marketo-Objekte"
+title: Marketo-Objekte
 feature: SOAP
-description: "Marketo-Objekte - Übersicht"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Übersicht über Marketo-Objekte
+exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%
 
 ---
-
 
 # Marketo-Objekte
 
@@ -31,7 +31,7 @@ Objekte bestehen aus:
 
 ### ExternalKeys
 
-Externe Schlüssel sind benutzerdefinierte Felder, die für Marketo-Objekte definiert sind, z. B. &quot;Lead&quot;oder &quot;Chancen&quot;. Der Name ist der Feldname und der Wert ist der Feldwert, der in einem externen System generiert wird. **Marketo erzwingt keine eindeutige Einschränkung für diese Werte.** Es liegt in der Verantwortung des API-Benutzers sicherzustellen, dass die Werte eindeutig sind. Sollte es zu einem Duplikat kommen, verwendet Marketo das zuletzt hinzugefügte Objekt. Dies ähnelt dem Verhalten für das Standardfeld E-Mail-Adresse .
+Externe Schlüssel sind benutzerdefinierte Felder, die für Marketo-Objekte definiert sind, z. B. &quot;Lead&quot;oder &quot;Chancen&quot;. Der Name ist der Feldname und der Wert ist der Feldwert, der in einem externen System generiert wird. **Marketo erzwingt für diese Werte keine eindeutige Einschränkung.** Es liegt in der Verantwortung des API-Benutzers sicherzustellen, dass die Werte eindeutig sind. Sollte es zu einem Duplikat kommen, verwendet Marketo das zuletzt hinzugefügte Objekt. Dies ähnelt dem Verhalten für das Standardfeld E-Mail-Adresse .
 
 ### Verfügbare APIs
 

@@ -1,14 +1,14 @@
 ---
-title: "Chancen"
+title: Opportunitys
 feature: REST API
-description: "Konfigurieren Sie die Möglichkeiten mit der Marketo-API."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: " Konfigurieren Sie die Möglichkeiten mit der Marketo-API."
+exl-id: 46451285-4125-4857-890a-575069a68288
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '786'
 ht-degree: 0%
 
 ---
-
 
 # Opportunitys
 
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo stellt APIs zum Lesen, Schreiben, Erstellen und Aktualisieren von Opportunity-Datensätzen bereit. In Marketo werden Opportunity-Datensätze mit Lead- und Kontaktdatensätzen über das Intermediär-Opportunity-Rollenobjekt verknüpft, sodass eine Chance mit vielen einzelnen Leads verknüpft werden kann.  Beide Objektarten werden über die API verfügbar gemacht. Wie die meisten Objekttypen der Lead-Datenbank verfügen beide über einen entsprechenden Deskriptionsaufruf, der Metadaten zu den Objekttypen zurückgibt.
 
-Opportunity-APIs sind schreibgeschützter Zugriff für Abonnements mit [SFDC-Synchronisierung](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert sind.
+Opportunity-APIs sind schreibgeschützter Zugriff für Abonnements, für die die Funktion [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert ist.
 
 ## Beschreibung
 
@@ -81,11 +81,11 @@ GET /rest/v1/opportunities/describe.json
 }
 ```
 
-Die wichtigsten Felder für diesen Antworttyp sind `idField`, `dedupeFields`, und `searchableFields`.  idField gibt den Primärschlüssel für Chancen an, marketoGUID.  Dies ist ein vom System generierter eindeutiger Schlüssel, der für Lese- und Aktualisierungsvorgänge, aber nicht für Einfügungen verwendet werden kann, da er vom System verwaltet wird.  Das dedupeFields-Array gibt an, welche Felder gültige Schlüssel für Einfügevorgänge sind. Bei Gelegenheiten ist dies nur externalOpportunityId.  Das searchableFields -Array gibt Ihnen die für die Abfrage gültigen Felder, externalOpportunityId und marketoGUID an.
+Die wichtigsten Felder für diesen Antworttyp sind `idField`, `dedupeFields` und `searchableFields`.  idField gibt den Primärschlüssel für Chancen an, marketoGUID.  Dies ist ein vom System generierter eindeutiger Schlüssel, der für Lese- und Aktualisierungsvorgänge, aber nicht für Einfügungen verwendet werden kann, da er vom System verwaltet wird.  Das dedupeFields-Array gibt an, welche Felder gültige Schlüssel für Einfügevorgänge sind. Bei Gelegenheiten ist dies nur externalOpportunityId.  Das searchableFields -Array gibt Ihnen die für die Abfrage gültigen Felder, externalOpportunityId und marketoGUID an.
 
 ## Anfrage
 
-Das Muster für [Abfragen von Möglichkeiten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) folgt eng mit der Leads-API mit der hinzugefügten Einschränkung, dass die `filterType` akzeptiert die Felder, die im `searchableFields` -Array oder des entsprechenden Beschreibungsaufrufs oder dedupeFields.  Beachten Sie, dass bei der Verwendung benutzerdefinierter Opportunity-Felder nur benutzerdefinierte Opportunity-Felder vom Typ String oder Integer im Array searchableFields aufgeführt werden.
+Das Muster für [ Abfragen von Möglichkeiten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) ähnelt dem der Leads-API mit der hinzugefügten Einschränkung, dass der `filterType`-Parameter die im Array `searchableFields` aufgelisteten Felder oder des entsprechenden Beschreibungsaufrufs oder dedupeFields akzeptiert.  Beachten Sie, dass bei der Verwendung benutzerdefinierter Opportunity-Felder nur benutzerdefinierte Opportunity-Felder vom Typ String oder Integer im Array searchableFields aufgeführt werden.
 
 ```
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
@@ -118,13 +118,13 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
 }
 ```
 
-Sie können auch optionale Abfrageparameter einbeziehen `fields`, um zusätzliche Opportunitätsfelder zurückzugeben, `nextPageToken`, für Paging durch Sets, die größer als die Batch-Größe sind, `batchSize`, der standardmäßig auf festgelegt ist und eine maximale Anzahl von 300 aufweist.  Bei der Anforderung einer Liste von `fields`Wenn ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
+Sie können auch die optionalen Abfrageparameter `fields` einbeziehen, um zusätzliche Opportunitätsfelder, `nextPageToken`, für Paging durch Sets, die größer als die Batch-Größe sind, `batchSize` zurückzugeben, die standardmäßig auf eingestellt sind und eine maximale Größe von 300 haben.  Wenn bei der Anforderung einer Liste von `fields` ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
 
 ## Erstellen und Aktualisieren
 
-Chancen folgen dem Leads-API-Muster genau, mit einigen Einschränkungen.  Die Werte, die für `action` are: createOnly, createOrUpdate und updateOnly.  Bei Verwendung des Modus createOnly oder createOrUpdate muss in jedem Datensatz das Feld externalOpportunityId enthalten sein.  Für den Modus updateOnly können entweder marketoGUID oder externalOpportunityId verwendet werden.  Im Modus wird standardmäßig createOrUpdate verwendet, falls nicht anders angegeben.
+Chancen folgen dem Leads-API-Muster genau, mit einigen Einschränkungen.  Die für `action` verfügbaren Werte sind: createOnly, createOrUpdate und updateOnly.  Bei Verwendung des Modus createOnly oder createOrUpdate muss in jedem Datensatz das Feld externalOpportunityId enthalten sein.  Für den Modus updateOnly können entweder marketoGUID oder externalOpportunityId verwendet werden.  Im Modus wird standardmäßig createOrUpdate verwendet, falls nicht anders angegeben.
 
-Die `lookupField` -Parameter aus der Leads-API ist nicht verfügbar und wird durch den Parameter dedupeBy ersetzt, der nur gültig ist, wenn die Aktion updateOnly lautet.  Die für dedupeBy verfügbaren Werte sind entweder &quot;dedupeFields&quot;oder &quot;idField&quot;, die durch den Beschreibungsaufruf als externalOpportunityId bzw. marketoGUID angegeben werden.  Wenn dedupeBy nicht angegeben ist, wird standardmäßig der dedupeFields -Modus verwendet.  Das Feld &quot;name&quot;darf nicht null sein.
+Der Parameter `lookupField` aus der Lead-API ist nicht verfügbar und wird durch den Parameter dedupeBy ersetzt, der nur gültig ist, wenn die Aktion updateOnly lautet.  Die für dedupeBy verfügbaren Werte sind entweder &quot;dedupeFields&quot;oder &quot;idField&quot;, die durch den Beschreibungsaufruf als externalOpportunityId bzw. marketoGUID angegeben werden.  Wenn dedupeBy nicht angegeben ist, wird standardmäßig der dedupeFields -Modus verwendet.  Das Feld &quot;name&quot;darf nicht null sein.
 
 Sie können bis zu 300 Datensätze gleichzeitig versenden.
 
@@ -174,13 +174,13 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-Die API reagiert mit der `marketoGUID` für jeden Datensatz sowie eine `status` -Feld, das den Erfolg oder Misserfolg jedes Datensatzes angibt, und ein `seq` -Feld, das verwendet wird, um die übermittelten Datensätze der Reihenfolge der Antwort zuzuordnen.  Die Zahl im Feld ist der Index des in der Anfrage gesendeten Datensatzes.
+Die API antwortet mit dem Wert `marketoGUID` für jeden Datensatz sowie einem Feld `status`, das den Erfolg oder Misserfolg jedes Datensatzes angibt, und einem Feld `seq` , das zur Korrelation der gesendeten Datensätze mit der Reihenfolge der Antwort verwendet wird.  Die Zahl im Feld ist der Index des in der Anfrage gesendeten Datensatzes.
 
 ### Felder
 
 Das Objekt company enthält eine Reihe von Feldern.  Jede Felddefinition besteht aus einem Satz von Attributen, die das Feld beschreiben.  Beispiele für Attribute sind der Anzeigename, der API-Name und der dataType.  Diese Attribute werden kollektiv als Metadaten bezeichnet.
 
-Mit den folgenden Endpunkten können Sie Felder für das Unternehmensobjekt abfragen. Diese APIs erfordern, dass der Eigentümer-API-Benutzer eine Rolle mit einer oder beiden der `Read-Write Schema Standard Field` oder `Read-Write Schema Custom Field` Berechtigungen.
+Mit den folgenden Endpunkten können Sie Felder für das Unternehmensobjekt abfragen. Diese APIs erfordern, dass der Eigentümer-API-Benutzer über eine oder beide der Berechtigungen `Read-Write Schema Standard Field` oder `Read-Write Schema Custom Field` verfügt.
 
 ### Abfragefelder
 
@@ -188,7 +188,7 @@ Die Abfrage von Opportunitätsfeldern ist unkompliziert.  Sie können ein einze
 
 #### Nach Name
 
-Die [Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) -Endpunkt ruft Metadaten für ein einzelnes Feld im Unternehmensobjekt ab.  Die erforderlichen `fieldApiName` path parameter gibt den API-Namen des Felds an.  Die Antwort entspricht dem Endpunkt &quot;Chancen beschreiben&quot;, enthält jedoch zusätzliche Metadaten wie die `isCustom` -Attribut, das angibt, ob das Feld ein benutzerdefiniertes Feld ist.
+Der Endpunkt [Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) ruft Metadaten für ein einzelnes Feld im Unternehmensobjekt ab.  Der erforderliche Pfadparameter `fieldApiName` gibt den API-Namen des Felds an.  Die Antwort entspricht dem Endpunkt &quot;Chancen beschreiben&quot;, enthält jedoch zusätzliche Metadaten wie das Attribut `isCustom` , das angibt, ob es sich bei dem Feld um ein benutzerdefiniertes Feld handelt.
 
 ```
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
@@ -217,7 +217,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Durchsuchen
 
-Die [Opportunity-Felder abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) -Endpunkt ruft Metadaten für alle Felder im Unternehmensobjekt ab.  Standardmäßig werden maximal 300 Datensätze zurückgegeben.  Sie können die `batchSize` -Abfrageparameter, um diese Zahl zu reduzieren.  Wenn die Variable `moreResult` auf &quot;true&quot;gesetzt ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind.  Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult &quot;false&quot;zurückgibt, was bedeutet, dass keine Ergebnisse verfügbar sind.  Die `nextPageToken` von dieser API zurückgegebenen Daten sollten immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
+Der Endpunkt [Opportunity Fields](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) ruft Metadaten für alle Felder im Unternehmensobjekt ab.  Standardmäßig werden maximal 300 Datensätze zurückgegeben.  Sie können den Abfrageparameter `batchSize` verwenden, um diese Zahl zu reduzieren.  Wenn das Attribut `moreResult` &quot;true&quot;ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind.  Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult &quot;false&quot;zurückgibt, was bedeutet, dass keine Ergebnisse verfügbar sind.  Die von dieser API zurückgegebene `nextPageToken` sollte für die nächste Iteration dieses Aufrufs immer wiederverwendet werden.
 
 ```
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5
@@ -296,7 +296,7 @@ GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 
 #### Löschen
 
-Sie können Chancen durch Deduplizierungsfelder oder ID-Feld löschen. Geben Sie mithilfe des `deleteBy` -Parameter mit einem Wert von entweder dedupeFields oder idField. Wenn kein Wert angegeben wird, ist der Standardwert dedupeFields. Der Anfrageinhalt enthält eine `input` eine Reihe von Möglichkeiten zum Löschen. Pro Anruf sind maximal 300 Möglichkeiten zulässig.
+Sie können Chancen durch Deduplizierungsfelder oder ID-Feld löschen. Geben Sie die Verwendung des Parameters `deleteBy` mit dem Wert dedupeFields oder idField an. Wenn kein Wert angegeben wird, ist der Standardwert dedupeFields. Der Anfrageinhalt enthält eine `input` -Gruppe von Löschmöglichkeiten. Pro Anruf sind maximal 300 Möglichkeiten zulässig.
 
 ```
 POST /rest/v1/opportunities/delete.json

@@ -1,14 +1,14 @@
 ---
-title: "Aktivieren von Deep-Links"
-feature: "Mobile Marketing"
-description: "Anweisungen zum Aktivieren von Deep-Links"
-source-git-commit: cb000968c78e062b3c17be7d0faa6236c73e7358
+title: Aktivieren von Deep-Links
+feature: Mobile Marketing
+description: Anweisungen zum Aktivieren von Deep-Links
+exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '376'
 ht-degree: 0%
 
 ---
-
 
 # Aktivieren von Deep-Links
 
@@ -24,16 +24,16 @@ Dazu müssen Sie eine benutzerdefinierte URI-Struktur für Ihre App definieren, 
 
 Informationen zu iOS finden Sie in der Apple-Dokumentation unter [Definieren eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
-Informationen zu Android finden Sie in der Google-Dokumentation unter [Aktivieren von Deep-Links für App-Inhalte](https://developer.android.com/training/app-links/deep-linking).
+Informationen zu Android finden Sie in der Google-Dokumentation unter [Aktivieren von Deep-Links für App-Inhalte](https://developer.android.com/training/app-links/deep-linking).
 
-Bei PhoneGap-Apps ist die Deep-Linking-Funktion nicht so einfach wie bei nativen iOS- oder Android-Apps. Es gibt jedoch Plugins, mit denen Ihre Hybrid-App auf benutzerdefinierte Deep-Link-URL-Schemas und universelle/App-Links in iOS und Android reagieren kann. Überlegen [diese Plug-ins](https://cordova.apache.org/plugins/?q=deeplink).
+Bei PhoneGap-Apps ist die Deep-Linking-Funktion nicht so einfach wie bei nativen iOS- oder Android-Apps. Es gibt jedoch Plugins, mit denen Ihre Hybrid-App auf benutzerdefinierte Deep-Link-URL-Schemata und universelle/App-Links in iOS und Android reagieren kann. Beachten Sie [diese Plug-ins](https://cordova.apache.org/plugins/?q=deeplink).
 
 Wenn Sie Deep-Linking in Ihrer App aktiviert haben, geben Sie Ihre benutzerdefinierten URIs für Ihre Marketo-Benutzer frei, damit sie sie in die Tippen-Aktion für Push-Nachrichten einfügen können.
 
-Marketo verwendet beim Einrichten von Testgeräten eine vordefinierte URI-Struktur. Siehe Abschnitt &quot;Testgeräte&quot; im Abschnitt [Installationsanleitung](installation.md) für weitere Informationen.
+Marketo verwendet beim Einrichten von Testgeräten eine vordefinierte URI-Struktur. Weitere Informationen finden Sie im Abschnitt &quot;Testgeräte&quot;des [Installationshandbuchs](installation.md).
 
 ## Best Practices zum Definieren einer URI-Struktur
 
-Wenn Ihre Marke über eine vorhandene mobile Site verfügt, empfiehlt es sich, auch für den Deep-Link-URI die URL-Struktur zu befolgen. Wenn beispielsweise `https://myappname.com/products/purple-shirt` ist Ihre Website-Adresse für das betreffende Produkt, und `myappname://products/purple-shirt` wäre eine gute Deep-Link-URI-Struktur, die in Ihrer App verwendet werden könnte.
+Wenn Ihre Marke über eine vorhandene mobile Site verfügt, empfiehlt es sich, auch für den Deep-Link-URI die URL-Struktur zu befolgen. Wenn beispielsweise `https://myappname.com/products/purple-shirt` Ihre Website-Adresse für das betreffende Produkt ist, wäre `myappname://products/purple-shirt` eine gute Deep-Link-URI-Struktur, die in Ihrer App verwendet werden kann.
 
-Im Allgemeinen sollten Ihre Schemas für Ihre Marke eindeutig sein. Es gibt zwar derzeit keine Vorschriften, um Schemas weltweit eindeutig zu machen, aber eine Möglichkeit, um sicherzustellen, dass Ihre Schemas einzigartig sind, besteht darin, Ihren Domänennamen umzukehren (z. B. `org.companyname`).
+Im Allgemeinen sollten Ihre Schemas für Ihre Marke eindeutig sein. Es gibt zwar derzeit keine Vorschriften, um Schemas weltweit eindeutig zu machen, aber eine Möglichkeit, um sicherzustellen, dass Ihre Schemas eindeutig sind, besteht darin, Ihren Domänennamen umzukehren (z. B. `org.companyname`).

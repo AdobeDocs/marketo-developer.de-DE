@@ -1,18 +1,18 @@
 ---
-title: "Massenaktivität extrahieren"
+title: Extrahieren einer Massenaktivität
 feature: REST API
-description: "Batch-Verarbeitung von Aktivitätsdaten aus Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Stapelverarbeitung von Aktivitätsdaten aus Marketo.
+exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1381'
 ht-degree: 7%
 
 ---
 
-
 # Extrahieren einer Massenaktivität
 
-[Referenz zu Massen-Aktivitäts-Extract-Endpunkten](https://developer.adobe.com/marketo-apis/api/mapi/)
+[Referenz zum Endpunkt der Massenaktivität extrahieren](https://developer.adobe.com/marketo-apis/api/mapi/)
 
 Der Satz aus REST-APIs zur Massenaktivität-Extrahierung bietet eine programmatische Oberfläche zum Abrufen großer Mengen von Aktivitätsdaten aus Marketo.  Für Fälle, die keine niedrige Latenz erfordern und erhebliche Mengen von Aktivitätsdaten aus Marketo übertragen müssen, z. B. CRM-Integration, ETL, Data Warehouse und Datenarchivierung.
 
@@ -40,13 +40,13 @@ Für die Massen-Aktivitäts-Extract-APIs ist es erforderlich, dass der API-Benut
       <td>activityTypeIds</td>
       <td>Array[Integer]</td>
       <td>Nein</td>
-      <td>Akzeptiert ein JSON-Objekt mit einem Element, activityTypeIds. Der Wert muss ein Array von Ganzzahlen sein, das den gewünschten Aktivitätstypen entspricht. Die Aktivität "Lead löschen"wird nicht unterstützt (verwenden Sie <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET">Gelöschte Leads abrufen</a>endpoint stattdessen).Rufen Sie Aktivitätstyp-IDs mithilfe der<a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET">Abrufen von Aktivitätstypen</a>-Endpunkt.</td>
+      <td>Akzeptiert ein JSON-Objekt mit einem Element, activityTypeIds. Der Wert muss ein Array von Ganzzahlen sein, das den gewünschten Aktivitätstypen entspricht. Die Aktivität "Lead löschen"wird nicht unterstützt (verwenden Sie stattdessen den Endpunkt <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET">Gelöschte Leads abrufen</a>). Rufen Sie Aktivitätstypen-IDs mithilfe des Endpunkts <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET">Aktivitätstypen abrufen</a>ab.</td>
     </tr>
     <tr>
       <td>primaryAttributeValueIds</td>
       <td>Array[Integer]</td>
       <td>Nein</td>
-      <td>Akzeptiert ein JSON-Objekt mit einem Member, primaryAttributeValueIds. Der Wert ist ein Array von IDs, die die primären Attribute angeben, nach denen gefiltert werden soll. Es können maximal 50 IDs angegeben werden. Die IDs sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität "Formular ausfüllen"zu filtern, geben Sie den Namen des Formulars an <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET">Formular nach Namen abrufen</a> -Endpunkt zum Abrufen der Formular-ID. Im Folgenden finden Sie eine Liste der Aktivitätstypen, für die die primäre Attributfilterung unterstützt wird.
+      <td>Akzeptiert ein JSON-Objekt mit einem Member, primaryAttributeValueIds. Der Wert ist ein Array von IDs, die die primären Attribute angeben, nach denen gefiltert werden soll. Es können maximal 50 IDs angegeben werden. Die IDs sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität "Formular ausfüllen"zu filtern, übergeben Sie den Formularnamen an den Endpunkt <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET">Formular nach Name abrufen</a> , um die Formular-ID abzurufen. Im Folgenden finden Sie eine Liste von Aktivitätstypen, für die die primäre Attributfilterung unterstützt wird.
         <table>
           <tbody>
             <tr>
@@ -93,13 +93,13 @@ Für die Massen-Aktivitäts-Extract-APIs ist es erforderlich, dass der API-Benut
             </tr>
           </tbody>
         </table>
-        Bei Verwendung von primaryAttributeValueIds muss der Filter activityTypeIds vorhanden sein und darf nur Aktivitäts-IDs enthalten, die mit der entsprechenden Asset-Gruppe übereinstimmen.Beispiel:Wenn Sie beispielsweise nach Webformular-Assets filtern, ist nur die Aktivitätstyp-ID "Formular ausfüllen"in activityTypeIds.Beispiel-Anfragetext:{"filter":{"createdAt":{"startAt": "22211": 07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValueIds" : [16,102,95,8]}}primaryAttributeValueIds und primaryAttributeValues können nicht zusammen verwendet werden.</td>
+        Bei Verwendung von primaryAttributeValueIds muss der Filter activityTypeIds vorhanden sein und darf nur Aktivitäts-IDs enthalten, die mit der entsprechenden Asset-Gruppe übereinstimmen.Beispiel:Wenn Sie beispielsweise nach Webformular-Assets filtern, ist nur die Aktivitätstyp-ID "Formular ausfüllen"in activityTypeIds.Beispiel-Anfragetext:{"filter":{"createdAt":{"startAt": "22211": -07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValueIds" : [11 6,102,95,8]}}primaryAttributeValueIds und primaryAttributeValues können nicht zusammen verwendet werden.</td>
     </tr>
     <tr>
       <td>primaryAttributeValues</td>
       <td>Array[String]</td>
       <td>Nein</td>
-      <td>Akzeptiert ein JSON-Objekt mit einem Member, primaryAttributeValues. Der Wert ist ein Array von Namen, die die primären Attribute angeben, nach denen gefiltert werden soll. Es können maximal 50 Namen angegeben werden. Die Namen sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität "Formular ausfüllen"zu filtern, übergeben Sie die Formular-ID an <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5">Formular nach ID abrufen</a> -Endpunkt zum Abrufen des Formularnamens. Im Folgenden finden Sie eine Liste von Aktivitätstypen, für die die primäre Attributfilterung unterstützt wird.
+      <td>Akzeptiert ein JSON-Objekt mit einem Member, primaryAttributeValues. Der Wert ist ein Array von Namen, die die primären Attribute angeben, nach denen gefiltert werden soll. Es können maximal 50 Namen angegeben werden. Die Namen sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität "Formular ausfüllen"zu filtern, übergeben Sie die Formular-ID an den Endpunkt <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5">Formular mit ID abrufen</a> , um den Formularnamen abzurufen. Im Folgenden finden Sie eine Liste von Aktivitätstypen, für die die primäre Attributfilterung unterstützt wird.
         <table>
           <tbody>
             <tr>
@@ -146,7 +146,7 @@ Für die Massen-Aktivitäts-Extract-APIs ist es erforderlich, dass der API-Benut
             </tr>
           </tbody>
         </table>
-        Beachten Sie, dass Sie "&lt;<em>program</em>&gt;.&lt;<em>Asset</em>&gt;"-Notation, um den Namen für die folgenden Asset-Gruppen eindeutig anzugeben: Marketing-Programm, Statische Liste, Webformular.Beispiel: Ein Formular mit dem Namen "MPS Outbound", das sich unter dem Programm mit dem Namen "GL_OP_ALL_2021" befindet, würde als "GL_OP_ALL_2021.MPS Outbound" angegeben.Beispiel-Textkörper:{"Filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:00"},"activityTypeIds":[2],"primaryAttributeValues":["GL_OP_ALL_2021.MPS Outbound"]}}Bei Verwendung von primaryAttributeValues muss der Filter activityTypeIds vorhanden sein und nur Aktivitäts-IDs enthalten, die mit der entsprechenden Asset-Gruppe übereinstimmen. Wenn Sie beispielsweise nach Webformular-Assets filtern, ist nur die Aktivitätstyp-ID "Formular ausfüllen"in activityTypeIds.primaryAttributeValues und primaryAttributeValueIds zulässig.</td>
+        Beachten Sie, dass Sie "&lt;<em>program</em>&gt;"verwenden müssen.&lt;<em>asset</em>&gt;"-Notation, um den Namen für die folgenden Asset-Gruppen eindeutig anzugeben: Marketing-Programm, statische Liste, Web-Formular.Beispiel: Ein Formular mit dem Namen "MPS Outbound", das sich unter dem Programm mit dem Namen "GL_OP_ALL_2021" befindet, würde beispielsweise als "GL_OP_ALL_2021.MPS Outbound"angegeben. Beispielanfragetext:{"filter":{"createdAt":{"startAt": "2021-07-01T23:59:59-00:00","endAt": "2021-07-02T23:59:59-00:0 0"},"activityTypeIds":[2],"primaryAttributeValues":["GL_OP_ALL_2021.MPS Outbound"]}}Bei Verwendung von primaryAttributeValues muss der Filter activityTypeIds vorhanden sein und nur Aktivitäts-IDs enthalten, die mit der entsprechenden Asset-Gruppe übereinstimmen. Wenn Sie beispielsweise nach Webformular-Assets filtern, ist nur die Aktivitätstyp-ID "Formular ausfüllen"in activityTypeIds.primaryAttributeValues und primaryAttributeValueIds zulässig.</td>
     </tr>
   </tbody>
 </table>
@@ -155,15 +155,15 @@ Für die Massen-Aktivitäts-Extract-APIs ist es erforderlich, dass der API-Benut
 
 | Parameter | Datentyp | Erforderlich | Hinweise |
 |---|---|---|---|
-| Filter | Array[Objekt] | Ja | Akzeptiert ein Filterarray. Genau ein createdAt -Filter muss im Array enthalten sein. Es kann ein optionaler activityTypeIds -Filter verwendet werden. Die Filter werden auf den verfügbaren Aktivitätensatz angewendet und der daraus resultierende Aktivitätensatz wird vom Exportauftrag zurückgegeben. |
+| Filter | Array[Object] | Ja | Akzeptiert ein Filterarray. Genau ein createdAt -Filter muss im Array enthalten sein. Es kann ein optionaler activityTypeIds -Filter verwendet werden. Die Filter werden auf den verfügbaren Aktivitätensatz angewendet und der daraus resultierende Aktivitätensatz wird vom Exportauftrag zurückgegeben. |
 | format | Zeichenfolge | Nein | Akzeptiert eines von: CSV, TSV, SSV Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder als Datei mit durch Leerzeichen getrennten Werten gerendert, wenn set.Defaults auf CSV gesetzt, wenn nicht festgelegt. |
 | columnHeaderName | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenüberschriftsnamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportauftrag enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| Felder | Array[Zeichenfolge] | Nein | Optionales Array von Zeichenfolgen mit Feldwerten. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Standardmäßig werden die folgenden Felder zurückgegeben: `marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes`,kann dieser Parameter verwendet werden, um die Anzahl der zurückgegebenen Felder zu reduzieren, indem eine Teilmenge aus der obigen Liste angegeben wird.Beispiel:&quot;fields&quot;: [&quot;leadId&quot;, &quot;activityDate&quot;, &quot;activityTypeId&quot;]Ein zusätzliches Feld &quot;actionResult&quot;kann angegeben werden, um die Aktivitätsaktion (&quot;erfolgreich&quot;, &quot;übersprungen&quot;oder &quot;fehlgeschlagen&quot;) einzuschließen. |
+| Felder | Array[String] | Nein | Optionales Array von Zeichenfolgen mit Feldwerten. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Standardmäßig werden die folgenden Felder zurückgegeben: `marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes`. Dieser Parameter kann verwendet werden, um die Anzahl der zurückgegebenen Felder zu reduzieren, indem eine Teilmenge aus der obigen Liste angegeben wird. Beispiel:&quot;fields&quot;: [&quot;leadId&quot;, &quot;activityDate&quot;, &quot;activityTypeId&quot;]Ein zusätzliches Feld &quot;actionResult t&quot;kann angegeben werden, um die Aktivitätsaktion (&quot;erfolgreich&quot;, &quot;übersprungen&quot;oder &quot;fehlgeschlagen&quot;) einzuschließen. |
 
 
 ## Erstellen eines Auftrags
 
-Um Datensätze zu exportieren, müssen Sie zunächst den Auftrag und die Datensätze definieren, die Sie abrufen möchten.  Erstellen Sie den Auftrag mit dem [Vorgang &quot;Export Activity&quot;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) -Endpunkt.  Beim Export von Aktivitäten können zwei Hauptfilter angewendet werden: `createdAt`, was immer erforderlich ist, und `activityTypeIds`, ist optional.  Der Filter createdAt wird verwendet, um mithilfe der Variablen `startAt` und `endAt` -Parameter, bei denen es sich jeweils um Datum/Uhrzeit-Felder handelt, das früheste zulässige Erstellungsdatum bzw. das letzte zulässige Erstellungsdatum darstellen.  Sie können auch optional nur nach bestimmten Aktivitätstypen filtern, indem Sie die `activityTypeIds` Filter.  Dies ist nützlich, um Ergebnisse zu entfernen, die für Ihren Anwendungsfall nicht relevant sind.
+Um Datensätze zu exportieren, müssen Sie zunächst den Auftrag und die Datensätze definieren, die Sie abrufen möchten.  Erstellen Sie den Auftrag mithilfe des Endpunkts [Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST) .  Beim Exportieren von Aktivitäten können zwei Hauptfilter angewendet werden: `createdAt`, was immer erforderlich ist, und `activityTypeIds`, was optional ist.  Der Filter createdAt wird verwendet, um einen Datumsbereich zu definieren, in dem Aktivitäten mithilfe der Parameter `startAt` und `endAt` erstellt wurden. Beide sind Datumszeitfelder und stellen das frühestmögliche Erstellungsdatum bzw. das neueste zulässige Erstellungsdatum dar.  Sie können auch optional nur nach bestimmten Aktivitätstypen filtern, indem Sie den Filter `activityTypeIds` verwenden.  Dies ist nützlich, um Ergebnisse zu entfernen, die für Ihren Anwendungsfall nicht relevant sind.
 
 ```
 POST /bulk/v1/activities/export/create.json
@@ -202,7 +202,7 @@ POST /bulk/v1/activities/export/create.json
 }
 ```
 
-Der Auftrag hat jetzt den Status &quot;Erstellt&quot;, befindet sich aber noch nicht in der Verarbeitungswarteschlange.  Um ihn in die Warteschlange zu stellen, damit er mit der Verarbeitung beginnen kann, müssen wir die [Vorgang &quot;Export Activity&quot;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) Endpunkt, der die exportId aus der Erstellungsstatusantwort verwendet.
+Der Auftrag hat jetzt den Status &quot;Erstellt&quot;, befindet sich aber noch nicht in der Verarbeitungswarteschlange.  Um ihn in die Warteschlange zu stellen und die Verarbeitung zu starten, müssen wir den Endpunkt [Export Activity Job-Warteschlange einschließen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) mit der exportId aus der Erstellungsstatusantwort aufrufen.
 
 ```
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -230,7 +230,7 @@ Jetzt meldet der Status, dass der Auftrag in die Warteschlange gestellt wurde. �
 
 Der Auftragsstatus kann nur für Aufträge abgerufen werden, die von demselben API-Benutzer erstellt wurden.
 
-Die Massen-Aktivitätsextraktion von Marketo ist ein asynchroner Endpunkt. Daher muss der Auftragsstatus abgerufen werden, um zu bestimmen, wann der Auftrag abgeschlossen ist.  Umfrage mit der [Abrufen des Status des Exportaktivitätsauftrags](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) -Endpunkt wie folgt:
+Die Massen-Aktivitätsextraktion von Marketo ist ein asynchroner Endpunkt. Daher muss der Auftragsstatus abgerufen werden, um zu bestimmen, wann der Auftrag abgeschlossen ist.  Umfrage mit dem Endpunkt [Export Activity Job Status abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) wie folgt:
 
 ```
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -268,7 +268,7 @@ Das Statusfeld kann mit einem der folgenden Werte reagieren:
 
 ## Abrufen Ihrer Daten
 
-Sobald der Auftrag abgeschlossen ist, rufen Sie Ihre Daten mit der [Export-Aktivitätsdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) -Endpunkt.
+Rufen Sie nach Abschluss des Auftrags Ihre Daten mit dem Endpunkt [Exportaktivitätsdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) ab.
 
 ```
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -276,7 +276,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 Die Antwort enthält eine Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der Datei.
 
-Wenn ein angefordertes Lead-Feld leer ist (keine Daten enthält), `then null` wird in das entsprechende Feld in der Exportdatei eingefügt.  Im folgenden Beispiel ist das Feld campaignId für die zurückgegebene Aktivität leer.
+Wenn ein angefordertes Lead-Feld leer ist (keine Daten enthält), wird `then null` in das entsprechende Feld in der Exportdatei eingefügt.  Im folgenden Beispiel ist das Feld campaignId für die zurückgegebene Aktivität leer.
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes
@@ -286,11 +286,11 @@ marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueI
 783961924,5316669,2022-02-13T14:27:21Z,104,11614,2333,Nurture Automation,"{""Program Member ID"":3240306,""Acquired By"":false,""Old Status"":""Not in Program"",""New Status ID"":27,""Success"":false,""New Status"":""Member"",""Old Status ID"":26}"
 ```
 
-Um das teilweise und wiederverwendbare Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional den HTTP-Header `Range` des Typs `bytes`.  Wenn der Header nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben.  Weitere Informationen zur Verwendung der Bereichskopfzeile mit Marketo [Massenextraktion](bulk-extract.md).
+Um das teilweise und wiederverwendbare Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional den HTTP-Header `Range` des Typs `bytes`.  Wenn der Header nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben.  Weitere Informationen zur Verwendung der Bereichskopfzeile mit Marketo [Massenextraktion](bulk-extract.md) finden Sie.
 
 ## Abbruch eines Auftrags
 
-Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach mit dem [Exportaktivitätsauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) Endpunkt:
+Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach über den Endpunkt [Exportaktivitätsauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) abgebrochen werden:
 
 ```
 POST /bulk/v1/activities/export/{exportId}/cancel.json

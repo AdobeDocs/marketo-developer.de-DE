@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Verwenden [!DNL Ionic] mit Marketo für Mobilgeräte
+description: Verwenden von [!DNL Ionic] mit Marketo für Mobilgeräte
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -16,15 +16,15 @@ Hier wird die Integration des Marketo Cordova-Plug-ins beschrieben. [!DNL Ionic]
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Rufen Sie den geheimen Schlüssel der Anwendung und die Munchkin-ID ab).
-1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
-1. Installieren [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (rufen Sie Ihren Geheimnisschlüssel für die Anwendung und die Munchkin-ID ab).
+1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md)) | [Android](push-notifications.md) ).
+1. Installieren Sie [[!DNL Ionic]](https://ionicframework.com/getting-started/) und [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanweisungen
 
-### Einrichten von Marketo [!DNL Ionic] Plugin
+### Einrichten des Marketo [!DNL Ionic]-Plugins
 
-1. Wenn die Cordova-CLI installiert ist, gehen Sie zu Ihrem [!DNL Ionic] Anwendungsordner und führen Sie den folgenden Befehl aus, um das Marketo-Plug-in zu Ihrer Anwendung hinzuzufügen:
+1. Wenn die Cordova-CLI installiert ist, wechseln Sie zum Ordner Ihrer [!DNL Ionic]-Anwendung und führen Sie den folgenden Befehl aus, um das Marketo-Plug-in zu Ihrer Anwendung hinzuzufügen:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -48,7 +48,7 @@ Hier wird die Integration des Marketo Cordova-Plug-ins beschrieben. [!DNL Ionic]
 
 ### Push-Benachrichtigungen verfolgen
 
-Fügen Sie den folgenden Code in die `application:didFinishLaunchingWithOptions:` -Funktion.
+Fügen Sie den folgenden Code in die Funktion `application:didFinishLaunchingWithOptions:` ein.
 
 >[!BEGINTABS]
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Marketo Framework initialisieren
 
-Um sicherzustellen, dass das Marketo-Framework beim Start der App initiiert wird, fügen Sie den folgenden Code unter dem `onDeviceReady` in Ihrer JavaScript-Hauptdatei verwenden.
+Um sicherzustellen, dass das Marketo-Framework beim Start der App initiiert wird, fügen Sie den folgenden Code unter der Funktion `onDeviceReady` in Ihrer JavaScript-Hauptdatei hinzu.
 
-Sie müssen `ionicCordova` als Framework-Typ für [!DNL Ionic] Cordova-Apps.
+Sie müssen `ionicCordova` als Framework-Typ für [!DNL Ionic] Cordova-Apps übergeben.
 
 #### Syntax
 
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wird.
 - Rückruf bei Fehler : Funktion wird ausgeführt, wenn die Initialisierung der Marketo-Push-Benachrichtigung fehlschlägt.
-- GCM_PROJECT_ID : GCM-Projekt-ID gefunden in [Google Developer Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) nach dem Erstellen der App.
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in der [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) gefunden wurde.
 
 Die Registrierung des Tokens kann auch bei der Abmeldung aufgehoben werden.
 
@@ -177,7 +177,7 @@ marketo.associateLead(
 
 ## Berichtsaktion
 
-Sie können jede vom Benutzer ausgeführte Aktion melden, indem Sie die `reportaction` -Funktion.
+Sie können jede vom Benutzer ausgeführte Aktion melden, indem Sie die Funktion `reportaction` aufrufen.
 
 ### Syntax
 

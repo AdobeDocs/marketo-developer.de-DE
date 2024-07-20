@@ -1,14 +1,14 @@
 ---
-title: "Authentifizierung"
+title: Authentifizierung
 feature: REST API
-description: '"Authentifizierung von Marketo-Benutzern für die API-Nutzung".'
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Authentifizierung von Marketo-Benutzern für die API-Nutzung.
+exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '540'
 ht-degree: 0%
 
 ---
-
 
 # Authentifizierung
 
@@ -16,13 +16,13 @@ Marketos REST-APIs sind mit 2-Legierungen OAuth 2.0 authentifiziert. Client-IDs 
 
 ## Erstellen eines Zugriffstokens
 
-Die `Client ID` und `Client Secret` finden Sie im Abschnitt **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** durch Auswahl des benutzerdefinierten Dienstes und Klicken auf **[!UICONTROL Details anzeigen]**.
+Die `Client ID` und `Client Secret` befinden sich im Menü **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** , indem Sie den benutzerdefinierten Dienst auswählen und auf **[!UICONTROL Details anzeigen]** klicken.
 
 ![REST-Dienstdetails abrufen](assets/authentication-service-view-details.png)
 
-![Launchpoint-Anmeldedaten](assets/admin-launchpoint-credentials.png)
+![Startpunkt-Anmeldedaten](assets/admin-launchpoint-credentials.png)
 
-Die `Identity URL` finden Sie im Abschnitt **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** im Abschnitt REST-API.
+Die `Identity URL` befindet sich im Menü **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** im Abschnitt &quot;REST-API&quot;.
 
 Erstellen Sie ein Zugriffstoken mit einer HTTP-GET- (oder POST-)Anfrage wie folgt:
 
@@ -45,7 +45,7 @@ Antwortdefinition
 
 - `access_token` - Das Token, das Sie mit nachfolgenden Aufrufen übergeben, um sich bei der Zielinstanz zu authentifizieren.
 - `token_type` - Die OAuth-Authentifizierungsmethode.
-- `expires_in` - Die verbleibende Lebensdauer des aktuellen Tokens in Sekunden (danach ist es ungültig). Wenn ein Zugriffstoken ursprünglich erstellt wurde, beträgt seine Lebensdauer 3600 Sekunden oder eine Stunde.
+- `expires_in` - Die verbleibende Lebensdauer des aktuellen Tokens in Sekunden (nach der es ungültig ist). Wenn ein Zugriffstoken ursprünglich erstellt wurde, beträgt seine Lebensdauer 3600 Sekunden oder eine Stunde.
 - `scope` - Der Besitzer des benutzerdefinierten Dienstes, der für die Authentifizierung verwendet wurde.
 
 ## Verwenden eines Zugriffstokens
@@ -66,7 +66,7 @@ Sie können zwei Methoden verwenden, um ein Token in Ihre Aufrufe einzuschließe
 
 Das Verwalten des Zugriffstoken-Ablaufs ist wichtig, um sicherzustellen, dass Ihre Integration reibungslos funktioniert und dass während des normalen Betriebs keine unerwarteten Authentifizierungsfehler auftreten. Achten Sie beim Erstellen der Authentifizierung für Ihre Integration darauf, das Token und den Ablaufzeitraum zu speichern, die in der Identitätsantwort enthalten sind.
 
-Bevor Sie einen REST-Aufruf durchführen, sollten Sie die Gültigkeit des Tokens auf der Grundlage seiner verbleibenden Lebensdauer überprüfen. Wenn das Token abgelaufen ist, verlängern Sie es, indem Sie [Identität](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)-Endpunkt. Dadurch wird sichergestellt, dass Ihr REST-Aufruf nie aufgrund eines abgelaufenen Tokens fehlschlägt. Auf diese Weise können Sie die Latenz Ihrer REST-Aufrufe vorhersehbar verwalten, was für Endbenutzer-orientierte Anwendungen von entscheidender Bedeutung ist.
+Bevor Sie einen REST-Aufruf durchführen, sollten Sie die Gültigkeit des Tokens auf der Grundlage seiner verbleibenden Lebensdauer überprüfen. Wenn das Token abgelaufen ist, verlängern Sie es, indem Sie den Endpunkt [Identität](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) aufrufen. Dadurch wird sichergestellt, dass Ihr REST-Aufruf nie aufgrund eines abgelaufenen Tokens fehlschlägt. Auf diese Weise können Sie die Latenz Ihrer REST-Aufrufe vorhersehbar verwalten, was für Endbenutzer-orientierte Anwendungen von entscheidender Bedeutung ist.
 
 Wenn ein abgelaufenes Token zum Authentifizieren eines REST-Aufrufs verwendet wird, schlägt der REST-Aufruf fehl und gibt einen 602-Fehler-Code zurück. Wenn ein ungültiges Token zum Authentifizieren eines REST-Aufrufs verwendet wird, wird ein 601-Fehlercode zurückgegeben. Wenn einer dieser Codes empfangen wird, sollte der Client das Token durch Aufruf des Identity-Endpunkts verlängern.
 

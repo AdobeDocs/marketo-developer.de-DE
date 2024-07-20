@@ -1,20 +1,20 @@
 ---
 title: Importieren von Mitgliedern des Bulk-Programms
 feature: REST API
-description: "Batch-Import von Mitgliedsdaten."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Batch-Import von Mitgliederdaten.
+exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '838'
 ht-degree: 0%
 
 ---
 
-
 # Importieren von Mitgliedern des Bulk-Programms
 
-[Referenz zum Importzeitpunkt eines Massenprogramms für Mitglieder](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
+[Referenz zum Importieren von Programmteilnehmern für Massenprogramme](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
 
-Bei großen Mengen von Programmmitgliedern können Programmmitglieder asynchron mit der [Bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Auf diese Weise können Sie eine Datensatzliste mit einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, solange die Datei insgesamt weniger als 10 MB groß ist. Der Datensatzvorgang ist nur &quot;insert or update&quot;.
+Bei großen Mengen von Programmmitgliedern können Programmmitglieder asynchron mit der [Bulk API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members) importiert werden. Auf diese Weise können Sie eine Datensatzliste mit einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, solange die Datei insgesamt weniger als 10 MB groß ist. Der Datensatzvorgang ist nur &quot;insert or update&quot;.
 
 ## Verarbeitungsbeschränkungen
 
@@ -22,7 +22,7 @@ Sie können mehr als eine Massen-Importanfrage mit Einschränkungen senden. Jede
 
 ## Datei importieren
 
-Die erste Zeile der Datei muss eine Kopfzeile sein, in der die entsprechenden REST-API-Namen als Felder aufgeführt werden, in denen die Werte jeder Zeile zugeordnet werden. REST-API-Namen können mithilfe von abgerufen werden. [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) und/oder [Programmteilnehmer beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET) -Endpunkte. Datensätze können Lead-Felder, benutzerdefinierte Lead-Felder und benutzerdefinierte Felder für Programmmitglieder enthalten.
+Die erste Zeile der Datei muss eine Kopfzeile sein, in der die entsprechenden REST-API-Namen als Felder aufgeführt werden, in denen die Werte jeder Zeile zugeordnet werden. REST-API-Namen können mit den Endpunkten [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) und/oder [Programmteilnehmer beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET) abgerufen werden. Datensätze können Lead-Felder, benutzerdefinierte Lead-Felder und benutzerdefinierte Felder für Programmmitglieder enthalten.
 
 Eine typische Datei würde diesem grundlegenden Muster folgen:
 
@@ -31,17 +31,17 @@ email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-Der Aufruf selbst erfolgt über die `multipart/form-data` Inhaltstyp.
+Der Aufruf selbst erfolgt über den Inhaltstyp `multipart/form-data` .
 
 Dieser Anfragetyp kann schwierig zu implementieren sein. Daher wird dringend empfohlen, eine vorhandene Bibliotheksimplementierung zu verwenden.
 
 ## Erstellen eines Auftrags
 
-Die [Programmteilnehmer importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) endpoint liest eine Datei mit den Datensätzen der Programmmitglieder und fügt sie zu einem Programm mit einem bestimmten Status hinzu. Die Datensätze können sowohl Lead-Felder als auch benutzerdefinierte Felder für Programmmitglieder enthalten. Alle Datensätze müssen das E-Mail-Feld enthalten, das zur Deduplizierung verwendet wird.
+Der Endpunkt [Programmmitglieder importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) liest eine Datei mit Programmmitgliedern-Datensätzen und fügt sie einem Programm mit einem bestimmten Status hinzu. Die Datensätze können sowohl Lead-Felder als auch benutzerdefinierte Felder für Programmmitglieder enthalten. Alle Datensätze müssen das E-Mail-Feld enthalten, das zur Deduplizierung verwendet wird.
 
-Die `programId` path Parameter gibt das Programm an, dem die Mitglieder hinzugefügt werden.
+Der Pfadparameter `programId` gibt das Programm an, dem die Mitglieder hinzugefügt werden.
 
-Es gibt drei erforderliche Abfrageparameter. Die `format` Parameter gibt das Importdateiformat (CSV, TSV oder SSV) an, die `programMemberStatus` -Parameter gibt den Programmstatus für die Mitglieder an, die dem Programm hinzugefügt werden, und die `file` enthält den Namen der Importdatei, die Datensätze zu Programmmitgliedern enthält.
+Es gibt drei erforderliche Abfrageparameter. Der Parameter `format` gibt das Importdateiformat (CSV, TSV oder SSV), den Parameter `programMemberStatus` den Programmstatus für die Mitglieder an, die dem Programm hinzugefügt werden, und den Parameter `file` enthält den Namen der Importdatei, die die Datensätze der Programmmitglieder enthält.
 
 ```
 POST /bulk/v1/program/{programId}/members/import.json?format=csv&programMemberStatus=On List
@@ -85,7 +85,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 }
 ```
 
-Beachten Sie in der Antwort auf unseren Aufruf, dass eine `batchId` und `status` -Feld für den Datensatz im Ergebnisarray. Da dieser Endpunkt asynchron ist, kann er den Status &quot;In Warteschlange&quot;, &quot;Importieren&quot;oder &quot;Fehlgeschlagen&quot;zurückgeben. Sie müssen die `batchId` um den Status des Importvorgangs zu erhalten und Fehler und/oder Warnungen nach Abschluss abzurufen. Die `batchId` für sieben Tage gültig.
+Beachten Sie in der Antwort auf unseren Aufruf, dass es ein `batchId` - und ein `status` -Feld für den Datensatz im Ergebnis-Array gibt. Da dieser Endpunkt asynchron ist, kann er den Status &quot;In Warteschlange&quot;, &quot;Importieren&quot;oder &quot;Fehlgeschlagen&quot;zurückgeben. Sie müssen die `batchId` beibehalten, um den Status des Importvorgangs zu erhalten und Fehler und/oder Warnungen nach Abschluss abzurufen. Die `batchId` bleibt sieben Tage lang gültig.
 
 Im obigen Beispiel besteht eine einfache Möglichkeit, den Endpunkt aufzurufen, in der Verwendung von cURL über die Befehlszeile:
 
@@ -109,7 +109,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## Abruf-Auftragsstatus
 
-Nachdem der Importauftrag erstellt wurde, müssen Sie dessen Status abfragen. Es empfiehlt sich, den Importauftrag alle 5-30 Sekunden abzufragen. Gehen Sie dazu wie folgt vor: `batchId` Pfadparameter zum [Abrufen des Status eines Programmteilnehmers beim Import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) -Endpunkt.
+Nachdem der Importauftrag erstellt wurde, müssen Sie dessen Status abfragen. Es empfiehlt sich, den Importauftrag alle 5-30 Sekunden abzufragen. Übergeben Sie dazu den Pfadparameter `batchId` an den Endpunkt [Status der Programmteilnehmer importieren ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) .
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -139,15 +139,15 @@ Wenn der Auftrag abgeschlossen wurde, wird die Anzahl der verarbeiteten, fehlges
 
 ## Fehler
 
-Fehler werden durch die Variable `numOfRowsFailed` -Attribut in [Abrufen des Status eines Programmteilnehmers beim Import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Antwort. Wenn numOfRowsFailed größer als null ist, zeigt dieser Wert die Anzahl der aufgetretenen Fehler an.
+Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Status der Programmteilnehmer importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) angezeigt. Wenn numOfRowsFailed größer als null ist, zeigt dieser Wert die Anzahl der aufgetretenen Fehler an.
 
-Verwenden Sie die [Abrufen von Fehlern bei Programmteilnehmern](http://TODO) Endpunkt zum Abrufen von Datensätzen und Ursachen für fehlgeschlagene Zeilen durch Übergeben der `batchId` Pfadparameter.
+Verwenden Sie den Endpunkt [Import Program Member Failures abrufen](http://TODO) , um Datensätze und Ursachen für fehlgeschlagene Zeilen abzurufen, indem Sie den Pfadparameter `batchId` übergeben.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
-Der Endpunkt antwortet mit einer Datei, die angibt, welche Zeilen fehlgeschlagen sind, sowie einer Meldung, die angibt, warum der Datensatz fehlgeschlagen ist. Das Format der Datei entspricht dem in `format` -Parameter bei der Auftragserstellung. An jeden Datensatz wird ein zusätzliches Feld mit einer Fehlerbeschreibung angehängt.
+Der Endpunkt antwortet mit einer Datei, die angibt, welche Zeilen fehlgeschlagen sind, sowie einer Meldung, die angibt, warum der Datensatz fehlgeschlagen ist. Das Format der Datei entspricht dem, das beim Erstellen des Auftrags im Parameter `format` angegeben wurde. An jeden Datensatz wird ein zusätzliches Feld mit einer Fehlerbeschreibung angehängt.
 
 Angenommen, Sie importieren die folgende Datei mit einem ungültigen Lead-Ergebnis:
 
@@ -156,7 +156,7 @@ firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD
 ```
 
-Wenn Sie den Auftragsstatus überprüfen, sehen Sie `numOfRowsFailed` ist 1, der angibt, dass ein Fehler aufgetreten ist:
+Wenn Sie den Auftragsstatus überprüfen, sehen Sie, dass `numOfRowsFailed` 1 ist, was auf einen Fehler hinweist:
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -193,15 +193,15 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Warnungen
 
-Warnhinweise werden durch die Variable `numOfRowsWithWarning` -Attribut in [Abrufen des Status eines Programmteilnehmers beim Import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Antwort. Wenn `numOfRowsWithWarning` größer als null ist, zeigt dieser Wert die Anzahl der aufgetretenen Warnungen an.
+Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort [Status der Programmteilnehmer importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) angezeigt. Wenn `numOfRowsWithWarning` größer als null ist, zeigt dieser Wert die Anzahl der aufgetretenen Warnungen an.
 
-Verwenden Sie die [Warnungen von Programmmitgliedern erhalten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) Endpunkt zum Abrufen von Datensätzen und Ursachen für Warnzeilen durch Übergabe der `batchId` Pfadparameter.
+Verwenden Sie den Endpunkt [Warnungen von Programmmitgliedern abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) , um Datensätze und Ursachen für Warnzeilen abzurufen, indem Sie den Parameter `batchId` path übergeben.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
-Der Endpunkt antwortet mit einer Datei, die angibt, welche Zeilen Warnungen erzeugt haben, sowie einer Meldung, die angibt, warum der Datensatz eine Warnung erzeugt hat. Das Format der Datei entspricht dem in `format` -Parameter bei der Auftragserstellung. Jedem Datensatz wird ein zusätzliches Feld mit einer Beschreibung der Warnung angehängt.
+Der Endpunkt antwortet mit einer Datei, die angibt, welche Zeilen Warnungen erzeugt haben, sowie einer Meldung, die angibt, warum der Datensatz eine Warnung erzeugt hat. Das Format der Datei entspricht dem, das beim Erstellen des Auftrags im Parameter `format` angegeben wurde. Jedem Datensatz wird ein zusätzliches Feld mit einer Beschreibung der Warnung angehängt.
 
 Angenommen, Sie importieren die folgende Datei mit einer ungültigen E-Mail-Adresse:
 
@@ -210,7 +210,7 @@ firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0
 ```
 
-Wenn Sie den Auftragsstatus überprüfen, sehen Sie `numOfRowsWithWarning` ist 1, der angibt, dass eine Warnung aufgetreten ist:
+Wenn Sie den Auftragsstatus überprüfen, sehen Sie &quot;`numOfRowsWithWarning` ist 1&quot;, was anzeigt, dass eine Warnung aufgetreten ist:
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/status.json

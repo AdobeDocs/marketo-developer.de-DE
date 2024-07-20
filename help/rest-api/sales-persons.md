@@ -1,26 +1,26 @@
 ---
-title: "Vertriebsmitarbeiter"
+title: Vertriebsmitarbeiter
 feature: REST API
-description: "Lesen Sie Daten zu Vertriebsmitarbeitern."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Lesen Sie Daten zu Vertriebsmitarbeitern.
+exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '303'
 ht-degree: 0%
 
 ---
 
-
 # Vertriebsmitarbeiter
 
-[Endpunkt-Referenz für Vertriebsmitarbeiter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[Endpoint-Referenz für Vertriebsmitarbeiter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-Vertriebsmitarbeiter-APIs bieten schreibgeschützten Zugriff auf Abonnements mit [SFDC-Synchronisierung](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert sind. Sales Persons sind eine Art von Personendatensätzen, die zum Verkaufsinhaber von Lead-Datensätzen gehören. Sie beziehen sich auf Lead-Datensätze, die vom Feld externalSalesPersonId für jeden Lead-Datensatz bereitgestellt werden. Wenn ein Lead von einem ausgefüllten Feld externalSalesPersonId mit einer Verkaufsperson verbunden wird, werden die entsprechenden Suchfelder des Lead-Eigentümers für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
+Vertriebsmitarbeiter-APIs sind schreibgeschützter Zugriff auf Abonnements, für die die Funktion [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert ist. Sales Persons sind eine Art von Personendatensätzen, die zum Verkaufsinhaber von Lead-Datensätzen gehören. Sie beziehen sich auf Lead-Datensätze, die vom Feld externalSalesPersonId für jeden Lead-Datensatz bereitgestellt werden. Wenn ein Lead von einem ausgefüllten Feld externalSalesPersonId mit einer Verkaufsperson verbunden wird, werden die entsprechenden Suchfelder des Lead-Eigentümers für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
 
-Vertriebsmitarbeiter beziehen sich auf Lead-Datensätze, indem sie [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) Endpunkt und Übergabe des Attributs externalSalesPersonId .
+Vertriebsmitarbeiter beziehen sich auf Lead-Datensätze, indem sie den Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 
-Verkaufsmitarbeiter beziehen sich auf Einsendungen von Möglichkeiten, indem sie [Synchronisierungsmöglichkeiten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) Endpunkt und Übergabe des Attributs externalSalesPersonId .
+Vertriebsmitarbeiter beziehen sich mithilfe des Endpunkts [Synchronisierungsmöglichkeiten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) und des Attributs externalSalesPersonId auf Einsendungen von Möglichkeiten.
 
-Vertriebsmitarbeiter beziehen sich mithilfe der Variablen [Synchronisierungsunternehmen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) Endpunkt und Übergabe des Attributs externalSalesPersonId .
+Vertriebsmitarbeiter beziehen sich auf Firmendatensätze, indem sie den Endpunkt [Unternehmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 
 Datensätze von Vertriebsmitarbeitern können nur über die API bearbeitet werden.
 
@@ -95,7 +95,7 @@ GET /rest/v1/salespersons/describe.json
 }
 ```
 
-Standardmäßig wird die Variable `idField` von Vertriebsmitarbeitern ist &quot;id&quot;und die Variable `dedupeFields` ist nur &quot;externalSalesPersonId&quot;.
+Standardmäßig ist `idField` der Vertriebsmitarbeiter &quot;id&quot;und der `dedupeFields` ist nur &quot;externalSalesPersonId&quot;.
 
 ## Anfrage
 

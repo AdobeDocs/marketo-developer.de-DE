@@ -1,14 +1,14 @@
 ---
-title: "Authentication Signature"
+title: Authentifizierungssignatur
 feature: REST API
-description: "Verwenden der sicheren Authentifizierung zum Senden von Nachrichten."
-source-git-commit: 9bc1e0867f9a21e2dc72bfab444a09f188d1bac9
+description: Verwenden der sicheren Authentifizierung zum Senden von Nachrichten.
+exl-id: dda9d81b-0a77-4a99-916b-bf21319fd26d
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '210'
 ht-degree: 3%
 
 ---
-
 
 # Authentifizierungssignatur
 
@@ -20,7 +20,7 @@ HMAC-SHA1-Signaturen erfordern Folgendes:
 - Eine Signatur, die mit einem gemeinsamen geheimen Schlüssel und Nachrichteninhalt berechnet und mit der Dienstanfrage übertragen wird
 - Ein gemeinsamer geheimer Schlüssel (auch Verschlüsselungsschlüssel genannt), der nicht mit der Dienstanforderung übertragen wird
 
-Das Clientprogramm berechnet die HMAC-SHA1-Signatur mithilfe des gemeinsamen geheimen Schlüssels und eines Teils des Inhalts der Anfragenachricht. Der Client muss einen SOAP-Header, AuthenticationHeaderInfo, enthalten, um Authentifizierungsinformationen mit der SOAP-Nachricht zu übergeben.
+Das Clientprogramm berechnet die HMAC-SHA1-Signatur mithilfe des gemeinsamen geheimen Schlüssels und eines Teils des Inhalts der Anfragenachricht. Der Client muss einen SOAP-Header, AuthenticationHeaderInfo, enthalten, um Authentifizierungsinformationen mit der SOAP zu übergeben.
 
 Der folgende Pseudo-Code veranschaulicht den Algorithmus:
 
@@ -43,10 +43,10 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| `mktowsUserId` | Erforderlich | Die Marketo-Client-Zugriffs-ID befindet sich im Bedienfeld der Marketo-Admin-SOAP-API unter &quot;Integration&quot;. |
-| `requestSignature` | Erforderlich | HMAC-SHA1-Signatur basierend auf dem gemeinsamen geheimen Schlüssel, `requestTimestamp`, und Marketo-Benutzer-ID |
+| `mktowsUserId` | Erforderlich | Die Marketo-Client-Zugriffs-ID befindet sich im Bedienfeld Ihrer Marketo Admin SOAP-API unter Integration. |
+| `requestSignature` | Erforderlich | HMAC-SHA1-Signatur basierend auf dem gemeinsamen geheimen Schlüssel, `requestTimestamp` und der Marketo User ID |
 | `requestTimestamp` | Erforderlich | Zeitstempel anfordern (W3C WSDL-Datumsformat z. B. &quot;2013-06-09T14:04:54-08:00&quot;) |
-| `partnerId` | optional | LaunchPoint-Technologie-Partner [API-Schlüssel](../launchpoint-api.pdf). |
+| `partnerId` | optional | LaunchPoint-Technologie-Partner [API-Schlüssel](../launchpoint-api.pdf). |
 
 ## Request XML - getLeadActivity
 

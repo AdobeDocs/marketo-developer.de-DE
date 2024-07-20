@@ -1,14 +1,14 @@
 ---
-title: "Leads"
+title: Leads
 feature: REST API
-description: "Details zu den Leads-API-Aufrufen"
-source-git-commit: aea2812730fa5f6054e69dfa9d8045329aa724c7
+description: Details zu den Leads-API-Aufrufen
+exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
+source-git-commit: 2c125161cf06be8ebb44ae8212f15fbbe5c1f6b7
 workflow-type: tm+mt
 source-wordcount: '3308'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
-
 
 # Leads
 
@@ -58,13 +58,13 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Normalerweise enthalten Antworten einen viel größeren Satz von Feldern im Ergebnis-Array, aber wir lassen sie zu Demonstrationszwecken weg. Jedes Element im Ergebnis-Array entspricht einem Feld, das im Lead-Datensatz verfügbar ist, und hat mindestens eine ID, einen displayName und einen Datentyp. Die untergeordneten Objekte Rest und Seife können für ein bestimmtes Feld vorhanden sein oder nicht, und sein Vorhandensein gibt an, ob das Feld für die Verwendung in den REST- oder SOAP-APIs gültig ist. Die `readOnly` -Eigenschaft gibt an, ob das Feld über die entsprechende API (REST oder SOAP) schreibgeschützt ist. Die length -Eigenschaft gibt die maximale Länge des Felds an, sofern vorhanden. Die dataType -Eigenschaft gibt den Datentyp des Felds an.
+Normalerweise enthalten Antworten einen viel größeren Satz von Feldern im Ergebnis-Array, aber wir lassen sie zu Demonstrationszwecken weg. Jedes Element im Ergebnis-Array entspricht einem Feld, das im Lead-Datensatz verfügbar ist, und hat mindestens eine ID, einen displayName und einen Datentyp. Die untergeordneten Objekte &quot;rest&quot;und &quot;soap&quot;können für ein bestimmtes Feld vorhanden sein oder nicht, und seine Präsenz zeigt an, ob das Feld für die Verwendung in den REST- oder SOAP-APIs gültig ist. Die Eigenschaft `readOnly` gibt an, ob das Feld über die entsprechende API (REST oder SOAP) schreibgeschützt ist. Die length -Eigenschaft gibt die maximale Länge des Felds an, sofern vorhanden. Die dataType -Eigenschaft gibt den Datentyp des Felds an.
 
 ## Anfrage
 
 Es gibt zwei Hauptmethoden zum Abrufen von Leads: die Methoden &quot;Lead nach ID abrufen&quot;und &quot;Leads nach Filtertyp abrufen&quot;. &quot;Get Lead by Id&quot;verwendet eine einzelne Lead-ID als Pfadparameter und gibt einen einzelnen Lead-Datensatz zurück.
 
-Optional können Sie einen Feldparameter übergeben, der eine kommagetrennte Liste mit zurückzugebenden Feldnamen enthält. Wenn der Feldparameter in dieser Anfrage nicht enthalten ist, werden die folgenden Standardfelder zurückgegeben: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, und `id`. Wenn beim Anfordern einer Feldliste ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
+Optional können Sie einen Feldparameter übergeben, der eine kommagetrennte Liste mit zurückzugebenden Feldnamen enthält. Wenn der Feldparameter nicht in dieser Anfrage enthalten ist, werden die folgenden Standardfelder zurückgegeben: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName` und `id`. Wenn beim Anfordern einer Feldliste ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
 
 ### Anfrage
 
@@ -93,11 +93,11 @@ GET /rest/v1/lead/{id}.json
 
 Für diese Methode gibt es immer einen einzelnen Datensatz an der ersten Position des Ergebnisarray.
 
-&quot;Leads nach Filtertyp abrufen&quot;gibt denselben Datensatztyp zurück, kann jedoch bis zu 300 pro Seite zurückgeben. Sie erfordert die `filterType` und `filterValues` Abfrageparameter.
+&quot;Leads nach Filtertyp abrufen&quot;gibt denselben Datensatztyp zurück, kann jedoch bis zu 300 pro Seite zurückgeben. Dazu sind die Abfrageparameter `filterType` und `filterValues` erforderlich.
 
-`filterType` akzeptiert ein benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie die `Describe2` Endpunkt, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die in verwendet werden dürfen `filterType`. Bei der Suche nach benutzerdefiniertem Feld werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Sie können Felddetails abrufen (Beschreibung, Typ usw.) mit der oben genannten Deskriptionsmethode.
+`filterType` akzeptiert ein beliebiges benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den Endpunkt `Describe2` auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die in `filterType` verwendet werden dürfen. Bei der Suche nach benutzerdefinierten Feldern werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Sie können Felddetails abrufen (Beschreibung, Typ usw.) mit der oben genannten Deskriptionsmethode.
 
-`filterValues` akzeptiert bis zu 300 Werte im kommagetrennten Format. Der Aufruf sucht nach Datensätzen, in denen das Lead-Feld mit einem der enthaltenen übereinstimmt `filterValues`. Wenn die Anzahl der Leads, die mit dem Lead-Filter übereinstimmen, größer als 1.000 ist, wird ein Fehler zurückgegeben: &quot;1003, Zu viele Ergebnisse stimmen mit dem Filter überein&quot;.
+`filterValues` akzeptiert bis zu 300 Werte im kommagetrennten Format. Der Aufruf sucht nach Datensätzen, in denen das Lead-Feld mit einem der eingeschlossenen `filterValues` übereinstimmt. Wenn die Anzahl der Leads, die mit dem Lead-Filter übereinstimmen, größer als 1.000 ist, wird ein Fehler zurückgegeben: &quot;1003, Zu viele Ergebnisse stimmen mit dem Filter überein&quot;.
 
 Wenn die Gesamtlänge Ihrer GET-Anfrage 8 KB überschreitet, wird ein HTTP-Fehler zurückgegeben: &quot;414, URI zu lang&quot;(gemäß RFC 7231). Als Problemumgehung können Sie Ihre GET in POST ändern, den Parameter _method=GET hinzufügen und eine Abfragezeichenfolge im Anfragetext platzieren.
 
@@ -134,7 +134,7 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 }
 ```
 
-Dieser Aufruf sucht nach Datensätzen, die mit den in `filterValues`und gibt alle übereinstimmenden Datensätze zurück.
+Dieser Aufruf sucht nach Datensätzen, die mit den in `filterValues` enthaltenen IDs übereinstimmen, und gibt übereinstimmende Datensätze zurück.
 
 Wenn keine Datensätze gefunden werden, zeigt die Antwort den Erfolg an, das Ergebnis-Array ist jedoch leer.
 
@@ -148,7 +148,7 @@ Wenn keine Datensätze gefunden werden, zeigt die Antwort den Erfolg an, das Erg
 }
 ```
 
-Sowohl &quot;Lead nach ID abrufen&quot;als auch &quot;Leads nach Filtertyp abrufen&quot;akzeptieren auch einen Feldabfrageparameter, der eine kommagetrennte Liste von API-Feldern akzeptiert. Wenn dies enthalten ist, enthält jeder Datensatz in der Antwort die aufgeführten Felder.  Wenn sie weggelassen wird, wird ein Standardsatz von Feldern zurückgegeben: `id`, `email`, `updatedAt`, `createdAt`, `firstName`, und `lastName`.
+Sowohl &quot;Lead nach ID abrufen&quot;als auch &quot;Leads nach Filtertyp abrufen&quot;akzeptieren auch einen Feldabfrageparameter, der eine kommagetrennte Liste von API-Feldern akzeptiert. Wenn dies enthalten ist, enthält jeder Datensatz in der Antwort die aufgeführten Felder.  Wenn es weggelassen wird, wird ein Standardsatz von Feldern zurückgegeben: `id`, `email`, `updatedAt`, `createdAt`, `firstName` und `lastName`.
 
 ## ADOBE ECID
 
@@ -213,15 +213,15 @@ POST /rest/v1/leads.json
 }
 ```
 
-In dieser Anfrage sehen Sie zwei wichtige Felder: `action` und `lookupField`.  `action` gibt den Vorgangstyp der Anfrage an und kann `createOrUpdate`, `createOnly`, `updateOnly`oder `createDuplicate`. Wenn diese Option weggelassen wird, wird standardmäßig `createOrUpdate`.  Die `lookupField` Parameter gibt den Schlüssel an, der verwendet werden soll, wenn die Aktion `createOrUpdate` oder `updateOnly`. Wenn `lookupField` ausgelassen wird, lautet der Standardschlüssel `email`.
+In dieser Anfrage sehen Sie zwei wichtige Felder: `action` und `lookupField`.  `action` gibt den Vorgangstyp der Anfrage an und kann `createOrUpdate`, `createOnly`, `updateOnly` oder `createDuplicate` sein. Wenn es weggelassen wird, wird standardmäßig `createOrUpdate` für die Aktion verwendet.  Der Parameter `lookupField` gibt den Schlüssel an, der verwendet werden soll, wenn die Aktion entweder `createOrUpdate` oder `updateOnly` lautet. Wenn `lookupField` weggelassen wird, lautet der Standardschlüssel `email`.
 
-Standardmäßig wird die Standardpartition verwendet. Optional können Sie die `partitionName` -Parameter, der nur funktioniert, wenn die Aktion `createOnly` oder `createOrUpdate`. Für `partitionName` , um als zusätzliche Deduplizierungskriterien zu dienen, muss es in benutzerdefinierten Deduplizierungsregeln Teil des Quelltyps sein. Wenn während eines Aktualisierungsvorgangs in der angegebenen Partition kein Lead vorhanden ist, wird ein Fehler zurückgegeben. Wenn der Nur-API-Benutzer keine Zugriffsberechtigung für die angegebene Partition hat, wird ein Fehler zurückgegeben.
+Standardmäßig wird die Standardpartition verwendet. Optional können Sie den Parameter `partitionName` angeben, der nur funktioniert, wenn die Aktion `createOnly` oder `createOrUpdate` ist. Damit `partitionName` als zusätzliche Deduplizierungskriterien funktioniert, muss es Teil des Quelltyps in benutzerdefinierten Deduplizierungsregeln sein. Wenn während eines Aktualisierungsvorgangs in der angegebenen Partition kein Lead vorhanden ist, wird ein Fehler zurückgegeben. Wenn der Nur-API-Benutzer keine Zugriffsberechtigung für die angegebene Partition hat, wird ein Fehler zurückgegeben.
 
-Die `id` -Feld kann nur bei Verwendung der `updateOnly` Aktion, als `id` ist ein vom System verwalteter eindeutiger Schlüssel.
+Das Feld `id` kann nur bei Verwendung der Aktion `updateOnly` als Parameter eingefügt werden, da `id` ein vom System verwalteter eindeutiger Schlüssel ist.
 
-Die Anfrage muss auch eine `input` -Parameter, der ein Array von Lead-Datensätzen ist. Jeder Lead-Datensatz ist ein JSON-Objekt mit einer beliebigen Anzahl von Lead-Feldern. Die in einem Datensatz enthaltenen Schlüssel sollten für diesen Datensatz eindeutig sein, und alle JSON-Zeichenfolgen sollten UTF-8-kodiert sein. Die `externalCompanyId` kann verwendet werden, um den Lead-Datensatz mit einem Firmendatensatz zu verknüpfen. Die `externalSalesPersonId` kann verwendet werden, um den Lead-Datensatz mit einem Datensatz der Vertriebsperson zu verknüpfen.
+Die Anfrage muss auch einen `input` -Parameter aufweisen, der ein Array von Lead-Datensätzen ist. Jeder Lead-Datensatz ist ein JSON-Objekt mit einer beliebigen Anzahl von Lead-Feldern. Die in einem Datensatz enthaltenen Schlüssel sollten für diesen Datensatz eindeutig sein, und alle JSON-Zeichenfolgen sollten UTF-8-kodiert sein. Das Feld `externalCompanyId` kann verwendet werden, um den Lead-Datensatz mit einem Unternehmensdatensatz zu verknüpfen. Das Feld `externalSalesPersonId` kann verwendet werden, um den Lead-Datensatz mit einem Datensatz einer Vertriebsperson zu verknüpfen.
 
-Hinweis: Bei gleichzeitigen oder in kurzer Folge durchgeführten Lead-Up-Anfragen können bei mehreren Anfragen mit demselben Schlüsselwert doppelte Datensätze auftreten, wenn vor der ersten Rückgabe ein nachfolgender Aufruf mit demselben Wert erfolgt. Dies kann durch die Verwendung der `createOnly`oder `updateOnly` oder indem Sie Aufrufe in die Warteschlange stellen und darauf warten, dass Ihr Aufruf zurückgegeben wird, bevor Sie nachfolgende Aufrufe mit demselben Schlüssel ausführen.
+Hinweis: Bei gleichzeitigen oder in kurzer Folge durchgeführten Lead-Up-Anfragen können bei mehreren Anfragen mit demselben Schlüsselwert doppelte Datensätze auftreten, wenn vor der ersten Rückgabe ein nachfolgender Aufruf mit demselben Wert erfolgt. Dies lässt sich vermeiden, indem Sie entweder die `createOnly` oder die `updateOnly` verwenden oder indem Sie Aufrufe in die Warteschlange stellen und darauf warten, dass Ihr Aufruf zurückgegeben wird, bevor Sie nachfolgende Aufrufe mit demselben Schlüssel ausführen.
 
 ## Felder
 
@@ -267,7 +267,7 @@ GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## Durchsuchen
 
-Der Endpunkt Lead-Felder abrufen ruft Metadaten für alle Felder im Lead-Objekt ab, einschließlich. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können die `batchSize` -Abfrageparameter, um diese Zahl zu reduzieren. Wenn die Variable `moreResult` auf &quot;true&quot;gesetzt ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt weiter auf, bis der `moreResult` gibt &quot;false&quot;zurück, was bedeutet, dass keine Ergebnisse verfügbar sind. Die `nextPageToken` von dieser API zurückgegebenen Daten sollten immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
+Der Endpunkt Lead-Felder abrufen ruft Metadaten für alle Felder im Lead-Objekt ab, einschließlich. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können den Abfrageparameter `batchSize` verwenden, um diese Zahl zu reduzieren. Wenn das Attribut `moreResult` &quot;true&quot;ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das Attribut `moreResult` &quot;false&quot;zurückgibt, was bedeutet, dass keine Ergebnisse verfügbar sind. Die von dieser API zurückgegebene `nextPageToken` sollte für die nächste Iteration dieses Aufrufs immer wiederverwendet werden.
 
 ### Anfrage
 
@@ -412,9 +412,9 @@ GET /rest/v1/leads/schema/fields.json
 Der Endpunkt Lead-Felder erstellen erstellt ein oder mehrere benutzerdefinierte Felder auf dem Lead-Objekt. Dieser Endpunkt bietet Funktionen, die mit den Funktionen der Marketo Engage-Benutzeroberfläche vergleichbar sind. Mit diesem Endpunkt können Sie bis zu 100 benutzerdefinierte Felder erstellen.
 Achten Sie sorgfältig darauf, jedes Feld, das Sie in Ihrer Produktionsinstanz von Marketo Engage mithilfe der API erstellen.  Nachdem ein Feld erstellt wurde, kann es nicht mehr gelöscht werden (es kann nur ausgeblendet werden). Die Verbreitung nicht verwendeter Felder ist eine schlechte Vorgehensweise, die Ihre Instanz übersichtlicher macht.
 
-Der erforderliche Eingabeparameter ist ein Array von Lead-Feldobjekten. Jedes Objekt enthält ein oder mehrere Attribute. Die erforderlichen Attribute sind `displayName`, `name`, und `dataType` die dem Anzeigenamen des Felds in der Benutzeroberfläche, dem API-Namen des Felds und dem Feldtyp entsprechen.  Optional können Sie `description`, `isHidden`, `isHtmlEncodingInEmail`, und `isSensitive`.
+Der erforderliche Eingabeparameter ist ein Array von Lead-Feldobjekten. Jedes Objekt enthält ein oder mehrere Attribute. Erforderliche Attribute sind die `displayName`, `name` und `dataType`, die dem Anzeigenamen des Felds in der Benutzeroberfläche, dem API-Namen des Felds und dem Feldtyp entsprechen.  Optional können Sie `description`, `isHidden`, `isHtmlEncodingInEmail` und `isSensitive` angeben.
 
-Es gibt einige Regeln, die mit dem Namen verknüpft sind und `displayName` Benennung. Das Attribut name muss eindeutig sein, mit einem Brief beginnen und nur Buchstaben, Zahlen oder Unterstriche enthalten. Die `displayName` muss eindeutig sein und darf keine Sonderzeichen enthalten.  Eine gängige Benennungskonvention besteht darin, die Binnenmajuskel-Schreibweise auf `displayName` um Namen zu erstellen. Beispiel: eine `displayName` &quot;Mein benutzerdefiniertes Feld&quot;würde den Namen &quot;myCustomField&quot;erzeugen.
+Es gibt einige Regeln, die mit dem Namen und der Benennung von `displayName` verknüpft sind. Das Attribut name muss eindeutig sein, mit einem Brief beginnen und nur Buchstaben, Zahlen oder Unterstriche enthalten. Die `displayName` muss eindeutig sein und darf keine Sonderzeichen enthalten.  Eine gängige Namenskonvention besteht darin, die Binnenmajuskel-Schreibweise auf `displayName` anzuwenden, um einen Namen zu erstellen. Beispielsweise würde ein `displayName` &quot;Mein benutzerdefiniertes Feld&quot;den Namen &quot;myCustomField&quot;ergeben.
 
 ### Anfrage
 
@@ -547,7 +547,7 @@ Der Endpunkt Lead-Feld-Update aktualisiert ein einzelnes benutzerdefiniertes Fel
 </tbody>
 </table>
 
-Die erforderlichen `fieldApiName` path parameter gibt den API-Namen des zu aktualisierenden Felds an. Der erforderliche Eingabeparameter ist ein Array, das ein einzelnes Lead-Feldobjekt enthält.  Das field -Objekt enthält ein oder mehrere Attribute.
+Der erforderliche Pfadparameter `fieldApiName` gibt den API-Namen des zu aktualisierenden Felds an. Der erforderliche Eingabeparameter ist ein Array, das ein einzelnes Lead-Feldobjekt enthält.  Das field -Objekt enthält ein oder mehrere Attribute.
 
 ### Anfrage
 
@@ -586,9 +586,9 @@ POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## Lead zu Marketo pushen
 
-Push-Lead ist eine Alternative zum Synchronisieren von Leads mit Marketo. Diese Funktion wurde in erster Linie entwickelt, um einen höheren Grad an Trigger als die standardmäßigen SynchronisierungsLeads zu ermöglichen (ähnlich wie bei Marketo-Formularen). Zusätzlich zur Synchronisierung von Lead-Feldern ermöglicht dieser Endpunkt die Lead-Zuordnung basierend auf Cookie-Werten, die an den -Endpunkt übergeben werden. Dies geschieht durch Übergabe der `mkt_tok` -Wert, der durch Klicken auf eine Marketo-E-Mail oder durch Übergabe eines Programmnamens im -Aufruf generiert wird. Dieser Endpunkt erstellt außerdem eine einzelne auslösbare Aktivität, die mit einem Programm und/oder einer Kampagne in Marketo verknüpft ist. Dies ermöglicht das Auslösen von Ereignissen zur Lead-Erfassung, die einer bestimmten Kampagne oder einem bestimmten Programm zugeordnet sind, um zugehörige Workflows aus Marketo heraus zu starten.
+Push-Lead ist eine Alternative zum Synchronisieren von Leads mit Marketo. Diese Funktion wurde in erster Linie entwickelt, um einen höheren Grad an Trigger als die standardmäßigen SynchronisierungsLeads zu ermöglichen (ähnlich wie bei Marketo-Formularen). Zusätzlich zur Synchronisierung von Lead-Feldern ermöglicht dieser Endpunkt die Lead-Zuordnung basierend auf Cookie-Werten, die an den -Endpunkt übergeben werden. Dies geschieht durch Übergabe des `mkt_tok` -Werts, der durch Klicken auf eine Marketo-E-Mail generiert wurde, oder durch Übergabe eines Programmnamens im -Aufruf. Dieser Endpunkt erstellt außerdem eine einzelne auslösbare Aktivität, die mit einem Programm und/oder einer Kampagne in Marketo verknüpft ist. Dies ermöglicht das Auslösen von Ereignissen zur Lead-Erfassung, die einer bestimmten Kampagne oder einem bestimmten Programm zugeordnet sind, um zugehörige Workflows aus Marketo heraus zu starten.
 
-Die Push-Lead-Benutzeroberfläche ähnelt der SynchronisierungsLeads sehr. Alle gleichen Primärschlüssel sind gültig und dieselben API-Namen werden für Felder verwendet (es gibt keinen Aktionsparameter, da es sich immer um einen Upsert-Vorgang handelt). Die `programName` und Eingabeparameter erforderlich sind, und die `lookupField`, `source`, und `reason` -Parameter sind optional. Der Eingabeparameter ist ein Array von Lead-Objekten. Die resultierende Aktivität wird dem entsprechenden benannten Programm zugeordnet. Die `source` und `reason` -Parameter sind beliebige Zeichenfolgenfelder, die der Anfrage hinzugefügt werden können, um diese Werte in die resultierenden Aktivitäten einzubetten. Diese können als Einschränkungen in den entsprechenden Triggern (Lead wird an Marketo übergeben) und Filtern (Lead wurde an Marketo übergeben) verwendet werden.
+Die Push-Lead-Benutzeroberfläche ähnelt der SynchronisierungsLeads sehr. Alle gleichen Primärschlüssel sind gültig und dieselben API-Namen werden für Felder verwendet (es gibt keinen Aktionsparameter, da es sich immer um einen Upsert-Vorgang handelt). Die Parameter `programName` und Eingabe sind erforderlich und die Parameter `lookupField`, `source` und `reason` sind optional. Der Eingabeparameter ist ein Array von Lead-Objekten. Die resultierende Aktivität wird dem entsprechenden benannten Programm zugeordnet. Die Parameter `source` und `reason` sind beliebige Zeichenfolgenfelder, die der Anfrage hinzugefügt werden können, um diese Werte in die resultierenden Aktivitäten einzubetten. Diese können als Einschränkungen in den entsprechenden Triggern (Lead wird an Marketo übergeben) und Filtern (Lead wurde an Marketo übergeben) verwendet werden.
 
 Hinweis zu anonymen Aktivitäten. Wenn Sie dem neu erstellten Lead vorherige anonyme Aktivitäten zuweisen möchten, geben Sie das Cookie-Attribut nicht im Lead-Objekt an und rufen Sie &quot;Associate Lead&quot;nach &quot;Push Lead&quot;auf. Wenn Sie einen neuen Lead ohne Aktivitätsverlauf erstellen möchten, geben Sie einfach das Cookie-Attribut im Lead-Objekt an.
 
@@ -658,7 +658,7 @@ POST /rest/v1/leads/push.json
 }
 ```
 
-Übergeben der `mkt_tok` -Parameter, weisen Sie den Wert wie folgt dem mktToken-Element innerhalb eines Lead-Datensatzes im Eingabeparameter zu.
+Um den Parameter `mkt_tok` zu übergeben, weisen Sie den Wert wie folgt dem mktToken-Element innerhalb eines Lead-Datensatzes im Eingabeparameter zu.
 
 ### Textkörper
 
@@ -692,13 +692,13 @@ Der Endpunkt Formular senden unterstützt die folgenden Funktionen:
 * Ermöglicht die Lead-Zuordnung basierend auf dem Cookie-Wert
 * Durchführen der Formularfeldvalidierung
 
-Das Senden eines Formulars folgt dem standardmäßigen Muster der Lead-Datenbank. Ein einzelner Objektdatensatz wird an das erforderliche Eingabeelement des JSON-Hauptteils einer POST-Anfrage übergeben. Die erforderlichen `formId` -Element enthält die Marketo-Formular-ID der Zielgruppe.
+Das Senden eines Formulars folgt dem standardmäßigen Muster der Lead-Datenbank. Ein einzelner Objektdatensatz wird an das erforderliche Eingabeelement des JSON-Hauptteils einer POST-Anfrage übergeben. Das erforderliche `formId` -Element enthält die Marketo-Formular-ID der Zielgruppe.
 
-Das optionale `programId` kann verwendet werden, um das Programm anzugeben, dem der Lead hinzugefügt werden soll, und/oder um das Programm anzugeben, dem benutzerdefinierte Felder für Programmmitglieder hinzugefügt werden sollen. Wenn `programId` angegeben wird, wird der Lead zum Programm hinzugefügt und alle im Formular vorhandenen Felder der Programmmitglieder werden ebenfalls hinzugefügt. Beachten Sie, dass sich das angegebene Programm im selben Arbeitsbereich wie das Formular befinden muss. Wenn das Formular keine benutzerdefinierten Felder für Programmmitglieder enthält, und `programId` nicht angegeben ist, wird Lead nicht zu einem Programm hinzugefügt. Wenn sich das Formular in einem Programm befindet und `programId` nicht angegeben ist, wird dieses Programm verwendet, wenn ein oder mehrere benutzerdefinierte Felder für Programmmitglieder im Formular vorhanden sind.
+Das optionale `programId` kann verwendet werden, um das Programm anzugeben, dem der Lead hinzugefügt werden soll, und/oder um das Programm anzugeben, dem benutzerdefinierte Felder für Programmmitglieder hinzugefügt werden sollen. Wenn `programId` angegeben wird, wird der Lead zum Programm hinzugefügt und alle im Formular vorhandenen Felder für Programmmitglieder werden ebenfalls hinzugefügt. Beachten Sie, dass sich das angegebene Programm im selben Arbeitsbereich wie das Formular befinden muss. Wenn das Formular keine benutzerdefinierten Felder für Programmmitglieder enthält und `programId` nicht angegeben ist, wird Lead nicht zum Programm hinzugefügt. Wenn sich das Formular in einem Programm befindet und `programId` nicht bereitgestellt wird, wird dieses Programm verwendet, wenn ein oder mehrere benutzerdefinierte Felder für Programmmitglieder im Formular vorhanden sind.
 
-Im Eingabedatensatz wird die `leadFormFields` -Objekt erforderlich. Dieses Objekt enthält ein oder mehrere Name/Wert-Paare, die den zu füllenden Formularfeldern entsprechen.  Alle angegebenen Felder müssen innerhalb des angegebenen Formulars definiert werden. Der Name ist der REST-API-Name für das Feld. Beachten Sie Folgendes: `email` -Feld erforderlich ist.
+Innerhalb des Eingabedatensatzes ist das Objekt `leadFormFields` erforderlich. Dieses Objekt enthält ein oder mehrere Name/Wert-Paare, die den zu füllenden Formularfeldern entsprechen.  Alle angegebenen Felder müssen innerhalb des angegebenen Formulars definiert werden. Der Name ist der REST-API-Name für das Feld. Beachten Sie, dass das Feld `email` erforderlich ist.
 
-Die `visitorData` member -Objekt ist optional und enthält Name/Wert-Paare, die den Daten des Seitenbesuchs entsprechen, einschließlich `pageURL`, `queryString`, `leadClientIpAddress`, und `userAgentString`. Kann zum Filtern und Auslösen von zusätzlichen Aktivitätsfeldern verwendet werden.
+Das Mitgliederobjekt `visitorData` ist optional und enthält Name/Wert-Paare, die den Seitenbesuchsdaten einschließlich `pageURL`, `queryString`, `leadClientIpAddress` und `userAgentString` entsprechen. Kann zum Filtern und Auslösen von zusätzlichen Aktivitätsfeldern verwendet werden.
 
 Die Zeichenfolge der Cookie-Mitglieder ist optional und ermöglicht die Zuordnung eines Munchkin-Cookies zu einem Personendatensatz in Marketo. Wenn ein neuer Lead erstellt wird, werden alle vorherigen anonymen Aktivitäten mit diesem Lead verknüpft, es sei denn, der Cookie-Wert wurde zuvor einem anderen bekannten Datensatz zugeordnet. Wenn der Cookie-Wert zuvor zugeordnet war, werden neue Aktivitäten anhand des Datensatzes verfolgt, alte Aktivitäten werden jedoch nicht aus dem vorhandenen bekannten Datensatz entfernt. Um einen neuen Lead ohne Aktivitätsverlauf zu erstellen, lassen Sie einfach das Cookie-Mitglied weg.
 
@@ -762,7 +762,7 @@ Hier können wir die entsprechenden Details zur Aktivität &quot;Formular ausfü
 
 ## Zusammenführen
 
-Manchmal ist es erforderlich, doppelte Datensätze zusammenzuführen, und Marketo erleichtert dies über die API &quot;Leads zusammenführen&quot;. Beim Zusammenführen von Leads werden die Aktivitätsprotokolle, Programme, Kampagnen und Listenmitgliedschaften und CRM-Informationen kombiniert sowie alle Feldwerte zu einem Datensatz zusammengeführt. &quot;Leads zusammenführen&quot;akzeptiert eine Lead-ID als Pfadparameter und entweder eine `leadId` als Abfrageparameter oder eine Liste kommagetrennter IDs in der `leadIds` -Parameter.
+Manchmal ist es erforderlich, doppelte Datensätze zusammenzuführen, und Marketo erleichtert dies über die API &quot;Leads zusammenführen&quot;. Beim Zusammenführen von Leads werden die Aktivitätsprotokolle, Programme, Kampagnen und Listenmitgliedschaften und CRM-Informationen kombiniert sowie alle Feldwerte zu einem Datensatz zusammengeführt. &quot;Leads zusammenführen&quot;akzeptiert eine Lead-ID als Pfadparameter und entweder eine einzelne `leadId` als Abfrageparameter oder eine Liste mit kommagetrennten IDs im Parameter `leadIds` .
 
 ### Anfrage
 
@@ -779,9 +779,9 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 }
 ```
 
-Der im Pfadparameter angegebene Lead ist der siegreiche Lead. Wenn also Felder vorliegen, die zwischen den zusammengeführten Datensätzen in Konflikt stehen, wird der Wert des Gewinners übernommen, es sei denn, das Feld im Gewinnerdatensatz ist leer und das entsprechende Feld im verlorenen Datensatz ist nicht vorhanden. Die in `leadId` oder `leadIds` -Parameter sind die verlorenen Leads.
+Der im Pfadparameter angegebene Lead ist der siegreiche Lead. Wenn also Felder vorliegen, die zwischen den zusammengeführten Datensätzen in Konflikt stehen, wird der Wert des Gewinners übernommen, es sei denn, das Feld im Gewinnerdatensatz ist leer und das entsprechende Feld im verlorenen Datensatz ist nicht vorhanden. Die Leads, die im Parameter `leadId` oder `leadIds` angegeben sind, sind die verlorenen Leads.
 
-Wenn Sie ein Abonnement mit aktivierter SFDC-Synchronisierung haben, können Sie auch die `mergeInCRM` -Parameter in Ihrer -Anfrage. Wenn der Wert auf &quot;true&quot;gesetzt ist, wird auch die entsprechende Zusammenführung in Ihrem CRM-System durchgeführt. Wenn sich beide Leads in SFDC befinden und einer ein CRM-Lead und der andere ein CRM-Kontakt ist, ist der Gewinner der CRM-Kontakt (unabhängig davon, welcher Lead als Gewinner angegeben wird). Wenn einer der Leads in SFDC ist und der andere nur in Marketo, dann ist der Gewinner der SFDC-Lead (unabhängig davon, welcher Lead als Gewinner angegeben wird).
+Wenn Sie ein Abonnement mit aktivierter SFDC-Synchronisierung haben, können Sie auch den Parameter `mergeInCRM` in Ihrer Anfrage verwenden. Wenn der Wert auf &quot;true&quot;gesetzt ist, wird auch die entsprechende Zusammenführung in Ihrem CRM-System durchgeführt. Wenn sich beide Leads in SFDC befinden und einer ein CRM-Lead und der andere ein CRM-Kontakt ist, ist der Gewinner der CRM-Kontakt (unabhängig davon, welcher Lead als Gewinner angegeben wird). Wenn einer der Leads in SFDC ist und der andere nur in Marketo, dann ist der Gewinner der SFDC-Lead (unabhängig davon, welcher Lead als Gewinner angegeben wird).
 
 ## Webaktivität verknüpfen
 
@@ -808,7 +808,7 @@ Mitgliedschaft
 Lead-Datensätze können auch basierend auf einer Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, denen ein Lead angehört.
 
 Die Antwortstruktur und die optionalen Parameter sind identisch mit denen von &quot;Get Leads by Filter Type&quot;, auch wenn filterType und filterValues mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` sich in der URL der statischen Liste befindet, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
 
 ### Anfrage
 
@@ -847,7 +847,7 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 }
 ```
 
-Der Endpunkt &quot;Listen nach Lead-ID abrufen&quot;nimmt einen Lead-Datensatz an `id` path -Parameter und gibt alle statischen Listeneinträge zurück, denen der Lead angehört.
+Der Endpunkt &quot;Listen nach Lead-ID abrufen&quot;akzeptiert einen Lead-Record-Pfadparameter `id` und gibt alle statischen Listenerfassungen zurück, denen der Lead angehört.
 
 ### Anfrage
 
@@ -885,11 +885,11 @@ GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 
 ## Programme
 
-Die Programmmitgliedschaft kann auf ähnliche Weise wie Listen abgerufen werden. Dieselben optionalen Anfrageparameter sind verfügbar, wenn Sie den Endpunkt Leads nach Programm-ID abrufen und die Variable `programId` Pfadparameter.
+Die Programmmitgliedschaft kann auf ähnliche Weise wie Listen abgerufen werden. Dieselben optionalen Anforderungsparameter sind verfügbar, wenn der Endpunkt &quot;Get Leads by Program Id&quot;aufgerufen und der Pfadparameter `programId` übergeben wird.
 
-Optional können Sie einen Feldparameter übergeben, der eine kommagetrennte Liste mit zurückzugebenden Feldnamen enthält. Wenn der Feldparameter in dieser Anfrage nicht enthalten ist, werden die folgenden Standardfelder zurückgegeben: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, `membership`, und `id`. Wenn beim Anfordern einer Feldliste ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
+Optional können Sie einen Feldparameter übergeben, der eine kommagetrennte Liste mit zurückzugebenden Feldnamen enthält. Wenn der Feldparameter nicht in dieser Anfrage enthalten ist, werden die folgenden Standardfelder zurückgegeben: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, `membership` und `id`. Wenn beim Anfordern einer Feldliste ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
 
-Die Antwortstruktur ist sehr ähnlich, da jedes Element im Ergebnis-Array ein Lead ist, mit der Ausnahme, dass jeder Datensatz auch ein untergeordnetes Objekt namens &quot;membership&quot;hat. Dieses Mitgliedschaftsobjekt enthält Daten über die Beziehung des Leads zum im Aufruf angegebenen Programm, wobei immer dessen `progressionStatus`, `acquiredBy`, `reachedSuccess`, und `membershipDate`. Wenn das übergeordnete Programm auch ein Interaktionsprogramm ist, wird die Mitgliedschaft Mitglieder haben `stream`, `nurtureCadence`, und `isExhausted` um seine Position und Aktivität im Interaktionsprogramm anzugeben.
+Die Antwortstruktur ist sehr ähnlich, da jedes Element im Ergebnis-Array ein Lead ist, mit der Ausnahme, dass jeder Datensatz auch ein untergeordnetes Objekt namens &quot;membership&quot;hat. Dieses Mitgliedschaftsobjekt enthält Daten über die Beziehung des Leads zum Programm, das im Aufruf angegeben ist, und zeigt immer seine `progressionStatus`, `acquiredBy`, `reachedSuccess` und `membershipDate` an. Wenn das übergeordnete Programm auch ein Interaktionsprogramm ist, hat die Mitgliedschaft die Mitglieder `stream`, `nurtureCadence` und `isExhausted`, um seine Position und Aktivität im Interaktionsprogramm anzugeben.
 
 ### Anfrage
 
@@ -963,7 +963,7 @@ GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 }
 ```
 
-Der Endpunkt Programme von Lead-ID abrufen akzeptiert einen Lead-Datensatz-ID-Pfadparameter und gibt alle Programmdatensätze zurück, denen der Lead angehört. Das optionale `filterType` und `filterValues` -Parameter können Sie nach der Programm-ID filtern.
+Der Endpunkt Programme von Lead-ID abrufen akzeptiert einen Lead-Datensatz-ID-Pfadparameter und gibt alle Programmdatensätze zurück, denen der Lead angehört. Mit den optionalen Parametern `filterType` und `filterValues` können Sie nach Programm-ID filtern.
 
 ### Anfrage
 

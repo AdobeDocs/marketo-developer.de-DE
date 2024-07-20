@@ -1,18 +1,18 @@
 ---
 title: Social
-description: "Social"
+description: Social
 feature: Social, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 4%
 
 ---
 
-
 # Social
 
-[Marketo Social Marketing](https://business.adobe.com/products/marketo/social-marketing.html) ermöglicht es Marketing-Experten, soziale Widgets auf Websites und Landingpages einzubetten. Social-Widgets umfassen Umfragen, Social-Sharing-Schaltflächen, Videos, Preisausschreiben und Promotions wie Werbeangebote.
+Mit [Marketo Social Marketing](https://business.adobe.com/products/marketo/social-marketing.html) können Marketing-Experten Social-Widgets in Websites und Landingpages einbetten. Social-Widgets umfassen Umfragen, Social-Sharing-Schaltflächen, Videos, Preisausschreiben und Promotions wie Werbeangebote.
 
 ## Beispiel für ein eingebettetes Freigabe-Widget
 
@@ -37,7 +37,7 @@ Es gibt zwei grundlegende Methoden zur Anpassung eines Social-Widgets:
 
 ## Anhängen von Ereignissen an die normale Benutzeroberfläche
 
-Es gibt zwei Möglichkeiten, Ereignisse in der CF-JavaScript-Bibliothek global oder für ein einzelnes Widget zu abonnieren. Ereignisse werden nachfolgend in der Ereignistabelle dokumentiert.
+Es gibt zwei Möglichkeiten, Ereignisse in der CF JavaScript-Bibliothek global oder für ein einzelnes Widget zu abonnieren. Ereignisse werden nachfolgend in der Ereignistabelle dokumentiert.
 
 ### Globale Ereignisanmeldung
 
@@ -92,16 +92,16 @@ Dieses Beispiel zeigt ein zuvor ausgeblendetes Element mit der ID &quot;signedUp
 | --- | --- | --- | --- | 
 | share_sent | Wird jedes Mal ausgelöst, wenn eine Freigabeanfrage zur Verarbeitung an den Server gesendet wird | Alle Widgets, die freigeben können | 1.&quot;share_sent&quot; (String)<br>2. Gesendete Parameter (Objekt) |
 | share_success | Wird ausgelöst, wenn die Freigabeanfrage erfolgreich verarbeitet wurde. | Alle Widgets, die freigeben können. | 1.&quot;share_success&quot; (Zeichenfolge)<br>2. Antwortobjekt freigeben, das die gesendete Nachricht und die verkürzte URL enthält (Objekt) |
-| option_success | Wird ausgelöst, wenn ein Benutzer erfolgreich in einer Umfrage abgestimmt hat. | Umfrage, VS, Abstimmungs-Widgets | 1. &quot;option_success&quot; (Zeichenfolge)<br>2. Punkt, für den abgestimmt wurde, einschließlich Titel, Beschreibung, Entitätskennung (Objekt) |
-| offer_enrolled | Wird ausgelöst, wenn sich ein Benutzer erfolgreich für ein Angebot angemeldet hat | Alle Angebots-Widgets | 1.&quot;offer_enrolled&quot; (String)<br>2. Geänderte Benutzereigenschaften (Objekt),<br>3. Geänderte Benutzerattribute (Objekt) |
-| profile_saved | Wird ausgelöst, wenn ein Benutzer sein Profil über die Profilerfassung aktualisiert hat | Alle Widgets ohne Angebote, bei denen die Profilerfassung aktiviert ist | 1.&quot;profile_saved&quot; (Zeichenfolge)<br>2. Geänderte Benutzereigenschaften (Objekt)<br>3. Geänderte Benutzerattribute (Objekt) |
+| option_success | Wird ausgelöst, wenn ein Benutzer erfolgreich in einer Umfrage abgestimmt hat. | Umfrage, VS, Abstimmungs-Widgets | 1. &quot;option_success&quot;(String)<br>2. Punkt, für den abgestimmt wurde, einschließlich Titel, Beschreibung, Entitätskennung (Objekt) |
+| offer_enrolled | Wird ausgelöst, wenn sich ein Benutzer erfolgreich für ein Angebot angemeldet hat | Alle Angebots-Widgets | 1.&quot;offer_enrolled&quot; (String)<br>2. Änderung der Benutzereigenschaften (Objekt), <br>3. Geänderte Benutzerattribute (Objekt) |
+| profile_saved | Wird ausgelöst, wenn ein Benutzer sein Profil über die Profilerfassung aktualisiert hat | Alle Widgets ohne Angebote, bei denen die Profilerfassung aktiviert ist | 1.&quot;profile_saved&quot; (Zeichenfolge)<br>2. Änderung der Benutzereigenschaften (Objekt)<br>3. Geänderte Benutzerattribute (Objekt) |
 | video_loaded | Wird ausgelöst, wenn ein eingebettetes Video vollständig geladen und initialisiert wurde. | VideoShare-Widget | 1. &quot;video_loaded&quot;(String) 2. &quot;.cf_videoshare_wrap&quot; Element, das das Video enthält (jQuery Object) |
 
 ## Ersetzen der Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche
 
-Um die Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche zu ersetzen, müssen Sie zunächst die normale Benutzeroberfläche deaktivieren. Dazu müssen Sie die Option _popupUIOnly_ nach _true_. Wenn diese Option festgelegt ist, wird die Standard-Benutzeroberfläche beim Laden der Seite nicht gerendert, sondern das Widget ruft seine Daten ab und wartet darauf, dass Sie eine seiner Popup-Phasen starten, indem Sie die _CF.widget.activate_ -Funktion und bietet Optionen für das, was sie tun sollte.
+Um die Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche zu ersetzen, müssen Sie zunächst die normale Benutzeroberfläche deaktivieren. Dazu legen Sie die Option _popupUIOnly_ auf _true_ fest. Wenn diese Option festgelegt ist, wird die Standard-Benutzeroberfläche beim Laden der Seite nicht gerendert, sondern das Widget ruft seine Daten ab und wartet darauf, dass Sie eine seiner Popup-Phasen starten, indem es die Funktion _CF.widget.activate_ aufruft und Optionen bereitstellt, was sie tun sollte.
 
-Im Folgenden finden Sie ein Beispiel für die Erstellung einer benutzerdefinierten Schaltfläche, mit der der Anmeldefluss für ein Referrerangebot mit dem Namen _referral_SignUp_.
+Im Folgenden finden Sie ein Beispiel für die Erstellung einer benutzerdefinierten Schaltfläche, mit der der Fluss zur Angebotsanmeldung für ein Referrer-Angebot-Widget namens _referral_SignUp_ gestartet wird.
 
 ```html
 <button id="myNewSignUpButton">My newSign Up button</button>
@@ -139,9 +139,9 @@ cf_scripts.afterload(function($, CF){
 
 ## Abrufen von Widget-UI-Daten, die in Ihre Ersatz-Benutzeroberfläche eingefügt werden sollen
 
-Wenn Sie Daten über das Widget benötigen, um Ihre Ersatzbenutzeroberfläche zu zeichnen, können Sie die Daten aus dem Spezialereignis abrufen _ui_data_. Sie können dieses Ereignis mit dem normalen `CF.widget.listen` -Funktion kann jedoch zu einer potenziellen Race-Bedingung führen, bei der Ihr Ereignis-Listener hinzugefügt wird, nachdem das Widget das Ereignis _ui_data_ bereits ausgelöst hat, sodass Sie nie Daten erhalten. Um dieses Rennen zu vermeiden, verwenden Sie die `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data` -Ereignis ausgelöst wird, wenn eine Aktion ausgeführt wird, die dazu geführt hätte, dass die standardmäßige Benutzeroberfläche des Widgets neu gezeichnet wurde, selbst wenn Sie diese Benutzeroberfläche mit `popupUIOnly` -Option.
+Wenn Sie zum Zeichnen Ihrer Ersatz-Benutzeroberfläche Daten über das Widget benötigen, können Sie die Daten aus dem Spezialereignis _ui_data_ abrufen. Sie können dieses Ereignis mit der normalen `CF.widget.listen` -Funktion überwachen. Dies kann jedoch zu einer potenziellen Race-Bedingung führen, bei der Ihr Ereignis-Listener hinzugefügt wird, nachdem das Widget das_ui_data_ -Ereignis bereits ausgelöst hat, sodass Sie nie Daten erhalten. Um dieses Rennen zu vermeiden, verwenden Sie das Ereignis `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data` , das ausgelöst wird, wenn eine Aktion durchgeführt wird, die dazu geführt hätte, dass die standardmäßige Benutzeroberfläche des Widgets neu gezeichnet wurde, selbst wenn Sie diese Benutzeroberfläche mit der Option `popupUIOnly` deaktiviert haben.
 
-Ein Beispiel für die Verwendung von `uiData` -Funktion, um die Anzahl der Einträge anzuzeigen, die ein Benutzer für einen Gewinnspiel mit Widget-Namen hat _sweeps_sweepstakes_.
+Ein Beispiel, das die Funktion `uiData` verwendet, um die Anzahl der Einträge anzuzeigen, die ein Benutzer für ein Gewinnspiel mit dem Widget-Namen _sweeps_sweepstakes_ hat.
 
 ```html
 <span>You have <span id="entryCount">?</span> entries.</span>

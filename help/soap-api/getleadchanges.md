@@ -1,48 +1,48 @@
 ---
-title: "getLeadChanges"
+title: getLeadChanges
 feature: SOAP
-description: "getLeadChanges SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLeadChanges SOAP Aufrufe
+exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '402'
 ht-degree: 3%
 
 ---
 
-
 # getLeadChanges
 
-Diese API sieht wie folgt aus: `getLeadActivity` , außer dass es auf mehreren Leads gleichzeitig funktioniert. Der Vorgang sucht nach neuen erstellten Leads, Lead-Feld-Updates und anderen Aktivitäten.
+Diese API entspricht `getLeadActivity` , allerdings funktioniert sie auf mehreren Leads gleichzeitig. Der Vorgang sucht nach neuen erstellten Leads, Lead-Feld-Updates und anderen Aktivitäten.
 
-Das Ergebnis enthält Aktivitäten, die die Änderung verursacht haben, sowie eine [Stream-Position](stream-position.md) um durch große Ergebnismengen zu paginieren.
+Das Ergebnis enthält Aktivitäten, die dazu führten, dass die Änderung zusammen mit einer [Stream-Position](stream-position.md) durch große Ergebnismengen paginiert wurde.
 
 Sie müssen einen Eingabeparameter angeben, der angibt, welche Aktivitätsfilter im Ergebnis zurückgegeben werden sollen. Wenn Sie alle Aktivitäten verwenden möchten, kann ein leerer Wert übergeben werden. Übergeben Sie für mehr als einen Aktivitätsfilter eine Liste von Aktivitätsfiltern.
 
 Beispiele für Aktivitätstypen sind: &quot;Webseite besuchen&quot;, &quot;Formular ausfüllen&quot;und &quot;Link anklicken&quot;.
 
-Nach der SOAP API-Version 2_2 können Sie eine `leadSelector`.
+Nach SOAP API-Version 2_2 können Sie einen `leadSelector` einbeziehen.
 
-Für `LastUpdateAtSelector`, die `oldestUpdatedAt` Wert entspricht dem `oldestCreatedAt` Wert in `startPosition`. Und die `latestUpdatedAt` Wert entspricht dem `latestCreatedAt` Wert in `startPosition`.
+Für `LastUpdateAtSelector` würde der Wert `oldestUpdatedAt` dem Wert `oldestCreatedAt` im Wert `startPosition` entsprechen. Und der Wert `latestUpdatedAt` entspricht dem Wert `latestCreatedAt` im Wert `startPosition`.
 
-Hinweis: Die in einer `LeadKeySelector` ist 100. Wenn die Anzahl der Leads 100 überschreitet, gibt die API eine ungültige Parameterausnahme und einen SOAP-Fehler zurück.
+Hinweis: Die in einem `LeadKeySelector` unterstützte Anzahl von Leads beträgt 100. Wenn die Anzahl der Leads 100 überschreitet, gibt die API eine ungültige Parameterausnahme aus und einen SOAP Fehler zurück.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| activityFilter->includeAttributes->activityType | Optional (veraltet) Verwendung `activityNameFilter` anstelle | Beschränkt die Antwort so, dass nur die angegebenen Aktivitätstypen einbezogen werden. Alle Aktivitätstypen finden Sie unter WSDL . |
-| activityFilter->excludeAttributes->activityType | optional | Beschränkt die Antwort, um die angegebenen Aktivitätstypen auszuschließen. Alle Aktivitätstypen finden Sie unter WSDL . HINWEIS: Sie können nicht beide `includeAttributes` und `excludeAttributes` innerhalb desselben Aufrufs. |
+| activityFilter->includeAttributes->activityType | Optional (veraltet) Verwenden Sie stattdessen `activityNameFilter` . | Beschränkt die Antwort so, dass nur die angegebenen Aktivitätstypen einbezogen werden. Alle Aktivitätstypen finden Sie unter WSDL . |
+| activityFilter->excludeAttributes->activityType | optional | Beschränkt die Antwort, um die angegebenen Aktivitätstypen auszuschließen. Alle Aktivitätstypen finden Sie unter WSDL . HINWEIS: Sie können im selben Aufruf nicht sowohl `includeAttributes` als auch `excludeAttributes` angeben. |
 | activityNameFilter | optional | Beschränkt die Antwort so, dass nur die angegebenen Aktivitätsfilter einbezogen werden. |
-| batchSize | optional | Maximale Datensatzanzahl. System auf 1.000 oder `batchSize`, je nachdem, welcher Wert kleiner ist. |
+| batchSize | optional | Maximale Datensatzanzahl. System begrenzt auf 1.000 oder `batchSize`, je nachdem, welcher Wert kleiner ist. |
 | startPosition | Erforderlich | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. |
 | startPosition->offset | optional | Der Offset-Wert wird vom Antwortfeld newStartPosition->offset der vorherigen Aufrufe zurückgegeben. |
-| startPosition->oldestCreatedAt | optional | Der Zeitstempel, der zum Filtern von Ergebnissen verwendet wird, um nur Leads einzuschließen, die seit dem ältestenCreatedAt erstellt wurden. HINWEIS: Sie können `LastUpdateAtSelector->oldestUpdatedAt` Zeitstempel zur Angabe `oldestCreatedAt`. |
-| startPosition->activityCreatedAt | optional | Der Zeitstempel, der zum Filtern von Ergebnissen verwendet wird, um Leads nur in die Aktivität seit activityCreatedAt aufzunehmen. HINWEIS: Sie können `LastUpdateAtSelector->latestUpdatedAt` Zeitstempel zur Angabe `activityCreatedAt`. |
+| startPosition->oldestCreatedAt | optional | Der Zeitstempel, der zum Filtern von Ergebnissen verwendet wird, um nur Leads einzuschließen, die seit dem ältestenCreatedAt erstellt wurden. HINWEIS: Sie können `LastUpdateAtSelector->oldestUpdatedAt` Zeitstempel verwenden, um `oldestCreatedAt` anzugeben. |
+| startPosition->activityCreatedAt | optional | Der Zeitstempel, der zum Filtern von Ergebnissen verwendet wird, um Leads nur in die Aktivität seit activityCreatedAt aufzunehmen. HINWEIS: Sie können `LastUpdateAtSelector->latestUpdatedAt` Zeitstempel verwenden, um `activityCreatedAt` anzugeben. |
 | leadSelector | optional | Kann einer der folgenden 3 Typen sein: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | LeadKeySelector: leadSelector->keyType | Erforderlich | Der ID-Typ, den Sie abfragen möchten. Zu den Werten gehören `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
 | LeadKeySelector: leadSelector->keyValues->stringItem | Erforderlich | Liste der Schlüsselwerte. Das heißt &quot;lead@email.com&quot; |
-| StaticListSelector: leadSelector->staticListName | Optional, wenn `leadSelector->staticListId` ist vorhanden | Der Name der statischen Liste |
-| StaticListSelector: leadSelector->staticListId | Optional, wenn `leadSelector->staticListName` ist vorhanden | Die ID der statischen Liste |
+| StaticListSelector: leadSelector->staticListName | Optional, wenn `leadSelector->staticListId` vorhanden ist | Der Name der statischen Liste |
+| StaticListSelector: leadSelector->staticListId | Optional, wenn `leadSelector->staticListName` vorhanden ist | Die ID der statischen Liste |
 
 ## XML anfordern
 

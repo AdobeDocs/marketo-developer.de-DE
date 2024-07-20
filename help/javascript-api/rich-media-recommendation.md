@@ -1,14 +1,14 @@
 ---
-title: "Rich-Media-Empfehlung"
-description: "Rich-Media-Empfehlung"
+title: Rich-Media-Empfehlung
+description: Rich-Media-Empfehlung
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '812'
-ht-degree: 4%
+ht-degree: 5%
 
 ---
-
 
 # Rich-Media-Empfehlung
 
@@ -21,14 +21,14 @@ Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, au
 1. Im Seitentext
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
-Weitere Informationen finden Sie unter [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagentag
 
 | Attribut | Optional/Erforderlich | Beschreibung |
 |---|---|---|
 | klasse | Erforderlich | Geben Sie an, dass dieses div-HTML-Element RTP Recommendation div ist. |
-| data-rtp-template-id | Erforderlich | Die Vorlagen-ID. Dies bestimmt die Ausrichtung Ihrer Empfehlung. Verwenden Sie &quot;template1&quot;für die horizontale Ausrichtung, &quot;template2&quot;für die vertikale Ausrichtung oder &quot;template3&quot; für die vertikale Ausrichtung, die nur Titel und Beschreibung enthält. Das Skript fügt die entsprechende Vorlage ein `div.Permissible` Werte: template1, template2, template3. |
+| data-rtp-template-id | Erforderlich | Die Vorlagen-ID. Dies bestimmt die Ausrichtung Ihrer Empfehlung. Verwenden Sie &quot;template1&quot;für die horizontale Ausrichtung, &quot;template2&quot;für die vertikale Ausrichtung oder &quot;template3&quot; für die vertikale Ausrichtung, die nur Titel und Beschreibung enthält. Das Skript fügt die entsprechende Vorlage in diese `div.Permissible` -Werte ein: template1, template2, template3. |
 
 ### Beispiele
 
@@ -50,11 +50,11 @@ Um Ihre Empfehlungen nur in vertikaler Ausrichtung mit Titel und Beschreibung an
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Siehe Screenshots von Vorlagenausrichtungen [here](#example_of_rich_media_recommendation_template_1).
+Screenshots der Vorlagenausrichtungen finden Sie [hier](#example_of_rich_media_recommendation_template_1).
 
 ## Empfehlung ausfüllen
 
-Diese Methode füllt alle Rich-Media-Daten `<divs>` auf der Seite mit Empfehlungen.
+Diese Methode füllt alle Rich-Media-Werte `<divs>` auf der Seite mit Empfehlungen.
 
 ### Nutzung
 
@@ -149,7 +149,7 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.background.color | &quot;rcmd.cta.background.color&quot; : &quot;green&quot; | Ändert die Hintergrundfarbe der Schaltfläche. Diese Eigenschaft unterstützt alle CSS-Farbwerte (Farbname, RGB, ...) |
 | rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Ändert die Schriftfarbe der Schaltfläche. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, ...) |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Ändert den Schaltflächentext. Der Text ist für alle Schaltflächen identisch. |
-| Kategorie | &quot;category&quot; : [&quot;eine Kategorie&quot;] | Ändert die Empfehlungskategorie, die diese Vorlage unterstützt. Die Vorlage zeigt nur Empfehlungen mit einer der von dieser Konfiguration festgelegten Kategorien an. |
+| Kategorie | &quot;category&quot; : [&quot;one category&quot;] | Ändert die Empfehlungskategorie, die diese Vorlage unterstützt. Die Vorlage zeigt nur Empfehlungen mit einer der von dieser Konfiguration festgelegten Kategorien an. |
 
 
 Hinweis: Die Konfigurationsunterstützung kann sich je nach Vorlage ändern.
@@ -232,16 +232,16 @@ rtp('get','rcmd', 'richmedia');
 
 #### Beispiel einer Rich-Media-Empfehlungsvorlage Nr. 1
 
-**Name**: template1 **Beschreibung**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung und Aktionsschaltfläche.
+**Name**: template1 **Description**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung und Aktionsschaltfläche.
 
 ![Rich-Media-Vorlage](assets/rich-media-template1.png)
 
 #### Beispiel einer Rich-Media-Empfehlungsvorlage Nr. 2
 
-**Name**: template2 **Beschreibung**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung und Aktionsschaltfläche .
+**Name**: template2 **Description**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung und Aktionsschaltfläche.
 
 ![Rich-Media-Vorlage](assets/rich-media-template2.png)
 
 #### Beispiel einer Rich-Media-Empfehlungsvorlage Nr. 3
 
-**Name**: template3 **Beschreibung**: Vertikaler Inhalt mit nur Titel und Beschreibung. Wenn Sie den Mauszeiger darüber bewegen, ändert sich die Farbe der Kopfzeile und ist mit der Inhalts-URL verlinkt. Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-Vorlage](assets/rich-media-template3.png)
+**Name**: template3 **Description**: Vertikaler Inhalt mit nur Titel und Beschreibung. Wenn Sie den Mauszeiger darüber bewegen, ändert sich die Farbe der Kopfzeile und ist mit der Inhalts-URL verlinkt. Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-Vorlage](assets/rich-media-template3.png)

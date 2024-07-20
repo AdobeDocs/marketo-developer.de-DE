@@ -16,9 +16,9 @@ Integration des Marketo PhoneGap-Plug-ins
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Rufen Sie den geheimen Schlüssel der Anwendung und die Munchkin-ID ab).
-1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md)).
-1. [PhoneGap/Cordova CLI installieren](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (rufen Sie Ihren Geheimnisschlüssel für die Anwendung und die Munchkin-ID ab).
+1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md)) | [Android](push-notifications.md)).
+1. [Installieren Sie PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanweisungen
 
@@ -48,7 +48,7 @@ Um das Plug-in erneut hinzuzufügen, führen Sie den folgenden Befehl aus:
 
 **Cordova-Version 8.0.0 (Cordova@Android7.0.0) und höher**
 
-Sobald die Cordova Android-Plattform erstellt ist, öffnen Sie die App mit Android Studio und aktualisieren Sie die `dirs` Wert der `Marketo.gradle` Datei im `com.marketo.plugin` Ordner.
+Sobald die Cordova Android-Plattform erstellt ist, öffnen Sie die App mit Android Studio und aktualisieren Sie den `dirs` -Wert der im Ordner `com.marketo.plugin` enthaltenen Datei `Marketo.gradle` .
 
 ```
 repositories{    
@@ -59,25 +59,25 @@ repositories{
 }
 ```
 
-Hinzufügen der Plattformen für die App `$cordova platform add android` `$ cordova platform add ios`
+Plattformen für die App hinzufügen `$cordova platform add android` `$ cordova platform add ios`
 
-Überprüfen der Liste der hinzugefügten Plattformen `$cordova platform ls`
+Überprüfen Sie die Liste der hinzugefügten Plattformen `$cordova platform ls`
 
 1. Firebase Cloud Messaging-Unterstützung
 
 1. Konfigurieren Sie die Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts auf [](https://console.firebase.google.com/)Firebase-Konsole.
-      1. Im [Firebase-Konsole](https://console.firebase.google.com/)auswählen **[!UICONTROL Projekt hinzufügen]**.
-      1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und wählen Sie **[!UICONTROL Firebase hinzufügen]**.
+   1. Erstellen/Hinzufügen eines Projekts in der Firebase-Konsole [](https://console.firebase.google.com/).
+      1. Wählen Sie in der [Firebase-Konsole](https://console.firebase.google.com/) die Option **[!UICONTROL Projekt hinzufügen]** aus.
+      1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte und dann **[!UICONTROL Firebase hinzufügen]** aus.
       1. Wählen Sie im Begrüßungsbildschirm von Firebase die Option &quot;Firebase zu Ihrer Android-App hinzufügen&quot;.
-      1. Geben Sie Ihren Paketnamen und SHA-1 ein und wählen Sie **[!UICONTROL App hinzufügen]**. Eine neue `google-services.json` -Datei für Ihre Firebase-App heruntergeladen wurde.
-   1. Navigieren Sie zu **[!UICONTROL Projekteinstellungen]** in [!UICONTROL Projektübersicht]
-      1. Klicken Sie auf **[!UICONTROL Allgemein]** Registerkarte. Laden Sie die Datei &quot;google-services.json&quot;herunter.
-      1. Klicken Sie auf **[!UICONTROL Cloud Messaging]** Registerkarte. Kopieren [!UICONTROL Server-Schlüssel] &amp; [!UICONTROL Absender-ID]. Stellen Sie diese bereit [!UICONTROL Server-Schlüssel] &amp; [!UICONTROL Absender-ID] nach Marketo.
+      1. Geben Sie Ihren Paketnamen und SHA-1 ein und wählen Sie **[!UICONTROL App hinzufügen]** aus. Eine neue `google-services.json` -Datei für Ihre Firebase-App wird heruntergeladen.
+   1. Navigieren Sie in [!UICONTROL Project Overview] zu **[!UICONTROL Projekteinstellungen]** .
+      1. Klicken Sie auf die Registerkarte **[!UICONTROL Allgemein]** . Laden Sie die Datei &quot;google-services.json&quot;herunter.
+      1. Klicken Sie auf die Registerkarte **[!UICONTROL Cloud Messaging]** . Kopieren Sie [!UICONTROL Server-Schlüssel] und [!UICONTROL Sender-ID]. Stellen Sie diese [!UICONTROL Server-Schlüssel] und die [!UICONTROL Sender-ID] für Marketo bereit.
    1. Konfigurieren von FCM-Änderungen in der PhoneGap-App
       1. Verschieben Sie die heruntergeladene Datei &quot;google-services.json&quot;in den Stammordner des PhoneGap-App-Moduls .
-      1. Entfernen Sie die Datei &quot;MyFirebaseInstanceIDService&quot;vom Speicherort `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Veraltet)
-      1. Ändern Sie die Datei &quot;MyFirebaseMessagingService&quot;am Speicherort. `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` wie folgt:
+      1. Entfernen Sie die Datei &quot;MyFirebaseInstanceIDService&quot;aus dem Speicherort `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (veraltet).
+      1. Ändern Sie die Datei &quot;MyFirebaseMessagingService&quot;im Verzeichnis &quot;`platforms/android/app/src/main/java/com/gae/scaffolder/plugin`&quot; wie folgt:
 
          ```
          import com.marketo.Marketo;
@@ -120,7 +120,7 @@ Aktivieren Sie die Push-Benachrichtigungsfunktion im xCode-Projekt.
 
 ### 4. Push-Benachrichtigungen tracken
 
-Fügen Sie den folgenden Code in die `application:didFinishLaunchingWithOptions:` -Funktion.
+Fügen Sie den folgenden Code in die Funktion `application:didFinishLaunchingWithOptions:` ein.
 
 >[!BEGINTABS]
 
@@ -148,9 +148,9 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### 5. Initialisieren von Marketo Framework
 
-Um sicherzustellen, dass das Marketo-Framework beim Start der App initiiert wird, fügen Sie den folgenden Code unter dem `onDeviceReady` in Ihrer JavaScript-Hauptdatei verwenden.
+Um sicherzustellen, dass das Marketo-Framework beim Start der App initiiert wird, fügen Sie den folgenden Code unter der Funktion `onDeviceReady` in Ihrer JavaScript-Hauptdatei hinzu.
 
-Beachten Sie, dass wir `phonegap` als Framework-Typ für PhoneGap-Apps.
+Beachten Sie, dass wir `phonegap` als Framework-Typ für PhoneGap-Apps übergeben müssen.
 
 ### Syntax
 
@@ -197,7 +197,7 @@ marketo.initializeMarketoPush(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wird.
 - Rückruf bei Fehler : Funktion wird ausgeführt, wenn die Initialisierung der Marketo-Push-Benachrichtigung fehlschlägt.
-- GCM_PROJECT_ID : GCM-Projekt-ID gefunden in [Google Developer Console](https://console.developers.google.com/) nach dem Erstellen der App.
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in der [Google Developers Console](https://console.developers.google.com/) gefunden wurde.
 
 Die Registrierung des Tokens kann auch bei der Abmeldung aufgehoben werden.
 
@@ -255,7 +255,7 @@ marketo.associateLead(
 
 ## Berichtsaktion
 
-Sie können jede vom Benutzer ausgeführte Aktion melden, indem Sie die `reportaction` -Funktion.
+Sie können jede vom Benutzer ausgeführte Aktion melden, indem Sie die Funktion `reportaction` aufrufen.
 
 ### Syntax
 

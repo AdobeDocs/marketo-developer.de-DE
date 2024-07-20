@@ -1,14 +1,14 @@
 ---
-title: "Lead-Datenbank"
+title: Lead-Datenbank
 feature: REST API, Database
-description: "Manipulieren Sie die Haupt-Lead-Datenbank."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Bearbeiten Sie die Haupt-Lead-Datenbank.
+exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1345'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
-
 
 # Lead-Datenbank
 
@@ -32,7 +32,7 @@ Die meisten dieser Objekte umfassen mindestens die Methoden &quot;Erstellen&quot
 
 ## API
 
-Eine vollständige Liste der API-Endpunkte der Lead-Datenbank, einschließlich Parametern und Modellierungsinformationen, finden Sie in der [Endpunktverweis zur Lead-Datenbank-API](https://developer.adobe.com/marketo-apis/api/mapi/).
+Eine vollständige Liste der API-Endpunkte für die Lead-Datenbank, einschließlich Parametern und Modellierungsinformationen, finden Sie in der [Referenz zum Lead-Datenbank-API-Endpunkt](https://developer.adobe.com/marketo-apis/api/mapi/).
 
 Bei Instanzen mit aktivierter nativer CRM-Integration (entweder Microsoft Dynamics oder Salesforce.com) sind die APIs für Unternehmen, Chancen, Chancen und Vertriebsmitarbeiter deaktiviert. Die Datensätze werden bei Aktivierung über das CRM verwaltet und können nicht über die APIs von Marketo aufgerufen oder aktualisiert werden.
 
@@ -44,7 +44,7 @@ Bei Instanzen mit aktivierter nativer CRM-Integration (entweder Microsoft Dynami
 
 ## Beschreibung
 
-Für Leads, Unternehmen, Chancen, Rollen, SalesPersons und benutzerdefinierte Objekte wird eine API mit Beschreibungen bereitgestellt. Durch diesen Aufruf werden Metadaten für das Objekt sowie eine Liste der Felder abgerufen, die aktualisiert und abgefragt werden können. Die Beschreibung ist ein wesentlicher Bestandteil der Entwicklung einer ordnungsgemäßen Integration mit Marketo. Es bietet umfassende Metadaten darüber, wie Objekte interagiert werden können und wie sie erstellt, aktualisiert und abgefragt werden können. Abgesehen von &quot;Leads beschreiben&quot;gibt jeder dieser Elemente eine Liste von Schlüsseln zurück, die für `deduplication` im `dedupeFields` Antwortparameter. Eine Liste von Feldern ist als Schlüssel für die Abfrage im `searchableFields` Antwortparameter.
+Für Leads, Unternehmen, Chancen, Rollen, SalesPersons und benutzerdefinierte Objekte wird eine API mit Beschreibungen bereitgestellt. Durch diesen Aufruf werden Metadaten für das Objekt sowie eine Liste der Felder abgerufen, die aktualisiert und abgefragt werden können. Die Beschreibung ist ein wesentlicher Bestandteil der Entwicklung einer ordnungsgemäßen Integration mit Marketo. Es bietet umfassende Metadaten darüber, wie Objekte interagiert werden können und wie sie erstellt, aktualisiert und abgefragt werden können. Abgesehen von &quot;Leads beschreiben&quot;gibt jede dieser Elemente eine Liste von Schlüsseln zurück, die für `deduplication` im Antwortparameter `dedupeFields` verfügbar sind. Eine Liste von Feldern ist als Schlüssel für die Abfrage im Antwortparameter `searchableFields` verfügbar.
 
 ```
 GET /rest/v1/opportunities/roles/describe.json
@@ -128,9 +128,9 @@ GET /rest/v1/opportunities/roles/describe.json
 }
 ```
 
-In diesem Beispiel `dedupeFields` ist eigentlich ein zusammengesetzter Schlüssel. Dies bedeutet, dass bei Verwendung der Variablen `dedupeFields` -Modus müssen Sie alle drei von `externalOpportunityId`, `leadId`, und `role` für jede Rolle. Die `searchableFields` -Array enthält auch die Liste der Felder, die für die Abfrage von Rollendatensätzen verfügbar sind. Dazu gehört auch der zusammengesetzte Schlüssel von `externalOpportunityId`, `leadId`, und `role`.
+In diesem Beispiel ist `dedupeFields` eigentlich ein zusammengesetzter Schlüssel. Dies bedeutet, dass Sie bei Verwendung des Modus `dedupeFields` in Zukunft alle drei Elemente `externalOpportunityId`, `leadId` und `role` für jede Rolle einbeziehen müssen und erstellen. Das Array `searchableFields` enthält auch die Liste der Felder, die zum Abfragen von Rollendatensätzen verfügbar sind. Dazu gehören auch der zusammengesetzte Schlüssel `externalOpportunityId`, `leadId` und `role`.
 
-Es gibt auch einen Antwortparameter für Felder, der den Namen jedes Felds, das `displayName` wie es in der Marketo-Benutzeroberfläche angezeigt wird, den Datentyp des Felds, ob es nach der Erstellung aktualisiert werden kann, und gegebenenfalls die Feldlänge.
+Es gibt auch einen Antwortparameter für Felder, der den Namen jedes Felds, den `displayName`, wie er in der Marketo-Benutzeroberfläche angezeigt wird, den Datentyp des Felds, den Datentyp, ob er nach der Erstellung aktualisiert werden kann, und gegebenenfalls die Feldlänge angibt.
 
 ## Anfrage
 
@@ -142,10 +142,10 @@ GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separat
 
 Bei allen Objekten außer Leads können Sie Ihr {Feld zur Abfrage} aus den durchsuchbaren Feldern des entsprechenden Beschreibungsaufrufs auswählen und eine kommagetrennte Liste mit bis zu 300 Werten erstellen. Es gibt auch folgende optionale Abfrageparameter:
 
-- `batchSize` - Eine ganzzahlige Zählung der Anzahl der zurückzugebenden Ergebnisse. Der Standardwert und der Maximalwert sind 300.
-- `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wird. Siehe [Paging-Token](paging-tokens.md) für weitere Details.
+- `batchSize` - Eine ganzzahlige Zahl der zurückzugebenden Ergebnisse. Der Standardwert und der Maximalwert sind 300.
+- `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wird. Weitere Informationen finden Sie unter [Paging-Token](paging-tokens.md) .
 - `fields` - Eine kommagetrennte Liste von Feldnamen, die für jeden Datensatz zurückgegeben werden sollen. Eine Liste der gültigen Felder finden Sie in der entsprechenden Beschreibung. Wenn ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, wird der Wert als null impliziert.
-- `_method` - Dient zum Senden von Abfragen mit der POST-HTTP-Methode. Siehe den Abschnitt _method=GET weiter unten zur Verwendung.
+- `_method` - Wird zum Senden von Abfragen mit der POST-HTTP-Methode verwendet. Siehe den Abschnitt _method=GET weiter unten zur Verwendung.
 
 Sehen wir uns für ein kurzes Beispiel die Abfragemöglichkeiten an:
 
@@ -180,13 +180,13 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 }
 ```
 
-Die `filterType` wird in diesem Aufruf &quot;idField&quot;und nicht &quot;marketoGUID&quot;angegeben. Sowohl dies als auch &quot;dedupeFields&quot;sind Sonderfälle, bei denen das Feld, das dem idField oder dedupeFields entspricht, auf diese Weise als Alias bereitgestellt werden kann. Die &quot;marketoGUID&quot;ist weiterhin das resultierende Suchfeld im -Aufruf, wird jedoch nicht explizit im -Aufruf festgelegt. Die Felder und/oder Feldgruppen, die durch die Variable `idField` und `dedupeFields` einer Objektbeschreibung ist immer gültig `filterTypes` für eine Abfrage. Dieser Aufruf sucht nach Datensätzen, die mit den in filterValues enthaltenen GUIDs übereinstimmen, und gibt übereinstimmende Datensätze zurück. Wenn mit dieser Methode keine Datensätze gefunden werden, zeigt die Antwort weiterhin Erfolg an. Das Ergebnis-Array ist jedoch leer, da die Suche erfolgreich ausgeführt wurde, aber keine Datensätze zurückgegeben werden konnten.
+Die in diesem Aufruf angegebene `filterType` ist &quot;idField&quot; und nicht &quot;marketoGUID&quot;. Sowohl dies als auch &quot;dedupeFields&quot;sind Sonderfälle, bei denen das Feld, das dem idField oder dedupeFields entspricht, auf diese Weise als Alias bereitgestellt werden kann. Die &quot;marketoGUID&quot;ist weiterhin das resultierende Suchfeld im -Aufruf, wird jedoch nicht explizit im -Aufruf festgelegt. Die Felder und/oder Feldgruppen, die durch die Werte `idField` und `dedupeFields` einer Objektbeschreibung angegeben werden, sind für eine Abfrage immer gültig `filterTypes`. Dieser Aufruf sucht nach Datensätzen, die mit den in filterValues enthaltenen GUIDs übereinstimmen, und gibt übereinstimmende Datensätze zurück. Wenn mit dieser Methode keine Datensätze gefunden werden, zeigt die Antwort weiterhin Erfolg an. Das Ergebnis-Array ist jedoch leer, da die Suche erfolgreich ausgeführt wurde, aber keine Datensätze zurückgegeben werden konnten.
 
-Wenn die Datensatzgruppe in der Abfrage 300 oder `batchSize` angegeben wurde, je nachdem, welcher Wert kleiner ist, hat die Antwort ein Mitglied `moreResult` mit dem Wert &quot;true&quot;und einem `nextPageToken`, der in einen nachfolgenden Aufruf aufgenommen werden kann, um mehr von dem Satz abzurufen. Siehe [Paging-Token](paging-tokens.md) für weitere Details.
+Wenn der Datensatz in der Abfrage größer als 300 oder der angegebene `batchSize` ist (je nachdem, welcher Wert kleiner ist), hat die Antwort das Mitglied `moreResult` mit dem Wert &quot;true&quot;und ein `nextPageToken`, das in einen nachfolgenden Aufruf aufgenommen werden kann, um mehr von der Menge abzurufen. Weitere Informationen finden Sie unter [Paging-Token](paging-tokens.md) .
 
 ### Lange URIs
 
-Manchmal kann der URI, z. B. bei der Abfrage durch GUIDs, lang sein und die vom REST-Dienst zulässige Größe von 8 KB überschreiten. In diesem Fall müssen Sie die HTTP-POST-Methode anstelle von GET verwenden und einen Abfrageparameter hinzufügen `_method=GET`. Darüber hinaus müssen die übrigen Abfrageparameter als Zeichenfolge &quot;application/x-www-form-urlencoded&quot;im Hauptteil der POST übergeben und die zugehörige Kopfzeile vom Typ Inhalt übergeben werden.
+Manchmal kann der URI, z. B. bei der Abfrage durch GUIDs, lang sein und die vom REST-Dienst zulässige Größe von 8 KB überschreiten. In diesem Fall müssen Sie die HTTP-POST-Methode anstelle von GET verwenden und den Abfrageparameter `_method=GET` hinzufügen. Darüber hinaus müssen die übrigen Abfrageparameter als Zeichenfolge &quot;application/x-www-form-urlencoded&quot;im Hauptteil der POST übergeben und die zugehörige Kopfzeile vom Typ Inhalt übergeben werden.
 
 ```
 POST /rest/v1/opportunities.json?_method=GET
@@ -204,7 +204,7 @@ Neben langen URIs ist dieser Parameter auch beim Abfragen von ebenenübergreifen
 
 ### Zusammengesetzte Schlüssel
 
-Das Muster zum Abfragen von zusammengesetzten Schlüsseln unterscheidet sich von einfachen Schlüsseln, da es das Senden einer POST mit einem JSON-Hauptteil erfordert. Dies ist nicht in allen Fällen erforderlich, nur in den Fällen, in denen ein `dedupeFields` Option mit mehreren Feldern wird als `filterType`. Derzeit werden zusammengesetzte Schlüssel nur von Opportunity-Rollen und einigen benutzerdefinierten Objekten verwendet. Sehen wir uns ein Beispiel einer Abfrage für Opportunity-Rollen mit dem zusammengesetzten Schlüssel von an. `dedupeFields`:
+Das Muster zum Abfragen von zusammengesetzten Schlüsseln unterscheidet sich von einfachen Schlüsseln, da es das Senden einer POST mit einem JSON-Hauptteil erfordert. Dies ist nicht in allen Fällen erforderlich, nur in den Fällen, in denen eine `dedupeFields` -Option mit mehreren Feldern als `filterType` verwendet wird. Derzeit werden zusammengesetzte Schlüssel nur von Opportunity-Rollen und einigen benutzerdefinierten Objekten verwendet. Sehen wir uns ein Beispiel einer Abfrage für Opportunity Roles mit dem zusammengesetzten Schlüssel von `dedupeFields` an:
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -239,15 +239,15 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-Die Struktur des JSON-Objekts ist größtenteils flach und alle Abfrageparameter für Abfragen mit einfachen Schlüsseln sind gültige Mitglieder, mit Ausnahme von `filterValues`. Statt eines Filterwerts gibt es ein &quot;Eingabe&quot;-Array von JSON-Objekten, die jeweils ein Mitglied für jedes Feld im zusammengesetzten Schlüssel haben müssen. In diesem Fall handelt es sich um `externalOpportunityId`, `leadId`, und `role`. Dadurch wird eine Abfrage für `roles`, um die bereitgestellten Eingaben abzugleichen und die entsprechenden Ergebnisse zurückzugeben. Wenn die Antwort einen Parameter mit `moreResult=true`und ein `nextPageToken`, müssen Sie alle ursprünglichen Eingaben und die `nextPageToken` für die ordnungsgemäße Ausführung der Abfrage.
+Die Struktur des JSON-Objekts ist größtenteils flach, und alle Abfrageparameter für Abfragen mit einfachen Schlüsseln sind gültige Mitglieder, mit Ausnahme von `filterValues`. Anstelle eines Filterwerts gibt es ein &quot;Eingabe&quot;-Array von JSON-Objekten, die jeweils ein Mitglied für jedes Feld im zusammengesetzten Schlüssel haben müssen. In diesem Fall handelt es sich um `externalOpportunityId`, `leadId` und `role`. Dadurch wird eine Abfrage für `roles` ausgeführt, die die bereitgestellten Eingaben berücksichtigt und die entsprechenden Ergebnisse zurückgegeben. Wenn die Antwort einen Parameter mit &quot;`moreResult=true`&quot; und &quot;`nextPageToken`&quot; zurückgibt, müssen Sie alle ursprünglichen Eingaben und die &quot;`nextPageToken`&quot;einschließen, damit die Abfrage ordnungsgemäß ausgeführt wird.
 
 ## Erstellen und Aktualisieren
 
 Erstellt und aktualisiert Lead-Datenbankdatensätze, die alle über POSTs mit JSON-Stellen durchgeführt werden. Die Benutzeroberfläche für Chancen, Rollen, benutzerdefinierte Objekte, Unternehmen und SalesPersons ist identisch. Die Oberfläche des Leads ist etwas anders, und Sie können dort mehr darüber lesen.
 
-Der einzige erforderliche Parameter ist ein Array namens `input` enthält bis zu 300 Objekte mit jeweils den Feldern, die Sie als Mitglieder einfügen/aktualisieren möchten. Sie können optional auch eine `action` -Parameter, der eines der folgenden sein kann: `createOnly`, `updateOnly`oder `createOrUpdate`. Wenn die Aktion weggelassen wird, wird der Modus standardmäßig auf `createOrUpdate`. `dedupeBy` ist ein weiterer optionaler Parameter, der verwendet werden kann, wenn die Aktion auf &quot;createOnly&quot;oder `createOrUpdate`. ` dedupeBy` kann entweder `idField`oder `dedupeFields`. Wenn `idField` ausgewählt ist, wird die `idField` in der Beschreibung aufgeführt ist, wird zur Deduplizierung verwendet und muss in jedem Datensatz enthalten sein. `idField` -Modus ist nicht kompatibel mit `createOnly` -Modus. Wenn `dedupeFields` ausgewählt sind, wird die `dedupeFields` in der verwendeten Objektbeschreibung aufgeführt sind und jeder Datensatz enthalten sein muss. Wenn die Variable `dedupeBy` ausgelassen wird, wird der Modus standardmäßig auf `dedupeFields`.
+Der einzig erforderliche Parameter ist ein Array namens `input` mit bis zu 300 Objekten, von denen jedes die Felder enthält, die Sie als Mitglieder einfügen/aktualisieren möchten. Sie können optional auch einen `action` -Parameter einbeziehen, der einer der folgenden sein kann: `createOnly`, `updateOnly` oder `createOrUpdate`. Wenn die Aktion weggelassen wird, ist der Modus standardmäßig `createOrUpdate`. `dedupeBy` ist ein weiterer optionaler Parameter, der verwendet werden kann, wenn die Aktion auf &quot;createOnly&quot;oder &quot;1&quot;festgelegt ist. `createOrUpdate` ` dedupeBy` kann entweder `idField` oder `dedupeFields` sein. Wenn `idField` ausgewählt ist, wird die in der Beschreibung aufgeführte `idField` zur Deduplizierung verwendet und muss in jedem Datensatz enthalten sein. Der Modus `idField` ist nicht mit dem Modus `createOnly` kompatibel. Wenn `dedupeFields` ausgewählt ist, muss der in der verwendeten Objektbeschreibung aufgeführte `dedupeFields`-Wert enthalten sein und jeder einzelne muss in jedem Datensatz enthalten sein. Wenn der Parameter `dedupeBy` weggelassen wird, ist der Modus standardmäßig `dedupeFields`.
 
-Beim Übergeben einer Liste von Feldwerten wird der Wert `null`, oder eine leere Zeichenfolge, wird als `null`.
+Beim Übergeben einer Liste von Feldwerten wird der Wert `null` oder eine leere Zeichenfolge als `null` in die Datenbank geschrieben.
 
 ```
 POST /rest/v1/opportunities.json
@@ -295,11 +295,11 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-Anders als bei der Lead-API geben Aufrufe zum Erstellen oder Aktualisieren von Lead-Datenbankobjekten eine `seq` -Feld in den einzelnen Objekten im `result` Array. Die aufgeführte Zahl entspricht der Reihenfolge des aktualisierten Datensatzes in der Anfrage. Jedes Element gibt den Wert der `idField` für den Objekttyp und eine `status`. Das Statusfeld zeigt &quot;created&quot;, &quot;updated&quot;oder &quot;skipped&quot; an.  Wenn der Status übersprungen wird, gibt es auch ein entsprechendes &quot;Grund&quot;-Array mit einem oder mehreren &quot;Grund&quot;-Objekten, die einen Code und eine Meldung enthalten, die angibt, warum ein Datensatz übersprungen wurde. Siehe [Fehlercodes](error-codes.md) für weitere Details.
+Anders als bei der Leads-API geben Aufrufe zum Erstellen oder Aktualisieren von Lead-Datenbankobjekten in jedem Objekt im Array `result` ein Feld `seq` zurück. Die aufgeführte Zahl entspricht der Reihenfolge des aktualisierten Datensatzes in der Anfrage. Jedes Element gibt den Wert von `idField` für den Objekttyp und eine `status` zurück. Das Statusfeld zeigt &quot;created&quot;, &quot;updated&quot;oder &quot;skipped&quot; an.  Wenn der Status übersprungen wird, gibt es auch ein entsprechendes &quot;Grund&quot;-Array mit einem oder mehreren &quot;Grund&quot;-Objekten, die einen Code und eine Meldung enthalten, die angibt, warum ein Datensatz übersprungen wurde. Weitere Informationen finden Sie unter [Fehlercodes](error-codes.md) .
 
 ### Löschen
 
-Die Benutzeroberfläche für das Löschen ist standardmäßig für Lead-Datenbankobjekte, die von Leads abweichen. Neben der Eingabe gibt es nur einen erforderlichen Parameter `deleteBy,` die den Wert idField oder dedupeFields haben kann. Sehen wir uns das Löschen einiger benutzerdefinierter Objekte an.
+Die Benutzeroberfläche für das Löschen ist standardmäßig für Lead-Datenbankobjekte, die von Leads abweichen. Neben der Eingabe gibt es nur einen erforderlichen Parameter `deleteBy,`, der den Wert idField oder dedupeFields haben kann. Sehen wir uns das Löschen einiger benutzerdefinierter Objekte an.
 
 ```
 POST /rest/v1/customobjects/{name}/delete.json
@@ -351,6 +351,6 @@ POST /rest/v1/customobjects/{name}/delete.json
 }
 ```
 
-Die `seq`, `status`, `marketoGUID`, und `reasons` sollten Sie jetzt alle kennen.
+Die `seq`, `status`, `marketoGUID` und `reasons` sollten euch jetzt alle vertraut sein.
 
 Weitere Informationen zum Arbeiten mit CRUD-Vorgängen für jeden einzelnen Objekttyp finden Sie auf den entsprechenden Seiten.

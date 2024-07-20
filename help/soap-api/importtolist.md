@@ -1,20 +1,20 @@
 ---
-title: "importToList"
+title: importToList
 feature: SOAP
-description: "importToList SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: importToList-SOAP
+exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '317'
 ht-degree: 5%
 
 ---
 
-
 # importToList
 
 Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statische Liste in Marketo importieren, ähnlich wie bei der Import-Listenfunktion in der Benutzeroberfläche von Marketo.
 
-**Importformat:** Diese Werte entsprechen der Struktur einer CSV-Datei, die in einem Listenimport verwendet wird.
+**Importformat:** Diese Werte sind mit der Struktur einer CSV-Datei identisch, die in einem Listenimport verwendet wird.
 
 **Beispiel:**
 
@@ -24,7 +24,7 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Hinweis:** `displayName` -Werte in der `importFileHeader` anstelle der `name` -Werte.
+**Hinweis:** `displayName` -Werte sollten in den `importFileHeader` anstelle der `name` -Werte verwendet werden.
 
 **Dynamischer E-Mail-Inhalt:** Optional können Sie Werte pro Lead weitergeben, die als Ersatz für My Tokens in einer E-Mail dienen.
 
@@ -36,7 +36,7 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 
 **Wichtig:** Wenn Sie Token für die Leads hinzufügen, müssen Sie die Smart-Kampagne angeben, die diese verwendet. Wenn die angegebene Smart-Kampagne das nächste Mal ausgeführt wird, verwendet sie die Werte aus Ihrer Liste anstelle der normalen My Token-Werte. Nachdem diese einzelne Kampagne ausgeführt wurde, werden die Token verworfen.
 
-**NOTE:** `importToList` kann einige Zeit in Anspruch nehmen, insbesondere bei großen Listen. Wenn Sie die neu importierte Liste in anderen API-Aufrufen verwenden möchten, sollten Sie `importToListStatus` , um zu überprüfen, ob der Vorgang abgeschlossen ist.
+**HINWEIS:** `importToList` kann einige Zeit in Anspruch nehmen, insbesondere bei großen Listen. Wenn Sie die neu importierte Liste in anderen API-Aufrufen verwenden möchten, sollten Sie mit `importToListStatus` überprüfen, ob der Vorgang abgeschlossen ist.
 
 ## Anfrage
 

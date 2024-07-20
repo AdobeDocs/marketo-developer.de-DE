@@ -1,14 +1,14 @@
 ---
-title: "Massenextraktion"
+title: Massenextraktion
 feature: REST API
-description: "Batch-Vorgänge zum Extrahieren von Marketo-Daten."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Stapelvorgänge zum Extrahieren von Marketo-Daten.
+exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1643'
 ht-degree: 1%
 
 ---
-
 
 # Massenextraktion
 
@@ -21,11 +21,11 @@ Marketo bietet Schnittstellen zum Abrufen großer Mengen von personenbezogenen u
 
 Die Massenextraktion wird ausgeführt, indem ein Auftrag erstellt wird, der Datensatz zum Abrufen definiert wird, der Auftrag in die Warteschlange gestellt wird, darauf gewartet wird, dass der Auftrag das Schreiben einer Datei abgeschlossen hat, und dann die Datei über HTTP abgerufen wird. Diese Aufträge werden asynchron ausgeführt und können abgerufen werden, um den Status des Exports abzurufen.
 
-`Note:` Massen-API-Endpunkte erhalten wie andere Endpunkte nicht das Präfix &quot;/rest&quot;.
+`Note:` Massen-API-Endpunkte haben nicht wie andere Endpunkte das Präfix &quot;/rest&quot;.
 
 ## Authentifizierung
 
-Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs. Dazu muss ein gültiges Zugriffstoken entweder als Abfragezeichenfolgenparameter eingebettet werden `access_token={_AccessToken_}`oder als HTTP-Header `Authorization: Bearer {_AccessToken_}`.
+Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs. Dazu muss ein gültiges Zugriffstoken entweder als Abfragezeichenfolgenparameter `access_token={_AccessToken_}` oder als HTTP-Header `Authorization: Bearer {_AccessToken_}` eingebettet werden.
 
 ## Beschränkungen
 
@@ -45,13 +45,13 @@ Die maximale Anzahl von Aufträgen in der Warteschlange beträgt 10. Wenn Sie ve
 
 ### Dateigröße
 
-Die Massenextraktions-APIs werden basierend auf der Größe auf der Festplatte der Daten gemessen, die von einem Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Auftrag kann durch Lesen der Variablen `fileSize` -Attribut aus der abgeschlossenen Statusantwort eines Exportauftrags.
+Die Massenextraktions-APIs werden basierend auf der Größe auf der Festplatte der Daten gemessen, die von einem Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Auftrag kann durch Lesen des Attributs `fileSize` aus der abgeschlossenen Statusantwort eines Exportauftrags bestimmt werden.
 
 Das tägliche Kontingent beträgt maximal 500 MB pro Tag, das von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt wird. Wenn das Kontingent überschritten wird, können Sie keinen weiteren Auftrag erstellen oder in die Warteschlange einreihen, bis das tägliche Kontingent um Mitternacht zurückgesetzt wird [Central Time](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler &quot;1029, Export der täglichen Kontingentsmenge überschritten&quot;zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
 Sobald ein Auftrag in die Warteschlange gestellt oder verarbeitet wurde, läuft er bis zum Abschluss (mit Ausnahme eines Fehlers oder eines Auftragsabbruchs). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status &quot;Abgeschlossen&quot;erreicht (Teildateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie den SHA-256-Hash berechnen und diese mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
 
-Sie können die für den aktuellen Tag insgesamt verwendete Festplatte ermitteln, indem Sie &quot;Export Lead/Aktivität/Programmteilaufträge abrufen&quot;aufrufen. Diese Endpunkte geben eine Liste aller Aufträge aus den letzten sieben Tagen zurück. Sie können diese Liste nach nur den Aufträgen filtern, die am aktuellen Tag abgeschlossen wurden (mithilfe von `status` und `finishedAt` -Attribute). Geben Sie dann die Dateigrößen für diese Aufträge an, um die insgesamt verwendete Menge zu erhalten. Es gibt keine Möglichkeit, eine Datei zu löschen, um Speicherplatz zurückzugewinnen.
+Sie können die für den aktuellen Tag insgesamt verwendete Festplatte ermitteln, indem Sie &quot;Export Lead/Aktivität/Programmteilaufträge abrufen&quot;aufrufen. Diese Endpunkte geben eine Liste aller Aufträge aus den letzten sieben Tagen zurück. Sie können diese Liste nach nur den Aufträgen filtern, die am aktuellen Tag abgeschlossen wurden (mithilfe der Attribute `status` und `finishedAt`). Geben Sie dann die Dateigrößen für diese Aufträge an, um die insgesamt verwendete Menge zu erhalten. Es gibt keine Möglichkeit, eine Datei zu löschen, um Speicherplatz zurückzugewinnen.
 
 ## Berechtigungen
 
@@ -107,7 +107,7 @@ Mit dieser einfachen Anfrage wird ein Auftrag erstellt, der die in den Feldern &
 }
 ```
 
-Wenn wir den Auftrag erstellen, wird eine Auftrags-ID im `exportId` -Attribut. Anschließend können wir diese Auftrags-ID verwenden, um den Auftrag anzureihen, abzubrechen, seinen Status zu überprüfen oder die abgeschlossene Datei abzurufen.
+Wenn wir den Auftrag erstellen, wird eine Auftrags-ID im Attribut `exportId` zurückgegeben. Anschließend können wir diese Auftrags-ID verwenden, um den Auftrag anzureihen, abzubrechen, seinen Status zu überprüfen oder die abgeschlossene Datei abzurufen.
 
 ### Allgemeine Parameter
 
@@ -122,7 +122,7 @@ Jeder Endpunkt zur Auftragserstellung gibt einige allgemeine Parameter zum Konfi
 
 ## Abrufen von Aufträgen
 
-Manchmal müssen Sie Ihre letzten Aufträge abrufen. Dies ist mit dem Befehl &quot;Get Export Jobs&quot;für den entsprechenden Objekttyp einfach zu erledigen. Jeder Get Export Jobs-Endpunkt unterstützt eine `status` Filterfeld, ein  `batchSize` zur Begrenzung der Anzahl der zurückgegebenen Aufträge und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportauftrag: &quot;Erstellt&quot;, &quot;In Warteschlange&quot;, &quot;Verarbeitung&quot;, &quot;Abgebrochen&quot;, &quot;Abgeschlossen&quot;und &quot;Fehlgeschlagen&quot;. Die batchSize hat eine maximale und die Standardeinstellung von 300. Rufen wir die Liste der Lead-Exportaufträge ab:
+Manchmal müssen Sie Ihre letzten Aufträge abrufen. Dies ist mit dem Befehl &quot;Get Export Jobs&quot;für den entsprechenden Objekttyp einfach zu erledigen. Jeder Get Export Jobs-Endpunkt unterstützt ein `status` -Filterfeld, ein  `batchSize` , um die Anzahl der zurückgegebenen Aufträge zu begrenzen, und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportauftrag: &quot;Erstellt&quot;, &quot;In Warteschlange&quot;, &quot;Verarbeitung&quot;, &quot;Abgebrochen&quot;, &quot;Abgeschlossen&quot;und &quot;Fehlgeschlagen&quot;. Die batchSize hat eine maximale und die Standardeinstellung von 300. Rufen wir die Liste der Lead-Exportaufträge ab:
 
 ```
 GET /bulk/v1/leads/export.json?status=Completed,Failed
@@ -150,7 +150,7 @@ GET /bulk/v1/leads/export.json?status=Completed,Failed
 }
 ```
 
-Der Endpunkt antwortet mit `status` Antwort jedes Auftrags, der in den letzten sieben Tagen für diesen Objekttyp im Ergebnisarray erstellt wurde. Die Antwort enthält nur Ergebnisse für Aufträge, die dem API-Benutzer gehören, der den Aufruf durchführt.
+Der Endpunkt antwortet mit der Antwort `status` jedes Auftrags, der in den letzten sieben Tagen für diesen Objekttyp im Ergebnisarray erstellt wurde. Die Antwort enthält nur Ergebnisse für Aufträge, die dem API-Benutzer gehören, der den Aufruf durchführt.
 
 ## Auftrag starten
 
@@ -193,7 +193,7 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 }
 ```
 
-Der Gewinner `status` -Element gibt den Fortschritt des Auftrags an und kann einer der folgenden Werte sein: Erstellt, In Warteschlange, Verarbeitung, Abgebrochen, Abgeschlossen, Fehlgeschlagen. In diesem Fall ist unser Auftrag abgeschlossen, sodass wir die Abfrage stoppen und die Datei weiterhin abrufen können. Nach Abschluss der `fileSize` -Element gibt die Gesamtlänge der Datei in Byte an und die `fileChecksum` -Element enthält den SHA-256-Hash der Datei. Der Auftragsstatus ist 30 Tage lang verfügbar, nachdem der Status Abgeschlossen oder Fehlgeschlagen erreicht wurde.
+Das innere Element `status` gibt den Fortschritt des Auftrags an und kann einer der folgenden Werte sein: Erstellt, In Warteschlange, Verarbeitung, Abgebrochen, Abgeschlossen, Fehlgeschlagen. In diesem Fall ist unser Auftrag abgeschlossen, sodass wir die Abfrage stoppen und die Datei weiterhin abrufen können. Wenn der Vorgang abgeschlossen ist, gibt das Element `fileSize` die Gesamtlänge der Datei in Byte an und das Element `fileChecksum` enthält den SHA-256-Hash der Datei. Der Auftragsstatus ist 30 Tage lang verfügbar, nachdem der Status Abgeschlossen oder Fehlgeschlagen erreicht wurde.
 
 ## Abrufen Ihrer Daten
 
@@ -205,7 +205,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 Die Antwort enthält eine Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der Datei. Wenn ein Auftrag nicht abgeschlossen oder eine ungültige Auftrags-ID übergeben wurde, antworten Dateiendpunkte mit dem Status &quot;404 Nicht gefunden&quot;und einer Fehlermeldung als Payload (im Gegensatz zu den meisten anderen Marketo REST-Endpunkten).
 
-Um das teilweise und wiederverwendbare Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional den HTTP-Header `Range` des Typs `bytes` (pro [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn der Header nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer GET abzurufen, übergeben Sie die folgende Kopfzeile als Teil Ihrer -Anfrage an den -Endpunkt, beginnend mit Byte 0:
+Um das teilweise und wiederverwendbare Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional den HTTP-Header `Range` des Typs `bytes` (per [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn der Header nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer GET abzurufen, übergeben Sie die folgende Kopfzeile als Teil Ihrer -Anfrage an den -Endpunkt, beginnend mit Byte 0:
 
 ```
 Range: bytes=0-9999
@@ -221,7 +221,7 @@ Content-Range: bytes 0-9999/123424
 
 ### Teilabruf und -wiederaufnahme
 
-Die Dateien können teilweise abgerufen oder später mithilfe des `Range` -Kopfzeile. Der Bereich für eine Datei beginnt bei Byte 0 und endet mit dem Wert von `fileSize` abzüglich 1. Die Länge der Datei wird auch als Nenner im Wert der `Content-Range` Antwortheader beim Aufrufen eines &quot;Get Export File&quot;-Endpunkts. Wenn ein Abruf teilweise fehlschlägt, kann er später wieder aufgenommen werden. Wenn Sie z. B. versuchen, eine Datei mit einer Länge von 1000 Byte abzurufen, aber nur die ersten 725 Byte empfangen wurden, kann der Abruf ab dem Zeitpunkt des Fehlschlagens wiederholt werden, indem der Endpunkt erneut aufgerufen und ein neuer Bereich übergeben wird:
+Die Dateien können teilweise abgerufen oder später mit der Kopfzeile `Range` fortgesetzt werden. Der Bereich für eine Datei beginnt bei Byte 0 und endet beim Wert von `fileSize` minus 1. Die Länge der Datei wird auch als Nenner im Wert des Antwortheaders `Content-Range` beim Aufruf eines Endpunkts &quot;Get Export File&quot;berichtet. Wenn ein Abruf teilweise fehlschlägt, kann er später wieder aufgenommen werden. Wenn Sie z. B. versuchen, eine Datei mit einer Länge von 1000 Byte abzurufen, aber nur die ersten 725 Byte empfangen wurden, kann der Abruf ab dem Zeitpunkt des Fehlschlagens wiederholt werden, indem der Endpunkt erneut aufgerufen und ein neuer Bereich übergeben wird:
 
 ```
 Range: bytes 724-999
@@ -231,7 +231,7 @@ Dadurch werden die verbleibenden 275 Byte der Datei zurückgegeben.
 
 #### Überprüfung der Dateiintegrität
 
-Die Auftragsstatus-Endpunkte geben eine Prüfsumme im `fileChecksum` Attribut bei `status` ist &quot;Abgeschlossen&quot;. Die Prüfsumme ist ein SHA-256-Hash der exportierten Datei. Sie können die Prüfsumme mit dem SHA-256-Hash der abgerufenen Datei vergleichen, um sicherzustellen, dass sie vollständig ist.
+Die Auftragsstatus-Endpunkte geben eine Prüfsumme im Attribut `fileChecksum` zurück, wenn `status` &quot;Abgeschlossen&quot;ist. Die Prüfsumme ist ein SHA-256-Hash der exportierten Datei. Sie können die Prüfsumme mit dem SHA-256-Hash der abgerufenen Datei vergleichen, um sicherzustellen, dass sie vollständig ist.
 
 Im Folgenden finden Sie eine Beispielantwort mit der Prüfsumme:
 

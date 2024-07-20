@@ -1,20 +1,20 @@
 ---
-title: "Web-Personalisierung"
-description: "Web-Personalisierung"
+title: Web-Personalisierung
+description: Web-Personalisierung
 feature: Web Personalization, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '401'
-ht-degree: 5%
+ht-degree: 6%
 
 ---
 
-
 # Web-Personalisierung
 
-Die Web Personalization JavaScript-API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Verfolgung von Ereignissen und die dynamische Anpassung einer Webseite. Zusätzliche Funktionen: [Benutzerspezifische Datenereignisse](custom-data-events.md), [Dynamische Inhalte](web-personalization.md), [Abrufen von Besucherdaten](get-visitor-data.md), [Ausschluss von Tags für bestimmte Bots](#exclude_tag_for_specific_bots).
+Die Web Personalization JavaScript API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Verfolgung von Ereignissen und die dynamische Anpassung einer Webseite. Zusätzliche Funktionen: [Benutzerspezifische Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
 
-- Sie müssen Web Personalization-Kunde werden und über die [RTP-Tag bereitgestellt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site vor der Verwendung der Benutzerkontext-API.
+- Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Konto-basierten Marketinglisten mit Namen. ABM-Listen und -Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die innerhalb von RTP verwaltet werden.
 
 ## Tag-Einrichtung
@@ -71,9 +71,9 @@ rtp('send', 'view', page);
 
 ## Ausschluss von Tags für bestimmte Bots (Benutzeragenten)
 
-Um bestimmte Browser vom Senden von Daten an die Web Personalization-Plattform auszuschließen (im Fall von identifizierten Bots), fügen Sie die folgende IF-Anweisung zum Tag-Skript hinzu.
+Um bestimmte Browser vom Senden von Daten an die Web Personalization-Plattform auszuschließen (bei identifizierten Bots), fügen Sie die folgende IF-Anweisung zum Tag-Skript hinzu.
 
-Im folgenden Codebeispiel wird &quot;googlebot|msnbot&quot;als Bot-Beispiele verwendet, um ihn aus Web-Personalisierungsaktivitäten auszuschließen.
+Im folgenden Codebeispiel wird &quot;googlebot|msnbot&quot;als Bot-Beispiele verwendet, um sie aus Web-Personalization-Aktivitäten auszuschließen.
 
 ```javascript
 <!-- RTP tag --> 
@@ -91,11 +91,11 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 <!-- End of RTP tag -->
 ```
 
-## Erläuterung von JavaScript-Aufrufen
+## JavaScript-Aufrufe - Erläuterung
 
-Beschreibung von JavaScript, das einer Website bei Verwendung von Web-Personalisierung und prädiktiven Inhalten hinzugefügt wird.
+Beschreibung von JavaScript, die einer Website bei Verwendung von Web Personalization und Predictive Content hinzugefügt wird.
 
-### Kern/Abhängiges JavaScript
+### Zentrale/abhängige JavaScript
 
 | Name | Beschreibung | Kontrolle |
 |---------------------------|-------------|--------------------------------------------------------|
@@ -107,7 +107,7 @@ Beschreibung von JavaScript, das einer Website bei Verwendung von Web-Personalis
 
 *Wird nur verwendet, wenn das Dialogfeld &quot;jQuery UI&quot;fehlt
 
-### On-Demand-JavaScript
+### On Demand JavaScript
 
 | Name | Beschreibung | Kontrolle |
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
@@ -115,4 +115,3 @@ Beschreibung von JavaScript, das einer Website bei Verwendung von Web-Personalis
 | insightera-bar-2.1.js | Wird verwendet, wenn die Empfehlungsleiste für prädiktive Inhalte aktiviert ist | Kontrolliert von Marketo |
 | froogaloop2.min.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der Vimeo-Player auf der Seite vorhanden ist | - |
 | iframe-api-v1.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der YouTube-Player auf der Seite vorhanden ist | - |
-

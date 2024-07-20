@@ -1,20 +1,20 @@
 ---
-title: "Named Account Lists"
+title: Namenskontenlisten
 feature: REST API
-description: '"Spezifische Kontolisten konfigurieren".'
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Spezifische Kontolisten konfigurieren.
+exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 3%
 
 ---
 
-
 # Namenskontenlisten
 
-[Endpunktverweis zu benannten Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[Endpunktverweis für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Namenskontenlisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen von benannten Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Anreicherung von Daten und Filterung intelligenter Kampagnen. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
+[Namensgebene Kontolisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Anreicherung von Daten und Filterung intelligenter Kampagnen. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
 `Content`
 
 ## Berechtigungen
@@ -37,7 +37,7 @@ Namenslisten verfügen über eine begrenzte Anzahl von Standardfeldern und sind 
 
 ## Anfrage
 
-Die Abfrage von Kontolisten ist einfach und einfach. Derzeit gibt es nur zwei gültige filterTypes für die Abfrage von benannten Kontolisten: &quot;dedupeFields&quot;und &quot;idField&quot;. Das zu filternde Feld wird im `filterType` -Parameter der Abfrage und die Werte werden in `filterValues as` eine kommagetrennte Liste. Die `nextPageToken` und `batchSize` Filter sind auch optionale Parameter.
+Die Abfrage von Kontolisten ist einfach und einfach. Derzeit gibt es nur zwei gültige filterTypes für die Abfrage von benannten Kontolisten: &quot;dedupeFields&quot;und &quot;idField&quot;. Das Feld, nach dem gefiltert werden soll, wird im Parameter `filterType` der Abfrage festgelegt und die Werte werden in `filterValues as` in einer kommagetrennten Liste festgelegt. Die Filter `nextPageToken` und `batchSize` sind ebenfalls optionale Parameter.
 
 ```
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
@@ -72,11 +72,11 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 ## Erstellen und Aktualisieren
 
-Das Erstellen und Aktualisieren von benannten Kontolistendatensätzen folgt den festgelegten Mustern für andere Vorgänge zum Erstellen und Aktualisieren von Lead-Datenbanken. Beachten Sie, dass benannte Kontolisten nur ein aktualisierbares Feld aufweisen. `name`.
+Das Erstellen und Aktualisieren von benannten Kontolistendatensätzen folgt den festgelegten Mustern für andere Vorgänge zum Erstellen und Aktualisieren von Lead-Datenbanken. Beachten Sie, dass benannte Kontolisten nur ein aktualisierbares Feld, `name`, aufweisen.
 
-Der Endpunkt ermöglicht die beiden standardmäßigen Aktionstypen &quot;createOnly&quot;und &quot;updateOnly&quot;.  Die `action defaults` auf &quot;createOnly&quot;.
+Der Endpunkt ermöglicht die beiden standardmäßigen Aktionstypen &quot;createOnly&quot;und &quot;updateOnly&quot;.  Der `action defaults`-Wert &quot;createOnly&quot;.
 
-Das optionale `dedupeBy parameter` kann angegeben werden, wenn die Aktion `updateOnly`.  Zulässige Werte sind &quot;dedupeFields&quot;(entspricht &quot;name&quot;) oder &quot;idField&quot;(entspricht &quot;marketoGUID&quot;).  In `createOnly` -Modi, ist nur &quot;name&quot;zulässig, da die `dedupeBy` -Feld. Sie können bis zu 300 Datensätze gleichzeitig versenden.
+Das optionale `dedupeBy parameter` kann angegeben werden, wenn die Aktion `updateOnly` ist.  Zulässige Werte sind &quot;dedupeFields&quot;(entspricht &quot;name&quot;) oder &quot;idField&quot;(entspricht &quot;marketoGUID&quot;).  In den Modi `createOnly` ist nur &quot;name&quot;als Feld `dedupeBy` zulässig. Sie können bis zu 300 Datensätze gleichzeitig versenden.
 
 ```
 POST /rest/v1/namedAccountLists.json
@@ -118,7 +118,7 @@ POST /rest/v1/namedAccountLists.json
 
 ## Löschen
 
-Das Löschen von Listen mit benannten Konten ist einfach und kann auf der Grundlage der `name`oder die `marketoGUID` der Liste. Um den Schlüssel auszuwählen, den Sie verwenden möchten, übergeben Sie entweder &quot;dedupeFields&quot;für name oder &quot;idField&quot;für marketoGUID in der`deleteB` Mitglied Ihrer Anfrage. Wenn diese Option deaktiviert ist, wird standardmäßig dedupeFields verwendet. Sie können bis zu 300 Datensätze gleichzeitig löschen.
+Das Löschen von Listen mit benannten Konten ist einfach und kann entweder auf der Basis von `name` oder der `marketoGUID` der Liste erfolgen. Um den Schlüssel auszuwählen, den Sie verwenden möchten, übergeben Sie entweder &quot;dedupeFields&quot;für name oder &quot;idField&quot;für marketoGUID im `deleteB`-Mitglied Ihrer Anfrage. Wenn diese Option deaktiviert ist, wird standardmäßig dedupeFields verwendet. Sie können bis zu 300 Datensätze gleichzeitig löschen.
 
 ```
 POST /rest/v1/namedAccountLists/delete.json
@@ -170,17 +170,19 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-Falls ein Datensatz für einen bestimmten Schlüssel nicht gefunden werden kann, weist das entsprechende Ergebniselement eine`status` &quot;skipped&quot;(übersprungen) und einen Grund mit einem Code und einer Meldung, die den Fehler beschreiben, wie im obigen Beispiel gezeigt.
+Falls ein Datensatz für einen bestimmten Schlüssel nicht gefunden werden kann, hat das entsprechende Ergebniselement den Wert `status` &quot;skipped&quot;(übersprungen) und einen Grund mit einem Code und einer Meldung, die den Fehler beschreibt, wie im obigen Beispiel gezeigt.
 
 ## Verwalten der Mitgliedschaft
 
 ### Mitgliedschaft in Abfragen
 
-Die Abfrage der Mitgliedschaft in einer Liste mit benannten Konten ist einfach und erfordert nur die`i` der Kontoliste. Optionale Parameter sind:
+Die Abfrage der Mitgliedschaft in einer Liste mit benannten Konten ist einfach und erfordert nur den `i` der Kontoliste. Optionale Parameter sind:
 
--`field` - eine kommagetrennte Liste von Feldern, die in die Antwortdatensätze aufgenommen werden sollen -`nextPageToke` - für Paging durch den Ergebnissatz -`batchSiz` - zur Angabe der Anzahl der zurückzugebenden Datensätze
+-`field` - eine kommagetrennte Liste von Feldern, die in die Antwortdatensätze aufgenommen werden sollen
+-`nextPageToke` - für das Paging durch den Ergebnissatz
+-`batchSiz` - zur Angabe der Anzahl der zurückzugebenden Datensätze
 
-Wenn`field` nicht festgelegt ist, dann`marketoGUI`,`nam`, `createdA`, und`updatedA` zurückgegeben. `batchSiz` hat einen Maximalwert und einen Standardwert von 300.
+Wenn `field` nicht festgelegt ist, werden `marketoGUI`, `nam`, `createdA` und `updatedA` zurückgegeben. `batchSiz` hat einen Maximalwert und einen Standardwert von 300.
 
 ```
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
@@ -251,7 +253,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Mitglieder löschen
 
-Das Entfernen von Datensätzen aus einer Kontoliste hat einen anderen Pfad, aber dieselbe Oberfläche erfordert eine`marketoGUI` für jeden Datensatz, den Sie löschen möchten. Sie können bis zu 300 Datensätze gleichzeitig entfernen.
+Das Entfernen von Datensätzen aus einer Kontoliste hat einen anderen Pfad, aber dieselbe Benutzeroberfläche, die einen `marketoGUI` für jeden Datensatz erfordert, den Sie löschen möchten. Sie können bis zu 300 Datensätze gleichzeitig entfernen.
 
 ```
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json

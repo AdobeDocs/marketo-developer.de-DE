@@ -1,14 +1,14 @@
 ---
-title: "syncCustomObjects"
+title: syncCustomObjects
 feature: SOAP
-description: "syncCustomObjects SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncCustomObjects SOAP Aufrufe
+exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 3%
 
 ---
-
 
 # syncCustomObjects
 
@@ -20,7 +20,7 @@ Akzeptiert ein Array von benutzerdefinierten Objekten, die erstellt oder aktuali
 
 Bei einem einzelnen API-Aufruf können einige Aktualisierungen erfolgreich sein und einige könnten fehlschlagen. Für jeden Fehler wird eine Fehlermeldung zurückgegeben.
 
-Bei benutzerdefinierten Objekten, die mit der neuen Benutzeroberfläche &quot;Benutzerdefiniertes Objekt&quot;bereitgestellt werden, werden nur Felder als `dedupe` -Felder in der Benutzeroberfläche können als Attribute in `CustomObjKeyList`. Nicht verknüpfte Felder `dedupe` -Felder müssen als Attribut in `customObjAttributeList`.
+Bei benutzerdefinierten Objekten, die mit der neuen Benutzeroberfläche &quot;Benutzerdefiniertes Objekt&quot;bereitgestellt werden, können nur Felder, die in der Benutzeroberfläche als `dedupe` -Felder ausgewiesen sind, in `CustomObjKeyList` als Attribute übergeben werden. Verknüpfungsfelder, die keine `dedupe` -Felder sind, müssen in `customObjAttributeList` als Attribut übergeben werden.
 
 ## Anfrage
 

@@ -1,24 +1,24 @@
 ---
-title: "syncMultipleLeads"
+title: syncMultipleLeads
 feature: SOAP
-description: "syncMultipleLeads SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMultipleLeads SOAP Aufrufe
+exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '221'
 ht-degree: 4%
 
 ---
 
-
 # syncMultipleLeads
 
-Diese Funktion fordert einen Einfüge- oder Aktualisierungsvorgang für _multiple_ Lead-Datensätze. Beim Aktualisieren eines vorhandenen Leads kann der Lead mit einem der folgenden Schlüssel identifiziert werden:
+Diese Funktion fordert einen Einfüge- oder Aktualisierungsvorgang (Upsert) für _mehrere_ Lead-Datensätze an. Beim Aktualisieren eines vorhandenen Leads kann der Lead mit einem der folgenden Schlüssel identifiziert werden:
 
 - Marketo-ID
 - Fremdsystem-ID
 - E-Mail
 
-Wenn mehrere Schlüssel vorhanden sind, hat die Marketo ID Vorrang vor `ForeignSysPersonId`und diese werden aktualisiert. Wenn E-Mail jedoch auch als Schlüssel vorhanden ist, wird sie nur aktualisiert, wenn sie in der Attributliste angegeben ist.
+Wenn mehr als ein Schlüssel vorhanden ist, hat die Marketo ID Vorrang vor `ForeignSysPersonId` und der letztere wird aktualisiert. Wenn E-Mail jedoch auch als Schlüssel vorhanden ist, wird sie nur aktualisiert, wenn sie in der Attributliste angegeben ist.
 
 Wir empfehlen, die Stapelgröße auf 300 zu begrenzen. Höhere Größen werden nicht unterstützt und können dazu führen, dass Timeouts auftreten und in Extremfällen gedrosselt werden.
 
@@ -29,7 +29,7 @@ Mit diesem Funktionsaufruf können Sie die Deduplizierungsfunktion deaktivieren.
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
 | leadRecordList->leadRecord | Erforderlich | Array von LeadRecords, die Sie synchronisieren möchten. LeadRecords muss die Lead-ID, E-Mail oder ForeignSysPersonId angeben |
-| dedupEnabled | optional | Optionaler Wert, mit dem Sie die Deduplizierungsfunktion deaktivieren können. Übergeben eines Werts von `false` erstellt Duplikate in Marketo |
+| dedupEnabled | optional | Optionaler Wert, mit dem Sie die Deduplizierungsfunktion deaktivieren können. Wenn Sie den Wert `false` übergeben, werden in Marketo Duplikate erstellt. |
 
 ## XML anfordern
 

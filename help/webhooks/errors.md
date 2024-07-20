@@ -1,14 +1,14 @@
 ---
-title: "Fehler"
+title: Fehler
 feature: Webhooks
-description: "Fehlercodes für Webhooks"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Fehlercodes für Webhooks
+exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '235'
 ht-degree: 2%
 
 ---
-
 
 # Fehler
 
@@ -25,7 +25,7 @@ Damit Marketo Werte wieder einem Feld zuordnen kann, muss der Webhook-Antwortcod
 
 ## Webhook-Fehler erfassen
 
-Fehler von Webhooks können vom [!UICONTROL Webhook wird aufgerufen] Trigger:
+Fehler von Webhooks können vom Trigger [!UICONTROL Webhook is Calling] erfasst und verarbeitet werden:
 
 ![Webhook wird aufgerufen](assets/webhook-called.png)
 

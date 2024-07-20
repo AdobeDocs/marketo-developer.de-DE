@@ -1,20 +1,20 @@
 ---
-title: "Kanäle"
+title: Kanäle
 feature: REST API
-description: '"Konfigurieren von Kanaldaten mit Marketo-APIs".'
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Konfigurieren von Kanaldaten mit Marketo-APIs.
+exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '125'
-ht-degree: 2%
+ht-degree: 3%
 
 ---
 
-
 # Kanäle
 
-[Kanalendpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[Kanalendpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
 
-Kanäle sind ein standardmäßiges und erforderliches Feld für alle Programmtypen. Jeder Kanal kann nur mit dem angegebenen `applicableProgramType` und stellt die Liste der verfügbaren Programmstatus bereit, die für die Programmmitglieder in jedem Programm gelten. Wenn der Programmstatus eines Kanals nach der Erstellung eines Programms geändert wird, stimmt die Liste der Programmstatus, in die ein Lead geändert werden kann, mit der Liste überein, die der Kanal zu diesem Zeitpunkt angegeben hat. Der Programmstatus für bestehende Programmmitgliedschaftseinträge wird jedoch nicht nachträglich geändert.
+Kanäle sind ein standardmäßiges und erforderliches Feld für alle Programmtypen. Jeder Kanaltyp kann nur mit dem angegebenen `applicableProgramType` verwendet werden und enthält die Liste der verfügbaren Programmstatus, die für Programmmitglieder in jedem Programm gültig sind. Wenn der Programmstatus eines Kanals nach der Erstellung eines Programms geändert wird, stimmt die Liste der Programmstatus, in die ein Lead geändert werden kann, mit der Liste überein, die der Kanal zu diesem Zeitpunkt angegeben hat. Der Programmstatus für bestehende Programmmitgliedschaftseinträge wird jedoch nicht nachträglich geändert.
 
 ## Anfrage
 

@@ -1,18 +1,18 @@
 ---
-title: "Forms API Reference"
-description: "Forms API Reference"
+title: Forms API-Referenz
+description: Forms API-Referenz
 feature: Forms, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 2%
 
 ---
 
-
 # Forms API-Referenz
 
-Es gibt zwei Hauptobjekte, mit denen Sie mit der Forms 2.0-API interagieren. Die `MktoForms2` und dem `Form` -Objekt. Die `MktoForms2` -Objekt ist der öffentlich sichtbare Namespace der obersten Ebene für Forms2-Funktionen und enthält Funktionen zum Erstellen, Laden und Abrufen von Formularobjekten.
+Es gibt zwei Hauptobjekte, mit denen Sie mit der Forms 2.0-API interagieren. Das Objekt `MktoForms2` und das Objekt `Form`. Das Objekt `MktoForms2` ist der öffentlich sichtbare Namespace der obersten Ebene für die Forms2-Funktionalität und enthält Funktionen zum Erstellen, Laden und Abrufen von Formularobjekten.
 
 ## MktoForms2-Methoden
 
@@ -178,7 +178,7 @@ Es gibt zwei Hauptobjekte, mit denen Sie mit der Forms 2.0-API interagieren. Die
     <tr valign="top">
       <td>.onSuccess(callback)</td>
       <td>Fügt einen Rückruf hinzu, der aufgerufen wird, wenn das Formular erfolgreich gesendet wurde, aber bevor der Lead an die Nachverfolgungsseite weitergeleitet wird. Kann verwendet werden, um zu verhindern, dass der Lead nach erfolgreicher Übermittlung an die Nachverfolgungsseite weitergeleitet wird.</td>
-      <td>callback - Eine Funktion, die aufgerufen wird, wenn das Formular erfolgreich gesendet wurde. Dieser Rückruf wird zwei Argumente übergeben. Ein JS-Objekt, das die gesendeten Werte und eine String-URL der Nachverfolgungsseite enthält, an die der Benutzer weitergeleitet wird, oder eine Null- oder leere Zeichenfolge, wenn keine konfigurierte Nachverfolgungsseite vorhanden ist. Sonderverhalten: Wenn dieser Rückruf "false"(gemessen mit ====) zurückgibt, wird der Besucher NICHT an die Folgenachricht weitergeleitet und die Seite wird NICHT neu geladen. Auf diese Weise kann der Implementor zusätzliche Verarbeitungsschritte für die Follow-up-URL durchführen oder Aktionen auf der Seite mit JavaScript ausführen, anstatt die Seite zu verlassen.</td>
+      <td>callback - Eine Funktion, die aufgerufen wird, wenn das Formular erfolgreich gesendet wurde. Dieser Rückruf wird zwei Argumente übergeben. Ein JS-Objekt, das die gesendeten Werte und eine String-URL der Nachverfolgungsseite enthält, an die der Benutzer weitergeleitet wird, oder eine Null- oder leere Zeichenfolge, wenn keine konfigurierte Nachverfolgungsseite vorhanden ist. Sonderverhalten: Wenn dieser Rückruf "false"(gemessen mit ====) zurückgibt, wird der Besucher NICHT an die Folgenachricht weitergeleitet und die Seite wird NICHT neu geladen. Auf diese Weise kann der Implementor zusätzliche Verarbeitungsschritte für die Follow-up-URL durchführen oder Aktionen auf der Seite mit JavaScript durchführen, anstatt die Seite zu verlassen.</td>
       <td>Formularobjekt: Das gleiche Formularobjekt, für das die Methode aufgerufen wurde, zu Verkettungszwecken.</td>
     </tr>
     <tr valign="top">

@@ -1,30 +1,30 @@
 ---
 title: Statische Listen
 feature: REST API, Static Lists
-description: "Führen Sie CRUD-Vorgänge für statische Listen durch."
-source-git-commit: e8bb45a7b3bee71c3d0ab6117296a75c8959d72e
+description: Führen Sie CRUD-Vorgänge für statische Listen aus.
+exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '741'
 ht-degree: 1%
 
 ---
 
-
 # Statische Listen
 
 [Endpunktverweis für statische Listen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
-[Referenz zum Mitgliedschaftsendpunkt der Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[Referenz zum Listenmitgliedschafts-Endpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
 
 Marketo bietet eine Reihe von REST-APIs zum Ausführen von CRUD-Vorgängen für statische Listen. Diese APIs entsprechen dem Standardmuster der Benutzeroberfläche für Asset-APIs, die Optionen zum Abfragen, Erstellen, Aktualisieren und Löschen bereitstellen.
 
 ## Anfrage
 
-Das Abfragen statischer Listen folgt den standardmäßigen Abfragetypen für Assets von [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET), [nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET), und [durchsuchen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET).
+Beim Abfragen statischer Listen werden die standardmäßigen Abfragetypen für Assets von [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) und [browse](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET) befolgt.
 
 ### Nach ID
 
-[Abfrage nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) nimmt eine einzelne statische Liste auf `id` als Pfadparameter und gibt einen einzelnen statischen Listendatensatz zurück.
+[Die Abfrage nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) verwendet eine einzelne statische Liste `id` als Pfadparameter und gibt einen einzelnen statischen Listendatensatz zurück.
 
 ```
 GET /rest/asset/v1/staticList/{id}.json
@@ -53,7 +53,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### Nach Name
 
-[Abfrage nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) nimmt eine statische Liste auf `name` als Parameter und gibt einen einzelnen statischen Listendatensatz zurück. Eine exakte Zeichenfolgenübereinstimmung wird für alle statischen Listennamen in der Instanz durchgeführt und gibt ein Ergebnis für die statische Liste zurück, die mit diesem Namen übereinstimmt.
+[Die Abfrage nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) nimmt eine statische Liste `name` als Parameter und gibt einen einzelnen statischen Listendatensatz zurück. Eine exakte Zeichenfolgenübereinstimmung wird für alle statischen Listennamen in der Instanz durchgeführt und gibt ein Ergebnis für die statische Liste zurück, die mit diesem Namen übereinstimmt.
 
 ```
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -82,7 +82,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### Durchsuchen
 
-Statische Listen können auch [in Stapeln abgerufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET). Die `folder` kann verwendet werden, um den übergeordneten Ordner anzugeben, unter dem die Abfrage ausgeführt werden soll, und als JSON-Objekt formatiert, das ID und Typ enthält. Wie andere Massen-Asset-Abruf-Endpunkte, `offset` und `maxReturn` sind optionale Parameter, die für das Paging verwendet werden können. Die `earliestUpdatedAt` und `latestUpdatedAt` Mit -Parametern können Sie Wasserzeichen mit niedrigem und hohem Datum für die Rückgabe von statischen Listen festlegen, die innerhalb des angegebenen Bereichs erstellt oder aktualisiert wurden. Datetime-Werte müssen gültige ISO-8601-Zeichenfolgen sein und dürfen keine Millisekunden enthalten.
+Statische Listen können auch [in Batches ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET) abgerufen werden. Der Parameter `folder` kann verwendet werden, um den übergeordneten Ordner anzugeben, unter dem die Abfrage ausgeführt wird, und wird als JSON-Objekt formatiert, das ID und Typ enthält. Wie andere Massen-Asset-Abruf-Endpunkte sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` können Sie Wasserzeichen mit niedrigem und hohem Datum für die Rückgabe statischer Listen festlegen, die innerhalb des angegebenen Bereichs erstellt oder aktualisiert wurden. Datetime-Werte müssen gültige ISO-8601-Zeichenfolgen sein und dürfen keine Millisekunden enthalten.
 
 ```
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Erstellen und Aktualisieren
 
-[Erstellen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) wird mit einer application/x-www-form-urlencoded -POST mit zwei erforderlichen Parametern ausgeführt. Die `folder` -Parameter wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die statische Liste erstellt wird, und als JSON-Objekt formatiert, das ID und Typ enthält. Die `name` -Parameter wird verwendet, um die statische Liste zu benennen, und muss eindeutig sein. Optional kann die `description` kann verwendet werden, um die statische Liste zu beschreiben.
+[Erstellen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) wird mit einer application/x-www-form-urlencoded -POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `folder` wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die statische Liste erstellt wird, und als JSON-Objekt mit ID und Typ formatiert. Der Parameter `name` wird verwendet, um die statische Liste zu benennen, und muss eindeutig sein. Optional kann der Parameter `description` zur Beschreibung der statischen Liste verwendet werden.
 
 ```
 POST /rest/asset/v1/staticLists.json
@@ -168,7 +168,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[Aktualisierungen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) werden über einen separaten Endpunkt mit zwei optionalen Parametern erstellt. Die `description` kann verwendet werden, um die statische Listenbeschreibung zu aktualisieren. Die `name` kann verwendet werden, um den statischen Listennamen zu aktualisieren, und muss eindeutig sein.
+[Aktualisierungen an einer statischen Liste](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) werden über einen separaten Endpunkt mit zwei optionalen Parametern vorgenommen. Der Parameter `description` kann verwendet werden, um die statische Listenbeschreibung zu aktualisieren. Der Parameter `name` kann verwendet werden, um den statischen Listennamen zu aktualisieren, und muss eindeutig sein.
 
 ```
 POST /rest/asset/v1/staticList/{id}.json
@@ -206,7 +206,7 @@ description=This is a static list used for testing
 
 ### Löschen
 
-[Löschen von statischen Listen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) nimmt eine einzelne statische Liste auf `id` als Pfadparameter. Löschungen können nicht an statischen Listen vorgenommen werden, die von einem Import- oder Exportvorgang verwendet werden oder von anderen Assets verwendet werden.
+[ Beim Löschen einer statischen Liste ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) wird eine einzelne statische Liste `id` als Pfadparameter verwendet. Löschungen können nicht an statischen Listen vorgenommen werden, die von einem Import- oder Exportvorgang verwendet werden oder von anderen Assets verwendet werden.
 
 ```
 POST /rest/asset/v1/staticList/{id}/delete.json
@@ -231,9 +231,9 @@ Die Endpunkte der Listenmitgliedschaft bieten die Möglichkeit, statische Listen
 
 ### Zu Liste hinzufügen
 
-Die [Zu Liste hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) -Endpunkt verwendet wird, um einer Liste ein oder mehrere Mitglieder hinzuzufügen. Der Endpunkt benötigt einen `listId` Pfadparameter und einen oder mehrere ID-Abfrageparameter, die Lead-IDs enthalten (maximal zulässig sind 300).
+Der Endpunkt [Zur Liste hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) wird verwendet, um einer Liste ein oder mehrere Mitglieder hinzuzufügen. Der Endpunkt akzeptiert einen erforderlichen `listId` -Pfadparameter sowie einen oder mehrere ID-Abfrageparameter, die Lead-IDs enthalten (maximal zulässig sind 300).
 
-Die Antwort enthält eine `result` -Array, das aus JSON-Objekten mit dem Status für jede Lead-ID besteht, die in der Anfrage angegeben wurde.
+Die Antwort enthält ein `result` -Array, das aus JSON-Objekten mit dem Status für jede Lead-ID besteht, die in der Anfrage angegeben wurde.
 
 ```
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
@@ -264,9 +264,9 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ### Aus Liste entfernen
 
-Die [Aus Liste entfernen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) -Endpunkt verwendet wird, um ein oder mehrere Mitglieder aus einer Liste zu entfernen. Der Endpunkt benötigt einen `listId` Pfadparameter und einen oder mehrere `id` Abfrageparameter, die Lead-IDs enthalten (maximal zulässig sind 300).
+Der Endpunkt [Aus Liste entfernen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) wird verwendet, um ein oder mehrere Mitglieder aus einer Liste zu entfernen. Der Endpunkt akzeptiert einen erforderlichen `listId` -Pfadparameter sowie einen oder mehrere `id` Abfrageparameter, die Lead-IDs enthalten (maximal zulässig sind 300).
 
-Die Antwort enthält eine `result` -Array, das aus JSON-Objekten mit dem Status für jede Lead-ID besteht, die in der Anfrage angegeben wurde.
+Die Antwort enthält ein `result` -Array, das aus JSON-Objekten mit dem Status für jede Lead-ID besteht, die in der Anfrage angegeben wurde.
 
 ```
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
@@ -301,15 +301,15 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ### Abfrageliste
 
-Die [Abrufen von Leads nach Listen-ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) -Endpunkt wird zum Abrufen von Elementen einer Liste verwendet. Der Endpunkt benötigt einen `listId` path -Parameter und ermöglicht es mehreren optionalen Abfrageparametern, Filterkriterien anzugeben.
+Der Endpunkt [Leads nach Listen-ID abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) wird zum Abrufen von Elementen einer Liste verwendet. Der Endpunkt akzeptiert einen erforderlichen Pfadparameter vom Typ `listId` und ermöglicht es mehreren optionalen Abfrageparametern, Filterkriterien anzugeben.
 
-Die `batchSize` -Parameter wird verwendet, um die Anzahl der Lead-Datensätze anzugeben, die in einem einzelnen Aufruf zurückgegeben werden sollen (Standard und max. 300).
+Der Parameter `batchSize` wird verwendet, um die Anzahl der Lead-Datensätze anzugeben, die in einem einzelnen Aufruf zurückgegeben werden sollen (Standard, max. 300).
 
-Die `nextPageToken` wird verwendet, um durch große Ergebnismengen zu paginieren. Dieser Parameter wird nicht beim ersten Aufruf, sondern nur bei nachfolgenden Aufrufen für die Paginierung übergeben.
+Der Parameter `nextPageToken` wird verwendet, um durch große Ergebnismengen zu paginieren. Dieser Parameter wird nicht beim ersten Aufruf, sondern nur bei nachfolgenden Aufrufen für die Paginierung übergeben.
 
-Die `fields` enthält eine kommagetrennte Liste von Feldnamen, die in der Antwort zurückgegeben werden sollen. Wenn der Feldparameter in dieser Anfrage nicht enthalten ist, werden die folgenden Standardfelder zurückgegeben: email, updatedAt, createdAt, lastName, firstName und id.
+Der Parameter `fields` enthält eine kommagetrennte Liste von Feldnamen, die in der Antwort zurückgegeben werden sollen. Wenn der Feldparameter in dieser Anfrage nicht enthalten ist, werden die folgenden Standardfelder zurückgegeben: email, updatedAt, createdAt, lastName, firstName und id.
 
-Die Antwort enthält eine `result` -Array aus JSON-Objekten, die die in der Anfrage angegebenen Lead-Felder enthalten.
+Die Antwort enthält ein `result` -Array, das aus JSON-Objekten besteht, die die in der Anfrage angegebenen Lead-Felder enthalten.
 
 ```
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
@@ -351,9 +351,9 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 #### Mitgliedschaft in der Abfrageliste nach Lead-ID
 
-Die [Mitglied der Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) -Endpunkt wird verwendet, um zu sehen, ob eine oder mehrere Leads Mitglieder einer Liste sind. Der Endpunkt benötigt einen `listId` Pfadparameter und einen oder mehrere `id` Abfrageparameter, die Lead-IDs enthalten (maximal zulässig sind 300).
+Der Endpunkt [Mitglied der Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) wird verwendet, um zu sehen, ob eine oder mehrere Leads Mitglieder einer Liste sind. Der Endpunkt akzeptiert einen erforderlichen `listId` -Pfadparameter sowie einen oder mehrere `id` Abfrageparameter, die Lead-IDs enthalten (maximal zulässig sind 300).
 
-Die Antwort enthält eine `result` -Array, das aus JSON-Objekten mit dem Status für jede Lead-ID besteht, die in der Anfrage angegeben wurde.
+Die Antwort enthält ein `result` -Array, das aus JSON-Objekten mit dem Status für jede Lead-ID besteht, die in der Anfrage angegeben wurde.
 
 ```
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999

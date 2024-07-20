@@ -1,20 +1,20 @@
 ---
-title: "Trigger"
-description: "Trigger"
+title: Auslöser
+description: Auslöser
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 588836fa-1e4d-41f3-aec5-5cd17eb16071
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '80'
-ht-degree: 11%
+ht-degree: 13%
 
 ---
-
 
 # Auslöser
 
 Fügt die Funktion zu Trigger-Funktionen in bestimmten Status des globalen rtp-Objekts hinzu.
 
-Sie müssen Web Personalization-Kunde sein und über die Variable [RTP-Tag bereitgestellt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site vor der Verwendung der Benutzerkontext-API.
+Sie müssen Web-Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
 
 ## Nutzung
 

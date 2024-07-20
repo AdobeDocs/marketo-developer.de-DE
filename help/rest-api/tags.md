@@ -1,18 +1,18 @@
 ---
-title: "Tags"
+title: Tags
 feature: REST API, Tags
-description: "Verwalten von Tags für Programme in Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Verwalten Sie Tags für Programme in Marketo.
+exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '205'
-ht-degree: 1%
+ht-degree: 2%
 
 ---
 
-
 # Tags
 
-[Tag-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[Tags-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
 
 Tags sind benutzerdefinierte Felder für Programme. Jedes Tag kann für einen oder mehrere Programmtypen gelten und je nach Definition des Tags entweder erforderlich oder optional sein. Tags können auch eine Liste der zulässigen Werte bereitstellen, aus denen ausgewählt werden muss.
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Aktualisierung
 
-Die [Programm-Tag aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) -Endpunkt ermöglicht es Ihnen, den Wert für einen bestimmten Tag-Typ zu aktualisieren. Der Endpunkt akzeptiert eine `id` und `tagType` Pfadparameter, die die Programm-ID und den zu aktualisierenden Tag-Typ angeben. A `tagValue` -Abfrageparameter wird verwendet, um den neuen Wert für den Tag-Typ anzugeben. Alle Parameter sind erforderlich.
+Mit dem Endpunkt [Programm-Tag aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) können Sie den Wert für einen bestimmten Tag-Typ aktualisieren. Der Endpunkt akzeptiert Pfadparameter `id` und `tagType`, die die Programm-ID und den zu aktualisierenden Tag-Typ angeben. Ein `tagValue` -Abfrageparameter wird verwendet, um den neuen Wert für den Tag-Typ anzugeben. Alle Parameter sind erforderlich.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Tags können gebündelt mit dem [Aktualisieren von Programmmetadaten](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) -Endpunkt. Ein Beispiel dafür finden Sie [here](programs.md#update).
+Tags können gebündelt mit dem Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) aktualisiert werden. Ein Beispiel dafür finden Sie [hier](programs.md#update).
 
 ## Löschen
 
-Die [Programm-Tag löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) -Endpunkt ermöglicht das Löschen eines nicht erforderlichen Tag-Typs. Der Endpunkt nimmt `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
+Mit dem Endpunkt [Programm-Tag löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert Pfadparameter `id` und `tagType`, die die Programm-ID und den zu löschenden Tag-Typ angeben.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

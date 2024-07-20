@@ -1,14 +1,14 @@
 ---
-title: "descriptionMObject"
+title: descriptionMObject
 feature: SOAP
-description: "descriptionMObjects SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: descriptionMObjects SOAP Aufrufe
+exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '71'
 ht-degree: 7%
 
 ---
-
 
 # descriptionMObject
 
@@ -18,7 +18,7 @@ Diese Funktion gibt die Metadaten für Standard- und Virtual MObjects zurück. E
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| objectName | Erforderlich | Der Name des Objekts, für das Sie Metadaten abrufen möchten. `objectName` kann eine der folgenden sein: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
+| objectName | Erforderlich | Der Name des Objekts, für das Sie Metadaten abrufen möchten. `objectName` kann einer der folgenden sein: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
 
 ## XML anfordern
 

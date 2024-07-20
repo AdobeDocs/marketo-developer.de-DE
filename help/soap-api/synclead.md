@@ -1,14 +1,14 @@
 ---
-title: "syncLead"
+title: syncLead
 feature: SOAP
-description: "syncLead SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncLead SOAP Aufrufe
+exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 2%
 
 ---
-
 
 # syncLean
 
@@ -21,7 +21,7 @@ Mit dieser Funktion wird ein einzelner Lead-Datensatz eingefügt oder aktualisie
 
 Wenn eine vorhandene Übereinstimmung gefunden wird, führt der Aufruf eine Aktualisierung durch. Wenn nicht, wird ein Lead eingefügt und erstellt. Anonyme Leads können mit der Marketo-Cookie-ID aktualisiert werden und werden bei der Aktualisierung bekannt.
 
-Mit Ausnahme von E-Mail werden alle diese Kennungen als eindeutige Schlüssel behandelt. Die Marketo ID hat Vorrang vor allen anderen Schlüsseln. Wenn `foreignSysPersonId` und die Marketo ID im Lead-Datensatz vorhanden sind, hat die Marketo ID Vorrang und die `foreignSysPersonId` wird für diesen Lead aktualisiert. Wenn die `foreignSysPersonId` angegeben ist, wird sie als eindeutige Kennung verwendet. Wenn `foreignSysPersonId` und E-Mail vorhanden sind, die Marketo ID jedoch nicht vorhanden ist, wird die `foreignSysPersonId` hat Vorrang, und die E-Mail wird für diesen Lead aktualisiert.
+Mit Ausnahme von E-Mail werden alle diese Kennungen als eindeutige Schlüssel behandelt. Die Marketo ID hat Vorrang vor allen anderen Schlüsseln. Wenn sowohl `foreignSysPersonId` als auch die Marketo ID im Lead-Datensatz vorhanden sind, hat die Marketo ID Vorrang und die `foreignSysPersonId` werden für diesen Lead aktualisiert. Wenn nur `foreignSysPersonId` angegeben ist, wird es als eindeutige Kennung verwendet. Wenn sowohl `foreignSysPersonId` als auch die E-Mail vorhanden sind, die Marketo ID jedoch nicht vorhanden ist, hat der `foreignSysPersonId` Vorrang und die E-Mail wird für diesen Lead aktualisiert.
 
 Optional kann eine Kontextkopfzeile angegeben werden, um den Zielarbeitsbereich zu benennen.
 
@@ -42,14 +42,14 @@ Wenn Marketo-Arbeitsbereiche NICHT aktiviert sind, MUSS der Zielarbeitsbereich d
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadRecord->Id | Erforderlich - Nur bei E-Mail oder `foreignSysPersonId` nicht vorhanden | Die Marketo ID des Lead-Datensatzes |
-| leadRecord->Email | Erforderlich - Nur wenn ID oder `foreignSysPersonId` nicht vorhanden | Die mit dem Lead-Datensatz verknüpfte E-Mail-Adresse |
+| leadRecord->Id | Erforderlich - Nur wenn E-Mail oder `foreignSysPersonId` nicht vorhanden ist | Die Marketo ID des Lead-Datensatzes |
+| leadRecord->Email | Erforderlich - Nur wenn ID oder `foreignSysPersonId` nicht vorhanden ist | Die mit dem Lead-Datensatz verknüpfte E-Mail-Adresse |
 | leadRecord->`foreignSysPersonId` | Erforderlich - Nur wenn ID oder E-Mail nicht vorhanden ist | Die mit dem Lead-Datensatz verknüpfte Fremdsystem-ID |
-| leadRecord->externalSysType | Optional - Nur erforderlich, wenn `foreignSysPersonId` ist vorhanden | Die Art des Fremdsystems. Mögliche Werte: CUSTOM, SFDC, NETSUITE |
+| leadRecord->externalSysType | Optional - Nur erforderlich, wenn `foreignSysPersonId` vorhanden ist | Die Art des Fremdsystems. Mögliche Werte: CUSTOM, SFDC, NETSUITE |
 | leadRecord->leadAttributeList->attribute->attrName | Erforderlich | Der Name des Lead-Attributs, dessen Wert Sie aktualisieren möchten. |
 | leadRecord->leadAttributeList->attribute->attrValue | Erforderlich | Der Wert, den Sie auf das in &quot;attrName&quot;angegebene Lead-Attribut festlegen möchten. |
 | returnLead | Erforderlich | Wenn &quot;true&quot;, wird der vollständige aktualisierte Lead-Datensatz bei der Aktualisierung zurückgegeben. |
-| marketoCookie | optional | Die [Munchkin-JavaScript](../javascript-api/lead-tracking.md) Cookie |
+| marketoCookie | optional | Das Cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
 
 ## XML anfordern
 

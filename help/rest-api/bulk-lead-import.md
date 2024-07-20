@@ -1,20 +1,20 @@
 ---
-title: "Bulk-Lead-Import"
+title: Import von Bulk-Lead
 feature: REST API
-description: "Batch-Import von Lead-Daten."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Batch-Import von Lead-Daten
+exl-id: 615f158b-35f9-425a-b568-0a7041262504
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '803'
 ht-degree: 0%
 
 ---
 
-
 # Import von Bulk-Lead
 
-[Referenz zum Import von Massen-Lead-Endpunkten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Referenz zum Import-Endpunkt des Massenimports](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
-Bei großen Mengen von Lead-Datensätzen können Leads asynchron mit der [Bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Auf diese Weise können Sie eine Datensatzliste mit einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, solange die Datei insgesamt weniger als 10 MB groß ist. Der Datensatzvorgang ist nur &quot;insert or update&quot;.
+Bei großen Mengen von Lead-Datensätzen können Leads asynchron mit der [Bulk API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) importiert werden. Auf diese Weise können Sie eine Datensatzliste mit einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, solange die Datei insgesamt weniger als 10 MB groß ist. Der Datensatzvorgang ist nur &quot;insert or update&quot;.
 
 ## Verarbeitungsbeschränkungen
 
@@ -29,9 +29,9 @@ email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-Die `externalCompanyId` kann verwendet werden, um den Lead-Datensatz mit einem Firmendatensatz zu verknüpfen. Die `externalSalesPersonId` kann verwendet werden, um den Lead-Datensatz mit einem Datensatz der Vertriebsperson zu verknüpfen.
+Das Feld `externalCompanyId` kann verwendet werden, um den Lead-Datensatz mit einem Unternehmensdatensatz zu verknüpfen. Das Feld `externalSalesPersonId` kann verwendet werden, um den Lead-Datensatz mit einem Datensatz einer Vertriebsperson zu verknüpfen.
 
-Der Aufruf selbst erfolgt über die `multipart/form-data` Inhaltstyp.
+Der Aufruf selbst erfolgt über den Inhaltstyp `multipart/form-data` .
 
 Dieser Anfragetyp kann schwierig zu implementieren sein. Daher wird dringend empfohlen, eine vorhandene Bibliotheksimplementierung zu verwenden.
 
@@ -90,7 +90,7 @@ Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
 ```
 
-Sie können optional auch die `lookupField`, `listId`, und `partitionName` -Parameter in Ihrer -Anfrage. `lookupField` ermöglicht Ihnen, ein bestimmtes Feld auszuwählen, in dem die Duplizierung wie bei &quot;Leads synchronisieren&quot;erfolgen soll, und standardmäßig E-Mail zu verwenden. Sie können `id` as `lookupField` um einen &quot;Nur aktualisieren&quot;-Vorgang anzugeben. `listId` ermöglicht die Auswahl einer statischen Liste, in die die Liste der Leads importiert werden soll. Dadurch werden die Leads in der Liste zu Mitgliedern dieser statischen Liste, zusätzlich zu den durch den Import verursachten Kreationen oder Aktualisierungen. `partitionName` wählt eine bestimmte Partition aus, in die importiert werden soll. Weitere Informationen finden Sie im Abschnitt Arbeitsbereiche und Partitionen .
+Sie können optional auch die Parameter `lookupField`, `listId` und `partitionName` in Ihre Anfrage aufnehmen. Mit `lookupField` können Sie ein bestimmtes Feld auswählen, in dem die Deduplizierung erfolgen soll, wie z. B. SynchronisierungsLeads, und die Standardeinstellung ist E-Mail. Sie können `id` als `lookupField` angeben, um einen &quot;Nur aktualisieren&quot;-Vorgang anzugeben. Mit `listId` können Sie eine statische Liste auswählen, in die die Liste der Leads importiert werden soll. Dadurch werden die Leads in der Liste zu Mitgliedern dieser statischen Liste, zusätzlich zu allen durch den Import verursachten Kreationen oder Aktualisierungen. `partitionName` wählt eine bestimmte Partition aus, in die importiert werden soll. Weitere Informationen finden Sie im Abschnitt Arbeitsbereiche und Partitionen .
 
 Beachten Sie in der Antwort auf unseren -Aufruf, dass es keine Liste von Erfolgen oder Fehlern wie bei &quot;SynchronisierungsLeads&quot;gibt, sondern eine batchId und ein Statusfeld für den Datensatz im Ergebnis-Array. Der Grund dafür ist, dass diese API asynchron ist und den Status &quot;In Warteschlange&quot;, &quot;Importieren&quot;oder &quot;Fehlgeschlagen&quot;zurückgeben kann. Sie müssen die batchId beibehalten, um den Status des Importvorgangs zu erhalten und Fehler und/oder Warnungen nach Abschluss abzurufen. Die batchId bleibt sieben Tage lang gültig.
 

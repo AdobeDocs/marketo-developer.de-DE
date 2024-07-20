@@ -1,14 +1,14 @@
 ---
-title: "Assets"
+title: Assets
 feature: REST API
-description: "Eine API für die Arbeit mit Marketo-Assets."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Eine API für die Arbeit mit Marketo-Assets.
+exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '876'
 ht-degree: 2%
 
 ---
-
 
 # Assets
 
@@ -31,11 +31,11 @@ Zu den Marketo-Assets gehören:
 
 ## API
 
-Eine vollständige Liste der Asset-API-Endpunkte, einschließlich Parametern und Modellierungsinformationen, finden Sie in der [Asset-API-Endpunktverweis](endpoint-reference.md).
+Eine vollständige Liste der Asset-API-Endpunkte, einschließlich Parametern und Modellierungsinformationen, finden Sie in der [Asset-API-Endpunktreferenz](endpoint-reference.md).
 
 ## Anfrage
 
-Assets verfügen in der Regel über drei Muster, mit denen sie abgerufen werden können: nach ID, nach Name und durch Durchsuchen.  Nach ID und Name rufen sowohl ein einzelnes Asset für einen bestimmten Parameter ab, während das Durchsuchen zurückgibt und das Durchsuchen der gesamten Liste von Assets dieses Typs ermöglicht.  Einzelne Asset-Typen verfügen über verschiedene Parameter, anhand derer sie gefiltert werden können. Achten Sie daher darauf, sich die einzelnen Dokumente für bestimmte Details anzusehen.
+Assets weist in der Regel drei Muster auf, mit denen sie abgerufen werden können: nach ID, nach Name und durch Durchsuchen.  Nach ID und Name rufen sowohl ein einzelnes Asset für einen bestimmten Parameter ab, während das Durchsuchen zurückgibt und das Durchsuchen der gesamten Liste von Assets dieses Typs ermöglicht.  Einzelne Asset-Typen verfügen über verschiedene Parameter, anhand derer sie gefiltert werden können. Achten Sie daher darauf, sich die einzelnen Dokumente für bestimmte Details anzusehen.
 
 In bestimmten Fällen gibt der Durchsuchen-Endpunkt für einige Asset-Typen keine untergeordneten Assets zurück, z. B. die zulässigen Werte für ein Tag, und sie müssen einzeln über den Endpunkt Nach Name oder Nach ID abgerufen werden, um den vollständigen Metadatensatz zurückzugeben.  Andere können separate Endpunkte zum vollständigen Abrufen von abhängigen Objekten wie Formularfeldern haben.
 
@@ -174,7 +174,7 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## Erstellen und Aktualisieren
 
-Bei einfachen Asset-Typen wie Ordnern, Token und Dateien gibt es in der Regel nur einen einzelnen Endpunkt zur Erstellung und dann einen zusätzlichen Endpunkt zum Aktualisieren von Datensätzen nach ID.  Assets werden mit einem Namen erstellt, der immer erforderlich ist. Anschließend werden alle Metadaten und IDs von der Erstellungs- oder Aktualisierungsantwort zurückgegeben.
+Bei einfachen Asset-Typen wie Ordnern, Token und Dateien gibt es in der Regel nur einen einzelnen Endpunkt zur Erstellung und dann einen zusätzlichen Endpunkt zum Aktualisieren von Datensätzen nach ID.  Assets wird mit einem Namen erstellt, der immer erforderlich ist. Anschließend werden alle Metadaten und IDs von der Erstellungs- oder Aktualisierungsantwort zurückgegeben.
 
 So erstellen Sie beispielsweise ein Token:
 
@@ -433,7 +433,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-Assets können auch nicht genehmigt werden, wenn sie sich in einem Nur-Genehmigen-Status befinden.  Dadurch werden alle Live-Versionen des Assets heruntergefahren und das Asset in einen Nur-Entwurf-Status zurückgegeben, während auch alle zugehörigen Entwürfe verworfen werden.  Diese Aktion kann nur für die meisten Assets ausgeführt werden, wenn sie nirgends in Marketo verwendet wird, z. B. wenn eine E-Mail in einem Schritt zum Senden einer E-Mail referenziert wird oder ein in eine E-Mail eingebetteter Snippet verwendet wird.
+Assets kann auch nicht genehmigt werden, wenn sie sich in einem Nur-Genehmigen-Status befinden.  Dadurch werden alle Live-Versionen des Assets heruntergefahren und das Asset in einen Nur-Entwurf-Status zurückgegeben, während auch alle zugehörigen Entwürfe verworfen werden.  Diese Aktion kann nur für die meisten Assets ausgeführt werden, wenn sie nirgends in Marketo verwendet wird, z. B. wenn eine E-Mail in einem Schritt zum Senden einer E-Mail referenziert wird oder ein in eine E-Mail eingebetteter Snippet verwendet wird.
 
 ```
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -455,7 +455,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## Löschen
 
-Assets mit Genehmigungs- und Entwurfsstatus, mit Ausnahme von Formularen, dürfen bei der Genehmigung nicht gelöscht werden und müssen vor dem Löschen nicht genehmigt werden.  Löschungen können im Allgemeinen nur durchgeführt werden, wenn ein Asset nicht genehmigt wurde und nicht verwendet wird, und im Fall von Ordnern, die von Assets leer sind.  Eine wichtige Ausnahme sind Programme, die zusammen mit allen untergeordneten Inhalten gelöscht werden können, sofern das Programm und sein Inhalt an keiner Stelle außerhalb der Grenzen des Programms verwendet werden.
+Assets mit Genehmigungs- und Entwurfsstatus, mit Ausnahme von Formularen, darf bei der Genehmigung nicht gelöscht werden und muss vor dem Löschen nicht genehmigt werden.  Löschungen können im Allgemeinen nur durchgeführt werden, wenn ein Asset nicht genehmigt wurde und nicht verwendet wird, und im Fall von Ordnern, die von Assets leer sind.  Eine wichtige Ausnahme sind Programme, die zusammen mit allen untergeordneten Inhalten gelöscht werden können, sofern das Programm und sein Inhalt an keiner Stelle außerhalb der Grenzen des Programms verwendet werden.
 
 ```
 POST /rest/asset/v1/program/{id}/delete.json

@@ -1,20 +1,20 @@
 ---
-title: "Umleiten"
-description: "Umleiten"
+title: Weiterleiten
+description: Weiterleiten
 feature: Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '468'
 ht-degree: 8%
 
 ---
 
-
 # Weiterleiten
 
 Mit der RTP-Umleitungs-API können Sie segmentierte Zielgruppen zu einer Ziel-URL umleiten.
 
-- Sie müssen Web Personalization-Kunde werden und über die [RTP-Tag bereitgestellt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site vor der Verwendung der User Context-API.
+- Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Konto-basierten Marketinglisten mit Namen. ABM-Listen und -Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die innerhalb von RTP verwaltet werden.
 
 ## Nutzung
@@ -34,16 +34,16 @@ Organisation, Branche, ABM-Listen, Standort, ISP, übereinstimmende Segmente
 
 | Bedingung | Datenhierarchie | Beispiel |
 |-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
-| Matched Segments (funktioniert nur nach dem ersten Klick) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchSegments.name&#39; , [&quot;Fortune 1.000&quot; , &quot;Enterprise&quot;] , &quot;http://www.marketo.com&#39;); |
-| Matched Segments (funktioniert nur nach dem ersten Klick) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchSegments.id&#39; , [106 , 107 , 190] , &quot;http://www.marketo.com&#39;); |
-| ABM-Listen | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.name&#39; , [&#39;top_key_accounts&#39;, &#39;active_Customers&#39;] , &quot;http://www.marketo.com&#39;); |
-| ABM-Listen | abm.code | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.code&#39; , [13 , 15] , &quot;http://www.marketo.com&#39;); |
-| Organisationen | org | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;org&#39;, [&#39;ebay&#39;], &quot;http://www.marketo.com&#39;); |
-| Standort | location.country | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;location.country&#39; , [&quot;Vereinigte Staaten&quot;], &quot;http://www.marketo.com&#39;); |
-| Standort | location.state | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &quot;http://www.marketo.com&#39;); |
-| Standort | location.city | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.city&#39;, [&quot;San Mateo&quot;], &quot;http://www.marketo.com&#39;); |
-| Branchen | Industrien | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;industry&#39; , [&quot;Bildung&quot;], &quot;http://www.marketo.com&#39;); |
-| ISP | isp | rtp( &#39;send&#39;, &#39;redirect&#39;, isp , [&#39;False&#39;], &quot;http://www.marketo.com&#39;); |
+| Matched Segments (funktioniert nur nach dem ersten Klick) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchSegments.name&#39; , [&#39;Fortune 1,000&#39; , &#39;Enterprise&#39;] , &#39;http://www.marketo.com&#39;); |
+| Matched Segments (funktioniert nur nach dem ersten Klick) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchSegments.id&#39; , [106 , 107 , 190] , &#39;http://www.marketo.com&#39;); |
+| ABM-Listen | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.name&#39; , [&#39;top_key_accounts&#39;, &#39;active_Customers&#39;] , &#39;http://www.marketo.com&#39;); |
+| ABM-Listen | abm.code | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.code&#39; , [13 , 15] , &#39;http://www.marketo.com&#39;); |
+| Organisationen | org | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;org&#39;, [&#39;ebay&#39;], &#39;http://www.marketo.com&#39;); |
+| Standort | location.country | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;location.country&#39; , [&#39;United States&#39;], &#39;http://www.marketo.com&#39;); |
+| Standort | location.state | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &#39;http://www.marketo.com&#39;); |
+| Standort | location.city | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.city&#39;, [&#39;San Mateo&#39;], &#39;http://www.marketo.com&#39;); |
+| Branchen | Industrien | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;industry&#39; , [&#39;Education&#39;], &#39;http://www.marketo.com&#39;); |
+| ISP | isp | rtp( &#39;send&#39;, &#39;redirect&#39;, isp , [&#39;False&#39;], &#39;http://www.marketo.com&#39;); |
 
 
 ## Hinweise
@@ -91,7 +91,7 @@ rtp('get','campaign');
 1. Erstellen Sie ein Segment mit dem Namen &quot;Umgeleitet von RTP&quot;.
 1. Verwenden Sie den Parameter &quot;Spezifische Seiten&quot;, um Besucher anzusprechen, die eine beliebige Seite mit dem folgenden Parameter anzeigen.
 
-![tracking-redirect-vistors](assets/tracking-redirected-vistors.png)
+![tracking-redirect-visistors](assets/tracking-redirected-vistors.png)
 
 ## Definieren von mehr als einer Bedingung mit verschiedenen Ziel-URLs
 
@@ -106,7 +106,7 @@ Der Umleitungsaufruf unterstützt mehrere Aufrufe. Dies ermöglicht eine Umleitu
 | &#39;send&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
 | &quot;redirect&quot; | Erforderlich | Zeichenfolge | Name der Methode. |
 | field_name | Erforderlich | Zeichenfolge | Feldname, mit dem eine Übereinstimmung gefunden werden soll. Beispiel: &quot;abm.name&quot;(siehe oben). |
-| url_values_map | Erforderlich | Objekt | Zuordnung zwischen Umleitungs-URL und Werteliste. Beispiel:{&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;]} |
+| url_values_map | Erforderlich | Objekt | Zuordnung zwischen Umleitungs-URL und Werteliste. Beispiel:{&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
 
 
 #### Beispiel

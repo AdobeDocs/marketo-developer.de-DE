@@ -1,30 +1,30 @@
 ---
-title: "getCustomObjects"
+title: getCustomObjects
 feature: SOAP, Custom Objects
-description: "getCustomObjects SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getCustomObjects SOAP-Aufrufe
+exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 5%
 
 ---
 
-
 # getCustomObjects
 
 Ruft ein oder mehrere benutzerdefinierte Objekte mithilfe einer Kombination aus Kriterien ab, die aus null oder einem benutzerdefinierten Objektschlüssel bestehen.
 
-Gibt eine Liste mit übereinstimmenden benutzerdefinierten Objekten (alle mit einem einzigen Typ, bis zu 100 in einem Batch) und eine [Stream-Position](stream-position.md) Token zum Abrufen aufeinander folgender Batches.
+Gibt eine Liste mit übereinstimmenden benutzerdefinierten Objekten (alle mit einem einzigen Typ) bis zu 100 in einem Batch und ein [Stream-Position](stream-position.md) -Token zum Abrufen aufeinander folgender Batches zurück.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
 | objTypeName | Erforderlich | Name des benutzerdefinierten Objekts |
-| customObjKeyLists->keyList->attribute | Erforderlich | Das Attribut ist ein Schlüssel-Wert-Paar, das zur Identifizierung der benutzerdefinierten Objekte dient, die Sie abrufen möchten. Sie können im `customObjKeyLists` |
+| customObjKeyLists->keyList->attribute | Erforderlich | Das Attribut ist ein Schlüssel-Wert-Paar, das zur Identifizierung der benutzerdefinierten Objekte dient, die Sie abrufen möchten. Sie können mehrere Attribute im `customObjKeyLists` angeben. |
 | includeAttributes | Erforderlich | Die Liste der Felder des benutzerdefinierten Objekts, die Sie abrufen möchten. Wenn Sie keine übergeben, werden alle Werte zurückgegeben. |
 | batchSize | optional | Die Anzahl der zurückzugebenden Objekte (max. 100) |
-| streamPosition | optional | Wird zur Paginierung durch mehrere Ergebnismengen verwendet. Der übergebene Wert ist der von der vorherigen `getCustomObjects` aufrufen. |
+| streamPosition | optional | Wird zur Paginierung durch mehrere Ergebnismengen verwendet. Der übergebene Wert ist der vom vorherigen `getCustomObjects` -Aufruf zurückgegebene Wert. |
 
 ## XML anfordern
 

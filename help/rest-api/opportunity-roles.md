@@ -1,20 +1,20 @@
 ---
-title: "Opportunity Roles"
+title: Opportunity Roles
 feature: REST API
-description: "Umgang mit Opportunitätsrollen in Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Umgang mit Opportunitätsrollen in Marketo.
+exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
 
 ---
 
-
 # Opportunity Roles
 
-[Endpunktverweis zu Opportunity Roles](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Endpoint-Referenz zu Opportunity Roles](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-Leads sind mit Chancen über das Zwischenprodukt verbunden `opportunityRole` -Objekt.
+Interessenten werden über das Zwischenobjekt `opportunityRole` mit Chancen verknüpft.
 
 Die APIs für Angebotsrollen werden nur für Abonnements verfügbar gemacht, für die keine native CRM-Synchronisierung aktiviert ist.
 
@@ -106,7 +106,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## Anfrage
 
-Beachten Sie, dass beide `dedupeFields` und `searchableFields` unterscheiden sich etwas von Chancen. `dedupeFields` stellt tatsächlich einen zusammengesetzten Schlüssel bereit, bei dem alle drei `externalOpportunityId`, `leadId`, und `role` sind erforderlich. Sowohl die Opportunity- als auch die Lead-Verknüpfung der ID-Felder müssen in der Zielinstanz vorhanden sein, damit die Erstellung von Datensätzen erfolgreich ist. Für `searchableFields`, `marketoGUID`, `leadId`, und `externalOpportunityId` sind alle für Abfragen einzeln gültig und verwenden ein dem Opportunities identisches Muster. Es gibt jedoch eine zusätzliche Option, den zusammengesetzten Schlüssel für die Abfrage zu verwenden. Dies erfordert die Übermittlung eines JSON-Objekts über die POST mit dem zusätzlichen Abfrageparameter `_method=GET`.
+Beachten Sie, dass sowohl `dedupeFields` als auch `searchableFields` etwas anders sind als Chancen. `dedupeFields` stellt tatsächlich einen zusammengesetzten Schlüssel bereit, bei dem alle drei Elemente `externalOpportunityId`, `leadId` und `role` erforderlich sind. Sowohl die Opportunity- als auch die Lead-Verknüpfung der ID-Felder müssen in der Zielinstanz vorhanden sein, damit die Erstellung von Datensätzen erfolgreich ist. Für `searchableFields`, `marketoGUID`, `leadId` und `externalOpportunityId` gelten alle für Abfragen allein und verwenden ein Muster, das mit den Möglichkeiten identisch ist. Es gibt jedoch eine zusätzliche Option, den zusammengesetzten Schlüssel für die Abfrage zu verwenden, wozu die Übermittlung eines JSON-Objekts über die POST mit dem zusätzlichen Abfrageparameter `_method=GET` erforderlich ist.
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET

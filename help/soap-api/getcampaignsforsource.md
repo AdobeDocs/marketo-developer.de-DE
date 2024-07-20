@@ -1,14 +1,14 @@
 ---
-title: "getCampaignsForSource"
+title: getCampaignsForSource
 feature: SOAP
-description: "getCampaignsForSource SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getCampaignsForSource-SOAP
+exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '131'
 ht-degree: 6%
 
 ---
-
 
 # getCampaignsForSource
 
@@ -22,7 +22,7 @@ Wichtig: Die Smart-Kampagne muss über den Trigger &quot;Kampagne ist angeforder
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| quelle | Erforderlich | -Quelle `MKTOWS` oder `SALES`. Letztere bietet eine Liste der Kampagnen, die für Sales Insight verfügbar sind. |
+| quelle | Erforderlich | -Quelle kann `MKTOWS` oder `SALES` sein. Letztere bietet eine Liste der Kampagnen, die für Sales Insight verfügbar sind. |
 | name | optional | verwenden, um nach Namen zu filtern. Dies ist eine einzelne Zeichenfolge, kein Zeichenfolgen-Array. |
 | exactName | optional | Boolescher Wert, der angibt, ob Sie eine exakte Übereinstimmung für den Parameter name wünschen |
 

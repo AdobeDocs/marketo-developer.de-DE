@@ -1,29 +1,29 @@
 ---
-title: "Benutzerverwaltung"
+title: Benutzerverwaltung
 feature: REST API
-description: "Führen Sie CRUD-Vorgänge für Benutzerdatensätze durch."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Führen Sie CRUD-Vorgänge für Benutzerdatensätze durch.
+exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1155'
 ht-degree: 0%
 
 ---
 
-
 # Benutzerverwaltung
 
-[User Management-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/user/)
+[Endpoint-Referenz für die Benutzerverwaltung](https://developer.adobe.com/marketo-apis/api/user/)
 
 Marketo bietet eine Reihe von User Management-Endpunkten, mit denen Sie CRUD-Vorgänge für Benutzerdatensätze in Marketo durchführen können. Benutzer werden durch Senden einer Einladung an einen Benutzer erstellt, der dann ein Kennwort festlegt und zum ersten Mal Zugriff auf Marketo erhält.
 
 Im Gegensatz zu anderen Marketo REST-APIs bei der Verwendung der User Management-APIs:
 
-- Sie müssen die HTTP-Header-Methode verwenden, um das Zugriffstoken zur Authentifizierung zu senden. Sie können das Zugriffstoken nicht als Abfragezeichenfolgenparameter übergeben. Weitere Informationen zur Authentifizierung finden Sie unter [here](authentication.md).
-- Sie müssen beim Erstellen der Benutzerrolle für [Benutzerdefinierter Dienst](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) für REST-API:
-   1. Berechtigung &quot;Zugriff auf Benutzer&quot;aus dem [Auf Admin zugreifen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) Gruppe
-   1. &quot;Access User Management API&quot;aus dem [Access API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions) Gruppe
+- Sie müssen die HTTP-Header-Methode verwenden, um das Zugriffstoken zur Authentifizierung zu senden. Sie können das Zugriffstoken nicht als Abfragezeichenfolgenparameter übergeben. Weitere Informationen zur Authentifizierung finden Sie unter [hier](authentication.md).
+- Sie müssen beim Erstellen der Benutzerrolle für [Benutzerspezifischer Dienst](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) für die REST-API eine Rollenberechtigung aus zwei verschiedenen Gruppen auswählen:
+   1. Zugriffsberechtigung für Benutzer über die Gruppe [Zugriff auf Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
+   1. &quot;Zugriff auf User Management-API&quot;über die Gruppe [Zugriff auf API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
 - Antwortkörper enthalten nicht das boolesche Attribut &quot;success&quot;, das auf den Erfolg oder das Fehlschlagen eines Aufrufs hinweist. Stattdessen müssen Sie den HTTP-Antwortstatus-Code auswerten. Wenn ein Aufruf erfolgreich ist, wird ein Statuscode &quot;200&quot;zurückgegeben. Wenn ein Aufruf fehlschlägt, wird ein Statuscode der Nicht-200-Ebene zurückgegeben, und der Antworttext enthält das standardmäßige Array &quot;errors&quot;mit Fehler-Code und beschreibender Fehlermeldung.
-- Das Format der Datums-/Uhrzeitzeichenfolgen lautet &quot;yyyyMM&#39;T&#39;HH&quot;.:mm:ss.SSS&#39;t&#39;+|-hhmm&quot;. Dies gilt für die folgenden Attribute: createdAt, updatedAt, expiresAt.
+- Das Format der Datums-/Uhrzeitzeichenfolgen lautet &quot;yyyyMM&#39;T&#39;HH:mm:ss.SSS&#39;t&#39;+|-hhmm&quot;. Dies gilt für die folgenden Attribute: createdAt, updatedAt, expiresAt.
 - Benutzermanagement-API-Endpunkten wird &quot;/rest&quot;nicht wie anderen Endpunkten vorangestellt.
 
 ## Anfrage
@@ -32,7 +32,7 @@ Die Unterstützung von Abfragen für die Benutzerverwaltung beinhaltet die Mögl
 
 ### Benutzer nach ID
 
-Die [Benutzer nach ID abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserUsingGET) Endpunkt benötigt eine `userid` Pfadparameter und gibt einen einzelnen Benutzerdatensatz für einen Benutzer zurück, der seine Einladung angenommen hat.
+Der Endpunkt [Benutzer von ID abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserUsingGET) verwendet einen einzelnen `userid` -Pfadparameter und gibt einen einzelnen Benutzerdatensatz für einen Benutzer zurück, der seine Einladung angenommen hat.
 
 ```
 GET /userservice/management/v1/users/{userid}/user.json
@@ -73,7 +73,7 @@ GET /userservice/management/v1/users/{userid}/user.json
 
 ### Eingeladener Benutzer nach ID
 
-Die [Eingeladenen Benutzer nach ID abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getInvitedUserUsingGET) Endpunkt benötigt eine `userid` path -Parameter und gibt einen einzelnen Benutzerdatensatz für einen &quot;ausstehenden&quot;Benutzer zurück (hat ihre Einladung noch nicht angenommen).
+Der Endpunkt [Eingeladenen Benutzer von ID abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getInvitedUserUsingGET) verwendet einen einzelnen `userid` -Pfadparameter und gibt einen einzelnen Benutzerdatensatz für einen &quot;ausstehenden&quot;Benutzer zurück (der seine Einladung noch nicht angenommen hat).
 
 ```
 GET /userservice/management/v1/users/{userid}/invite.json
@@ -96,7 +96,7 @@ GET /userservice/management/v1/users/{userid}/invite.json
 
 ### Rollen und Arbeitsbereiche nach ID
 
-Die [Abrufen von Rollen und Arbeitsbereichen nach ID](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserRolesAndWorkspacesUsingGET) Endpunkt benötigt eine `userid` path -Parameter und gibt eine Liste von Benutzerrollen und Workspace-Datensätzen zurück. Die Antwort enthält ein Array mit einem Objekt, das die Rolle, die Arbeitsbereichs-ID und den Namen für den angegebenen Benutzer enthält.
+Der Endpunkt [Rollen und Arbeitsbereiche nach ID abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUserRolesAndWorkspacesUsingGET) akzeptiert einen einzelnen `userid` -Pfadparameter und gibt eine Liste von Benutzerrollen und Workspace-Datensätzen zurück. Die Antwort enthält ein Array mit einem Objekt, das die Rolle, die Arbeitsbereichs-ID und den Namen für den angegebenen Benutzer enthält.
 
 ```
 GET /userservice/management/v1/users/{userid}/roles.json
@@ -121,7 +121,7 @@ GET /userservice/management/v1/users/{userid}/roles.json
 
 ### Benutzer durchsuchen
 
-Die [Benutzer abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUsersUsingGET) endpoint gibt eine Liste aller Benutzerdatensätze zurück. Das optionale `pageSize` -Parameter ist eine Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt. Der Standardwert ist 20. Maximal 200. Das optionale `pageOffset` -Parameter ist eine Ganzzahl, die angibt, wo Einträge abgerufen werden sollen. Kann mit `pageSize`. Der Standardwert ist 0.
+Der Endpunkt [Get Users](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getUsersUsingGET) gibt eine Liste aller Benutzerdatensätze zurück. Der optionale Parameter `pageSize` ist eine Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt. Der Standardwert ist 20. Maximal 200. Der optionale Parameter `pageOffset` ist eine Ganzzahl, die angibt, wo Einträge abgerufen werden sollen. Kann mit `pageSize` verwendet werden. Der Standardwert ist 0.
 
 ```
 GET /userservice/management/v1/users/allusers.json
@@ -158,7 +158,7 @@ GET /userservice/management/v1/users/allusers.json
 
 ### Rollen durchsuchen
 
-Die [Abrufen von Rollen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getRolesUsingGET) endpoint gibt eine Liste aller Rollendatensätze zurück.
+Der Endpunkt [Rollen abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getRolesUsingGET) gibt eine Liste aller Rolleneinträge zurück.
 
 ```
 GET /userservice/management/v1/users/roles.json
@@ -241,7 +241,7 @@ GET /userservice/management/v1/users/roles.json
 
 ### Arbeitsbereiche durchsuchen
 
-Die [Arbeitsbereiche abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET) endpoint gibt eine Liste aller Workspace-Datensätze zurück.
+Der Endpunkt [Arbeitsbereiche abrufen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/getWorkspacesUsingGET) gibt eine Liste aller Workspace-Datensätze zurück.
 
 ```
 GET /userservice/management/v1/users/workspaces.json
@@ -294,17 +294,17 @@ GET /userservice/management/v1/users/workspaces.json
 
 ## Benutzer einladen
 
-on [In Adobe IMS integrierte Abonnements](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), unterstützt dieser Endpunkt die Einladung von [Nur-API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) nur. Einladen [Standardbenutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), verwenden Sie die [Adobe User Management-API](https://developer.adobe.com/umapi/) anstatt.
+Bei [integrierten Adobe IMS-Abonnements](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) unterstützt dieser Endpunkt nur die Einladung von [Nur-API-Benutzern](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Verwenden Sie stattdessen die [Adobe User Management-API](https://developer.adobe.com/umapi/), um [Standardbenutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) einzuladen.
 
-Die [Benutzer einladen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) Endpunkt zum Senden einer &quot;Willkommen bei Marketo&quot;-E-Mail-Einladung an neue Benutzer. Der E-Mail-Textkörper enthält den Link &quot;Bei Marketo anmelden&quot;, über den der Benutzer zum ersten Mal auf Marketo zugreifen kann. Um die Einladung anzunehmen, klickt der E-Mail-Empfänger auf den Link &quot;Bei Marketo anmelden&quot;, erstellt sein Kennwort und erhält Zugriff auf Marketo. Bis der Annahmevorgang abgeschlossen ist, ist die Einladung &quot;ausstehend&quot; und der Benutzerdatensatz kann nicht bearbeitet werden. Eine ausstehende Einladung läuft sieben Tage nach dem Versand ab. Weitere Informationen zur Benutzerverwaltung finden Sie unter [here](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
+Der Endpunkt [Benutzer einladen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) , um eine E-Mail-Einladung &quot;Willkommen bei Marketo&quot;an neue Benutzer zu senden. Der E-Mail-Textkörper enthält den Link &quot;Bei Marketo anmelden&quot;, über den der Benutzer zum ersten Mal auf Marketo zugreifen kann. Um die Einladung anzunehmen, klickt der E-Mail-Empfänger auf den Link &quot;Bei Marketo anmelden&quot;, erstellt sein Kennwort und erhält Zugriff auf Marketo. Bis der Annahmevorgang abgeschlossen ist, ist die Einladung &quot;ausstehend&quot; und der Benutzerdatensatz kann nicht bearbeitet werden. Eine ausstehende Einladung läuft sieben Tage nach dem Versand ab. Weitere Informationen zum Verwalten von Benutzern finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
 
 Parameter werden im Anfragetext im Format application/json übergeben.
 
-Die folgenden Parameter sind erforderlich:  `emailAddress`, `firstName`, `lastName, userRoleWorkspaces`. Die `userRoleWorkspaces` parameter ist ein Array von Objekten, die `accessRoleId` und `workspaceId` -Attribute.
+Die folgenden Parameter sind erforderlich:  0, 1, 2. `emailAddress``firstName``lastName, userRoleWorkspaces` Der Parameter `userRoleWorkspaces` ist ein Array von Objekten, die die Attribute `accessRoleId` und `workspaceId` enthalten.
 
-Die `userid` -Parameter ist ein eindeutiger Benutzer-ID-Zeichenfolgenwert, der zur Benutzeranmeldung verwendet wird und als E-Mail-Adresse formatiert werden muss. Wenn in der Anfrage nicht angegeben, wird der Wert von `userid` wird standardmäßig auf den Wert gesetzt, der unter `emailAddress` -Parameter.
+Der Parameter `userid` ist ein eindeutiger Benutzer-ID-Zeichenfolgenwert, der für die Benutzeranmeldung verwendet wird und als E-Mail-Adresse formatiert werden muss. Wenn der Wert von `userid` nicht in der Anfrage angegeben ist, wird standardmäßig der im Parameter `emailAddress` angegebene Wert verwendet.
 
-Der boolesche `apiOnly` Parameter gibt an, ob der Benutzer ein [Nur-API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Die `expiresAt` gibt an, wann die Benutzeranmeldung abläuft und im W3C ISO-8601-Format formatiert wird (ohne Millisekunden). Wenn der Benutzer nicht in der Anfrage angegeben wird, läuft er nie ab. Die `reason` -Parameter ist eine Zeichenfolge, die den Grund für die Einladung des Benutzers beschreibt.
+Der boolesche Parameter `apiOnly` gibt an, ob der Benutzer ein [Nur-API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) ist. Der Parameter `expiresAt` gibt an, wann die Benutzeranmeldung abläuft und im W3C ISO-8601-Format formatiert wird (ohne Millisekunden). Wenn der Benutzer nicht in der Anfrage angegeben wird, läuft er nie ab. Der Parameter `reason` ist eine Zeichenfolge, die den Grund für die Einladung des Benutzers beschreibt.
 
 Der Endpunkt gibt bei Erfolg den Wert &quot;true&quot;zurück. Andernfalls wird eine Fehlermeldung zurückgegeben.
 
@@ -336,9 +336,9 @@ Content-Type: application/json
 true
 ```
 
-Nachstehend finden Sie ein Beispiel für die E-Mail-Einladung &quot;Willkommen bei Marketo&quot;, die an den neuen Benutzer gesendet wird. Die Betreffzeile der E-Mail lautet &quot;Marketo Login Information&quot;, der Absender ist die E-Mail-Adresse des reinen API-Benutzers, der mit der [Benutzerdefinierter REST-API-Dienst](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)und der Empfänger wie in den Parametern firstName, lastName und emailAddress angegeben ist.
+Nachstehend finden Sie ein Beispiel für die E-Mail-Einladung &quot;Willkommen bei Marketo&quot;, die an den neuen Benutzer gesendet wird. Die Betreffzeile der E-Mail lautet &quot;Marketo Login Information&quot;, der Absender ist die E-Mail-Adresse des reinen API-Benutzers, der mit dem benutzerdefinierten Dienst [REST API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) verknüpft ist, und der Empfänger ist wie in den Parametern firstName, lastName und emailAddress angegeben.
 
-![Einladungs-E-Mail](assets/invite-user-email.png)
+![Einladungs-Benutzer-E-Mail](assets/invite-user-email.png)
 
 Der Benutzer nimmt die Einladung in die E-Mail an, indem er zweimal sein Passwort eingibt und auf die Schaltfläche &quot;KENNWORT ERSTELLEN&quot;klickt. Sie erhält dann erstmalig Zugriff auf Marketo.
 
@@ -348,9 +348,9 @@ Die Aktualisierungsunterstützung für Benutzer umfasst die Möglichkeit, Benutz
 
 ### Benutzerattribute aktualisieren
 
-on [In Adobe IMS integrierte Abonnements](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), unterstützt dieser Endpunkt die Aktualisierung der Attribute von [Nur-API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) nur. So aktualisieren Sie Attribute für [Standardbenutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), verwenden Sie die [Adobe User Management-API](https://developer.adobe.com/umapi/) anstatt.
+Bei [in Adobe IMS integrierten Abonnements](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) unterstützt dieser Endpunkt nur die Aktualisierung der Attribute von [Nur API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) . Um Attribute für [Standardbenutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) zu aktualisieren, verwenden Sie stattdessen die [Adobe User Management-API](https://developer.adobe.com/umapi/) .
 
-Die [Benutzerattribute aktualisieren](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST) Endpunkt benötigt eine `userid` Pfadparameter und gibt einen einzelnen Benutzerdatensatz zurück. Der Anfragetext enthält ein oder mehrere zu aktualisierende Benutzerattribute: `emailAddress`, `firstName`, `lastName`, `expiresAt`.
+Der Endpunkt [Benutzerattribute aktualisieren](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST) verwendet einen einzelnen `userid` -Pfadparameter und gibt einen einzelnen Benutzerdatensatz zurück. Der Anfrageinhalt enthält mindestens ein zu aktualisierendes Benutzerattribut: `emailAddress`, `firstName`, `lastName`, `expiresAt`.
 
 ```
 POST /userservice/management/v1/users/{userid}/update.json
@@ -403,9 +403,9 @@ Content-Type: application/json
 
 #### Benutzer löschen
 
-on [In Adobe IMS integrierte Abonnements](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview), unterstützt dieser Endpunkt das Löschen von [Nur-API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user) nur. Löschen [Standardbenutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users), verwenden Sie die [Adobe User Management-API](https://developer.adobe.com/umapi/) anstatt.
+Bei [in Adobe IMS integrierten Abonnements](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) unterstützt dieser Endpunkt nur das Löschen von [Nur API-Benutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Um [Standardbenutzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) zu löschen, verwenden Sie stattdessen die [Adobe User Management-API](https://developer.adobe.com/umapi/) .
 
-Die [Benutzer löschen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST) Endpunkt benötigt eine `userid` path -Parameter und löscht den entsprechenden Benutzer aus der Instanz. Dies ist ein zerstörerischer Löschvorgang, der nicht rückgängig gemacht werden kann. Bei erfolgreicher Ausführung wird ein Statuscode &quot;200&quot;zurückgegeben. Andernfalls wird eine Fehlermeldung zurückgegeben.
+Der Endpunkt [Benutzer löschen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST) akzeptiert einen einzelnen `userid` -Pfadparameter und löscht den entsprechenden Benutzer aus der Instanz. Dies ist ein zerstörerischer Löschvorgang, der nicht rückgängig gemacht werden kann. Bei erfolgreicher Ausführung wird ein Statuscode &quot;200&quot;zurückgegeben. Andernfalls wird eine Fehlermeldung zurückgegeben.
 
 ```
 POST /userservice/management/v1/users/{userid}/delete.json
@@ -413,7 +413,7 @@ POST /userservice/management/v1/users/{userid}/delete.json
 
 #### Eingeladenen Benutzer löschen
 
-Die [Eingeladenen Benutzer löschen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteInvitedUserUsingPOST) Endpunkt benötigt eine `userid` path -Parameter und löscht den entsprechenden &quot;ausstehenden&quot;Benutzer aus der Instanz (der Benutzer hatte seine Einladung noch nicht angenommen). Dies ist ein zerstörerischer Löschvorgang, der nicht rückgängig gemacht werden kann. Bei erfolgreicher Ausführung wird ein Statuscode &quot;200&quot;zurückgegeben. Andernfalls wird eine Fehlermeldung zurückgegeben.
+Der Endpunkt [Eingeladenen Benutzer löschen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteInvitedUserUsingPOST) verwendet einen einzelnen `userid` -Pfadparameter und löscht den entsprechenden &quot;ausstehenden&quot;Benutzer aus der Instanz (der Benutzer hatte seine Einladung noch nicht angenommen). Dies ist ein zerstörerischer Löschvorgang, der nicht rückgängig gemacht werden kann. Bei erfolgreicher Ausführung wird ein Statuscode &quot;200&quot;zurückgegeben. Andernfalls wird eine Fehlermeldung zurückgegeben.
 
 ```
 POST /userservice/management/v1/users/{userid}/invite/delete.json
@@ -425,7 +425,7 @@ Die Aktualisierung der Unterstützung für Rollen beinhaltet die Möglichkeit, R
 
 ## Rollen hinzufügen
 
-Die [Rollen hinzufügen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST) Endpunkt benötigt eine `userid` path -Parameter und fügt dem entsprechenden Benutzer eine oder mehrere Benutzerrollen hinzu. Der Anfragetext enthält eine Liste von einem oder mehreren Objekten, von denen jedes ein  `accessRoleId` und `workspaceId` -Attribut. Bei Erfolg wird die gesamte Liste von `accessRoleId/workspaceId` -Paare für den angegebenen Benutzer zurückgegeben.
+Der Endpunkt [Rollen hinzufügen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/addRolesUsingPOST) verwendet einen einzelnen `userid` -Pfadparameter und fügt dem entsprechenden Benutzer mindestens eine Benutzerrolle hinzu. Der Anfragetext enthält eine Liste von einem oder mehreren Objekten, von denen jedes ein  `accessRoleId` und ein `workspaceId` -Attribut. Bei erfolgreicher Ausführung wird die gesamte Liste mit `accessRoleId/workspaceId` -Paaren für den angegebenen Benutzer zurückgegeben.
 
 ```
 POST /userservice/management/v1/users/{userid}/roles/create.json
@@ -463,7 +463,7 @@ Content-Type: application/json
 
 ## Rollen löschen
 
-Die [Rollen löschen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST) Endpunkt benötigt eine `userid` Pfadparameter und löscht eine oder mehrere Benutzerrollen aus dem entsprechenden Benutzer. Der Anfragetext enthält eine Liste von einem oder mehreren Objekten, von denen jedes ein  `accessRoleId` und `workspaceId` -Attribut. Bei erfolgreicher Ausführung wird die verbleibende Liste der accessRoleId-/workspaceId-Paare für den angegebenen Benutzer zurückgegeben.
+Der Endpunkt [Rollen löschen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteRolesUsingPOST) akzeptiert einen einzelnen `userid` -Pfadparameter und löscht eine oder mehrere Benutzerrollen vom entsprechenden Benutzer. Der Anfragetext enthält eine Liste von einem oder mehreren Objekten, von denen jedes ein  `accessRoleId` und ein `workspaceId` -Attribut. Bei erfolgreicher Ausführung wird die verbleibende Liste der accessRoleId-/workspaceId-Paare für den angegebenen Benutzer zurückgegeben.
 
 ```
 POST /userservice/management/v1/users/{userid}/roles/delete.json

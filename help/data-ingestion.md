@@ -13,15 +13,15 @@ ht-degree: 11%
 
 Die Data Ingestion-API ist ein hochverfügbarer Dienst mit hohem Volumen und geringer Latenz, der dazu bestimmt ist, große Mengen von personenbezogenen Daten effizient und mit minimalen Verzögerungen zu erfassen. 
 
-Daten werden durch Senden von Anforderungen erfasst, die asynchron ausgeführt werden. Der Anfragestatus kann abgerufen werden, indem Sie Ereignisse über das [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/)&#x200B;
+Daten werden durch Senden von Anforderungen erfasst, die asynchron ausgeführt werden. Der Anforderungsstatus kann abgerufen werden, indem Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) abonniert werden. &#x200B;
 
 Es stehen Schnittstellen für zwei Objekttypen zur Verfügung: Personen, benutzerdefinierte Objekte. Der Datensatzvorgang ist nur &quot;insert or update&quot;.
 
-Die Data Ingestion-API befindet sich in der privaten Beta-Phase. Einladende Personen müssen über eine Berechtigung für [Marketo Engage-Leistungs-Tier-Paket](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Die Data Ingestion-API befindet sich in der privaten Beta-Phase. Einladungen müssen über eine Berechtigung für das [Marketo Engage Performance Level Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) verfügen.
 
 ## Authentifizierung
 
-Die Data Ingestion-API verwendet dieselbe OAuth 2.0-Authentifizierungsmethode wie die Marketo REST-API, um ein Zugriffstoken zu generieren. Das Zugriffstoken muss jedoch über die HTTP-Kopfzeile übergeben werden `X-Mkto-User-Token`. Sie können das Zugriffstoken nicht über einen Abfrageparameter übergeben.
+Die Data Ingestion-API verwendet dieselbe OAuth 2.0-Authentifizierungsmethode wie die Marketo REST-API, um ein Zugriffstoken zu generieren. Das Zugriffstoken muss jedoch über den HTTP-Header `X-Mkto-User-Token` übergeben werden. Sie können das Zugriffstoken nicht über einen Abfrageparameter übergeben.
 
 Beispiel-Zugriffstoken über Kopfzeile:
 
@@ -61,7 +61,7 @@ Die Datendarstellung ist als application/json im Anfragetext enthalten.
 
 Der Domänenname lautet: `mkto-ingestion-api.adobe.io`
 
-Der Pfad beginnt mit `/subscriptions/_MunchkinId_` where `_MunchkinId_` ist spezifisch für Ihre Marketo-Instanz. Sie finden Ihre Munchkin-ID in der Marketo Engage-Benutzeroberfläche unter **Admin** >**Mein Konto** > **Support-Info**. Der Rest des Pfads wird verwendet, um die Zielressource anzugeben.
+Der Pfad beginnt mit `/subscriptions/_MunchkinId_` , wobei `_MunchkinId_` für Ihre Marketo-Instanz spezifisch ist. Sie finden Ihre Munchkin-ID in der Marketo Engage-Benutzeroberfläche unter **Admin** >**Mein Konto** > **Support-Info**. Der Rest des Pfads wird verwendet, um die Zielressource anzugeben.
 
 Beispiel-URL für Personen:
 
@@ -73,7 +73,7 @@ Beispiel-URL für benutzerdefinierte Objekte:
 
 ## Antworten
 
-Alle Antworten geben eine eindeutige Anfrage-ID über die `X-Request-Id` -Kopfzeile.
+Alle Antworten geben eine eindeutige Anfrage-ID über die Kopfzeile `X-Request-Id` zurück.
 
 Beispiel einer Anfrage-ID über die Kopfzeile:
 
@@ -89,7 +89,7 @@ Beispiel einer Erfolgsantwort:
 
 ### Fehler
 
-Wenn ein Aufruf einen Fehler erzeugt, wird der Status &quot;Nicht 202&quot;zusammen mit einem Antworttext mit zusätzlichen Fehlerdetails zurückgegeben. Der Antworttext lautet application/json und enthält ein einzelnes Objekt mit Elementen `error_code` und `message`.
+Wenn ein Aufruf einen Fehler erzeugt, wird der Status &quot;Nicht 202&quot;zusammen mit einem Antworttext mit zusätzlichen Fehlerdetails zurückgegeben. Der Antworttext lautet application/json und enthält ein einzelnes Objekt mit den Elementen `error_code` und `message`.
 
 Nachstehend finden Sie wiederverwendete Fehlercodes von Adobe Developer Gateway.
 
@@ -145,7 +145,7 @@ Anfrageinhalt
 |---|---|---|---|---|
 | Priorität | Zeichenfolge | Nein | Priorität der Anforderung: normal high | normal |
 | partitionName | Zeichenfolge | Nein | Name der Personenpartition | Standard |
-| dedupeFields | Objekt | Nein | Attribute, die dedupliziert werden sollen. Ein oder zwei Attributnamen sind zulässig. In einem UND-Vorgang werden zwei Attribute verwendet. Wenn zum Beispiel beide `email` und `firstName` festgelegt sind, werden sie beide verwendet, um eine Person zu suchen, die den UND-Vorgang verwendet. Folgende Attribute werden unterstützt:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attributes (&quot;string&quot;- und &quot;integer&quot;-Typ) | E-Mail |
+| dedupeFields | Objekt | Nein | Attribute, die dedupliziert werden sollen. Ein oder zwei Attributnamen sind zulässig. In einem UND-Vorgang werden zwei Attribute verwendet. Wenn beispielsweise sowohl `email` als auch `firstName` angegeben sind, werden beide verwendet, um eine Person zu suchen, die den UND-Vorgang verwendet. Unterstützte Attribute sind: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` Attribute (&quot;string&quot;- und &quot;integer&quot;-Typ) | E-Mail |
 | Personen | Array of Object | Ja | Liste der Attributname-Wert-Paare für die Person | - |
 
 | Berechtigung |
@@ -224,7 +224,7 @@ Anfrageinhalt
 
 #### Person nicht vorhanden
 
-Wenn in der Anfrage ein Feld für die Verknüpfung mit einer Person angegeben ist und diese Person nicht vorhanden ist, werden mehrere Zustellversuche unternommen. Wenn diese Person während des Wiederholungsfensters (65 Minuten) hinzugefügt wird, ist die Aktualisierung erfolgreich. Wenn das Link-Feld beispielsweise `email` auf &quot;Person&quot;und &quot;Person existiert nicht&quot;, werden weitere Zustellversuche unternommen.
+Wenn in der Anfrage ein Feld für die Verknüpfung mit einer Person angegeben ist und diese Person nicht vorhanden ist, werden mehrere Zustellversuche unternommen. Wenn diese Person während des Wiederholungsfensters (65 Minuten) hinzugefügt wird, ist die Aktualisierung erfolgreich. Wenn das Link-Feld beispielsweise &quot;`email`&quot;für &quot;Person&quot;ist und &quot;Person&quot;nicht vorhanden ist, werden weitere Zustellversuche unternommen.
 
 #### Beispiel für benutzerdefinierte Objekte
 
@@ -279,10 +279,10 @@ Im Folgenden finden Sie eine Liste der Verwendung von Limits:
 Im Folgenden finden Sie eine Liste der Unterschiede zwischen der Data Ingestion-API und anderen Marketo REST-APIs:
 
 - Dies ist keine vollständige CRUD-Oberfläche, es unterstützt nur &quot;upsert&quot;
-- Um sich zu authentifizieren, müssen Sie das Zugriffstoken mithilfe der `X-Mkto-User-Token` header
+- Um sich zu authentifizieren, müssen Sie das Zugriffstoken mithilfe der Kopfzeile `X-Mkto-User-Token` übergeben
 - Der URL-Domänenname lautet `mkto-ingestion-api.adobe.io`
 - Der URL-Pfad beginnt mit `/subscriptions/_MunchkinId_`
 - Es gibt keine Abfrageparameter
 - Bei erfolgreichem Aufruf wird der Status 202 zurückgegeben und der Antworttext ist leer
 - Wenn der Aufruf fehlschlägt, wird der Status &quot;Nicht 202&quot;zurückgegeben und der Antworttext enthält `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
-- Die Anfrage-ID wird über zurückgegeben. `X-Request-Id` header
+- Die Anfrage-ID wird über den Header `X-Request-Id` zurückgegeben.

@@ -1,18 +1,18 @@
 ---
-title: "syncMObjects"
+title: syncMObjects
 feature: SOAP
-description: "syncMObjects SOAP-Aufrufe"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMObjects SOAP Aufrufe
+exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '421'
 ht-degree: 6%
 
 ---
 
-
 # syncMObjects
 
-Akzeptiert ein Array von [Objekte](marketo-objects.md) erstellt oder aktualisiert werden und das Ergebnis (Status) des Vorgangs (ERSTELLT, AKTUALISIERT, FEHLGESCHLAGEN, UNCHANGED, SKIPPED) sowie die Marketo-IDs der MObject(s) zurückgeben. Die API kann in einem von drei Vorgangsmodi aufgerufen werden:
+Akzeptiert ein Array von [MObjects](marketo-objects.md), das erstellt oder aktualisiert werden soll, bis zu 100 pro Aufruf und gibt das Ergebnis (Status) des Vorgangs (ERSTELLT, AKTUALISIERT, FEHLGESCHLAGEN, UNCHANGED, SKIPPED) und die Marketo-IDs der MObject(s) zurück. Die API kann in einem von drei Vorgangsmodi aufgerufen werden:
 
 1. INSERT - Lediglich neue Objekte einfügen, vorhandene Objekte überspringen
 1. UPDATE - Aktualisieren Sie nur vorhandene Objekte, überspringen Sie neue Objekte.
@@ -25,10 +25,10 @@ Die Vorgänge UPDATE und UPSERT verwenden die ID als Schlüssel. In einem einzel
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| mObjectList->mObject->type | Erforderlich | Kann eine der folgenden sein:`Program`, `Opportunity`, `OpportunityPersonRole` |
+| mObjectList->mObject->type | Erforderlich | Kann einer der folgenden Werte sein:`Program`, `Opportunity`, `OpportunityPersonRole` |
 | mObjectList->mObject->id | Erforderlich | ID des MObject. Sie können bis zu 100 MObjects pro Aufruf angeben. |
 | mObjectList->mObject->typeAttribList->typeAttrib->attrType | Erforderlich | Kosten (nur bei Aktualisierung des Programm-MObject verwendet) können eines der folgenden sein: `Cost`, `Tag` |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Erforderlich | Für das Programm-MObject können die folgenden Attribute als Name-Wert-Paare übergeben werden. Für Kosten:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. Für Tag/Kanal: `Type (Required)`, `Value (Required)`. Für Opportunity MObject alle Felder aus der Ausgabe der [descriptionMObject](describemobject.md) kann als Name-Wert-Paare übergeben werden. Die folgende Liste enthält alle optionalen Felder und den Standardsatz mit Attributen. Möglicherweise verfügen Sie über zusätzliche Felder im Opportunity-MObject, die durch eine Support-Anfrage erstellt wurden. |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attrib->name | Erforderlich | Für das Programm-MObject können die folgenden Attribute als Name-Wert-Paare übergeben werden. Für Kosten:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. Für Tag/Kanal: `Type (Required)`, `Value (Required)`. Für Opportunity MObject können alle Felder aus der Ausgabe des [descriptionMObject](describemobject.md) als Name-Wert-Paare übergeben werden. Die folgende Liste enthält alle optionalen Felder und den Standardsatz mit Attributen. Möglicherweise verfügen Sie über zusätzliche Felder im Opportunity-MObject, die durch eine Support-Anfrage erstellt wurden. |
 
 1. Betrag
 1. CloseDate
@@ -50,7 +50,7 @@ Die Vorgänge UPDATE und UPSERT verwenden die ID als Schlüssel. In einem einzel
 1. Phase
 1. Typ
 
-Für OpportunityPersonRole MObject können Sie alle Felder aus der Ausgabe von [descriptionMObject](./describemobject.md) als Name-Wert-Paare. Die standardmäßigen Attribute für OpportunityPersonRole MObject sind hier aufgeführt:
+Für OpportunityPersonRole MObject können Sie alle Felder aus der Ausgabe von [descriptionMObject](./describemobject.md) als Name-Wert-Paare angeben. Die standardmäßigen Attribute für OpportunityPersonRole MObject sind hier aufgeführt:
 
 1. OpportunityId (erforderlich)
 1. PersonId (erforderlich)
@@ -60,7 +60,10 @@ Für OpportunityPersonRole MObject können Sie alle Felder aus der Ausgabe von [
 1. IsPrimary (optional)
 1. Rolle (optional)
 
-| | mObjAssociationList->mObjAssociation->mObjType | Optional | Wird verwendet, um Opportunity/OpportunityPersonRole-Objekte mithilfe der ID oder des externen Schlüssels eines verknüpften Objekts zu aktualisieren. Zugeordnete Objekte können eines der folgenden sein: Unternehmen (um Opportunity MObject zu aktualisieren), Lead (um OpportunityPersonRole MObject zu aktualisieren), Chancen (um OpportunityPersonRole MObject zu aktualisieren)| | mObjAssociationList->mObjAssociation->id | Optional | Die ID des zugehörigen Objekts (Lead/Firma/Gelegenheit) | | mObjAssociationList->mObjAssociation->externalKey | Optional | Ein benutzerdefiniertes Attribut des zugehörigen Objekts |
+|
+| mObjAssociationList->mObjAssociation->mObjType | Optional | Wird verwendet, um Opportunity/OpportunityPersonRole-Objekte mithilfe der ID oder des externen Schlüssels eines verknüpften Objekts zu aktualisieren. Zugeordnete Objekte können eines der folgenden sein: Unternehmen (um Opportunity MObject zu aktualisieren), Lead (um OpportunityPersonRole MObject zu aktualisieren), Chancen (um OpportunityPersonRole MObject zu aktualisieren)|
+| mObjAssociationList->mObjAssociation->id | Optional | Die ID des zugehörigen Objekts (Lead/Firma/Gelegenheit) |
+| mObjAssociationList->mObjAssociation->externalKey | Optional | Ein benutzerdefiniertes Attribut des zugehörigen Objekts |
 
 ## XML anfordern
 

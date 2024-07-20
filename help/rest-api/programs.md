@@ -1,18 +1,18 @@
 ---
-title: "Programme"
+title: Programme
 feature: REST API, Programs
-description: "Programminformationen erstellen und bearbeiten."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Programminformationen erstellen und bearbeiten.
+exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '843'
 ht-degree: 2%
 
 ---
 
-
 # Programme
 
-[Programmendpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
+[Programm-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
 
 Programme sind eine zentrale organisatorische Komponente der Marketo-Marketingaktivitäten. Sie können den meisten Asset-Typen übergeordnet sein und ermöglichen das Tracking der Mitgliedschaft und des Erfolgs von Leads im Kontext einzelner Marketinginitiativen. Bei Programmen kann es sich um übergeordneten Elementen zu allen Arten von Datensätzen mit Ausnahme von LP, E-Mail-Vorlagen und Dateien handeln.
 
@@ -32,13 +32,13 @@ Programme haben immer einen Kanal. Sie leiten die möglichen eingerichteten Prog
 
 ## Anfrage
 
-Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option zur Abfrage nach Tag-Typ und Werten. Verfügbare Tags und Werte können mit [Abrufen von Tag-Typen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
+Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option zur Abfrage nach Tag-Typ und Werten. Verfügbare Tags und Werte können mit [Get Tag Types](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET) abgerufen werden.
 
 ### Nach ID
 
-Die [Programm nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) -Endpunkt erfordert `id` Pfadparameter.
+Für den Endpunkt [Programm von ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) ist ein `id` -Pfadparameter erforderlich.
 
-Die Programm-ID kann von der URL des Programms in der Benutzeroberfläche abgerufen werden, wo die URL ähnelt `https://app-\*\*\*.marketo.com/#PG1001A1`. In dieser URL wird die `id` ist 1001. Es wird immer zwischen dem ersten Satz von Buchstaben in der URL und dem zweiten Satz von Buchstaben stehen.
+Die Programm-ID kann von der URL des Programms in der Benutzeroberfläche abgerufen werden, wobei die URL `https://app-\*\*\*.marketo.com/#PG1001A1` entspricht. In dieser URL ist der `id` 1001. Es wird immer zwischen dem ersten Satz von Buchstaben in der URL und dem zweiten Satz von Buchstaben stehen.
 
 ```
 GET /rest/asset/v1/program/{id}.json
@@ -82,7 +82,7 @@ GET /rest/asset/v1/program/{id}.json
 
 ### Nach Name
 
-Die [Programm nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/) -Endpunkt erfordert `name` Abfrageparameter. Optionale boolesche Abfrageparameter sind `includeTags` und `includeCosts` die verwendet werden, um Programm-Tags bzw. Programmkosten zurückzugeben.
+Für den Endpunkt [Programm nach Name abrufen](https://developer.adobe.com/marketo-apis/api/asset/) ist ein `name` -Abfrageparameter erforderlich. Optionale boolesche Abfrageparameter sind `includeTags` und `includeCosts` , die zum Zurückgeben von Programm-Tags bzw. Programmkosten verwendet werden.
 
 ```
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
@@ -126,13 +126,13 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Durchsuchen
 
-Die [Abrufen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) -Endpunkt ermöglicht Ihnen, nach Programmen zu suchen.
+Über den Endpunkt [Programme abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) können Sie nach Programmen suchen.
 
-Das optionale `status` -Parameter können Sie nach Programmstatus filtern. Dieser Parameter gilt nur für Interaktions- und E-Mail-Programme. Die möglichen Werte sind &quot;ein&quot;und &quot;aus&quot;für Interaktionsprogramme und &quot;entsperrt&quot;für E-Mail-Programme.
+Mit dem optionalen Parameter `status` können Sie nach Programmstatus filtern. Dieser Parameter gilt nur für Interaktions- und E-Mail-Programme. Die möglichen Werte sind &quot;ein&quot;und &quot;aus&quot;für Interaktionsprogramme und &quot;entsperrt&quot;für E-Mail-Programme.
 
-Das optionale `maxReturn` steuert die Anzahl der zurückzugebenden Programme (maximal 200, standardmäßig 20). Das optionale `offset` Parameter, der für Paging-Ergebnisse verwendet wird (Standard ist 0).
+Der optionale Parameter `maxReturn` steuert die Anzahl der zurückzugebenden Programme (maximal 200, standardmäßig 20). Der optionale Parameter `offset` , der für Paging-Ergebnisse verwendet wird (Standard ist 0).
 
-Beachten Sie, dass Tags, die mit einem Programm verknüpft sind, von diesem Endpunkt nicht zurückgegeben werden. Programm-Tags können entweder mithilfe von [Abrufen von Programmen nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) oder [Abrufen von Programmen nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
+Beachten Sie, dass Tags, die mit einem Programm verknüpft sind, von diesem Endpunkt nicht zurückgegeben werden. Programm-Tags können entweder mit [Programm von Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) oder mit [Programm von Name abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) abgerufen werden.
 
 ```
 GET /rest/asset/v1/programs.json
@@ -187,7 +187,7 @@ GET /rest/asset/v1/programs.json
 
 ### Nach Datumsbereich
 
-Die `earliestUpdatedAt` und `latestUpdatedAt` Parameter an unsere [Abrufen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) -Endpunkt ermöglicht es Ihnen, niedrige und hohe Datum-Wasserzeichen für zurückgegebene Programme festzulegen, die entweder innerhalb des angegebenen Bereichs aktualisiert oder ursprünglich erstellt wurden.
+Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` für unseren Endpunkt [Programme abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) können Sie niedrige und hohe Datums-Wasserzeichen für zurückgegebene Programme festlegen, die entweder aktualisiert oder ursprünglich im angegebenen Bereich erstellt wurden.
 
 ```
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
@@ -278,9 +278,9 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 ### Nach Tag-Typ
 
-Die [Abrufen von Programmen nach Tag](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET) endpoint ruft eine Liste von Programmen ab, die mit dem angegebenen Tag-Typ und Tag-Werten übereinstimmen.
+Der Endpunkt [Programme von Tag](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET) abrufen ruft eine Liste von Programmen ab, die mit dem angegebenen Tag-Typ und Tag-Werten übereinstimmen.
 
-Es gibt zwei erforderliche Parameter: `tagType` der Tag-Typ ist, nach dem gefiltert werden soll, und `tagValue` ist der Tag-Wert, nach dem gefiltert werden soll.  Es gibt eine optionale Ganzzahl `maxReturn` -Parameter, der die Anzahl der zurückzugebenden Programme steuert (maximal 200, standardmäßig 20), und eine optionale Ganzzahl `offset` Parameter, der für Paging-Ergebnisse verwendet wird (Standard ist 0).  Die Ergebnisse werden in zufälliger Reihenfolge zurückgegeben.
+Es gibt zwei erforderliche Parameter: `tagType` , der Typ des zu filternden Tags, und `tagValue`, der der zu filternde Tag-Wert ist.  Es gibt einen optionalen Integer `maxReturn` -Parameter, der die Anzahl der zurückzugebenden Programme steuert (maximal 200, standardmäßig 20), und einen optionalen Integer `offset` -Parameter, der für Paging-Ergebnisse verwendet wird (standardmäßig 0).  Die Ergebnisse werden in zufälliger Reihenfolge zurückgegeben.
 
 ```
 GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
@@ -320,9 +320,9 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Erstellen und Aktualisieren
 
-[Erstellen]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) -Programme folgen dem standardmäßigen Asset-Muster und haben `folder`, `name`, `type` und `channel` als erforderliche Parameter, mit `description`, `costs` und `tags` optional sein. Kanal und Typ können nur bei der Programmerstellung festgelegt werden. Nur Beschreibung, Name, `tags` und `costs` kann nach der Erstellung mit einer zusätzlichen `costsDestructiveUpdate` -Parameter zulässig. Übergeben `costsDestructiveUpdate` &quot;true&quot;bedeutet, dass alle vorhandenen Kosten gelöscht und durch alle im Aufruf enthaltenen Kosten ersetzt werden. Beachten Sie, dass in einigen Abonnements möglicherweise Tags für einige Programmtypen erforderlich sind. Dies ist jedoch konfigurationsabhängig und sollte zuerst mit Get Tags überprüft werden, um festzustellen, ob es instanzspezifische Anforderungen gibt.
+Die Programme [Erstellen]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) und [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) folgen dem standardmäßigen Asset-Muster und haben `folder`, `name`, `type` und `channel` als erforderliche Parameter, wobei `description`, `costs` und `tags` optional sind. Kanal und Typ können nur bei der Programmerstellung festgelegt werden. Nur Beschreibung, Name, `tags` und `costs` können nach der Erstellung aktualisiert werden, wobei ein zusätzlicher `costsDestructiveUpdate` Parameter zulässig ist. Wenn Sie `costsDestructiveUpdate` als &quot;true&quot;übergeben, werden alle vorhandenen Kosten gelöscht und durch alle im Aufruf enthaltenen Kosten ersetzt. Beachten Sie, dass in einigen Abonnements möglicherweise Tags für einige Programmtypen erforderlich sind. Dies ist jedoch konfigurationsabhängig und sollte zuerst mit Get Tags überprüft werden, um festzustellen, ob es instanzspezifische Anforderungen gibt.
 
-Beim Erstellen oder Aktualisieren eines E-Mail-Programms muss eine `startDate` und `endDate` auch weitergegeben werden.
+Beim Erstellen oder Aktualisieren eines E-Mail-Programms können auch `startDate` und `endDate` übergeben werden.
 
 ### Erstellen
 
@@ -376,7 +376,7 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 
 ### Aktualisierung
 
-Wenn Sie die Programmkosten aktualisieren möchten, fügen Sie sie einfach zu Ihrem `costs` Array. Um eine destruktive Aktualisierung durchzuführen, geben Sie Ihre neuen Kosten zusammen mit dem -Parameter weiter. `costsDestructiveUpdate` auf `true`. Um alle Kosten aus einem Programm zu löschen, befolgen Sie nicht die `costs` Parameter und übergeben Sie einfach `costsDestructiveUpdate` auf `true`.
+Wenn Sie die Programmkosten aktualisieren, fügen Sie sie einfach Ihrem `costs` -Array hinzu, um neue Kosten anzuhängen. Um eine destruktive Aktualisierung durchzuführen, geben Sie Ihre neuen Kosten zusammen mit dem Parameter `costsDestructiveUpdate`, der auf `true` gesetzt ist, weiter. Um alle Kosten aus einem Programm zu löschen, übergeben Sie keinen `costs` -Parameter und übergeben Sie einfach `costsDestructiveUpdate`, der auf `true` gesetzt ist.
 
 ```
 POST /rest/asset/v1/program/{id}.json
@@ -482,9 +482,9 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 ## Klonen
 
-[Klonen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) folgt dem standardmäßigen Asset-Muster und dem neuen Namen und Ordner als erforderliche Parameter sowie einer optionalen Beschreibung.  Die `name` muss global eindeutig sein und darf 255 Zeichen nicht überschreiten.  Die `folder` -Parameter ist der übergeordnete Ordner.  Die `folder` Das Parametertypattribut muss auf &quot;Ordner&quot;gesetzt werden und der Zielordner muss sich im selben Arbeitsbereich wie das Programm befinden, das geklont wird.
+[Klonen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) folgt dem standardmäßigen Asset-Muster, dem neuen Namen und Ordner als erforderliche Parameter und einer optionalen Beschreibung.  Der Parameter `name` muss global eindeutig sein und darf 255 Zeichen nicht überschreiten.  Der Parameter `folder` ist der übergeordnete Ordner.  Das Parametertypattribut `folder` muss auf &quot;Ordner&quot;gesetzt werden und der Zielordner muss sich im selben Arbeitsbereich wie das Programm befinden, das geklont wird.
 
-Programme, die bestimmte Asset-Typen enthalten, können über diese API nicht geklont werden, darunter Push-Benachrichtigungen, In-App-Nachrichten, Berichte und Social-Assets. In-App-Programme können nicht über diese API geklont werden.
+Programme, die bestimmte Asset-Typen enthalten, können über diese API nicht geklont werden, darunter Push-Benachrichtigungen, In-App-Nachrichten, Berichte und Social Assets. In-App-Programme können nicht über diese API geklont werden.
 
 ```
 POST /rest/asset/v1/program/{id}/clone.json
