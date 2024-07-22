@@ -60,7 +60,8 @@ Für OpportunityPersonRole MObject können Sie alle Felder aus der Ausgabe von [
 1. IsPrimary (optional)
 1. Rolle (optional)
 
-|
+| Feldname | Erforderlich/Optional | Beschreibung |
+| --- | --- | --- |
 | mObjAssociationList->mObjAssociation->mObjType | Optional | Wird verwendet, um Opportunity/OpportunityPersonRole-Objekte mithilfe der ID oder des externen Schlüssels eines verknüpften Objekts zu aktualisieren. Zugeordnete Objekte können eines der folgenden sein: Unternehmen (um Opportunity MObject zu aktualisieren), Lead (um OpportunityPersonRole MObject zu aktualisieren), Chancen (um OpportunityPersonRole MObject zu aktualisieren)|
 | mObjAssociationList->mObjAssociation->id | Optional | Die ID des zugehörigen Objekts (Lead/Firma/Gelegenheit) |
 | mObjAssociationList->mObjAssociation->externalKey | Optional | Ein benutzerdefiniertes Attribut des zugehörigen Objekts |
