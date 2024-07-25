@@ -8,7 +8,7 @@ index: true
 source-git-commit: 85062243d57a3fc6d15251163e926495858edf2a
 workflow-type: tm+mt
 source-wordcount: '234'
-ht-degree: 32%
+ht-degree: 36%
 
 ---
 
@@ -30,7 +30,7 @@ ht-degree: 32%
    - [Umleitungen](javascript-api/redirect.md)
    - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
    - [Social](javascript-api/social.md)
-   - [Auslöser](javascript-api/triggers.md)
+   - [Trigger](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
 - Mobil {#mobile}
    - [Installieren der Erweiterung [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
@@ -41,7 +41,7 @@ ht-degree: 32%
    - [In-App-Nachrichten](mobile/in-app-messages.md)
    - [Installation](mobile/installation.md)
    - [[!DNL Ionic]](mobile/ionic.md)
-   - [Mobil](mobile/mobile.md)
+   - [Mobile](mobile/mobile.md)
    - [Phonegap](mobile/phonegap.md)
    - [Push-Benachrichtigungen](mobile/push-notifications.md)
    - [React Native](mobile/react-native.md)
@@ -64,7 +64,7 @@ ht-degree: 32%
       - [Programme](rest-api/programs.md)
       - [Intelligente Kampagnen](rest-api/smart-campaigns.md)
       - [Smart Lists](rest-api/smart-lists.md)
-      - [Ausschnitte](rest-api/snippets.md)
+      - [Snippets](rest-api/snippets.md)
       - [Statische Listen](rest-api/static-lists.md)
       - [Token](rest-api/tokens.md)
       - [Transaktions-Email](rest-api/transactional-email.md)
@@ -89,12 +89,12 @@ ht-degree: 32%
    - [Endpunktverweis](rest-api/endpoint-reference.md)
    - [Fehlercodes](rest-api/error-codes.md)
    - Lead-Datenbank {#lead-database}
-      - [Unternehmen](rest-api/companies.md)
+      - [Firmen](rest-api/companies.md)
       - [Feldliste](rest-api/fields.md)
       - [Feldtypen](rest-api/field-types.md)
       - [Lead-Datenbank](rest-api/lead-database.md)
       - [Leads](rest-api/leads.md)
-      - [Genannte Konten](rest-api/named-accounts.md)
+      - [Benannte Konten](rest-api/named-accounts.md)
       - [Namenskontenlisten](rest-api/named-account-lists.md)
       - [Opportunitys](rest-api/opportunities.md)
       - [Opportunity Roles](rest-api/opportunity-roles.md)
