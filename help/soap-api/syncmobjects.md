@@ -3,10 +3,10 @@ title: syncMObjects
 feature: SOAP
 description: syncMObjects SOAP Aufrufe
 exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 04e6b38a7ee602c38a851f9b99101186e72a8518
 workflow-type: tm+mt
-source-wordcount: '421'
-ht-degree: 6%
+source-wordcount: '426'
+ht-degree: 8%
 
 ---
 
@@ -62,7 +62,7 @@ Für OpportunityPersonRole MObject können Sie alle Felder aus der Ausgabe von [
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| mObjAssociationList->mObjAssociation->mObjType | Optional | Wird verwendet, um Opportunity/OpportunityPersonRole-Objekte mithilfe der ID oder des externen Schlüssels eines verknüpften Objekts zu aktualisieren. Zugeordnete Objekte können eines der folgenden sein: Unternehmen (um Opportunity MObject zu aktualisieren), Lead (um OpportunityPersonRole MObject zu aktualisieren), Chancen (um OpportunityPersonRole MObject zu aktualisieren)|
+| mObjAssociationList->mObjAssociation->mObjType | Optional | Wird verwendet, um Opportunity/OpportunityPersonRole-Objekte mithilfe der ID oder des externen Schlüssels eines verknüpften Objekts zu aktualisieren. Zugeordnete Objekte können eines der folgenden sein: Unternehmen (um Opportunity MObject zu aktualisieren), Lead (um OpportunityPersonRole MObject zu aktualisieren), Chancen (um OpportunityPersonRole MObject zu aktualisieren) |
 | mObjAssociationList->mObjAssociation->id | Optional | Die ID des zugehörigen Objekts (Lead/Firma/Gelegenheit) |
 | mObjAssociationList->mObjAssociation->externalKey | Optional | Ein benutzerdefiniertes Attribut des zugehörigen Objekts |
 
