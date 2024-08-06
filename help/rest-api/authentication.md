@@ -3,9 +3,9 @@ title: Authentifizierung
 feature: REST API
 description: Authentifizierung von Marketo-Benutzern für die API-Nutzung.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e0fc654efe4501f734ab5158ce0bfd3ed08896ce
 workflow-type: tm+mt
-source-wordcount: '540'
+source-wordcount: '588'
 ht-degree: 0%
 
 ---
@@ -61,6 +61,10 @@ Sie können zwei Methoden verwenden, um ein Token in Ihre Aufrufe einzuschließe
 1. Abfrageparameter
 
    `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
+
+   >[!IMPORTANT]
+   >
+   >Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wird in einer nachfolgenden Version entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
 
 ## Tipps und Best Practices
 
