@@ -3,10 +3,10 @@ title: Leads
 feature: REST API
 description: Details zu den Leads-API-Aufrufen
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 2c125161cf06be8ebb44ae8212f15fbbe5c1f6b7
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
-source-wordcount: '3308'
-ht-degree: 2%
+source-wordcount: '3343'
+ht-degree: 3%
 
 ---
 
@@ -60,7 +60,7 @@ GET /rest/v1/leads/describe.json
 
 Normalerweise enthalten Antworten einen viel größeren Satz von Feldern im Ergebnis-Array, aber wir lassen sie zu Demonstrationszwecken weg. Jedes Element im Ergebnis-Array entspricht einem Feld, das im Lead-Datensatz verfügbar ist, und hat mindestens eine ID, einen displayName und einen Datentyp. Die untergeordneten Objekte &quot;rest&quot;und &quot;soap&quot;können für ein bestimmtes Feld vorhanden sein oder nicht, und seine Präsenz zeigt an, ob das Feld für die Verwendung in den REST- oder SOAP-APIs gültig ist. Die Eigenschaft `readOnly` gibt an, ob das Feld über die entsprechende API (REST oder SOAP) schreibgeschützt ist. Die length -Eigenschaft gibt die maximale Länge des Felds an, sofern vorhanden. Die dataType -Eigenschaft gibt den Datentyp des Felds an.
 
-## Anfrage
+## Abfrage
 
 Es gibt zwei Hauptmethoden zum Abrufen von Leads: die Methoden &quot;Lead nach ID abrufen&quot;und &quot;Leads nach Filtertyp abrufen&quot;. &quot;Get Lead by Id&quot;verwendet eine einzelne Lead-ID als Pfadparameter und gibt einen einzelnen Lead-Datensatz zurück.
 
@@ -152,11 +152,19 @@ Sowohl &quot;Lead nach ID abrufen&quot;als auch &quot;Leads nach Filtertyp abruf
 
 ## ADOBE ECID
 
-Wenn die Adobe Experience Cloud-Funktion zur Zielgruppenfreigabe aktiviert ist, wird ein Cookie-Synchronisierungsprozess durchgeführt, der die Adobe Experience Cloud ID (ECID) mit Marketo-Leads verknüpft.  Die oben genannten Lead-Abrufmethoden können zum Abrufen der zugehörigen ECID-Werte verwendet werden.  Geben Sie dazu im Feldparameter &quot;ecids&quot;an. Beispiel: &quot;&amp;fields=email,firstName,lastName,ecids&quot;.
+Wenn die Adobe Experience Cloud-Funktion zur Zielgruppenfreigabe aktiviert ist, wird ein Cookie-Synchronisierungsprozess durchgeführt, der die Adobe Experience Cloud ID (ECID) mit Marketo-Leads verknüpft.  Die oben genannten Lead-Abrufmethoden können zum Abrufen der zugehörigen ECID-Werte verwendet werden.  Geben Sie dazu im Feldparameter &quot;`ecids`&quot;an. Beispiel: `&fields=email,firstName,lastName,ecids`.
 
 ## Erstellen und Aktualisieren
 
 Zusätzlich zum Abrufen von Lead-Daten können Sie Lead-Datensätze über die API erstellen, aktualisieren und löschen. Das Erstellen und Aktualisieren von Leads verwendet denselben Endpunkt, während der in der Anfrage definierte Vorgangstyp verwendet wird. Es können bis zu 300 Datensätze gleichzeitig erstellt oder aktualisiert werden.
+
+>[!NOTE]
+>
+> Das Aktualisieren von Firmenfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden Sie stattdessen den Endpunkt [Unternehmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) .
+
+>[!NOTE]
+>
+> Beim Erstellen oder Aktualisieren des E-Mail-Werts für einen Personendatensatz werden im Feld E-Mail-Adresse nur ASCII-Zeichen unterstützt.
 
 ### Anfrage
 
@@ -483,66 +491,66 @@ Der Endpunkt Lead-Feld-Update aktualisiert ein einzelnes benutzerdefiniertes Fel
 </tr>
 <tr>
 <td style="width: 26.5306%;">dataType</td>
-<td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">no</td>
-<td style="width: 19.3878%;">no</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">nein</td>
+<td style="width: 17.551%;">nein</td>
+<td style="width: 19.3878%;">nein</td>
+<td style="width: 18.8776%;">ja</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">Beschreibung</td>
-<td style="width: 17.449%;">yes</td>
-<td style="width: 17.551%;">yes</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">ja</td>
+<td style="width: 17.551%;">ja</td>
+<td style="width: 19.3878%;">ja</td>
+<td style="width: 18.8776%;">ja</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">displayName</td>
-<td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">no</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">nein</td>
+<td style="width: 17.551%;">nein</td>
+<td style="width: 19.3878%;">ja</td>
+<td style="width: 18.8776%;">ja</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isCustom</td>
-<td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">no</td>
-<td style="width: 19.3878%;">no</td>
-<td style="width: 18.8776%;">no</td>
+<td style="width: 17.449%;">nein</td>
+<td style="width: 17.551%;">nein</td>
+<td style="width: 19.3878%;">nein</td>
+<td style="width: 18.8776%;">nein</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isHidden</td>
-<td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">yes</td>
+<td style="width: 17.449%;">nein</td>
+<td style="width: 17.551%;">ja</td>
 <td style="width: 19.3878%;">ja (falls von der API erstellt)</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 18.8776%;">ja</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isHtmlEncodingInEmail</td>
-<td style="width: 17.449%;">yes</td>
-<td style="width: 17.551%;">yes</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">ja</td>
+<td style="width: 17.551%;">ja</td>
+<td style="width: 19.3878%;">ja</td>
+<td style="width: 18.8776%;">ja</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">isSensitive</td>
-<td style="width: 17.449%;">yes</td>
-<td style="width: 17.551%;">yes</td>
-<td style="width: 19.3878%;">yes</td>
-<td style="width: 18.8776%;">yes</td>
+<td style="width: 17.449%;">ja</td>
+<td style="width: 17.551%;">ja</td>
+<td style="width: 19.3878%;">ja</td>
+<td style="width: 18.8776%;">ja</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">length</td>
-<td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">no</td>
-<td style="width: 19.3878%;">no</td>
-<td style="width: 18.8776%;">no</td>
+<td style="width: 17.449%;">nein</td>
+<td style="width: 17.551%;">nein</td>
+<td style="width: 19.3878%;">nein</td>
+<td style="width: 18.8776%;">nein</td>
 </tr>
 <tr>
 <td style="width: 26.5306%;">name</td>
-<td style="width: 17.449%;">no</td>
-<td style="width: 17.551%;">no</td>
-<td style="width: 19.3878%;">no</td>
-<td style="width: 18.8776%;">no</td>
+<td style="width: 17.449%;">nein</td>
+<td style="width: 17.551%;">nein</td>
+<td style="width: 19.3878%;">nein</td>
+<td style="width: 18.8776%;">nein</td>
 </tr>
 </tbody>
 </table>
@@ -710,7 +718,7 @@ Neue Leads werden in der primären Partition für den Arbeitsbereich erstellt, i
 POST /rest/v1/leads/submitForm.json
 ```
 
-### Kopfzeile
+### Header
 
 ```
 Content-Type: application/json
