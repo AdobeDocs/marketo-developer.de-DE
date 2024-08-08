@@ -3,9 +3,9 @@ title: Leistung
 feature: REST API
 description: Tipps zur Leistung für die Arbeit mit der Marketo-API.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 4e64b8a801e443471f52090b7f008b11e628012d
 workflow-type: tm+mt
-source-wordcount: '117'
+source-wordcount: '122'
 ht-degree: 1%
 
 ---
@@ -16,9 +16,11 @@ Diese Seite enthält eine Liste von Themen zur Leistung, mit denen Sie die Leist
 
 ## HTTP-Komprimierung
 
-Die Marketo REST-API unterstützt die HTTP-Komprimierung von Antwortkörpern anhand von Standards, die in der HTTP 1.1-Spezifikation definiert sind.  Die Aktivierung der Komprimierung wird empfohlen, da dadurch die Bandbreitennutzung und die Zeit für das Abrufen von Daten reduziert werden.
+Die Marketo REST-API unterstützt die HTTP-Komprimierung von Antwortkörpern anhand von Standards, die in der HTTP 1.1-Spezifikation definiert sind. Die Aktivierung der Komprimierung wird empfohlen, da dadurch die Bandbreitennutzung und die Zeit für das Abrufen von Daten reduziert werden.
 
-**Hinweis:**  Nutzlasten unter 1024 Byte werden nicht komprimiert.
+>[!NOTE]
+>
+>Nutzlasten unter 1024 Byte werden nicht komprimiert und Bulk-APIs unterstützen keine Komprimierung.
 
 Um die Komprimierung zu aktivieren, fügen Sie den folgenden HTTP-Header in die Anfrage ein:
 
