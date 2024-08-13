@@ -3,14 +3,14 @@ title: syncLead
 feature: SOAP
 description: syncLead SOAP Aufrufe
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: ebe8faf41dff0e0ba5f4323f5909cc3c9813fd10
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 2%
 
 ---
 
-# syncLean
+# syncLead
 
 Mit dieser Funktion wird ein einzelner Lead-Datensatz eingefügt oder aktualisiert. Beim Aktualisieren eines vorhandenen Leads wird der Lead mit einem der folgenden Schlüssel identifiziert:
 
@@ -49,7 +49,7 @@ Wenn Marketo-Arbeitsbereiche NICHT aktiviert sind, MUSS der Zielarbeitsbereich d
 | leadRecord->leadAttributeList->attribute->attrName | Erforderlich | Der Name des Lead-Attributs, dessen Wert Sie aktualisieren möchten. |
 | leadRecord->leadAttributeList->attribute->attrValue | Erforderlich | Der Wert, den Sie auf das in &quot;attrName&quot;angegebene Lead-Attribut festlegen möchten. |
 | returnLead | Erforderlich | Wenn &quot;true&quot;, wird der vollständige aktualisierte Lead-Datensatz bei der Aktualisierung zurückgegeben. |
-| marketoCookie | optional | Das Cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
+| marketoCookie | Optional | Das Cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
 
 ## XML anfordern
 
