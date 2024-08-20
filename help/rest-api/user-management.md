@@ -3,10 +3,10 @@ title: Benutzerverwaltung
 feature: REST API
 description: Führen Sie CRUD-Vorgänge für Benutzerdatensätze durch.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
 workflow-type: tm+mt
-source-wordcount: '1155'
-ht-degree: 0%
+source-wordcount: '1185'
+ht-degree: 1%
 
 ---
 
@@ -26,7 +26,7 @@ Im Gegensatz zu anderen Marketo REST-APIs bei der Verwendung der User Management
 - Das Format der Datums-/Uhrzeitzeichenfolgen lautet &quot;yyyyMM&#39;T&#39;HH:mm:ss.SSS&#39;t&#39;+|-hhmm&quot;. Dies gilt für die folgenden Attribute: createdAt, updatedAt, expiresAt.
 - Benutzermanagement-API-Endpunkten wird &quot;/rest&quot;nicht wie anderen Endpunkten vorangestellt.
 
-## Anfrage
+## Abfrage
 
 Die Unterstützung von Abfragen für die Benutzerverwaltung beinhaltet die Möglichkeit, alle Benutzer, Rollen und Arbeitsbereiche abzurufen. Außerdem können Sie einen einzelnen Benutzerdatensatz nach Benutzer-ID oder nach Rollen-/Wortgruppen-Datensatz nach Benutzer-ID abrufen.
 
@@ -130,31 +130,35 @@ GET /userservice/management/v1/users/allusers.json
 ```json
 [
   {
-    "userid": "jamie@lannister.com",
-    "firstName": "Jamie",
-    "lastName": "Lannister",
-    "emailAddress": "jamie@houselannister.com",
-    "id": 6785,
+    "userid": "02226aae-9f54-45d1-bc26-8305c8f55ec7@adobe.com",
+    "firstName": "Aparna",
+    "lastName": "Ghosh",
+    "emailAddress": "aparna.ghosh@ericsson.com",
+    "id": 5222,
     "apiOnly": false
-  },
-  {
-    "userid": "jeoffery@housebaratheon.com",
-    "firstName": "Jeoffery",
-    "lastName": "Baratheon",
-    "emailAddress": "jeoffery@housebaratheon.com",
-    "id": 7718,
+    },
+    {
+    "userid": "038e1cac-3f3e-4c05-b0b3-6265fd2abcd3@adobe.com",
+    "firstName": "Timm",
+    "lastName": "Rehse",
+    "emailAddress": "timm.rehse@ericsson.com",
+    "id": 7075,
     "apiOnly": false
-  },
-  {
-    "userid": "rickon@housestark.com",
-    "firstName": "Rickon",
-    "lastName": "Stark",
-    "emailAddress": "rickon@housestark.com",
-    "id": 8612,
+    },
+    {
+    "userid": "0a855522-06c9-4a9e-93de-91a0d2cc2987@adobe.com",
+    "firstName": "Dhinagaran",
+    "lastName": "Swaminathan",
+    "emailAddress": "dhinagaran.swaminathan@ericsson.com",
+    "id": 6439,
     "apiOnly": false
-  }
+    }
 ]
 ```
+
+>[!NOTE]
+>
+>Im obigen Codebeispiel richtet sich das angezeigte `userid` an einen Kunden, der zu Adobe IMS migriert wurde. Für Kunden, die noch migriert werden müssen, wird im Feld `userid` eine normale E-Mail-Adresse angezeigt.
 
 ### Rollen durchsuchen
 
@@ -298,7 +302,7 @@ Bei [integrierten Adobe IMS-Abonnements](https://experienceleague.adobe.com/en/d
 
 Der Endpunkt [Benutzer einladen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) , um eine E-Mail-Einladung &quot;Willkommen bei Marketo&quot;an neue Benutzer zu senden. Der E-Mail-Textkörper enthält den Link &quot;Bei Marketo anmelden&quot;, über den der Benutzer zum ersten Mal auf Marketo zugreifen kann. Um die Einladung anzunehmen, klickt der E-Mail-Empfänger auf den Link &quot;Bei Marketo anmelden&quot;, erstellt sein Kennwort und erhält Zugriff auf Marketo. Bis der Annahmevorgang abgeschlossen ist, ist die Einladung &quot;ausstehend&quot; und der Benutzerdatensatz kann nicht bearbeitet werden. Eine ausstehende Einladung läuft sieben Tage nach dem Versand ab. Weitere Informationen zum Verwalten von Benutzern finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
 
-Parameter werden im Anfragetext im Format application/json übergeben.
+Parameter werden im Anfragetext im Format `application/json` übergeben.
 
 Die folgenden Parameter sind erforderlich:  0, 1, 2. `emailAddress``firstName``lastName, userRoleWorkspaces` Der Parameter `userRoleWorkspaces` ist ein Array von Objekten, die die Attribute `accessRoleId` und `workspaceId` enthalten.
 
