@@ -5,8 +5,7 @@ product: marketo
 type: Documentation
 mini-toc-levels: 2
 git-repo: https://github.com/AdobeDocs/marketo-developer.de-DE
-hide: true
-source-git-commit: 4c6df71f0d7f569582597eac48c8f44ea12036f8
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
 source-wordcount: '53'
 ht-degree: 98%
@@ -14,8 +13,8 @@ ht-degree: 98%
 ---
 
 
-# Metadaten für den internen Gebrauch.
+# Metadaten für die interne Verwendung
 
-Die Datei „metadata.md“ enthält Metadaten auf Repository-Ebene, die an die für Benutzerhandbücher verwendeten Dateien namens „TOC.md“ im Repository übergeben werden. Änderungen des Inhalts von „metadata.md“ für ein Benutzerhandbuch können Sie bei Bedarf in der entsprechenden TOC.md-Datei vornehmen.
+Die Datei metadata.md enthält Metadaten auf Repo-Ebene, die an die TOC.md-Dateien des Benutzerhandbuchs im Repo weitergegeben werden. Wenn Sie den Inhalt von metadata.md für ein Benutzerhandbuch ändern möchten, tun Sie dies in einer beliebigen TOC.md-Datei.
 
-Unter [Metadaten](https://experienceleague.adobe.com/docs/authoring-guide-exl/using/editing/user-guide-setup/metadata.html?lang=de) finden Sie eine Liste gültiger Werte für **solution**, **product** und **type**.
+Unter [Metadaten](https://experienceleague.adobe.com/docs/authoring-guide-exl/using/editing/user-guide-setup/metadata.html?lang=de) finden Sie eine Liste der gültigen Werte für **Lösung**, **Produkt** und **Typ**.

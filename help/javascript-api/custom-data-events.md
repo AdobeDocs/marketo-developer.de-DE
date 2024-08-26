@@ -1,12 +1,12 @@
 ---
 title: Benutzerspezifische Datenereignisse
-description: Benutzerspezifische Datenereignis-API
+description: Verwenden Sie die JavaScript-API Benutzerspezifische Datenereignisse , um Ihre eindeutigen Ereignisse zu verfolgen.
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
-source-wordcount: '223'
-ht-degree: 4%
+source-wordcount: '231'
+ht-degree: 3%
 
 ---
 
@@ -18,8 +18,8 @@ Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienc
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
-| `send` | Erforderlich | Zeichenfolge | Methodenaktion |
-| `event` | Erforderlich | Zeichenfolge | Name der Methode. |
+| `send` | Erforderlich | String | Methodenaktion |
+| `event` | Erforderlich | String | Name der Methode. |
 | `customData` | Erforderlich | Zeichenfolge oder Array | Benutzerdefinierte Daten. |
 
 ## Beispiele
