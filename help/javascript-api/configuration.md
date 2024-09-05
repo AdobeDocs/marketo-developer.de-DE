@@ -3,9 +3,9 @@ title: Konfiguration
 description: Verwenden Sie die Konfigurations-JavaScript-API, um bei Verwendung von Munchkin Konfigurationswerte festzulegen.
 feature: Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 257478ecb76b5908c2f623192f37be25bff1a02a
 workflow-type: tm+mt
-source-wordcount: '618'
+source-wordcount: '554'
 ht-degree: 3%
 
 ---
@@ -29,7 +29,7 @@ Das Konfigurationseinstellungsobjekt kann eine beliebige Anzahl von Eigenschafte
 | Name | Datentyp | Beschreibung |
 |---|---|---|
 | altIds | Array | Akzeptiert ein Array von Munchkin-ID-Zeichenfolgen. Wenn diese Option aktiviert ist, werden alle Web-Aktivitäten basierend auf ihrer Munchkin-ID in die zielgerichteten Abonnements dupliziert. |
-| anonymizeIP | Boolesch | Die in Marketo aufgezeichnete IP-Adresse wird für neue Besucher anonymisiert. Sie können feststellen, ob Ihr Abonnement über Munchkin V2 verfügt, indem Sie überprüfen, ob Ihre `{Munchkin-Id}.mktoresp.com`-Domäne eine der folgenden Adressen hat: `192.28.144.124` `134.213.193.62` `192.28.147.68` `103.237.104.82`. Alternativ können Sie das unten stehende Skript von einer Unix-Shell aus ausführen: nslookup {munchkin-id}.mktoresp.com | grep -E -c -e &quot;(192.28.144.124,134.213.193.62,192.28.147.68,103.237.104.82)&quot; &quot;0&quot;ausgibt, wird Ihr Abonnement nicht mit Munchkin V2 bereitgestellt. Wenn es 1 oder höher ausgibt, wird es bereitgestellt. |
+| anonymizeIP | Boolesch | Anonymisiert die in Marketo aufgezeichnete IP-Adresse für neue Besucher. |
 | apiOnly | Boolesch | Wenn der Wert auf &quot;true&quot;gesetzt ist, ruft die Funktion `Munchkin.Init()` `visitsWebPage` nicht auf. Dies ist nützlich für einseitige Webanwendungen, die vollständige Kontrolle über jedes `visitsWebPage` -Ereignis benötigen. |
 | asyncOnly | Boolesch | Wenn der Wert auf &quot;true&quot;gesetzt ist, wird der asynchrone XMLHttpRequest gesendet. Der Standardwert ist &quot;false&quot;. |
 | clickTime | Ganzzahl | Legt die Zeit fest, die nach einem Klick blockiert werden soll, um eine Klick-Tracking-Anfrage zu ermöglichen (in Millisekunden). Durch die Reduzierung wird die Genauigkeit des Klick-Trackings reduziert. Der Standardwert ist 350 ms. |
