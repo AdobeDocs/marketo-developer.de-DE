@@ -3,9 +3,9 @@ title: Fehlercodes
 feature: REST API
 description: Beschreibungen des Marketo-Fehlercodes.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
 workflow-type: tm+mt
-source-wordcount: '2272'
+source-wordcount: '2273'
 ht-degree: 3%
 
 ---
@@ -352,8 +352,8 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann einzeln erfolgreich sein ode
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Ungültiger Cookie-Wert "%s"</td>
-      <td>Kann auftreten, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Cookie-Parameter aufgerufen wird.
-        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit filterType=cookies und einem ungültigen gültigen Wert für den Parameter filterValues aufgerufen wird.</td>
+      <td>Kann auftreten, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Parameter "Cookie"aufgerufen wird.
+        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit "filterType=cookies"und einem ungültigen Wert für den Parameter "filterValues"aufgerufen wird.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -475,8 +475,8 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann einzeln erfolgreich sein ode
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> ist aufgrund der "SFDC-Feldlänge"fehlgeschlagen</td>
-      <td>Ein Leads-Zusammenführungsaufruf mit mergeInCRM, der auf "true"gesetzt ist, ist fehlgeschlagen, da "SFDC Field"die zulässige Zeichenbeschränkung überschreitet. Um dies zu korrigieren, reduzieren Sie die Länge von "SFDC Field"oder setzen Sie mergeInCRM auf "false".</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> ist aufgrund der Länge des SFDC-Felds fehlgeschlagen.</td>
+      <td>Ein Leads-Zusammenführungsaufruf mit mergeInCRM-Wert "true"ist fehlgeschlagen, da "SFDC Field"die zulässige Zeichenbeschränkung überschreitet. Um dies zu korrigieren, reduzieren Sie die Länge von "SFDC Field"oder setzen Sie mergeInCRM auf false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
