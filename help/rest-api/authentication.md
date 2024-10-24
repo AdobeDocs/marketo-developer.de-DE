@@ -3,9 +3,9 @@ title: Authentifizierung
 feature: REST API
 description: Authentifizierung von Marketo-Benutzern für die API-Nutzung.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 2bea5277a80ca99d98eb9b774f8cbea24cb6705f
+source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
 workflow-type: tm+mt
-source-wordcount: '588'
+source-wordcount: '569'
 ht-degree: 0%
 
 ---
@@ -52,19 +52,13 @@ Antwortdefinition
 
 Bei Aufrufen von REST-API-Methoden muss in jedem Aufruf ein Zugriffstoken enthalten sein, damit der Aufruf erfolgreich ist.
 
-Sie können zwei Methoden verwenden, um ein Token in Ihre Aufrufe einzuschließen: als HTTP-Header oder als Abfragezeichenfolgenparameter:
+Das Zugriffstoken muss als HTTP-Header gesendet werden.
 
-1. HTTP-Header
+`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
 
-   `Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-1. Abfrageparameter
-
-   `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
-   >[!IMPORTANT]
-   >
-   >Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
+>[!IMPORTANT]
+>
+>Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
 
 ## Tipps und Best Practices
 
