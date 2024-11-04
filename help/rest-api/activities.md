@@ -2,13 +2,13 @@
 title: Aktivitäten
 feature: REST API
 description: Eine API zum Verwalten von Marketo Engage-Aktivitäten.
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
+source-git-commit: 6baf62bc8881470eca597899e3228c377fb597d0
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
 
 ---
-
 
 # Aktivitäten
 
@@ -133,7 +133,7 @@ In einigen Fällen reagiert diese API mit weniger als 300 Aktivitätselementen, 
 
 Beachten Sie, dass in jedem Ergebnis-Array-Element das Attribut `id` integer durch das Attribut `marketoGUID` string als eindeutige Kennung ersetzt wird. 
 
-## Datenwertänderungen
+### Datenwertänderungen
 
 Bei Aktivitäten zur Änderung des Datenwerts wird eine spezielle Version der Aktivitäts-API bereitgestellt. Der Endpunkt [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) gibt nur Aktivitäten von Datensätzen zur Datenwertänderung an Lead-Felder zurück. Die Benutzeroberfläche ist mit der API für Lead-Aktivitäten identisch und unterscheidet sich von zwei:
 
@@ -188,7 +188,7 @@ Jede Aktivität in der Antwort verfügt über ein Feld-Array, einschließlich ei
 
 Beachten Sie, dass in jedem Ergebnis-Array-Element das Attribut `id` integer durch das Attribut `marketoGUID` string als eindeutige Kennung ersetzt wird.
 
-## Gelöschte Leads
+### Gelöschte Leads
 
 Es gibt auch einen speziellen Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) zum Abrufen gelöschter Aktivitäten aus Marketo.
 
@@ -229,7 +229,7 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 
 Beachten Sie, dass in jedem Ergebnis-Array-Element das Attribut `id` integer durch das Attribut `marketoGUID` string als eindeutige Kennung ersetzt wird.
 
-## Durchsuchen von Ergebnissen
+### Durchsuchen von Ergebnissen
 
 Standardmäßig geben die in diesem Abschnitt erwähnten Endpunkte 300 Aktivitätselemente gleichzeitig zurück.  Wenn das Attribut `moreResult` &quot;true&quot;ist, sind weitere Ergebnisse verfügbar. Rufen Sie den Endpunkt auf, bis das Attribut `moreResult` &quot;false&quot;zurückgibt, was bedeutet, dass keine Ergebnisse mehr verfügbar sind. Der von diesem Endpunkt zurückgegebene `nextPageToken` sollte für die nächste Iteration dieses Aufrufs immer wiederverwendet werden.
 
@@ -322,7 +322,7 @@ GET /rest/v1/activities/external/type/{apiName}/describe.json
 }
 ```
 
-### Typ erstellen
+## Typ erstellen
 
 Jeder benutzerdefinierte Aktivitätstyp erfordert einen Anzeigenamen, einen API-Namen, einen Trigger-Namen, einen Filternamen und ein primäres Attribut.
 
@@ -386,7 +386,7 @@ POST /rest/v1/activities/external/type.json
 }
 ```
 
-### Aktualisierungstyp
+## Aktualisierungstyp
 
 Die Aktualisierung eines Typs ist sehr ähnlich, allerdings ist apiName der einzige erforderliche Parameter als Pfadparameter.
 
@@ -448,7 +448,7 @@ Gültige Datentypen für Attribute sind: Zeichenfolge, boolescher Wert, Ganzzahl
 
 Beim Ändern des primären Attributs eines Aktivitätstyps sollte jedes vorhandene primäre Attribut demodiert werden, indem zuerst `isPrimary` auf &quot;false&quot;gesetzt wird.
 
-## Erstellen von Attributen
+### Erstellen von Attributen
 
 Das Erstellen eines Attributs erfordert einen erforderlichen `apiName` -Pfadparameter. Außerdem sind die Parameter `name` und `dataType` erforderlich.` The description and` `isPrimary` Parameter sind optional.
 
@@ -515,7 +515,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 }
 ```
 
-## Aktualisieren von Attributen
+### Aktualisieren von Attributen
 
 Bei der Durchführung von Aktualisierungen an Attributen ist der Primärschlüssel der `apiName` des Attributs. Der Parameter `apiName` muss vorhanden sein, damit die Aktualisierung erfolgreich ist (d. h., Sie können den Parameter `apiName` nicht mit &quot;update&quot;ändern).
 
@@ -582,7 +582,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 }
 ```
 
-## Attribute löschen
+### Attribute löschen
 
 Das Löschen eines Attributs erfordert einen erforderlichen `apiName` -Pfadparameter, der dem benutzerdefinierten Aktivitäts-API-Namen entspricht.  Erforderlich ist auch ein Attributparameter, der ein Array von Attributobjekten ist.  Jedes Objekt muss einen `apiName` -Parameter enthalten, der dem API-Namen des benutzerdefinierten Aktivitätstyps entspricht.
 
@@ -710,4 +710,4 @@ POST /rest/v1/activities/external.json
 Für Aktivitätsendpunkte gibt es eine Zeitüberschreitung von 30 Sekunden, sofern nicht unten angegeben.
 
 * Paging-Token abrufen: 300s 
-* Benutzerdefinierte Aktivität hinzufügen: 90 s 
+* Benutzerdefinierte Aktivität hinzufügen: 90 s
