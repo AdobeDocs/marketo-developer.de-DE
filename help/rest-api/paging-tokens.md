@@ -3,10 +3,10 @@ title: Paging-Token
 feature: REST API
 description: Anzeigen von Paging-Token-Daten.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: a00583f367c2da36d9d1d6e0b05bfd4216573fbb
 workflow-type: tm+mt
-source-wordcount: '345'
-ht-degree: 0%
+source-wordcount: '352'
+ht-degree: 1%
 
 ---
 
@@ -15,6 +15,8 @@ ht-degree: 0%
 Um Ergebnisse zu durchblättern oder Daten abzurufen, die relativ zu den Daten aktualisiert wurden, stellt Marketo Paging-Token bereit.
 
 In bestimmten Fällen können lange Paging-Token-Zeichenfolgen zurückgegeben werden. Dies kann dazu führen, dass ein HTTP 414-Fehlercode auftritt. Weitere Informationen zum Umgang mit diesen [Fehlern](error-codes.md) finden Sie.
+
+Weitere Informationen finden Sie in der Dokumentation zur [Paging-Token-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) .
 
 ## Tokentypen
 
@@ -39,7 +41,7 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-Das Format des Parameters `sinceDateTime` muss der Standarddatumsnotation von [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) entsprechen. Die besten Ergebnisse erzielen Sie, wenn Sie einen vollständigen Datum verwenden, der die Zeitzone enthält. Die Zeitzone kann im folgenden Format als Offset von GMT dargestellt werden:
+Das Format des Parameters `sinceDateTime` muss der Standarddatumsnotation von [ISO 8601](https://de.wikipedia.org/wiki/ISO_8601) entsprechen. Die besten Ergebnisse erzielen Sie, wenn Sie einen vollständigen Datum verwenden, der die Zeitzone enthält. Die Zeitzone kann im folgenden Format als Offset von GMT dargestellt werden:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
