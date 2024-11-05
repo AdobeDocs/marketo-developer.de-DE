@@ -2,10 +2,10 @@
 title: Startseite
 description: Homepage der Marketo Engage API
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: b923f4069099d17a30098ab6141120579fdfbe23
+source-git-commit: 3a5a28f2405141c54f1becb974ab3840d78ab034
 workflow-type: tm+mt
-source-wordcount: '130'
-ht-degree: 9%
+source-wordcount: '113'
+ht-degree: 0%
 
 ---
 
@@ -14,30 +14,54 @@ ht-degree: 9%
 Detaillierte Dokumentationen, die Ihnen beim Master der Marketo Engage-API helfen
 
 <table>
-<tbody>
-<tr>
-<td><a href="getting-started.md"><img src="assets/Smock_Book_18_N.svg" width="50" alt="Erste Schritte"></a></td><td><a href="getting-started.md"><strong>Erste Schritte</strong></a> Machen Sie sich mit Marketo Engage-APIs vertraut.</td>
-</tr>
-<tr>
-<td><a href="https://developer.adobe.com/marketo-apis/"><img src="assets/Smock_AppleFiles_18_N.svg" width="50" alt="REST-APIs"></a></td><td><a href="https://developer.adobe.com/marketo-apis/"><strong>REST API</strong></a> Lesen, Schreiben und Aktualisieren Ihrer Marketo Engage-Daten über die REST-API.</td>
-</tr>
-<tr>
-<td><a href="webhooks/webhooks.md"><img src="assets/Smock_SocialNetwork_18_N.svg" width="50" alt="Webhooks"></a></td><td><a href="webhooks/webhooks.md"><strong>Webhooks</strong></a> Kommunikation mit Webdiensten von Drittanbietern mit Webhooks.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><img src="assets/Smock_Code_18_N.svg" width="50" alt="Client-Bibliotheken"></a></td><td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong>Client-Bibliotheken</strong></a> Verwenden Sie Open-Source-Code, um die Funktionen von Marketo Engage zu erweitern.</td>
-</tr>
-<tr>
-<td><a href="email-scripting.md"><img src="assets/Smock_EmailGear_18_N.svg" width="50" alt="E-Mail-Skripterstellung"></a></td><td><a href="email-scripting.md"><strong>E-Mail-Skripterstellung</strong></a> Verwenden Sie Marketo Engage-APIs zum Erstellen und Bearbeiten von E-Mails und E-Mail-Vorlagen.</td>
-</tr>
-<tr>
-<td><a href="javascript-api/lead-tracking.md"><img src="assets/Smock_PeopleGroup_18_N.svg" width="50" alt="Lead-Verfolgung"></a></td><td><a href="javascript-api/lead-tracking.md"><strong>Lead-Tracking</strong></a> Verwalten Sie Ihre Kunden-Leads.</td>
-</tr>
-<tr>
-<td><a href="mobile/mobile.md"><img src="assets/Smock_MobileServices_18_N.svg" width="50" alt="Mobile Marketo"></a></td><td><a href="mobile/mobile.md"><strong>Mobile Marketo</strong></a> Verwenden Sie Marketo Mobile, um Kunden auf ihren Mobilgeräten zuzuhören und darauf zu reagieren.</td>
-</tr>
-<tr>
-<td><a href="javascript-api/web-personalization.md"><img src="assets/Smock_PersonalizationField_18_N.svg" width="50" alt="Web-Personalisierung"></a></td><td><a href="javascript-api/web-personalization.md"><strong>Web Personalization</strong></a> Verwenden Sie die JavaScript-API für die Ereignisverfolgung und dynamische Anpassung einer Webseite.</td>
-</tr>
-</tbody>
-</table>
+    <tbody>
+        <tr>
+                <td>
+                    <a href="getting-started.md">
+                        <strong>Erste Schritte</strong>
+                    </a> Machen Sie sich mit Marketo Engage-APIs vertraut.</td>
+            </tr>
+            <tr>
+                    <td>
+                        <a href="https://developer.adobe.com/marketo-apis/">
+                            <strong>REST API</strong>
+                        </a> Lesen, Schreiben und Aktualisieren Ihrer Marketo Engage-Daten über die REST-API.</td>
+                </tr>
+                <tr>
+                        <td>
+                            <a href="webhooks/webhooks.md">
+                                <strong>webhooks</strong>
+                            </a> Kommunikation mit Webdiensten von Drittanbietern mit Webhooks.</td>
+                    </tr>
+                    <tr>
+                            <td>
+                                <a href="https://github.com/Marketo/Community-Supported-Client-Libraries">
+                                    <strong>Client-Bibliotheken</strong>
+                                </a> Verwenden Sie Open-Source-Code, um die Funktionen von Marketo Engage zu erweitern.</td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <a href="email-scripting.md">
+                                        <strong>E-Mail-Skripterstellung</strong>
+                                    </a> Verwenden Sie Marketo Engage-APIs zum Erstellen und Bearbeiten von E-Mails und E-Mail-Vorlagen.</td>
+                            </tr>
+                            <tr>
+                                    <td>
+                                        <a href="javascript-api/lead-tracking.md">
+                                            <strong>Lead-Tracking</strong>
+                                        </a> Verwalten Sie Ihre Kunden-Leads.</td>
+                                </tr>
+                                <tr>
+                                        <td>
+                                            <a href="mobile/mobile.md">
+                                                <strong>Mobile Marketo</strong>
+                                            </a> Verwenden Sie Marketo Mobile, um Kunden auf ihren Mobilgeräten zuzuhören und darauf zu reagieren.</td>
+                                    </tr>
+                                    <tr>
+                                            <td>
+                                                <a href="javascript-api/web-personalization.md">
+                                                    <strong>Web Personalization</strong>
+                                                </a> Verwenden Sie die JavaScript-API zum Tracking von Ereignissen und zur dynamischen Anpassung einer Webseite.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
