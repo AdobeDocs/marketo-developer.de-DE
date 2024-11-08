@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Entwicklerhandbuch"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 959d841bc6ee38c9ebee8fd5e0c261ed27c666f7
+source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
 workflow-type: tm+mt
-source-wordcount: '243'
+source-wordcount: '241'
 ht-degree: 36%
 
 ---
@@ -25,7 +25,7 @@ ht-degree: 36%
    - [Abrufen von Besucherdaten](javascript-api/get-visitor-data.md)
    - [JavaScript-API](javascript-api/javascript-api.md)
    - [Lead-Verfolgung](javascript-api/lead-tracking.md)
-   - [Munchkin-API-Referenz](javascript-api/api-reference.md)
+   - [Munchkin API-Referenz](javascript-api/api-reference.md)
    - [Musterübereinstimmung](javascript-api/pattern-match.md)
    - [Predictive Content](javascript-api/predictive-content.md)
    - [Umleitungen](javascript-api/redirect.md)
@@ -70,7 +70,6 @@ ht-degree: 36%
       - [Token](rest-api/tokens.md)
       - [Transaktions-Email](rest-api/transactional-email.md)
    - [Authentifizierung](rest-api/authentication.md)
-   - [Authentifizierungssignatur](rest-api/authentication-signature.md)
    - [Basis-URL](rest-api/base-url.md)
    - [Bewährte Methoden](rest-api/marketo-integration-best-practices.md)
    - Massenextraktion {#bulk-extract}
