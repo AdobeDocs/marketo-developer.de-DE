@@ -3,9 +3,9 @@ title: REST-API
 feature: REST API
 description: REST-API - Übersicht
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: ade3216f04c822de14dc0bbcbc08bfa3a4b17cb3
 workflow-type: tm+mt
-source-wordcount: '664'
+source-wordcount: '744'
 ht-degree: 1%
 
 ---
@@ -14,10 +14,10 @@ ht-degree: 1%
 
 Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis hin zum Massenimport von Leads gibt es viele Optionen, die eine detaillierte Steuerung einer Marketo-Instanz ermöglichen.
 
-Diese APIs lassen sich im Allgemeinen in zwei allgemeine Kategorien unterteilen: [Lead-Datenbank](https://developer.adobe.com/marketo-apis/api/mapi/) und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und die Interaktion mit Marketo-Personendatensätzen und zugehörigen Objekttypen wie Chancen und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketingmaterialien und Workflow-bezogenen Datensätzen.
+Diese APIs lassen sich im Allgemeinen in zwei allgemeine Kategorien unterteilen: [Lead-Datenbank](https://developer.adobe.com/marketo-apis/api/mapi/) und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und die Interaktion mit Marketo-Personendatensätzen und zugehörigen Objekttypen, z. B. Chancen und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketingmaterialien und Workflow-bezogenen Datensätzen.
 
 - **Tägliches Kontingent:** Abonnements werden täglich 50.000 API-Aufrufe zugeordnet (die täglich um 12.00 Uhr CST zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Kundenbetreuer erhöhen.
-- **Ratenlimit:** API-Zugriff pro Instanz begrenzt auf 100 Aufrufe pro 20 Sekunden.
+- **Ratenlimit:** API-Zugriff pro Instanz ist auf 100 Aufrufe pro 20 Sekunden beschränkt.
 - **Begrenzung der Parallelität:**  Maximal zehn gleichzeitige API-Aufrufe.
 
 Die Größe von Standardaufrufen ist auf eine URI-Länge von 8 KB und eine Textgröße von 1 MB beschränkt, obwohl der Hauptteil für unsere Bulk-APIs 10 MB betragen kann. Wenn bei Ihrem -Aufruf ein Fehler auftritt, gibt die API in der Regel weiterhin den Status-Code 200 zurück, die JSON-Antwort enthält jedoch ein &quot;success&quot;-Mitglied mit dem Wert `false` und ein Array von Fehlern im &quot;errors&quot;-Mitglied. Weitere Informationen zu Fehlern [hier](error-codes.md).
@@ -26,7 +26,7 @@ Die Größe von Standardaufrufen ist auf eine URI-Länge von 8 KB und eine Textg
 
 Für die folgenden Schritte sind Administratorberechtigungen in Ihrer Marketo-Instanz erforderlich.
 
-Bei Ihrem ersten Marketo-Aufruf rufen Sie einen Lead-Datensatz ab. Um mit Marketo arbeiten zu können, müssen Sie API-Anmeldeinformationen abrufen, um authentifizierte Aufrufe an Ihre Instanz durchführen zu können. Melden Sie sich bei Ihrer Instanz an und wechseln Sie zu &quot;**[!UICONTROL Admin]** -> **[!UICONTROL Benutzer und Rollen]**&quot;.
+Für Ihren ersten Marketo-Aufruf rufen Sie einen Lead-Datensatz ab. Um mit Marketo arbeiten zu können, müssen Sie API-Anmeldeinformationen abrufen, um authentifizierte Aufrufe an Ihre Instanz durchführen zu können. Melden Sie sich bei Ihrer Instanz an und wechseln Sie zu &quot;**[!UICONTROL Admin]** -> **[!UICONTROL Benutzer und Rollen]**&quot;.
 
 ![Admin-Benutzer und -Rollen](assets/admin-users-and-roles.png)
 
@@ -66,10 +66,20 @@ Suchen Sie den [!UICONTROL Endpunkt] im Feld REST-API und speichern Sie ihn zun�
 
 ![REST-Endpunkt](assets/admin-web-services-rest-endpoint-1.png)
 
-Öffnen Sie eine neue Browser-Registerkarte und geben Sie mithilfe der entsprechenden Informationen [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) ein:
+Bei Aufrufen von REST-API-Methoden muss in jedem Aufruf ein Zugriffstoken enthalten sein, damit der Aufruf erfolgreich ist. Das Zugriffstoken muss als HTTP-Header gesendet werden.
 
 ```
-<Your Endpoint URL>/rest/v1/leads.json?access_token=<Your Access Token>&filterType=email&filterValues=<Your Email Address>
+Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
+```
+
+>[!IMPORTANT]
+>
+>Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
+
+Öffnen Sie eine neue Browser-Registerkarte und geben Sie Folgendes mit den entsprechenden Informationen ein, um [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) aufzurufen
+
+```
+<Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>
 ```
 
 Wenn Sie keinen Lead-Datensatz mit Ihrer E-Mail-Adresse in Ihrer Datenbank haben, ersetzen Sie ihn durch einen Datensatz, von dem Sie wissen, dass er vorhanden ist. Drücken Sie die Eingabetaste in Ihre URL-Leiste und Sie sollten eine JSON-Antwort erhalten, die dieser ähnelt:
