@@ -3,9 +3,9 @@ title: Massenimport
 feature: REST API
 description: Batch-Import von Personendaten.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '592'
 ht-degree: 2%
 
 ---
@@ -24,7 +24,11 @@ Massen-API-Endpunkte erhalten wie andere Endpunkte nicht das Präfix &quot;/rest
 
 ## Authentifizierung
 
-Die Bulk-Import-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs.  Dazu muss ein gültiges Zugriffstoken entweder als Abfragezeichenfolgenparameter `access_token={_AccessToken_}` oder als HTTP-Header `Authorization: Bearer {_AccessToken_}` eingebettet werden.
+Die Bulk-Import-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs.  Dazu ist ein gültiges Zugriffstoken erforderlich, das als HTTP-Header `Authorization: Bearer {_AccessToken_}` gesendet wird.
+
+>[!IMPORTANT]
+>
+>Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
 
 ## Beschränkungen
 
@@ -90,8 +94,8 @@ Jeder Endpunkt zur Auftragserstellung gibt einige allgemeine Parameter zum Konfi
 
 | Parameter | Datentyp | Hinweise |
 |---|---|---|
-| format | Zeichenfolge | Bestimmt das Dateiformat der importierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und durch Semikolon getrennte Werte. Akzeptiert eines von: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
-| Datei | Zeichenfolge | Daten werden durch mehrteilige Formulardaten in der Datei angegeben. |
+| format | String | Bestimmt das Dateiformat der importierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und durch Semikolon getrennte Werte. Akzeptiert eines von: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
+| Datei | String | Daten werden durch mehrteilige Formulardaten in der Datei angegeben. |
 
 
 ## Abruf-Auftragsstatus

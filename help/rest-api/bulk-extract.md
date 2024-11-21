@@ -3,9 +3,9 @@ title: Massenextraktion
 feature: REST API
 description: Stapelvorgänge zum Extrahieren von Marketo-Daten.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '1643'
+source-wordcount: '1683'
 ht-degree: 1%
 
 ---
@@ -25,7 +25,11 @@ Die Massenextraktion wird ausgeführt, indem ein Auftrag erstellt wird, der Date
 
 ## Authentifizierung
 
-Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs. Dazu muss ein gültiges Zugriffstoken entweder als Abfragezeichenfolgenparameter `access_token={_AccessToken_}` oder als HTTP-Header `Authorization: Bearer {_AccessToken_}` eingebettet werden.
+Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs. Dazu muss ein gültiges Zugriffstoken als HTTP-Header `Authorization: Bearer {_AccessToken_}` gesendet werden.
+
+>[!IMPORTANT]
+>
+>Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
 
 ## Beschränkungen
 
@@ -115,9 +119,9 @@ Jeder Endpunkt zur Auftragserstellung gibt einige allgemeine Parameter zum Konfi
 
 | Parameter | Datentyp | Hinweise |
 |---|---|---|
-| format | Zeichenfolge | Bestimmt das Dateiformat der extrahierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und durch Semikolon getrennte Werte. Akzeptiert eines von: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
+| format | String | Bestimmt das Dateiformat der extrahierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und durch Semikolon getrennte Werte. Akzeptiert eines von: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
 | columnHeaderName | Objekt | Ermöglicht das Festlegen der Namen von Spaltenüberschriften in der zurückgegebenen Datei. Jeder Mitgliederschlüssel ist der Name der Spaltenüberschrift, die umbenannt werden soll, und der Wert ist der neue Name der Spaltenüberschrift. Beispiel: &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
-| Filter | Objekt | Auf den Extraktionsauftrag angewendeter Filter. Die Typen und Optionen variieren je nach Auftragstyp. |
+| filter | Objekt | Auf den Extraktionsauftrag angewendeter Filter. Die Typen und Optionen variieren je nach Auftragstyp. |
 
 
 ## Abrufen von Aufträgen
