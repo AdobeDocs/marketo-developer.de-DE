@@ -3,9 +3,9 @@ title: Benutzerverwaltung
 feature: REST API
 description: Führen Sie CRUD-Vorgänge für Benutzerdatensätze durch.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+source-git-commit: 159c3fe29c26ea0fff718bf582a7e4c9a1740831
 workflow-type: tm+mt
-source-wordcount: '1185'
+source-wordcount: '1180'
 ht-degree: 1%
 
 ---
@@ -23,12 +23,12 @@ Im Gegensatz zu anderen Marketo REST-APIs bei der Verwendung der User Management
    1. Zugriffsberechtigung für Benutzer über die Gruppe [Zugriff auf Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
    1. &quot;Zugriff auf User Management-API&quot;über die Gruppe [Zugriff auf API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
 - Antwortkörper enthalten nicht das boolesche Attribut &quot;success&quot;, das auf den Erfolg oder das Fehlschlagen eines Aufrufs hinweist. Stattdessen müssen Sie den HTTP-Antwortstatus-Code auswerten. Wenn ein Aufruf erfolgreich ist, wird ein Statuscode &quot;200&quot;zurückgegeben. Wenn ein Aufruf fehlschlägt, wird ein Statuscode der Nicht-200-Ebene zurückgegeben, und der Antworttext enthält das standardmäßige Array &quot;errors&quot;mit Fehler-Code und beschreibender Fehlermeldung.
-- Das Format der Datums-/Uhrzeitzeichenfolgen lautet &quot;yyyyMM&#39;T&#39;HH:mm:ss.SSS&#39;t&#39;+|-hhmm&quot;. Dies gilt für die folgenden Attribute: createdAt, updatedAt, expiresAt.
+- Das Format der Datums-/Uhrzeitzeichenfolgen ist `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`. Dies gilt für die folgenden Attribute: `createdAt`, `updatedAt`, `expiresAt`.
 - Benutzermanagement-API-Endpunkten wird &quot;/rest&quot;nicht wie anderen Endpunkten vorangestellt.
 
 ## Abfrage
 
-Die Unterstützung von Abfragen für die Benutzerverwaltung beinhaltet die Möglichkeit, alle Benutzer, Rollen und Arbeitsbereiche abzurufen. Außerdem können Sie einen einzelnen Benutzerdatensatz nach Benutzer-ID oder nach Rollen-/Wortgruppen-Datensatz nach Benutzer-ID abrufen.
+Die Unterstützung von Abfragen für die Benutzerverwaltung beinhaltet die Möglichkeit, alle Benutzer, Rollen und Arbeitsbereiche abzurufen. Sie können auch einen einzelnen Benutzerdatensatz nach Benutzer-ID oder einen Rollen-/Arbeitsbereichsdatensatz nach Benutzer-ID abrufen.
 
 ### Benutzer nach ID
 
