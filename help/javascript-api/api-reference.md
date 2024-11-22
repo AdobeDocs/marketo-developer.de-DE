@@ -1,30 +1,32 @@
 ---
-title: Munchkin-API-Referenz
-description: Verwenden Sie die Javascript-API von Munchkin , um Ihre Munchkin-Daten anzupassen.
-feature: Javascript
-source-git-commit: c6c0a492ede415471e10efb6213eb3f590e63ebe
+title: Munchkin API-Referenz
+description: Verwenden Sie die Munchkin-JavaScript-API, um Ihre Munchkin-Daten anzupassen.
+feature: Munchkin Tracking Code, Javascript
+exl-id: e9727691-5501-4223-bc98-2b4bacc33513
+source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 9%
 
 ---
 
+# Munchkin API-Referenz
 
-# Munchkin-API-Referenz
-
-Munchkin bietet mehrere Funktionen, die manuell über JavaScript aufgerufen werden können. Diese ermöglichen eine benutzerdefinierte Verfolgung von Browserereignissen, wie z. B. Videowiedergaben oder Klicks auf Nicht-Links.
+Munchkin bietet mehrere Funktionen, die über JavaScript manuell aufgerufen werden können. Diese ermöglichen eine benutzerdefinierte Verfolgung von Browserereignissen, wie z. B. Videowiedergaben oder Klicks auf Nicht-Links.
 
 ## Funktionen
 
-Die Munchkin-API besteht aus den folgenden Funktionen: `init`, `createTrackingCookie`, `munchkinFunction`.
+Die Munchkin-API umfasst die folgenden Funktionen: `init`, `createTrackingCookie`, `munchkinFunction`.
+
+<a name="munchkin_init"></a>
 
 ### Munchkin.init()
 
-`Munchkin.init()` muss vor allen anderen Funktionen aufgerufen werden. Er richtet Munchkin auf der aktuellen Seite ein, um Aktivitäten an eine bestimmte Instanz zu senden, und generiert eine Aktivität vom Typ &quot;Besuche der Webseite&quot;für die aktuelle Seite.
+`Munchkin.init()` muss vor allen anderen Funktionen aufgerufen werden. Sie richtet Munchkin auf der aktuellen Seite ein, um Aktivitäten an eine bestimmte Instanz zu senden, und generiert für die aktuelle Seite die Aktivität &quot;Besuche der Webseite&quot;.
 
 | Parametername | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| Munchkin-ID | Erforderlich | String | Munchkin-Konto-ID gefunden unter Admin > Integration > Munchkin-Menü. Legt die Zielinstanz zum Senden von Aktivitäten fest. |
+| Munchkin-ID | Erforderlich | String | Munchkin-Konto-ID gefunden unter Admin > Integration > Munchkin . Legt die Zielinstanz zum Senden von Aktivitäten fest. |
 | [Konfigurationseinstellungen](configuration.md) | Optional | Objekt | Aktiviert alternative Verhaltenseinstellungen für Munchkin. |
 
 ```javascript
