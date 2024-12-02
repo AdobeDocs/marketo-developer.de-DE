@@ -1,7 +1,7 @@
 ---
 title: Opportunitys
 feature: REST API
-description: " Konfigurieren Sie die Möglichkeiten mit der Marketo-API."
+description: ' Konfigurieren Sie die Möglichkeiten mit der Marketo-API.'
 exl-id: 46451285-4125-4857-890a-575069a68288
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -83,7 +83,7 @@ GET /rest/v1/opportunities/describe.json
 
 Die wichtigsten Felder für diesen Antworttyp sind `idField`, `dedupeFields` und `searchableFields`.  idField gibt den Primärschlüssel für Chancen an, marketoGUID.  Dies ist ein vom System generierter eindeutiger Schlüssel, der für Lese- und Aktualisierungsvorgänge, aber nicht für Einfügungen verwendet werden kann, da er vom System verwaltet wird.  Das dedupeFields-Array gibt an, welche Felder gültige Schlüssel für Einfügevorgänge sind. Bei Gelegenheiten ist dies nur externalOpportunityId.  Das searchableFields -Array gibt Ihnen die für die Abfrage gültigen Felder, externalOpportunityId und marketoGUID an.
 
-## Anfrage
+## Abfrage
 
 Das Muster für [ Abfragen von Möglichkeiten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) ähnelt dem der Leads-API mit der hinzugefügten Einschränkung, dass der `filterType`-Parameter die im Array `searchableFields` aufgelisteten Felder oder des entsprechenden Beschreibungsaufrufs oder dedupeFields akzeptiert.  Beachten Sie, dass bei der Verwendung benutzerdefinierter Opportunity-Felder nur benutzerdefinierte Opportunity-Felder vom Typ String oder Integer im Array searchableFields aufgeführt werden.
 

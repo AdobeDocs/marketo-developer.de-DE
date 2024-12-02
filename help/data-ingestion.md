@@ -1,10 +1,10 @@
 ---
-title: "Datenerfassung"
-description: "Übersicht über die Datenerfassungs-API"
+title: Datenaufnahme
+description: Datenerfassungs-API - Übersicht
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
 source-wordcount: '945'
-ht-degree: 11%
+ht-degree: 13%
 
 ---
 
@@ -36,7 +36,7 @@ Die Datenerfassung verwendet dasselbe Berechtigungsmodell wie die Marketo REST-A
 | Personen | Lead mit Lese-/Schreibzugriff |
 | Benutzerdefinierte Objekte | Objekt mit Lese-/Schreibzugriff |
 
-## Kopfzeile
+## Kopfzeilen
 
 Die Datenerfassung nutzt die folgenden benutzerdefinierten HTTP-Header.
 
@@ -79,7 +79,7 @@ Beispiel einer Anfrage-ID über die Kopfzeile:
 
 `X-Request-Id: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
 
-### Erfolg
+### Erfolgreich
 
 Bei erfolgreichem Aufruf wird der Status 202 zurückgegeben. Es wird kein Antworttext zurückgegeben.
 
@@ -93,7 +93,7 @@ Wenn ein Aufruf einen Fehler erzeugt, wird der Status &quot;Nicht 202&quot;zusam
 
 Nachstehend finden Sie wiederverwendete Fehlercodes von Adobe Developer Gateway.
 
-| HTTP-Statuscode | error_code | Nachricht |
+| HTTP-Status-Code | error_code | Nachricht |
 |--- |--- |--- |
 | 401 | 401013 | Authentifizierungs-Token ist ungültig |
 | 403 | 403010 | OAuth-Token fehlt |
@@ -102,13 +102,13 @@ Nachstehend finden Sie wiederverwendete Fehlercodes von Adobe Developer Gateway.
 
 Im Folgenden finden Sie Fehlercodes, die für die Datenerfassungs-API eindeutig sind und aus drei Segmenten bestehen. Die ersten drei Stellen sind der Status (wird von Adobe IO Gateway zurückgegeben), gefolgt von einer Null &quot;0&quot;, gefolgt von drei Ziffern.
 
-| HTTP-Statuscode | error_code | Nachricht |
+| HTTP-Status-Code | error_code | Nachricht |
 |--- |--- |--- |
-| 400 | 4000801 | Fehlerhafte Anfrage |
+| 400 | 4000801 | Ungültige Anfrage |
 | 400 | 4000802 | Ungültige Daten |
 | 403 | 4030801 | Nicht autorisiert |
 | 429 | 4290801 | Tägliche Quote erreicht |
-| 500 | 5000801 | Interner Serverfehler |
+| 500 | 5000801 | Interner Server-Fehler |
 
 Beispiel einer Fehlerantwort:
 
@@ -130,13 +130,13 @@ Endpunkt, der zum Aktualisieren von Personendatensätzen verwendet wird.
 |---|
 | POST |
 
-| Pfad |
+| Path |
 |---|
 | `/subscriptions/{munchkinId}/persons` |
 
 | HeadersKey | Wert |
 |---|---|
-| Content-Type | application/json |
+| Inhaltstyp | application/json |
 | X-Mkto-User-Token | {accessToken} |
 
 Anfrageinhalt
@@ -146,7 +146,7 @@ Anfrageinhalt
 | Priorität | Zeichenfolge | Nein | Priorität der Anforderung: normal high | normal |
 | partitionName | Zeichenfolge | Nein | Name der Personenpartition | Standard |
 | dedupeFields | Objekt | Nein | Attribute, die dedupliziert werden sollen. Ein oder zwei Attributnamen sind zulässig. In einem UND-Vorgang werden zwei Attribute verwendet. Wenn beispielsweise sowohl `email` als auch `firstName` angegeben sind, werden beide verwendet, um eine Person zu suchen, die den UND-Vorgang verwendet. Unterstützte Attribute sind: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` Attribute (&quot;string&quot;- und &quot;integer&quot;-Typ) | E-Mail |
-| Personen | Array of Object | Ja | Liste der Attributname-Wert-Paare für die Person | - |
+| Personen | Array of Object | Ja | Liste der Attributname-Wert-Paare für die Person | – |
 
 | Berechtigung |
 |---|
@@ -199,15 +199,15 @@ Endpunkt, der zum Aktualisieren benutzerdefinierter Objektdatensätze verwendet 
 |---|
 | POST |
 
-| Pfad |
+| Path |
 |---|
 | `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
-Kopfzeile
+Kopfzeilen
 
 | Schlüssel | Wert |
 |---|---|
-| Content-Type | application/json |
+| Inhaltstyp | application/json |
 | X-Mkto-User-Token | {accessToken} |
 
 Anfrageinhalt
@@ -216,7 +216,7 @@ Anfrageinhalt
 |---|---|---|---|---|
 | Priorität | Zeichenfolge | Nein | Priorität der Anforderung: normal high | normal |
 | dedupeBy | Zeichenfolge | Nein | Attribute zum Deduplizieren auf:dedupeFieldsmarketoGUID | dedupeFields |
-| customObjects | Array of Object | Ja | Liste der Attributname-Wert-Paare für das Objekt. | - |
+| customObjects | Array of Object | Ja | Liste der Attributname-Wert-Paare für das Objekt. | – |
 
 | Berechtigung |
 |---|

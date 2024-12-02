@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Adobe Launch] Installation der Erweiterung'
 feature: Mobile Marketing
-description: '[!DNL Adobe Launch] Installationsübersicht für Erweiterungen'
+description: Installationsübersicht für [!DNL Adobe Launch] Erweiterungen
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -16,9 +16,9 @@ Installationsanweisungen für die Marketo-Erweiterung [!DNL Adobe Launch]. Die f
 
 ## Voraussetzungen
 
-1. [Hinzufügen einer Anwendung in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Schlüssels für die Anwendung und der Munchkin-ID)
+1. [Hinzufügen einer Anwendung in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des Geheimnisschlüssels für die Anwendung und der Munchkin ID)
 1. [Konfigurieren Sie die Eigenschaft in [!DNL Adobe Launch] portal](https://experience.adobe.com/#/@amc/data-collection/home)
-1. Konfigurieren des Geheimschlüssels der Anwendung und der Munchkin-ID für die Eigenschaft im Portal [!DNL Adobe Launch]
+1. Anwendungsgeheimschlüssel und Munchkin-ID für die Eigenschaft im Portal [!DNL Adobe Launch] konfigurieren
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
 ## Installieren der Marketo-Erweiterung auf iOS

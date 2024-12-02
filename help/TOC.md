@@ -1,14 +1,14 @@
 ---
-user-guide-title: "[!DNL Marketo] Entwicklerhandbuch"
-user-guide-description: "Dieses Handbuch enthält Anweisungen zur Verwendung von [!DNL Marketo] APIs."
-breadcrumb-title: "[!DNL Marketo] Entwicklerhandbuch"
+user-guide-title: '[!DNL Marketo]-Entwicklerhandbuch'
+user-guide-description: Dieses Handbuch enthält Anweisungen zur Verwendung von [!DNL Marketo] APIs.
+breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
 source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
 workflow-type: tm+mt
 source-wordcount: '243'
-ht-degree: 36%
+ht-degree: 37%
 
 ---
 

@@ -16,7 +16,7 @@ Hier wird die Integration des Marketo Cordova-Plug-ins beschrieben. [!DNL Ionic]
 
 ## Voraussetzungen
 
-1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (rufen Sie Ihren Geheimnisschlüssel für die Anwendung und die Munchkin-ID ab).
+1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (rufen Sie den Geheimnisschlüssel der Anwendung und die Munchkin ID ab).
 1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md)) | [Android](push-notifications.md) ).
 1. Installieren Sie [[!DNL Ionic]](https://ionicframework.com/getting-started/) und [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -76,7 +76,7 @@ Um sicherzustellen, dass das Marketo-Framework beim Start der App initiiert wird
 
 Sie müssen `ionicCordova` als Framework-Typ für [!DNL Ionic] Cordova-Apps übergeben.
 
-#### Syntax
+#### Aufbau
 
 ```javascript
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
@@ -99,14 +99,14 @@ marketo.onStart(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework erfolgreich initialisiert wurde.
 - Rückruf mit Fehler : Funktion wird ausgeführt, wenn das Marketo-Framework nicht initialisiert werden kann.
-- MUNCHKIN-ID : Munchkin-ID, die zum Zeitpunkt der Registrierung von Marketo empfangen wurde.
+- MUNCHKIN ID : Munchkin ID, die bei der Registrierung von Marketo erhalten wurde.
 - GEHEIMSCHLÜSSEL : Geheimer Schlüssel, der zum Zeitpunkt der Registrierung von Marketo erhalten wurde.
 
 ### Marketo-Push-Benachrichtigung initialisieren
 
 Um sicherzustellen, dass Marketo-Push-Benachrichtigungen initiiert werden, fügen Sie den folgenden Code nach der initialisierten Funktion in Ihrer JavaScript-Hauptdatei hinzu.
 
-#### Syntax
+#### Aufbau
 
 ```javascript
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
@@ -132,11 +132,11 @@ marketo.uninitializeMarketoPush(
 );
 ```
 
-## Lead zuordnen
+## Lead verknüpfen
 
 Sie können einen Marketo-Lead erstellen, indem Sie die Funktion &quot;AssociateLead&quot;aufrufen.
 
-### Syntax
+### Aufbau
 
 ```javascript
 marketo.associateLead(
@@ -179,7 +179,7 @@ marketo.associateLead(
 
 Sie können jede vom Benutzer ausgeführte Aktion melden, indem Sie die Funktion `reportaction` aufrufen.
 
-### Syntax
+### Aufbau
 
 ```javascript
 marketo.reportaction(
