@@ -2,9 +2,9 @@
 title: Erste Schritte
 description: Erste Schritte mit Marketo Engage-APIs
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '1246'
+source-wordcount: '1268'
 ht-degree: 1%
 
 ---
@@ -19,9 +19,9 @@ Die folgenden Objekte sind nicht über die REST-API verfügbar, wenn die native 
 
 ## Person (Leads)
 
-Menschen sind die Grundlage jeder Marketing-Automatisierungsplattform. Innerhalb von Marketo werden alle nicht verkauften Personendatensätze als Leads bezeichnet, unabhängig davon, ob sie als Leads, Interessenten, Verdächtige, Kontakte usw. aus der Sicht des Verkaufs bezeichnet werden. Das Lead-Objekt enthält einen Satz von [Standardfeldern](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET) wie E-Mail, Vorname und Nachname. Dem Lead-Objekttyp können zusätzliche Felder hinzugefügt werden, um die mit Datensätzen im System verknüpften Informationstypen zu erweitern. Benutzerdefinierte Attribute können genauso gelesen und geschrieben werden wie Standardfelder. Eine vollständige Liste der Felder finden Sie im Menü Marketo **[!UICONTROL Admin]** > **[!UICONTROL Feldverwaltung]** . Leads werden in Marketo durch das ID-Feld eindeutig identifiziert. Andere eindeutige Schlüssel müssen extern vom System erzwungen werden.
+Menschen sind die Grundlage jeder Marketing-Automatisierungsplattform. In Marketo werden alle nicht verkauften Personendatensätze als Leads bezeichnet, unabhängig davon, ob sie aus der Sicht des Verkaufs als Leads, Interessenten, Verdächtige, Kontakte usw. bezeichnet werden. Das Lead-Objekt enthält eine Reihe von Standardfeldern, z. B. E-Mail, Vorname und Nachname. Dem Lead-Objekttyp können zusätzliche Felder hinzugefügt werden, um die mit Datensätzen im System verknüpften Informationstypen zu erweitern. Benutzerdefinierte Attribute können genauso gelesen und geschrieben werden wie Standardfelder. Eine vollständige Liste der Felder finden Sie im Menü Marketo **[!UICONTROL Admin]** > **[!UICONTROL Feldverwaltung]** . Leads werden in Marketo durch das ID-Feld eindeutig identifiziert. Andere eindeutige Schlüssel müssen extern vom System erzwungen werden.
 
-Zugehörige APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [SOAP](soap-api/leads.md), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
 ## Aktivitäten
 
@@ -29,7 +29,7 @@ Leads bieten verschiedene Möglichkeiten, mit Ihrer Organisation zu interagieren
 
 Sie können Ihre eigenen benutzerdefinierten Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie benutzerdefinierte Aktivitäten über die Marketo-API hinzufügen. Weitere Informationen zu benutzerdefinierten Aktivitäten finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
-Zugehörige APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [SOAP](soap-api/activities.md), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
 ## Programme und Kampagnen
 
@@ -37,7 +37,7 @@ Ein Programm ist der Mechanismus, mit dem ein Marketing-Experte all seine versch
 
 Kampagnen werden erstellt, um einen bestimmten Zweck und ein bestimmtes Ziel innerhalb eines Programms zu erfüllen. Ein Beispiel für eine Kampagne könnte darin bestehen, eine Gruppe von Leads einzuschränken und ihnen die E-Mail-Veröffentlichung zu senden oder einen Vertriebsmitarbeiter über ein Follow-up zu benachrichtigen, wenn ein Lead innerhalb des E-Mail-Schnellprogramms auf einen Link klickt.
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns), [SOAP](soap-api/getcampaignsforsource.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
 
 ## Tags
 
@@ -47,25 +47,25 @@ Als Marketo-Administrator haben Sie die Möglichkeit, erforderliche und optional
 
 Sie können beispielsweise einen benutzerdefinierten Tag-Typ &quot;Region&quot;mit mehreren Tag-Werten erstellen (z. B. Nordosten, Südosten), mit dem Sie analysieren können, welche Region die meisten Leads generiert. Oder Sie können beispielsweise einen &quot;Inhaber&quot;-Tag-Typ erstellen, mit dem Sie bewerten und verstehen können, welche Programmeigentümer (z. B. Maria, David oder John) den größten Einfluss auf die Erstellung von Leads und Chancen haben. Weitere Informationen zu Tags finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/), [SOAP](soap-api/gettags.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
 ## Listen
 
-Mit Listen können Marketing-Experten eine Sammlung von Leads organisieren. In Marketo gibt es zwei Arten von Listen: &quot;Statisch&quot;und &quot;intelligent&quot;. Eine statische Liste ist eine feste Liste von Leads, die ein Marketingexperte nach Wahl hinzufügen oder entfernen kann. Eine intelligente Liste ist eine dynamische Sammlung von Leads, die auf einer Reihe von festgelegten Eigenschaften basiert. Ein Beispiel für eine intelligente Liste wäre &quot;Alle Leads, die die Preisseite auf unserer Website besucht haben&quot;. Diese intelligente Liste wächst weiter, wenn mehr Interessenten die Preisseite besuchen. Weitere Informationen zu Listen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/home).
+Mit Listen können Marketing-Experten eine Sammlung von Leads organisieren. In Marketo gibt es zwei Arten von Listen: &quot;Statisch&quot;und &quot;intelligent&quot;. Eine statische Liste ist eine feste Liste von Leads, die ein Marketingexperte nach Wahl hinzufügen oder entfernen kann. Eine intelligente Liste ist eine dynamische Sammlung von Leads, die auf einer Reihe von festgelegten Eigenschaften basiert. Ein Beispiel für eine intelligente Liste wäre &quot;Alle Leads, die die Preisseite auf unserer Website besucht haben&quot;. Diese intelligente Liste wächst weiter, wenn mehr Interessenten die Preisseite besuchen. Weitere Informationen zu Listen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/home).
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists), [SOAP](soap-api/getimporttoliststatus.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
 ## Opportunitys
 
 Marketingexperten liefern Leads zum Verkauf in Form einer Chance. Eine Chance stellt ein potenzielles Verkaufsgeschäft dar und ist mit einem Lead oder Kontakt und einer Organisation in Marketo verbunden. Eine Opportunity-Rolle ist die Schnittmenge zwischen einem bestimmten Lead und einer Organisation. Die Opportunity-Rolle bezieht sich auf die Funktion eines Leads innerhalb der Organisation.
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities), [SOAP](soap-api/getmobjects.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
 
-## Unternehmen
+## Firmen
 
 Eine Organisation, manchmal auch als Konto in Marketo bezeichnet, bezieht sich auf die Organisation, zu der eine Person gehört. Bei der Verwendung von ROI-Berichten in Marketo oder von Revenue Cycle Analytics (RCA) ist es wichtig, Personen mit ihrer Organisation und ihren Chancen zu verknüpfen, damit die richtige ROI-Zuordnung ermittelt werden kann.
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies), [SOAP](soap-api/leads.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
 ## Assets
 
@@ -81,15 +81,15 @@ Auf Programm- oder Ordnerebene definierte Token werden in Marketo als &quot;My T
 
 Meine Token, die lokal in einem bestimmten Kampagnenordner oder Programm erstellt werden, stehen diesem spezifischen Programm oder Kampagnenordner (lokal) zur Verfügung. Meine Token, die auf Kampagnenordnerebene erstellt werden, stehen für alle Programme zur Verfügung, die in diesem Kampagnenordner enthalten sind (geerbt). Meine Token, die auf Programmebene mit benutzerdefinierten Werten geändert werden, ändern nicht den übergeordneten My Token -Wert des Tokens auf der Programmebene des -Ordners (überschrieben).
 
-Meine Token verwenden die Namenskonvention {{my.My Token}}, with the word "my" added to the beginning of the token name. For example, if you create a Date type My Token with the name EventDate, the name of the token is {{my.EventDate}}. Weitere Informationen zu My Tokens finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Meine Token verwenden die Namenskonvention {{my.My Token}}, wobei das Wort &quot;my&quot;am Anfang des Tokennamens hinzugefügt wird. Wenn Sie beispielsweise den Datentyp &quot;Mein Token&quot;mit dem Namen &quot;EventDate&quot;erstellen, lautet der Name des Tokens {{my.EventDate}}. Weitere Informationen zu My Tokens finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens), [SOAP](soap-api/getcampaignsforsource.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 
 ## Benutzerdefinierte Objekte
 
-Ein benutzerdefiniertes Marketo-Objekt ermöglicht die Erstellung einer Eins-zu-viele- oder n-zu-viele-Beziehung (Edge-Bridge-Edge) zwischen Ihren Marketo-Leads und den benutzerdefinierten Objektdatensätzen. Nachdem Sie ein benutzerdefiniertes Marketo-Objekt erstellt und veröffentlicht haben, können Sie CRUD-Vorgänge für das benutzerdefinierte Objekt über die Marketo-API durchführen. Weitere Informationen zur Erstellung benutzerdefinierter Objekte finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/home). Wenn dem benutzerdefinierten Objekt neue Datensätze hinzugefügt werden, können Sie einen Smart-List-Trigger verwenden, um zu antworten. Sie können benutzerdefinierte Objektdaten auch als Filter in Smart-Listen (Segmentierung) oder in E-Mails mit [E-Mail-Skripterstellung](email-scripting.md) verwenden.
+Ein benutzerdefiniertes Marketo-Objekt ermöglicht die Erstellung einer Eins-zu-viele- oder n-zu-viele-Beziehung (Edge-Bridge-Edge) zwischen Ihren Marketo-Leads und den benutzerdefinierten Objektdatensätzen. Nachdem Sie ein benutzerdefiniertes Marketo-Objekt erstellt und veröffentlicht haben, können Sie CRUD-Vorgänge für das benutzerdefinierte Objekt über die Marketo-API durchführen. Weitere Informationen zur Erstellung benutzerdefinierter Objekte finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/home). Wenn dem benutzerdefinierten Objekt neue Datensätze hinzugefügt werden, können Sie einen Smart-List-Trigger verwenden, um zu antworten. Sie können benutzerdefinierte Objektdaten auch als Filter in Smart-Listen (Segmentierung) oder in E-Mails mit [E-Mail-Skripterstellung](email-scripting.md) verwenden.
 
-Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects), [SOAP](soap-api/custom-objects.md)
+Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects)
 
 ## Vertriebsmitarbeiter
 

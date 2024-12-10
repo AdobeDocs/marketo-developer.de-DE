@@ -3,9 +3,9 @@ title: Leads
 feature: REST API
 description: Details zu den Leads-API-Aufrufen
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '3343'
+source-wordcount: '3338'
 ht-degree: 3%
 
 ---
@@ -18,10 +18,10 @@ Die API des Marketo Leads bietet eine Vielzahl von Funktionen für einfache CRUD
 
 ## Beschreibung
 
-Eine der wichtigsten Funktionen der Leads-API ist die Deskriptionsmethode. Verwenden Sie &quot;Leads beschreiben&quot;, um eine vollständige Liste der Felder abzurufen, die für die Interaktion sowohl über die REST-API als auch die SOAP-API verfügbar sind, sowie Metadaten für jede Komponente:
+Eine der wichtigsten Funktionen der Leads-API ist die Deskriptionsmethode. Verwenden Sie &quot;Leads beschreiben&quot;, um eine vollständige Liste der Felder abzurufen, die sowohl über die REST-API für die Interaktion verfügbar sind, als auch Metadaten für jede Komponente:
 
 * Datentyp
-* REST- und SOAP-API-Namen
+* REST-API-Namen
 * Länge (falls zutreffend)
 * Schreibgeschützt
 * Anzeigename
@@ -95,7 +95,7 @@ Für diese Methode gibt es immer einen einzelnen Datensatz an der ersten Positio
 
 &quot;Leads nach Filtertyp abrufen&quot;gibt denselben Datensatztyp zurück, kann jedoch bis zu 300 pro Seite zurückgeben. Dazu sind die Abfrageparameter `filterType` und `filterValues` erforderlich.
 
-`filterType` akzeptiert ein beliebiges benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den Endpunkt `Describe2` auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die in `filterType` verwendet werden dürfen. Bei der Suche nach benutzerdefinierten Feldern werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Sie können Felddetails abrufen (Beschreibung, Typ usw.) mit der oben genannten Deskriptionsmethode.
+`filterType` akzeptiert ein beliebiges benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den Endpunkt `Describe2` auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die in `filterType` verwendet werden dürfen. Bei der Suche nach benutzerdefinierten Feldern werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Mithilfe der oben genannten Deskribe-Methode können Sie Felddetails (Beschreibung, Typ usw.) abrufen.
 
 `filterValues` akzeptiert bis zu 300 Werte im kommagetrennten Format. Der Aufruf sucht nach Datensätzen, in denen das Lead-Feld mit einem der eingeschlossenen `filterValues` übereinstimmt. Wenn die Anzahl der Leads, die mit dem Lead-Filter übereinstimmen, größer als 1.000 ist, wird ein Fehler zurückgegeben: &quot;1003, Zu viele Ergebnisse stimmen mit dem Filter überein&quot;.
 
@@ -789,11 +789,11 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 
 Der im Pfadparameter angegebene Lead ist der siegreiche Lead. Wenn also Felder vorliegen, die zwischen den zusammengeführten Datensätzen in Konflikt stehen, wird der Wert des Gewinners übernommen, es sei denn, das Feld im Gewinnerdatensatz ist leer und das entsprechende Feld im verlorenen Datensatz ist nicht vorhanden. Die Leads, die im Parameter `leadId` oder `leadIds` angegeben sind, sind die verlorenen Leads.
 
-Wenn Sie ein Abonnement mit aktivierter SFDC-Synchronisierung haben, können Sie auch den Parameter `mergeInCRM` in Ihrer Anfrage verwenden. Wenn der Wert auf &quot;true&quot;gesetzt ist, wird auch die entsprechende Zusammenführung in Ihrem CRM-System durchgeführt. Wenn sich beide Leads in SFDC befinden und einer ein CRM-Lead und der andere ein CRM-Kontakt ist, ist der Gewinner der CRM-Kontakt (unabhängig davon, welcher Lead als Gewinner angegeben wird). Wenn einer der Leads in SFDC ist und der andere nur in Marketo, dann ist der Gewinner der SFDC-Lead (unabhängig davon, welcher Lead als Gewinner angegeben wird).
+Wenn Sie ein Abonnement für die SFDC-Synchronisierung aktiviert haben, können Sie auch den Parameter `mergeInCRM` in Ihrer Anfrage verwenden. Wenn der Wert auf &quot;true&quot;gesetzt ist, wird auch die entsprechende Zusammenführung in Ihrem CRM-System durchgeführt. Wenn sich beide Leads in SFDC befinden und einer ein CRM-Lead und der andere ein CRM-Kontakt ist, ist der Gewinner der CRM-Kontakt (unabhängig davon, welcher Lead als Gewinner angegeben wird). Wenn einer der Leads nur in SFDC und der andere nur in Marketo vorhanden ist, ist der Gewinner der SFDC-Lead (unabhängig davon, welcher Lead als Gewinner angegeben wird).
 
 ## Webaktivität verknüpfen
 
-Über das Lead-Tracking (Munchkin) zeichnet Marketo die Web-Aktivität für Besucher Ihrer Website und Marketo-Landingpages auf. Diese Aktivitäten, Besuche und Klicks, werden mit einem Schlüssel aufgezeichnet, der einem Cookie &quot;_mkto_trk&quot;entspricht, der im Browser des Leads gesetzt wird, und Marketo verwendet diesen Schlüssel, um die Aktivitäten derselben Person zu verfolgen. Normalerweise erfolgt die Zuordnung zu Lead-Datensätzen, wenn ein Lead von einer Marketo-E-Mail aus klickt oder ein Marketo-Formular ausfüllt. Manchmal kann jedoch eine Zuordnung durch einen anderen Ereignistyp ausgelöst werden. Dazu können Sie den Endpunkt Lead verknüpfen verwenden. Der Endpunkt akzeptiert die ID des bekannten Lead-Datensatzes als Pfadparameter und den Cookie-Wert &quot;_mkto_trk&quot;im Cookie-Abfrageparameter.
+Durch das Lead-Tracking (Munchkin) zeichnet Marketo die Webaktivität für Besucher Ihrer Website und Marketo-Landingpages auf. Diese Aktivitäten, Besuche und Klicks, werden mit einem Schlüssel aufgezeichnet, der einem Cookie &quot;_mkto_trk&quot;entspricht, der im Browser des Leads gesetzt wird, und Marketo verwendet diesen Schlüssel, um die Aktivitäten derselben Person zu verfolgen. Normalerweise erfolgt die Zuordnung zu Lead-Datensätzen, wenn ein Lead von einer Marketo-E-Mail aus klickt oder ein Marketo-Formular ausfüllt. Manchmal kann jedoch eine Zuordnung durch einen anderen Ereignistyp ausgelöst werden. Dazu können Sie den Endpunkt Lead verknüpfen verwenden. Der Endpunkt akzeptiert die ID des bekannten Lead-Datensatzes als Pfadparameter und den Cookie-Wert &quot;_mkto_trk&quot;im Cookie-Abfrageparameter.
 
 ### Anfrage
 
