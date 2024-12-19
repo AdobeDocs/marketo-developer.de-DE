@@ -3,32 +3,32 @@ title: Lead-Verfolgung
 description: Lead-Tracking-API
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '769'
+source-wordcount: '766'
 ht-degree: 0%
 
 ---
 
 # Lead-Tracking-API
 
-Marketo Munchkin JavaScript ermöglicht das Tracking von Seitenbesuchen und -klicks von Endbenutzern auf Ihren Marketo-Landingpages und externen Webseiten. Diese werden in Marketo als &quot;Webseite besuchen&quot;und &quot;Link auf Webseite angeklickt&quot;aufgezeichnet und können dann in Triggern und Filtern für Smart-Kampagnen und Smart-Listen verwendet werden.
+Marketo Munchkin JavaScript ermöglicht das Tracking von Endbenutzer-Seitenbesuchen und -Klicks auf Ihre Marketo-Landingpages und externen Web-Seiten. Diese werden in Marketo als Aktivitäten des Typs „Web-Seite besuchen“ und „Auf Link auf Web-Seite klicken“ aufgezeichnet, die dann in Triggern und Filtern für Smart-Kampagnen und Smart-Listen verwendet werden können.
 
 ## Einbetten des Codes
 
-Ihre Marketo-Instanz stellt automatisch vorkonfigurierte Trackingcode-Snippets bereit, um Code auf Ihren externen Seiten einzubetten, die Aktivitäten auf Ihrer Marketo-Instanz verfolgen. Die Verwendung des Einbettungscodes wird durch diesen [Lizenzvertrag](../munchkin-license.pdf) geregelt.
+Ihre Marketo-Instanz stellt automatisch vorkonfigurierte Trackingcode-Snippets bereit, um Code auf Ihren externen Seiten einzubetten und so Aktivitäten zurück zu Ihrer Marketo-Instanz zu verfolgen. Die Verwendung des Einbettungs-Codes wird durch diese [Lizenzvereinbarung](../munchkin-license.pdf) geregelt.
 
 Es stehen drei Trackingcode-Typen zur Verfügung:
 
 1. Einfach - Lädt synchron
-1. Asynchron - Asynchrone Ladevorgänge
-1. Asynchrone jQuery - Wird asynchron geladen und erfordert, dass jQuery zuvor geladen wird
+1. Asynchron - Lädt asynchron
+1. Asynchrone jQuery - Lädt asynchron und erfordert das vorherige Laden von jQuery
 
-Es wird dringend empfohlen, den asynchronen Trackingcode zum Einbetten von Munchkin auf externen Seiten zu verwenden. Um die bestmögliche Erfolgsrate für die Ausführung sicherzustellen, betten Sie den asynchronen Trackingcode in `<head>` jeder Seite ein.
+Es wird dringend empfohlen, den asynchronen Trackingcode zum Einbetten von Munchkin auf externen Seiten zu verwenden. Um eine möglichst hohe Erfolgsrate für die Ausführung sicherzustellen, betten Sie den asynchronen Trackingcode in `<head>` jeder Seite ein.
 
-Einige Content-Management-Systeme können beim Einbetten beliebiger Skripte bestimmte Methoden oder Einschränkungen aufweisen.
+Einige Content-Management-Systeme verfügen möglicherweise über bestimmte Methoden oder Einschränkungen beim Einbetten beliebiger Skripte.
 
-Als Referenz sollte Ihre endgültige Seite Code enthalten, der in `<head>` Ihres HTML-Dokuments in etwa so aussieht:
+Als Referenz sollte Ihre letzte Seite einen Code enthalten, der dem in `<head>` Ihres HTML-Dokuments ähnelt:
 
 ```html
 <head>
@@ -60,35 +60,35 @@ Als Referenz sollte Ihre endgültige Seite Code enthalten, der in `<head>` Ihres
 
 ## Munchkin-Verhalten
 
-Das Standardverhalten von Marketo Munchkin besteht darin, beim Laden der Seite Folgendes zu tun:
+Das Standardverhalten von Marketo Munchkin besteht darin, beim Laden der Seite Folgendes auszuführen:
 
-1. Überprüfen Sie, ob der aktuelle Browser über ein Munchkin-Cookie verfügt, und erstellen Sie eines, falls es nicht vorhanden ist.
-1. Senden Sie mit den Informationen aus der aktuellen Seite und dem Browser ein Ereignis &quot;Webseite besuchen&quot;an die vorgesehene Marketo-Instanz. Dadurch wird eine Aktivität zum entsprechenden Datensatz in Marketo aufgezeichnet.
-1. Senden Sie das Ereignis &quot;geklickter Link auf Webseite&quot;für alle Benutzerklicks, die auf Links stattfinden.
+1. Überprüfen Sie, ob der aktuelle Browser über ein Munchkin-Cookie verfügt, und erstellen Sie ein Cookie, wenn es nicht vorhanden ist.
+1. Senden Sie mit den Informationen auf der aktuellen Seite und im aktuellen Browser ein „Web-Seite besuchen“-Ereignis an die vorgesehene Marketo-Instanz. Dadurch wird eine Aktivität auf den entsprechenden Datensatz in Marketo aufgezeichnet.
+1. Senden Sie das Ereignis „Auf Link auf Web-Seite geklickt“ für alle Benutzerklicks auf Links.
 
-Das Verhalten von Munchkin kann durch Verwendung von Munchkin [Konfigurationseinstellungen](configuration.md) geändert werden, z. B. ob ein Cookie für alle Leads beim Besuch der Seite mit der Einstellung `cookieAnon` erstellt wird oder die Klickverzögerung mit der Einstellung `clickTime` geändert wird. Das Senden der Besuchsaktivität kann deaktiviert werden, indem die Einstellung &quot;apiOnly&quot;auf &quot;true&quot;gesetzt wird. Ab Version 162 (August 2022) werden Klicks auf `tel` - und `mailto` -Links zusätzlich zu `http/s` -Links verfolgt.
+Das Verhalten von Munchkin kann durch die Verwendung von Munchkin [Konfigurationseinstellungen](configuration.md) geändert werden, z. B. ob beim Besuch der Seite mit der `cookieAnon` ein Cookie für alle Leads erstellt wird oder durch Änderung der Klickverzögerung mit `clickTime` Einstellung. Das Senden der Aktivität Besuch kann deaktiviert werden, indem die Einstellung „apiOnly“ auf „true“ gesetzt wird. Ab Version 162 (August 2022) werden neben `http/s` Links auch Klicks `tel` und `mailto` Links verfolgt.
 
 ## Bekannte und anonyme Leads
 
-Beim ersten Besuch eines Leads auf einer Seite Ihrer Domäne wird in Marketo ein neuer anonymer Lead-Datensatz erstellt. Der Primärschlüssel für diesen Datensatz ist das Munchkin-Cookie (`_mkto_trk`), das im Browser des Benutzers erstellt wird. Alle nachfolgenden Webaktivitäten in diesem Browser werden mit diesem anonymen Datensatz aufgezeichnet. Um mit einem bekannten Datensatz in Marketo verknüpft zu werden, muss eines der folgenden Ereignisse eintreten:
+Beim ersten Besuch eines Leads auf einer Seite Ihrer Domain wird in Marketo ein neuer anonymer Lead-Datensatz erstellt. Der Primärschlüssel für diesen Datensatz ist das Munchkin-Cookie (`_mkto_trk`), das im Browser des Benutzers erstellt wird. Alle nachfolgenden Web-Aktivitäten in diesem Browser werden für diesen anonymen Datensatz aufgezeichnet. Um mit einem bekannten Datensatz in Marketo verknüpft zu sein, muss eines der folgenden Ereignisse eintreten:
 
-- Der Lead muss eine von Munchkin verfolgte Seite mit dem Parameter `mkt_tok` in der Abfragezeichenfolge eines verfolgten Marketo-E-Mail-Links besuchen.
+- Der Lead muss eine von Munchkin verfolgte Seite mit einem `mkt_tok` in der Abfragezeichenfolge über einen verfolgten Marketo-E-Mail-Link besuchen.
 - Der Lead muss ein Marketo-Formular ausfüllen.
-- Ein SOAP [syncLead](../soap-api/leads.md) - oder REST [Lead verknüpfen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) -Aufruf muss gesendet werden.
+- Ein REST[Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)-Aufruf muss gesendet werden.
 
-Sobald eine dieser Bedingungen erfüllt ist, werden das Cookie und alle damit verbundenen Web-Aktivitäten mit dem bekannten Lead verknüpft.
+Sobald eine dieser Bedingungen erfüllt ist, werden das Cookie und alle zugehörigen Web-Aktivitäten mit dem bekannten Lead verknüpft.
 
-Für jeden einzelnen Browser wird ein neuer anonymer Webaktivitätendatensatz erstellt. Wenn ein Lead Ihre Domäne also zum ersten Mal mit einem neuen Computer und/oder Browser besucht, muss diese Zuordnung erneut erfolgen.
+Für jeden einzelnen Browser wird ein neuer anonymer Webaktivitätseintrag erstellt. Wenn also ein Lead zum ersten Mal mit einem neuen Computer und/oder Browser Ihre Domain besucht, muss diese Zuordnung erneut stattfinden.
 
 ## Domains
 
-Munchkin erstellt und verfolgt einzelne Cookies pro Domäne. Damit das bekannte Lead-Tracking domänenübergreifend erfolgt, muss für jede Domäne ein Lead-Verknüpfungsereignis auftreten. Wenn ich beispielsweise zwei Domänen, `marketo.com` und `example.com` beherrsche und ein Lead ein Formular auf `marketo.com` ausfüllt, dann zu `example.com` später navigiert, wird seine Aktivität auf `marketo.com` in einem bekannten Lead-Datensatz nachverfolgt, aber seine Aktivität auf `example.com` ist anonym. Bekannte Leads bleiben jedoch über Subdomänen hinweg erhalten, sodass ein bekannter Lead unter `www.example.com` auch ein bekannter Lead unter `info.example.com` ist.
+Munchkin erstellt und verfolgt einzelne Cookies domänenweise. Damit das bekannte Lead-Tracking domänenübergreifend erfolgt, muss für jede Domain ein Lead-Zuordnungsereignis vorliegen. Wenn ich beispielsweise zwei Domains, `marketo.com` und `example.com`, kontrolliere und ein Lead ein Formular bei `marketo.com` ausfüllt und dann zu `example.com` navigiert, wird seine Aktivität bei `marketo.com` in einem bekannten Lead-Eintrag verfolgt, aber seine Aktivität bei `example.com` ist anonym. Bekannte Leads bleiben jedoch über Subdomains hinweg bestehen, sodass ein bekannter Lead auf `www.example.com` auch ein bekannter Lead auf `info.example.com` ist.
 
-Wenn die Domäne der obersten Ebene aus zwei Teilen besteht, z. B. `.co.uk`, fügen Sie Ihrem Munchkin-Snippet einen Parameter domainLevel hinzu, damit der Code korrekt verfolgt werden kann. Weitere Informationen finden Sie unter [hier](configuration.md#domainlevel) .
+Falls Ihre Domain auf oberster Ebene aus zwei Teilen besteht, z. B. `.co.uk`, fügen Sie Ihrem Munchkin-Snippet einen domainLevel-Parameter hinzu, damit der Code ordnungsgemäß verfolgt wird. Weitere Informationen [ Sie ](configuration.md#domainlevel)hier).
 
 ## Cookie
 
-Das Munchkin-Cookie verwendet den Schlüssel `_mkto_trk` und hat einen Wert, der diesem Muster folgt:
+Das Munchkin-Cookie verwendet die `_mkto_trk` und hat einen Wert, der diesem Muster folgt:
 
 `id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
 
@@ -96,12 +96,12 @@ oder
 
 `id:561\-HYG\-937&token:_mch\-marketo.com\-97bf4361ef4433921a6da262e8df45a`
 
-Munchkin-Cookies sind für jede Domäne der zweiten Ebene spezifisch, d. h. `example.com`. Die Standardlebensdauer des Cookies beträgt 2 Jahre (730 Tage).
+Munchkin-Cookies sind spezifisch für jede Domain der zweiten Ebene, d. h. `example.com`. Die Standardlebensdauer des Cookies beträgt 2 Jahre (730 Tage).
 
 ## Beta
 
-Um sich für Ihre Landingpages am Munchkin-Betakanal zu beteiligen, gehen Sie zum Menü [Admin -> Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta on Landing Pages&quot;. Dadurch werden neue Code-Snippets in der **[!UICONTROL Admin]** -> bereitgestellt.  **[!UICONTROL Munchkin]** -Menü, über das Sie die Betaversion auf externen Sites verwenden können.
+Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
 
 ## Opt-out
 
-Besucher können das Munchkin-Tracking vollständig deaktivieren, indem sie den Parameter `querystring` &quot;marketo_opt_out=true&quot;zur URL in ihrem Browser hinzufügen. Wenn der Munchkin JavaScript diese Einstellung erkennt, versucht er, ein neues Cookie &quot;mkto_opt_out&quot;mit dem Wert `true` zu setzen. Alle anderen Marketo-Tracking-Cookies werden gelöscht, es werden keine neuen Cookies gesetzt und Munchkin führt keine HTTP-Anfragen durch, wenn diese Einstellung erkannt wird.
+Besucher können das Munchkin-Tracking vollständig deaktivieren, indem sie den `querystring` „marketo_opt_out=true“ zur URL im Browser hinzufügen. Wenn Munchkin JavaScript diese Einstellung erkennt, versucht es, ein neues Cookie „mkto_opt_out“ mit dem Wert `true` zu setzen. Alle anderen Tracking-Cookies von Marketo werden gelöscht, neue Cookies werden nicht gesetzt und von Munchkin werden keine HTTP-Anfragen gesendet, wenn diese Einstellung erkannt wird.

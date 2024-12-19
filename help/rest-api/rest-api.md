@@ -3,70 +3,74 @@ title: REST-API
 feature: REST API
 description: REST-API - Übersicht
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: ade3216f04c822de14dc0bbcbc08bfa3a4b17cb3
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '744'
+source-wordcount: '808'
 ht-degree: 1%
 
 ---
 
 # REST-API
 
-Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis hin zum Massenimport von Leads gibt es viele Optionen, die eine detaillierte Steuerung einer Marketo-Instanz ermöglichen.
+Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis zum Massenimport von Leads gibt es viele Optionen, die eine feinkörnige Steuerung einer Marketo-Instanz ermöglichen.
 
-Diese APIs lassen sich im Allgemeinen in zwei allgemeine Kategorien unterteilen: [Lead-Datenbank](https://developer.adobe.com/marketo-apis/api/mapi/) und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und die Interaktion mit Marketo-Personendatensätzen und zugehörigen Objekttypen, z. B. Chancen und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketingmaterialien und Workflow-bezogenen Datensätzen.
+Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[ „Lead-](https://developer.adobe.com/marketo-apis/api/mapi/)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
 
-- **Tägliches Kontingent:** Abonnements werden täglich 50.000 API-Aufrufe zugeordnet (die täglich um 12.00 Uhr CST zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Kundenbetreuer erhöhen.
+>[!NOTE]
+>Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Oktober 2025 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](./rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-[ (Migrationshandbuch](../soap-api/migration.md) Informationen zur Migration.
+>
+
+- **Tägliche Kontingent:**-Abonnements werden 50.000 API-Aufrufen pro Tag zugewiesen (die täglich um 12:00 Uhr CST zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
 - **Ratenlimit:** API-Zugriff pro Instanz ist auf 100 Aufrufe pro 20 Sekunden beschränkt.
-- **Begrenzung der Parallelität:**  Maximal zehn gleichzeitige API-Aufrufe.
+- **Parallelitätslimit:**  Maximal zehn gleichzeitige API-Aufrufe.
 
-Die Größe von Standardaufrufen ist auf eine URI-Länge von 8 KB und eine Textgröße von 1 MB beschränkt, obwohl der Hauptteil für unsere Bulk-APIs 10 MB betragen kann. Wenn bei Ihrem -Aufruf ein Fehler auftritt, gibt die API in der Regel weiterhin den Status-Code 200 zurück, die JSON-Antwort enthält jedoch ein &quot;success&quot;-Mitglied mit dem Wert `false` und ein Array von Fehlern im &quot;errors&quot;-Mitglied. Weitere Informationen zu Fehlern [hier](error-codes.md).
+Die Größe von Standardaufrufen ist auf eine URI-Länge von 8 KB und eine Textkörpergröße von 1 MB beschränkt, obwohl der Textkörper für unsere Bulk-APIs 10 MB betragen kann. Wenn in bei Ihrem Aufruf ein Fehler auftritt, gibt die API normalerweise trotzdem den Status-Code 200 zurück, aber die JSON-Antwort enthält ein „success“-Element mit dem Wert `false` und ein Array von Fehlern im „errors“-Element. Weitere Informationen zu Fehlern [hier](error-codes.md).
 
 ## Erste Schritte
 
-Für die folgenden Schritte sind Administratorberechtigungen in Ihrer Marketo-Instanz erforderlich.
+Für die folgenden Schritte sind Administratorrechte für Ihre Marketo-Instanz erforderlich.
 
-Für Ihren ersten Marketo-Aufruf rufen Sie einen Lead-Datensatz ab. Um mit Marketo arbeiten zu können, müssen Sie API-Anmeldeinformationen abrufen, um authentifizierte Aufrufe an Ihre Instanz durchführen zu können. Melden Sie sich bei Ihrer Instanz an und wechseln Sie zu &quot;**[!UICONTROL Admin]** -> **[!UICONTROL Benutzer und Rollen]**&quot;.
+Für Ihren ersten Aufruf an Marketo rufen Sie einen Lead-Datensatz ab. Um mit Marketo arbeiten zu können, müssen Sie API-Anmeldeinformationen abrufen, um authentifizierte Aufrufe an Ihre Instanz durchführen zu können. Melden Sie sich bei Ihrer -Instanz an und gehen Sie zu **[!UICONTROL Admin]** > **[!UICONTROL Benutzer und Rollen]**.
 
 ![Admin-Benutzer und -Rollen](assets/admin-users-and-roles.png)
 
-Klicken Sie auf die Registerkarte **[!UICONTROL Rollen]**, dann auf &quot;Neue Rolle&quot;und weisen Sie mindestens die Berechtigung &quot;Schreibgeschütztes Lead&quot;(oder &quot;Schreibgeschützte Person&quot;) der Rolle in der Access-API-Gruppe zu. Geben Sie einen beschreibenden Namen ein und klicken Sie auf **[!UICONTROL Erstellen]**.
+Klicken Sie auf **[!UICONTROL Rollen]** und dann auf Neue Rolle und weisen Sie mindestens die Berechtigung „Schreibgeschützter Lead“ (oder „Schreibgeschützte Person„) der Rolle in der Zugriffs-API-Gruppe zu. Geben Sie unbedingt einen beschreibenden Namen an und klicken Sie auf **[!UICONTROL Erstellen]**.
 
 ![Neue Rolle](assets/new-role.png)
 
-Kehren Sie nun zur Registerkarte [!UICONTROL Benutzer] zurück und klicken Sie auf **[!UICONTROL Neuen Benutzer einladen]**. Geben Sie Ihrem Benutzer einen beschreibenden Namen, der anzeigt, dass es sich um einen API-Benutzer handelt, und eine E-Mail-Adresse und klicken Sie auf **[!UICONTROL Weiter]**.
+Kehren Sie nun zur Registerkarte [!UICONTROL Benutzer] zurück und klicken Sie auf **[!UICONTROL Neuen Benutzer einladen]**. Geben Sie Ihrem Benutzer einen beschreibenden Namen, der angibt, dass er ein API-Benutzer ist, und eine E-Mail-Adresse und klicken Sie auf **[!UICONTROL Weiter]**.
 
 ![Neue Benutzerinformationen](assets/new-user-info.png)
 
-Aktivieren Sie dann die Option &quot;[!UICONTROL Nur API]&quot;, weisen Sie dem Benutzer die von Ihnen erstellte API-Rolle zu und klicken Sie auf &quot;**[!UICONTROL Weiter]**&quot;.
+Aktivieren Sie dann die Option [!UICONTROL Nur API] und weisen Sie Ihrem Benutzer die von Ihnen erstellte API-Rolle zu und klicken Sie auf **[!UICONTROL Weiter]**.
 
 ![Berechtigungen für neue Benutzer](assets/new-user-permissions.png)
 
-Um den Benutzererstellungsprozess abzuschließen, klicken Sie auf **[!UICONTROL Senden]**.
+Um die Benutzererstellung abzuschließen, klicken Sie auf **[!UICONTROL Senden]**.
 
-![Neue Benutzermeldung](assets/new-user-message.png)
+![Nachricht für neuen Benutzer](assets/new-user-message.png)
 
-Navigieren Sie anschließend zum Menü [!UICONTROL Admin] und klicken Sie auf **[!UICONTROL LaunchPoint]**.
+Gehen Sie dann zum Menü [!UICONTROL Admin] und klicken Sie auf **[!UICONTROL LaunchPoint]**.
 
 ![Launchpoint](assets/admin-launchpoint.png)
 
-Klicken Sie auf das Menü **[!UICONTROL Neu]** und wählen Sie **[!UICONTROL Neuer Dienst]** aus. Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie **[!UICONTROL Benutzerdefiniert]** aus dem Dropdown-Menü [!UICONTROL Dienst] aus. Geben Sie eine Beschreibung ein, wählen Sie dann Ihren neuen Benutzer aus dem Dropdown-Menü [!UICONTROL Nur API-Benutzer] aus und klicken Sie auf **[!UICONTROL Erstellen]**.
+Klicken Sie auf das **[!UICONTROL Neu]**-Menü und wählen Sie **[!UICONTROL Neuer Service]**. Geben Sie Ihrem Service einen beschreibenden Namen und wählen Sie **[!UICONTROL Benutzerdefiniert]** aus dem [!UICONTROL Service] Dropdown-Menü aus. Geben Sie eine Beschreibung ein, wählen Sie dann Ihren neuen Benutzer aus dem Dropdown-Menü [!UICONTROL Nur API] und klicken Sie auf **[!UICONTROL Erstellen]**.
 
-![Neuer Startpunkt-Dienst](assets/admin-launchpoint-new-service.png)
+![Neuer Launchpoint-Service](assets/admin-launchpoint-new-service.png)
 
-Klicken Sie für Ihren neuen Dienst auf **[!UICONTROL Details anzeigen]** , um auf die Client-ID und das Client-Geheimnis zuzugreifen. Zunächst können Sie auf die Schaltfläche **[!UICONTROL Token abrufen]** klicken, um ein Zugriffstoken zu generieren, das für eine Stunde gültig ist. Speichern Sie das Token zunächst in einer Notiz.
+Klicken Sie **[!UICONTROL Details anzeigen]** für Ihren neuen Service, um auf die Client-ID und den geheimen Client-Schlüssel zuzugreifen. Aktuell können Sie auf die Schaltfläche **[!UICONTROL Token abrufen]** klicken, um ein Zugriffs-Token zu generieren, das eine Stunde lang gültig ist. Speichern Sie das Token vorerst in einer Notiz.
 
 ![Token abrufen](assets/get-token.png)
 
-Navigieren Sie dann zum Menü **[!UICONTROL Admin]** und dann zu **[!UICONTROL Web-Services]**.
+Gehen Sie dann zum Menü **[!UICONTROL Admin]** und dann zu **[!UICONTROL Web-Services]**.
 
 ![Web-Services](assets/admin-web-services.png)
 
-Suchen Sie den [!UICONTROL Endpunkt] im Feld REST-API und speichern Sie ihn zunächst in einem Hinweis.
+Suchen Sie den [!UICONTROL Endpunkt] im Feld REST-API und speichern Sie ihn in einer Notiz.
 
 ![REST-Endpunkt](assets/admin-web-services-rest-endpoint-1.png)
 
-Bei Aufrufen von REST-API-Methoden muss in jedem Aufruf ein Zugriffstoken enthalten sein, damit der Aufruf erfolgreich ist. Das Zugriffstoken muss als HTTP-Header gesendet werden.
+Beim Aufrufen von REST-API-Methoden muss jeder Aufruf ein Zugriffstoken enthalten, damit der Aufruf erfolgreich ist. Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden.
 
 ```
 Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
@@ -74,15 +78,15 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
 
-Öffnen Sie eine neue Browser-Registerkarte und geben Sie Folgendes mit den entsprechenden Informationen ein, um [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) aufzurufen
+Öffnen Sie eine neue Browser-Registerkarte und geben Sie Folgendes ein, indem Sie die entsprechenden Informationen verwenden, um aufzurufen [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
 
 ```
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>
 ```
 
-Wenn Sie keinen Lead-Datensatz mit Ihrer E-Mail-Adresse in Ihrer Datenbank haben, ersetzen Sie ihn durch einen Datensatz, von dem Sie wissen, dass er vorhanden ist. Drücken Sie die Eingabetaste in Ihre URL-Leiste und Sie sollten eine JSON-Antwort erhalten, die dieser ähnelt:
+Wenn Sie keinen Lead-Eintrag mit Ihrer E-Mail-Adresse in Ihrer Datenbank haben, ersetzen Sie ihn durch einen anderen, von dem Sie wissen, dass er dort ist. Drücken Sie die Eingabetaste in Ihrer URL-Leiste und Sie sollten eine JSON-Antwort erhalten, die der folgenden ähnelt:
 
 ```json
 {
@@ -103,4 +107,4 @@ Wenn Sie keinen Lead-Datensatz mit Ihrer E-Mail-Adresse in Ihrer Datenbank haben
 
 ## API-Nutzung
 
-Jeder Ihrer API-Benutzer wird einzeln im API-Nutzungsbericht aufgeführt. Indem Sie Ihre Webdienste nach Benutzern aufteilen, können Sie die Nutzung jeder Ihrer Integrationen einfach erfassen. Wenn die Anzahl der API-Aufrufe an Ihre Instanz den Grenzwert überschreitet und dazu führt, dass nachfolgende Aufrufe fehlschlagen, können Sie mithilfe dieser Vorgehensweise das Volumen der einzelnen Dienste berücksichtigen und bewerten, wie das Problem gelöst werden kann. Sehen Sie sich Ihre Nutzung an, indem Sie zu **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Webdienste]** navigieren und auf die Anzahl der Aufrufe in den letzten sieben Tagen klicken.
+Jeder Ihrer API-Benutzer wird einzeln im API-Nutzungsbericht gemeldet, sodass Sie durch die Aufspaltung Ihrer Web-Services nach Benutzer einfach die Nutzung jeder Ihrer Integrationen erfassen können. Wenn die Anzahl der API-Aufrufe an Ihre Instanz das Limit überschreitet und nachfolgende Aufrufe fehlschlagen, können Sie mit dieser Vorgehensweise das Volumen aus jedem Ihrer Services berücksichtigen und bewerten, wie Sie das Problem beheben können. Überprüfen Sie Ihre Nutzung, indem Sie zu **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** wechseln und auf die Anzahl der Aufrufe in den letzten sieben Tagen klicken.

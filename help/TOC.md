@@ -1,41 +1,41 @@
 ---
 user-guide-title: '[!DNL Marketo]-Entwicklerhandbuch'
-user-guide-description: Dieses Handbuch enthält Anweisungen zur Verwendung von [!DNL Marketo] APIs.
+user-guide-description: Dieses Handbuch enthält Anweisungen zur Verwendung von  [!DNL Marketo] -APIs.
 breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '243'
+source-wordcount: '247'
 ht-degree: 37%
 
 ---
 
 
-# [!DNL Marketo] Entwickler {#marketo}
+# [!DNL Marketo] {#marketo}
 
 - [Startseite](home.md)
 - [Erste Schritte](getting-started.md)
-- JavaScript-API {#javascriptapi}
+- JavaScript-API-{#javascriptapi}
    - [Benutzerspezifische Datenereignisse](javascript-api/custom-data-events.md)
    - [Beispiele](javascript-api/examples.md)
-   - [Forms API-Referenz](javascript-api/forms-api-reference.md)
-   - [Abrufen von Besucherdaten](javascript-api/get-visitor-data.md)
+   - [Forms-API-Referenz](javascript-api/forms-api-reference.md)
+   - [Besucherdaten abrufen](javascript-api/get-visitor-data.md)
    - [JavaScript-API](javascript-api/javascript-api.md)
-   - Lead-Tracking {#leadtracking}
+   - Lead-{#leadtracking}
       - [Lead-Verfolgung](javascript-api/lead-tracking.md)
       - [Konfiguration](javascript-api/configuration.md)
-      - [Munchkin API-Referenz](javascript-api/api-reference.md)
+      - [Munchkin-API-Referenz](javascript-api/api-reference.md)
    - [Musterübereinstimmung](javascript-api/pattern-match.md)
    - [Predictive Content](javascript-api/predictive-content.md)
-   - [Umleitungen](javascript-api/redirect.md)
+   - [Redirects](javascript-api/redirect.md)
    - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
    - [Social](javascript-api/social.md)
    - [Trigger](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
 - Mobil {#mobile}
-   - [Installieren der Erweiterung [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
+   - [install. [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension.md)
    - [Erweiterter Sicherheitsmodus](mobile/advanced-security-access-mode.md)
    - [Benutzerdefinierte Aktionen](mobile/custom-actions.md)
@@ -44,7 +44,7 @@ ht-degree: 37%
    - [Installation](mobile/installation.md)
    - [[!DNL Ionic]](mobile/ionic.md)
    - [Mobile](mobile/mobile.md)
-   - [Phonegap](mobile/phonegap.md)
+   - [Telefonlücke](mobile/phonegap.md)
    - [Push-Benachrichtigungen](mobile/push-notifications.md)
    - [React Native](mobile/react-native.md)
    - [Benutzerprofile](mobile/user-profiles.md)
@@ -69,28 +69,28 @@ ht-degree: 37%
       - [Snippets](rest-api/snippets.md)
       - [Statische Listen](rest-api/static-lists.md)
       - [Token](rest-api/tokens.md)
-      - [Transaktions-Email](rest-api/transactional-email.md)
+      - [Transaktions-E-Mail](rest-api/transactional-email.md)
    - [Authentifizierung](rest-api/authentication.md)
    - [Basis-URL](rest-api/base-url.md)
    - [Bewährte Methoden](rest-api/marketo-integration-best-practices.md)
-   - Massenextraktion {#bulk-extract}
+   - {#bulk-extract}
       - [Massenaktivität](rest-api/bulk-activity-extract.md)
-      - [Massenbenutzerdefiniertes Objekt](rest-api/bulk-custom-object-extract.md)
-      - [Massenextraktion](rest-api/bulk-extract.md)
-      - [Bulk Lead](rest-api/bulk-lead-extract.md)
-      - [Bulk-Programm-Mitglied](rest-api/bulk-program-member-extract.md)
-   - Massenimport {#bulk-import}
-      - [Massenbenutzerdefiniertes Objekt](rest-api/bulk-custom-object-import.md)
+      - [Benutzerdefiniertes Massenobjekt](rest-api/bulk-custom-object-extract.md)
+      - [Massenextrakt](rest-api/bulk-extract.md)
+      - [Massenkabel](rest-api/bulk-lead-extract.md)
+      - [Massenprogrammteilnehmer](rest-api/bulk-program-member-extract.md)
+   - Massenimport-{#bulk-import}
+      - [Benutzerdefiniertes Massenobjekt](rest-api/bulk-custom-object-import.md)
       - [Massenimport](rest-api/bulk-import.md)
-      - [Bulk Lead](rest-api/bulk-lead-import.md)
-      - [Bulk-Programm-Mitglied](rest-api/bulk-program-member-import.md)
+      - [Massenkabel](rest-api/bulk-lead-import.md)
+      - [Massenprogrammteilnehmer](rest-api/bulk-program-member-import.md)
    - [Kanäle](rest-api/channels.md)
-   - [Benutzerdefinierte Dienste](rest-api/custom-services.md)
-   - [Datenerfassungs-API](rest-api/data-ingestion.md)
+   - [Benutzerdefinierte Services](rest-api/custom-services.md)
+   - [Datenaufnahme-API](rest-api/data-ingestion.md)
    - [Swagger-Definitionen herunterladen](rest-api/swagger.md)
    - [Endpunktverweis](rest-api/endpoint-reference.md)
-   - [Fehlercodes](rest-api/error-codes.md)
-   - Lead-Datenbank {#lead-database}
+   - [Fehler-Codes](rest-api/error-codes.md)
+   - Lead-{#lead-database}
       - [Aktivitäten](rest-api/activities.md)
       - [Firmen](rest-api/companies.md)
       - [Benutzerdefinierte Objekte](rest-api/custom-objects.md)
@@ -99,11 +99,11 @@ ht-degree: 37%
       - [Lead-Datenbank](rest-api/lead-database.md)
       - [Leads](rest-api/leads.md)
       - [Benannte Konten](rest-api/named-accounts.md)
-      - [Namenskontenlisten](rest-api/named-account-lists.md)
+      - [Spezifische Kontolisten](rest-api/named-account-lists.md)
       - [Opportunitys](rest-api/opportunities.md)
-      - [Opportunity Roles](rest-api/opportunity-roles.md)
+      - [Opportunity-Rollen](rest-api/opportunity-roles.md)
       - [Programm-Mitglieder](rest-api/program-members.md)
-      - [Vertriebsmitarbeiter](rest-api/sales-persons.md)
+      - [Vertriebspersonal](rest-api/sales-persons.md)
    - [Paging-Token](rest-api/paging-tokens.md)
    - [Leistung](rest-api/performance.md)
    - [Referenzarchitekturen](rest-api/reference-architectures.md)
@@ -111,12 +111,12 @@ ht-degree: 37%
    - [Tags](rest-api/tags.md)
    - [Benutzerkontext](rest-api/user-context.md)
    - [Benutzerverwaltung](rest-api/user-management.md)
-- SOAP {#soap}
+- SOAP-{#soap}
    - Aktivitäten {#activities}
       - [Aktivitäten](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
-   - [Aktivitätstypfilter](soap-api/activity-type-filters.md)
+   - [Aktivitätstyp-Filter](soap-api/activity-type-filters.md)
    - [Authentifizierungssignatur](soap-api/authentication-signature.md)
    - Kampagnen {#campaigns}
       - [[!DNL getCampaignsForSource]](soap-api/getcampaignsforsource.md)
@@ -127,8 +127,8 @@ ht-degree: 37%
       - [[!DNL deleteCustomObjects]](soap-api/deletecustomobjects.md)
       - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
       - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
-   - [Fehlercodes](soap-api/error-codes.md)
-   - Leads {#leads}
+   - [Fehler-Codes](soap-api/error-codes.md)
+   - Lead-{#leads}
       - [[!DNL getLead]](soap-api/getlead.md)
       - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
       - [[!DNL mergeLeads]](soap-api/mergeleads.md)
@@ -142,23 +142,24 @@ ht-degree: 37%
       - [[!DNL listMObjects]](soap-api/listmobjects.md)
       - [Marketo-Objekte](soap-api/marketo-objects.md)
       - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
+   - [Migration zur REST-API](soap-api/migration.md)
    - Programme {#programs}
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP-API](soap-api/soap-api.md)
-   - [SOAP FAQs](soap-api/soap-faq.md)
+   - [Häufig gestellte Fragen zu SOAP](soap-api/soap-faq.md)
    - Statische Listen {#static-lists}
       - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
       - [[!DNL importToList]](soap-api/importtolist.md)
       - [[!DNL listOperation]](soap-api/listoperation.md)
-   - [Stream-Position](soap-api/stream-position.md)
-- Webhooks {#webhooks}
+   - [Stromposition](soap-api/stream-position.md)
+- Webhooks-{#webhooks}
    - [Fehler](webhooks/errors.md)
    - [Response Mappings](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
 - [Client-Bibliotheken](https://github.com/Marketo/Community-Supported-Client-Libraries)
-- [Daten-Streams](data-streams.md)
+- [Datenströme](data-streams.md)
 - [E-Mail-Skripterstellung](email-scripting.md)
 - [Lizenz](api-license.md)
 - [Partner-Sandbox](partner-sandbox.md)
-- [Selbstbedienungs-Flussschritte](self-service-flow-steps.md)
+- [Self-Service-Flussschritte](self-service-flow-steps.md)
