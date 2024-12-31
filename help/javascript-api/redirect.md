@@ -12,10 +12,10 @@ ht-degree: 8%
 
 # Weiterleiten
 
-Mit der RTP-Umleitungs-API können Sie segmentierte Zielgruppen zu einer Ziel-URL umleiten.
+Mit der RTP Redirect-API können Sie segmentierte Zielgruppen an eine Ziel-URL umleiten.
 
-- Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
-- RTP unterstützt keine Konto-basierten Marketinglisten mit Namen. ABM-Listen und -Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die innerhalb von RTP verwaltet werden.
+- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+- RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Nutzung
 
@@ -23,35 +23,35 @@ Mit der RTP-Umleitungs-API können Sie segmentierte Zielgruppen zu einer Ziel-UR
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---------------------------|-------------------|---------|-----------------------------|
-| &#39;send&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
-| &quot;redirect&quot; | Erforderlich | Zeichenfolge | Name der Methode. |
-| field_name | Erforderlich | Zeichenfolge | Feldname, mit dem eine Übereinstimmung gefunden werden soll. Beispiel: &quot;abm.name&quot;(siehe unten). |
-| values_array | Erforderlich | Tabelle | Liste der Werte, mit denen das Feld abgeglichen werden soll (nicht zwischen Groß- und Kleinschreibung unterschieden). |
-| redirect_url | Erforderlich | Zeichenfolge | Target-URL, um Besucher umzuleiten, die mit der Bedingung übereinstimmen. |
-| redirect_match_visitors | optional | Boolesch | Wenn &quot;true&quot;, werden Besucher, die mit Bedingungen übereinstimmen, umgeleitet. Wenn &quot;false&quot;, werden nicht übereinstimmende Besucher umgeleitet. Standard: true. |
+| &#39;Senden&#39; | Erforderlich | String | Aktion der Methode. |
+| &#39;Umleiten&#39; | Erforderlich | String | Methodenname. |
+| field_name | Erforderlich | String | Feldname, mit dem abgeglichen werden soll. Beispiel: „abm.name“ (siehe unten). |
+| values_array | Erforderlich | Array | Liste der Werte, mit denen das Feld abgeglichen werden soll (Groß-/Kleinschreibung wird nicht beachtet). |
+| redirect_url | Erforderlich | String | Ziel-URL für die Umleitung von Besuchern, die der Bedingung entsprachen. |
+| redirect_matches_visitors | Optional | Boolesch | Wenn „true“, werden Besucher, die mit der Bedingung übereinstimmen, umgeleitet. Wenn die Bedingung „false“ ist, werden nicht übereinstimmende Besucher umgeleitet. Standard: true. |
 
-Organisation, Branche, ABM-Listen, Standort, ISP, übereinstimmende Segmente
+Organisation, Branche, ABM-Listen, Standort, ISP, passende Segmente
 
 | Bedingung | Datenhierarchie | Beispiel |
 |-------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
-| Matched Segments (funktioniert nur nach dem ersten Klick) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchSegments.name&#39; , [&#39;Fortune 1,000&#39; , &#39;Enterprise&#39;] , &#39;http://www.marketo.com&#39;); |
-| Matched Segments (funktioniert nur nach dem ersten Klick) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchSegments.id&#39; , [106 , 107 , 190] , &#39;http://www.marketo.com&#39;); |
-| ABM-Listen | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.name&#39; , [&#39;top_key_accounts&#39;, &#39;active_Customers&#39;] , &#39;http://www.marketo.com&#39;); |
+| Übereinstimmende Segmente (funktioniert nur nach dem ersten Klick) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchesSegments.name&#39; , [&#39;Fortune 1,000&#39; , &#39;Enterprise&#39;], &#39;http://www.marketo.com&#39;); |
+| Übereinstimmende Segmente (funktioniert nur nach dem ersten Klick) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;matchesSegments.id&#39; , [106 , 107 , 190] , &#39;http://www.marketo.com&#39;); |
+| ABM-Listen | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.name&#39; , [&#39;top_key_accounts&#39;, &#39;active_customers&#39;], &#39;http://www.marketo.com&#39;); |
 | ABM-Listen | abm.code | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;abm.code&#39; , [13 , 15] , &#39;http://www.marketo.com&#39;); |
-| Organisationen | org | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;org&#39;, [&#39;ebay&#39;], &#39;http://www.marketo.com&#39;); |
+| Organisationen | org | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;org&#39;, [&#39;ebay&#39;], &#39;http://www.marketo.com&#39;); |
 | Standort | location.country | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;location.country&#39; , [&#39;United States&#39;], &#39;http://www.marketo.com&#39;); |
-| Standort | location.state | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &#39;http://www.marketo.com&#39;); |
-| Standort | location.city | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.city&#39;, [&#39;San Mateo&#39;], &#39;http://www.marketo.com&#39;); |
-| Branchen | Industrien | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;industry&#39; , [&#39;Education&#39;], &#39;http://www.marketo.com&#39;); |
-| ISP | isp | rtp( &#39;send&#39;, &#39;redirect&#39;, isp , [&#39;False&#39;], &#39;http://www.marketo.com&#39;); |
+| Standort | location.state | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;location.state&#39;, [&#39;ca&#39;], &#39;http://www.marketo.com&#39;); |
+| Standort | location.city | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;location.city&#39;, [&#39;San Mateo&#39;], &#39;http://www.marketo.com&#39;); |
+| Branchen | Branchen | rtp( &#39;send&#39;, &#39;redirect&#39; , &#39;industries&#39; , [&#39;education&#39;], &#39;http://www.marketo.com&#39;); |
+| ISP | ISP | rtp( &#39;send&#39;, &#39;redirect&#39; , isp , [&#39;false&#39;], &#39;http://www.marketo.com&#39;); |
 
 
 ## Hinweise
 
-- Wenn die Umleitungsregel/-bedingung auf Firmographie (Firma, Branche, Standort) basiert, können Sie den Umleitungs-Code vor rtp(&#39;send&#39;, &#39;view&#39;) und rtp(&#39;get&#39;,&#39;campaign&#39;) einfügen, um die Latenz zu verringern.
-- Die Umleitung über JavaScript ist eine browserseitige Umleitung und hängt vom Laden und Optimieren der Website ab, um die maximale Geschwindigkeit zu erreichen.
-- Es empfiehlt sich, den Umleitungs-Code direkt nach dem rtp-Tag festzulegen und ihn in der Kopfzeile zu platzieren.
-- Vergewissern Sie sich, dass Sie keine Selbstumleitung ausführen (es gibt ein Sicherheitsnetz in rtp, um zyklische Umleitungsanrufe zu blockieren).
+- Wenn die Umleitungsregel/-bedingung auf Firmografiken (Firma, Branche, Standort) basiert, können Sie den Umleitungscode vor dem rtp(&#39;Senden&#39;, &#39;Anzeigen&#39;) und dem rtp(&#39;GET&#39;,&#39;Kampagne&#39;) einfügen, um die Latenz zu reduzieren.
+- Die Umleitung über JavaScript ist eine browserseitige Umleitung und hängt vom Laden und der Optimierung der Website ab, um maximale Geschwindigkeit zu erreichen.
+- Es empfiehlt sich, den Umleitungs-Code direkt nach dem rtp-Tag festzulegen und in der Kopfzeile zu platzieren.
+- Stellen Sie sicher, dass Sie keine Selbstumleitung ausführen (es gibt ein Sicherheitsnetz in RTP, um zyklische Umleitungsaufrufe zu blockieren).
 
 ```html
 <!DOCTYPE html>
@@ -85,17 +85,17 @@ rtp('get','campaign');
 <!-- End of RTP tag -->
 ```
 
-## Weiterleiten von verfolgten Besuchern
+## Weiterleiten getrackter Besucher
 
-1. Hängen Sie einen Parameter an das Ende der Ziel-URL an: z. B. www.marketo.com?rtp=redirect
-1. Erstellen Sie ein Segment mit dem Namen &quot;Umgeleitet von RTP&quot;.
-1. Verwenden Sie den Parameter &quot;Spezifische Seiten&quot;, um Besucher anzusprechen, die eine beliebige Seite mit dem folgenden Parameter anzeigen.
+1. Fügen Sie einen -Parameter an das Ende der Ziel-URL an: z. B. www.marketo.com?rtp=redirect
+1. Erstellen Sie ein Segment mit dem Namen „Weitergeleitet von RTP“.
+1. Verwenden Sie den Parameter „Bestimmte Seiten“, um Besuchende anzusprechen, die eine beliebige Seite mit dem unten gezeigten Parameter ansehen.
 
-![tracking-redirect-visistors](assets/tracking-redirected-vistors.png)
+![tracking-redirected-Visitors](assets/tracking-redirected-vistors.png)
 
 ## Definieren von mehr als einer Bedingung mit verschiedenen Ziel-URLs
 
-Der Umleitungsaufruf unterstützt mehrere Aufrufe. Dies ermöglicht eine Umleitung mit mehreren Feldern und die Erstellung komplexer Bedingungen mit verschiedenen URLs und Werten.
+Der Umleitungsaufruf unterstützt mehrere Aufrufe. Dies ermöglicht eine Umleitung mit mehreren Feldern und die Erstellung komplexer Bedingungen mit unterschiedlichen URLs und Werten.
 
 ### Nutzung
 
@@ -103,10 +103,10 @@ Der Umleitungsaufruf unterstützt mehrere Aufrufe. Dies ermöglicht eine Umleitu
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
-| &#39;send&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
-| &quot;redirect&quot; | Erforderlich | Zeichenfolge | Name der Methode. |
-| field_name | Erforderlich | Zeichenfolge | Feldname, mit dem eine Übereinstimmung gefunden werden soll. Beispiel: &quot;abm.name&quot;(siehe oben). |
-| url_values_map | Erforderlich | Objekt | Zuordnung zwischen Umleitungs-URL und Werteliste. Beispiel:{&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;] |
+| &#39;Senden&#39; | Erforderlich | String | Aktion der Methode. |
+| &#39;Umleiten&#39; | Erforderlich | String | Methodenname. |
+| field_name | Erforderlich | String | Feldname, mit dem abgeglichen werden soll. Beispiel: „abm.name“ (siehe oben). |
+| url_values_map | Erforderlich | Objekt | Zuordnung zwischen Umleitungs-URL und Werteliste. Beispiel:{&#39;http://marketo.com&#39; : [&#39;first_abm&#39;, &#39;second_abm&#39;]} |
 
 
 #### Beispiel

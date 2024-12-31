@@ -1,6 +1,6 @@
 ---
-title: Abrufen von Besucherdaten
-description: Abrufen von Besucherdaten
+title: Besucherdaten abrufen
+description: Besucherdaten abrufen
 feature: Javascript
 exl-id: 39a2446d-8a31-461e-bbe6-a7edf24b4d52
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
@@ -10,20 +10,20 @@ ht-degree: 5%
 
 ---
 
-# Abrufen von Besucherdaten
+# Besucherdaten abrufen
 
-Diese Methode wird zum Abrufen von Echtzeit-Besucheridentifizierungsdaten verwendet.
+Diese Methode wird verwendet, um Echtzeit-Besucheridentifizierungsdaten abzurufen.
 
-- Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
-- RTP unterstützt keine Konto-basierten Marketinglisten mit Namen. ABM-Listen und -Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die innerhalb von RTP verwaltet werden.
+- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+- RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
-Tritt ein Fehler auf, wird im Antwort-JSON eine Fehlermeldung angezeigt. Wenn ein 500-Code zurückgegeben wird, wenden Sie sich mit der von Ihnen gestellten Anfrage an den Support.
+Wenn ein Fehler auftritt, wird als Teil der Antwort-JSON eine Fehlermeldung angezeigt. Wenn ein 500-Code zurückgegeben wird, wenden Sie sich mit der von Ihnen gestellten Anfrage an den Support.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
-| `get` | Erforderlich | Zeichenfolge | Methodenaktion |
-| `visitor` | Erforderlich | Zeichenfolge | Name der Methode. |
-| `callback` | Erforderlich | Funktion | Callback-Funktion, die für jede zurückgegebene Kampagne ausgelöst wird. |
+| `get` | Erforderlich | String | Aktion der Methode. |
+| `visitor` | Erforderlich | String | Methodenname. |
+| `callback` | Erforderlich | Funktion | Callback-Funktion, die für jede zurückgegebene Kampagne ausgelöst werden soll. |
 
 ## Beispiele
 
@@ -36,9 +36,9 @@ function callbackFunction() {
 rtp('get', 'visitor', callbackFunction);
 ```
 
-Antwort mit Segmentübereinstimmung:
+Antwort mit Segment Match:
 
-Nachstehend finden Sie eine Beispielantwort, die zurückgegeben wird, falls der Besucher vor dem Aufruf der Get Visitor Data API Echtzeit-Segmente zugeordnet hat.
+Nachfolgend finden Sie eine Beispielantwort, die zurückgegeben wird, falls der Besucher vor dem API-Aufruf zum Abrufen von Besucherdaten mit Echtzeit-Segmenten abgeglichen hat.
 
 ```json
 {
@@ -74,9 +74,9 @@ Nachstehend finden Sie eine Beispielantwort, die zurückgegeben wird, falls der 
 }
 ```
 
-Antwort ohne Segmentübereinstimmung:
+Antwort ohne Segment Match:
 
-Nachstehend finden Sie eine Beispielantwort, die zurückgegeben wird, falls der Besucher vor dem Aufruf der Get Visitor Data API keine Echtzeitsegmente gefunden hat.
+Nachfolgend finden Sie eine Beispielantwort, die zurückgegeben wird, falls der Besucher vor dem Aufruf der API zum Abrufen von Besucherdaten mit keinem Echtzeit-Segment übereinstimmte.
 
 ```json
 {

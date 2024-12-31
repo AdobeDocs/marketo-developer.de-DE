@@ -12,26 +12,26 @@ ht-degree: 1%
 
 # JavaScript-API
 
-Im Folgenden finden Sie einen Überblick über die Funktionen der clientseitigen JavaScript-Integration von Marketo. Sie benötigen ein Marketo-Konto, um diese Funktionen nutzen zu können. Normalerweise umfasst die Implementierung einfach das Hinzufügen eines &quot;Einbettungscodes&quot;zu Ihrer Webeigenschaft. Sie können optional zusätzliche Funktionen verwenden, indem Sie JavaScript-Funktionen aufrufen, die vom Einbettungscode bereitgestellt werden. Diese Funktionen sind hier vollständig dokumentiert.
+Im Folgenden finden Sie einen Überblick über die Client-seitigen Integrationsfunktionen von Marketo JavaScript. Sie benötigen ein Marketo-Konto, um diese Funktionen nutzen zu können. Normalerweise umfasst die Implementierung einfach das Hinzufügen eines „Einbettungs-Codes“ zu Ihrer Web-Eigenschaft. Sie können optional zusätzliche Funktionen verwenden, indem Sie JavaScript-Funktionen aufrufen, die vom Einbettungs-Code verfügbar gemacht werden. Diese Funktionen sind hier vollständig dokumentiert.
 
-Der Einbettungscode ist für Ihre Marketo-Instanz eindeutig, da er eine Kontokennung enthält. Rufen Sie den Einbettungscode ab, indem Sie zum entsprechenden Bereich in der Marketo-Benutzeroberfläche navigieren, in die Zwischenablage kopieren und in die Web-Seite einfügen.
+Der Einbettungs-Code ist für Ihre Marketo-Instanz eindeutig, da eine Kontokennung enthält. Rufen Sie den Einbettungs-Code ab, indem Sie zum entsprechenden Bedienfeld in der Marketo-Benutzeroberfläche navigieren, in die Zwischenablage kopieren und auf Ihrer Web-Seite einfügen.
 
 ## Lead-Tracking (Munchkin)
 
-Der Marketo-Trackingcode [Munchkin JavaScript](lead-tracking.md) ist für die Funktionen von Marketo von zentraler Bedeutung. Damit können Sie Leads aus Besuchen Ihrer Website generieren. Es verfolgt sogar Besucher, die Ihnen noch keine persönlichen Informationen gegeben haben, und erstellt anonyme Leads, die die IP-Adresse des Benutzers und andere Informationen enthalten. Sie richten Munchkin auf der Munchkin-Seite im Admin-Bereich von Marketo ein.
+Der [Munchkin JavaScript-Trackingcode](lead-tracking.md) von Marketo ist der Schlüssel zu den Funktionen von Marketo. Damit können Sie Leads aus Besuchen auf Ihrer Website generieren. Es verfolgt sogar Besucher, die Ihnen noch keine persönlichen Informationen gegeben haben, und erstellt anonyme Leads, die die IP-Adresse des Benutzers und andere Informationen enthalten. Munchkin wird auf der Seite Munchkin im Admin-Bereich von Marketo eingerichtet.
 
 ## Formulare 2.0
 
-Mit [Forms 2.0](forms-api-reference.md) können Marketingexperten schöne, stabile und flexible Webformulare erstellen, ohne Programmierkenntnisse zu haben. Forms kann sich auf Marketo-Landingpages befinden und auf jeder beliebigen Seite Ihrer Website eingebettet werden. Die Kernfunktionen eines Marketo-Webformulars können mit der JavaScript-API Forms 2.0 erweitert werden.
+[Forms 2.0](forms-api-reference.md) ermöglicht es Marketing-Experten, ansprechende, stabile und flexible Web-Formulare zu erstellen, ohne Programmierkenntnisse zu benötigen. Forms kann sich auf Marketo-Landingpages befinden und auf jeder beliebigen Seite Ihrer Website eingebettet werden. Die Kernfunktionalität eines Marketo-Web-Formulars kann mithilfe der Forms 2.0 JavaScript-API erweitert werden.
 
 ## Web-Personalisierung
 
-[Marketo Web Personalization](web-personalization.md) ist eine Targeting &amp; Personalization-Plattform, mit der Sie Tausende von Interessenten auf Ihrer Website in Echtzeit ansprechen können, je nachdem, wer sie sind und was sie tun.
+[Marketo Web Personalization](web-personalization.md) ist eine Targeting- und Personalization-Plattform, mit der Sie Tausende von potenziellen Kunden in Echtzeit auf Ihre Website ansprechen können, je nachdem, wer sie sind und was sie tun.
 
-## Prädiktiv  Inhalt
+## voraussagend  Inhalt
 
-Mit [Marketo Predictive Content](predictive-content.md) können Sie Ihre Webbesucher mit den relevantesten Inhalten ansprechen, die auf maschinellem Lernen und prädiktiven Analysen basieren. Verbessern Sie Ihren Inhalt mit Textbeschreibungen und Bildern und betten Sie mehrere Inhaltsempfehlungen auf Ihrer Website ein.
+[Prädiktiver Inhalt von Marketo](predictive-content.md) Ermöglicht es Ihnen, Ihre Web-Besucher mit den relevantesten Inhalten zu interagieren, die auf maschinellem Lernen und prädiktiver Analyse basieren. Verbessern Sie Ihre Inhalte mit Textbeschreibungen und Bildern und betten Sie mehrere Inhaltsempfehlungen in Ihre Website ein.
 
 ## Social Marketing
 
-Mit [Marketo Social Marketing](social.md) können Marketing-Experten Social-Widgets in Websites und Landingpages einbetten. Social-Widgets umfassen Umfragen, Social-Sharing-Schaltflächen, Videos, Preisausschreiben und Promotions wie Werbeangebote. Die Anzeige dieser Widgets kann angepasst und Ereignisse erfasst werden, um individuelle Benutzererlebnisse zu schaffen.
+Mit [Marketo Social-Marketing](social.md) können Marketing-Experten Social-Widgets in Websites und Landingpages einbetten. Zu den sozialen Widgets gehören Umfragen, Schaltflächen zum Teilen über Social Media, Videos, Gewinnspiele und Werbeaktionen wie Empfehlungsangebote. Die Anzeige dieser Widgets kann angepasst sowie Ereignisse erfasst werden, um einzigartige Benutzererlebnisse zu schaffen.

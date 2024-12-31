@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Beispiele
 
-Unten finden Sie eine Reihe von Beispielen für demonstrierende Forms 2.0-Webformulare.
+Nachstehend finden Sie eine Reihe von Beispielen für Webformulare zu Forms 2.0.
 
 ## Formular nach erfolgreicher Übermittlung ausblenden
 
-In diesem Beispiel wird der Besucher nicht zur Folgenachricht geleitet oder die aktuelle Seite wird nicht neu geladen.
+In diesem Beispiel wird der Besucher nicht zur Folgeseite weitergeleitet und die aktuelle Seite wird nicht neu geladen.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -30,9 +30,9 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 });
 ```
 
-## Besucher zur benutzerdefinierten URL weiterleiten
+## Besucher zur benutzerdefinierten URL führen
 
-In diesem Beispiel wird der Besucher zu einer URL geleitet, die nach erfolgreicher Übermittlung von JavaScript bestimmt wird, anstatt zur konfigurierten Dankeseite.
+In diesem Beispiel wird der Besucher nach erfolgreicher Übermittlung zu einer von JavaScript bestimmten URL weitergeleitet und nicht zur konfigurierten Dankeseite.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -46,7 +46,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 });
 ```
 
-## Formularfeldwerte festlegen
+## Festlegen von Formularfeldwerten
 
 In diesem Beispiel werden Formularfelder festgelegt.
 
@@ -57,7 +57,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 });
 ```
 
-## Formularfeldwerte beim Senden von Formularen lesen
+## Lesen von Formularfeldwerten beim Senden eines Formulars
 
 In diesem Beispiel werden Formularfelder beim Senden des Formulars gelesen.
 
@@ -75,9 +75,9 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 }); 
 ```
 
-## Formularübermittlung bei Nicht-Formular-Klick-Ereignis
+## Senden eines Formulars bei einem Nicht-Formular-Klickereignis
 
-In diesem Beispiel wird ein Formular basierend auf einem click -Ereignis für ein anderes Element oder Ereignis gesendet, das nicht Teil des Formulars ist.
+In diesem Beispiel wird ein Formular basierend auf einem Klickereignis für ein anderes Element oder Ereignis gesendet, das nicht Teil des Formulars ist.
 
 ```javascript
 // Load the form normally
@@ -93,9 +93,9 @@ btn.onclick = function() {
 };
 ```
 
-## Senden eines Formulars durch einen Benutzer verhindern
+## Verhindern, dass ein Benutzer ein Formular sendet
 
-Für dieses Beispiel müssen Sie mindestens dreimal auf die Schaltfläche &quot;Zähler klicken&quot;klicken, bevor die Senden-Schaltfläche im Formular funktioniert.
+Für dieses Beispiel müssen Sie mindestens dreimal auf die Schaltfläche Zähler klicken, bevor die Schaltfläche Senden im Formular funktioniert.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
@@ -135,9 +135,9 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 });
 ```
 
-## Formular in LightBox anzeigen
+## Formular in Lightbox anzeigen
 
-Dieses Beispiel zeigt das Formular in einem Lightbox-Dialogfeld, wenn die URL den Parameter `lightboxForm=true` enthält.
+Dieses Beispiel zeigt das Formular in einem Dialogfeld im Lightbox-Stil, wenn die URL einen `lightboxForm=true` enthält.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 
@@ -149,7 +149,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Benutzerdefinierte Fehlermeldung anzeigen
 
-Dieses Beispiel zeigt eine benutzerdefinierte Fehlermeldung beim Senden basierend auf der benutzerdefinierten Geschäftslogik.
+Dieses Beispiel zeigt eine benutzerdefinierte Fehlermeldung beim Senden, die auf benutzerdefinierter Geschäftslogik basiert.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 

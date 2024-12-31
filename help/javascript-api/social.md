@@ -12,9 +12,9 @@ ht-degree: 4%
 
 # Social
 
-Mit [Marketo Social Marketing](https://business.adobe.com/products/marketo/social-marketing.html) können Marketing-Experten Social-Widgets in Websites und Landingpages einbetten. Social-Widgets umfassen Umfragen, Social-Sharing-Schaltflächen, Videos, Preisausschreiben und Promotions wie Werbeangebote.
+Mit [Marketo Social-Marketing](https://business.adobe.com/products/marketo/social-marketing.html) können Marketing-Experten Social-Widgets in Websites und Landingpages einbetten. Zu den sozialen Widgets gehören Umfragen, Schaltflächen zum Teilen über Social Media, Videos, Gewinnspiele und Werbeaktionen wie Empfehlungsangebote.
 
-## Beispiel für ein eingebettetes Freigabe-Widget
+## Beispiel für eingebettetes Freigabe-Widget
 
 ```html
 <!-- Marketo Widget Loader Script --> 
@@ -30,16 +30,16 @@ Mit [Marketo Social Marketing](https://business.adobe.com/products/marketo/socia
 
 ![social-share-widget](assets/social-share-widget.png)
 
-Es gibt zwei grundlegende Methoden zur Anpassung eines Social-Widgets:
+Es gibt zwei grundlegende Methoden zum Anpassen eines Social-Media-Widgets:
 
-1. Verwenden der normalen Benutzeroberfläche des Produkts und Anhängen von Ereignis-Listenern, um informiert zu werden, wenn bestimmte Aktionen in der Benutzeroberfläche durchgeführt wurden, um zusätzliche Geschäftslogik auszuführen.
-1. Ersetzen der normalen Benutzeroberfläche des Produkts durch eine benutzerdefinierte Benutzeroberfläche und Aktivieren der Popup-&quot;Phasen&quot;der Benutzeroberfläche, falls gewünscht.
+1. Verwenden der normalen Benutzeroberfläche des Produkts und Anhängen von Ereignis-Listenern, um informiert zu werden, wenn bestimmte Aktionen in der Benutzeroberfläche stattgefunden haben, um zusätzliche Geschäftslogik auszuführen.
+1. Ersetzen der normalen Benutzeroberfläche des Produkts durch eine benutzerdefinierte Benutzeroberfläche und Aktivieren des Popup-Fensters „Phasen“ der Benutzeroberfläche, falls gewünscht.
 
-## Anhängen von Ereignissen an die normale Benutzeroberfläche
+## Ereignisse an die normale Benutzeroberfläche anhängen
 
-Es gibt zwei Möglichkeiten, Ereignisse in der CF JavaScript-Bibliothek global oder für ein einzelnes Widget zu abonnieren. Ereignisse werden nachfolgend in der Ereignistabelle dokumentiert.
+Es gibt zwei Möglichkeiten, Ereignisse in der CF JavaScript-Bibliothek global oder für ein einzelnes Widget zu abonnieren. Ereignisse werden im Folgenden in der Tabelle Ereignisse dokumentiert.
 
-### Globale Ereignisanmeldung
+### Globales Ereignisabonnement
 
 ```html
 <script>
@@ -54,7 +54,7 @@ cf_scripts.afterload(function(){
 </script>
 ```
 
-### Abonnement pro Widget-Ereignis
+### Ereignisabonnement pro Widget
 
 ```html
 <script>
@@ -71,7 +71,7 @@ cf_scripts.afterload(function(){
 
 ## Beispiel
 
-Dieses Beispiel zeigt ein zuvor ausgeblendetes Element mit der ID &quot;signedUp&quot;, nachdem ein Benutzer eine Angebotsregistrierung für ein Widget namens &quot;referral_SignUp&quot;abgeschlossen hat.
+Dieses Beispiel zeigt ein zuvor ausgeblendetes Element mit der ID „signedUp“, nachdem ein Benutzer eine Angebotsregistrierung für ein Widget mit dem Namen „referral_SignUp“ abgeschlossen hat.
 
 ```html
 <div id='signedUp'style='display:none; color:green;'>This is a custom message to let you know that you signed up!</div>
@@ -86,22 +86,22 @@ Dieses Beispiel zeigt ein zuvor ausgeblendetes Element mit der ID &quot;signedUp
 </script>
 ```
 
-## Grundlegende Ereignistabelle
+## Tabelle mit einfachen Ereignissen
 
-| Ereignisname | Beschreibung | Widgets, die dieses Ereignis verwenden | Unterstützte Argumente (an die Ereignisrückruffunktion übergeben) |
+| Ereignisname | Beschreibung | Widgets, die dieses Ereignis verwenden | Unterstützte Argumente (an die Rückruffunktion des Ereignisses übergeben) |
 | --- | --- | --- | --- | 
-| share_sent | Wird jedes Mal ausgelöst, wenn eine Freigabeanfrage zur Verarbeitung an den Server gesendet wird | Alle Widgets, die freigeben können | 1.&quot;share_sent&quot; (String)<br>2. Gesendete Parameter (Objekt) |
-| share_success | Wird ausgelöst, wenn die Freigabeanfrage erfolgreich verarbeitet wurde. | Alle Widgets, die freigeben können. | 1.&quot;share_success&quot; (Zeichenfolge)<br>2. Antwortobjekt freigeben, das die gesendete Nachricht und die verkürzte URL enthält (Objekt) |
-| option_success | Wird ausgelöst, wenn ein Benutzer erfolgreich in einer Umfrage abgestimmt hat. | Umfrage, VS, Abstimmungs-Widgets | 1. &quot;option_success&quot;(String)<br>2. Punkt, für den abgestimmt wurde, einschließlich Titel, Beschreibung, Entitätskennung (Objekt) |
-| offer_enrolled | Wird ausgelöst, wenn sich ein Benutzer erfolgreich für ein Angebot angemeldet hat | Alle Angebots-Widgets | 1.&quot;offer_enrolled&quot; (String)<br>2. Änderung der Benutzereigenschaften (Objekt), <br>3. Geänderte Benutzerattribute (Objekt) |
-| profile_saved | Wird ausgelöst, wenn ein Benutzer sein Profil über die Profilerfassung aktualisiert hat | Alle Widgets ohne Angebote, bei denen die Profilerfassung aktiviert ist | 1.&quot;profile_saved&quot; (Zeichenfolge)<br>2. Änderung der Benutzereigenschaften (Objekt)<br>3. Geänderte Benutzerattribute (Objekt) |
-| video_loaded | Wird ausgelöst, wenn ein eingebettetes Video vollständig geladen und initialisiert wurde. | VideoShare-Widget | 1. &quot;video_loaded&quot;(String) 2. &quot;.cf_videoshare_wrap&quot; Element, das das Video enthält (jQuery Object) |
+| share_sent | Wird jedes Mal ausgelöst, wenn eine Freigabeanforderung zur Verarbeitung an den Server gesendet wird | Alle Widgets, die die Möglichkeit zur Freigabe haben | 1.“share_sent“ (String)<br>2. Gesendete Parameter (Objekt) |
+| share_success | Wird ausgelöst, wenn die Freigabeanfrage erfolgreich verarbeitet wurde. | Alle Widgets, die freigeben können. | 1.“share_success“ (Zeichenfolge)<br>2. Antwortobjekt freigeben, das die gesendete und gekürzte URL enthält (Objekt) |
+| Stimme_Erfolg | Wird ausgelöst, wenn ein Benutzer erfolgreich an einer Abstimmung teilgenommen hat. | Umfrage-, VS-, Abstimmungs-Widgets | 1. „vote_success“ (Zeichenfolge)<br>2. Element, für das gestimmt wurde, einschließlich Titel, Beschreibung, Entitätskennung (Objekt) |
+| offer_enrolled | Wird ausgelöst, wenn ein Benutzer sich erfolgreich für ein Angebot registriert hat | Alle Angebots-Widgets | 1.“offer_enrolled“ (Zeichenfolge)<br>2. Geänderte Benutzereigenschaften (Objekt),<br>3. Geänderte Benutzerattribute (Objekt) |
+| profile_saved | Wird ausgelöst, wenn ein Benutzer sein Profil aus der Profilerfassung aktualisiert hat | Alle Nicht-Angebots-Widgets, für die die Profilerfassung aktiviert ist | 1.“profile_saved„(Zeichenfolge)<br>2. Geänderte Benutzereigenschaften (Objekt)<br>3. Geänderte Benutzerattribute (Objekt) |
+| video_loaded | Wird ausgelöst, wenn ein eingebettetes Video vollständig geladen und initialisiert wurde. | VideoShare-Widget | 1. „video_loaded“ (Zeichenfolge) 2. &quot;.cf_videoshare_wrap“-Element, das das Video enthält (jQuery-Objekt) |
 
 ## Ersetzen der Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche
 
-Um die Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche zu ersetzen, müssen Sie zunächst die normale Benutzeroberfläche deaktivieren. Dazu legen Sie die Option _popupUIOnly_ auf _true_ fest. Wenn diese Option festgelegt ist, wird die Standard-Benutzeroberfläche beim Laden der Seite nicht gerendert, sondern das Widget ruft seine Daten ab und wartet darauf, dass Sie eine seiner Popup-Phasen starten, indem es die Funktion _CF.widget.activate_ aufruft und Optionen bereitstellt, was sie tun sollte.
+Um die Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche zu ersetzen, müssen Sie zunächst die normale Benutzeroberfläche deaktivieren. Dies geschieht, indem Sie die Option _popupUIOnly_ auf _true_ setzen. Wenn diese Option festgelegt ist, wird die Standard-Benutzeroberfläche beim Laden der Seite nicht gerendert. Stattdessen ruft das Widget seine Daten ab und wartet darauf, dass Sie eine seiner Popup-Phasen starten, indem Sie die Funktion _CF.widget.activate_ aufrufen und Optionen für die zu erledigenden Aufgaben angeben.
 
-Im Folgenden finden Sie ein Beispiel für die Erstellung einer benutzerdefinierten Schaltfläche, mit der der Fluss zur Angebotsanmeldung für ein Referrer-Angebot-Widget namens _referral_SignUp_ gestartet wird.
+Im Folgenden finden Sie ein Beispiel für die Erstellung einer benutzerdefinierten Schaltfläche, mit der der Fluss für die Anmeldung bei Verweisangeboten für ein Verweisangebots-Widget mit dem Namen _referral_SignUp_ gestartet wird.
 
 ```html
 <button id="myNewSignUpButton">My newSign Up button</button>
@@ -122,7 +122,7 @@ cf_scripts.afterload(function($, CF){
 </script>
 ```
 
-Da das Hinzufügen von Klick-Handlern häufig vorkommt, gibt es eine Verknüpfungsmethode zum Hinzufügen. Folgendes entspricht funktionell dem vorangehenden Beispiel.
+Da das Hinzufügen von Klick-Handlern häufig vorkommt, gibt es eine Kurzanleitung zum Hinzufügen. Im Folgenden finden Sie eine funktionale Entsprechung zum vorherigen Beispiel.
 
 ```html
 <button id="myNewSignUpButton">My newSign Up button</button>
@@ -137,11 +137,11 @@ cf_scripts.afterload(function($, CF){
 </script>
 ```
 
-## Abrufen von Widget-UI-Daten, die in Ihre Ersatz-Benutzeroberfläche eingefügt werden sollen
+## Widget-Benutzeroberflächendaten werden in die Ersatz-Benutzeroberfläche eingefügt
 
-Wenn Sie zum Zeichnen Ihrer Ersatz-Benutzeroberfläche Daten über das Widget benötigen, können Sie die Daten aus dem Spezialereignis _ui_data_ abrufen. Sie können dieses Ereignis mit der normalen `CF.widget.listen` -Funktion überwachen. Dies kann jedoch zu einer potenziellen Race-Bedingung führen, bei der Ihr Ereignis-Listener hinzugefügt wird, nachdem das Widget das_ui_data_ -Ereignis bereits ausgelöst hat, sodass Sie nie Daten erhalten. Um dieses Rennen zu vermeiden, verwenden Sie das Ereignis `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data` , das ausgelöst wird, wenn eine Aktion durchgeführt wird, die dazu geführt hätte, dass die standardmäßige Benutzeroberfläche des Widgets neu gezeichnet wurde, selbst wenn Sie diese Benutzeroberfläche mit der Option `popupUIOnly` deaktiviert haben.
+Wenn Sie Daten über das Widget benötigen, um Ihre Ersatz-Benutzeroberfläche zu zeichnen, können Sie die Daten aus dem speziellen Ereignis abrufen _ui_data_. Sie können dieses Ereignis mit der normalen `CF.widget.listen` überwachen, aber dies kann eine potenzielle Race-Condition verursachen, bei der Ihr Ereignis-Listener hinzugefügt wird, nachdem das Widget bereits das Ereignis_ui_data_ ausgelöst hat, sodass Sie nie Daten erhalten. Um diesen Wettlauf zu vermeiden, verwenden Sie das `CF.widget.uiData_ method instead, which will give you the most recent available _ui_data_, and listen for all future updates as well. The _ui_data`-Ereignis, das ausgelöst wird, wenn eine Aktion stattgefunden hat, die dazu geführt hätte, dass die Standard-Benutzeroberfläche des Widgets neu gezeichnet wurde, auch wenn Sie diese Benutzeroberfläche mit `popupUIOnly` Option deaktiviert haben.
 
-Ein Beispiel, das die Funktion `uiData` verwendet, um die Anzahl der Einträge anzuzeigen, die ein Benutzer für ein Gewinnspiel mit dem Widget-Namen _sweeps_sweepstakes_ hat.
+Ein Beispiel, das `uiData` Funktion verwendet, um die Anzahl der Einträge anzuzeigen, die ein Benutzer für ein Gewinnspiel mit dem Widget-Namen _sweeps_sweepstakes_ hat.
 
 ```html
 <span>You have <span id="entryCount">?</span> entries.</span>
@@ -164,49 +164,49 @@ cf_scripts.afterload(function($, CF){
 </script>
 ```
 
-## Data Reference: Referrer Offer Sign-up UI
+## Referenz zu Daten der Empfehlungsangebotsregistrierung-Benutzeroberfläche
 
 | Typ | Beschreibung |
 |---------------|----------------------------------------------------|
-| Datum | Datumswert des Formulars &quot;yyyy-MM-dd&quot; |
-| number | Ganzzahl oder Gleitkommazahl |
+| Datum | Datumswert im Format „JJJJ-MM-TT“ |
+| number | Eine Ganzzahl oder Gleitkommazahl |
 | RTF | Eine HTML-Zeichenfolge |
 | Bewertung | Eine vorzeichenbehaftete 32-Bit-Ganzzahl |
-| sfdc campaign | Wird in der Salesforce-Kampagnenverwaltungsintegration verwendet |
-| Text | Eine Textzeichenfolge |
+| SFDC Campaign | Wird bei der Integration der Kampagnenverwaltung in Salesforce verwendet |
+| Text | Eine Zeichenfolge |
 
-## Referenz zu Referrer-Angebot TrackProgress-Benutzeroberflächen-Datenreferenz
+## Datenreferenz zur Verweisangebotsverfolgung in der Benutzeroberfläche
 
 | Typ | Beschreibung |
 |---------------|----------------------------------------------------|
-| Datum | Datumswert des Formulars &quot;yyyy-MM-dd&quot; |
-| number | Ganzzahl oder Gleitkommazahl |
+| Datum | Datumswert im Format „JJJJ-MM-TT“ |
+| number | Eine Ganzzahl oder Gleitkommazahl |
 | RTF | Eine HTML-Zeichenfolge |
 | Bewertung | Eine vorzeichenbehaftete 32-Bit-Ganzzahl |
-| sfdc campaign | Wird in der Salesforce-Kampagnenverwaltungsintegration verwendet |
-| Text | Eine Textzeichenfolge |
+| SFDC Campaign | Wird bei der Integration der Kampagnenverwaltung in Salesforce verwendet |
+| Text | Eine Zeichenfolge |
 
-## Preisausschreiben in der Benutzeroberfläche - Datenreferenz (für Gewinnspiele in Social-Media-Kampagnen, nicht für LM-Preisausschreiben)
+## Datenreferenz zur Benutzeroberfläche für Gewinnspiele (für Gewinnspiele bei Social-Media-Kampagnen, nicht für Gewinnspiele bei LM)
 
 | Typ | Beschreibung |
 |---------------|----------------------------------------------------|
-| Datum | Datumswert des Formulars &quot;yyyy-MM-dd&quot; |
-| number | Ganzzahl oder Gleitkommazahl |
+| Datum | Datumswert im Format „JJJJ-MM-TT“ |
+| number | Eine Ganzzahl oder Gleitkommazahl |
 | RTF | Eine HTML-Zeichenfolge |
 | Bewertung | Eine vorzeichenbehaftete 32-Bit-Ganzzahl |
-| sfdc campaign | Wird in der Salesforce-Kampagnenverwaltungsintegration verwendet |
-| Text | Eine Textzeichenfolge |
+| SFDC Campaign | Wird bei der Integration der Kampagnenverwaltung in Salesforce verwendet |
+| Text | Eine Zeichenfolge |
 
-## Datenreferenz für Social Sign-On (Widget zur Formularfüllung)
+## Datenreferenz zum Social Sign-On (Widget zum Ausfüllen von Formularen)
 
 | Typ | Beschreibung |
 |---------------|----------------------------------------------------|
-| Datum | Datumswert des Formulars &quot;yyyy-MM-dd&quot; |
-| number | Ganzzahl oder Gleitkommazahl |
+| Datum | Datumswert im Format „JJJJ-MM-TT“ |
+| number | Eine Ganzzahl oder Gleitkommazahl |
 | RTF | Eine HTML-Zeichenfolge |
 | Bewertung | Eine vorzeichenbehaftete 32-Bit-Ganzzahl |
-| sfdc campaign | Wird in der Salesforce-Kampagnenverwaltungsintegration verwendet |
-| Text | Eine Textzeichenfolge |
+| SFDC Campaign | Wird bei der Integration der Kampagnenverwaltung in Salesforce verwendet |
+| Text | Eine Zeichenfolge |
 
 ```javascript
 {

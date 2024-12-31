@@ -1,5 +1,5 @@
 ---
-title: Munchkin API-Referenz
+title: Munchkin-API-Referenz
 description: Verwenden Sie die Munchkin-JavaScript-API, um Ihre Munchkin-Daten anzupassen.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
@@ -10,23 +10,23 @@ ht-degree: 9%
 
 ---
 
-# Munchkin API-Referenz
+# Munchkin-API-Referenz
 
-Munchkin bietet mehrere Funktionen, die über JavaScript manuell aufgerufen werden können. Diese ermöglichen eine benutzerdefinierte Verfolgung von Browserereignissen, wie z. B. Videowiedergaben oder Klicks auf Nicht-Links.
+Munchkin bietet mehrere Funktionen, die manuell über JavaScript aufgerufen werden können. Diese können eine benutzerdefinierte Nachverfolgung von Browser-Ereignissen wie Videowiedergaben oder Klicks auf Nicht-Links ermöglichen.
 
 ## Funktionen
 
-Die Munchkin-API umfasst die folgenden Funktionen: `init`, `createTrackingCookie`, `munchkinFunction`.
+Die Munchkin-API besteht aus den folgenden Funktionen: `init`, `createTrackingCookie`, `munchkinFunction`.
 
 <a name="munchkin_init"></a>
 
 ### Munchkin.init()
 
-`Munchkin.init()` muss vor allen anderen Funktionen aufgerufen werden. Sie richtet Munchkin auf der aktuellen Seite ein, um Aktivitäten an eine bestimmte Instanz zu senden, und generiert für die aktuelle Seite die Aktivität &quot;Besuche der Webseite&quot;.
+`Munchkin.init()` muss vor allen anderen Funktionen aufgerufen werden. Dadurch wird Munchkin auf der aktuellen Seite so eingerichtet, dass Aktivitäten an eine bestimmte Instanz gesendet werden, und es wird für die aktuelle Seite die Aktivität „Besuche auf Web-Seiten“ generiert.
 
 | Parametername | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| Munchkin-ID | Erforderlich | String | Munchkin-Konto-ID gefunden unter Admin > Integration > Munchkin . Legt die Zielinstanz zum Senden von Aktivitäten fest. |
+| Munchkin-ID | Erforderlich | String | Die Munchkin-Konto-ID befindet sich im Menü Admin > Integration > Munchkin . Legt die Zielinstanz zum Senden von Aktivitäten an fest. |
 | [Konfigurationseinstellungen](configuration.md) | Optional | Objekt | Aktiviert alternative Verhaltenseinstellungen für Munchkin. |
 
 ```javascript
@@ -35,11 +35,11 @@ Munchkin.init('299-BYM-827');
 
 ### Munchkin.createTrackingCookie()
 
-Wenn aufgerufen, wird überprüft, ob ein `_mkto_trk` -Cookie im Browser vorhanden ist. Wenn nicht, wird eines erstellt. Dies ist nützlich, um Benutzer bei bestimmten Aktionen zu verfolgen, z. B. bei der Registrierung oder beim Herunterladen eines Assets, wenn `cookieAnon` auf &quot;false&quot;gesetzt ist.
+Beim Aufruf von wird überprüft, ob ein `_mkto_trk`-Cookie im Browser vorhanden ist. Andernfalls wird ein Cookie erstellt. Dies ist nützlich, um Benutzende während bestimmter Aktionen wie der Registrierung oder dem Herunterladen eines Assets zu verfolgen, wenn `cookieAnon` auf „false“ gesetzt ist.
 
 | Parametername | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| forceCreate | Erforderlich | Boolesch | Erstellen Sie ein Cookie, selbst wenn `cookieAnon` auf &quot;false&quot;gesetzt ist. |
+| forceCreate | Erforderlich | Boolesch | Erstellen Sie ein Cookie, selbst wenn `cookieAnon` auf „false“ gesetzt ist. |
 
 
 ```javascript
@@ -48,21 +48,21 @@ Munchkin.createTrackingCookie(true);
 
 ### Munchkin.munchkinFunction()
 
-Dient zum Generieren benutzerdefinierter Tracking-Verhaltensweisen wie Wiedergabe und Pausen des Videoplayers oder Seitenbesuche für nicht standardmäßige Navigation wie Hash-Codes.
+Wird zum Generieren benutzerdefinierter Tracking-Verhaltensweisen verwendet, z. B. Wiedergaben und Pausen von Video-Playern oder Seitenbesuche für nicht standardmäßige Navigation, z. B. Hash-Codes.
 
 | Parametername | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
 | Funktionstyp | Erforderlich | String | Bestimmt die aufzuzeichnende Aktivität. Zulässige Werte: `visitWebPage`, `clickLink`, `associateLead` |
-| Daten | Erforderlich | Objekt | Enthält Daten zur Aufzeichnung der Aktivität. |
+| Daten | Erforderlich | Objekt | Enthält Daten für die aufzuzeichnende Aktivität. |
 
 #### visitWebPage
 
-Der Aufruf von `munchkinFunction()` mit `visitWebPage` sendet eine Besuchsaktivität für den aktuellen Benutzer an Marketo. Sie können die URL und `querystring` anpassen, die mit dem Datenobjekt im zweiten Argument gesendet werden.
+Der Aufruf von `munchkinFunction()` mit `visitWebPage` sendet eine Aktivität des Typs „Besuch“ für den aktuellen Benutzer an Marketo. Sie können die URL und `querystring` anpassen, die mit dem Datenobjekt im zweiten Argument gesendet werden.
 
-| Dateneigenschaftsname | Optional/Erforderlich | Typ | Beschreibung |
+| Name der Dateneigenschaft | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| URL | Erforderlich | String | Der URL-Dateipfad, der zum Aufzeichnen eines Seitenbesuchs verwendet wird.  Dieser Wert wird an den aktuellen Domänennamen angehängt, um den vollständigen Seitennamen zu erstellen. Wenn beispielsweise die URL `/index.html` und der Domänenname `www.example.com` ist, wird die besuchte Seite als `www.example.com/index.html` aufgezeichnet. |
-| params | Optional | String | Eine Abfragezeichenfolge der gewünschten Parameter, die aufgezeichnet werden sollen. |
+| URL | Erforderlich | String | Der zum Aufzeichnen eines Seitenbesuchs verwendete URL-Dateipfad.  Dieser Wert wird an den aktuellen Domain-Namen angehängt, um den vollständigen Seitennamen zu erstellen. Wenn beispielsweise die URL `/index.html` und der Domain-Name `www.example.com` ist, wird die besuchte Seite als `www.example.com/index.html` aufgezeichnet. |
+| Parameter | Optional | String | Eine Abfragezeichenfolge der gewünschten aufzuzeichnenden Parameter. |
 
 Beispiel: `foo=bar&biz=baz`.
 
@@ -76,13 +76,13 @@ Munchkin.munchkinFunction('visitWebPage', {
 
 #### clickLink
 
-Der Aufruf von `munchkinFunction()` mit `clickLink` sendet eine Klickaktivität für den aktuellen Benutzer an Marketo. Sie können die Klick-URL mit der Eigenschaft `href` im Datenobjekt anpassen.
+Der Aufruf von `munchkinFunction()` mit `clickLink` sendet eine Klick-Aktivität für den aktuellen Benutzer an Marketo. Sie können die Klick-URL mit der Eigenschaft `href` im Datenobjekt anpassen.
 
-| Dateneigenschaftsname | Optional/Erforderlich | Typ | Beschreibung |
+| Name der Dateneigenschaft | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| href | Erforderlich | String | Der URL-Dateipfad, der zum Aufzeichnen eines Link-Klicks verwendet wird. Dieser Wert wird an den aktuellen Domänennamen angehängt, um einen vollständigen Link zu erstellen. |
+| href | Erforderlich | String | Der zur Aufzeichnung eines Link-Klicks verwendete URL-Dateipfad. Dieser Wert wird an den aktuellen Domain-Namen angehängt, um einen vollständigen Link zu erstellen. |
 
-Wenn href beispielsweise `/index.html` und der Domänenname `www.example.com` ist, wird der Link-Klick als `www.example.com/index.html` aufgezeichnet.
+Wenn beispielsweise href `/index.html` und der Domain-Name `www.example.com` ist, wird der Link-Klick als `www.example.com/index.html` aufgezeichnet.
 
 ```javascript
 Munchkin.munchkinFunction('clickLink', {
@@ -93,4 +93,4 @@ Munchkin.munchkinFunction('clickLink', {
 
 #### AssociateLead
 
-Diese Methode wird nicht mehr unterstützt und kann nicht mehr verwendet werden.
+Diese Methode ist veraltet und nicht mehr verfügbar.

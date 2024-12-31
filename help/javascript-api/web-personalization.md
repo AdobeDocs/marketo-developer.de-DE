@@ -6,18 +6,18 @@ exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '401'
-ht-degree: 6%
+ht-degree: 7%
 
 ---
 
 # Web-Personalisierung
 
-Die Web Personalization JavaScript API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Verfolgung von Ereignissen und die dynamische Anpassung einer Webseite. Zusätzliche Funktionen: [Benutzerspezifische Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
+Die Web Personalization JavaScript-API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Ereignisverfolgung und dynamische Anpassung einer Web-Seite. Zusätzliche Funktionen: [Benutzerdefinierte Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
 
-- Sie müssen Web-Personalization-Kunde werden und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen, bevor Sie die User Context-API verwenden.
-- RTP unterstützt keine Konto-basierten Marketinglisten mit Namen. ABM-Listen und -Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die innerhalb von RTP verwaltet werden.
+- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTP[Tag auf Ihrer Site bereitgestellt haben.
+- RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
-## Tag-Einrichtung
+## Tag-Setup
 
 Das RTP-Tag sollte in die Kopfzeile der personalisierten Seite eingefügt werden.
 
@@ -32,14 +32,14 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 <!-- End of RTP tag -->
 ```
 
-## Kontoeinrichtung
+## Konto-Setup
 
-Diese Methode wird automatisch auf Tag-Ebene aufgerufen, um die relevante Konto-ID festzulegen. Sie können die Konto-ID festlegen, wenn Sie zwischen verschiedenen Domänen aufteilen möchten.
+Diese Methode wird automatisch auf Tag-Ebene aufgerufen, um die entsprechende Konto-ID festzulegen. Sie können die Konto-ID festlegen, wenn Sie eine Aufteilung auf verschiedene Domains wünschen.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |--------------|-------------------|--------|--------------|
-| &#39;setAccount&#39; | Erforderlich | Zeichenfolge | Name der Methode. |
-| accountId | Erforderlich | Zeichenfolge | Konto-ID. |
+| &#39;setAccount&#39; | Erforderlich | String | Methodenname. |
+| accountId | Erforderlich | String | Konto-ID |
 
 
 ```javascript
@@ -47,17 +47,17 @@ var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
 ```
 
-## Ereignissendefunktionen
+## Funktionen zum Senden von Ereignissen
 
 Diese Methode sendet ein Ansichtsereignis, das für die Seitenverfolgung verwendet wird. Im folgenden Beispiel wird die aktuelle Seiten-URL als Besucherseitenansicht verfolgt.
 
-Durch Übergabe des optionalen Parameters &quot;page&quot;in dieser Methode kann die aktuelle Seite überschrieben werden.
+Durch Übergeben des optionalen Parameters „page“ in dieser Methode kann die aktuelle Seite überschrieben werden.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |-----------|-------------------|--------|---------------------------------|
-| &#39;send&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
-| &quot;view&quot; | Erforderlich | Zeichenfolge | Name der Methode. |
-| Seite | optional | Zeichenfolge | Relativer Pfad oder vollständige Seiten-URL. |
+| &#39;Senden&#39; | Erforderlich | String | Aktion der Methode. |
+| &#39;Ansicht&#39; | Erforderlich | String | Methodenname. |
+| Seite | Optional | String | Relativer Pfad oder vollständige Seiten-URL. |
 
 
 ```javascript
@@ -69,11 +69,11 @@ var page = 'my-page?param=1';
 rtp('send', 'view', page);
 ```
 
-## Ausschluss von Tags für bestimmte Bots (Benutzeragenten)
+## Tag für bestimmte Bots ausschließen (Benutzeragenten)
 
-Um bestimmte Browser vom Senden von Daten an die Web Personalization-Plattform auszuschließen (bei identifizierten Bots), fügen Sie die folgende IF-Anweisung zum Tag-Skript hinzu.
+Um bestimmte Browser vom Senden von Daten an die Web-Personalization-Plattform auszuschließen (im Falle identifizierter Bots), fügen Sie die folgende IF-Anweisung zum Tag-Skript hinzu.
 
-Im folgenden Codebeispiel wird &quot;googlebot|msnbot&quot;als Bot-Beispiele verwendet, um sie aus Web-Personalization-Aktivitäten auszuschließen.
+Im folgenden Code-Beispiel wird „googlebot|msnbot“ als Bot-Beispiel verwendet, um aus Web-Personalization-Aktivitäten auszuschließen.
 
 ```javascript
 <!-- RTP tag --> 
@@ -91,27 +91,27 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 <!-- End of RTP tag -->
 ```
 
-## JavaScript-Aufrufe - Erläuterung
+## JavaScript-Aufrufe - Erklärung
 
-Beschreibung von JavaScript, die einer Website bei Verwendung von Web Personalization und Predictive Content hinzugefügt wird.
+Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personalization und prädiktiven Inhalten hinzugefügt wird.
 
-### Zentrale/abhängige JavaScript
+### Core/Dependent JavaScript
 
-| Name | Beschreibung | Kontrolle |
+| Name | Beschreibung | Kontrollvariante |
 |---------------------------|-------------|--------------------------------------------------------|
-| rtp.js | - | Kontrolliert von Marketo |
-| jquery.min.js | v1.8.3 | Kann deaktiviert werden, indem Sie sich an den Marketo-Support wenden |
-| jquery-custom-ui-min.js | v1.9.2 | Kann deaktiviert werden, indem Sie sich an den Marketo-Support wenden |
-| query-ui-1.8.17-dialog.js | v1.9.2* | Kann deaktiviert werden, indem Sie sich an den Marketo-Support wenden |
+| rtp.js | – | Kontrolliert von Marketo |
+| jquery.min.js | v1.8.3 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
+| jquery-custom-ui-min.js | v1.9.2 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
+| query-ui-1.8.17-dialog.js | v1.9.2* | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
 
 
-*Wird nur verwendet, wenn das Dialogfeld &quot;jQuery UI&quot;fehlt
+*Wird nur verwendet, wenn das Dialogfeld in der jQuery-Benutzeroberfläche fehlt.
 
-### On Demand JavaScript
+### JavaScript On Demand
 
-| Name | Beschreibung | Kontrolle |
+| Name | Beschreibung | Kontrollvariante |
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
-| ga-integration-2.0.1.js | Wird verwendet, wenn die Google Analytics/Facebook/SiteCatalyst-Integration aktiviert ist. | Kontrolliert von Marketo |
-| insightera-bar-2.1.js | Wird verwendet, wenn die Empfehlungsleiste für prädiktive Inhalte aktiviert ist | Kontrolliert von Marketo |
-| froogaloop2.min.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der Vimeo-Player auf der Seite vorhanden ist | - |
-| iframe-api-v1.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der YouTube-Player auf der Seite vorhanden ist | - |
+| ga-integration-2.0.1.js | Wird verwendet, wenn die Integration von Google Analytics/Facebook/SiteCatalyst aktiviert ist | Kontrolliert von Marketo |
+| insightera-bar-2.1.js | Wird verwendet, wenn die Leiste für prädiktive Inhaltsempfehlungen aktiviert ist | Kontrolliert von Marketo |
+| froogaloop2.min.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der Vimeo-Player auf der Seite vorhanden ist. | – |
+| iframe-api-v1.js | Wird verwendet, wenn das Inhalts-Tracking aktiviert ist und der YouTube-Player auf der Seite vorhanden ist | – |

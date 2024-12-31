@@ -2,63 +2,63 @@
 source-git-commit: 4c6df71f0d7f569582597eac48c8f44ea12036f8
 workflow-type: tm+mt
 source-wordcount: '483'
-ht-degree: 36%
+ht-degree: 100%
 
 ---
-# Artikel beisteuern
+# Artikel beitragen
 
-Wir begrüßen Beiträge aus unserer Community sowie von Adobe-Mitarbeitern außerhalb des Dokumentations-Teams.
+Wir freuen uns über Beiträge unserer Community sowie von Adobe-Mitarbeitern, die nicht zum Dokumentationsteam gehören.
 
-## Adobe Open Source Code of Conduct
+## Adobe Open Source-Verhaltenskodex
 
 Dieses Projekt beachtet den [Adobe Open Source Code of Conduct](code-of-conduct.md) bzw. den [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct). Weitere Informationen finden Sie in [diesem Artikel](contributing.md).
 
-## Beitrag zum Adobe-Inhalt
+## So tragen Sie zu Adobe-Inhalten bei
 
-**Wenn Sie kein Adobe-Mitarbeiter sind** können Sie einen externen Community-Beitrag einreichen. Community-Beiträge werden in unsere internen Systeme importiert und im öffentlichen Repository bearbeitet und zusammengeführt. Das öffentliche Repository wird dann mit den neuesten Änderungen synchronisiert und im privaten Repository zusammengeführt.
+**Wenn Sie nicht bei Adobe arbeiten**, können Sie einen externen Community-Beitrag einreichen. Community-Beiträge werden in unsere internen Systeme importiert und im öffentlichen Repository bearbeitet und zusammengeführt. Das öffentliche Repository wird dann mit den neuesten Änderungen synchronisiert und im privaten Repository zusammengeführt.
 
-**Wenn Sie Adobe-Mitarbeiter sind** können Sie direkt zur privaten [Adobe GitHub-Repository](https://git.corp.adobe.com/AdobeDocs/). Weitere Informationen finden Sie im Adobe Experience League Authoring Guide für Adobe-Mitarbeiter.
+**Wenn Sie bei Adobe arbeiten**, können Sie direkt an dem privaten [Adobe-GitHub-Repository](https://git.corp.adobe.com/AdobeDocs/) mitwirken. Weitere Informationen finden Sie im Adobe Experience League Authoring-Handbuch für Adobe-Mitarbeitende.
 
-## Externe Mitarbeiter
+## Externe Mitwirkende
 
-### Kleinere Änderungen
+### Geringfügige Änderungen
 
-Wenn Sie eine kleinere Aktualisierung vornehmen:
+Wenn Sie eine geringfügige Aktualisierung beitragen:
 
 1. Navigieren Sie zu dem Thema, das Sie bearbeiten möchten.
-1. Unter &quot;War dieser Inhalt hilfreich?&quot; Banner, das unten im Browser-Fenster angezeigt wird, klicken Sie auf **Detaillierte Feedback-Optionen**.
-1. Klicks **Vorschlagen und Bearbeiten** und senden Sie eine Pull-Anforderung (PA) mit Ihren Änderungen in der GitHub-Benutzeroberfläche.
+1. Klicken Sie im Banner „War dieser Inhalt hilfreich?“ unten im Browser-Fenster auf **Detaillierte Feedback-Optionen**.
+1. Klicken Sie auf **Änderung vorschlagen** und senden Sie einen Pull-Request (PR) mit Ihren Änderungen in der GitHub-Benutzeroberfläche.
 
-   Weitere Informationen finden Sie im [Contributor Guide für die Adobe-Dokumentation](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=de).
+   Weitere Informationen finden Sie im allgemeinen [Adobe Docs-Mitarbeiter-Handbuch](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=de).
 
-Kleinere Korrekturen oder Klarstellungen zur Dokumentation und zu Code-Beispielen in diesem Repository unterliegen den Nutzungsbedingungen von Adobe.
+Kleinere Korrekturen oder Erläuterungen, die Sie für Dokumentation und Codebeispiele in diesem Repository senden, sind durch die Adobe-Nutzungsbedingungen abgedeckt.
 
-### Wichtige Änderungen oder neue Themen aus der Community
+### Wesentliche Änderungen oder neue Themen aus der Community
 
-Wenn Sie Mitglied der Adobe-Community sind und ein neues Thema erstellen oder umfangreiche Änderungen einreichen möchten, verwenden Sie die **Probleme** im entsprechenden Git-Repository ein Problem zu melden, um eine Konversation mit dem Dokumentationsteam zu beginnen. Sobald ein Plan vereinbart ist, werden Sie mit einem Adobe-Autor zusammenarbeiten, um Ihre Revisionen zu veröffentlichen.
+Wenn Sie Teil der Adobe-Community sind und ein neues Thema erstellen oder größere Änderungen übermitteln möchten, verwenden Sie die Registerkarte **Issues** im Git-Repository, um ein entsprechendes Ticket zu öffnen und mit dem Dokumentations-Team in einen Dialog zu treten. Sobald ein Plan vereinbart ist, werden Sie mit einem Mitglied des Adobe-Autoren-Teams zusammenarbeiten, um Ihre Überarbeitungen zu veröffentlichen.
 
-**NOTE:** Wenn Sie eine Pull-Anfrage mit wesentlichen Änderungen an Dokumentation und Codebeispielen senden, wird in der Pull-Anfrage eine Meldung angezeigt, in der Sie aufgefordert werden, eine Online-Beitragslizenzvereinbarung (CLA) zu senden. Sie müssen das Online-Formular ausfüllen, bevor wir Ihre Pull-Anforderung überprüfen können.
+**HINWEIS:** Wenn Sie einen Pull Request mit wesentlichen Änderungen an Dokumentation und Code-Beispielen absenden, werden Sie über eine Meldung in der Pull Request aufgefordert, eine Online-Lizenzvereinbarung für Mitwirkende (Contribution License Agreement, CLA) einzureichen. Sie müssen das Online-Formular ausfüllen, bevor wir Ihren Pull Request überprüfen können.
 
-### Instrumente
+### Tools
 
-Mitwirkende aus der Community können für einfache Bearbeitungsaufgaben oder zum Verzweigen des Repositorys für größere Beiträge die Benutzeroberfläche von GitHub verwenden.
+Community-Mitarbeiter können die GitHub-Benutzeroberfläche zur einfachen Bearbeitung oder zur Abspaltung des Repositorys verwenden, um umfangreiche Beiträge vorzunehmen.
 
-Einzelheiten dazu finden Sie im [Contributor Guide für die Adobe-Dokumentation](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=de).
+Weitere Informationen finden Sie im [Adobe Docs-Mitarbeiter-Handbuch](https://experienceleague.adobe.com/docs/contributor/contributor-guide/introduction.html?lang=de).
 
 ## Interne Mitwirkende
 
-Wenn Sie technischer Redakteur, Programmmanager oder Entwickler des Produktteams für eine Adobe Experience Cloud-Lösung sind und es Ihr Auftrag ist, technische Artikel zu erstellen oder zu diesen beizutragen, verwenden Sie das [privates Repository](https://git.corp.adobe.com/AdobeDocs).
+Wenn Sie in der technischen Redaktion, im Programm-Management oder in der Produktentwicklung für eine Adobe Experience Cloud-Lösung arbeiten und es Ihre Aufgabe ist, an technischen Artikeln mitzuwirken bzw. diese zu verfassen, verwenden Sie das [private Repository](https://git.corp.adobe.com/AdobeDocs). 
 
-## Thema formatieren
+## Formatieren Ihres Artikels
 
-Alle Artikel in diesem Repository verwenden GitHub-Flavored Markdown. Wenn Sie mit Markdown nicht vertraut sind, lesen Sie:
+Alle Artikel in diesem Repository verwenden GitHub Flavored Markdown. Wenn Sie mit Markdown nicht vertraut sind, finden Sie weitere Informationen dazu unter:
 
-* [Markdown-Grundlagen](https://docs.github.com/de/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github) (in englischer Sprache)
-* [Markdown-Cheatsheet zum Ausdrucken](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf) (in englischer Sprache)
+* [Markdown-Grundlagen](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
+* [Druckbares Markdown-Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
-## Kennzeichnungen
+## Beschriftungen
 
-Im öffentlichen Repository werden Pull-Anfragen automatische Kennzeichnungen zugewiesen, um den Workflow für Pull-Anfragen zu verwalten und Sie über den Stand Ihrer Pull-Anfrage zu informieren.
+Im öffentlichen Repository werden automatisierte Bezeichnungen Pull-Anforderungen zugewiesen, damit wir den Arbeitsablauf für Pull-Anforderungen verwalten und Ihnen mitteilen können, was mit Ihrer Pull-Anforderung passiert:
 
-* **Change sent to author**: Der Autor wurde über die ausstehende Pull-Anfrage informiert.
-* **ready-to-merge**: Bereit zur Prüfung durch unser Prüf-Team für Pull-Anfragen.
+* **Change sent to author**: Der Autor wurde über die ausstehende Pull-Anforderung informiert.
+* **ready-to-merge**: Bereit zur Überprüfung durch unser Pull-Anforderung-Überprüfungsteam.

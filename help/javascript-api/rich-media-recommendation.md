@@ -12,49 +12,49 @@ ht-degree: 5%
 
 # Rich-Media-Empfehlung
 
-Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, auf der die Vorlage für Rich-Media-Empfehlungen angezeigt werden soll.
+Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, auf der Sie die Rich-Media-Empfehlungsvorlage anzeigen möchten.
 
-1. In der Kopfzeile der Seite
-   1. RTP-Tag installieren
-   1. Fügen Sie den GET-Aufruf zur Seite hinzu, um die Empfehlungen zu füllen.
+1. Im Seitenkopf
+   1. Installieren Sie das RTP-Tag
+   1. Fügen Sie den GET-Aufruf der Seite hinzu, um die Empfehlungen auszufüllen
    1. Fügen Sie den SET-Aufruf hinzu, um die Vorlage zu konfigurieren
-1. Im Seitentext
+1. Im Hauptteil der Seite
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
 Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
-## Vorlagentag
+## Vorlagen-Tag
 
 | Attribut | Optional/Erforderlich | Beschreibung |
 |---|---|---|
-| klasse | Erforderlich | Geben Sie an, dass dieses div-HTML-Element RTP Recommendation div ist. |
-| data-rtp-template-id | Erforderlich | Die Vorlagen-ID. Dies bestimmt die Ausrichtung Ihrer Empfehlung. Verwenden Sie &quot;template1&quot;für die horizontale Ausrichtung, &quot;template2&quot;für die vertikale Ausrichtung oder &quot;template3&quot; für die vertikale Ausrichtung, die nur Titel und Beschreibung enthält. Das Skript fügt die entsprechende Vorlage in diese `div.Permissible` -Werte ein: template1, template2, template3. |
+| klasse | Erforderlich | Geben Sie an, dass dieses div-HTML-Element RTP-Empfehlungs-div ist. |
+| data-rtp-template-id | Erforderlich | Die Vorlagen-ID. Dies bestimmt die Ausrichtung Ihrer Empfehlung. Verwenden Sie „template1“ für die horizontale Ausrichtung, „template2“ für die vertikale Ausrichtung oder „template3“ für die vertikale Ausrichtung, die nur Titel und Beschreibung enthält. Das Skript fügt die übereinstimmende Vorlage in diese `div.Permissible` ein: template1, template2, template3. |
 
 ### Beispiele
 
-Um Ihre Empfehlungen in horizontaler Ausrichtung anzuzeigen, verwenden Sie &quot;template1&quot;.
+Verwenden Sie „template1“, um Ihre Empfehlungen horizontal auszurichten.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template1"></div>
 ```
 
-Um Ihre Empfehlungen in vertikaler Ausrichtung anzuzeigen, verwenden Sie &quot;template2&quot;.
+Um Ihre Empfehlungen vertikal auszurichten, verwenden Sie „template2“.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template2"></div>
 ```
 
-Um Ihre Empfehlungen nur in vertikaler Ausrichtung mit Titel und Beschreibung anzuzeigen, verwenden Sie &quot;template3&quot;.
+Um Ihre Empfehlungen vertikal ausgerichtet nur mit Titel und Beschreibung anzuzeigen, verwenden Sie „template3“.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Screenshots der Vorlagenausrichtungen finden Sie [hier](#example_of_rich_media_recommendation_template_1).
+Screenshots von Vorlagenausrichtungen finden Sie [hier](#example_of_rich_media_recommendation_template_1).
 
-## Empfehlung ausfüllen
+## Empfehlung befüllen
 
-Diese Methode füllt alle Rich-Media-Werte `<divs>` auf der Seite mit Empfehlungen.
+Diese Methode füllt alle Rich-Media-`<divs>` auf der Seite mit Empfehlungen.
 
 ### Nutzung
 
@@ -62,16 +62,16 @@ Diese Methode füllt alle Rich-Media-Werte `<divs>` auf der Seite mit Empfehlung
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
-| &#39;get&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
-| &quot;rcmd&quot; | Erforderlich | Zeichenfolge | Name der Methode. |
-| &quot;richmedia&quot; | Erforderlich | Zeichenfolge | Name der Untermethode. |
+| &#39;GET&#39; | Erforderlich | String | Aktion der Methode. |
+| &#39;rcmd&#39; | Erforderlich | String | Methodenname. |
+| &#39;richmedia&#39; | Erforderlich | String | Name der Untermethode. |
 
 
 ## Vorlagenkonfiguration ändern
 
 Diese Methode ändert die Standardkonfiguration für die Vorlage.
 
-Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&#39;,&#39;rcmd&#39;, &#39;richmedia&#39;) aufgerufen werden.
+Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&#39;,&#39;rcmd&#39;, &#39;richmedia&#39;) aufgerufen werden;
 
 ### Nutzung
 
@@ -79,16 +79,16 @@ Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
-| &#39;set&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
-| &quot;rcmd&quot; | Erforderlich | Zeichenfolge | Name der Methode. |
-| &quot;richmedia&quot; | Erforderlich | Zeichenfolge | Name der Untermethode. |
-| template_id | optional | Zeichenfolge | Die Vorlagen-ID für Konfigurationsänderungen. Verwenden Sie , um die Änderung der Einstellungen nur für eine Vorlage festzulegen. |
-| conf_obj | Erforderlich | Objekt | Die neue Konfiguration. Das -Objekt enthält alle Konfigurationen als Schlüssel/Wert-Paar. |
+| &#39;Satz&#39; | Erforderlich | String | Aktion der Methode. |
+| &#39;rcmd&#39; | Erforderlich | String | Methodenname. |
+| &#39;richmedia&#39; | Erforderlich | String | Name der Untermethode. |
+| template_id | Optional | String | Die Vorlagen-ID für Konfigurationsänderungen. Verwenden Sie , um Änderungen der Einstellungen nur für eine Vorlage anzugeben. |
+| conf_obj | Erforderlich | Objekt | Die neue Konfiguration. Das -Objekt enthält alle Konfigurationen als Schlüssel-Wert-Paar. |
 
 
 ### Beispiele
 
-Dieses Codefragment ändert den Titeltext für eine Vorlage.
+Dieser Codeausschnitt ändert den Titeltext für eine Vorlage.
 
 ```javascript
 rtp("set", "rcmd", "richmedia","template1",
@@ -98,7 +98,7 @@ rtp("set", "rcmd", "richmedia","template1",
 );
 ```
 
-Dieses Codefragment zeigt das Festlegen von Kategorien mit mehreren Konfigurationen für eine Vorlage.
+Dieser Code-Ausschnitt zeigt das Festlegen von Kategorien mit mehreren Konfigurationen für eine Vorlage.
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -119,9 +119,9 @@ rtp("set", "rcmd", "richmedia",
 );
 ```
 
-HINWEIS: Verwenden Sie &quot;Kategorie&quot;, um Inhalte zu filtern, die im Ergebnis der Empfehlungen für prädiktive Inhalte angezeigt werden. Lassen Sie die &quot;Kategorie&quot;leer, wenn Sie vorausschauenden Inhalt auf alle aktivierten Inhaltselemente anwenden möchten. Wenn Sie in der Rich-Media-Vorlage nur bestimmte Inhalte für die Ausgabe empfehlen möchten, fügen Sie auf der Seite Inhalt festlegen eine Kategorie für den Inhalt hinzu und verknüpfen Sie diese Kategorie im Empfehlungsvorlagencode. Kategorisierung relevanter Inhalte entsprechend den Abschnitten Ihrer Website (Produkte oder Lösungen).
+HINWEIS: Verwenden Sie „Kategorie“, um Inhalte zu filtern, die im Ergebnis von prädiktiven Inhaltsempfehlungen angezeigt werden. Wenn Sie prädiktiven Inhalt auf alle aktivierten Inhaltselemente anwenden möchten, lassen Sie die Kategorie leer. Wenn Sie nur bestimmte Inhalte für die Ausgabe in der Rich-Media-Vorlage empfehlen möchten, fügen Sie eine Kategorie für den Inhalt auf der Seite Inhalt festlegen hinzu und verknüpfen Sie diese Kategorie innerhalb des Code der Empfehlungsvorlage. Kategorisieren relevanter Inhalte nach Abschnitten Ihrer Website (Produkte oder Lösungen).
 
-Dieses Codefragment zeigt das Festlegen mehrerer Vorlagenkonfigurationen für eine Vorlage.
+Dieser Code-Ausschnitt zeigt, wie mehrere Vorlagenkonfigurationen für eine Vorlage festgelegt werden.
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -139,24 +139,24 @@ rtp("set", "rcmd", "richmedia",
 
 | Konfiguration | Beispiel | Beschreibung |
 |---|---|---|
-| rcmd.general.font.family | &quot;rcmd.general.font.family&quot; : &quot;arial&quot; | Ändert die Schriftfamilie für den gesamten Text in der Vorlage. Diese Eigenschaft unterstützt alle CSS-Werte nach Browsertyp. Es ist möglich, eine benutzerdefinierte Schriftfamilie zu verwenden, wenn sie auf der Seite vorhanden ist. |
-| rcmd.content.background.color | &quot;rcmd.content.background.color&quot; : &quot;black&quot; | Ändert die Hintergrundfarbe der inneren Vorlagenfelder. Diese Eigenschaft unterstützt alle CSS-Werte nach Browsertyp. |
-| rcmd.title.text | &quot;rcmd.title.text&quot;: &quot;EMPFOHLENER INHALT&quot; | Ändert den Vorlagentitel. |
-| rcmd.title.background.color | &quot;rcmd.title.background.color&quot; : &quot;blue&quot; | Ändert die Hintergrundfarbe des Titelfelds. Diese Eigenschaft unterstützt alle CSS-Farbwerte (Farbname, RGB, ...) |
-| rcmd.title.font.size | &quot;rcmd.title.font.size&quot;: &quot;26px&quot; | Ändert die Schriftgröße des Titels. Die -Eigenschaft unterstützt alle CSS-Schriftgrößen (px, em, ...) |
-| rcmd.title.font.color | &quot;rcmd.title.font.color&quot; : &quot;weiß&quot; | Ändert die Schriftfarbe des Titels. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, ...) |
-| rcmd.description.font.color | &quot;rcmd.description.font.color&quot; : &quot;weiß&quot; | Ändert die Schriftfarbe der Beschreibung. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, ...) |
-| rcmd.cta.background.color | &quot;rcmd.cta.background.color&quot; : &quot;green&quot; | Ändert die Hintergrundfarbe der Schaltfläche. Diese Eigenschaft unterstützt alle CSS-Farbwerte (Farbname, RGB, ...) |
-| rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Ändert die Schriftfarbe der Schaltfläche. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, ...) |
-| rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Ändert den Schaltflächentext. Der Text ist für alle Schaltflächen identisch. |
-| Kategorie | &quot;category&quot; : [&quot;one category&quot;] | Ändert die Empfehlungskategorie, die diese Vorlage unterstützt. Die Vorlage zeigt nur Empfehlungen mit einer der von dieser Konfiguration festgelegten Kategorien an. |
+| rcmd.general.font.family | „rcmd.general.font.family“ : „Arial“ | Ändert die Schriftfamilie für den gesamten Text in der Vorlage. Diese Eigenschaft unterstützt alle CSS-Werte nach Browser-Typ. Es ist möglich, eine benutzerdefinierte Schriftfamilie zu verwenden, wenn sie auf der Seite vorhanden ist. |
+| rcmd.content.background.color | „rcmd.content.background.color“ : „Schwarz“ | Ändert die Hintergrundfarbe der inneren Vorlagenfelder. Diese Eigenschaft unterstützt alle CSS-Werte nach Browser-Typ. |
+| rcmd.title.text | „rcmd.title.text“ : „EMPFOHLENER INHALT“ | Ändert den Vorlagentitel. |
+| rcmd.title.background.color | „rcmd.title.background.color“ : „blue“ | Ändert die Hintergrundfarbe des Titelfelds. Diese Eigenschaft unterstützt alle CSS-Farbwerte (Farbname, RGB usw.) |
+| rcmd.title.font.size | „rcmd.title.font.size“ : „26px“ | Ändert die Schriftgröße des Titels. Die -Eigenschaft unterstützt alle möglichen CSS-Schriftgrößen (px, em, …) |
+| rcmd.title.font.color | „rcmd.title.font.color“ : „Weiß“ | Ändert die Schriftfarbe des Titels. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, …) |
+| rcmd.description.font.color | „rcmd.description.font.color“ : „Weiß“ | Ändert die Schriftfarbe der Beschreibung. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, …) |
+| rcmd.cta.background.color | „rcmd.cta.background.color“ : „grün“ | Ändert die Hintergrundfarbe der Schaltfläche. Diese Eigenschaft unterstützt den gesamten CSS-Farbwert (Farbname, RGB usw.) |
+| rcmd.cta.font.color | „rcmd.cta.font.color“ : „RGB(90, 84, 164)“ | Ändert die Schriftfarbe der Schaltfläche. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, …) |
+| rcmd.cta.text | „rcmd.cta.text“ : „Push“ | Ändert den Schaltflächentext. Der Text ist für alle Schaltflächen identisch. |
+| Kategorie | „category“ : [ „one category“] | Ändert die Empfehlungskategorie, die diese Vorlage unterstützt. Die Vorlage zeigt nur Empfehlungen mit einer der von dieser Konfiguration festgelegten Kategorien an. |
 
 
-Hinweis: Die Konfigurationsunterstützung kann sich je nach Vorlage ändern.
+Hinweis: Die Konfigurationsunterstützung kann sich pro Vorlage ändern.
 
-#### Grundlegendes Beispiel
+#### Einfaches Beispiel
 
-Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Kopieren Sie dieses Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
+Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Kopieren Sie dieses Beispiel auf eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
 
 ```html
 <!DOCTYPE>
@@ -188,7 +188,7 @@ rtp('get','rcmd', 'richmedia');
 
 #### Erweitertes Beispiel
 
-Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Der Vorlagentitel ist &quot;EMPFOHLENER INHALT&quot;und der Schaltflächentext lautet &quot;Mehr lesen&quot;. Kopieren Sie dieses Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
+Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Der Vorlagentitel lautet „RECOMMENDED CONTENT“ und der Schaltflächentext lautet „Read More“. Kopieren Sie dieses Beispiel auf eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
 
 ```html
 <!DOCTYPE>
@@ -230,18 +230,18 @@ rtp('get','rcmd', 'richmedia');
 </html>
 ```
 
-#### Beispiel einer Rich-Media-Empfehlungsvorlage Nr. 1
+#### Beispiel für #1 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template1 **Description**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung und Aktionsschaltfläche.
+**Name**: template1 **Description**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Aktionsaufruf-Schaltfläche.
 
 ![Rich-Media-Vorlage](assets/rich-media-template1.png)
 
-#### Beispiel einer Rich-Media-Empfehlungsvorlage Nr. 2
+#### Beispiel für #2 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template2 **Description**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung und Aktionsschaltfläche.
+**Name**: template2 **Beschreibung**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Aktionsaufruf-Schaltfläche.
 
 ![Rich-Media-Vorlage](assets/rich-media-template2.png)
 
-#### Beispiel einer Rich-Media-Empfehlungsvorlage Nr. 3
+#### Beispiel für #3 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template3 **Description**: Vertikaler Inhalt mit nur Titel und Beschreibung. Wenn Sie den Mauszeiger darüber bewegen, ändert sich die Farbe der Kopfzeile und ist mit der Inhalts-URL verlinkt. Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-Vorlage](assets/rich-media-template3.png)
+**Name**: template3 **Beschreibung**: Vertikaler Inhalt, der nur Titel und Beschreibung enthält. Beim Bewegen des Mauszeigers ändert sich die Farbe der Kopfzeile und sie wird mit der Inhalts-URL verknüpft. Die Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-Vorlage](assets/rich-media-template3.png)

@@ -12,4 +12,4 @@ ht-degree: 21%
 
 # Predictive Content
 
-Die JavaScript-API für Predictive Content erweitert die Prognosinhalte der Plattform. Sie ermöglicht die dynamische Anpassung einer Webseite über [Rich Media Recommendations](rich-media-recommendation.md).
+Die JavaScript-API für prädiktive Inhalte erweitert den prädiktiven Inhalt der Plattform. Sie ermöglicht die dynamische Anpassung einer Web-Seite über [Rich Media Recommendations](rich-media-recommendation.md).
