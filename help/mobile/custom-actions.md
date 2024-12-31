@@ -6,19 +6,19 @@ exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '291'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
 # Benutzerdefinierte Aktionen
 
-Sie können Benutzerinteraktionen verfolgen, indem Sie benutzerdefinierte Aktionen senden. Wenn Ihre Mobile App das Marketo SDK aufruft, um eine benutzerdefinierte Aktion zu senden, wird die benutzerdefinierte Aktion zunächst auf dem Gerät gespeichert. Das Marketo SDK prüft dann, ob eine ausreichende Internetverbindung besteht, bevor die benutzerdefinierte Aktion gesendet wird. Daher kann es zu einer Verzögerung zwischen dem Versand der benutzerdefinierten Aktion und dem Empfang durch Marketo kommen.
+Sie können Benutzerinteraktionen verfolgen, indem Sie benutzerdefinierte Aktionen senden. Wenn Ihre Mobile App zum Senden einer benutzerdefinierten Aktion in Marketo SDK aufruft, wird die benutzerdefinierte Aktion zunächst auf dem Gerät gespeichert. Marketo SDK prüft dann, ob eine ausreichende Internetverbindung besteht, bevor die benutzerdefinierte Aktion gesendet wird. Daher kann es zu einer Verzögerung zwischen dem Zeitpunkt kommen, zu dem die benutzerdefinierte Aktion gesendet wird, und dem Zeitpunkt, zu dem sie von Marketo empfangen wird.
 
-Benutzerdefinierte Aktionen können in Smart-Kampagnen als Trigger und Filter verwendet werden. Weitere Informationen finden Sie unter [Aktivität &quot;Mobile App&quot;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Benutzerdefinierte Aktionen können als Trigger und Filter in Smart-Kampagnen verwendet werden. Weitere Informationen finden Sie unter [Aktivität von Mobile Apps](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Senden benutzerdefinierter Aktionen auf iOS
 
-Senden Sie eine benutzerdefinierte Aktion.
+Benutzerdefinierte Aktion senden.
 
 >[!BEGINTABS]
 
@@ -37,7 +37,7 @@ sharedInstance.reportAction("Login", withMetaData:nil);
 
 >[!ENDTABS]
 
-Senden Sie eine benutzerdefinierte Aktion mit Metadaten.
+Senden einer benutzerdefinierten Aktion mit Metadaten.
 
 >[!BEGINTABS]
 
@@ -67,7 +67,7 @@ sharedInstance.reportAction("Bought Shirt", withMetaData:meta);
 
 >[!ENDTABS]
 
-Melden Sie alle Aktionen sofort (senden Sie alle gespeicherten Aktionen).
+Alle Aktionen sofort melden (alle gespeicherten Aktionen senden).
 
 >[!BEGINTABS]
 
@@ -87,13 +87,13 @@ sharedInstance.reportAll();
 
 ## Senden benutzerdefinierter Aktionen auf Android
 
-1. Senden Sie eine benutzerdefinierte Aktion.
+1. Benutzerdefinierte Aktion senden.
 
    ```
    Marketo.reportAction("Login", null);
    ```
 
-1. Senden Sie eine benutzerdefinierte Aktion mit Metadaten.
+1. Senden einer benutzerdefinierten Aktion mit Metadaten.
 
    ```
    MarketoActionMetaData meta = new MarketoActionMetaData();
@@ -105,7 +105,7 @@ sharedInstance.reportAll();
    Marketo.reportAction("Bought Shirt", meta);
    ```
 
-1. Melden Sie alle benutzerdefinierten Aktionen sofort (senden Sie alle gespeicherten Aktionen).
+1. Alle benutzerdefinierten Aktionen sofort melden (alle gespeicherten Aktionen senden).
 
    ```
    Marketo.reportAll();
@@ -113,6 +113,6 @@ sharedInstance.reportAll();
 
 ## Fehlerbehebung bei benutzerdefinierten Aktionen
 
-Die Einrichtung benutzerdefinierter Aktionen für Mobilgeräte ist unkompliziert. Es gibt jedoch Einschränkungen hinsichtlich der Anzahl der Zeichen, die Sie vom Mobile SDK an Marketo senden können. Stellen Sie sicher, dass alle benutzerdefinierten Aktionen, die über das mobile SDK an Marketo gemeldet werden, weniger als 20 Zeichen lang sind.
+Das Einrichten benutzerdefinierter Aktionen für Mobilgeräte ist einfach, aber es gibt Einschränkungen hinsichtlich der Anzahl der Zeichen, die Sie von der mobilen SDK an Marketo senden können. Stellen Sie sicher, dass alle benutzerdefinierten Aktionen, die über Mobile SDK an Marketo zurückgemeldet werden, weniger als 20 Zeichen lang sind.
 
-**Hinweis zu Anwendungsfällen für mehrere Benutzer auf einem gemeinsam genutzten Gerät:** Wenn sich ein Benutzer bei einer mobilen App anmeldet, die mit dem Marketo SDK integriert ist, wird zunächst aufgerufen, den Lead mit der App-Installation zu verknüpfen. Nach erfolgreichem Abschluss dieses Aufrufs können weitere Benutzeraktivitäten in der App im Aktivitätsprotokoll des Leads angezeigt werden. Beachten Sie Folgendes: Dies ist ein asynchroner Aufruf, wenn unmittelbar nach der Anmeldung irgendwelche benutzerdefinierten Aktionen protokolliert werden, die möglicherweise mit dem Benutzer verknüpft werden, der zuvor angemeldet war, bis der verknüpfte Aufruf erfolgreich war.
+**Hinweis zu Anwendungsfällen für mehrere Benutzende auf einem gemeinsam genutzten Gerät:** Wenn sich ein(e) Benutzende(r) bei einer in Marketo SDK integrierten App anmeldet, erfolgt der erste Aufruf, um den Lead mit der App-Installation zu verknüpfen. Nach erfolgreichem Abschluss dieses Aufrufs können weitere Benutzeraktivitäten in der App im Aktivitätsprotokoll des Leads eingesehen werden. Hinweis: Da es sich um einen asynchronen Aufruf handelt, werden benutzerdefinierte Aktionen, die unmittelbar nach der Anmeldung protokolliert werden, möglicherweise mit dem Benutzer verknüpft, der zuvor angemeldet war, bis der zugehörige Aufruf erfolgreich ist.

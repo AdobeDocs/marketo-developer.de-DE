@@ -1,12 +1,12 @@
 ---
 title: getChannels
 feature: SOAP
-description: getChannels SOAP Aufrufe
+description: getChannels-SOAP-Aufrufe
 exl-id: bcaef85b-154b-4571-ad24-07a36707a6ef
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '92'
-ht-degree: 5%
+ht-degree: 7%
 
 ---
 
@@ -14,19 +14,19 @@ ht-degree: 5%
 
 Diese Funktion ruft die folgenden Informationen zu einem in Marketo eingerichteten Kanal ab:
 
-- Progressionsstatus
+- Fortschrittsstatus
 - Schrittnummer jedes Fortschrittsstatus
 - Ob ein bestimmter Fortschrittsstatus als Erfolg definiert wurde
 
-Sie können Informationen zu allen Kanälen abrufen oder eine spezifische Liste von Kanälen angeben.
+Sie können Informationen zu allen Kanälen abrufen oder eine bestimmte Liste von Kanälen angeben
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| tag->values->stringItem | optional | Liste der Kanäle, die abgefragt werden sollen. Wenn `<tag>` weggelassen wird, erhalten Sie Informationen zu allen Kanälen |
+| tag->values->stringItem | Optional | Liste der Kanäle, die Sie abfragen möchten. Wenn `<tag>` ausgelassen wird, erhalten Sie Informationen zu allen Kanälen |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

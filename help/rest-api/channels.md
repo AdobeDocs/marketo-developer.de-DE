@@ -12,13 +12,13 @@ ht-degree: 3%
 
 # Kanäle
 
-[Kanalendpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[Endpunktreferenz für Kanäle](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
 
-Kanäle sind ein standardmäßiges und erforderliches Feld für alle Programmtypen. Jeder Kanaltyp kann nur mit dem angegebenen `applicableProgramType` verwendet werden und enthält die Liste der verfügbaren Programmstatus, die für Programmmitglieder in jedem Programm gültig sind. Wenn der Programmstatus eines Kanals nach der Erstellung eines Programms geändert wird, stimmt die Liste der Programmstatus, in die ein Lead geändert werden kann, mit der Liste überein, die der Kanal zu diesem Zeitpunkt angegeben hat. Der Programmstatus für bestehende Programmmitgliedschaftseinträge wird jedoch nicht nachträglich geändert.
+Kanäle sind ein Standardfeld und ein Pflichtfeld für alle Programmtypen. Jeder Kanaltyp kann nur mit dem angegebenen `applicableProgramType` verwendet werden und liefert die Liste der verfügbaren Programmstatus, die für Programmmitglieder in jedem Programm gültig sind. Wenn die Programmstatus eines Kanals geändert werden, nachdem ein Programm erstellt wurde, entspricht die Liste der Programmstatus, zu der ein Lead geändert werden kann, der Liste, die der Kanal zu diesem Zeitpunkt gegeben hat. Sie ändert jedoch nicht rückwirkend den Programmstatus für vorhandene Programmmitgliedsdatensätze.
 
-## Anfrage
+## Abfrage
 
-Kanäle können als Standard-Assets abgefragt werden, haben jedoch keinen Endpunkt zum Abrufen eines Kanals anhand der ID.
+Kanäle können als Standard-Assets abgefragt werden, haben jedoch keinen Endpunkt, an den ein Kanal anhand der ID abgerufen werden kann.
 
 ### Durchsuchen
 

@@ -1,29 +1,29 @@
 ---
 title: getLead
 feature: SOAP
-description: getLead SOAP Aufrufe
+description: getLead-SOAP-Aufrufe
 exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '127'
-ht-degree: 4%
+ht-degree: 6%
 
 ---
 
 # getLead
 
-Diese Funktion ruft einen einzigen Lead-Datensatz aus Marketo mit allen Feldwerten für die integrierten und benutzerdefinierten Felder für einen Lead ab, der durch den bereitgestellten Schlüssel (LeadKey) identifiziert wird. Wenn der Lead basierend auf den Eingabeparametern vorhanden ist, werden die Lead-Datensatz-Attribute im Ergebnis zurückgegeben.
+Diese Funktion ruft einen einzelnen Lead-Datensatz aus Marketo mit allen Feldwerten für die integrierten und benutzerdefinierten Felder für einen Lead ab, der durch den bereitgestellten Schlüssel (LeadKey) identifiziert wird. Wenn der Lead basierend auf den Eingabeparametern vorhanden ist, werden die Attribute für den Lead-Datensatz im Ergebnis zurückgegeben.
 
-HINWEIS: Lead-Attribute, die vom Datentyp Zeichenfolge sind und leer sind, werden nicht als Teil der Antwort zurückgegeben.
+HINWEIS: Lead-Attribute vom Datentyp „Zeichenfolge“, die leer sind, werden nicht als Teil der Antwort zurückgegeben.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadKey->keyType | Erforderlich | keyType ermöglicht die Angabe des Felds, nach dem der Lead abgefragt werden soll. Mögliche Werte sind:`IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadKey->keyType | Erforderlich | Mit keyType können Sie das Feld angeben, nach dem Sie den Lead abfragen möchten. Mögliche Werte sind: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Erforderlich | keyValue ist der Wert, nach dem Sie den Lead abfragen möchten. |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

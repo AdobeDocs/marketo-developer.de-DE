@@ -6,7 +6,7 @@ exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1140'
-ht-degree: 28%
+ht-degree: 29%
 
 ---
 
@@ -14,90 +14,90 @@ ht-degree: 28%
 
 Im Folgenden finden Sie eine Liste der in Marketo verfügbaren Standardfelder, auf die über die API zugegriffen werden kann.
 
-Sie können die Liste aller unterstützten Feldnamen abrufen, die in Ihren Lead-Datensätzen verfügbar sind, indem Sie den REST [Describe Lead](https://developer.adobe.com/marketo-apis/api/mapi/) -Endpunkt verwenden.
+Sie können die Liste aller unterstützten Feldnamen in Ihren Lead-Datensätzen abrufen, indem Sie den REST-Endpunkt [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/) verwenden.
 
 | REST-API-Name | SOAP-API-Name | Angezeigte Bezeichnung | Beschreibung |
 | --- | --- | --- | --- |
-| Adresse | Adresse | Adresse | Adresse des federführenden Unternehmens |
-| annualRevenue | AnnualRevenue | Jahresumsatz | Jahresumsatz des Lead-Unternehmens |
-| anonymousIP | AnonymousIP | Anonyme IP | IP-Adresse des ersten aufgezeichneten Webbesuchs des Leads |
-| billingCity | BillingCity | Abrechnungsort | Rechnungsadresse des Leads |
-| billingCountry | BillingCountry | Abrechnungsland | Rechnungsadresse des Lead |
-| billingPostalCode | BillingPostalCode | Postleitzahl für Abrechnung | Postleitzahl der Abrechnungsadresse des Leads |
-| billingState | BillingState | Bundesland für Abrechnung | Rechnungsadresse des Lead-Landes oder -Provinz |
-| billingStreet | BillingStreet | Rechnungsadresse | Abrechnung der Straßenadresse des Lead-Unternehmens |
-| city | Ort | Ort | Lead-Stadt |
-| Unternehmen | Unternehmen | Unternehmensname | Firmenname des Leads |
-| country | Land | Land | Land des federführenden Unternehmens |
-| dateOfBirth | DateofBirth | Geburtsdatum | Geburtsdatum des Leiters |
-| Abteilung | Abteilung | Abteilung | Lead-Abteilung in ihrem Unternehmen |
-| doNotCall | DoNotCall | Nicht aufrufen | Nicht-Call-Präferenz des Leads |
-| doNotCallReason | DoNotCallReason | Nicht aufrufen – Ursache | Erläuterung der nicht aufrufenden Voreinstellung des Leads |
-| E-Mail | E-Mail | E-Mail-Adresse | Die E-Mail-Adresse des Leads. Standard-Marketo-Schlüsselfeld für Lead-Datensätze |
-| fax | Fax | Faxnummer | Faxnummer des Leiters |
+| Adresse | Adresse | Adresse | Lead-Adresse |
+| Jahreseinnahmen | AnnualRevenue | Jahresumsatz | Jahresumsatz des Lead-Unternehmens |
+| anonyme IP | AnonymousIP | Anonyme IP | IP-Adresse des ersten aufgezeichneten Web-Besuchs des Leads |
+| billingCity | BillingCity | Abrechnungsort | Ort, an dem die Rechnungsadresse des Leads liegt |
+| Fakturierungsland | BillingCountry | Abrechnungsland | Land der Rechnungsadresse des Leads |
+| billingPostalCode | BillingPostalCode | Postleitzahl für Abrechnung | Postleitzahl der Rechnungsadresse des Leads |
+| BillingState | BillingState | Bundesland für Abrechnung | Bundesland oder Provinz der Rechnungsadresse des Leads |
+| BillingStreet | BillingStreet | Rechnungsadresse | Straße der Rechnungsadresse des Unternehmens des Leads |
+| city | Stadt | Stadt | Lead&#39;s Stadt |
+| Unternehmen | Unternehmen | Firmenname | Firmenname des Leads |
+| country | Land | Land | Land des Leads |
+| Geburtsdatum | DateofBirth | Geburtsdatum | Geburtsdatum des Leads |
+| Abteilung | Abteilung | Abteilung | Leads Abteilung in ihrem Unternehmen |
+| doNotCall | DoNotCall | Nicht aufrufen | Voreinstellung für Nicht-Anrufe des Leads |
+| doNotCallReason | DoNotCallReason | Nicht aufrufen – Ursache | Erklärung für die „Do-Not-Call“-Präferenz des Leads |
+| E-Mail | E-Mail | E-Mail-Adresse | E-Mail-Adresse des Leads. Marketo-Standardschlüsselfeld für Lead-Datensätze |
+| Fax | Fax | Faxnummer | Faxnummer des Leads |
 | firstName | FirstName | Vorname | Vorname des Leads |
 | Wirtschaftszweig | Branche | Branche | Lead-Branche |
-| inferredCompany | InferredCompany | Abgeleitetes Unternehmen | Unternehmensname, abgeleitet durch die umgekehrte IP-Suche des ersten aufgezeichneten Webbesuchs des Leads |
-| inferredCountry | InferredCountry | Abgeleitetes Land | Land, das durch die umgekehrte IP-Suche des ersten aufgezeichneten Webbesuchs des Leads abgeleitet wird |
+| Abgeleitetes Unternehmen | InferredCompany | Abgeleitetes Unternehmen | Firmenname, abgeleitet durch Reverse-IP-Lookup des ersten aufgezeichneten Web-Besuchs des Leads |
+| abgeleitetes Land | InferredCountry | Abgeleitetes Land | Land, abgeleitet durch Reverse-IP-Lookup des ersten aufgezeichneten Web-Besuchs des Leads |
 | lastName | LastName | Nachname | Nachname des Leads |
-| leadRole | LeadRole | Role | Rolle des Leads in seinem Unternehmen |
-| leadScore | LeadScore | Lead-Bewertung | Ganzzahlwert, der dem Lead durch Scoring-Kampagnen und -Programme zugewiesen wird |
-| leadSource | LeadSource | Lead-Quelle | Feld zur Angabe der Quelle, aus der der Lead stammt |
-| leadStatus | LeadStatus | Lead-Status | Feld zur Aufzeichnung des aktuellen Marketing-/Verkaufsstatus des Leads |
-| mainPhone | MainPhone | Haupttelefonnummer | Primäre Telefonnummer der Lead-Firma |
-| jigsawContactId | Marketo Jigsaw – Kontakt-ID | Marketo Data.com – ID | Lead-ID Data.com , falls verfügbar |
-| jigsawContactStatus | Marketo Jigsaw – Kontaktstatus | Marketo Data.com – Status | Status Data.com des Leads, falls verfügbar |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Marketo Social – Facebook-Anzeigename | Facebook-Anzeigename des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| facebookId | MarketoSocialFacebookId | Marketo Social Facebook-ID | Facebook ID des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| facebookFotoURL | MarketoSocialFacebookPhotoURL | Marketo Social – Facebook-Foto-URL | URL des Facebook-Profilfotos des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| facebookProfileURL | MarketoSocialFacebookProfileURL | Marketo Social – Facebook-Profil-URL | URL des Facebook-Profils des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| facebookReach | MarketoSocialFacebookReach | Marketo Social – Facebook-Reichweite | Die Facebook-Reichweite des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei Facebook | Anzahl der weitergeleiteten Registrierungen, die dem Lead über Facebook zugeordnet wurden. Systemverwaltetes System |
-| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Marketo Social – Bezeichnete Besuche bei Facebook | Anzahl der Besuche, die dem Lead über Facebook zugeordnet wurden. Systemverwaltetes System |
-| gender | MarketoSocialGender | Marketo Social – Geschlecht | Geschlecht des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Marketo Social – Letzte bezeichnete Registrierung | Datum der letzten abgeschlossenen Befassung. Systemverwaltetes System |
-| lastReferredVisit | MarketoSocialLastReferredVisit | Marketo Social – Letzter bezeichneter Besuch | Datum des letzten Besuchs. Systemverwaltetes System |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Marketo Social – LinkedIn-Anzeigename | LinkedIn-Anzeigename des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| linkedInId | MarketoSocialLinkedInId | Marketo Social LinkedIn-ID | LinkedIn ID des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| linkedInFotoURL | MarketoSocialLinkedInPhotoURL | Marketo Social – LinkedIn-Foto-URL | LinkedIn-Foto-URL des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| linkedInProfileURL | MarketoSocialLinkedInProfileURL | Marketo Social – LinkedIn-Profil-URL | LinkedIn-Profil des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| linkedInReach | MarketoSocialLinkedInReach | Marketo Social – LinkedIn-Reichweite | LinkedIn-Reichweite des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei LinkedIn | Anzahl der weitergeleiteten Registrierungen, die dem Lead über LinkedIn zugeordnet wurden. Systemverwaltetes System |
-| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Marketo Social – Bezeichnete Besuche bei LinkedIn | Anzahl der Besuche, die dem Lead über LinkedIn zugeordnet wurden. Systemverwaltetes System |
-| syndicationId |  - | Marketo Social Syndication-ID | Interne Marketo Social-ID des Leads. Systemverwaltetes System |
-| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Marketo Social – Bezeichnete Registrierungen insgesamt | Gesamtzahl der abgeschlossenen Bewerbungsanmeldungen, die dem Lead zugeordnet wurden |
-| totalReferredVisits | MarketoSocialTotalReferredVisits | Marketo Social – Bezeichnete Besuche insgesamt | Gesamtzahl der dem Lead zugeordneten Besuche |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo Social – Twitter-Anzeigename | Twitter-Anzeigename des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| twitterId | MarketoSocialTwitterId | Marketo Social Twitter-ID | Twitter-ID des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| twitterFotoURL | MarketoSocialTwitterPhotoURL | Marketo Social – Twitter-Foto-URL | Twitter Foto-URL des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| twitterProfileURL | MarketoSocialTwitterProfileURL | Marketo Social – Twitter-Profil-URL | Twitter-Profil-URL des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| twitterReach | MarketoSocialTwitterReach | Marketo Social – Twitter-Reichweite | Die Twitter-Reichweite des Leads. System wird während der Anmeldung in sozialen Netzwerken ausgefüllt |
-| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei Twitter | Anzahl der weitergeleiteten Registrierungen, die dem Lead über Twitter zugeordnet wurden. Systemverwaltetes System |
-| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Marketo Social – Bezeichnete Besuche bei Twitter | Anzahl der Besuche, die dem Lead über Twitter zugeordnet wurden. Systemverwaltetes System |
-| middleName | MiddleName | Zweiter Vorname | Mittlerer Name des Führers |
-| mobilePhone | MobilePhone | Mobiltelefonnummer | Mobiltelefonnummer des Leiters |
-| numberOfEmployees | NumberOfEmployees | Anzahl Mitarbeiter | Anzahl der Beschäftigten des Lead-Unternehmens |
-| Telefon | Telefon | Telefonnummer | Telefonnummer des Interessenten |
-| postalCode | PostalCode | Postleitzahl | Postleitzahl des Leiters |
-| Bewertung | Bewertung | Lead-Bewertung | Marketing-/Verkaufsbewertung des Leads |
-| salutation | Anrede | Anrede | Beliebte Anrede des Führers, d.h. Herr, Misses.. usw. |
-| sicCode | SICCode | SIC-Code | Standard-Klassifizierungscode des Lead-Unternehmens |
-| site | Seite | Seite |  |
-| state | Bundesland | Bundesland | Bundesstaat des federführenden Unternehmens |
-| Titel | Titel | Jobtitel | Berufsbezeichnung des Leiters |
-| unsubscribed | Abbestellt | Abbestellt | Status der Abmeldung per E-Mail des Leads. Teilweise vom System verwaltet. Verhindert den Empfang nicht operativer E-Mails, wenn auf &quot;true&quot;gesetzt. |
-| unsubscribedReason | UnsubscribedReason | Ursache für Abbestellung | Grund für den Abmeldestatus des Leads. Teilweise vom System verwaltet. Werden mit E-Mail-Informationen ausgefüllt, wenn ein Lead sich direkt von einer Marketo-E-Mail abgemeldet hat. |
-| website | Website | Website | URL der Website des Lead-Unternehmens |
-| createdAt |  - | Erstellt um | Der Zeitpunkt, zu dem der Lead-Datensatz ursprünglich erstellt wurde. Systemverwaltetes System |
-| updatedAt |  - | Aktualisiert um | Das letzte Mal, dass der Lead-Datensatz aktualisiert wurde. Systemverwaltetes System |
-| emailInvalid |  - | E-Mail-Adresse ungültig | Status &quot;E-Mail ungültig&quot;. Alle E-Mails an die Adresse werden blockiert, wenn auf &quot;true&quot;gesetzt. Bounces, die angeben, dass die E-Mail ungültig ist, setzen dieses Feld automatisch auf &quot;true&quot;. |
-| emailInvalidUrsache |  - | Grund für ungültige E-Mail | Grund für den ungültigen E-Mail-Status. Die auslösende Bounce Message wird in diesem Feld aufgezeichnet, wenn &quot;email invalid&quot;auf &quot;true&quot;gesetzt ist. |
-| inferredCity |  - | Abgeleiteter Ort | Die Stadt des Leads wird durch die umgekehrte IP-Suche des ersten aufgezeichneten Webbesuchs des Leads abgeleitet. |
-| inferredMetropolitanArea |  - | Abgeleiteter Stadtbereich | Die Metropolregion des Leads wird durch die umgekehrte IP-Suche des ersten aufgezeichneten Webbesuchs des Leads abgeleitet. |
-| inferredPhoneAreaCode |  - | Abgleitete Vorwahl | Der Telefongebietscode des Leads wird durch die umgekehrte IP-Suche des ersten aufgezeichneten Webbesuchs des Leads abgeleitet. |
-| inferredPostalCode |  - | Abgeleitete Postleitzahl | Postleitzahl des Leads, abgeleitet durch die umgekehrte IP-Suche des ersten aufgezeichneten Webbesuchs des Leads. |
-| inferredStateRegion |  - | Abgeleitetes Bundesland/abgeleitete Region | Die Statusregion des Leads wird von der umgekehrten IP-Suche des ersten aufgezeichneten Webbesuchs des Leads abgeleitet. |
-| isAnonymous |  - | Ist anonym | Anonymer Status des Lead-Datensatzes. System verwaltet. |
-| Priorität |  - | Priorität | Die Priorität von Sales Insight von Lead. System verwaltet. |
-| relativeScore |  - | Relative Bewertung | relatives Ergebnis von Lead Sales Insight. System verwaltet. |
-| Dringlichkeit |  - | Dringlichkeit | Die Dringlichkeit von Sales Insight von Lead. System verwaltet. |
+| leadRole | LeadRole | Role | Die Rolle des Leads in seinem Unternehmen |
+| LeadScore | LeadScore | Lead-Bewertung | Ganze Zahl, die dem Lead durch Bewertung von Kampagnen und Programmen zugewiesen wird |
+| leadSource | LeadSource | Lead-Quelle | Feldaufzeichnung, aus welcher Quelle der Lead stammt |
+| leadStatus | LeadStatus | Lead-Status | Feld, das den aktuellen Marketing-/Verkaufsstatus des Leads aufzeichnet |
+| mainPhone | MainPhone | Haupttelefonnummer | Primäre Telefonnummer des Unternehmens des Leads |
+| jigsawContactId | Marketo Jigsaw – Kontakt-ID | Marketo Data.com – ID | Data.com ID des Leads, falls verfügbar |
+| PuzzleContactStatus | Marketo Jigsaw – Kontaktstatus | Marketo Data.com – Status | Status Data.com des Leads, falls verfügbar |
+| facebookDisplayName | MarketoSocialFacebookDisplayName | Marketo Social – Facebook-Anzeigename | Facebook-Anzeigename des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| facebookId | MarketoSocialFacebookId | Marketo Social Facebook-ID | Facebook-ID des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| facebookFotoURL | MarketoSocialFacebookPhotoURL | Marketo Social – Facebook-Foto-URL | URL des Facebook-Profilbilds des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| facebookProfileURL | MarketoSocialFacebookProfileURL | Marketo Social – Facebook-Profil-URL | URL des Facebook-Profils des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| facebookReach | MarketoSocialFacebookReach | Marketo Social – Facebook-Reichweite | Die Facebook-Reichweite des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei Facebook | Anzahl der weitergeleiteten Registrierungen, die dem Lead über Facebook zugewiesen wurden. Vom System verwaltet |
+| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Marketo Social – Bezeichnete Besuche bei Facebook | Anzahl der verwiesenen Besuche, die dem Lead über Facebook zugeordnet wurden. Vom System verwaltet |
+| Geschlecht | MarketoSocialGender | Marketo Social – Geschlecht | Geschlecht des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Marketo Social – Letzte bezeichnete Registrierung | Datum der letzten abgeschlossenen Empfehlung. Vom System verwaltet |
+| lastReferredVisit | MarketoSocialLastReferredVisit | Marketo Social – Letzter bezeichneter Besuch | Datum des letzten Besuchs. Vom System verwaltet |
+| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Marketo Social – LinkedIn-Anzeigename | LinkedIn-Anzeigename des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| linkinId | MarketoSocialLinkedInId | Marketo Social LinkedIn-ID | LinkedIn-ID des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | Marketo Social – LinkedIn-Foto-URL | LinkedIn-Foto-URL des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| linkedInProfileURL | MarketoSocialLinkedInProfileURL | Marketo Social – LinkedIn-Profil-URL | LinkedIn-Profil des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| linkedInReach | MarketoSocialLinkedInReach | Marketo Social – LinkedIn-Reichweite | Leads LinkedIn-Reichweite. System wird während der Anmeldung bei Social Media ausgefüllt |
+| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei LinkedIn | Anzahl der weitergeleiteten Registrierungen, die dem Lead über LinkedIn zugewiesen wurden. Vom System verwaltet |
+| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Marketo Social – Bezeichnete Besuche bei LinkedIn | Anzahl der verwiesenen Besuche, die dem Lead über LinkedIn zugeordnet wurden. Vom System verwaltet |
+| syndicationId |  - | Marketo Social Syndication-ID | Interne Marketo Social-ID des Leads. Vom System verwaltet |
+| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Marketo Social – Bezeichnete Registrierungen insgesamt | Gesamtzahl der abgeschlossenen Empfehlungsregistrierungen, die dem Lead zugeordnet wurden |
+| totalReferredVisits | MarketoSocialTotalReferredVisits | Marketo Social – Bezeichnete Besuche insgesamt | Gesamtzahl der dem Lead zugewiesenen verwiesenen Besuche |
+| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo Social – Twitter-Anzeigename | Anzeigename des Leads auf der Twitter. System wird während der Anmeldung bei Social Media ausgefüllt |
+| twitterId | MarketoSocialTwitterId | Marketo Social Twitter-ID | Twitter-ID des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| twitterFotoURL | MarketoSocialTwitterPhotoURL | Marketo Social – Twitter-Foto-URL | Twitter-Foto-URL des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| twitterProfileURL | MarketoSocialTwitterProfileURL | Marketo Social – Twitter-Profil-URL | Twitter-Profil-URL des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
+| twitterReach | MarketoSocialTwitterReach | Marketo Social – Twitter-Reichweite | Leads Twitter-Reichweite. System wird während der Anmeldung bei Social Media ausgefüllt |
+| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei Twitter | Anzahl der weitergeleiteten Registrierungen, die dem Lead durch Twitter zugeordnet wurden. Vom System verwaltet |
+| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Marketo Social – Bezeichnete Besuche bei Twitter | Anzahl der verwiesenen Besuche, die dem Lead durch Twitter zugeordnet wurden. Vom System verwaltet |
+| MiddleName | MiddleName | Zweiter Vorname | Zweiter Vorname des Leads |
+| Mobiltelefon | MobilePhone | Mobiltelefonnummer | Mobiltelefonnummer des Leads |
+| numberOfEmployees | NumberOfEmployees | Anzahl Mitarbeiter | Anzahl der Mitarbeiter des Lead-Unternehmens |
+| Telefon | Telefon | Telefonnummer | Telefonnummer des Leads |
+| Postleitzahl | PostalCode | Postleitzahl | Postleitzahl des Leads |
+| Bewertung | Rating | Lead-Bewertung | Marketing-/Verkaufsbewertung des Leads |
+| Begrüßung | Anrede | Anrede | Die bevorzugte Begrüßung des Leads, d.h. Mister, Misses…etc. |
+| sicCode | SICCode | SIC-Code | Standard-Industrieklassifizierungscode des Unternehmens des Leads |
+| Baustelle | Seite | Seite |  |
+| state | Land | Land | Lead-Status |
+| Titel | Titel | Jobtitel | Stellenbezeichnung des Leads |
+| Abgemeldet | Abbestellt | Abbestellt | Der E-Mail-Abmeldestatus des Leads. Teilweise vom System verwaltet. Verhindert den Empfang nicht funktionierender E-Mails, wenn er auf „true“ gesetzt ist. |
+| unsubscribedReason | UnsubscribedReason | Ursache für Abbestellung | Grund für die Abmeldung des Leads. Teilweise vom System verwaltet. Mit E-Mail-Informationen gefüllt, wenn sich der Lead direkt von einer Marketo-E-Mail abgemeldet hat. |
+| Website | Website | Website | URL der Website des Unternehmens des Leads |
+| createdAt |  - | Erstellt um | Der Zeitpunkt, zu dem der Lead-Datensatz anfänglich erstellt wurde. Vom System verwaltet |
+| updatedAt |  - | Aktualisiert um | Letztes Mal, als der Lead-Datensatz aktualisiert wurde. Vom System verwaltet |
+| emailInvalid |  - | E-Mail-Adresse ungültig | Ungültiger E-Mail-Status. Alle E-Mails an diese Adresse werden blockiert, wenn sie auf „true“ gesetzt sind. Durch Bounces, die darauf hinweisen, dass die E-Mail ungültig ist, wird dieses Feld automatisch auf „true“ gesetzt. |
+| emailInvalidCause |  - | Grund für ungültige E-Mail | Ursache des ungültigen E-Mail-Status. Die Bounce-Nachricht wird in diesem Feld aufgezeichnet, wenn die Einstellung Ungültige E-Mail auf „true“ gesetzt ist. |
+| abgeleitete Stadt |  - | Abgeleiteter Ort | Stadt des Leads, abgeleitet durch Reverse-IP-Lookup des ersten aufgezeichneten Web-Besuchs des Leads. |
+| inferredMetropolitanArea |  - | Abgeleiteter Stadtbereich | Der Großraum Leads, abgeleitet durch Reverse-IP-Lookup des ersten aufgezeichneten Web-Besuchs des Leads. |
+| inferredPhoneAreaCode |  - | Abgleitete Vorwahl | Telefonvorwahl des Leads, abgeleitet durch Reverse-IP-Suche des ersten aufgezeichneten Web-Besuchs des Leads. |
+| inferredPostalCode |  - | Abgeleitete Postleitzahl | Postleitzahl des Leads, abgeleitet durch Reverse-IP-Lookup des ersten aufgezeichneten Web-Besuchs des Leads. |
+| inferredStateRegion |  - | Abgeleitetes Bundesland/abgeleitete Region | Region des Leads, abgeleitet durch Reverse-IP-Lookup des ersten aufgezeichneten Web-Besuchs des Leads. |
+| isAnonymous |  - | Ist anonym | Anonymer Status des Lead-Eintrags. Vom System verwaltet. |
+| Priorität |  - | Priorität | Priorität des Leads für Sales Insights. Vom System verwaltet. |
+| relativer Wert |  - | Relative Bewertung | Relative Bewertung des Sales Insights-Leads. Vom System verwaltet. |
+| Dringlichkeit |  - | Dringlichkeit | Dringlichkeit der Sales Insights des Leads. Vom System verwaltet. |

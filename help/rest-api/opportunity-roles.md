@@ -1,7 +1,7 @@
 ---
-title: Opportunity Roles
+title: Opportunity-Rollen
 feature: REST API
-description: Umgang mit Opportunitätsrollen in Marketo.
+description: Umgang mit Opportunity-Rollen in Marketo.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -10,17 +10,17 @@ ht-degree: 0%
 
 ---
 
-# Opportunity Roles
+# Opportunity-Rollen
 
-[Endpoint-Referenz zu Opportunity Roles](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Endpunkt-Referenz zu Opportunity-Rollen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-Interessenten werden über das Zwischenobjekt `opportunityRole` mit Chancen verknüpft.
+Leads sind mit Opportunities über das Zwischenobjekt `opportunityRole` verknüpft.
 
-Die APIs für Angebotsrollen werden nur für Abonnements verfügbar gemacht, für die keine native CRM-Synchronisierung aktiviert ist.
+Opportunity Role APIs werden nur für Abonnements bereitgestellt, für die keine native CRM-Synchronisierung aktiviert ist.
 
-## Beschreibung
+## beschreiben
 
-Wie bei Gelegenheiten werden ein beschreibender Aufruf und CRUD-Vorgänge für Opportunitätsrollen offen gelegt.
+Wie bei Opportunities werden Aufrufe beschreiben und CRUD-Vorgänge für Opportunity-Rollen verfügbar gemacht.
 
 ```
 GET /rest/v1/opportunities/roles/describe.json
@@ -104,9 +104,9 @@ GET /rest/v1/opportunities/roles/describe.json
 }
 ```
 
-## Anfrage
+## Abfrage
 
-Beachten Sie, dass sowohl `dedupeFields` als auch `searchableFields` etwas anders sind als Chancen. `dedupeFields` stellt tatsächlich einen zusammengesetzten Schlüssel bereit, bei dem alle drei Elemente `externalOpportunityId`, `leadId` und `role` erforderlich sind. Sowohl die Opportunity- als auch die Lead-Verknüpfung der ID-Felder müssen in der Zielinstanz vorhanden sein, damit die Erstellung von Datensätzen erfolgreich ist. Für `searchableFields`, `marketoGUID`, `leadId` und `externalOpportunityId` gelten alle für Abfragen allein und verwenden ein Muster, das mit den Möglichkeiten identisch ist. Es gibt jedoch eine zusätzliche Option, den zusammengesetzten Schlüssel für die Abfrage zu verwenden, wozu die Übermittlung eines JSON-Objekts über die POST mit dem zusätzlichen Abfrageparameter `_method=GET` erforderlich ist.
+Beachten Sie, dass sich sowohl `dedupeFields` als auch `searchableFields` in gewisser Weise von Opportunities unterscheiden. `dedupeFields` stellt einen zusammengesetzten Schlüssel bereit, für den alle drei `externalOpportunityId`, `leadId` und `role` erforderlich sind. Sowohl die Opportunity- als auch die Lead-Relation nach den ID-Feldern müssen in der Zielinstanz vorhanden sein, damit die Datensatzerstellung erfolgreich ist. `searchableFields` sind `marketoGUID`, `leadId` und `externalOpportunityId` alle für Abfragen allein gültig und verwenden ein Muster, das mit Opportunities identisch ist. Es gibt jedoch eine zusätzliche Option, den zusammengesetzten Schlüssel für die Abfrage zu verwenden, was erfordert, dass ein JSON-Objekt über die POST mit dem zusätzlichen Abfrageparameter `_method=GET` übermittelt wird.
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -141,11 +141,11 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-Dadurch wird der gleiche Typ von Antwort wie eine Standardabfrage erzeugt, es verfügt lediglich über eine andere Benutzeroberfläche für die Anforderung.
+Dadurch wird dieselbe Art von Antwort erzeugt wie bei einer standardmäßigen GET-Abfrage, sie verfügt lediglich über eine andere Oberfläche für die Anfrage.
 
-## Erstellen und Aktualisieren
+## Erstellen und aktualisieren
 
-Opportunity-Rollen verfügen über die gleiche Oberfläche zum Erstellen und Aktualisieren von Datensätzen als Möglichkeiten.
+Opportunity-Rollen haben dieselbe Oberfläche zum Erstellen und Aktualisieren von Datensätzen wie Opportunities.
 
 ```
 POST /rest/v1/opportunities/roles.json
@@ -193,7 +193,7 @@ POST /rest/v1/opportunities/roles.json
 
 ## Löschen
 
-Sie können Opportunity-Rollen nach Deduplizierungsfeldern oder ID-Feldern löschen. Geben Sie die Verwendung des Parameters deleteBy mit dem Wert dedupeFields oder idField an. Wenn kein Wert angegeben wird, ist der Standardwert dedupeFields. Der Anfrageinhalt enthält eine Eingabe-Gruppe von Opportunity-Rollen zum Löschen. Pro Aufruf sind maximal 300 Opportunity-Rollen zulässig.
+Opportunity-Rollen können nach Deduplizierungsfeldern oder ID-Feldern gelöscht werden. Geben Sie mithilfe des Parameters deleteBy mit dem Wert dedupeFields oder idField an. Wenn kein Wert angegeben ist, lautet der Standardwert dedupeFields. Der Anfragetext enthält ein Eingabearray mit Opportunity-Rollen, die gelöscht werden sollen. Pro Aufruf sind maximal 300 Opportunity-Rollen zulässig.
 
 ```
 POST /rest/v1/opportunities/roles/delete.json
@@ -226,8 +226,8 @@ POST /rest/v1/opportunities/roles/delete.json
 }
 ```
 
-## Timeouts
+## Zeitüberschreitungen
 
-- Opportunity Role endpoints haben eine Zeitüberschreitung von 30 s, es sei denn, unten angegeben
-   - Rollen für Synchronisierungsoptionen: 60 s 
-   - Löschen von Opportunity-Rollen: 60 s
+- Opportunity-Rollenendpunkte haben eine Zeitüberschreitung von 30 s, sofern unten nicht anders angegeben
+   - Opportunity-Rollen synchronisieren: 60er 
+   - Opportunity-Rollen löschen: 60er

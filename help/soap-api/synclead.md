@@ -1,7 +1,7 @@
 ---
-title: syncLead
+title: Lead synchronisieren
 feature: SOAP
-description: syncLead SOAP Aufrufe
+description: SyncLead-SOAP-Aufrufe
 exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
 source-git-commit: ebe8faf41dff0e0ba5f4323f5909cc3c9813fd10
 workflow-type: tm+mt
@@ -10,48 +10,48 @@ ht-degree: 2%
 
 ---
 
-# syncLead
+# Lead synchronisieren
 
-Mit dieser Funktion wird ein einzelner Lead-Datensatz eingefügt oder aktualisiert. Beim Aktualisieren eines vorhandenen Leads wird der Lead mit einem der folgenden Schlüssel identifiziert:
+Diese Funktion fügt einen einzelnen Lead-Datensatz ein oder aktualisiert ihn. Beim Aktualisieren eines bestehenden Leads wird der Lead mit einem der folgenden Schlüssel identifiziert:
 
 - Marketo-ID
-- Ausländische System-ID (implementiert als `foreignSysPersonId`)
-- Marketo-Cookie (erstellt durch das Munchkin-JS-Skript)
+- Ausländische System-ID (als `foreignSysPersonId` implementiert)
+- Marketo-Cookie (vom Munchkin JS-Skript erstellt)
 - E-Mail
 
-Wenn eine vorhandene Übereinstimmung gefunden wird, führt der Aufruf eine Aktualisierung durch. Wenn nicht, wird ein Lead eingefügt und erstellt. Anonyme Leads können mit der Marketo-Cookie-ID aktualisiert werden und werden bei der Aktualisierung bekannt.
+Wenn eine vorhandene Übereinstimmung gefunden wird, führt der Aufruf eine Aktualisierung durch. Andernfalls wird ein Lead eingefügt und erstellt. Anonyme Leads können mit der Marketo-Cookie-ID aktualisiert werden und werden bei der Aktualisierung bekannt.
 
-Mit Ausnahme von E-Mail werden alle diese Kennungen als eindeutige Schlüssel behandelt. Die Marketo ID hat Vorrang vor allen anderen Schlüsseln. Wenn sowohl `foreignSysPersonId` als auch die Marketo ID im Lead-Datensatz vorhanden sind, hat die Marketo ID Vorrang und die `foreignSysPersonId` werden für diesen Lead aktualisiert. Wenn nur `foreignSysPersonId` angegeben ist, wird es als eindeutige Kennung verwendet. Wenn sowohl `foreignSysPersonId` als auch die E-Mail vorhanden sind, die Marketo ID jedoch nicht vorhanden ist, hat der `foreignSysPersonId` Vorrang und die E-Mail wird für diesen Lead aktualisiert.
+Mit Ausnahme von E-Mail werden alle diese Kennungen als eindeutige Schlüssel behandelt. Die Marketo-ID hat Vorrang vor allen anderen Schlüsseln. Wenn sowohl `foreignSysPersonId` als auch die Marketo-ID im Lead-Datensatz vorhanden sind, hat die Marketo-ID Vorrang und die `foreignSysPersonId` wird für diesen Lead aktualisiert. Wenn der einzige `foreignSysPersonId` angegeben ist, wird er als eindeutiger Bezeichner verwendet. Wenn sowohl `foreignSysPersonId` als auch E-Mail vorhanden sind, aber die Marketo-ID nicht vorhanden ist, hat die `foreignSysPersonId` Priorität und die E-Mail wird für diesen Lead aktualisiert.
 
 Optional kann eine Kontextkopfzeile angegeben werden, um den Zielarbeitsbereich zu benennen.
 
 Wenn Marketo-Arbeitsbereiche aktiviert sind und die Kopfzeile verwendet wird, werden die folgenden Regeln angewendet:
 
-- Wenn Zuweisungsregeln festgelegt sind und ein neuer Lead für eine der konfigurierten Regeln qualifiziert ist, werden neue Leads in der durch die Zuweisungsregel definierten Partition erstellt. Andernfalls werden neue Leads in der primären Partition des benannten Workspace erstellt.
-- Leads, die mit der Marketo Lead ID, einer fremden System-ID oder einem Marketo-Cookie übereinstimmen, müssen in der primären Partition des benannten Workspace vorhanden sein. Andernfalls wird ein Fehler zurückgegeben.
-- Wenn ein vorhandener Lead per E-Mail abgeglichen wird, wird der benannte Arbeitsbereich ignoriert und der Lead in der aktuellen Partition aktualisiert
+- Wenn Zuweisungsregeln festgelegt sind und sich ein neuer Lead für eine der konfigurierten Regeln qualifiziert, werden neue Leads in der durch die Zuweisungsregel definierten Partition erstellt. Andernfalls werden neue Leads in der primären Partition des benannten Arbeitsbereichs erstellt.
+- Leads, die mit einer Marketo-Lead-ID, einer fremden System-ID oder einem Marketo-Cookie abgeglichen wurden, müssen in der Primärpartition des benannten Arbeitsbereichs vorhanden sein. Andernfalls wird ein Fehler zurückgegeben
+- Wenn ein vorhandener Lead per E-Mail zugeordnet wird, wird der benannte Arbeitsbereich ignoriert und der Lead in der aktuellen Partition aktualisiert
 
 Wenn Marketo-Arbeitsbereiche aktiviert sind und die Kopfzeile NICHT verwendet wird, werden die folgenden Regeln angewendet:
 
-- Wenn Zuweisungsregeln festgelegt sind und ein neuer Lead für eine der konfigurierten Regeln qualifiziert ist, werden neue Leads in der durch die Zuweisungsregel definierten Partition erstellt. Andernfalls werden neue Leads in der primären Partition des Arbeitsbereichs &quot;Standard&quot;erstellt.
+- Wenn Zuweisungsregeln festgelegt sind und sich ein neuer Lead für eine der konfigurierten Regeln qualifiziert, werden neue Leads in der durch die Zuweisungsregel definierten Partition erstellt. Andernfalls werden neue Leads in der primären Partition des Arbeitsbereichs „Standard“ erstellt.
 - Vorhandene Leads werden in ihrer aktuellen Partition aktualisiert
 
-Wenn Marketo-Arbeitsbereiche NICHT aktiviert sind, MUSS der Zielarbeitsbereich der Arbeitsbereich &quot;Standard&quot;sein. Die Kopfzeile muss nicht übergeben werden.
+Wenn Marketo-Arbeitsbereiche NICHT aktiviert sind, MUSS der Zielarbeitsbereich der „Standard“-Arbeitsbereich sein. Es ist nicht erforderlich, den -Header zu übergeben.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadRecord->Id | Erforderlich - Nur wenn E-Mail oder `foreignSysPersonId` nicht vorhanden ist | Die Marketo ID des Lead-Datensatzes |
-| leadRecord->Email | Erforderlich - Nur wenn ID oder `foreignSysPersonId` nicht vorhanden ist | Die mit dem Lead-Datensatz verknüpfte E-Mail-Adresse |
-| leadRecord->`foreignSysPersonId` | Erforderlich - Nur wenn ID oder E-Mail nicht vorhanden ist | Die mit dem Lead-Datensatz verknüpfte Fremdsystem-ID |
-| leadRecord->externalSysType | Optional - Nur erforderlich, wenn `foreignSysPersonId` vorhanden ist | Die Art des Fremdsystems. Mögliche Werte: CUSTOM, SFDC, NETSUITE |
+| leadRecord->ID | Erforderlich - Nur wenn keine E-Mail oder `foreignSysPersonId` vorhanden ist | Die Marketo-ID des Lead-Datensatzes |
+| leadRecord->Email | Erforderlich - Nur wenn keine ID oder `foreignSysPersonId` vorhanden ist | Die mit dem Lead-Datensatz verknüpfte E-Mail-Adresse |
+| leadRecord->`foreignSysPersonId` | Erforderlich - Nur wenn keine ID oder E-Mail vorhanden ist | Die dem Lead-Datensatz zugeordnete ausländische System-ID |
+| leadRecord->ForeignSysType | Optional - Nur erforderlich, wenn `foreignSysPersonId` vorhanden ist | Die Art des Fremdsystems. Mögliche Werte: CUSTOM, SFDC, NETSUITE |
 | leadRecord->leadAttributeList->attribute->attrName | Erforderlich | Der Name des Lead-Attributs, dessen Wert Sie aktualisieren möchten. |
-| leadRecord->leadAttributeList->attribute->attrValue | Erforderlich | Der Wert, den Sie auf das in &quot;attrName&quot;angegebene Lead-Attribut festlegen möchten. |
-| returnLead | Erforderlich | Wenn &quot;true&quot;, wird der vollständige aktualisierte Lead-Datensatz bei der Aktualisierung zurückgegeben. |
-| marketoCookie | Optional | Das Cookie [Munchkin javascript](../javascript-api/lead-tracking.md) |
+| leadRecord->leadAttributeList->attribute->attrValue | Erforderlich | Der Wert, den Sie auf das in attrName angegebene Attribut für den Lead festlegen möchten. |
+| returnLead | Erforderlich | Wenn „true“, wird der vollständige aktualisierte Lead-Datensatz bei der Aktualisierung zurückgegeben. |
+| marketoCookie | Optional | Das [Munchkin-JavaScript](../javascript-api/lead-tracking.md)-Cookie |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

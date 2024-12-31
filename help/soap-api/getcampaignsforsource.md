@@ -1,32 +1,32 @@
 ---
-title: getCampaignsForSource
+title: getCampaignForSource
 feature: SOAP
-description: getCampaignsForSource-SOAP
+description: getCampaignForSource-SOAP-Aufrufe
 exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '131'
-ht-degree: 6%
+ht-degree: 8%
 
 ---
 
-# getCampaignsForSource
+# getCampaignForSource
 
-Diese Funktion gibt eine Liste der geeigneten Marketo-Kampagnen zurück, die als Eingabeparameter in die Funktion requestCampaign verwendet werden können. Kampagnen werden nach der Quelle der Anforderung kategorisiert, die in der WSDL gezählt wird.
+Diese Funktion gibt eine Liste der in Frage kommenden Marketo-Kampagnen zurück, die als Eingabeparameter in der Funktion requestCampaign verwendet werden können. Kampagnen werden nach der Quelle der Anfrage kategorisiert, die in der WSDL gezählt wird.
 
-Wichtig: Die Smart-Kampagne muss über den Trigger &quot;Kampagne ist angefordert&quot;verfügen, um qualifiziert zu sein. Die Quelle muss die Web Service-API enthalten.
+Wichtig: Die Smart-Kampagne muss den Trigger „Kampagne ist angefordert“ aufweisen, um sich zu qualifizieren. Seine Quelle muss die Webservice-API enthalten.
 
-![campaign_is_request_Trigger](assets/campaign-is-requested-trigger.png)
+![campaign_is_requested_Trigger ](assets/campaign-is-requested-trigger.png)
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| quelle | Erforderlich | -Quelle kann `MKTOWS` oder `SALES` sein. Letztere bietet eine Liste der Kampagnen, die für Sales Insight verfügbar sind. |
-| name | optional | verwenden, um nach Namen zu filtern. Dies ist eine einzelne Zeichenfolge, kein Zeichenfolgen-Array. |
-| exactName | optional | Boolescher Wert, der angibt, ob Sie eine exakte Übereinstimmung für den Parameter name wünschen |
+| quelle | Erforderlich | Die Quelle kann `MKTOWS` oder `SALES` sein. Letztere bietet eine Liste von Kampagnen, die für Sales Insight verfügbar sind. |
+| name | Optional | Verwenden Sie diese Option, um nach Namen zu filtern. Dies ist eine einzelne Zeichenfolge, kein Array von Zeichenfolgen. |
+| exactName | Optional | Boolescher Wert, der angibt, ob Sie eine exakte Übereinstimmung für den Namensparameter wünschen |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

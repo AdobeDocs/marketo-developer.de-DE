@@ -2,13 +2,13 @@
 title: Migration zur REST-API
 feature: SOAP
 description: Migration von SOAP zu REST-APIs
-source-git-commit: 4c410afbe8ccfff644376670b8990fac671459eb
+exl-id: c2956db3-defe-4163-99f3-58654ce8ee2b
+source-git-commit: 5adb5d25c5f1b3e63bf8139725f00d450820e88a
 workflow-type: tm+mt
 source-wordcount: '646'
 ht-degree: 1%
 
 ---
-
 
 # Migration zur REST-API
 

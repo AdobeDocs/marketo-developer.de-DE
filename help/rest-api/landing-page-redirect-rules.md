@@ -1,7 +1,7 @@
 ---
 title: Zielseiten-Umleitungsregeln
 feature: REST API, Landing Pages
-description: Konfigurieren Sie die Umleitungsregeln für Landingpages über die API.
+description: Konfigurieren von Umleitungsregeln für Landingpages über die API.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,19 +12,19 @@ ht-degree: 4%
 
 # Zielseiten-Umleitungsregeln
 
-[Endpunkt-Referenz zu Umleitungsregeln für Landingpages](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules)
+[Endpunkt-Referenz für Umleitungsregeln für Landingpages](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules)
 
-Marketo bietet eine Reihe von REST-APIs zum Ausführen von CRUD-Vorgängen für Landingpage-Umleitungs-URLs. Diese APIs entsprechen dem Standardmuster der Benutzeroberfläche für Asset-APIs, die Optionen zum Abfragen, Erstellen, Aktualisieren und Löschen bereitstellen.
+Marketo bietet eine Reihe von REST-APIs zum Ausführen von CRUD-Vorgängen für Landingpage-Umleitungs-URLs. Diese APIs folgen dem Standard-Schnittstellenmuster für Asset-APIs und bieten Optionen zum Abfragen, Erstellen, Aktualisieren und Löschen.
 
-Mit Umleitungsregeln für Landingpages können Sie eine Landingpage-URL zu einer anderen Seiten-URL umleiten. Sie können Marketo-Landingpages, Nicht-Marketo-Landingpages oder Kombinationen davon umleiten. Weitere Informationen zu Regeln für Umleitungs-Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de).
+Regeln für die Umleitung von Landingpages bieten die Möglichkeit, eine Landingpage-URL zu einer anderen Seiten-URL umzuleiten. Sie können Marketo-Landingpages, Landingpages von Drittanbietern von Marketo oder Kombinationen daraus umleiten. Weitere Informationen zu den Regeln für Umleitungs-Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de).
 
-## Anfrage
+## Abfrage
 
-Beim Abfragen der Umleitungsregeln für Landingpages werden die standardmäßigen Abfragetypen für Assets von [by id](#by_id) und [browsing](#browse) befolgt.
+Die Abfrage von Umleitungsregeln für Landingpages folgt den Standardabfragetypen für Assets von [nach ID](#by_id) und [Browsen](#browse).
 
 ### Nach ID
 
-Der Endpunkt [Umleitungsregeln für Einstiegsseiten nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) verwendet einen Pfadparameter für die Umleitung von Einstiegsseiten `id` und gibt einen einzelnen Datensatz für Umleitungsregeln für Einstiegsseiten zurück.
+Der Endpunkt [Regeln für die Landingpage-Umleitung nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) nimmt `id` Pfadparameter eine einzelne Landingpage-Regel-Umleitung und gibt einen einzelnen Landingpage-Umleitungsregel-Datensatz zurück.
 
 ```
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -59,17 +59,17 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### Durchsuchen
 
-Der Endpunkt [Umleitungsregeln für Landingpages abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) gibt eine Liste mit Einstiegsseiten-Umleitungsregeldatensätzen zurück.
+Der Endpunkt [Regeln für Landingpage-Umleitung abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) gibt eine Liste von Datensätzen für Landingpage-Umleitungsregeln zurück.
 
-Es gibt mehrere optionale Abfrageparameter, die zum Filtern von Ergebnissen übergeben werden können.
+Es gibt mehrere optionale Abfrageparameter, die an die Filterergebnisse übergeben werden können.
 
-Der Parameter `offset` ist eine Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt (standardmäßig 20). Maximal 200. Der Parameter `maxReturn` ist eine Ganzzahl, die angibt, wo Einträge abgerufen werden sollen. Kann zusammen mit dem Versatz verwendet werden (standardmäßig 0).
+Der `offset` ist eine Ganzzahl, die die maximale Anzahl an zurückzugebenden Einträgen angibt (der Standardwert ist 20). Maximal 200. Der `maxReturn` ist eine Ganzzahl, die angibt, wo mit dem Abrufen von Einträgen begonnen werden soll. Kann zusammen mit dem Versatz verwendet werden (der Standardwert ist 0).
 
-Mit dem Parameter `hostname` können Sie nach dem Hostnamen der Landingpages filtern.
+Der `hostname` Parameter kann verwendet werden, um nach dem Host-Namen der Landingpages zu filtern.
 
-Der `redirectToLandingPageId` ist eine Ganzzahl, die zum Filtern der Kennung der Landingpage verwendet werden kann, zu der Sie umleiten. Mit dem `redirectToPath` können Sie nach dem Pfad der Landingpages filtern, zu denen Sie umleiten.
+Die `redirectToLandingPageId` ist eine Ganzzahl, die zum Filtern nach der ID der Landingpage verwendet werden kann, zu der Sie umleiten. Die `redirectToPath` kann verwendet werden, um nach dem Pfad der Landingpages zu filtern, zu denen Sie umleiten.
 
-Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` können Sie Wasserzeichen mit niedrigem und hohem Datum für die Rückgabe von Umleitungsregeln für Landingpages festlegen, die entweder aktualisiert oder ursprünglich im angegebenen Bereich erstellt wurden.
+Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` können Sie Wasserzeichen für niedrige und hohe Datums- und Uhrzeitwerte für zurückgegebene Umleitungsregeln für Landingpages festlegen, die entweder aktualisiert oder innerhalb des angegebenen Bereichs anfänglich erstellt wurden.
 
 ```
 GET /rest/asset/v1/redirectRules.json&maxReturn=3
@@ -136,25 +136,25 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Erstellen
 
-Der Endpunkt [Einstiegsseitenumleitung erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) wird mit einer POST application/x-www-form-urlencoded ausgeführt, die die folgenden drei erforderlichen Parameter aufweist.
+Der Endpunkt [Umleitungsregel für Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) wird mit einer application/x-www-form-urlencoded -POST ausgeführt, die die folgenden drei erforderlichen Parameter aufweist.
 
-Der Parameter `hostname` gibt den Hostnamen für die Landingpage an. Dies sollte zu einer Branding-Domäne oder einem Alias gehören. Die maximale Länge beträgt 255 Zeichen.
+Der Parameter `hostname` gibt den Host-Namen für die Landingpage an. Dieser sollte zu einer Branding-Domain oder einem Alias gehören. Die maximale Länge beträgt 255 Zeichen.
 
-Der Parameter `redirectFrom` gibt die Quell-Landingpage an. Dies ist ein JSON-Objekt, das ein Typ/Wert-Paar enthält, das bestimmt, ob es sich bei der Quelle um eine Marketo-Landingpage oder eine Nicht-Marketo-Landingpage handelt. Das Attribut `type` kann entweder &quot;landingPageId&quot;oder &quot;path&quot;lauten.
+Der `redirectFrom` gibt die Quell-Landingpage an. Dies ist ein JSON-Objekt, das ein Typ-Wert-Paar enthält, das bestimmt, ob es sich bei der Quelle um eine Marketo-Landingpage oder eine Nicht-Marketo-Landingpage handelt. Das `type`-Attribut kann entweder „landingPageId“ oder „path“ sein.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
-| &#39;get&#39; | Erforderlich | Zeichenfolge | Methodenaktion |
-| &#39;visitor&#39; | Erforderlich | Zeichenfolge | Name der Methode. |
-| callback | Erforderlich | Funktion | Callback-Funktion, die für jede zurückgegebene Kampagne ausgelöst wird. |
+| &#39;GET&#39; | Erforderlich | String | Aktion der Methode. |
+| &#39;Besucher&#39; | Erforderlich | String | Methodenname. |
+| Rückruf | Erforderlich | Funktion | Callback-Funktion, die für jede zurückgegebene Kampagne ausgelöst werden soll. |
 
 
-Der Parameter `redirectTo` gibt die Ziel-Landingpage an. Dies ist ein JSON-Objekt, das ein Typ/Wert-Paar enthält, das bestimmt, ob es sich bei der Quelle um eine Marketo-Landingpage oder eine Nicht-Marketo-Landingpage handelt. Das Attribut `type` kann entweder &quot;landingPageId&quot;oder &quot;url&quot;lauten.
+Der `redirectTo` gibt die Ziel-Landingpage an. Dies ist ein JSON-Objekt, das ein Typ-Wert-Paar enthält, das bestimmt, ob es sich bei der Quelle um eine Marketo-Landingpage oder eine Nicht-Marketo-Landingpage handelt. Das `type`-Attribut kann entweder „landingPageId“ oder „url“ sein.
 
 | Landingpage-Typ | redirectTo-Typ | Beispiel |
 |---|---|---|
-| Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
-| Nicht Marketo | URL | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
+| Marketo | landingPageId | {„type“:„landingPageId“,„value“:„1774“} |
+| Nicht-Marketo | URL | {„type“:„url“,„value“:“www.contactLogs.com&quot;} |
 
 Weitere Informationen zum Erstellen von Umleitungsregeln für Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
@@ -197,13 +197,13 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 }
 ```
 
-## Aktualisierung
+## Update
 
-Der Endpunkt [Umleitungsregeln für Landingpages aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) verwendet einen Pfadparameter für die Umleitungsregel für eine einzelne Landingpage `id`. Dieser Endpunkt wird mit einer application/x-www-form-urlencoded -POST ausgeführt.
+Der Endpunkt [Aktualisierung der Umleitungsregeln für ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ akzeptiert eine einzige Umleitungsregel für Landingpages `id` den Pfadparameter . Dieser Endpunkt wird mit einer application/x-www-form-urlencoded-POST ausgeführt.
 
-Wie beim oben beschriebenen Erstellungsaufruf werden mindestens ein der folgenden Abfrageparameter übergeben, um anzugeben, welches Attribut der Regel aktualisiert werden soll: `hostname`, `redirectFrom`, `redirectTo`.
+Wie beim oben beschriebenen create-Aufruf werden einer oder mehrere der folgenden Abfrageparameter übergeben, um anzugeben, welches Attribut der Regel aktualisiert werden soll: `hostname`, `redirectFrom`, `redirectTo`.
 
-In der Antwort wird der aktualisierte Datensatz der Umleitungsregel der Landingpage zurückgegeben.
+Der aktualisierte Datensatz für die Umleitungsregel der Landingpage wird in der Antwort zurückgegeben.
 
 ```
 POST /rest/asset/v1/redirectRule/{id}.json
@@ -246,7 +246,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## Löschen
 
-Der Endpunkt [Umleitungsregel für Einstiegsseite löschen nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) verwendet einen Pfadparameter für die Umleitung von Einstiegsseitenregeln `id`.
+Der Endpunkt [Umleitungsregel für Landingpage nach ID löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) verwendet einen einzelnen Parameter für die Umleitung `id` Landingpage-Regeln.
 
 ```
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -266,15 +266,15 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 }
 ```
 
-## Domänen von Landingpages durchsuchen
+## Durchsuchen von Landingpage-Domains
 
-Der Endpunkt [Get Landingpage Domains](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) gibt eine Liste der Landingpage-Domäneneinträge zurück.
+Der Endpunkt [Landingpage-Domains abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) gibt eine Liste von Landingpage-Domain-Einträgen zurück.
 
 Es gibt zwei optionale Abfrageparameter, die zum Filtern von Ergebnissen übergeben werden können.
 
-Der Parameter `offset` ist eine Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt (standardmäßig 20, maximal 200).
+Der `offset` ist eine Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt (standardmäßig 20, maximal 200).
 
-Der Parameter `maxReturn` ist eine Ganzzahl, die angibt, wo Einträge abgerufen werden sollen. Kann zusammen mit `offset` verwendet werden (der Standardwert ist 0).
+Der `maxReturn` ist eine Ganzzahl, die angibt, wo mit dem Abrufen von Einträgen begonnen werden soll. Kann zusammen mit `offset` verwendet werden (der Standardwert lautet 0).
 
 ```
 POST /rest/asset/v1/landingPageDomains.json?maxReturn=3

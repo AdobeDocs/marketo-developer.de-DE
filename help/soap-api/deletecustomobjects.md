@@ -1,27 +1,27 @@
 ---
 title: deleteCustomObjects
 feature: SOAP, Custom Objects
-description: deleteCustomObjects SOAP -Aufrufe.
+description: deleteCustomObjects-SOAP-Aufrufe.
 exl-id: 214b7cd1-dc4e-45dc-a29a-91518a275e61
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '78'
-ht-degree: 7%
+ht-degree: 10%
 
 ---
 
 # deleteCustomObjects
 
-Löscht ein oder mehrere benutzerdefinierte Objekte und gibt das Ergebnis des Vorgangs (DELETED, UNCHANGED, FAILED) zurück.
+Löscht ein oder mehrere benutzerdefinierte Objekte und gibt das Ergebnis des Vorgangs zurück (DELETED, UNCHANGED, FAILED).
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
 | objTypeName | Erforderlich | Name des benutzerdefinierten Objekts |
-| customObjKeyLists->keyList->attribute | Erforderlich | Das Attribut ist ein Schlüssel-Wert-Paar, das zur Identifizierung der benutzerdefinierten Objekte dient, die Sie löschen möchten. Sie können mehrere Attribute in den customObjKeyLists angeben. |
+| customObjKeyLists->keyList->attribute | Erforderlich | Das -Attribut ist ein Schlüssel/Wert-Paar, das zur Identifizierung der benutzerdefinierten Objekte verwendet wird, die Sie löschen möchten. In den customObjKeyLists können Sie mehrere Attribute angeben |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

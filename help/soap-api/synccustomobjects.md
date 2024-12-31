@@ -1,37 +1,37 @@
 ---
 title: syncCustomObjects
 feature: SOAP
-description: syncCustomObjects SOAP Aufrufe
+description: syncCustomObjects-SOAP-Aufrufe
 exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
 # syncCustomObjects
 
-Akzeptiert ein Array von benutzerdefinierten Objekten, die erstellt oder aktualisiert werden sollen, bis zu 100 pro Aufruf. Es werden das Ergebnis (Status) des Vorgangs (ERSTELLT, AKTUALISIERT, FEHLGESCHLAGEN, UNCHANGED, SKIPPED) und die verarbeiteten benutzerdefinierten Objekte zurückgegeben. Die API wird in einem der drei Betriebsmodi aufgerufen:
+Akzeptiert ein Array von benutzerdefinierten Objekten, die erstellt oder aktualisiert werden sollen, bis zu maximal 100 pro Aufruf. Sie gibt das Ergebnis (Status) des Vorgangs (ERSTELLT, AKTUALISIERT, FEHLGESCHLAGEN, UNVERÄNDERT, ÜBERSPRUNGEN) und die benutzerdefinierten Objekte zurück, die verarbeitet wurden. Die API wird in einem von drei Betriebsmodi aufgerufen:
 
-1. EINFÜGEN - nur neue Objekte einfügen, vorhandene Objekte überspringen
+1. EINFÜGEN - Nur neue Objekte einfügen, vorhandene Objekte überspringen
 1. UPDATE - nur vorhandene Objekte aktualisieren, neue Objekte überspringen
-1. UPSERT - Einfügen neuer Objekte und Aktualisieren vorhandener Objekte
+1. UPSERT - Neue Objekte einfügen und vorhandene Objekte aktualisieren
 
-Bei einem einzelnen API-Aufruf können einige Aktualisierungen erfolgreich sein und einige könnten fehlschlagen. Für jeden Fehler wird eine Fehlermeldung zurückgegeben.
+In einem einzelnen API-Aufruf können einige Aktualisierungen erfolgreich sein und einige können fehlschlagen. Für jeden Fehler wird eine Fehlermeldung zurückgegeben.
 
-Bei benutzerdefinierten Objekten, die mit der neuen Benutzeroberfläche &quot;Benutzerdefiniertes Objekt&quot;bereitgestellt werden, können nur Felder, die in der Benutzeroberfläche als `dedupe` -Felder ausgewiesen sind, in `CustomObjKeyList` als Attribute übergeben werden. Verknüpfungsfelder, die keine `dedupe` -Felder sind, müssen in `customObjAttributeList` als Attribut übergeben werden.
+Bei benutzerdefinierten Objekten, die mit der neuen Benutzeroberfläche für benutzerdefinierte Objekte bereitgestellt werden, können nur Felder, die in der Benutzeroberfläche als `dedupe` Felder gekennzeichnet sind, als Attribute in `CustomObjKeyList` übergeben werden. Verknüpfungsfelder, die keine `dedupe` sind, müssen in `customObjAttributeList` als Attribut übergeben werden.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| operation | Erforderlich | &quot;INSERT&quot;, &quot;UPDATE&quot;oder &quot;UPSERT&quot; |
+| Betrieb | Erforderlich | „INSERT“, „UPDATE“ oder „UPSERT“ |
 | objectTypeName | Erforderlich | Name des benutzerdefinierten Objekts |
-| customObjectList->customObject->customObjKeyList->attribute | Erforderlich | Das Attribut ist ein Schlüssel-Wert-Paar, das zur Identifizierung des benutzerdefinierten Objekts verwendet wird. Sie können mehrere Attribute in der customObjKeyList haben. |
-| customObjectList->customObject->customObjAttributeList->attribute | Erforderlich | Schlüssel-Wert-Paare, wobei der Name der Feldname und der Wert der Wert ist, den Sie in das customObject einfügen möchten |
+| customObjectList->customObject->customObjKeyList->attribute | Erforderlich | Das Attribut ist ein Schlüssel/Wert-Paar, das zur Identifizierung des benutzerdefinierten Objekts verwendet wird. Die customObjKeyList kann mehrere Attribute enthalten |
+| customObjectList->customObject->customObjAttributeList->attribute | Erforderlich | Schlüssel/Wert-Paare, wobei der Name der Feldname und der Wert der Wert ist, den Sie in das customObject einfügen möchten |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,18 +1,18 @@
 ---
 title: getLeadActivity
 feature: SOAP
-description: getLeadActivity-SOAP
+description: getLeadActivity-SOAP-Aufrufe
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '346'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
 # getLeadActivity
 
-Diese Funktion ruft den Aktivitätsverlauf für einen einzelnen Lead ab, der durch den bereitgestellten Schlüssel identifiziert wird. Sie können angeben, welche Aktivitätstypen im Ergebnis zurückgegeben werden sollen. Wenn Sie alle Aktivitätstypen verwenden möchten, muss ein leerer Wert übergeben werden. Geben Sie für mehr als einen Aktivitätstyp eine Liste der Aktivitätstypen an. Bei der Anforderung mehrerer Aktivitäten ist die verbleibende Anzahl keine genaue Zahl, sondern sollte als Markierung behandelt werden, die angibt, dass bei der verbleibenden Anzahl > 0 mehr Aktivitäten vorhanden sind.
+Diese Funktion ruft den Aktivitätsverlauf für einen einzelnen Lead ab, der durch den bereitgestellten Schlüssel identifiziert wird. Sie können angeben, welche Aktivitätstypen im Ergebnis zurückgegeben werden sollen. Wenn Sie alle Aktivitätstypen auswählen möchten, muss ein leerer Wert übergeben werden. Für mehr als einen Aktivitätstyp können Sie eine Liste von Aktivitätstypen übergeben. Wenn mehrere Aktivitäten angefordert werden, ist die verbleibende Anzahl keine genaue Zahl, sondern sollte als Flag behandelt werden, das anzeigt, dass es mehr Aktivitäten gibt, wenn die verbleibende Anzahl > 0 ist.
 
 Eine [Stream-Position](stream-position.md) kann verwendet werden, um durch große Ergebnismengen zu paginieren.
 
@@ -20,17 +20,17 @@ Eine [Stream-Position](stream-position.md) kann verwendet werden, um durch groß
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadKey->keyType | Erforderlich | keyType ermöglicht die Angabe des Felds, nach dem der Lead abgefragt werden soll. Mögliche Werte sind:`IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadKey->keyType | Erforderlich | Mit keyType können Sie das Feld angeben, nach dem Sie den Lead abfragen möchten. Mögliche Werte sind: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Erforderlich | `keyValue` ist der Wert, nach dem Sie den Lead abfragen möchten. |
-| activityFilter->includeAttributes->activityType | optional | Beschränkt die Antwort so, dass nur die angegebenen Aktivitätstypen einbezogen werden. Alle Aktivitätstypen finden Sie unter WSDL . |
-| activityFilter->excludeAttributes->activityType | optional | Beschränkt die Antwort, um die angegebenen Aktivitätstypen auszuschließen. Alle Aktivitätstypen finden Sie unter WSDL . HINWEIS: Sie können im selben Aufruf nicht sowohl `includeAttributes` als auch `excludeAttributes` angeben. |
-| batchSize | optional | Maximale Datensatzanzahl. Das System ist auf 100 oder `batchSize` beschränkt, je nachdem, welcher Wert kleiner ist. |
-| startPosition->offset | optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Der Offset-Wert wird vom Antwortfeld der vorherigen Aufrufe `newStartPosition->offset` zurückgegeben. |
-| startPosition->activityCreatedAt | optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Die activityCreatedAt wird vom Antwortfeld `newStartPosition->activityCreatedAt` des vorherigen Aufrufs zurückgegeben. (W3C WSDL-Datumsformat). |
-| startPosition->latestCreatedAt | optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Das latestCreatedAt wird vom Antwortfeld `newStartPosition->latestCreatedAt` des vorherigen Aufrufs zurückgegeben. (W3C WSDL-Datumsformat). |
-| startPosition->oldestCreatedAt | optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Das älteste CreatedAt wird vom Antwortfeld `newStartPosition->oldestCreatedAt` des vorherigen Aufrufs zurückgegeben. (W3C WSDL-Datumsformat). |
+| activityFilter->includeAttributes->activityType | Optional | Beschränkt die Antwort darauf, nur die angegebenen Aktivitätstypen einzuschließen. Siehe WSDL für alle Aktivitätstypen. |
+| activityFilter->excludeAttributes->activityType | Optional | Beschränkt die Antwort auf den Ausschluss der angegebenen Aktivitätstypen. Siehe WSDL für alle Aktivitätstypen. HINWEIS: Sie können nicht sowohl `includeAttributes` als auch `excludeAttributes` innerhalb desselben Aufrufs angeben. |
+| batchSize | Optional | Maximale Anzahl an zurückzugebenden Datensätzen Das System beschränkt auf 100 oder `batchSize`, je nachdem, welcher Wert kleiner ist. |
+| startPosition->offset | Optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Der Offset-Wert wird von der `newStartPosition->offset` der vorherigen Aufrufantwort zurückgegeben. |
+| startPosition->activityCreatedAt | Optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Die activityCreatedAt wird vom Antwortfeld-`newStartPosition->activityCreatedAt` des vorherigen Aufrufs zurückgegeben. (W3C WSDL-Datumsformat). |
+| startPosition->latestCreatedAt | Optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. LatestCreatedAt wird von der Antwort-`newStartPosition->latestCreatedAt` des vorherigen Aufrufs zurückgegeben. (W3C WSDL-Datumsformat). |
+| startPosition->oldestCreatedAt | Optional | Wird verwendet, um durch eine große Anzahl von Aktivitätsantworten zu paginieren. Das Feld oldestCreatedAt wird vom Antwortfeld-`newStartPosition->oldestCreatedAt` des vorherigen Aufrufs zurückgegeben. (W3C WSDL-Datumsformat). |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -668,7 +668,7 @@ Eine [Stream-Position](stream-position.md) kann verwendet werden, um durch groß
 </SOAP-ENV:Envelope>
 ```
 
-Beachten Sie, dass innerhalb der Elemente `activityRecord` das Element `id` durch das Element `marketoGUID` als eindeutige Kennung ersetzt wird.  Diese Änderung wird in der Version Frühjahr 2017 vorgenommen.
+Beachten Sie, dass innerhalb `activityRecord` Elemente das `id` Element durch das `marketoGUID` Element als eindeutige Kennung ersetzt wird.  Diese Änderung wird in der Version vom Frühjahr 2017 vorgenommen.
 
 ## Beispielcode - PHP
 

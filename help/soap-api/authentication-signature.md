@@ -12,15 +12,15 @@ ht-degree: 4%
 
 # Authentifizierungssignatur
 
-Die Marketo API-Sicherheit verwendet ein einfaches, aber hochsicheres Modell, das auf HMAC-SHA1-Signaturen mit über HTTPS übertragenen Nachrichten basiert. Ein wichtiger Vorteil dieses Modells besteht darin, dass es eine stateless-Authentifizierung bereitstellt.
+Die Marketo-API-Sicherheit verwendet ein einfaches, aber hochsicheres Modell, das auf HMAC-SHA1-Signaturen mit Nachrichten basiert, die über HTTPS übertragen werden. Ein wesentlicher Vorteil dieses Modells besteht darin, dass es eine statuslose Authentifizierung bietet.
 
 HMAC-SHA1-Signaturen erfordern Folgendes:
 
-- Eine Benutzer-ID (auch als Zugriffsschlüssel bezeichnet), die mit der Dienstanfrage übertragen wird
-- Eine Signatur, die mit einem gemeinsamen geheimen Schlüssel und Nachrichteninhalt berechnet und mit der Dienstanfrage übertragen wird
-- Ein gemeinsamer geheimer Schlüssel (auch Verschlüsselungsschlüssel genannt), der nicht mit der Dienstanforderung übertragen wird
+- Eine Benutzer-ID (auch als Zugriffsschlüssel bezeichnet), die mit der Service-Anfrage übertragen wird
+- Eine Signatur, die mithilfe eines gemeinsamen geheimen Schlüssels und Nachrichteninhalts berechnet und mit der Service-Anfrage übertragen wird
+- Ein gemeinsamer geheimer Schlüssel (auch als Verschlüsselungsschlüssel bezeichnet), der nicht mit der Service-Anfrage übertragen wird
 
-Das Clientprogramm berechnet die HMAC-SHA1-Signatur mithilfe des gemeinsamen geheimen Schlüssels und eines Teils des Inhalts der Anfragenachricht. Der Client muss einen SOAP-Header, AuthenticationHeaderInfo, enthalten, um Authentifizierungsinformationen mit der SOAP zu übergeben.
+Das Client-Programm berechnet die HMAC-SHA1-Signatur unter Verwendung des gemeinsamen geheimen Schlüssels und eines Teils des Inhalts der Anforderungsnachricht. Der Client muss einen SOAP-Header, AuthenticationHeaderInfo, enthalten, um Authentifizierungsinformationen mit der SOAP-Nachricht zu übergeben.
 
 Der folgende Pseudo-Code veranschaulicht den Algorithmus:
 
@@ -39,16 +39,16 @@ authHeader = "<ns1:AuthenticationHeader>" +
     "</ns1:AuthenticationHeader>";
 ```
 
-## Anforderungsheader
+## Anfrage-Header
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| `mktowsUserId` | Erforderlich | Die Marketo-Client-Zugriffs-ID befindet sich im Bedienfeld Ihrer Marketo Admin SOAP-API unter Integration. |
-| `requestSignature` | Erforderlich | HMAC-SHA1-Signatur basierend auf dem gemeinsamen geheimen Schlüssel, `requestTimestamp` und der Marketo User ID |
-| `requestTimestamp` | Erforderlich | Zeitstempel anfordern (W3C WSDL-Datumsformat z. B. &quot;2013-06-09T14:04:54-08:00&quot;) |
-| `partnerId` | Optional | LaunchPoint-Technologie-Partner [API-Schlüssel](../launchpoint-api.pdf). |
+| `mktowsUserId` | Erforderlich | Die Marketo-Client-Zugriffs-ID befindet sich im Bereich der Marketo Admin-SOAP-API unter „Integration“. |
+| `requestSignature` | Erforderlich | HMAC-SHA1-Signatur basierend auf freigegebenem geheimen Schlüssel, `requestTimestamp` und Marketo-Benutzer-ID |
+| `requestTimestamp` | Erforderlich | Zeitstempel der Anfrage (W3C WSDL-Datumsformat z. B. „2013-06-09T14:04:54-08:00„) |
+| `partnerId` | Optional | LaunchPoint Technology Partner [API-Schlüssel](../launchpoint-api.pdf). |
 
-## Request XML - getLeadActivity
+## Anfrage-XML - getLeadActivity
 
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mkt="http://www.marketo.com/mktows/">
@@ -132,7 +132,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 </SOAP-ENV:Envelope
 ```
 
-## Antwort-XML - Fehler (ungültige Anmeldedaten)
+## Antwort-XML - Fehler (ungültige Anmeldeinformationen)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

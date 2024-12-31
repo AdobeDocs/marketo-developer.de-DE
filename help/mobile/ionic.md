@@ -1,7 +1,7 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Verwenden von [!DNL Ionic] mit Marketo für Mobilgeräte
+description: Verwenden  [!DNL Ionic]  Marketo für Mobilgeräte
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -10,29 +10,29 @@ ht-degree: 2%
 
 ---
 
-# Ironisch
+# ionisch
 
-Hier wird die Integration des Marketo Cordova-Plug-ins beschrieben. [!DNL Ionic] Kondensatoren werden derzeit nicht unterstützt.
+In diesem Abschnitt wird die Integration des Marketo Cordova-Plug-ins beschrieben. [!DNL Ionic] Kondensator wird derzeit nicht unterstützt.
 
 ## Voraussetzungen
 
-1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (rufen Sie den Geheimnisschlüssel der Anwendung und die Munchkin ID ab).
-1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md)) | [Android](push-notifications.md) ).
-1. Installieren Sie [[!DNL Ionic]](https://ionicframework.com/getting-started/) und [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
+1. Installieren Sie [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanweisungen
 
-### Einrichten des Marketo [!DNL Ionic]-Plugins
+### Marketo [!DNL Ionic]-Plug-in einrichten
 
-1. Wenn die Cordova-CLI installiert ist, wechseln Sie zum Ordner Ihrer [!DNL Ionic]-Anwendung und führen Sie den folgenden Befehl aus, um das Marketo-Plug-in zu Ihrer Anwendung hinzuzufügen:
+1. Wenn die Cordova-CLI installiert ist, wechseln Sie zu Ihrem [!DNL Ionic]-Anwendungsverzeichnis und führen Sie den folgenden Befehl aus, um das Marketo-Plug-in zu Ihrer Anwendung hinzuzufügen:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
-1. Führen Sie den folgenden Befehl aus, um zu bestätigen, dass das Plug-in zur Anwendung hinzugefügt wurde:
+1. Um zu bestätigen, dass das Plug-in zur Anwendung hinzugefügt wurde, führen Sie den folgenden Befehl aus:
 
    `$ ionic plugin list com.marketo.plugin 0.X.0 "MarketoPlugin"`
 
-### Migration zur neueren Version (optional)
+### Zu neuerer Version migrieren (optional)
 
 1. Um ein vorhandenes Plug-in zu entfernen, führen Sie den folgenden Befehl aus:
 
@@ -42,13 +42,13 @@ Hier wird die Integration des Marketo Cordova-Plug-ins beschrieben. [!DNL Ionic]
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
-### Push-Benachrichtigungen in xCode aktivieren
+### Aktivieren von Push-Benachrichtigungen in xCode
 
-1. Aktivieren Sie die Push-Benachrichtigungsfunktion im xCode-Projekt.![Benachrichtigungsfunktion](assets/notification-capability.png)
+1. Aktivieren der Push-Benachrichtigungsfunktion in einem xCode-Projekt.![Benachrichtigungsfunktion](assets/notification-capability.png)
 
-### Push-Benachrichtigungen verfolgen
+### Push-Benachrichtigungen tracken
 
-Fügen Sie den folgenden Code in die Funktion `application:didFinishLaunchingWithOptions:` ein.
+Fügen Sie den folgenden Code in die `application:didFinishLaunchingWithOptions:` ein.
 
 >[!BEGINTABS]
 
@@ -70,9 +70,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 >[!ENDTABS]
 
-### Marketo Framework initialisieren
+### Marketo-Framework initialisieren
 
-Um sicherzustellen, dass das Marketo-Framework beim Start der App initiiert wird, fügen Sie den folgenden Code unter der Funktion `onDeviceReady` in Ihrer JavaScript-Hauptdatei hinzu.
+Um sicherzustellen, dass das Marketo-Framework beim Start des Programms initiiert wird, fügen Sie den folgenden Code unter der `onDeviceReady` in Ihrer JavaScript-Hauptdatei hinzu.
 
 Sie müssen `ionicCordova` als Framework-Typ für [!DNL Ionic] Cordova-Apps übergeben.
 
@@ -98,13 +98,13 @@ marketo.onStart(
 #### Parameter
 
 - Success Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework erfolgreich initialisiert wurde.
-- Rückruf mit Fehler : Funktion wird ausgeführt, wenn das Marketo-Framework nicht initialisiert werden kann.
-- MUNCHKIN ID : Munchkin ID, die bei der Registrierung von Marketo erhalten wurde.
-- GEHEIMSCHLÜSSEL : Geheimer Schlüssel, der zum Zeitpunkt der Registrierung von Marketo erhalten wurde.
+- Fehlgeschlagener Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework nicht initialisiert werden kann.
+- MUNCHKIN-ID : Munchkin-ID, die zum Zeitpunkt der Registrierung von Marketo erhalten wurde.
+- GEHEIMSCHLÜSSEL : Geheimer Schlüssel, der zum Zeitpunkt der Registrierung von Marketo empfangen wurde.
 
 ### Marketo-Push-Benachrichtigung initialisieren
 
-Um sicherzustellen, dass Marketo-Push-Benachrichtigungen initiiert werden, fügen Sie den folgenden Code nach der initialisierten Funktion in Ihrer JavaScript-Hauptdatei hinzu.
+Um sicherzustellen, dass die Marketo-Push-Benachrichtigung initiiert wird, fügen Sie der Hauptdatei von JavaScript nach der initialisierten Funktion den folgenden Code hinzu.
 
 #### Aufbau
 
@@ -119,11 +119,11 @@ marketo.initializeMarketoPush(
 
 #### Parameter
 
-- Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wird.
-- Rückruf bei Fehler : Funktion wird ausgeführt, wenn die Initialisierung der Marketo-Push-Benachrichtigung fehlschlägt.
-- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in der [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) gefunden wurde.
+- Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
+- Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in ](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) Entwicklerkonsole von Google gefunden wurde.[
 
-Die Registrierung des Tokens kann auch bei der Abmeldung aufgehoben werden.
+Die Registrierung des Tokens kann auch beim Abmelden aufgehoben werden.
 
 ```javascript
 marketo.uninitializeMarketoPush(
@@ -134,7 +134,7 @@ marketo.uninitializeMarketoPush(
 
 ## Lead verknüpfen
 
-Sie können einen Marketo-Lead erstellen, indem Sie die Funktion &quot;AssociateLead&quot;aufrufen.
+Sie können einen Marketo-Lead erstellen, indem Sie die Funktion AssociateLead aufrufen.
 
 ### Aufbau
 
@@ -149,7 +149,7 @@ marketo.associateLead(
 ### Parameter
 
 - Success Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework den Lead erfolgreich verknüpft.
-- Fehler-Rückruf : Funktion wird ausgeführt, wenn das Marketo-Framework den Lead nicht zuordnen kann.
+- Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn das Marketo-Framework den Lead nicht verknüpfen kann.
 - Lead-Daten : Lead-Daten im JSON-Zeichenfolgenformat.
 
 ### Beispiel
@@ -177,7 +177,7 @@ marketo.associateLead(
 
 ## Berichtsaktion
 
-Sie können jede vom Benutzer ausgeführte Aktion melden, indem Sie die Funktion `reportaction` aufrufen.
+Sie können jede vom Benutzer durchgeführte Aktion melden, indem Sie die `reportaction`-Funktion aufrufen.
 
 ### Aufbau
 
@@ -192,8 +192,8 @@ marketo.reportaction(
 
 ### Parameter
 
-- Erfolgsrückruf : Funktion, die ausgeführt wird, wenn die Marketo-Framework-Berichtsaktion erfolgreich ausgeführt wird.
-- Rückruf mit Fehler : Funktion wird ausgeführt, wenn das Marketo-Framework keine Aktion in Berichten aufzeichnet.
+- Erfolgs-Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework eine Aktion erfolgreich meldet.
+- Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn das Marketo-Framework keine Berichtsaktion ausgibt.
 - Aktionsname : Aktionsname.
 - Aktionsdaten : Aktionsdaten im JSON-Zeichenfolgenformat.
 
@@ -218,7 +218,7 @@ marketo.reportaction(
 
 ## Sitzungsberichte
 
-Binden Sie die Ereignistypen &quot;pause&quot;und &quot;resume&quot;, wie unten gezeigt, um Start- und Stopp-Ereignisse zu melden. Damit wird die in Ihrer Mobile App verbrachte Zeit verfolgt. Hinweis: Dies ist in Android erforderlich.
+Binden Sie die Ereignistypen „Anhalten“ und „Fortsetzen“ wie unten gezeigt, um Start- und Stopp-Ereignisse zu melden. Damit wird die in der Mobile App verbrachte Zeit verfolgt. Hinweis: Dies ist in Android erforderlich.
 
 ```javascript
 //Add the following code in your www/js/index.js
@@ -241,14 +241,14 @@ onStart: function() {
 },
 ```
 
-## Erstellen von Leads
+## Leads erstellen
 
 Es gibt drei Möglichkeiten, Leads aus einer Hybrid-App zu erstellen:
 
 1. MARKETO MME SDK
-1. MARKETO REST API
+1. Marketo REST-API
 1. Formular senden
 
-Je nach verwendeter Methode wird ein neu erstellter Lead von verschiedenen Triggern und Filtern erkannt. Leads, die mit dem MME SDK oder der REST API erstellt wurden, werden in den Triggern und Filtern &quot;Lead erstellt&quot;angezeigt. Leads, die von Formularübermittlungen erstellt wurden, erscheinen in den Triggern und Filtern &quot;Formular ausfüllen&quot;.
+Je nach verwendeter Methode wird ein neu erstellter Lead von verschiedenen Triggern und Filtern erkannt. Leads, die mit der MME SDK- oder REST-API erstellt wurden, werden in den Triggern und Filtern „Lead erstellt“ angezeigt. Durch Formularübermittlungen erstellte Leads werden in den Triggern und Filtern des „ausgefüllten Formulars“ angezeigt.
 
-Die Best Practice besteht darin, mit der Methode konsistent zu bleiben, die von der Web-Anwendung beim Erstellen von Leads verwendet wird. Wenn Sie bereits über eine Web-App verfügen, die die Formularübermittlung als Mechanismus zum Erstellen von Leads verwendet, verwenden Sie denselben Mechanismus beim Erstellen von Leads in Ihrer Hybrid-App. Wenn Sie bereits über eine Web-App verfügen, die unsere REST-API als Mechanismus zum Erstellen von Leads verwendet, verwenden Sie denselben Mechanismus beim Erstellen von Leads in Ihrer Hybrid-App. In Fällen, in denen Sie weder die Formularübermittlung noch die REST-API als Mechanismus zum Erstellen von Leads in Ihrer Web-App verwenden, können Sie erwägen, das MME-SDK zum Erstellen von Leads in Marketo zu verwenden.
+Es empfiehlt sich, bei der Erstellung von Leads die Konsistenz mit der von der Web-Anwendung verwendeten Methode zu wahren. Wenn Sie bereits über eine Web-Anwendung verfügen, die die Formularübermittlung als Mechanismus zum Erstellen von Leads verwendet, verwenden Sie denselben Mechanismus beim Erstellen von Leads in Ihrer Hybrid-Anwendung. Wenn Sie bereits über eine Web-Anwendung verfügen, die unsere REST-API als Mechanismus zum Erstellen von Leads verwendet, verwenden Sie denselben Mechanismus beim Erstellen von Leads in Ihrer Hybrid-App. Wenn Sie weder die Formularübermittlung noch die REST-API als Mechanismus zum Erstellen von Leads in Ihrer Web-Anwendung verwenden, können Sie erwägen, die MME-SDK zum Erstellen von Leads in Marketo zu verwenden.

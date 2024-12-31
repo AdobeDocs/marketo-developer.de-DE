@@ -1,7 +1,7 @@
 ---
 title: Aktivitäten
 feature: SOAP
-description: SOAP Aufrufe zu Aktivitäten
+description: SOAP fordert Aktivitäten
 exl-id: fd695ab6-e7be-4ced-89c9-c4cd2d4c2ab0
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,7 +12,7 @@ ht-degree: 10%
 
 # Aktivitäten
 
-Die folgenden SOAP-Aufrufe können für die Interaktion mit Aktivitäten verwendet werden.
+Die folgenden SOAP-Aufrufe können zur Interaktion mit -Aktivitäten verwendet werden.
 
-- [getLeadActivities](getleadactivity.md)
+- [getLeadAktivitäten](getleadactivity.md)
 - [getLeadChanges](getleadchanges.md)

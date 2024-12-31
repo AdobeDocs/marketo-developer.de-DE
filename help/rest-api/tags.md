@@ -1,7 +1,7 @@
 ---
 title: Tags
 feature: REST API, Tags
-description: Verwalten Sie Tags für Programme in Marketo.
+description: Verwalten von Tags für Programme in Marketo.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,15 +12,15 @@ ht-degree: 2%
 
 # Tags
 
-[Tags-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[Tags-Endpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
 
-Tags sind benutzerdefinierte Felder für Programme. Jedes Tag kann für einen oder mehrere Programmtypen gelten und je nach Definition des Tags entweder erforderlich oder optional sein. Tags können auch eine Liste der zulässigen Werte bereitstellen, aus denen ausgewählt werden muss.
+Tags sind benutzerdefinierte Felder für Programme. Jedes Tag kann sich auf einen oder mehrere Programmtypen beziehen und kann entweder erforderlich oder optional sein, je nachdem, wie das Tag definiert wurde. Tags können auch eine Liste zulässiger Werte bereitstellen, aus denen Sie zur Verwendung auswählen müssen.
 
-## Anfrage
+## Abfrage
 
-Tags werden mit dem standardmäßigen Asset-Muster abgefragt, haben jedoch keinen Endpunkt für &quot;Nach ID&quot;. Die Liste der zulässigen Werte für ein Tag wird nur zurückgegeben, wenn das Tag nach Namen abgefragt wird.
+Tags werden mit dem Standard-Asset-Muster abgefragt, haben jedoch keinen Endpunkt für nach ID. Die Liste der zulässigen Werte für ein Tag wird nur zurückgegeben, wenn das Tag anhand des Namens abgefragt wird.
 
-### Abrufen von Tags
+### Tags abrufen
 
 ```
 GET /rest/asset/v1/tagTypes.json
@@ -75,9 +75,9 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 }
 ```
 
-## Aktualisierung
+## Update
 
-Mit dem Endpunkt [Programm-Tag aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) können Sie den Wert für einen bestimmten Tag-Typ aktualisieren. Der Endpunkt akzeptiert Pfadparameter `id` und `tagType`, die die Programm-ID und den zu aktualisierenden Tag-Typ angeben. Ein `tagValue` -Abfrageparameter wird verwendet, um den neuen Wert für den Tag-Typ anzugeben. Alle Parameter sind erforderlich.
+Der Endpunkt [Programm-Tag](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) ermöglicht es Ihnen, den Wert für einen bestimmten Tag-Typ zu aktualisieren. Der Endpunkt akzeptiert einen `id` und `tagType` Pfadparameter, die die Programm-ID und den zu aktualisierenden Tag-Typ angeben. Ein `tagValue` Abfrageparameter wird verwendet, um den neuen Wert für den Tag-Typ anzugeben. Alle Parameter sind erforderlich.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Tags können gebündelt mit dem Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) aktualisiert werden. Ein Beispiel dafür finden Sie [hier](programs.md#update).
+Tags können massenweise mit dem Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) aktualisiert werden. Ein Beispiel dafür finden Sie [hier](programs.md#update).
 
 ## Löschen
 
-Mit dem Endpunkt [Programm-Tag löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert Pfadparameter `id` und `tagType`, die die Programm-ID und den zu löschenden Tag-Typ angeben.
+Mit [ Endpunkt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

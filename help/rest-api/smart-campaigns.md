@@ -1,7 +1,7 @@
 ---
 title: Intelligente Kampagnen
 feature: REST API, Smart Campaigns
-description: Übersicht über Smart-Kampagnen
+description: Smart Campaign - Übersicht
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,19 +12,19 @@ ht-degree: 1%
 
 # Intelligente Kampagnen
 
-[Endpoint-Referenz für Smart-Kampagnen (Asset)](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns)
+[Endpunkt-Referenz für Smart-Kampagnen (Asset)](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns)
 
-[Kampagnen-Endpunktverweis (Leads)](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
+[Referenz zum Kampagnen-Endpunkt (Leads)](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
 
-Marketo bietet eine Reihe von REST-APIs zum Ausführen von Vorgängen für Smart-Kampagnen. Diese APIs entsprechen dem Standardmuster der Benutzeroberfläche für Asset-APIs, die Optionen zum Abfragen, Erstellen, Klonen und Löschen bereitstellen. Außerdem können Sie die Ausführung von Smart-Kampagnen verwalten, indem Sie Batch-Kampagnen planen oder Trigger-Kampagnen anfordern.
+Marketo bietet eine Reihe von REST-APIs zum Ausführen von Vorgängen für Smart-Kampagnen. Diese APIs folgen dem Standard-Schnittstellenmuster für Asset-APIs und bieten Optionen für Abfragen, Erstellen, Klonen und Löschen. Außerdem können Sie die Ausführung intelligenter Kampagnen verwalten, indem Sie Batch-Kampagnen planen oder Trigger-Kampagnen anfordern.
 
-## Anfrage
+## Abfrage
 
-Beim Abfragen von Smart-Kampagnen werden die standardmäßigen Abfragetypen für Assets von [by id](#by_id), [by name](#by_name) und [browsing](#browse) verwendet.
+Die Abfrage von Smart-Kampagnen folgt den Standardabfragetypen für Assets von [nach ID](#by_id), [nach Name](#by_name) und [Browsen](#browse).
 
 ### Nach ID
 
-Der Endpunkt [Smart-Kampagne mit ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) verwendet eine einzelne Smart-Kampagne `id` als Pfadparameter und gibt einen einzelnen Smart-Campaign-Datensatz zurück.
+Der Endpunkt [Smart-Kampagne nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) nimmt eine einzelne Smart-Kampagnen-`id` als Pfadparameter und gibt einen einzelnen Smart-Kampagnen-Datensatz zurück.
 
 ```
 GET /rest/asset/v1/smartCampaign/{id}.json
@@ -62,11 +62,11 @@ GET /rest/asset/v1/smartCampaign/{id}.json
 }
 ```
 
-Bei diesem Endpunkt befindet sich immer ein einzelner Datensatz an der ersten Position des `result` -Arrays.
+Bei diesem Endpunkt befindet sich immer ein einzelner Datensatz an der ersten Position des `result`-Arrays.
 
 ### Nach Name
 
-Der Endpunkt [Smart-Kampagne nach Name abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) akzeptiert eine einzelne Smart-Kampagne `name` als Parameter und gibt einen einzelnen Smart-Campaign-Datensatz zurück.
+Der Endpunkt [Smart-Kampagne nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) nimmt eine einzelne Smart-Kampagnen-`name` als Parameter und gibt einen einzelnen Smart-Kampagnen-Datensatz zurück.
 
 ```
 GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
@@ -108,21 +108,21 @@ GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
 }
 ```
 
-Bei diesem Endpunkt befindet sich immer ein einzelner Datensatz an der ersten Position des `result` -Arrays.
+Bei diesem Endpunkt befindet sich immer ein einzelner Datensatz an der ersten Position des `result`-Arrays.
 
 ### Durchsuchen
 
-Der Endpunkt [Smart-Kampagnen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET) funktioniert wie andere Asset-API-Durchsuchen-Endpunkte und ermöglicht es mehreren optionalen Abfrageparametern, Filterkriterien anzugeben.
+Der Endpunkt [Smart-Kampagnen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET) funktioniert wie andere Asset-API-Browser-Endpunkte und ermöglicht es mehreren optionalen Abfrageparametern, Filterkriterien anzugeben.
 
-Die Parameter `earliestUpdatedAt` und `latestUpdatedAt` akzeptieren `datetimes` im ISO-8601-Format (ohne Millisekunden). Wenn beide festgelegt sind, muss &quot;frühestUpdatedAt&quot;aktuellerUpdatedAt vorangehen.
+Die Parameter `earliestUpdatedAt` und `latestUpdatedAt` akzeptieren `datetimes` im ISO-8601-Format (ohne Millisekunden). Wenn beide festgelegt sind, muss „frühestensUpdatedAt“ dem „latestUpdatedAt“ vorangehen.
 
-Der Parameter `folder` gibt den übergeordneten Ordner an, unter dem Sie suchen möchten. Das Format ist ein JSON-Block mit den Attributen `id` und `type`.
+Der Parameter `folder` gibt den übergeordneten Ordner an, unter dem durchsucht werden soll. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
 
-Der Parameter `maxReturn` ist eine Ganzzahl, die die maximale Anzahl an zurückzugebenden Einträgen angibt. Der Standardwert ist 20. Maximal 200.
+Der `maxReturn` ist eine Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt. Der Standardwert ist 20. Maximal 200.
 
-Der Parameter `offset` ist eine Ganzzahl, die angibt, wo Einträge abgerufen werden sollen. Kann zusammen mit `maxReturn` verwendet werden. Der Standardwert ist 0.
+Der `offset` ist eine Ganzzahl, die angibt, wo mit dem Abrufen von Einträgen begonnen werden soll. Kann zusammen mit `maxReturn` verwendet werden. Der Standardwert ist 0.
 
-Der Parameter `isActive` ist ein boolescher Wert, der angibt, dass nur aktive Trigger-Kampagnen zurückgegeben werden.
+Der `isActive` ist ein boolescher Wert, der angibt, dass nur aktive Trigger-Kampagnen zurückgegeben werden sollen.
 
 ```
 GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:00&latestUpdatedAt=2016-09-10T23:17:00-00:00
@@ -181,13 +181,13 @@ GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:
 }
 ```
 
-Mit diesem Endpunkt befinden sich ein oder mehrere Datensätze im Array `result` .
+Bei diesem Endpunkt gibt es einen oder mehrere Datensätze im `result`-Array.
 
 ## Erstellen
 
-Der Endpunkt [Smart-Kampagne erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) wird mit einer application/x-www-form-urlencoded -POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `name` gibt den Namen der zu erstellenden Smart-Kampagne an. Der Parameter `folder` gibt den übergeordneten Ordner an, in dem die Smart-Kampagne erstellt wird. Das Format ist ein JSON-Block mit den Attributen `id` und `type`.
+Der [Create Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)-Endpunkt wird mit einer application/x-www-form-urlencoded-POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `name` gibt den Namen der zu erstellenden Smart-Kampagne an. Der Parameter `folder` gibt den übergeordneten Ordner an, in dem die intelligente Kampagne erstellt wird. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
 
-Optional können Sie die Smart-Kampagne mit dem Parameter `description` (maximal 2.000 Zeichen) beschreiben.
+Optional können Sie die Smart-Kampagne mit dem `description` Parameter (maximal 2.000 Zeichen) beschreiben.
 
 ```
 POST /rest/asset/v1/smartCampaigns.json
@@ -237,9 +237,9 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 }
 ```
 
-## Aktualisierung
+## Update
 
-Der Endpunkt [Smart-Kampagne aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/) wird mit einer anwendungs-/x-www-form-urlencoded -POST ausgeführt. Es nimmt eine einzelne Smart-Kampagne `id` als Pfadparameter an. Sie können den Parameter `name` verwenden, um den Namen der Smart-Kampagne zu aktualisieren, oder den Parameter `description` , um die Beschreibung der Smart-Kampagne zu aktualisieren.
+Der [Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/)-Endpunkt wird mit einer application/x-www-form-urlencoded-POST ausgeführt. Eine einzelne Smart-Campaign-`id` ist als Pfadparameter erforderlich. Sie können den `name`-Parameter verwenden, um den Namen der intelligenten Kampagne zu aktualisieren, oder den `description`-Parameter, um die Beschreibung der intelligenten Kampagne zu aktualisieren.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -291,9 +291,9 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 
 ## Klonen
 
-Der Endpunkt [Smart-Kampagne klonen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) wird mit einer application/x-www-form-urlencoded -POST mit drei erforderlichen Parametern ausgeführt. Es werden ein Parameter `id` benötigt, der die zu klonende Smart-Kampagne angibt, ein Parameter `name`, der den Namen der neuen Smart-Kampagne angibt, und ein Parameter `folder` , um den übergeordneten Ordner anzugeben, in dem die neue Smart-Kampagne erstellt wird. Das Format ist ein JSON-Block mit den Attributen `id` und `type`.
+Der Endpunkt [Klonen von Smart](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)Campaign) wird mit einer application/x-www-form-urlencoded-POST mit drei erforderlichen Parametern ausgeführt. Dazu benötigt man einen `id`, der die zu klonende Smart-Kampagne angibt, einen `name`, der den Namen der neuen Smart-Kampagne angibt, und einen `folder`, der den übergeordneten Ordner angibt, in dem die neue Smart-Kampagne erstellt wird. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
 
-Optional können Sie die Smart-Kampagne mit dem Parameter `description` (maximal 2.000 Zeichen) beschreiben.
+Optional können Sie die Smart-Kampagne mit dem `description` Parameter (maximal 2.000 Zeichen) beschreiben.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/clone.json
@@ -345,7 +345,7 @@ name=Test Trigger Campaign Clone&folder={"type": "folder","id": 640}&description
 
 ## Löschen
 
-Der Endpunkt [Smart-Kampagne löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) verwendet eine einzelne Smart-Kampagne `id` als Pfadparameter.
+Der Endpunkt [Smart-Kampagne löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) akzeptiert eine einzelne Smart-Kampagnen-`id` als Pfadparameter.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/delete.json
@@ -365,21 +365,21 @@ POST /rest/asset/v1/smartCampaign/{id}/delete.json
 }
 ```
 
-## Stapel
+## Batch
 
-Batch-Smart-Kampagnen starten zu einem bestimmten Zeitpunkt und wirken sich auf einen bestimmten Satz von Leads alle auf einmal aus.
+Batch-Kampagnen werden zu einem bestimmten Zeitpunkt gestartet und wirken sich auf eine bestimmte Gruppe von Leads gleichzeitig aus.
 
 ## Zeitplan
 
-Verwenden Sie den Endpunkt [Planung der Kampagne](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) , um die Ausführung einer Batch-Kampagne entweder sofort oder zu einem späteren Zeitpunkt zu planen. Die Kampagne `id` ist ein erforderlicher Pfadparameter. Optionale Parameter sind `tokens`, `runAt` und `cloneToProgram`, die im Anfrageinhalt als application/json übergeben werden.
+Verwenden Sie den Endpunkt [Kampagne planen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) um eine Batch-Kampagne so zu planen, dass sie entweder sofort oder zu einem späteren Zeitpunkt ausgeführt wird. Der Kampagnenparameter `id` ein erforderlicher Pfadparameter. Optionale Parameter sind `tokens`, `runAt` und `cloneToProgram`, die im Anfragetext als application/json übergeben werden.
 
-Der Token-Array-Parameter ist ein Array von My Tokens , das vorhandene Programm-Token außer Kraft setzt. Nach Ausführung der Kampagne werden die Token verworfen.  Jedes Token-Array-Element enthält Name/Wert-Paare. Der Name des Tokens muss als &quot;{{my.name}}&quot; formatiert sein.
+Der Parameter Token-Array ist ein Array von „Meine Token“, das vorhandene Programm-Token überschreibt. Nach der Ausführung der Kampagne werden die Token verworfen.  Jedes Token-Array-Element enthält Name/Wert-Paare. Der Name des Tokens muss als &quot;{{my.name}}&quot; formatiert sein.
 
-Der Parameter runAt datetime gibt an, wann die Kampagne ausgeführt werden soll. Wenn kein Wert angegeben wird, wird die Kampagne fünf Minuten nach dem Aufruf des Endpunkts ausgeführt. Der Wert für den Datum/Uhrzeit darf nicht länger als zwei Jahre in die Zukunft sein.
+Der Parameter „runAt“ datetime gibt an, wann die Kampagne ausgeführt werden soll. Wenn nichts angegeben wird, wird die Kampagne 5 Minuten nach dem Aufruf des Endpunkts ausgeführt. Der Datums-/Uhrzeitwert darf nicht mehr als zwei Jahre in der Zukunft liegen.
 
 Über diese API geplante Kampagnen warten immer mindestens fünf Minuten, bevor sie ausgeführt werden.
 
-Der String-Parameter `cloneToProgram` enthält den Namen eines resultierenden Programms.  Wenn diese Einstellung festgelegt ist, werden die Kampagne, das übergeordnete Programm und alle Assets mit dem resultierenden neuen Namen erstellt. Das übergeordnete Programm wird geklont und die neu erstellte Kampagne wird geplant. Das resultierende Programm wird unter dem übergeordneten Element erstellt. Programme mit Snippets, Push-Benachrichtigungen, In-App-Nachrichten, statischen Listen, Berichten und Social-Assets werden möglicherweise nicht auf diese Weise geklont. Bei Verwendung ist dieser Endpunkt auf 20 Aufrufe pro Tag beschränkt. Der Endpunkt [clone program](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) ist die empfohlene Alternative.
+Der `cloneToProgram` Zeichenfolgenparameter enthält den Namen eines resultierenden Programms.  Wenn dieser Wert festgelegt ist, werden die Kampagne, das übergeordnete Programm und alle zugehörigen Assets mit dem resultierenden neuen Namen erstellt. Das übergeordnete Programm wird geklont und die neu erstellte Kampagne wird geplant. Das resultierende Programm wird unter dem übergeordneten Element erstellt. Programme mit Snippets, Push-Benachrichtigungen, In-App-Nachrichten, statischen Listen, Berichten und Social-Media-Assets können auf diese Weise nicht geklont werden. Bei Verwendung ist dieser Endpunkt auf 20 Aufrufe pro Tag beschränkt. Der [Klonprogramm](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)-Endpunkt ist die empfohlene Alternative.
 
 ```
 POST /rest/v1/campaigns/{id}/schedule.json
@@ -418,17 +418,17 @@ POST /rest/v1/campaigns/{id}/schedule.json
 
 ## Auslöser
 
-Smart-Kampagnen für Trigger wirken sich auf Basis eines ausgelösten Ereignisses auf eine Person aus.
+Trigger-Smart-Kampagnen wirken sich auf der Grundlage eines ausgelösten Ereignisses jeweils auf eine Person aus.
 
 ### Anfrage
 
-Verwenden Sie den Endpunkt [Kampagne anfordern](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) , um eine Reihe von Leads an eine Trigger-Kampagne zu übergeben, damit sie durch den Kampagnenfluss ausgeführt werden kann. Die Kampagne muss über den Trigger &quot;Kampagne ist angefordert&quot;verfügen, wobei &quot;Web Service-API&quot;als Quelle dient.
+Verwenden Sie den [Kampagne anfragen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST)-Endpunkt, um eine Reihe von Leads an eine Trigger-Kampagne zu übergeben, die den Kampagnenfluss durchläuft. Die Kampagne muss einen Trigger „Kampagne ist angefordert“ mit „Webservice-API“ als Quelle haben.
 
-Dieser Endpunkt erfordert eine Kampagne `id` als Pfadparameter und einen `leads` Integer-Array-Parameter, der Lead-IDs enthält. Pro Aufruf sind maximal 100 Leads zulässig.
+Dieser Endpunkt erfordert einen Campaign-`id` als Pfadparameter und einen `leads` ganzzahligen Array-Parameter mit Lead-IDs . Pro Aufruf sind maximal 100 Leads zulässig.
 
-Optional kann der Array-Parameter `tokens` verwendet werden, um My Tokens local in das übergeordnete Programm der Kampagne zu überschreiben. `tokens` akzeptiert maximal 100 Token. Jedes `tokens` -Array-Element enthält ein Name/Wert-Paar. Der Name des Tokens muss als &quot;{{my.name}}&quot; formatiert sein. Wenn Sie [ein System-Token als Link in einem E-Mail-Ansatz hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) verwenden, um das System-Token &quot;viewAsWebpageLink&quot;hinzuzufügen, können Sie es nicht mit `tokens` überschreiben. Verwenden Sie stattdessen den Ansatz [Als Webseitenlink anzeigen für einen E-Mail-Ansatz](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) , mit dem Sie &quot;viewAsWebPageLink&quot;mit `tokens` überschreiben können.
+Optional kann der Parameter „Array `tokens`&quot; verwendet werden, um „Meine Token lokal“ für das übergeordnete Programm der Kampagne zu überschreiben. `tokens` akzeptiert maximal 100 Token. Jedes `tokens` Array-Element enthält ein Name/Wert-Paar. Der Name des Tokens muss als &quot;{{my.name}}&quot; formatiert sein. Wenn Sie den Ansatz [Hinzufügen eines System-Tokens als Link in einer E-Mail](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) verwenden, um das System-Token „viewAsWebpageLink“ hinzuzufügen, können Sie es nicht mit `tokens` überschreiben. Verwenden Sie stattdessen [ Ansatz „Ansicht als Webseitenlink zu E-Mail hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) mit dem Sie „viewAsWebPageLink“ mit `tokens` überschreiben können.
 
-Die Parameter `leads` und `tokens` werden im Anfrageinhalt als application/json übergeben.
+Die Parameter `leads` und `tokens` werden im Anfragetext als application/json übergeben.
 
 ```
 POST /rest/v1/campaigns/{id}/trigger.json
@@ -474,10 +474,10 @@ POST /rest/v1/campaigns/{id}/trigger.json
 
 ### Aktivieren
 
-Der Endpunkt [Smart-Kampagne aktivieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) ist unkompliziert. Ein `id` -Pfadparameter ist erforderlich. Damit die Aktivierung erfolgreich ist, muss für die Kampagne Folgendes zutreffen:
+Der [Activate Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST)-Endpunkt ist einfach. Ein `id` ist erforderlich. Damit die Aktivierung erfolgreich ist, muss für die Kampagne Folgendes zutreffen:
 
 - Muss deaktiviert werden
-- Muss mindestens einen Trigger und einen Flussschritt enthalten
+- Muss mindestens einen Trigger und einen Flussschritt haben
 - Muss fehlerfreie Trigger, Filter und Flussschritte aufweisen
 
 ```
@@ -499,7 +499,7 @@ POST /rest/asset/v1/smartCampaign/{id}/activate.json
 
 ### Deaktivieren
 
-Die Funktion [Smart-Kampagne deaktivieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) ist unkompliziert. Ein `id` -Pfadparameter ist erforderlich. Damit die Deaktivierung erfolgreich ist, muss die Kampagne aktiviert werden.
+Die [Smart-Kampagne deaktivieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) ist unkompliziert. Ein `id` ist erforderlich. Damit die Deaktivierung erfolgreich ist, muss die Kampagne aktiviert werden.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/deactivate.json

@@ -14,37 +14,37 @@ ht-degree: 0%
 
 Aktivieren von Push-Benachrichtigungen.
 
-## Einrichten von Push-Benachrichtigungen in iOS
+## Einrichten einer Push-Benachrichtigung auf iOS
 
 Es gibt drei Schritte zum Aktivieren von Push-Benachrichtigungen:
 
-1. Push-Benachrichtigungen für das Apple Developer Account konfigurieren
-1. Aktivieren Sie Push-Benachrichtigungen in xCode.
-1. Aktivieren Sie Push-Benachrichtigungen in App mit dem Marketo SDK.
+1. Konfigurieren von Push-Benachrichtigungen im Apple-Entwicklerkonto.
+1. Aktivieren von Push-Benachrichtigungen in xCode.
+1. Aktivieren von Push-Benachrichtigungen in der Mobile App mit Marketo SDK.
 
-### Push-Benachrichtigungen für Apple-Entwicklerkonto konfigurieren
+### Konfigurieren von Push-Benachrichtigungen im Apple-Entwicklerkonto
 
 1. Melden Sie sich beim Apple Developer [Member Center](http://developer.apple.com/membercenter) an.
-1. Klicken Sie auf &quot;Zertifikate, Kennungen und Profile&quot;.
-1. Klicken Sie unter &quot;iOS, tvOS, watchOS&quot;auf den Ordner &quot;Zertifikate->Alle&quot;.
-1. Wählen Sie auf dem Bildschirm oben links neben den Zertifikaten ![](assets/certificates-plus.png) das &quot;+&quot;aus.
-1. Aktivieren Sie das Kontrollkästchen &quot;Apple Push Notification Service SSL (Sandbox &amp; Production)&quot;und klicken Sie auf &quot;Weiter&quot;.
-1. Wählen Sie die Anwendungs-ID aus, die Sie für den App-Build verwenden.![](assets/push-appid.png)
-1. Erstellen und laden Sie CSR hoch, um das Push-Zertifikat zu generieren. ![](assets/push-ssl.png)
-1. Laden Sie das Zertifikat auf den lokalen Computer herunter und doppelklicken Sie zur Installation auf . ![](assets/certificate-download.png)
-1. Öffnen Sie &quot;Keychain Access&quot;, klicken Sie mit der rechten Maustaste auf das Zertifikat und exportieren Sie zwei Elemente in die Datei &quot;`.p12`&quot;.![key_chain](assets/key-chain.png)
+1. Klicken Sie auf „Zertifikate, Kennungen und Profile“.
+1. Klicken Sie auf den Ordner „Zertifikate->Alle“ unter &quot;iOS, tvOS, watchOS“.
+1. Wählen Sie das &quot;+&quot; auf dem Bildschirm links oben neben Zertifikate ![](assets/certificates-plus.png)
+1. Aktivieren Sie das Kontrollkästchen &quot;Apple Push Notification Service SSL (Sandbox &amp; Production)“ und klicken Sie auf „Weiter“.
+1. Wählen Sie die Anwendungskennung aus, die Sie verwenden, um die App zu erstellen.![](assets/push-appid.png)
+1. Erstellen und hochladen von CSR, um das Push-Zertifikat zu generieren. ![](assets/push-ssl.png)
+1. Zertifikat auf lokalen Computer herunterladen und zur Installation doppelklicken. ![](assets/certificate-download.png)
+1. Öffnen Sie „Schlüsselbund-Zugriff“, klicken Sie mit der rechten Maustaste auf das Zertifikat und exportieren Sie zwei Elemente in die `.p12`.![key_chain](assets/key-chain.png)
 1. Laden Sie diese Datei über die Marketo-Admin Console hoch, um Benachrichtigungen zu konfigurieren.
-1. Aktualisieren Sie App-Bereitstellungsprofile.
+1. App-Bereitstellungsprofile aktualisieren.
 
-### Push-Benachrichtigungen in xCode aktivieren
+### Aktivieren von Push-Benachrichtigungen in xCode
 
-Aktivieren Sie die Push-Benachrichtigungsfunktion im xCode-Projekt.![](assets/push-xcode.png)
+Aktivieren der Push-Benachrichtigungsfunktion in einem xCode-Projekt.![](assets/push-xcode.png)
 
-### Push-Benachrichtigungen in App mit Marketo SDK aktivieren
+### Aktivieren von Push-Benachrichtigungen in der Mobile App mit Marketo SDK
 
-Fügen Sie der Datei `AppDelegate.m` den folgenden Code hinzu, um Push-Benachrichtigungen an die Geräte Ihres Kunden zu senden.
+Fügen Sie der Datei `AppDelegate.m` folgenden Code hinzu, um Push-Benachrichtigungen an die Geräte Ihres Kunden zu senden.
 
-**Hinweis** - Verwenden Sie bei Verwendung der Erweiterung [!DNL Adobe Launch] `ALMarketo` als Klassennamen.
+**Hinweis** - Wenn Sie die [!DNL Adobe Launch] verwenden, verwenden Sie `ALMarketo` als Klassennamen
 
 Importieren Sie Folgendes in `AppDelegate.h`.
 
@@ -64,7 +64,7 @@ import UserNotifications
 
 >[!ENDTABS]
 
-Fügen Sie `UNUserNotificationCenterDelegate` zu `AppDelegate` hinzu, wie unten dargestellt.
+Fügen Sie `UNUserNotificationCenterDelegate` wie unten dargestellt zu `AppDelegate` hinzu.
 
 >[!BEGINTABS]
 
@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UNUserNotificationCenter
 
 >[!ENDTABS]
 
-Starten Sie den Push-Benachrichtigungsdienst. Um Push-Benachrichtigungen zu aktivieren, fügen Sie unten den Code hinzu.
+Push-Benachrichtigungs-Service starten. Um die Push-Benachrichtigung zu aktivieren, fügen Sie den folgenden Code hinzu.
 
 >[!BEGINTABS]
 
@@ -125,11 +125,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 >[!ENDTABS]
 
-Rufen Sie diese Methode auf, um den Registrierungsprozess mit Apple Push Service zu starten. Wenn die Registrierung erfolgreich ist, ruft die App die `application:didRegisterForRemoteNotificationsWithDeviceToken:` -Methode des App-Delegationsobjekts auf und übergibt es ein Geräte-Token.
+Rufen Sie diese Methode auf, um den Registrierungsprozess mit dem Apple-Push-Service zu starten. Wenn die Registrierung erfolgreich ist, ruft die App die `application:didRegisterForRemoteNotificationsWithDeviceToken:` Methode Ihres App-Delegate-Objekts auf und übergibt ihr ein Geräte-Token.
 
-Wenn die Registrierung fehlschlägt, ruft die App stattdessen die Methode `application:didFailToRegisterForRemoteNotificationsWithError:` des App-Delegats auf.
+Wenn die Registrierung fehlschlägt, ruft die App stattdessen die `application:didFailToRegisterForRemoteNotificationsWithError:`-Methode ihres App-Delegaten auf.
 
-Registrieren Sie Push-Token bei Marketo. Um Push-Benachrichtigungen von Marketo zu erhalten, müssen Sie das Geräte-Token bei Marketo registrieren.
+Registrieren Sie das Push-Token bei Marketo. Um Push-Benachrichtigungen von Marketo zu erhalten, müssen Sie das Geräte-Token bei Marketo registrieren.
 
 >[!BEGINTABS]
 
@@ -171,7 +171,7 @@ Marketo.sharedInstance().unregisterPushDeviceToken
 
 >[!ENDTABS]
 
-Um das Push-Token erneut zu registrieren, extrahieren Sie den Code aus Schritt 3 in eine AppDelegate-Methode und rufen Sie von der ViewController-Anmeldemethode auf.
+Um das Push-Token erneut zu registrieren, extrahieren Sie den Code aus Schritt 3 in eine AppDelegate-Methode und rufen die ViewController-Anmeldemethode auf.
 
 Push-Benachrichtigung verarbeiten. Um Push-Benachrichtigungen von Marketo zu erhalten, müssen Sie das Geräte-Token bei Marketo registrieren.
 
@@ -198,7 +198,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 Fügen Sie die folgende Methode in AppDelegate hinzu
 
-Mit dieser Methode können Sie Warnhinweise, Töne oder Erhöhungszeichen anzeigen, während die App im Vordergrund ausgeführt wird. Sie müssen in dieser Methode den von Ihnen ausgewählten completionHandler aufrufen.
+Mit dieser Methode können Sie entweder einen Warnhinweis, einen Ton oder ein erhöhtes Badge anzeigen, während sich die App im Vordergrund befindet. Sie müssen in dieser Methode CompletionHandler Ihrer Wahl aufrufen.
 
 >[!BEGINTABS]
 
@@ -225,9 +225,9 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 >[!ENDTABS]
 
-Umgang mit neu empfangenen Push-Benachrichtigungen in AppDelegate
+Verarbeiten von neu empfangenen Push-Benachrichtigungen in AppDelegate
 
-Die Methode wird auf den Delegaten aufgerufen, wenn der Benutzer auf die Benachrichtigung reagiert hat, indem er die Anwendung öffnet, die Benachrichtigung verworfen oder eine UNNotificationAction ausgewählt hat. Der Delegate muss festgelegt werden, bevor die Anwendung von applicationDidFinishLaunching: zurückgibt.
+Die Methode wird auf den Delegaten aufgerufen, wenn der Benutzer auf die Benachrichtigung durch Öffnen der Anwendung, Schließen der Benachrichtigung oder Auswählen einer UNNOTIFICATIONAction geantwortet hat. Der Delegat muss festgelegt werden, bevor die Anwendung von applicationIdFinishLaunching: zurückgibt.
 
 >[!BEGINTABS]
 
@@ -255,21 +255,21 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 Push-Benachrichtigungen tracken
 
-Wenn Ihre App im Hintergrund ausgeführt wird (oder nicht aktiv ist), erhält das Gerät eine Push-Benachrichtigung, wie unten dargestellt. Marketo verfolgt, wann der Benutzer auf die Benachrichtigung tippt.
+Wenn Ihre App im Hintergrund ausgeführt wird (oder nicht aktiv ist), erhält das Gerät eine Push-Benachrichtigung wie unten dargestellt. Marketo verfolgt, wann der Benutzer auf die Benachrichtigung tippt.
 
 ![mobile8](assets/mobile8.png)
 
-Wenn das Gerät eine Push-Benachrichtigung erhält, wird diese an den `application:didReceiveRemoteNotification:` -Callback in Ihrem App-Delegaten übergeben.
+Wenn das Gerät eine Push-Benachrichtigung erhält, wird sie an `application:didReceiveRemoteNotification:` Callback auf Ihrem App-Delegaten weitergeleitet.
 
-Im Folgenden finden Sie ein Marketo-Aktivitätsprotokoll von Marketo, in dem App-Ereignisse und Push-Benachrichtigungs-Ereignisse angezeigt werden.
+Im Folgenden finden Sie ein Marketo-Aktivitätsprotokoll von Marketo, das App-Ereignisse und Push-Benachrichtigungsereignisse anzeigt.
 
 ![mobile9](assets/mobile9.png)
 
-## Einrichten von Push-Benachrichtigungen in Android
+## Einrichten einer Push-Benachrichtigung auf Android
 
-1. Fügen Sie die folgende Berechtigung innerhalb des Anwendungs-Tags hinzu.
+1. Fügen Sie im Anwendungs-Tag die folgende Berechtigung hinzu.
 
-   Öffnen Sie `AndroidManifest.xml` und fügen Sie die folgenden Berechtigungen hinzu. Ihre App muss die Berechtigungen &quot;INTERNET&quot;und &quot;ACCESS_NETWORK_STATE&quot;anfordern. Wenn Ihre App diese Berechtigungen bereits anfordert, überspringen Sie diesen Schritt.
+   Öffnen Sie `AndroidManifest.xml` und fügen Sie die folgenden Berechtigungen hinzu. Ihre App muss die Berechtigungen „INTERNET“ und „ACCESS_NETWORK_STATE“ anfordern. Wenn Ihre Anwendung diese Berechtigungen bereits anfordert, überspringen Sie diesen Schritt.
 
    ```xml
    <uses‐permission android:name="android.permission.INTERNET"/>
@@ -285,16 +285,16 @@ Im Folgenden finden Sie ein Marketo-Aktivitätsprotokoll von Marketo, in dem App
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Einrichten von FCM mit HTTPv1 (Google hat am 12. Juni 2023 das [veraltete XMPP-Protokoll](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) und wird im Juni 2024 entfernt) 
+1. Einrichten von FCM mit HTTPv1 (Google hat [veraltetes XMPP-](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref)) am 12. Juni 2023 veröffentlicht und wird im Juni 2024 entfernt) 
 
-- Aktivieren Sie MME FCM HTTPv1 im Marketo Feature Manager ![](assets/feature-manager.png)
-   - Laden Sie die JSON-Datei des Dienstkontos für die App in MLM hoch.
-   - Sie können die JSON-Datei &quot;Service Account&quot;von der Firebase Console herunterladen.   ![](assets/fcm-console.png)
-   - Warten Sie eine Stunde nach dem Hochladen der JSON-Datei des Dienstkontos in Marketo, bevor Sie Push-Benachrichtigungen senden.  
+- Aktivieren von MME FCM HTTPv1 in Marketo Feature Manager ![](assets/feature-manager.png)
+   - Laden Sie die JSON-Datei des Service-Kontos für die App in MLM hoch.
+   - Sie können die JSON-Datei für das Service-Konto von der Firebase Console herunterladen.   ![](assets/fcm-console.png)
+   - Warten Sie eine Stunde nach dem Hochladen der JSON-Datei des Service-Kontos in Marketo, bevor Sie Push-Benachrichtigungen senden.  
 
 ## Android-Testgeräte
 
-Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
+Fügen Sie die Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity"  android:configChanges="orientation|screenSize">
@@ -307,9 +307,9 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
 </activity/>
 ```
 
-## Marketo Push-Dienst registrieren
+## Registrieren des Marketo-Push-Service
 
-1. Um Push-Benachrichtigungen von Marketo zu erhalten, müssen Sie den Firebase-Messaging-Dienst zu Ihrem `AndroidManifest.xml` hinzufügen. Fügen Sie vor dem schließenden Anwendungs-Tag hinzu.
+1. Um Push-Benachrichtigungen von Marketo zu erhalten, müssen Sie den Firebase Messaging-Dienst zu Ihrem `AndroidManifest.xml` hinzufügen. Fügen Sie vor dem schließenden Anwendungs-Tag hinzu.
 
    ```xml
    <meta-data
@@ -323,7 +323,7 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
    </service>
    ```
 
-1. Fügen Sie Marketo SDK-Methoden in der Datei &quot;`MyFirebaseMessagingService`&quot;wie folgt hinzu:
+1. Fügen Sie Marketo SDK-Methoden wie folgt in den `MyFirebaseMessagingService` hinzu
 
    ```java
    import com.marketo.Marketo;
@@ -348,7 +348,7 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
    }
    ```
 
-   **Hinweis** - Fügen Sie bei Verwendung der Adobe-Erweiterung wie folgt hinzu
+   **Hinweis** - Wenn Sie die Adobe-Erweiterung verwenden, fügen Sie wie folgt hinzu
 
    ```java
    import com.marketo.Marketo;
@@ -371,7 +371,7 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
    }
    ```
 
-**HINWEIS**: Das FCM-SDK fügt automatisch alle erforderlichen Berechtigungen sowie die erforderliche Empfängerfunktion hinzu. Achten Sie darauf, die folgenden veralteten (und potenziell schädlichen) Elemente aus dem Manifest Ihrer App zu entfernen, wenn Sie frühere Versionen des SDK verwendet haben.
+**HINWEIS**: Die FCM-SDK fügt automatisch alle erforderlichen Berechtigungen sowie die erforderliche Empfängerfunktionalität hinzu. Entfernen Sie die folgenden veralteten (und möglicherweise schädlichen, da sie zu einer Duplizierung von Nachrichten führen können) Elemente aus dem Manifest Ihrer App, wenn Sie frühere Versionen von SDK verwendet haben
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -389,7 +389,7 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
 <service android:name="com.marketo.MarketoIntentService"/>
 ```
 
-1. Marketo Push initialisieren Nach dem Speichern der oben genannten Konfiguration müssen Sie die Marketo-Push-Benachrichtigung initialisieren. Erstellen oder öffnen Sie Ihre Anwendungsklasse und kopieren/fügen Sie den unten stehenden Code ein. Sie können Ihre Absender-ID über die Firebase-Konsole abrufen.
+1. Marketo-Push initialisieren Nach dem Speichern der oben genannten Konfiguration müssen Sie Marketo-Push-Benachrichtigungen initialisieren. Erstellen oder öffnen Sie die Anwendungsklasse und kopieren Sie den unten stehenden Code. Sie können Ihre Absender-ID über die Firebase-Konsole abrufen.
 
 
    ```java
@@ -399,14 +399,14 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
    marketoSdk.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Verwenden Sie bei Verwendung der Erweiterung [!DNL Adobe Launch] die folgenden Anweisungen
+   Wenn Sie [!DNL Adobe Launch] Erweiterung verwenden, verwenden Sie diese Anweisungen
 
    ```java
    // Enable push notification here. The push notification channel name can by any string
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Wenn Sie keine SENDER_ID haben, aktivieren Sie den Google Cloud Messaging Service, indem Sie die in [diesem Tutorial](https://developers.google.com/cloud-messaging/) beschriebenen Schritte ausführen.
+   Wenn Sie keine SENDER_ID haben, aktivieren Sie den Google Cloud Messaging-Service, indem Sie die in [diesem Tutorial](https://developers.google.com/cloud-messaging/) beschriebenen Schritte ausführen.
 
    Die Registrierung des Tokens kann auch aufgehoben werden, wenn sich der Benutzer abmeldet.
 
@@ -414,13 +414,13 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
    marketoSdk.uninitializeMarketoPush();
    ```
 
-   Verwenden Sie bei Verwendung der Erweiterung [!DNL Adobe Launch] die folgende Anweisung
+   Wenn Sie [!DNL Adobe Launch] Erweiterung verwenden, verwenden Sie die folgende Anweisung
 
    ```java
    ALMarketo.uninitializeMarketoPush();
    ```
 
-   Hinweis: Um das Push-Token erneut zu registrieren, extrahieren Sie den Code aus Schritt 3 in eine AppDelegate-Methode und rufen Sie von der ViewController-Anmeldemethode auf.
+   Hinweis: Um das Push-Token erneut zu registrieren, extrahieren Sie den Code aus Schritt 3 in eine AppDelegate-Methode und rufen die ViewController-Anmeldemethode auf.
 
 1. Benachrichtigungssymbol festlegen (optional) Um ein benutzerdefiniertes Benachrichtigungssymbol zu konfigurieren, sollte die folgende Methode aufgerufen werden.
 
@@ -442,53 +442,53 @@ Fügen Sie Marketo-Aktivität in der Manifestdatei im Anwendungs-Tag hinzu.
 
 ## Fehlerbehebung
 
-Das Einrichten von mobilen Push-Nachrichten umfasst viele Schritte und die Koordination von Entwicklern und Marketingexperten. Wenn Sie Schwierigkeiten haben, gibt es einige einfache Dinge, die Sie überprüfen können.
+Die Einrichtung mobiler Push-Nachrichten umfasst viele Schritte und die Koordination von Entwicklern und Marketern. Wenn Sie Schwierigkeiten haben, gibt es einige einfache Dinge, die Sie überprüfen können.
 
-Nachdem Sie sich vergewissert haben, dass die einfachen Dinge korrekt sind, können Sie die Programmierdetails genauer untersuchen.
+Nachdem Sie sichergestellt haben, dass die einfachen Dinge korrekt sind, können Sie sich mit den Programmierdetails vertraut machen.
 
 ### Push-Nachricht wird nicht angezeigt
 
-Überprüfen Sie zunächst, ob Push-Nachrichten auf dem Handset deaktiviert sind. Benutzer mit Mobilgeräten können steuern, ob sie Nachrichten für eine bestimmte App erhalten oder nicht. Häufig deaktivieren Entwickler (und Marketingexperten) diese Nachrichten irgendwann während der Entwicklung. Zunächst muss geprüft werden, ob der Empfänger Push-Nachrichten für Ihre App deaktiviert hat.
+Überprüfen Sie zunächst, ob Push-Nachrichten auf dem Mobilgerät deaktiviert sind. Mobile Benutzer können steuern, ob sie Nachrichten für eine bestimmte App erhalten. Oft werden diese Nachrichten von Entwicklern (und Marketern) irgendwann während der Entwicklung deaktiviert. Zunächst müssen Sie also überprüfen, ob der Empfänger Push-Nachrichten für Ihre App deaktiviert hat.
 
-Zweitens: Ist die App bereits geöffnet und aktiv auf dem Gerät? Wenn Ihre App die aktive App auf dem Gerät ist, werden mobile Push-Nachrichten nicht auf dem Bildschirm angezeigt. Stattdessen werden sie im Bereich &quot;Lokale Benachrichtigungen&quot;Ihrer App angezeigt.
+Zweitens, ist die App bereits geöffnet und auf dem Gerät aktiv? Wenn Ihre App die aktive App auf dem Gerät ist, werden keine mobilen Push-Nachrichten auf dem Bildschirm angezeigt. Stattdessen werden sie im Bereich „Lokale Benachrichtigungen“ Ihrer App angezeigt.
 
 ### Anzeigen der Aktivitätsprotokolle in Marketo
 
-Beim Nachverfolgen eines Fehlers sollten Sie zunächst in den Marketo-Aktivitätsprotokollen nachsehen. Sie können Aktivitätsprotokolle verwenden, um zu überprüfen, ob eine Nachricht gesendet wurde.
+Der erste Ort, der bei der Fehlersuche berücksichtigt werden sollte, ist in den Marketo-Aktivitätsprotokollen. Sie können Aktivitätsprotokolle verwenden, um zu überprüfen, ob eine Nachricht gesendet wurde.
 
-Überprüfen Sie im Aktivitätsprotokoll die Aktivitätsdatensätze einer Person, die eine Nachricht erhalten soll. Wenn die Nachricht gesendet wurde, ist ein Datensatz im Aktivitätsprotokoll vorhanden. Ist dies nicht der Fall, liegt das Problem wahrscheinlich an der Konfiguration des iOS-Zertifikats oder des Android-API-Schlüssels in Marketo.
+Überprüfen Sie im Aktivitätsprotokoll die Aktivitätsdatensätze für eine Person, die eine Nachricht erhalten sollte. Wenn die Nachricht gesendet wurde, ist im Aktivitätsprotokoll ein Eintrag vorhanden. Andernfalls ist das Problem wahrscheinlich auf die Konfiguration des iOS-Zertifikats oder des Android-API-Schlüssels in Marketo zurückzuführen.
 
 ### Zertifikat oder Schlüssel ist ungültig
 
-Überprüfen Sie Ihre Konfiguration, um sicherzustellen, dass das richtige Zertifikat für Sandbox oder Produktion geladen wurde. Manchmal ist es am besten, wenn der Entwickler die Zertifikate (iOS) oder Schlüssel (Android) erneut exportiert und dann in Marketo neu lädt, um sicherzustellen, dass sie korrekt sind.
+Überprüfen Sie Ihre Konfiguration, um sicherzustellen, dass Sie das richtige Zertifikat für Sandbox oder Produktion geladen haben. Manchmal ist es am besten, wenn der Entwickler die Zertifikate (iOS) oder Schlüssel (Android) erneut exportiert und dann in Marketo neu lädt, um sicherzustellen, dass sie korrekt sind.
 
 ### .p12-Datei fehlt ein Zertifikat oder ein Schlüssel (iOS)
 
-Stellen Sie beim Exportieren des Zertifikats sicher, dass Sie den Schlüssel _und_ des Zertifikats exportieren.
+Stellen Sie beim Exportieren des Zertifikats sicher, dass Sie den Schlüssel (_)_ Zertifikat exportieren.
 
-### Bereitstellung von Profilen veraltet (iOS)
+### Bereitstellungsprofile veraltet (iOS)
 
-Wenn Sie ein neues Gerät hinzufügen, müssen Sie Ihre Bereitstellungsprofile aktualisieren und neue Zertifikate generieren. Stellen Sie sicher, dass Ihr Xcode-Projekt dann auf die richtigen Profile und Zertifikate verweist, und importieren Sie diese Zertifikate in Marketo.
+Wenn Sie ein neues Gerät hinzufügen, müssen Sie Ihre Bereitstellungsprofile aktualisieren und neue Zertifikate generieren. Vergewissern Sie sich, dass Ihr Xcode-Projekt dann auf die richtigen Profile und Zertifikate verweist, und importieren Sie diese Zertifikate in Marketo.
 
-### IOS-Zertifikat (IOS) kann nicht hochgeladen werden
+### IOS-Zertifikat kann nicht hochgeladen werden (IOS)
 
-Stellen Sie sicher, dass das beim Exportieren des Zertifikats verwendete Kennwort keine Leerzeichen enthält.  Beispiel:
+Stellen Sie sicher, dass das beim Exportieren des Zertifikats verwendete Kennwort keine Leerzeichen enthält.  Beispiel: stattdessen:
 
 `Hello World 123`
 
-verwenden Sie Folgendes:
+Verwenden Sie diesen:
 
 `HelloWorld123`
 
-### Fehlerbehebung für iOS-Zertifikate
+### Fehlerbehebung bei iOS-Zertifikaten
 
-Für Sandbox-Anwendungen können Sie entweder ein &quot;Entwickler&quot;- oder ein &quot;universelles&quot; Zertifikat verwenden. Für Produktionsanwendungen müssen Sie jedoch ein gültiges &quot;Distribution&quot;- oder &quot;universelle&quot; Zertifikat hochladen.
+Für Sandbox-Anwendungen können Sie entweder ein „Entwickler“- oder ein „universelles“ Zertifikat verwenden. Für Produktionsanwendungen müssen Sie jedoch ein gültiges „Verteilungs“- oder „universelles“ Zertifikat hochladen.
 
-### Push-Absprung/ungültiges Token
+### Push-Bounce/ungültiges Token
 
-Ein vorhandenes Anmeldetoken kann in einer Reihe von Szenarien außer Kraft gesetzt werden, darunter:
+Ein vorhandenes Registrierungs-Token kann in einer Reihe von Szenarien ungültig werden, darunter:
 
-- Wenn sich die Client-App bei GCM abmeldet.
-- Wenn die Client-App automatisch abgemeldet wird, was passieren kann, wenn der Benutzer die Anwendung deinstalliert. Wenn beispielsweise der APNS-Feedback-Dienst in iOS das APNS-Token als ungültig meldete.
-- Wenn das Anmeldetoken abläuft. Beispielsweise könnte Google entscheiden, Registrierungstoken zu aktualisieren, oder das APNS-Token ist für iOS-Geräte abgelaufen.
+- Wenn die Registrierung der Client-App bei GCM aufgehoben wird.
+- Wenn die Registrierung der Client-Anwendung automatisch aufgehoben wird, was passieren kann, wenn der Benutzer die Anwendung deinstalliert. Beispiel: Auf iOS, wenn der APNS-Feedback-Service das APNS-Token als ungültig gemeldet hat.
+- Wenn das Registrierungs-Token abläuft. Beispielsweise kann Google beschließen, Registrierungs-Token zu aktualisieren, oder das APNS-Token für iOS-Geräte ist abgelaufen.
 - Wenn die Client-App aktualisiert wird, die neue Version jedoch nicht für den Empfang von Nachrichten konfiguriert ist.

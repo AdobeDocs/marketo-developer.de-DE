@@ -1,7 +1,7 @@
 ---
 title: getMultipleLeads
 feature: SOAP
-description: getMultipleLeads SOAP Aufrufe
+description: getMultipleLeads-SOAP-Aufrufe
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,33 +12,33 @@ ht-degree: 3%
 
 # getMultipleLeads
 
-Wie `getLead` ruft `getMultipleLeads` Lead-Datensätze aus Marketo ab. Anstelle von Daten für einen einzelnen Lead gibt dieser Aufruf Daten für einen Lead-Batch zurück, die den Kriterien entsprechen, die an den Parameter leadSelector übergeben werden. Die Kriterien können ein Datumsbereich sein, z. B. das letzte aktualisierte Datum, ein Array von Lead-Schlüsseln oder eine statische Liste.
+Wie `getLead` ruft `getMultipleLeads` Lead-Datensätze von Marketo ab. Anstelle von Daten für einen einzelnen Lead gibt dieser Aufruf Daten für einen Batch von Leads zurück, die den Kriterien entsprechen, die an den LeadSelector-Parameter übergeben wurden. Bei den Kriterien kann es sich um einen Datumsbereich handeln, z. B. das Datum der letzten Aktualisierung, ein Array von Lead-Schlüsseln oder eine statische Liste.
 
-Hinweis: Wenn Sie ein Array mit Lead-Schlüsseln verwenden, sind Sie auf 100 pro Batch beschränkt. Zusätzliche Schlüssel werden ignoriert.
+Hinweis: Wenn Sie ein Array von Lead-Schlüsseln verwenden, sind Sie auf maximal 100 pro Batch beschränkt. Zusätzliche Schlüssel werden ignoriert.
 
-Wenn nur eine Teilmenge der Lead-Felder erforderlich ist, sollte der Parameter `includeAttributes` verwendet werden, um die gewünschten Felder anzugeben.
+Wenn nur eine Teilmenge der Lead-Felder erforderlich ist, sollte der `includeAttributes`-Parameter verwendet werden, um die gewünschten Felder anzugeben.
 
-Jeder Funktionsaufruf von `getMultipleLeads` gibt bis zu 1000 Leads zurück. Wenn Sie mehr als 1.000 Leads abrufen müssen, gibt das Ergebnis eine [Stream-Position](stream-position.md) zurück, die in nachfolgenden Aufrufen verwendet werden kann, um den nächsten Batch von 1.000 Leads abzurufen. Die verbleibende Anzahl im Ergebnis gibt genau an, wie viele Leads noch vorhanden sind. Beim Abrufen aus einer statischen Liste ist die Bedingung zum Beenden verbleibtCount == 0.
+Jeder `getMultipleLeads`-Funktionsaufruf gibt bis zu 1000 Leads zurück. Wenn Sie mehr als 1000 Leads abrufen müssen, gibt das Ergebnis eine [Stream-Position](stream-position.md) zurück, die in nachfolgenden Aufrufen zum Abrufen des nächsten Batches von 1000 Leads verwendet werden kann. Die verbleibende Anzahl zeigt genau an, wie viele Leads noch übrig sind. Beim Abrufen aus einer statischen Liste bleibt die Bedingung für das Beenden bei == 0.
 
-Ein gängiger Anwendungsfall für diesen Endpunkt besteht darin, Leads zu finden, die zu bestimmten Daten aktualisiert wurden. Mit dem `LastUpdateAtSelector` können Sie dies tun.
+Ein gängiges Anwendungsbeispiel für diesen Endpunkt besteht darin, Leads zu finden, die an bestimmten Daten aktualisiert wurden. Mit dem `LastUpdateAtSelector` können Sie dies tun.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadSelector | Erforderlich | Kann einer der folgenden 3 Typen sein:`LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
-| keyType | Erforderlich | Der ID-Typ, den Sie abfragen möchten. Zu den Werten gehören IDNUM, COOKIE, E-MAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID, SFDCOPPTYID. |
-| keyValues->stringItem | Erforderlich | Liste der Schlüsselwerte. Das heißt &quot;lead@email.com&quot; |
-| LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Erforderlich | Der Zeitstempel, mit dem die Kriterien &quot;da&quot;angegeben werden. Das heißt, alle Leads zurückgeben, die seit dem angegebenen Zeitpunkt aktualisiert wurden. (W3C WSDL Datum-Uhrzeit-Format) |
-| LastUpdateAtSelector: leadSelector->latestUpdatedAt | optional | Der Zeitstempel zum Angeben der Kriterien &quot;bis&quot;. Das heißt, alle Leads zurückgeben, die bis zum angegebenen Zeitpunkt aktualisiert wurden. (W3C WSDL Datum-Uhrzeit-Format) |
+| LeadSelector | Erforderlich | Kann einer der folgenden drei Typen sein:`LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
+| keyType | Erforderlich | Der ID-Typ, den Sie abfragen möchten. Die Werte umfassen IDNUM, COOKIE, EMAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID, SFDCOPPTYID. |
+| keyValues->stringItem | Erforderlich | Liste der Schlüsselwerte. Das heißt, &quot;lead@email.com&quot; |
+| LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Erforderlich | Der Zeitstempel zur Angabe der „seit“-Kriterien. Das heißt, alle Leads zurückgeben, die seit der angegebenen Zeit aktualisiert wurden. (W3C WSDL-Datums-/Uhrzeitformat) |
+| LastUpdateAtSelector: leadSelector->latestUpdatedAt | Optional | Der Zeitstempel zur Angabe der „bis“-Kriterien. Das heißt, alle Leads zurückgeben, die bis zum angegebenen Zeitpunkt aktualisiert wurden. (W3C WSDL-Datums-/Uhrzeitformat) |
 | StaticListSelector: leadSelector->staticListName | Optional, wenn `leadSelector->staticListId` vorhanden ist | Der Name der statischen Liste |
 | StaticListSelector: leadSelector->staticListId | Optional, wenn `leadSelector->staticListName` vorhanden ist | Die ID der statischen Liste |
-| lastUpdatedAt | **veraltet** | Verwenden Sie stattdessen `LastUpdateAtSelector` |
-| includeAttributes | optional | Liste der Attribute, die abgerufen werden sollen. Die Beschränkung der zurückgegebenen Lead-Felder kann die Antwortzeit der API verbessern. |
-| batchSize | optional | Maximale Datensatzanzahl. Systembeschränkungen auf 100 oder `batchSize`, je nachdem, welcher Wert kleiner ist |
-| streamPosition | optional | Wird verwendet, um durch eine große Anzahl von Lead-Antworten zu paginieren. Der Wert `streamPosition` wird vom Antwortfeld der vorherigen Aufrufe `newStreamPosition` zurückgegeben |
+| lastUpdatedAt | **Veraltet** | Stattdessen `LastUpdateAtSelector` verwenden |
+| includeAttributes | Optional | Liste der Attribute, die abgerufen werden sollen. Durch die Begrenzung der zurückgegebenen Lead-Felder kann die Reaktionszeit der API verbessert werden. |
+| batchSize | Optional | Maximale Anzahl an zurückzugebenden Datensätzen Das System beschränkt auf 100 oder `batchSize`, je nachdem, welcher Wert kleiner ist |
+| streamPosition | Optional | Wird verwendet, um durch eine große Anzahl von Lead-Antworten zu paginieren. Der `streamPosition` Wert wird vom Feld `newStreamPosition` der vorherigen Aufrufantwort zurückgegeben |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

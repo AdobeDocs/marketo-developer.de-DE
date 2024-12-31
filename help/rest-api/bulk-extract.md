@@ -1,7 +1,7 @@
 ---
-title: Massenextraktion
+title: Massenextrakt
 feature: REST API
-description: Stapelvorgänge zum Extrahieren von Marketo-Daten.
+description: Batch-Vorgänge für die Extraktion von Marketo-Daten.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
 source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
@@ -10,64 +10,64 @@ ht-degree: 1%
 
 ---
 
-# Massenextraktion
+# Massenextrakt
 
-Marketo bietet Schnittstellen zum Abrufen großer Mengen von personenbezogenen und personenbezogenen Daten, die als Massenextraktion bezeichnet werden. Derzeit sind Schnittstellen für drei Objekttypen verfügbar:
+Marketo bietet Schnittstellen zum Abrufen großer Mengen von Personen- und personenbezogenen Daten, die als Massenextraktion bezeichnet werden. Derzeit werden Schnittstellen für drei Objekttypen angeboten:
 
 - Leads (Personen)
 - Aktivitäten
 - Programm-Mitglieder
 - Benutzerdefinierte Objekte
 
-Die Massenextraktion wird ausgeführt, indem ein Auftrag erstellt wird, der Datensatz zum Abrufen definiert wird, der Auftrag in die Warteschlange gestellt wird, darauf gewartet wird, dass der Auftrag das Schreiben einer Datei abgeschlossen hat, und dann die Datei über HTTP abgerufen wird. Diese Aufträge werden asynchron ausgeführt und können abgerufen werden, um den Status des Exports abzurufen.
+Die Massenextraktion erfolgt durch Erstellen eines Auftrags, Definieren des abzurufenden Satzes von Daten, Einreihen des Auftrags in die Warteschlange, Warten darauf, dass der Auftrag zum Abschließen des Schreibens einer Datei abgeschlossen ist, und anschließendes Abrufen der Datei über HTTP. Diese Aufträge werden asynchron ausgeführt und können abgerufen werden, um den Status des Exports abzurufen.
 
-`Note:` Massen-API-Endpunkte haben nicht wie andere Endpunkte das Präfix &quot;/rest&quot;.
+`Note:` Bulk-API-Endpunkte haben nicht das Präfix &quot;/rest“ wie andere Endpunkte.
 
 ## Authentifizierung
 
-Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo REST-APIs. Dazu muss ein gültiges Zugriffstoken als HTTP-Header `Authorization: Bearer {_AccessToken_}` gesendet werden.
+Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo-REST-APIs. Dazu muss ein gültiges Zugriffstoken als HTTP-Header-`Authorization: Bearer {_AccessToken_}` gesendet werden.
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem Abfrageparameter **access_token** wurde am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so aktualisiert werden, dass die Kopfzeile **Autorisierung** so bald wie möglich verwendet wird. Für die neue Entwicklung sollte ausschließlich der Header **Autorisierung** verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
 
 ## Beschränkungen
 
 - Max. gleichzeitige Exportvorgänge: 2
-- Max. In die Warteschlange gestellte Exportaufträge (einschließlich der derzeit exportierten Aufträge): 10
-- Aufbewahrungsfrist für Dateien: sieben Tage
-- Standardmäßige tägliche Exportzuordnung: 500 MB (wird täglich um 12:00 Uhr CST zurückgesetzt). Für den Kauf verfügbare Steigerungen.
-- Max. Besuchszeit für Datumsbereichsfilter (createdAt oder updatedAt): 31 Tage
+- Max. in die Warteschlange gestellte Exportaufträge (einschließlich der aktuell exportierten Aufträge): 10
+- Aufbewahrungszeitraum für Dateien: sieben Tage
+- Standardmäßige tägliche Exportzuweisung: 500 MB (wird täglich um 0:00 Uhr CST zurückgesetzt). Erhöhungen können erworben werden.
+- Maximale Zeitspanne für den Datumsbereichsfilter (createdAt oder updatedAt): 31 Tage
 
-Massenextraktionsfilter für UpdatedAt und Smart List sind bei einigen Abonnementtypen nicht verfügbar. Wenn nicht verfügbar, gibt ein Aufruf an den Endpunkt &quot;Lead-Vorgang erstellen&quot;den Fehler &quot;1035, Nicht unterstützter Filtertyp für Zielabonnement&quot;zurück. Kunden können sich an den Marketo-Support wenden, damit diese Funktion in ihrem Abonnement aktiviert wird.
+Massenfilter für die Lead-Extraktion für aktualisierte Daten und Smart-Listen sind für einige Abonnementtypen nicht verfügbar. Wenn nicht verfügbar, gibt ein Aufruf des Endpunkts „Export-Lead-Auftrag erstellen“ den Fehler „1035, Nicht unterstützter Filtertyp für Zielabonnement“ zurück. Kunden können sich an den Marketo-Support wenden, um diese Funktion in ihrem Abonnement aktivieren zu lassen.
 
 ### Warteschlange
 
-Die Bulk-Extract-APIs verwenden eine Auftragswarteschlange (freigegeben zwischen Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten). Extraktionsaufträge müssen zuerst erstellt und dann durch Aufruf von &quot;Export Lead/Aktivität/Programmteilnehmer-Job erstellen&quot;in die Warteschlange gestellt und dann durch Aufruf der Endpunkte Export-Lead/Aktivität/Programmteilnehmer-Job in die Warteschlange gestellt werden. Nach der Verstellung in der Warteschlange werden die Aufträge aus der Warteschlange abgerufen und gestartet, sobald Rechenressourcen verfügbar werden.
+Die APIs für die Massenextraktion verwenden eine Auftragswarteschlange (die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt wird). Extraktionsaufträge müssen zuerst erstellt und dann in die Warteschlange gestellt werden, indem die Endpunkte „Export-Lead/Aktivität/Programmteilnehmer-Auftrag erstellen“ und „Export-Lead/Aktivität/Programmteilnehmer-Auftrag in die Warteschlange stellen“ aufgerufen werden. Nach der Aktivierung werden die Aufträge aus der Warteschlange gezogen und gestartet, sobald Rechenressourcen verfügbar werden.
 
-Die maximale Anzahl von Aufträgen in der Warteschlange beträgt 10. Wenn Sie versuchen, einen Auftrag in die Warteschlange einzureihen, wenn die Warteschlange voll ist, gibt der Endpunkt &quot;Vorgang für die Warteschlange einschließen&quot;den Fehler &quot;1029, Zu viele Aufträge in der Warteschlange&quot;zurück. Es können maximal zwei Aufträge gleichzeitig ausgeführt werden (Status ist &quot;Verarbeitung&quot;).
+Die maximale Anzahl von Aufträgen in der Warteschlange ist 10. Wenn Sie versuchen, einen Auftrag in die Warteschlange einzureihen, wenn die Warteschlange voll ist, gibt der Endpunkt „Exportauftrag in die Warteschlange einreihen“ den Fehler „1029, Zu viele Aufträge in der Warteschlange“ zurück. Es können maximal zwei Aufträge gleichzeitig ausgeführt werden (Status ist „Verarbeitung läuft„).
 
 ### Dateigröße
 
-Die Massenextraktions-APIs werden basierend auf der Größe auf der Festplatte der Daten gemessen, die von einem Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Auftrag kann durch Lesen des Attributs `fileSize` aus der abgeschlossenen Statusantwort eines Exportauftrags bestimmt werden.
+Die APIs für die Massenextraktion basieren auf der Größe der Daten, die über einen Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Vorgang kann durch Lesen des `fileSize` Attributs aus der Antwort „Abgeschlossener Status“ eines Exportvorgangs bestimmt werden.
 
-Das tägliche Kontingent beträgt maximal 500 MB pro Tag, das von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt wird. Wenn das Kontingent überschritten wird, können Sie keinen weiteren Auftrag erstellen oder in die Warteschlange einreihen, bis das tägliche Kontingent um Mitternacht zurückgesetzt wird [Central Time](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler &quot;1029, Export der täglichen Kontingentsmenge überschritten&quot;zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
+Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt ](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
-Sobald ein Auftrag in die Warteschlange gestellt oder verarbeitet wurde, läuft er bis zum Abschluss (mit Ausnahme eines Fehlers oder eines Auftragsabbruchs). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status &quot;Abgeschlossen&quot;erreicht (Teildateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie den SHA-256-Hash berechnen und diese mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
+Sobald ein Auftrag in die Warteschlange gestellt wurde oder verarbeitet wird, wird er bis zum Ende ausgeführt (sofern kein Fehler vorliegt oder der Auftrag nicht abgebrochen wurde). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status Abgeschlossen erreicht (partielle Dateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie ihren SHA-256-Hash berechnen und diesen mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
 
-Sie können die für den aktuellen Tag insgesamt verwendete Festplatte ermitteln, indem Sie &quot;Export Lead/Aktivität/Programmteilaufträge abrufen&quot;aufrufen. Diese Endpunkte geben eine Liste aller Aufträge aus den letzten sieben Tagen zurück. Sie können diese Liste nach nur den Aufträgen filtern, die am aktuellen Tag abgeschlossen wurden (mithilfe der Attribute `status` und `finishedAt`). Geben Sie dann die Dateigrößen für diese Aufträge an, um die insgesamt verwendete Menge zu erhalten. Es gibt keine Möglichkeit, eine Datei zu löschen, um Speicherplatz zurückzugewinnen.
+Sie können die Gesamtmenge der für den aktuellen Tag verwendeten Festplatte ermitteln, indem Sie „Export-Lead/Aktivität/Programmteilnehmeraufträge abrufen“ aufrufen. Diese Endpunkte geben eine Liste aller Aufträge der letzten sieben Tage zurück. Sie können diese Liste nach den Aufträgen filtern, die am aktuellen Tag abgeschlossen wurden (mithilfe der Attribute `status` und `finishedAt`). Addieren Sie dann die Dateigrößen für diese Aufträge, um die insgesamt verwendete Menge zu generieren. Es gibt keine Möglichkeit, eine Datei zu löschen, um Speicherplatz freizugeben.
 
 ## Berechtigungen
 
-Die Massenextraktion verwendet dasselbe Berechtigungsmodell wie die Marketo REST-API und erfordert keine zusätzlichen speziellen Berechtigungen, obwohl für jeden Satz von Endpunkten spezifische Berechtigungen erforderlich sind.
+Die Massenextraktion verwendet dasselbe Berechtigungsmodell wie die Marketo-REST-API und erfordert keine zusätzlichen speziellen Berechtigungen zur Verwendung, obwohl für jeden Endpunktsatz spezifische Berechtigungen erforderlich sind.
 
-Massenextraktionsaufträge sind nur für den API-Benutzer verfügbar, der sie erstellt hat, einschließlich der Statusabfrage und des Abrufs von Dateiinhalten.
+Massenextraktionsaufträge sind nur für den API-Benutzer zugänglich, der sie erstellt hat, einschließlich des Abrufs des Status und des Abrufs von Dateiinhalten.
 
-Massenextraktions-Endpunkte sind nicht über Marketo-Arbeitsbereiche informiert. Extrahierungsanfragen enthalten immer Daten für alle Arbeitsbereiche, unabhängig davon, wie Sie den Nur-API-Benutzer für Ihren benutzerdefinierten Dienst definieren.
+Massenextraktionsendpunkte kennen Marketo-Arbeitsbereiche nicht. Extraktionsanfragen enthalten immer Daten über alle Arbeitsbereiche hinweg, unabhängig davon, wie Sie die API für Ihren benutzerdefinierten Service „Nur Benutzer“ definieren.
 
-## Erstellen eines Auftrags
+## Erstellen von Aufträgen
 
-Die Massenextraktions-APIs von Marketo verwenden das Konzept eines Auftrags zum Initiieren und Ausführen der Datenextraktion. Werfen wir einen einfachen Lead-Export-Auftrag vor.
+Die Massenextraktions-APIs von Marketo verwenden das Konzept eines Auftrags zum Initiieren und Ausführen der Datenextraktion. Betrachten wir das Erstellen eines einfachen Lead-Exportvorgangs.
 
 ```
 POST /bulk/v1/leads/export/create.json
@@ -93,7 +93,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-Mit dieser einfachen Anfrage wird ein Auftrag erstellt, der die in den Feldern &quot;firstName&quot;und &quot;lastName&quot;enthaltenen Werte zurückgibt, wobei die Spaltenüberschriften &quot;Vorname&quot;und &quot;Nachname&quot;als CSV-Datei vorliegen und jeden zwischen dem 1. Januar 2023 und dem 31. Januar 2023 erstellten Lead enthalten.
+Mit dieser einfachen Anfrage wird ein Auftrag erstellt, der die in den Feldern „firstName“ und „lastName“ enthaltenen Werte zurückgibt und die Spaltenüberschriften „First Name“ und „Last Name“ als CSV-Datei enthält, die jeden Lead enthält, der zwischen dem 1. Januar 2023 und dem 31. Januar 2023 erstellt wurde.
 
 ```json
 {
@@ -111,22 +111,22 @@ Mit dieser einfachen Anfrage wird ein Auftrag erstellt, der die in den Feldern &
 }
 ```
 
-Wenn wir den Auftrag erstellen, wird eine Auftrags-ID im Attribut `exportId` zurückgegeben. Anschließend können wir diese Auftrags-ID verwenden, um den Auftrag anzureihen, abzubrechen, seinen Status zu überprüfen oder die abgeschlossene Datei abzurufen.
+Wenn wir den Auftrag erstellen, wird eine Auftrags-ID im `exportId`-Attribut zurückgegeben. Anschließend können wir diese Auftrags-ID verwenden, um den Auftrag in eine Warteschlange einzureihen, abzubrechen, seinen Status zu überprüfen oder die abgeschlossene Datei abzurufen.
 
 ### Allgemeine Parameter
 
-Jeder Endpunkt zur Auftragserstellung gibt einige allgemeine Parameter zum Konfigurieren des Dateiformats, der Feldnamen und des Filters eines Massenextraktionsauftrags frei. Jeder Teiltyp eines Extraktionsauftrags kann zusätzliche Parameter aufweisen:
+Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konfigurieren des Dateiformats, der Feldnamen und des Filters eines Massenextraktionsauftrags. Jeder Subtyp des Extraktionsvorgangs kann über zusätzliche Parameter verfügen:
 
 | Parameter | Datentyp | Hinweise |
 |---|---|---|
-| format | String | Bestimmt das Dateiformat der extrahierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und durch Semikolon getrennte Werte. Akzeptiert eines von: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
-| columnHeaderName | Objekt | Ermöglicht das Festlegen der Namen von Spaltenüberschriften in der zurückgegebenen Datei. Jeder Mitgliederschlüssel ist der Name der Spaltenüberschrift, die umbenannt werden soll, und der Wert ist der neue Name der Spaltenüberschrift. Beispiel: &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
-| filter | Objekt | Auf den Extraktionsauftrag angewendeter Filter. Die Typen und Optionen variieren je nach Auftragstyp. |
+| Format | String | Bestimmt das Dateiformat der extrahierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und Semikolon-getrennte Werte. Akzeptiert eine der folgenden Optionen: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
+| columnHeaderNames | Objekt | Ermöglicht das Festlegen der Namen von Spaltenüberschriften in der zurückgegebenen Datei. Jeder Memberschlüssel ist der Name der umzubenennenden Spaltenüberschrift und der Wert ist der neue Name der Spaltenüberschrift. Beispiel: „columnHeaderNames“: { „firstName“: „First Name“, „lastName“: „Last Name“ }, |
+| filter | Objekt | Auf den Extraktionsvorgang angewendeter Filter. Die Typen und Optionen variieren je nach Vorgangstyp. |
 
 
 ## Abrufen von Aufträgen
 
-Manchmal müssen Sie Ihre letzten Aufträge abrufen. Dies ist mit dem Befehl &quot;Get Export Jobs&quot;für den entsprechenden Objekttyp einfach zu erledigen. Jeder Get Export Jobs-Endpunkt unterstützt ein `status` -Filterfeld, ein  `batchSize` , um die Anzahl der zurückgegebenen Aufträge zu begrenzen, und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportauftrag: &quot;Erstellt&quot;, &quot;In Warteschlange&quot;, &quot;Verarbeitung&quot;, &quot;Abgebrochen&quot;, &quot;Abgeschlossen&quot;und &quot;Fehlgeschlagen&quot;. Die batchSize hat eine maximale und die Standardeinstellung von 300. Rufen wir die Liste der Lead-Exportaufträge ab:
+Manchmal müssen Sie möglicherweise Ihre aktuellen Aufträge abrufen. Dies ist mit den GET-Exportvorgängen für den entsprechenden Objekttyp einfach möglich. Jeder Endpunkt Abrufen von Exportvorgängen unterstützt ein `status` Filterfeld, eine  `batchSize`, um die Anzahl der zurückgegebenen Aufträge zu begrenzen, und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportvorgang: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen und Fehlgeschlagen. Die batchSize-Eigenschaft ist auf maximal 300 festgelegt. Rufen wir die Liste der Lead-Exportvorgänge ab:
 
 ```
 GET /bulk/v1/leads/export.json?status=Completed,Failed
@@ -154,21 +154,21 @@ GET /bulk/v1/leads/export.json?status=Completed,Failed
 }
 ```
 
-Der Endpunkt antwortet mit der Antwort `status` jedes Auftrags, der in den letzten sieben Tagen für diesen Objekttyp im Ergebnisarray erstellt wurde. Die Antwort enthält nur Ergebnisse für Aufträge, die dem API-Benutzer gehören, der den Aufruf durchführt.
+Der Endpunkt antwortet mit `status` Antwort jedes Auftrags, der in den letzten sieben Tagen für diesen Objekttyp im Ergebnis-Array erstellt wurde. Die Antwort enthält nur Ergebnisse für Aufträge des API-Benutzers, der den Aufruf ausführt.
 
-## Auftrag starten
+## Starten eines Vorgangs
 
-Beginnen wir mit der Auftrags-ID:
+Lassen Sie uns mit unserer Job-ID anfangen:
 
 ```
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
-Dadurch wird die Ausführung des Auftrags gestartet und eine Statusantwort zurückgegeben. Da der Export immer asynchron erfolgt, müssen wir den Status des Auftrags abfragen, um festzustellen, ob er abgeschlossen wurde. Der Status eines bestimmten Auftrags wird nicht häufiger als einmal alle 60 Sekunden aktualisiert. Daher sollte der Status nie häufiger abgefragt werden. Beachten Sie jedoch, dass die meisten Anwendungsfälle niemals häufiger als einmal alle 5 Minuten eine Abfrage erfordern sollten. Die Daten jedes erfolgreichen Exports werden 10 Tage lang gespeichert.
+Dadurch wird die Ausführung des Auftrags gestartet und eine Statusantwort zurückgegeben. Da der Export immer asynchron erfolgt, müssen wir den Status des Auftrags abfragen, um festzustellen, ob er abgeschlossen wurde. Der Status für einen bestimmten Auftrag wird nicht häufiger als einmal alle 60 Sekunden aktualisiert, daher sollte der Status nie häufiger als dieser abgefragt werden. Beachten Sie jedoch, dass in den meisten Anwendungsfällen die Abfrage nie häufiger als einmal alle 5 Minuten erforderlich sein sollte. Daten von jedem erfolgreichen Export werden 10 Tage lang gespeichert.
 
-## Abruf-Auftragsstatus
+## Status des Abrufauftrags
 
-Die Bestimmung des Auftragsstatus ist einfach.
+Die Bestimmung des Status des Auftrags ist einfach.
 
 Der Status kann nur für Aufträge abgerufen werden, die von demselben API-Benutzer erstellt wurden, der sie erstellt hat.
 
@@ -197,25 +197,25 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 }
 ```
 
-Das innere Element `status` gibt den Fortschritt des Auftrags an und kann einer der folgenden Werte sein: Erstellt, In Warteschlange, Verarbeitung, Abgebrochen, Abgeschlossen, Fehlgeschlagen. In diesem Fall ist unser Auftrag abgeschlossen, sodass wir die Abfrage stoppen und die Datei weiterhin abrufen können. Wenn der Vorgang abgeschlossen ist, gibt das Element `fileSize` die Gesamtlänge der Datei in Byte an und das Element `fileChecksum` enthält den SHA-256-Hash der Datei. Der Auftragsstatus ist 30 Tage lang verfügbar, nachdem der Status Abgeschlossen oder Fehlgeschlagen erreicht wurde.
+Das innere `status` gibt den Fortschritt des Auftrags an und kann einen der folgenden Werte aufweisen: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen, Fehlgeschlagen. In diesem Fall ist unser Vorgang abgeschlossen, sodass wir den Abruf stoppen und mit dem Abrufen der Datei fortfahren können. Nach Abschluss gibt das `fileSize`-Element die Gesamtlänge der Datei in Byte an, und das `fileChecksum`-Element enthält den SHA-256-Hash der Datei. Der Auftragsstatus ist 30 Tage lang verfügbar, nachdem der Status „Abgeschlossen“ oder „Fehlgeschlagen“ erreicht wurde.
 
-## Abrufen Ihrer Daten
+## Daten abrufen
 
-Nach Abschluss des Auftrags können Sie die Datei einfach abrufen.
+Wenn Ihr Auftrag abgeschlossen ist, können Sie die Datei einfach abrufen.
 
 ```
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
-Die Antwort enthält eine Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der Datei. Wenn ein Auftrag nicht abgeschlossen oder eine ungültige Auftrags-ID übergeben wurde, antworten Dateiendpunkte mit dem Status &quot;404 Nicht gefunden&quot;und einer Fehlermeldung als Payload (im Gegensatz zu den meisten anderen Marketo REST-Endpunkten).
+Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei. Wenn ein Auftrag nicht abgeschlossen oder eine fehlerhafte Auftrags-ID übergeben wurde, antworten die Dateiendpunkte mit dem Status „404 Not Found“ und einer Klartext-Fehlermeldung als Payload, im Gegensatz zu den meisten anderen Marketo-REST-Endpunkten.
 
-Um das teilweise und wiederverwendbare Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional den HTTP-Header `Range` des Typs `bytes` (per [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn der Header nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer GET abzurufen, übergeben Sie die folgende Kopfzeile als Teil Ihrer -Anfrage an den -Endpunkt, beginnend mit Byte 0:
+Um das teilweise und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional die HTTP-Header-`Range` vom Typ `bytes` (gemäß [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer Datei abzurufen, würden Sie die folgende Kopfzeile als Teil Ihrer GET-Anfrage an den Endpunkt übergeben, beginnend mit Byte 0:
 
 ```
 Range: bytes=0-9999
 ```
 
-Beim Abrufen der partiellen Datei antwortet der Endpunkt mit Status-Code 206 und gibt die Accept-range-, Content-Length- und Content-Range-Header zurück:
+Beim Abrufen der partiellen Datei antwortet der Endpunkt mit Status-Code 206 und gibt die Kopfzeilen Accept-Ranges, Content-Length und Content-Range zurück:
 
 ```
 Accept-Ranges: bytes
@@ -223,9 +223,9 @@ Content-Length: 1000
 Content-Range: bytes 0-9999/123424
 ```
 
-### Teilabruf und -wiederaufnahme
+### Teilweiser Abruf und Wiederaufnahme
 
-Die Dateien können teilweise abgerufen oder später mit der Kopfzeile `Range` fortgesetzt werden. Der Bereich für eine Datei beginnt bei Byte 0 und endet beim Wert von `fileSize` minus 1. Die Länge der Datei wird auch als Nenner im Wert des Antwortheaders `Content-Range` beim Aufruf eines Endpunkts &quot;Get Export File&quot;berichtet. Wenn ein Abruf teilweise fehlschlägt, kann er später wieder aufgenommen werden. Wenn Sie z. B. versuchen, eine Datei mit einer Länge von 1000 Byte abzurufen, aber nur die ersten 725 Byte empfangen wurden, kann der Abruf ab dem Zeitpunkt des Fehlschlagens wiederholt werden, indem der Endpunkt erneut aufgerufen und ein neuer Bereich übergeben wird:
+Dateien können teilweise abgerufen oder später mit dem `Range`-Header fortgesetzt werden. Der Bereich für eine Datei beginnt bei Byte 0 und endet bei dem Wert `fileSize` minus 1. Die Länge der Datei wird auch als Nenner im Wert des `Content-Range`-Antwort-Headers beim Aufruf eines GET-Exportdatei-Endpunkts angegeben. Schlägt ein Abruf teilweise fehl, kann er später fortgesetzt werden. Wenn Sie beispielsweise versuchen, eine Datei mit einer Länge von 1.000 Byte abzurufen, aber nur die ersten 725 Byte empfangen wurden, kann der Abruf an der Fehlerstelle erneut versucht werden, indem Sie den Endpunkt erneut aufrufen und einen neuen Bereich übergeben:
 
 ```
 Range: bytes 724-999
@@ -233,9 +233,9 @@ Range: bytes 724-999
 
 Dadurch werden die verbleibenden 275 Byte der Datei zurückgegeben.
 
-#### Überprüfung der Dateiintegrität
+#### Prüfung der Dateiintegrität
 
-Die Auftragsstatus-Endpunkte geben eine Prüfsumme im Attribut `fileChecksum` zurück, wenn `status` &quot;Abgeschlossen&quot;ist. Die Prüfsumme ist ein SHA-256-Hash der exportierten Datei. Sie können die Prüfsumme mit dem SHA-256-Hash der abgerufenen Datei vergleichen, um sicherzustellen, dass sie vollständig ist.
+Die Auftragsstatus-Endpunkte geben eine Prüfsumme im `fileChecksum`-Attribut zurück, wenn `status` „Abgeschlossen“ ist. Die Prüfsumme ist ein SHA-256-Hash der exportierten Datei. Sie können die Prüfsumme mit dem SHA-256-Hash der abgerufenen Datei vergleichen, um zu überprüfen, ob sie vollständig ist.
 
 Im Folgenden finden Sie eine Beispielantwort mit der Prüfsumme:
 
@@ -254,14 +254,14 @@ Im Folgenden finden Sie eine Beispielantwort mit der Prüfsumme:
 }
 ```
 
-Im Folgenden finden Sie ein Beispiel für die Erstellung des SHA-256-Hash einer abgerufenen Datei namens &quot;bulk_lead_export.csv&quot;mit dem Befehlszeilen-Dienstprogramm sha256sum :
+Im Folgenden finden Sie ein Beispiel für die Erstellung des SHA-256-Hash einer abgerufenen Datei mit dem Namen „bulk_lead_export.csv“ mithilfe des Befehlszeilen-Dienstprogramms „sha256sum“:
 
 ```
 $ sha256sum bulk_lead_export.csv
 83aca1351c9398d2770330e21a9e278880fd2f1eeaf8c8238bf7676d5c21d1c6 *bulk_lead_export.csv
 ```
 
-## Abbruch eines Auftrags
+## Abbrechen von Aufträgen
 
 Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach abgebrochen werden:
 
@@ -284,4 +284,4 @@ POST /bulk/v1/leads/export/{exportId}/cancel.json
 }
 ```
 
-Diese Antwort erhält einen Status, der angibt, dass der Auftrag abgebrochen wurde.
+Daraufhin wird ein Status angezeigt, der angibt, dass der Vorgang abgebrochen wurde.

@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Referenzarchitektur
 
-Technische Dokumente, in denen Best Practices für die Synchronisierung von Marketo-Daten mit externen Systemen beschrieben werden.
+Technische Dokumente, die Best Practices für die Synchronisierung von Marketo-Daten mit externen Systemen beschreiben.
 
-- [CRM-Synchronisierungsarchitektur](../sync-architecture-whitepaper.pdf)
+- [CRM-Synchronisationsarchitektur](../sync-architecture-whitepaper.pdf)
 - [Architektur der Datenbank-/Data Warehouse-Integration](../reference_architecture.pdf)

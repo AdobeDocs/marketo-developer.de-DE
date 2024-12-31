@@ -1,7 +1,7 @@
 ---
-title: Benutzerdefinierte Dienste
+title: Benutzerdefinierte Services
 feature: REST API
-description: Authentifizierungsberechtigungen mit Marketo.
+description: Authentifizierungsdaten mit Marketo.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -10,96 +10,96 @@ ht-degree: 6%
 
 ---
 
-# Benutzerdefinierte Dienste
+# Benutzerdefinierte Services
 
-Ein benutzerdefinierter Dienst stellt Anmeldedaten für die Authentifizierung bei Marketo bereit. Anmeldeinformationen sind erforderlich, um ein Zugriffstoken vom Marketo [Identitätsdienst](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) zu erhalten. Jeder benutzerdefinierte Dienst ist auf einen einzigen API-Nur-Benutzer beschränkt, von dem er seine Berechtigungen ableitet.
+Ein benutzerdefinierter Service stellt Anmeldeinformationen zur Authentifizierung bei Marketo bereit. Anmeldeinformationen werden benötigt, um ein Zugriffstoken vom Marketo ([) ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzelnen Benutzer (nur API) beschränkt, von dem er seine Berechtigungen ableitet.
 
 ## Rollen
 
-Der erste Schritt beim Erstellen eines benutzerdefinierten Dienstes besteht darin, eine Rolle zu erstellen, die Sie auf den relevanten Nur-API-Benutzer anwenden können. Dies geschieht über das Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer und Rollen]** > **[!UICONTROL Rollen]** .
+Der erste Schritt beim Erstellen eines benutzerdefinierten Service besteht darin, eine Rolle zu erstellen, die Sie auf den relevanten Benutzer „Nur API“ anwenden können. Dies erfolgt über das Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer &amp; Rollen]** > **[!UICONTROL Rollen]**.
 
-Rollen sind Container für individuelle Berechtigungen, die den Zugriff auf bestimmte Funktionen zulassen oder beschränken. Bei Abonnements, für die die Option Arbeitsbereiche und Partitionen aktiviert ist, werden die Berechtigungen je Arbeitsbereich vergeben. Wenn ein Benutzer über eine Berechtigung in einem Arbeitsbereich, aber nicht in einem anderen verfügt, kann er nur zulässige Aktionen in diesem Arbeitsbereich durchführen. Um eine Rolle zu erstellen, klicken Sie auf die Schaltfläche Neue Rolle .
+Rollen sind Container für einzelne Berechtigungen, die den Zugriff auf bestimmte Funktionen ermöglichen oder einschränken. In Abonnements mit aktivierten Arbeitsbereichen und Partitionen werden die Berechtigungen pro Arbeitsbereich erteilt. Wenn ein(e) Benutzende(r) in einem Arbeitsbereich über eine Berechtigung verfügt, in einem anderen jedoch nicht, kann er/sie nur zulässige Aktionen in diesem Arbeitsbereich ausführen. Um eine Rolle zu erstellen, klicken Sie auf die Schaltfläche Neue Rolle .
 
 ![Benutzer und Rollen](assets/admin-users-and-roles-roles.png)
 
-Geben Sie Ihrer Rolle einen beschreibenden Namen. Nur-API-Benutzer verfügen über einen bestimmten Berechtigungssatz, der sich von den normalen Benutzerberechtigungen unterscheidet. API-Berechtigungen gibt es in ihrer eigenen Hierarchie unter der Baumstruktur &quot;Access API&quot;.
+Geben Sie Ihrer Rolle unbedingt einen beschreibenden Namen. Benutzer, die nur über eine API verfügen, verfügen über einen bestimmten Berechtigungssatz, der von den normalen Benutzerberechtigungen getrennt ist. API-Berechtigungen sind in ihrer eigenen Hierarchie unter der Struktur „Zugriff auf API“ vorhanden.
 
 ![Neue Rollenberechtigungen](assets/new-role-access-api-permissions.png)
 
 ### Rollenberechtigungen
 
-Nur Berechtigungen in der Gruppe &quot;Access API&quot;werden auf API-Benutzer angewendet, d. h. die Erteilung aller Administratorberechtigungen gewährt einem Benutzer keine API-Berechtigungen.
+Nur Berechtigungen in der Gruppe „Zugriff auf API“ werden auf API-Benutzer angewendet, d. h., bei Vergabe aller Administratorberechtigungen werden einem Benutzer keine API-Berechtigungen gewährt.
 
-Überlegen Sie beim Erstellen einer Rolle sorgfältig, welche Aktionen Sie der Anwendung ermöglichen sollten, die diese Rolle verwendet. Gewähren Sie nur die für die Durchführung dieser Aktionen erforderlichen Mindestberechtigungen. Durch die Zulassung eines unnötigen Berechtigungssatzes können Integrationen unerwünschte Aktionen in Ihrem Abonnement durchführen. Sie können das [Berechtigungs-Tool](endpoint-reference.md) verwenden, um Ihre Mindestberechtigungen zu bestimmen. Die vollständige Liste der [Berechtigungen](#permission_list) finden Sie.
+Überlegen Sie beim Erstellen einer Rolle sorgfältig, welche Aktionen Sie der Anwendung, die sie verwendet, gestatten sollten. Gewähren Sie nur den minimalen Berechtigungssatz, der für die Durchführung dieser Aktionen erforderlich ist. Durch das Zulassen eines unnötig toleranten Berechtigungssatzes können Integrationen unerwünschte Aktionen in Ihrem Abonnement durchführen. Sie können das [Berechtigungs-Tool](endpoint-reference.md) verwenden, um Ihren minimalen Berechtigungssatz zu bestimmen. Siehe die vollständige Liste von [Berechtigungen](#permission_list).
 
 ## Benutzer
 
-Nachdem Sie eine Rolle erstellt haben, müssen Sie einen Benutzer &quot;Nur API&quot; erstellen. Nur-API-Benutzer sind ein spezieller Benutzertyp in Marketo, da sie von anderen Benutzern verwaltet werden und nicht für die Anmeldung bei Marketo verwendet werden können. Nur-API-Benutzer können:
+Nachdem Sie eine Rolle erstellt haben, müssen Sie einen „Nur-API“-Benutzer erstellen. Benutzende, die nur über eine API verfügen, sind in Marketo ein spezieller Benutzertyp, da sie von anderen Benutzenden verwaltet werden und nicht zur Anmeldung bei Marketo verwendet werden können. Benutzer, die nur über eine API verfügen, können:
 
-- Erstellen benutzerdefinierter Dienste
-- Zugriffsberechtigungen für diese Dienste
+- Erstellen benutzerdefinierter Services
+- Zugriffsberechtigungen für diese Services
 - Zugriff auf REST-APIs
 
 >[!MORELIKETHIS]
 >
->Um einen reinen API-Benutzer zu erstellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer und Rollen]** > **[!UICONTROL Benutzer]** und klicken Sie auf [!UICONTROL Neuen Benutzer einladen].
+>Um einen Benutzer nur mit API zu erstellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer und Rollen]** > **[!UICONTROL Benutzer]** und klicken Sie auf [!UICONTROL Neuen Benutzer einladen].
 
 
 ![Neue Benutzerinformationen](assets/new-user-info.png)
 
-Geben Sie Ihrem Benutzer einen beschreibenden Namen und eine E-Mail-Adresse (diese muss nicht gültig sein), basierend auf dem Dienst und der Anwendung, für die sie verwendet wird. Füllen Sie die erforderlichen Felder im Dialogfeldmenü aus, klicken Sie auf das Kontrollkästchen &quot;Nur API&quot;und weisen Sie dem Benutzer eine Ihrer API-Rollen zu. Dadurch werden dem Benutzer die für diese Rolle festgelegten Berechtigungen zugewiesen.
+Geben Sie Ihrem Benutzer einen beschreibenden Namen und eine E-Mail-Adresse (sie muss nicht gültig sein), basierend auf dem Service und der Anwendung, für die sie verwendet werden soll. Füllen Sie die erforderlichen Felder im Dialogfeldmenü aus, klicken Sie auf das Kontrollkästchen „Nur API“ und weisen Sie dem Benutzer eine Ihrer API-Rollen zu. Dadurch werden die für diese Rolle festgelegten Berechtigungen dem Benutzer zugewiesen.
 
 ![Berechtigungen für neue Benutzer](assets/new-user-permissions.png)
 
-Klicken Sie abschließend auf &quot;Senden&quot;, um den reinen API-Benutzer zu erstellen.
+Klicken Sie abschließend auf „Senden“, um den Benutzer „Nur API“ zu erstellen.
 
-Wenn Sie eine neue Anwendung mit Anmeldeinformationen bereitstellen, sollten Sie dringend erwägen, einen neuen Benutzer für den Dienst einzurichten, selbst wenn für sie dieselben Berechtigungen wie für eine andere vorhandene Integration festgelegt sind. Statistiken und Fehler zur Nutzung von API-Aufrufen werden pro Benutzer verfolgt. Die Bereitstellung eines Benutzers für jede Anwendung kann Ihnen dabei helfen, die Nutzung und Probleme mit bestimmten Anwendungen zu isolieren. Dies ist nützlich, wenn Sie bei Problemen mit den täglichen API-Aufrufbeschränkungen oder Fehler aufgrund von API-Aufrufen durch Integrationen feststellen.
+Erwägen Sie bei der Bereitstellung einer neuen Anwendung mit Anmeldeinformationen dringend, einen neuen Benutzer für den Service zu ernennen, selbst wenn er denselben Berechtigungssatz wie eine andere vorhandene Integration hat. Statistiken und Fehler zur Nutzung von API-Aufrufen werden benutzerspezifisch verfolgt, sodass die Bereitstellung eines Benutzers für jede Anwendung dabei hilft, Nutzungsszenarien und Probleme auf bestimmte Anwendungen zu isolieren. Dies ist praktisch, wenn Probleme beim Erzielen der täglichen API-Aufrufbeschränkungen auftreten oder Fehler aufgrund von API-Aufrufen auftreten, die von Integrationen vorgenommen werden.
 
-## Benutzerdefinierte Dienste
+## Benutzerdefinierte Services
 
-Benutzerdefinierte Dienste stellen die eigentlichen Anmeldeinformationen, die Client-ID und das Client-Geheimnis bereit, die für die Authentifizierung mit einer Marketo-Instanz erforderlich sind. Um einen Dienst bereitzustellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Integrationen]** > **[!UICONTROL LaunchPoint]** und wählen Sie **[!UICONTROL Neuer Dienst]** aus.
+Benutzerdefinierte Services stellen die tatsächlichen Anmeldeinformationen, die Client-ID und das Client-Geheimnis, bereit, die erforderlich sind, um eine Authentifizierung mit einer Marketo-Instanz durchzuführen. Um einen Service bereitzustellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Integrationen]** > **[!UICONTROL LaunchPoint]** und wählen Sie **[!UICONTROL Neuer Service]**.
 
-Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie in der Liste &quot;Dienst&quot;die Option &quot;Benutzerdefiniert&quot;aus. Geben Sie Ihrem Dienst eine ausführliche Beschreibung, wählen Sie einen geeigneten Benutzer aus der Liste &quot;Nur API-Benutzer&quot;aus und klicken Sie dann auf [!UICONTROL Erstellen].
+Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie in der Liste „Dienst“ die Option „Benutzerdefiniert“ aus. Geben Sie Ihrem Service eine ausführliche Beschreibung, wählen Sie einen geeigneten Benutzer aus der Liste Nur API-Benutzer aus und klicken Sie auf [!UICONTROL Erstellen].
 
-![Neuer benutzerdefinierter Dienst](assets/admin-launchpoint-new-service.png)
+![Neuer benutzerdefinierter Service](assets/admin-launchpoint-new-service.png)
 
-Dadurch wird Ihrer Liste der LaunchPoint-Dienste ein neuer Dienst und die Option &quot;Details anzeigen&quot;hinzugefügt. Klicken Sie auf &quot;Details anzeigen&quot;. Sie erhalten die Client-ID und das Client-Geheimnis, die für die Authentifizierung erforderlich sind, den Eigentümer-Benutzer und eine Option zum Abrufen des Tokens für kurzfristige Tests. Das Token, das Sie aus diesem Dialogfeld erhalten, hat dieselbe Lebensdauer wie die Token, die Sie normalerweise vom [Identitätsdienst](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) erhalten haben, und ist 3.600 Sekunden ab der Erstellung gültig.
+Dadurch wird Ihrer Liste der LaunchPoint-Services ein neuer Service hinzugefügt und die Option „Details anzeigen“. Klicken Sie auf „Details anzeigen“ und Sie erhalten die Client-ID und das Client-Geheimnis, die für die Authentifizierung erforderlich sind, den Eigentümer der Benutzerin bzw. des Benutzers und eine Option zum Abrufen des Tokens für kurzfristige Testzwecke. Das Token, das Sie aus diesem Dialogfeld erhalten, hat dieselbe Lebensdauer wie Token, die normalerweise vom [Identity Service](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) abgerufen werden, und ist nach der Erstellung 3.600 Sekunden lang gültig.
 
 ![Token abrufen](assets/get-token.png)
 
 ## Arbeitsbereiche und Partitionen
 
-Bei Abonnements mit Arbeitsbereichen und Partitionen wird die Möglichkeit zum Zugriff auf einen bestimmten Datensatz oder ein bestimmtes Asset basierend auf den Berechtigungen gewährt, die die Rolle eines Benutzers in einem bestimmten Arbeitsbereich besitzt. Jeder Arbeitsbereich erhält Zugriff auf eine oder mehrere Partitionen im Menü Arbeitsbereiche und Partitionen und ein Lead gehört zu einer Partition. Wenn der Nur-API-Benutzer Zugriff auf Lead-Datensätze in einem Arbeitsbereich hat, kann er auf alle Datensätze in Partitionen zugreifen, auf die dieser Arbeitsbereich Zugriff hat.
+Bei Abonnements mit Arbeitsbereichen und Partitionen wird die Möglichkeit zum Zugriff auf einen bestimmten Datensatz oder ein bestimmtes Asset auf Grundlage der Berechtigungen gewährt, die die Rolle eines Benutzers in einem bestimmten Arbeitsbereich hat. Jeder Arbeitsbereich erhält im Menü Arbeitsbereiche und Partitionen Zugriff auf eine oder mehrere Partitionen und ein Lead gehört zu einer einzelnen Partition. Wenn der Benutzer „Nur API“ Zugriff auf das Lesen oder Schreiben von Lead-Datensätzen in einem Arbeitsbereich hat, kann er auf alle Datensätze in Partitionen zugreifen, auf die dieser Arbeitsbereich Zugriff hat.
 
-Assets gehört zu Arbeitsbereichen. Daher wird die Fähigkeit zum Lesen oder Schreiben eines Assets dadurch bestimmt, ob der Benutzer in der entsprechenden Arbeitsfläche über eine Rolle verfügt, die berechtigt ist, diesen Asset-Datensatz in der Arbeitsfläche zu lesen oder zu schreiben.
+Assets gehören zu Arbeitsbereichen. Daher hängt die Fähigkeit zum Lesen oder Schreiben eines Assets davon ab, ob der/die Benutzende im entsprechenden Arbeitsbereich über eine Rolle verfügt, die zum Lesen oder Schreiben dieses Asset-Datensatztyps im Arbeitsbereich berechtigt ist.
 
 ## Berechtigungsliste
 
-Im Folgenden finden Sie eine Liste aller Berechtigungen, die nur für API-Benutzer verfügbar sind, und was sie einem Benutzer mit dieser Berechtigung erlauben.
+Im Folgenden finden Sie eine Liste aller Berechtigungen, die nur für Benutzer mit einer -API verfügbar sind, und der Berechtigungen, die sie einem Benutzer mit dieser Berechtigung erteilen.
 
-| Rollenberechtigung | Gewährt Zugriff auf ... |
+| Rollenberechtigung | Gewährt Zugriff auf… |
 | --- | --- |
-| Assets genehmigen | Genehmigen von Assets |
-| Kampagne ausführen | Kampagnen anfordern oder planen |
-| Schreibgeschützte Aktivität | Abrufen von Lead-Aktivitäten |
-| Metadaten der schreibgeschützten Aktivität | Abrufen von Metadaten für Lead-Aktivitäten |
+| Assets genehmigen | Assets genehmigen |
+| Kampagne ausführen | Kampagne anfordern oder planen |
+| Schreibgeschützte Aktivität | Lead-Aktivitäten abrufen |
+| Metadaten der schreibgeschützten Aktivität | Abrufen von Metadaten der Lead-Aktivität |
 | Schreibgeschützte Assets | Abrufen von Asset-Details |
-| Schreibgeschützte Kampagne | Kampagnendetails abrufen |
-| Schreibgeschütztes Unternehmen | Abrufen von Firmendetails |
+| Schreibgeschützte Kampagne | Abrufen von Kampagnendetails |
+| Schreibgeschütztes Unternehmen | Abrufen von Unternehmensdetails |
 | Schreibgeschütztes benutzerdefiniertes Objekt | Abrufen benutzerdefinierter Objektdetails |
-| Schreibgeschützter Lead | Abrufen von Lead-Details |
-| Schreibgeschütztes benanntes Konto | Abrufen von benannten Kontodetails |
-| Schreibgeschützte Liste benannter Konten | Abrufen von Details zur benannten Kontoliste |
+| Schreibgeschützter Lead | Lead-Details abrufen |
+| Schreibgeschütztes benanntes Konto | Abrufen benannter Kontodetails |
+| Schreibgeschützte Liste benannter Konten | Abrufen von Details zur Liste benannter Konten |
 | Schreibgeschützte Geschäftschance | Opportunity-Details abrufen |
-| Schreibgeschützter Verkaufsmitarbeiter | Details zu Vertriebsmitarbeitern abrufen |
+| Schreibgeschützter Verkaufsmitarbeiter | Details zu Vertriebsperson abrufen |
 | Aktivität mit Lese-/Schreibzugriff | Abrufen und Erstellen von Lead-Aktivitäten |
-| Metadaten der Aktivität mit Lese-/Schreibzugriff | Abrufen und Erstellen von Metadaten für Lead-Aktivitäten |
+| Metadaten der Aktivität mit Lese-/Schreibzugriff | Abrufen und Erstellen von Metadaten der Lead-Aktivität |
 | Assets mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Assets |
 | Kampagne mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Kampagnen |
-| Unternehmen mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Unternehmen |
+| Unternehmen mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Firmen |
 | Objekt mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren benutzerdefinierter Objekte |
 | Lead mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Lead-Details |
-| Benanntes Konto mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren benannter Konten |
-| Liste benannter Konten mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren benannter Kontolisten |
-| Verkaufschance mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Möglichkeiten |
-| Verkaufsmitarbeiter mit Lese-/Schreibzugriff | Verkaufspersonen abrufen, erstellen und aktualisieren |
+| Benanntes Konto mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von benannten Konten |
+| Liste benannter Konten mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von benannten Kontolisten |
+| Verkaufschance mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Opportunities |
+| Verkaufsmitarbeiter mit Lese-/Schreibzugriff | Abrufen, Erstellen und Aktualisieren von Vertriebspersonen |

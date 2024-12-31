@@ -12,27 +12,27 @@ ht-degree: 6%
 
 # Felder
 
-Die REST-API und SOAP-API verwenden unterschiedliche Benennungskonventionen für Lead-Felder.
+Die REST-API und die SOAP-API verwenden unterschiedliche Benennungskonventionen für Lead-Felder.
 
-## Liste von Feldnamen abrufen
+## Abrufen der Liste von Feldnamen
 
-Rufen Sie die Liste aller unterstützten Feldnamen ab, die in Ihren Lead-Datensätzen verfügbar sind, indem Sie den REST-Endpunkt &quot;Lead beschreiben&quot;verwenden.
+Rufen Sie die Liste aller unterstützten Feldnamen ab, die in Ihren Lead-Datensätzen verfügbar sind, indem Sie den REST-Endpunkt „Lead beschreiben“ verwenden.
 
-## Wo wird der Feldnamentyp verwendet?
+## Wo welcher Feldnamenstyp verwendet werden soll?
 
-Manchmal ist es schwierig zu wissen, welchen Feldnamentyp Sie verwenden müssen, wenn Sie eine bestimmte integrationsbezogene Funktion nutzen. Im Folgenden finden Sie eine Kurzübersicht darüber, für welche Funktionen REST- oder SOAP Feldnamentypen verwendet werden.
+Manchmal ist es schwierig zu wissen, welchen Feldnamenstyp Sie bei der Verwendung einer bestimmten integrationsbezogenen Funktion verwenden müssen. Im Folgenden finden Sie eine Kurzübersicht darüber, welche Funktionen REST- oder SOAP-Feldnamenstypen verwenden.
 
-| Funktion | Feldname Zu verwendender Typ |
+| Funktion | Zu verwendender Feldnamenstyp |
 |--- |--- |
 | Lead-Tracking-API (Munchkin) | SOAP |
 | Forms 2.0-API | SOAP |
-| Listenimport (Benutzeroberfläche) | SOAP |
-| Listenimport (REST-API) | REST |
+| Listen-Import (Benutzeroberfläche) | SOAP |
+| Listen-Import (REST-API) | RUHE |
 | Webhook-Antwortzuordnungen | SOAP |
-| Email Scripting (Velocity) | SOAP |
+| E-Mail-Scripting (Velocity) | SOAP |
 | SOAP-API | SOAP |
-| REST-API | REST |
+| REST-API | RUHE |
 
 ### Warum gibt das REST-API-Feld sfdcId immer den Wert null zurück?
 
-Das Feld `sfdcId` ist ein Formelfeld, das fälschlicherweise in der ursprünglichen Feldzuordnung für die REST-API enthalten war. Über die REST-API abgerufene Datensätze berechnen nicht den Wert der Formelfelder, daher ist der Wert immer null. Um die tatsächliche SFDC-ID zu erfassen, sollten Sie die Felder `sfdcLeadId` und `sfdcContactId` verwenden.
+Das Feld `sfdcId` ist ein Formelfeld, das fälschlicherweise in die ursprüngliche Feldzuordnung für die REST-API aufgenommen wurde. Die über die REST-API abgerufenen Datensätze berechnen den Wert der Formelfelder nicht, sodass der Wert immer null ist. Um die tatsächliche SFDC-ID zu erfassen, sollten Sie die Felder `sfdcLeadId` und `sfdcContactId` verwenden.

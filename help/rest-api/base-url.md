@@ -1,32 +1,32 @@
 ---
 title: Basis-URL
 feature: REST API
-description: Beschreibt die URLs für Marketo.
+description: Beschreibt, wie URLs für Marketo erstellt werden.
 exl-id: 6c3f122c-3ace-4ed3-bed0-a6b89cedc99a
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '142'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
 
 # Basis-URL
 
-Die Dokumentation [Endpunktverweis](endpoint-reference.md) für jeden API-Aufruf enthält die REST-Methode, den Pfad, die Ressource und die Parameter, die an die Basis-URL angehängt werden müssen, um eine Anfrage zu erstellen.
+Die [Endpunktreferenz](endpoint-reference.md) Dokumentation für jeden API-Aufruf zeigt die REST-Methode, den Pfad, die Ressource und die Parameter, die zur Erstellung einer Anfrage an die Basis-URL angehängt werden müssen.
 
-Im Folgenden finden Sie ein Beispiel für eine korrekt formatierte REST-URL:
+Im Folgenden finden Sie ein Beispiel für eine gut geformte REST-URL:
 
 `https://284-RPR-133.mktorest.com/rest/v1/lead/318581.json?fields=email,firstName,lastName`
 
-die aus folgenden Teilen besteht:
+das sich aus folgenden Teilen zusammensetzt:
 
 - Basis-URL: `https://284-RPR-133.mktorest.com/rest`
 - Pfad: `/v1/lead/`
 - Ressource: `318582.json`
 - Abfrageparameter: `fields=email,firstName,lastName`
 
-Die Basis-URL enthält die Konto-ID (auch Munchkin-ID genannt) und ist daher für jedes Marketo-Abonnement eindeutig. Ihre Basis-URL wird gefunden, indem Sie sich bei Marketo anmelden und zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Webdienste]** navigieren. Sie wird unter dem Abschnitt &quot;REST API&quot;als &quot;Endpoint:&quot;bezeichnet, wie in den folgenden Screenshots dargestellt.
+Die Basis-URL enthält die Konto-ID (auch als Munchkin-ID bezeichnet) und ist daher für jedes Marketo-Abonnement eindeutig. Ihre Basis-URL finden Sie, indem Sie sich bei Marketo anmelden und zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** navigieren. Sie ist unter dem Abschnitt „REST-API“ als „Endpunkt:“ gekennzeichnet, wie in den folgenden Screenshots gezeigt.
 
-![Basis-URL-Endpunkt der Web-Services](assets/rest-api-base-url-web-services.png)
+![Web-Services-Basis-URL-Endpunkt](assets/rest-api-base-url-web-services.png)
 
-Nachdem Sie die Basis-URL gefunden haben, kopieren Sie sie und fügen Sie sie in URLs ein, die Sie beim Aufrufen von REST-APIs verwenden.
+Nachdem Sie die Basis-URL gefunden haben, kopieren Sie sie und fügen Sie sie in URLs ein, die Sie beim Aufruf einer der REST-APIs verwenden.

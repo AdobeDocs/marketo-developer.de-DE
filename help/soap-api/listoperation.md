@@ -1,37 +1,37 @@
 ---
 title: listOperation
 feature: SOAP
-description: listOperation SOAP Aufrufe
+description: listOperation-SOAP-Aufrufe
 exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '187'
-ht-degree: 8%
+ht-degree: 9%
 
 ---
 
 # listOperation
 
-Diese Methode wird verwendet, um Vorgänge für eine statische Liste auszuführen, die in der Lead-Datenbank von Marketo definiert ist. Verwenden Sie [importToList](importtolist.md), um Elemente einer statischen Liste hinzuzufügen oder aus einer in einem Programm definierten Liste zu entfernen. Jeder Aufruf an diesen Endpunkt hat eine Beschränkung von 1.000 Leads pro Aufruf.
+Diese Methode wird verwendet, um Vorgänge für eine statische Liste auszuführen, die in der Marketo-Lead-Datenbank definiert ist. Um Mitglieder einer in einem Programm definierten statischen Liste hinzuzufügen oder zu entfernen, verwenden Sie [importToList](importtolist.md). Jeder Aufruf an diesen Endpunkt ist auf 1.000 Leads pro Aufruf beschränkt.
 
-Zu den Aktionstypen gehören:
+Zu den Vorgangstypen gehören:
 
 - Zu Liste hinzufügen
 - Aus Liste entfernen
-- Mitgliedschaft in der Liste überprüfen
+- Mitgliedschaft in Liste prüfen
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| listOperation | Erforderlich | Der Vorgangstyp, den Sie in der angegebenen Liste ausführen möchten. Mögliche Vorgänge: `ADDTOLIST`, `ISMEMBEROFLIST`, `REMOVEFROMLIST` |
-| listKey->keyType | Erforderlich | Der Listentyp, auf den Sie zugreifen möchten. Mögliche Werte: `MKTOLISTNAME`, `MKTOSALESUSERID`, `SFDCLEADOWNERID` |
-| listKey->keyValue | Erforderlich | Name der Liste, für die Sie arbeiten möchten. |
-| listMemberList->leadKey->keyType | Erforderlich | Mit `keyType` können Sie die ID angeben, mit der Sie auf den Lead verweisen möchten. Mögliche Werte: `IDNUM` |
-| listMemberList->leadKey->keyValue | Erforderlich | `keyValue` ist der Wert, für den Sie die Liste verwenden möchten. |
-| strikt | optional | Der strikte Modus schlägt für den gesamten Vorgang fehl, wenn eine Untergruppe des Aufrufs fehlschlägt. Der nicht strikte Modus schließt alles aus, was möglich ist, und gibt Fehler für alles zurück, was fehlgeschlagen ist. |
+| listOperation | Erforderlich | Der Typ des Vorgangs, der für die angegebene Liste ausgeführt werden soll. Mögliche Operationen: `ADDTOLIST`, `ISMEMBEROFLIST`, `REMOVEFROMLIST` |
+| listKey->keyType | Erforderlich | Der Listentyp, mit dem Sie arbeiten möchten. Mögliche Werte: `MKTOLISTNAME`, `MKTOSALESUSERID`, `SFDCLEADOWNERID` |
+| listKey->keyValue | Erforderlich | Name der Liste, mit der Sie arbeiten möchten. |
+| listMemberList->leadKey->keyType | Erforderlich | `keyType` können Sie die ID angeben, nach der Sie auf den Lead verweisen möchten. Mögliche Werte: `IDNUM` |
+| listMemberList->leadKey->keyValue | Erforderlich | `keyValue` ist der Wert, für den die Liste verwendet werden soll |
+| streng | Optional | Der strikte Modus schlägt für den gesamten Vorgang fehl, wenn eine Teilmenge des Aufrufs fehlschlägt. Der Nicht-strikte Modus vervollständigt alles, was möglich ist, und gibt Fehler für alles zurück, was fehlgeschlagen ist. |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

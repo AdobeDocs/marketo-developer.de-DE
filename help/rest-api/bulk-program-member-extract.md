@@ -1,7 +1,7 @@
 ---
-title: Massen-Programm Mitgliederextraktion
+title: Massenprogramm-Mitgliederextraktion
 feature: REST API
-description: Stapelverarbeitung der Extraktion von Mitgliederdaten.
+description: Batch-Verarbeitung der Mitgliederdatenextraktion.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -10,19 +10,19 @@ ht-degree: 4%
 
 ---
 
-# Massen-Programm Mitgliederextraktion
+# Massenprogramm-Mitgliederextraktion
 
-[Referenz zum Extract Endpoint des Bulk-Programms](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[Referenz zum Extrahieren von Endpunkten für Massenprogrammmember](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
 
-Der Satz von REST-APIs zur Mitgliederextrahierung von Massen-Programmteilnehmern bietet eine programmatische Schnittstelle zum Abrufen großer Mengen von Programmmitgliedern-Datensätzen aus Marketo. Dies ist die empfohlene Schnittstelle für Anwendungsfälle, die einen kontinuierlichen Datenaustausch zwischen Marketo und einem oder mehreren externen Systemen erfordern, zum ETL-, Daten-Warehouse- und Archivierungszwecken.
+Der Satz von REST-APIs zum Extrahieren von Programmmitgliedern stellt eine programmgesteuerte Schnittstelle zum Abrufen großer Mengen von Programmmitgliederdatensätzen aus Marketo bereit. Dies ist die empfohlene Oberfläche für Anwendungsfälle, in denen Daten aus Gründen der ETL, des Data Warehousing und der Archivierung kontinuierlich zwischen Marketo und einem oder mehreren externen Systemen ausgetauscht werden müssen.
 
 ## Berechtigungen
 
-Die Bulk-Programm-Teilnehmer-Extract-APIs erfordern, dass der Eigentümer-API-Benutzer über eine oder beide der Lese-/Schreibzugriff-Lead- oder Lese-SchreibLead-Berechtigungen verfügt.
+Die APIs zum Extrahieren von Programmmitgliedern erfordern, dass der besitzende API-Benutzer über eine Rolle mit einer oder beiden der Berechtigungen Schreibgeschützter Lead oder Lese-/Schreib-Lead verfügt.
 
-## Beschreibung
+## beschreiben
 
-[Beschreibung des Programmmitglieds](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) ist die primäre &quot;Source of Truth&quot;, aus der hervorgeht, ob Felder zur Verwendung verfügbar sind, und Metadaten zu diesen Feldern. Das Attribut `name` enthält den Namen der REST-API.
+[Programmteilnehmer beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) ist die primäre Datenquelle für die Frage, ob Felder zur Verwendung verfügbar sind, und für Metadaten zu diesen Feldern. Das `name`-Attribut enthält den REST-API-Namen.
 
 ```
 GET /rest/v1/programs/members/describe.json
@@ -213,7 +213,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## Filter
 
-Programmmitglieder unterstützen verschiedene Filteroptionen. Für einen Auftrag können mehrere Filtertypen angegeben werden. In diesem Fall werden sie UND zusammen zugewiesen. Sie müssen entweder den Filter `programId` oder den Filter `programIds` angeben. Alle anderen Filter sind optional. Der Filter `updatedAt` erfordert zusätzliche Infrastrukturkomponenten, die noch nicht für alle Abonnements bereitgestellt wurden.
+Programmmitglieder unterstützen verschiedene Filteroptionen. Für einen Auftrag können mehrere Filtertypen angegeben werden. In diesem Fall werden sie zusammen mit ANDs verwendet. Sie müssen entweder den `programId` oder den `programIds` angeben. Alle anderen Filter sind optional. Der `updatedAt` erfordert zusätzliche Infrastrukturkomponenten, die noch nicht für alle Abonnements bereitgestellt wurden.
 
 <table>
   <tbody>
@@ -224,32 +224,32 @@ Programmmitglieder unterstützen verschiedene Filteroptionen. Für einen Auftrag
     </tr>
     <tr>
       <td>programId</td>
-      <td>Ganze Zahl</td>
-      <td>Akzeptiert die ID eines Programms. Aufträge geben alle zugänglichen Datensätze zurück, die zum Zeitpunkt der Verarbeitung des Auftrags Mitglieder des Programms sind.Programm-IDs mithilfe des Endpunkts <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Programme abrufen</a> werden abgerufen.Kann nicht mit dem Filter "programIds"verwendet werden.</td>
+      <td>Ganzzahl</td>
+      <td>Akzeptiert die ID eines Programms. Aufträge geben alle zugänglichen Datensätze zurück, die zu dem Zeitpunkt Mitglieder des Programms sind, zu dem der Auftrag mit der Verarbeitung beginnt.Programm-IDs über den Endpunkt <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Programme abrufen</a>.Kann nicht mit dem Filter programIds verwendet werden.</td>
     </tr>
     <tr>
       <td>programIds</td>
-      <td>Array[Integer]</td>
-      <td>Akzeptiert ein Array von bis zu 10 Programm-IDs. Aufträge geben alle zugänglichen Datensätze zurück, die zum Zeitpunkt der Auftragsverarbeitung zu den Programmen gehören. Als erstes Feld wird der Exportdatei das zusätzliche Feld "programId" hinzugefügt. In diesem Feld wird das Programm angegeben, aus dem ein Programmmitgliedschaftsdatensatz extrahiert wurde.Programm-IDs abrufen mithilfe des Endpunkts <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Programme abrufen</a>. Es kann nicht mit dem Filter programId verwendet werden.</td>
+      <td>Array[Ganzzahl]</td>
+      <td>Akzeptiert ein Array von bis zu 10 Programm-IDs. Jobs geben alle zugänglichen Datensätze zurück, die zu dem Zeitpunkt Mitglied der Programme sind, zu dem der Job mit der Verarbeitung beginnt. Ein zusätzliches Feld „programId“ wird der Exportdatei als erstes Feld hinzugefügt. In diesem Feld wird das Programm angegeben, aus dem ein Programmmitgliedschaftsdatensatz extrahiert wurde.Abrufen von Programm-IDs mit dem Endpunkt <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Programme abrufen</a>.Kann nicht mit dem programId-Filter verwendet werden.</td>
     </tr>
     <tr>
       <td>isExhausted</td>
       <td>Boolesch</td>
-      <td>Akzeptiert einen booleschen Wert zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die über erschöpften Inhalt verfügen</a>.</td>
+      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
     </tr>
     <tr>
-      <td>retureCadence</td>
-      <td>Zeichenfolge</td>
-      <td>Akzeptiert eine Zeichenfolge, die zum Filtern der Einträge der Programmmitgliedschaft für eine bestimmte Pflegekatenz verwendet wird. Zulässige Werte sind:
+      <td>Kadenz des Nährwerts</td>
+      <td>String</td>
+      <td>Akzeptiert eine Zeichenfolge, mit der Programmmitgliedschaftsdatensätze nach einer bestimmten Pflegekadenz gefiltert werden. Zulässige Werte sind:
         <ul>
-          <li>pause - cadence is pause</li>
+          <li>Pause - Kadenz wurde angehalten</li>
           <li>Norm - Kadenz ist normal</li>
         </ul></td>
     </tr>
     <tr>
       <td>statusNames</td>
-      <td>Array[String]</td>
-      <td>Akzeptiert ein Array von Statusnamen der Programmmitglieder. Mehrere Statusnamen werden ODER zusammen angegeben. Aufträge mit diesem Filtertyp geben alle verfügbaren Datensätze zurück, deren Programmteilstatus mit einem der angegebenen Statusnamen übereinstimmt. Es können sowohl standardmäßige als auch benutzerdefinierte Statusnamen verwendet werden. Wenn der Filter statusNames mit dem Filter "programIds"verwendet wird, wird jedes Programm auf Mitgliedschaftsdatensätze überprüft, deren Status mit einem der Statusnamen übereinstimmt. Wenn in keinem der Programme ein Statusname gefunden wird, wird der Fehler "1003, Ungültige Daten"zurückgegeben.
+      <td>Array[Zeichenfolge]</td>
+      <td>Akzeptiert ein Array von Statusnamen der Programmmitglieder. Mehrere Statusnamen werden gemeinsam mit ODER bearbeitet. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und deren Programmmitgliedsstatus mit einem der angegebenen Statusnamen übereinstimmt. Es können sowohl standardmäßige als auch benutzerdefinierte Statusnamen verwendet werden. Wenn der Filter „statusNames“ mit dem Filter „programIds“ verwendet wird, wird jedes Programm auf Mitgliedschaftsdatensätze überprüft, deren Status mit einem der Statusnamen übereinstimmt. Wenn in keinem der Programme ein Statusname gefunden wird, wird der Fehler „1003, Invalid Data“ zurückgegeben.
         <table>
           <tbody>
             <tr>
@@ -303,31 +303,31 @@ Programmmitglieder unterstützen verschiedene Filteroptionen. Für einen Auftrag
     <tr>
       <td>updatedAt*</td>
       <td>Datumsbereich</td>
-      <td>Akzeptiert ein JSON-Objekt mit den Elementen startAt und endAt. startAt akzeptiert einen Datum, der das niedrige Wasserzeichen darstellt, und endAt akzeptiert einen Datum, der das hohe Wasserzeichen darstellt. Der Zeitraum muss 31 Tage oder weniger betragen. Datums- und Uhrzeitformate sollten im ISO-8601-Format vorliegen, ohne Millisekunden. Aufträge mit diesem Filtertyp geben alle verfügbaren Datensätze zurück, die zuletzt im Datumsbereich aktualisiert wurden.</td>
+      <td>Akzeptiert ein JSON-Objekt mit den Membern startAt und endAt. startAt akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und endAt akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format vorliegen, ohne Millisekunden. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zuletzt innerhalb des Datumsbereichs aktualisiert wurden.</td>
     </tr>
   </tbody>
 </table>
 
-Für einige Abonnements ist der Filtertyp nicht verfügbar. Wenn Sie für Ihr Abonnement nicht verfügbar sind, erhalten Sie beim Aufrufen des Endpunkts &quot;Create Export Program Member Job&quot;(&quot;1035, Unsupported filter type for target subscription&quot;) eine Fehlermeldung. Kunden können sich an den Marketo-Support wenden, damit diese Funktion in ihrem Abonnement aktiviert wird.
+Filtertyp ist für einige Abonnements nicht verfügbar. Wenn für Ihr Abonnement nicht verfügbar ist, erhalten Sie eine Fehlermeldung beim Aufruf des Endpunkts „Programmabonnementauftrag erstellen“ („1035, Nicht unterstützter Filtertyp für Zielabonnement„). Kunden können sich an den Marketo-Support wenden, um diese Funktion in ihrem Abonnement aktivieren zu lassen.
 
 ## Optionen
 
-Der Endpunkt &quot;Create Export Program Member Job&quot;bietet mehrere Formatierungsoptionen. Diese Optionen bieten Benutzern folgende Möglichkeiten:
+Der Endpunkt Abonnentenauftrag für Exportprogramm erstellen bietet mehrere Formatierungsoptionen. Diese Optionen bieten Benutzenden folgende Möglichkeiten:
 
-- Geben Sie die in die exportierte Datei einzuschließenden Felder an
+- Geben Sie die Felder an, die in die exportierte Datei aufgenommen werden sollen
 - Spaltenüberschriften dieser Felder umbenennen
-- Format der exportierten Datei angeben
+- Geben Sie das Format der exportierten Datei an
 
 | Parameter | Datentyp | Erforderlich | Hinweise |
 |---|---|---|---|
-| Felder | Array[String] | Ja | Der Feldparameter akzeptiert ein JSON-Array von Zeichenfolgen. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die folgenden Feldtypen können exportiert werden:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Geben Sie ein Feld mithilfe des REST-API-Namens an, das mit &quot;Desbe Lead2&quot;und/oder &quot;Describe Program Member endpoints&quot;abgerufen werden kann. |
-| columnHeaderName | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenüberschriftsnamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportauftrag enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| format | Zeichenfolge | Nein | Akzeptiert eines von: CSV, TSV, SSV. Die exportierte Datei wird als Datei mit kommagetrennten Werten, tabulatorgetrennten Werten oder durch Leerzeichen getrennten Werten gerendert, sofern festgelegt. Wenn nicht festgelegt, wird standardmäßig CSV verwendet. |
+| Felder | array[string] | Ja | Der Feldparameter akzeptiert ein JSON-Zeichenfolgen-Array. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die folgenden Feldtypen können exportiert werden:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Geben Sie ein Feld mithilfe des REST-API-Namens an, der mithilfe der Endpunkte „Lead2 beschreiben“ und/oder „Programmteilnehmer beschreiben“ abgerufen werden kann. |
+| columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
+| Format | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 
 
-## Erstellen eines Auftrags
+## Erstellen von Aufträgen
 
-Die Parameter für den Auftrag werden vor dem Starten des Exports mithilfe des Endpunkts [Create Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) definiert. Wir müssen die `filter`, die die Programm-ID enthält, und die `fields` definieren, die für den Export benötigt werden. Optional können wir die `format` der Datei und die `columnHeaderNames` definieren.
+Die Parameter für den Auftrag werden vor dem Start des Exports mithilfe des Endpunkts [Export-Programmelement-Auftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) definiert. Wir müssen die `filter` definieren, die die Programm-ID und die für den Export erforderlichen `fields` enthalten. Optional können wir den `format` der Datei und die `columnHeaderNames` definieren.
 
 ```
 POST /bulk/v1/program/members/export/create.json
@@ -371,7 +371,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-Dadurch wird eine Statusantwort zurückgegeben, die angibt, dass der Auftrag erstellt wurde. Der Auftrag wurde definiert und erstellt, wurde jedoch noch nicht gestartet. Dazu muss der Endpunkt &quot;[Export Program Member Job umschließen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST)&quot; mit der Antwort `exportId` des Erstellungsstatus aufgerufen werden:
+Dadurch wird eine Statusantwort zurückgegeben, die angibt, dass der Auftrag erstellt wurde. Der Auftrag wurde definiert und erstellt, aber noch nicht gestartet. Dazu muss der Endpunkt [Exportprogrammmitgliedsauftrag in die Warteschlange einreihen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) über den `exportId` aus der Erstellungsstatusantwort aufgerufen werden:
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -393,13 +393,13 @@ POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 }
 ```
 
-Dies reagiert mit dem anfänglichen Wert `status` &quot;In Warteschlange&quot;und wird anschließend auf &quot;Verarbeitung&quot;festgelegt, wenn ein Exportfenster verfügbar ist.
+Daraufhin wird mit dem ersten `status` „In Warteschlange“ geantwortet und auf „Wird verarbeitet“ gesetzt, wenn ein Exportsteckplatz verfügbar ist.
 
-## Abruf-Auftragsstatus
+## Status des Abrufauftrags
 
 Hinweis: Der Status kann nur für Aufträge abgerufen werden, die vom selben API-Benutzer erstellt wurden.
 
-Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags seinen Status abfragen, um seinen Fortschritt zu bestimmen. Umfrage mit dem Endpunkt [Status des Exportprogramms für Programmteilnehmer abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) . Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine kürzere Abrufhäufigkeit nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Das Statusfeld kann mit einer der folgenden Optionen reagieren: Erstellt, In Warteschlange, Verarbeitung, Abgebrochen, Abgeschlossen, Fehlgeschlagen.
+Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Abruf des Status des Exportprogrammmitglieds](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Das Statusfeld kann mit einem der folgenden Elemente antworten: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen, Fehlgeschlagen.
 
 ```
 GET /bulk/v1/program/members/export/{exportId}/status.json
@@ -422,7 +422,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 }
 ```
 
-Der Statusendpunkt gibt an, dass der Auftrag noch verarbeitet wird, sodass die Datei noch nicht zum Abrufen verfügbar ist. Sobald der Auftrag &quot;`status`&quot; in &quot;Abgeschlossen&quot;geändert wurde, kann er heruntergeladen werden.
+Der Status-Endpunkt antwortet und gibt an, dass der Auftrag noch verarbeitet wird, sodass die Datei noch nicht zum Abrufen verfügbar ist. Sobald der Auftrag `status` in „Abgeschlossen“ geändert wurde, kann er heruntergeladen werden.
 
 ```json
 {
@@ -445,11 +445,11 @@ Der Statusendpunkt gibt an, dass der Auftrag noch verarbeitet wird, sodass die D
 }
 ```
 
-## Abrufen Ihrer Daten
+## Daten abrufen
 
-Rufen Sie einfach den Endpunkt [Download der Programmteilsdatei](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) mit Ihrem `exportId` auf, um die Datei eines abgeschlossenen Programmmitglieds abzurufen.
+Um die Datei eines abgeschlossenen Exports von Programmmitgliedern abzurufen, rufen Sie einfach den Endpunkt [Abrufen der ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)-Datei für Programmmitglieder) mit Ihrem `exportId` auf.
 
-Die Antwort enthält eine Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der Datei. Wenn ein angefordertes Feld für Programmmitglieder leer ist (keine Daten enthält), wird `null` in das entsprechende Feld in der Exportdatei eingefügt.
+Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei. Wenn ein angefordertes Programmmitgliedsfeld leer ist (keine Daten enthält), wird `null` in der Exportdatei im entsprechenden Feld platziert.
 
 ```
 GET /bulk/v1/program/members/export/{exportId}/file.json
@@ -471,11 +471,11 @@ Jory,Cassel,jcas@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1799,f
 Septa,Mordane,smor@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1800,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
 ```
 
-Um das teilweise und wiederverwendbare Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional den HTTP-Header-Bereich der Typ-Bytes. Wenn der Header nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Weitere Informationen zur Verwendung der Bereichskopfzeile mit Marketo [Massenextraktion](bulk-extract.md) finden Sie.
+Um das partielle und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Datei-Endpunkt optional den HTTP-Header-Bereich vom Typ Byte. Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Weitere Informationen zur Verwendung des Bereichs-Headers mit Marketo [Massenextraktion](bulk-extract.md).
 
-## Abbruch eines Auftrags
+## Abbrechen von Aufträgen
 
-Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach über den Endpunkt [Export Program Member Job abbrechen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) abgebrochen werden:
+Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach mit dem Endpunkt [Exportprogrammabonnementauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) abgebrochen werden:
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/cancel.json
@@ -496,4 +496,4 @@ POST /bulk/v1/program/members/export/{exportId}/cancel.json
 }
 ```
 
-Dies antwortet mit einem &quot;`status`&quot;, der angibt, dass der Auftrag abgebrochen wurde.
+Dies antwortet mit einer `status`, die angibt, dass der Vorgang abgebrochen wurde.

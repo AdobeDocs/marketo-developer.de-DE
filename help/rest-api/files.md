@@ -1,7 +1,7 @@
 ---
 title: Dateien
 feature: REST API
-description: Speichern und Bearbeiten von Marketo-Dateien
+description: Speichern und Bearbeiten von Marketo-Dateien.
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # Dateien
 
-[Referenz zum Dateiendpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[Endpunkt-Referenz für Dateien](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
 
-Marketo-Abonnements ermöglichen die Speicherung beliebiger Dateien wie Bilder, Skripte, Dokumente und Stylesheets. All diese Funktionen können remote über die REST-API genutzt werden. Der in Marketo-Abonnements verfügbare Speicher ist nicht für bandbreitenintensive Anwendungen optimiert, daher sollten für geeignete Audio- und Video-Streaming-Anwendungen Alternativen verwendet werden.
+Marketo-Abonnements ermöglichen die Speicherung beliebiger Dateien wie Bilder, Skripte, Dokumente und Stylesheets. Alle diese Funktionen können über die REST-API remote verwendet werden. Der in Marketo-Abonnements verfügbare Speicher ist nicht für bandbreitenintensive Anwendungen optimiert. Daher sollten Alternativen für geeignete Audio- und Video-Streaming-Anwendungen verwendet werden.
 
-## Anfrage
+## Abfrage
 
-Die Abfrage von Dateien ist einfach und folgt den Standardabfragetypen für Assets von [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET) und [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Die Dateiabfrage ist einfach und folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
 
 ### Nach ID
 
@@ -53,7 +53,7 @@ GET /rest/asset/v1/file/{id}.json
 
 ### Nach Name
 
-Geben Sie den Namen der Datei mit dem erforderlichen Parameter `name` an.
+Geben Sie den Namen der Datei mit dem erforderlichen `name` an.
 
 ```
 GET /rest/asset/v1/file/byName.json?name=foo.png
@@ -89,9 +89,9 @@ GET /rest/asset/v1/file/byName.json?name=foo.png
 
 Es gibt drei optionale Parameter:
 
-- folder - übergeordneter Ordner, der als JSON-Block mit Attributen &quot;id&quot;und &quot;type&quot;angegeben ist
-- offset - integer -Wert, der angibt, wo mit dem Abrufen von Einträgen begonnen werden soll (Standard ist 0); kann mit dem Parameter maxReturn verwendet werden
-- maxReturn - Ganzzahl, die die maximale Anzahl der zurückzugebenden Einträge angibt (Standard ist 20, Maximum ist 200)
+- Ordner - Übergeordneter Ordner, der als JSON-Block mit den Attributen „id“ und „type“ angegeben ist
+- offset - Ganzzahl, die angibt, wo mit dem Abrufen von Einträgen begonnen werden soll (der Standardwert ist 0); kann mit dem maxReturn-Parameter verwendet werden
+- maxReturn - Ganzzahl, die die maximale Anzahl an zurückzugebenden Einträgen angibt (Standard ist 20, Maximum ist 200)
 
 ```
 GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
@@ -153,9 +153,9 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 }
 ```
 
-## Erstellen und Aktualisieren
+## Erstellen und aktualisieren
 
-[Erstellen einer Datei](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) erfolgt mit einem mehrteiligen Formular-/Formulardaten-Typ der Anforderung. Minimalerweise sind der Name, der Ordner und die Datei in der Anfrage erforderlich, mit einer optionalen Beschreibung und einem insertOnly-Flag, wodurch verhindert wird, dass ein Erstellungsaufruf eine vorhandene Datei mit demselben Namen aktualisiert. Für den Dateiparameter ist neben dem Parameter name ein &quot;filename&quot;in der Kopfzeile Content-Disposition erforderlich. Sie müssen auch einen Content-Type-Header für die Datei übergeben, der den MIME-Typ darstellt, mit dem Marketo die Datei bereitstellt.
+[Erstellen einer Datei](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) erfolgt mit dem Datentyp „multipart/form-data“ der Anfrage. In der Anfrage sind mindestens der Name, der Ordner und die Datei mit einer optionalen Beschreibung und einem insertOnly-Flag erforderlich. Dadurch wird verhindert, dass durch einen create-Aufruf eine vorhandene Datei mit demselben Namen aktualisiert wird. Für den Dateiparameter ist zusätzlich zum Parameter name ein „filename“ im Content-Disposition-Header erforderlich. Sie müssen auch eine Kopfzeile für den Inhaltstyp für die Datei übergeben, bei der es sich um den MIME-Typ handelt, mit dem Marketo die Datei bereitstellt.
 
 ```
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[Das Aktualisieren einer Datei](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) kann anhand ihrer ID durchgeführt werden. Der einzige Parameter ist ein Dateiparameter, der dieselben Anforderungen wie die Erstellung hat.
+[Datei aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) kann basierend auf ihrer ID durchgeführt werden. Der einzige Parameter ist ein Dateiparameter, der dieselben Anforderungen wie die Erstellung hat.
 
 ```
 POST /rest/asset/v1/file/{id}/content.json

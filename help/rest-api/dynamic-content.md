@@ -1,7 +1,7 @@
 ---
 title: Dynamischer Inhalt
 feature: REST API, Dynamic Content
-description: Konfigurieren dynamischer Inhalte mit Marketo-APIs.
+description: Konfigurieren von dynamischen Inhalten mit Marketo-APIs.
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -16,19 +16,19 @@ Marketo erleichtert die Verwendung dynamischer Inhalte durch Lead-Segmentierung 
 
 - E-Mails
 - Landing Page
-- Ausschnitte
+- Snippets
 
 ## Überblick
 
-Dynamische Inhalte werden auf Abschnittsebene implementiert, indem bestimmte Varianten eines Abschnitts für einen Lead basierend auf seiner Qualifizierung in einem Segment innerhalb einer ausgewählten Segmentierung benannt werden. Wenn ein Inhaltselement so konfiguriert ist, dass es dynamischen Inhalt basierend auf einer bestimmten Segmentierung bereitstellt, wird einem Lead, der diesen Inhalt anzeigt, die Inhaltsvariante bereitgestellt, die mit dem Segment übereinstimmt, in das er fällt, oder der Standardinhalt, wenn er nicht für ein Segment qualifiziert ist.
+Dynamische Inhalte werden auf Abschnittsebene implementiert, indem bestimmte Varianten eines Abschnitts, der einem Lead bereitgestellt werden soll, basierend auf ihrer Qualifizierung in einem Segment innerhalb einer ausgewählten Segmentierung bestimmt werden. Wenn ein Inhaltselement so konfiguriert ist, dass es dynamische Inhalte basierend auf einer bestimmten Segmentierung bereitstellt, wird einem Lead, der diesen Inhalt sieht, die Inhaltsvariante bereitgestellt, die dem Segment entspricht, dem sie angehören, oder der Standardinhalt, wenn sie nicht für ein Segment qualifiziert sind.
 
 ## Beispiel
 
-Sehen wir uns dazu ein E-Mail-Beispiel an, in dem wir eine Region-Segmentierung (US) haben und eine Ereignispromotion nur für Leads anzeigen möchten, die in das Südwestsegment fallen, zu dem auch Kalifornien, Nevada, Utah, Colorado, Arizona und New Mexico gehören. Dazu erstellen wir einen bearbeitbaren Abschnitt in unserer E-Mail mit der ID &quot;Q1-Promotion-Banner&quot;in einen Abschnitt &quot;Dynamischer Inhalt&quot;. Dazu müssen wir den Endpunkt [Abschnitt &quot;E-Mail-Inhalt aktualisieren&quot;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) für unsere E-Mail verwenden. Der Parameter `value` wird verwendet, um die Kennung der Segmentierung anzugeben.
+Zur Veranschaulichung sehen wir uns ein E-Mail-Beispiel an, in dem wir eine Segmentierung nach Region (USA) haben und eine Ereignisaktion nur für Leads anzeigen möchten, die zum Segment „Südwest“ gehören, das Kalifornien, Nevada, Utah, Colorado, Arizona und New Mexico umfasst. Dazu wird ein bearbeitbarer Abschnitt in unserer E-Mail mit der ID „Q1-Promotion-Banner“ in einen DynamicContent-Abschnitt umgewandelt. Dazu müssen wir den Endpunkt [Abschnitt E-Mail-Inhalt aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) für unsere E-Mail verwenden. Mit dem Parameter `value` wird die ID der Segmentierung angegeben.
 
-Hinweis: E-Mails und Landingpages folgen diesem Muster. Snippets weisen ein anderes Muster auf, das in der Dokumentation zur Snippets-API beschrieben wird.
+Hinweis: Sowohl E-Mails als auch Landingpages folgen diesem Muster. Snippets weisen ein anderes Muster auf, das in der Dokumentation zur Snippets-API beschrieben wird.
 
-Im folgenden Beispiel wird der Abschnitt als Abschnitt mit dynamischem Inhalt festgelegt, der durch die Segmentierung 1001 segmentiert wird.
+Im folgenden Beispiel wird der Abschnitt als Abschnitt mit dynamischem Inhalt festgelegt, der nach Segmentierung 1001 segmentiert ist.
 
 ```
 POST /rest/asset/v1/email/{id}/content/Q1-promotion-banner.json
@@ -52,9 +52,9 @@ type=DynamicContent&value=1001
 }
 ```
 
-Um Inhalte für einzelne Segmente hinzuzufügen, müssen wir den Endpunkt [Abschnitt &quot;Dynamischen E-Mail-Inhalt aktualisieren&quot;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) für den jeweiligen Abschnitt aufrufen.
+Um Inhalte für einzelne Segmente hinzuzufügen, müssen wir den Endpunkt [Abschnitt zum Aktualisieren dynamischer E-Mail-Inhalte](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) für den jeweiligen Abschnitt aufrufen.
 
-Im folgenden Beispiel wird der -Abschnitt so eingestellt, dass unser spezielles Bannerbild für Leads im Südwesten-Segment anstelle des standardmäßigen angezeigt wird. Wenn wir mehr Varianten für mehr Segmente erstellen möchten, rufen wir diesen Endpunkt erneut für jedes Segment und jeden Abschnitt auf.
+Im folgenden Beispiel wird der Abschnitt so eingestellt, dass unser spezielles Bannerbild für Leads im Segment Südwest anstelle des Standardbilds angezeigt wird. Wenn wir mehr Varianten für weitere Segmente erstellen möchten, rufen wir diesen Endpunkt für jedes Segment und jeden Abschnitt erneut auf.
 
 ```
 POST /rest/asset/v1/email/{id}/dynamicContent/{dynamicContentId}.json
@@ -80,11 +80,11 @@ segment=Southwest&type=HTML&value=<img src='//www.example.com/SuperSpecialBanner
 
 ## Segmentierung
 
-Die Segmentierung ist der Kern der dynamischen Marketo-Inhalte. Eine Segmentierung ist eine benutzerdefinierte Liste einzelner Regelsätze, die von oben nach unten anhand der gesamten Lead-Datenbank bewertet werden. Ein Lead kann nur Mitglied eines Segments in jeder Segmentierung sein und gehört dem ersten Segment an, für das er in jeder Segmentierung qualifiziert ist. Wenn es sich nicht für ein Segment qualifiziert, wird es Mitglied des Standardsegments und erhält den Standardinhalt für jeden bestimmten dynamischen Inhalt, der diese Segmentierung verwendet.
+Die Segmentierung ist der Kern von Marketo Dynamic Content. Eine Segmentierung ist eine benutzerdefinierte Liste einzelner Regelsätze, die von oben nach unten mit der gesamten Lead-Datenbank ausgewertet werden. Ein Lead darf in jeder Segmentierung nur Mitglied eines Segments sein und ist Mitglied des ersten Segments, für das er in jeder Segmentierung qualifiziert ist. Wenn es sich nicht für ein Segment qualifiziert, ist es Mitglied des Standardsegments und erhält den Standardinhalt für jedes beliebige dynamische Inhaltselement, das diese Segmentierung verwendet.
 
 ### Liste
 
-Segmente verfügen über einen Listenendpunkt, der eine Antwort mit einer Liste der verfügbaren Segmentierungen zurückgibt.
+Segmentierungen haben einen Listenendpunkt, der eine Antwort mit einer Liste der verfügbaren Segmentierungen zurückgibt.
 
 ```
 GET /rest/asset/v1/segmentation.json
@@ -131,7 +131,7 @@ GET /rest/asset/v1/segmentation.json
 }
 ```
 
-Segmente verfügen auch über einen Endpunkt, der eine Antwort mit einer Liste von Segmenten aus einer übergeordneten Segmentierung zurückgibt.
+Segmentierungen haben auch einen Endpunkt, der eine Antwort mit einer Liste von Segmenten aus einer übergeordneten Segmentierung zurückgibt.
 
 ```
 GET /rest/asset/v1/segmentation/1001/segments.json

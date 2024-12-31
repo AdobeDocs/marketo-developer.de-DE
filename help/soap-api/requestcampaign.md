@@ -1,38 +1,38 @@
 ---
 title: requestCampaign
 feature: SOAP, Smart Campaigns
-description: requestCampaign SOAP Aufrufe
+description: requestCampaign-SOAP-Aufrufe
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '277'
-ht-degree: 3%
+ht-degree: 4%
 
 ---
 
 # requestCampaign
 
-Diese Funktion führt einen vorhandenen Marketo-Lead in einer Marketo Smart Campaign aus. Die Smart-Kampagne muss über den Trigger &quot;Kampagne ist angefordert&quot;mit der Web Service-API-Quelle verfügen (siehe unten).
+Mit dieser Funktion wird ein bestehender Marketo-Lead in einer Marketo Smart Campaign ausgeführt. Die intelligente Kampagne muss den Trigger „Kampagne ist angefordert“ mit einer Webservice-API-Quelle aufweisen (siehe unten).
 
-![Web Service-API](assets/webserviceapi.png)
+![Webservice-API](assets/webserviceapi.png)
 
-Es gibt zwei Parametersätze, die verwendet werden können. Der erste Fall ist die Verwendung von `campaignName` + `programName` + `programTokenList`. Die `programTokenList` kann in diesem Fall leer sein. Im zweiten Fall wird nur `campaignId` verwendet. Bei jeder anderen Kombination wird eine ungültige Parameterausnahme ausgegeben.
+Es gibt zwei Parametersätze, die verwendet werden können. Im ersten Fall wird `campaignName` + `programName` + `programTokenList` verwendet. Die `programTokenList` kann in diesem Fall leer sein. Der zweite Fall betrifft die alleinige Verwendung von `campaignId`. Jede andere Kombination löst eine Ausnahme wegen ungültiger Parameter aus.
 
-Hinweis: Maximal 100 leadKey-Werte pro Aufruf. Zusätzliche Schlüssel werden ignoriert.
+Hinweis: Limit von 100 leadKey-Werten pro Aufruf. Zusätzliche Schlüssel werden ignoriert.
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadList->leadKey->keyType | Erforderlich | Mit `keyType` können Sie das Feld angeben, nach dem Sie den Lead abfragen möchten. Mögliche Werte sind:`IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadList->leadKey->keyType | Erforderlich | `keyType` können Sie das Feld angeben, nach dem Sie den Lead abfragen möchten. Mögliche Werte sind: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadList->leadKey->keyValue | Erforderlich | `keyValue` ist der Wert, nach dem Sie den Lead abfragen möchten. |
-| quelle | Erforderlich | Die Kampagnenquelle. Mögliche Werte: `MKTOWS` oder `SALES`. Die Auflistung ist in WSDL definiert. |
-| campaignId | Optional, wenn `campaignName`, `programName` und `programTokenList` in einer Parametersite zusammengeführt sind; andernfalls ist `campaignId` erforderlich | Die Kennung der Kampagne. HINWEIS: Wenn sowohl `campaignID` als auch `campaignName` übergeben werden, tritt ein falscher Parameterfehler auf. |
-| campaignName | Optional, wenn campaignId vorhanden ist; andernfalls erforderlich in einem Satz als `campaignName`, programName und programTokenList | Der Name der Kampagne |
-| programName | Optional, wenn campaignId vorhanden ist; andernfalls erforderlich in einem Satz als `campaignName`, programName und programTokenList | Name des Programms |
-| programTokenList | Optional, wenn campaignId vorhanden ist; andernfalls erforderlich in einem Satz als `campaignName`, `programName` und `programTokenList` | Array von Token, die in der Kampagne verwendet werden sollen. Bei der Angabe von Tokens sind programName und `campaignName` erforderlich. |
-| programTokenList->attrib->name | optional | Der Name des Programm-Tokens, an das der Wert übergeben werden soll. Beispiel:{{my.message}} |
-| programTokenList->attrib->value | optional | Der Wert für den angegebenen Tokennamen. |
+| quelle | Erforderlich | Die Kampagnenquelle. Mögliche Werte: `MKTOWS` oder `SALES`. Die Auflistung wird in WSDL definiert. |
+| campaignId | Optional, wenn `campaignName`, `programName` und `programTokenList` zusammen in einer Parameter-Site enthalten sind. Andernfalls ist `campaignId` erforderlich | Die ID der Kampagne. HINWEIS: Wenn sowohl `campaignID` als auch `campaignName` übergeben werden, tritt ein ungültiger Parameterfehler auf. |
+| campaignName | Optional, wenn campaignId vorhanden ist. Andernfalls erforderlich in einem Satz wie `campaignName`, programName und programTokenList | Der Name der Kampagne |
+| programName | Optional, wenn campaignId vorhanden ist. Andernfalls erforderlich in einem Satz wie `campaignName`, programName und programTokenList | Der Name des Programms |
+| programTokenList | Optional, wenn campaignId vorhanden ist; andernfalls erforderlich in einem Satz wie `campaignName`, `programName` und `programTokenList` | Array von Token zur Verwendung in der Kampagne. Wenn Sie Token angeben, sind „programName“ und &quot;`campaignName`&quot; erforderlich. |
+| programTokenList->attribute->name | Optional | Der Name des Programm-Tokens, dessen Wert Sie übergeben möchten. ex:{{my.message}} |
+| programTokenList->attribute->value | Optional | Der Wert für den angegebenen Token-Namen. |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -12,33 +12,33 @@ ht-degree: 0%
 
 # Marketo-Objekte
 
-Marketo verwendet Marketo-Objekte (MObjects) zur Darstellung verschiedener Klassen wie Programm, Chancen und OpportunityPersonRole.
+Marketo verwendet Marketo-Objekte (MObjects) zur Darstellung verschiedener Klassen wie Program, Opportunity und OpportunityPersonRole.
 
-## Struktur von Objekten
+## Struktur von MObjects
 
-Bei MObjects kann es sich um einen von drei Typen handeln: Standard, Benutzerdefiniert oder Virtual. Standard- und benutzerdefinierte MObjects stellen verschiedene Entitäten dar, wie z. B. Lead oder Unternehmen, während virtuelle Objekte wie LeadRecord aus Feldern eines oder mehrerer Objekte bestehen. Virtuelle Objekte sind praktische Objekte, die innerhalb der API verwendet werden, aber nicht in der Marketo-Anwendung vorhanden sind.
+MO-Objekte können einen von drei Typen aufweisen: Standard, Benutzerdefiniert oder Virtuell. Standard- und benutzerdefinierte MO-Objekte stellen verschiedene Entitäten dar, z. B. Lead oder Unternehmen, während virtuelle Objekte wie LeadRecord aus Feldern aus einem oder mehreren Objekten bestehen. Virtuelle Objekte sind Komfortobjekte, die in der -API verwendet werden, aber nicht in der Marketo-Anwendung vorhanden sind.
 
-Objekte bestehen aus:
+MO-Objekte bestehen aus:
 
-- Ein kleiner Satz fester Attribute, die für alle MObjects gelten
+- Ein kleiner Satz fester Attribute, die allen MObjects gemeinsam sind
    - Erforderlicher Typ
-   - Optionaler externalKey
-   - schreibgeschützte ID, createdAt, updatedAt
-- Eine Liste mit einem oder mehreren objektspezifischen Attributen, als Name/Wert-Paare, von denen einige möglicherweise erforderlich sind. Beispiel: Name für Chancen.
-- Eine Liste der zugehörigen Objektverweise, als Objektname plus
-   - Marketo ID oder
+   - Optionaler externer Schlüssel
+   - Schreibgeschützte ID, createdAt, updatedAt
+- Eine Liste eines oder mehrerer objektspezifischer Attribute, z. B. Name/Wert-Paare, von denen einige erforderlich sein können. Beispiel: Name auf Opportunity.
+- Eine Liste der zugehörigen Objektverweise, wie z. B. Objektname plus
+   - Marketo-ID oder
    - Externer Schlüssel als Attribut-Name/Attribut-Wert-Paar.
 
-### ExternalKeys
+### external-keys
 
-Externe Schlüssel sind benutzerdefinierte Felder, die für Marketo-Objekte definiert sind, z. B. &quot;Lead&quot;oder &quot;Chancen&quot;. Der Name ist der Feldname und der Wert ist der Feldwert, der in einem externen System generiert wird. **Marketo erzwingt für diese Werte keine eindeutige Einschränkung.** Es liegt in der Verantwortung des API-Benutzers sicherzustellen, dass die Werte eindeutig sind. Sollte es zu einem Duplikat kommen, verwendet Marketo das zuletzt hinzugefügte Objekt. Dies ähnelt dem Verhalten für das Standardfeld E-Mail-Adresse .
+Externe Schlüssel sind benutzerdefinierte Felder, die für Marketo-Objekte definiert werden, wie Lead oder Opportunity. Der Name ist der Feldname und der Wert ist der Feldwert, der in einem externen System generiert wird. **Marketo erzwingt keine Eindeutigkeitsbeschränkung für diese Werte.** Der API-Benutzer muss sicherstellen, dass die Werte eindeutig sind. Sollte ein Duplikat auftreten, verwendet Marketo das zuletzt hinzugefügte Objekt . Dies ähnelt dem Verhalten für das Standardfeld E-Mail-Adresse .
 
 ### Verfügbare APIs
 
-| API | Kann aktiviert werden |
+| API | Kann ausgeführt werden am |
 |---|---|
-| descriptionMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
-| getMObjects | Chancen, ChancenPersonRolle, Programm |
-| syncMObjects | Chancen, ChancenPersonRolle, Programm |
-| deleteMObjects | Chancen, ChancenPersonRolle |
+| describeMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
+| getMObjects | Opportunity, OpportunityPersonRole, Programm |
+| syncMObjects | Opportunity, OpportunityPersonRole, Programm |
+| deleteMObjects | Gelegenheit, OpportunityPersonRole |
 | listMObjects | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |

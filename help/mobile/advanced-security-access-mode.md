@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # Erweiterter Sicherheitszugriffsmodus
 
-Das Marketo SDK stellt Methoden zum Festlegen und Entfernen der Sicherheitssignatur bereit. Es gibt auch eine Dienstprogrammmethode zum Abrufen der Geräte-ID. Die Geräte-ID sollte bei der Anmeldung zusammen mit der E-Mail an den Kundenserver zur Berechnung der Sicherheitssignatur übergeben werden. Das SDK sollte den neuen Treffer-Endpunkt, der auf den oben aufgeführten Algorithmus verweist, aufrufen, um die erforderlichen Felder zum Instanziieren des Signaturobjekts abzurufen. Das Festlegen dieser Signatur im SDK ist ein notwendiger Schritt, wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert wurde.
+Marketo SDK stellt Methoden zum Festlegen und Entfernen der Sicherheitssignatur bereit. Es gibt auch eine Dienstprogrammmethode zum Abrufen der Geräte-ID. Bei der Anmeldung sollte die Geräte-ID zusammen mit der E-Mail an den Kundenserver zur Verwendung bei der Berechnung der Sicherheitssignatur übergeben werden. Die SDK sollte auf den neuen Endpunkt zugreifen, der auf den oben aufgeführten Algorithmus verweist, um die erforderlichen Felder zum Instanziieren des Signaturobjekts abzurufen. Das Festlegen dieser Signatur in der SDK ist ein notwendiger Schritt, wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert wurde.
 
-## Einrichten des sicheren Zugriffsmodus
+## Einrichtung des abgesicherten Zugriffsmodus
 
-Diese Einrichtung muss implementiert werden, bevor der sichere Zugriffsmodus über die Seite Marketo Admin > Mobile Apps und Geräte aktiviert wurde. Die folgenden weiteren Schritte beschreiben den Prozess, der zum Abschließen der Sicherheitsvalidierung erforderlich ist:
+Diese Einrichtung muss implementiert werden, bevor der Modus für sicheren Zugriff über die Seite Marketo Admin > Mobile Apps und Geräte aktiviert werden kann. Die folgenden weiteren Schritte beschreiben den Prozess, der zum Abschließen des Sicherheitsvalidierungsprozesses erforderlich ist:
 
-Der sichere Zugriffsmodus erfordert die Implementierung des Signaturalgorithmus auf der Kundenseite, der einen Endpunkt zum Abrufen des Zugriffsschlüssels, der berechneten Signatur, des Ablaufzeitstempels und der E-Mail-Adresse bereitstellt. Dieser Algorithmus erfordert den Zugriffsschlüssel des Benutzers, das Zugriffsgeheimnis, die E-Mail-Adresse, den Zeitstempel und die Geräte-ID, um die Berechnung durchzuführen. Der Kunde ist für die Einrichtung des Endpunkts, die Implementierung des Algorithmus zur Durchführung von Signaturberechnungen und die Beibehaltung des Ablaufzeitstempels zuständig.
+Der Modus für sicheren Zugriff erfordert die Implementierung des Signaturalgorithmus auf der Server-Seite des Kunden, der einen Endpunkt zum Abrufen des Zugriffsschlüssels, der berechneten Signatur, des Ablaufzeitstempels und der E-Mail bereitstellt. Dieser Algorithmus erfordert für die Berechnung den Benutzerzugriffsschlüssel, das Zugriffsgeheimnis, die E-Mail-Adresse, den Zeitstempel und die Geräte-ID. Der Kunde ist für die Einrichtung des Endpunkts, die Implementierung des Algorithmus zur Durchführung von Signaturberechnungen und die Aktualisierung des Ablaufzeitstempels verantwortlich.
 
 ```python
 import argparse
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print 'HMAC is ', hmac_string
 ```
 
-Das Marketo SDK stellt neue Methoden zum Festlegen und Entfernen der Sicherheitssignatur bereit. Es gibt auch eine Dienstprogrammmethode zum Abrufen der Geräte-ID. Die Geräte-ID sollte bei der Anmeldung zusammen mit der E-Mail an den Kundenserver zur Berechnung der Sicherheitssignatur übergeben werden. Das SDK sollte den neuen Treffer-Endpunkt, der auf den oben aufgeführten Algorithmus verweist, aufrufen, um die erforderlichen Felder zum Instanziieren des Signaturobjekts abzurufen. Das Festlegen dieser Signatur im SDK ist ein notwendiger Schritt, wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert wurde.
+Marketo SDK stellt neue Methoden zum Festlegen und Entfernen der Sicherheitssignatur bereit. Es gibt auch eine Dienstprogrammmethode zum Abrufen der Geräte-ID. Bei der Anmeldung sollte die Geräte-ID zusammen mit der E-Mail an den Kundenserver zur Verwendung bei der Berechnung der Sicherheitssignatur übergeben werden. Die SDK sollte auf den neuen Endpunkt zugreifen, der auf den oben aufgeführten Algorithmus verweist, um die erforderlichen Felder zum Instanziieren des Signaturobjekts abzurufen. Das Festlegen dieser Signatur in der SDK ist ein notwendiger Schritt, wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert wurde.
 
 ### iOS
 

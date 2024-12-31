@@ -1,7 +1,7 @@
 ---
-title: Vertriebsmitarbeiter
+title: Vertriebspersonal
 feature: REST API
-description: Lesen Sie Daten zu Vertriebsmitarbeitern.
+description: Lesen Sie Daten zu Verkaufspersonen.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -10,23 +10,23 @@ ht-degree: 0%
 
 ---
 
-# Vertriebsmitarbeiter
+# Vertriebspersonal
 
-[Endpoint-Referenz für Vertriebsmitarbeiter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[Endpunkt-Referenz für Vertriebspersonen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-Vertriebsmitarbeiter-APIs sind schreibgeschützter Zugriff auf Abonnements, für die die Funktion [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert ist. Sales Persons sind eine Art von Personendatensätzen, die zum Verkaufsinhaber von Lead-Datensätzen gehören. Sie beziehen sich auf Lead-Datensätze, die vom Feld externalSalesPersonId für jeden Lead-Datensatz bereitgestellt werden. Wenn ein Lead von einem ausgefüllten Feld externalSalesPersonId mit einer Verkaufsperson verbunden wird, werden die entsprechenden Suchfelder des Lead-Eigentümers für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
+Vertriebspersonen-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert sind. Verkaufspersonen sind eine Art von Personendatensätzen, die Verkaufseigentümer von Lead-Datensätzen sind. Sie sind durch das Feld externalSalesPersonId für jeden Lead-Datensatz mit Lead-Datensätzen verknüpft. Wenn ein Lead durch ein ausgefülltes externes Feld „SalesPersonId“ mit einer Verkaufsperson verknüpft ist, werden die entsprechenden Suchfelder für den Lead-Inhaber für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
 
-Vertriebsmitarbeiter beziehen sich auf Lead-Datensätze, indem sie den Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
+Vertriebspersonen werden mit Lead-Datensätzen verknüpft, indem sie den Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 
-Vertriebsmitarbeiter beziehen sich mithilfe des Endpunkts [Synchronisierungsmöglichkeiten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) und des Attributs externalSalesPersonId auf Einsendungen von Möglichkeiten.
+Vertriebspersonen werden mit Opportunity-Datensätzen verknüpft, indem sie den Endpunkt [Opportunities synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 
-Vertriebsmitarbeiter beziehen sich auf Firmendatensätze, indem sie den Endpunkt [Unternehmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
+Vertriebspersonen werden mit Firmendatensätzen verknüpft, indem sie den Endpunkt [Unternehmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 
-Datensätze von Vertriebsmitarbeitern können nur über die API bearbeitet werden.
+Die Datensätze von Vertriebspersonen können nur über die API bearbeitet werden.
 
-## Beschreibung
+## beschreiben
 
-Die Beschreibung der Datensätze von Vertriebsmitarbeitern folgt dem Standardmuster für Lead-Datenbankobjekte.
+Die Beschreibung der Datensätze von Vertriebspersonen folgt dem Standardmuster für Lead-Datenbankobjekte.
 
 ```
 GET /rest/v1/salespersons/describe.json
@@ -95,11 +95,11 @@ GET /rest/v1/salespersons/describe.json
 }
 ```
 
-Standardmäßig ist `idField` der Vertriebsmitarbeiter &quot;id&quot;und der `dedupeFields` ist nur &quot;externalSalesPersonId&quot;.
+Standardmäßig lautet der `idField` der Vertriebspersonen „id“ und der `dedupeFields` nur „externalSalesPersonId“.
 
-## Anfrage
+## Abfrage
 
-Vertriebsmitarbeiter, die das Standardabfragemuster für einfache Schlüssel verwenden. In diesem Beispiel wird gezeigt, wie die E-Mail des Benutzers als externalSalesPersonId verwendet wird. Standardmäßig gibt die Abfrage alle Felder zurück, die für die zurückgegebenen Datensätze ausgefüllt sind.
+Vertriebspersonen, die das Standardabfragemuster für einfache Schlüssel verwenden. Dieses Beispiel zeigt, wie die E-Mail-Adresse des Benutzers als externe SalesPersonId verwendet wird. Standardmäßig gibt die Abfrage alle Felder zurück, die für die zurückgegebenen Datensätze ausgefüllt sind.
 
 ```
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
@@ -128,7 +128,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 }
 ```
 
-## Erstellen und Aktualisieren
+## Erstellen und aktualisieren
 
 Das Muster für Aktualisierungen ist Standard.
 
@@ -178,12 +178,12 @@ POST /rest/v1/salespersons.json
 
 ## Löschen
 
-Das Löschmuster ist Standard.
+Das Muster für Löschvorgänge ist standardmäßig.
 
-Die Löschung von Vertriebsmitarbeitern ist nicht zulässig, wenn sie &quot;verwendet&quot;werden. In diesem Fall wird die Vertriebsperson übersprungen. Beispiele:
+Die Löschung von Vertriebspersonen ist bei „Verwendung“ nicht zulässig. In diesem Fall wird der Vertriebsmitarbeiter übersprungen. Beispiele:
 
-- Wenn Vertriebsmitarbeiter aktiven Leads zugeordnet sind
-- Wenn eine Vertriebsperson mit einem gelöschten Unternehmen verknüpft ist
+- Wenn Vertriebsperson mit aktiven Leads verknüpft ist
+- Wenn ein Vertriebsmitarbeiter mit einer Firma verknüpft ist, die gelöscht wurde
 
 ```
 POST /rest/v1/salespersons/delete.json
@@ -235,8 +235,8 @@ POST /rest/v1/salespersons/delete.json
 }
 ```
 
-## Timeouts
+## Zeitüberschreitungen
 
-- Endpunkte von Vertriebsmitarbeitern haben eine Zeitüberschreitung von 30 Sekunden, sofern nicht unten angegeben
-   - Vertriebsmitarbeiter synchronisieren: 60 s
-   - Löschen von Verkaufsmitarbeitern: 60 s
+- Für Personen-Endpunkte im Vertrieb beträgt die Zeitüberschreitung 30 Sekunden, es sei denn, dies wird weiter unten angegeben
+   - Vertriebspersonen synchronisieren: 60er
+   - Vertriebspersonen löschen: 60er

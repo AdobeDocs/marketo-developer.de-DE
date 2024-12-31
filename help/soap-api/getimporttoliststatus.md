@@ -1,29 +1,29 @@
 ---
 title: getImportToListStatus
 feature: SOAP
-description: getImportToListStatus SOAP Aufrufe
+description: getImportToListStatus-SOAP-Aufrufe
 exl-id: 17a62f65-dfa0-4f40-89b2-154f7734a2dc
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '76'
-ht-degree: 7%
+ht-degree: 10%
 
 ---
 
 # getImportToListStatus
 
-Diese Funktion prüft den Status eines bestimmten `importToList` -Funktionsaufrufs.
+Diese Funktion prüft den Status eines bestimmten `importToList`.
 
-Führen Sie zuerst den API-Aufruf `importToList` aus und fragen Sie dann regelmäßig nach `getImportToListStatus`. Führen Sie keine Umfrage `getImportToListStatus` mehr als einmal pro Minute durch.
+Führen Sie zunächst den `importToList`-API-Aufruf aus und fragen Sie dann `getImportToListStatus` regelmäßig ab. `getImportToListStatus` nicht öfter als einmal pro Minute abfragen.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
 | programName | Erforderlich | Name des Programms, das die statische Liste enthält |
-| listName | Erforderlich | Name der statischen Liste in Marketo zum Abrufen des Importstatus. |
+| listName | Erforderlich | Name der statischen Liste in Marketo, für die der Importstatus abgerufen werden soll. |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

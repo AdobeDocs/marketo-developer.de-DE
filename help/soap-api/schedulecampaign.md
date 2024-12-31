@@ -1,41 +1,41 @@
 ---
 title: scheduleCampaign
 feature: SOAP, Smart Campaigns
-description: scheduleCampaign-SOAP
+description: scheduleCampaign-SOAP-Aufrufe
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '252'
-ht-degree: 4%
+ht-degree: 5%
 
 ---
 
 # scheduleCampaign
 
-Diese Funktion legt den Zeitplan einer Smart-Batch-Kampagne fest, die entweder sofort oder zu einem späteren Zeitpunkt ausgeführt wird. Dazu ist eine vorhandene Smart-Kampagne erforderlich, damit sie erfolgreich abgeschlossen werden kann. Dies kann mit importToList verwendet werden, um eine Liste von Leads hochzuladen und anschließend eine Batch-Kampagne für diese neu erstellte Liste auszuführen.
+Diese Funktion legt den Zeitplan einer Batch-Smart-Kampagne fest, sodass sie entweder sofort oder zu einem zukünftigen Datum ausgeführt wird. Eine vorhandene Smart Campaign ist für einen erfolgreichen Abschluss erforderlich. Dies kann mit importToList verwendet werden, um eine Liste von Leads hochzuladen und dann eine Batch-Kampagne mit dieser neu erstellten Liste auszuführen.
 
 ## Optionale Programm-Token:
 
-Ähnlich wie bei der Funktion requestCampaign können Sie ein Array von My Tokens in diesen API-Aufruf übergeben, wodurch vorhandene Token überschrieben werden. Nach Ausführung der Kampagne werden die Token verworfen.
+Ähnlich wie bei der Funktion requestCampaign können Sie ein Array von My Tokens an diesen API-Aufruf übergeben, wodurch vorhandene Token überschrieben werden. Nach der Ausführung der Kampagne werden die Token verworfen.
 
-Wenn Sie diesen optionalen Parameter mit [importToList](importtolist.md) verwenden, werden die Token in dieser Reihenfolge priorisiert:
+Wenn Sie diesen optionalen Parameter mit „importToList[ verwenden](importtolist.md) werden die Token in dieser Reihenfolge priorisiert:
 
 1. importToList pro Lead-Token
-1. scheduleCampaign per Kampagnen-Token
+1. scheduleCampaign pro Kampagnen-Token
 1. Meine Token im Programm
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| programName | Erforderlich | Name des übergeordneten Programms |
+| programName | Erforderlich | Der Name des enthaltenden Programms |
 | campaignName | Erforderlich | Der Name der Smart-Kampagne |
-| campaignRunAt | optional | Die Zeit, zu der die geplante Kampagne ausgeführt werden soll (W3C WSDL-Datumsformat). |
-| cloneToProgramName | optional | Wenn dieses Attribut vorhanden ist, wird das übergeordnete Programm der Kampagne geklont und die neu erstellte Kampagne wird geplant. Das Attribut gibt den gewünschten Namen für das resultierende Programm an. Hinweis: Bei Verwendung dieses Felds sind nur 10 Aufrufe pro Tag zulässig. |
-| programTokenList->attrib->name | optional | Der Name des Tokens, für das Sie einen neuen Wert senden möchten. Verwenden Sie das vollständige Tokenformat wie auf der Benutzeroberfläche von Marketo. Das heißt &quot;{{my.message}}&quot; |
-| programTokenList->attrib->value | optional | Der Wert des zugehörigen Tokennamens. |
+| campaignRunAt | Optional | Die Zeit für die Ausführung der geplanten Kampagne (W3C WSDL-Datumsformat). |
+| cloneToProgramName | Optional | Wenn dieses Attribut vorhanden ist, wird das übergeordnete Programm der Kampagne geklont und die neu erstellte Kampagne wird geplant. Das Attribut gibt den gewünschten Namen für das resultierende Programm an. Hinweis: Bei Verwendung dieses Felds sind nur 10 Aufrufe pro Tag zulässig. |
+| programTokenList->attribute->name | Optional | Der Name des Tokens, für das Sie einen neuen Wert senden möchten. Verwenden Sie das vollständige Token-Format wie in der Marketo-Benutzeroberfläche. Das heißt, &quot;{{my.message}}&quot; |
+| programTokenList->attribute->value | Optional | Der Wert des zugehörigen Token-Namens. |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

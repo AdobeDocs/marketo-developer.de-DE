@@ -1,7 +1,7 @@
 ---
 title: Paging-Token
 feature: REST API
-description: Anzeigen von Paging-Token-Daten.
+description: Anzeigen der Daten von Paging-Token.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
 source-git-commit: a00583f367c2da36d9d1d6e0b05bfd4216573fbb
 workflow-type: tm+mt
@@ -12,22 +12,22 @@ ht-degree: 1%
 
 # Paging-Token
 
-Um Ergebnisse zu durchblättern oder Daten abzurufen, die relativ zu den Daten aktualisiert wurden, stellt Marketo Paging-Token bereit.
+Um durch Ergebnisse zu blättern oder aktualisierte Daten in Bezug auf bestimmte Daten abzurufen, stellt Marketo Paging-Token bereit.
 
-In bestimmten Fällen können lange Paging-Token-Zeichenfolgen zurückgegeben werden. Dies kann dazu führen, dass ein HTTP 414-Fehlercode auftritt. Weitere Informationen zum Umgang mit diesen [Fehlern](error-codes.md) finden Sie.
+In bestimmten Fällen können lange Paging-Token-Zeichenfolgen zurückgegeben werden. Dies kann zu einem HTTP 414-Fehler-Code führen. Weitere Informationen zum Umgang mit diesen ([) ](error-codes.md).
 
-Weitere Informationen finden Sie in der Dokumentation zur [Paging-Token-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) .
+Weitere Informationen finden Sie in [ Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET)Token-API .
 
 ## Tokentypen
 
-Es gibt zwei verwandte, aber unterschiedliche Typen von Paging-Token, die Marketo bereitstellt:
+Es gibt zwei miteinander verknüpfte, aber unterschiedliche Typen von Paging-Token, die Marketo bereitstellt:
 
-- Datumsbasiert
-- Positionsbasiert
+- datumsbasiert
+- positionsbasiert
 
-## Datumsbasiert
+## datumsbasiert
 
-Das erste ist ein Paging-Token, das ein Datum darstellt. Diese werden zum Abrufen von Aktivitäten, Datenwertänderungen und gelöschten Leads verwendet, die nach dem Datum aufgetreten sind, das durch das Paging-Token dargestellt wird. Dieser Paging-Token-Typ wird durch Aufruf des Endpunkts [Paging-Token abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) und einschließlich einer datetime generiert.
+Das erste ist ein Paging-Token, das ein Datum darstellt. Diese werden verwendet, um Aktivitäten, Datenwertänderungen und gelöschte Leads abzurufen, die nach dem durch das Paging-Token dargestellten Datum aufgetreten sind. Dieser Typ des Paging-Tokens wird durch Aufruf des Endpunkts [Paging-Token abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) einschließlich eines Datetime-Datums generiert.
 
 ```
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -41,11 +41,11 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-Das Format des Parameters `sinceDateTime` muss der Standarddatumsnotation von [ISO 8601](https://de.wikipedia.org/wiki/ISO_8601) entsprechen. Die besten Ergebnisse erzielen Sie, wenn Sie einen vollständigen Datum verwenden, der die Zeitzone enthält. Die Zeitzone kann im folgenden Format als Offset von GMT dargestellt werden:
+Das Format des `sinceDateTime`-Parameters muss der standardmäßigen [ISO 8601](https://de.wikipedia.org/wiki/ISO_8601) entsprechen. Die besten Ergebnisse erzielen Sie, wenn Sie einen vollständigen Datums-/Uhrzeitwert verwenden, der die Zeitzone enthält. Die Zeitzone kann entweder als Versatz zur GMT im folgenden Format dargestellt werden:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
-Oder verwenden Sie ein großes &quot;Z&quot;als Kurzzeichen, um UTC wie folgt darzustellen:
+Oder verwenden Sie ein großes „Z“ als Kurzschreibweise, um UTC wie folgt darzustellen:
 
 `yyyy-mm-ddThh:mm:ssZ`
 
@@ -57,12 +57,12 @@ Beispiele
 
 Da `sinceDateTime` ein Abfrageparameter ist, muss er URL-codiert sein.
 
-Die Zeichenfolge &quot;`nextPageToken`&quot;wird dann einem Aufruf &quot;[Lead-Aktivitäten abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET)&quot;, &quot;[Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET)&quot;oder &quot;[Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET)&quot;bereitgestellt und Aktivitäten werden nach dem Datum abgerufen, das der API &quot;Paging-Token abrufen&quot;angegeben wurde.
+Die `nextPageToken` Zeichenfolge wird dann für einen Aufruf [Lead-Aktivitäten abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET), [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) oder [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) bereitgestellt, und die Aktivitäten werden nach dem Datum/der Uhrzeit abgerufen, das/die der API zum Abrufen des Paging-Tokens angegeben wurde.
 
 ```
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12
 ```
 
-## Positionsbasiert
+## positionsbasiert
 
-Der zweite Typ des Paging-Tokens kann durch einen Batch-Abrufaufruf an eine Lead-Datenbank-API zurückgegeben werden. Diese Art von Paging-Token ähnelt dem Konzept eines Datenbank-Cursors, der das Durchlaufen von Datensätzen ermöglicht. Beispielsweise kann ein Aufruf &quot;Leads nach Filtertyp abrufen&quot;einen Satz darstellen, der größer als die angegebene Batch-Größe ist, normalerweise die maximale und standardmäßige Größe von 300. Wenn mehr Ergebnisse vorliegen, lautet das Feld moreResult in der Antwort &quot;true&quot;(wahr) und es wird ein `nextPageToken` zurückgegeben. Um die zusätzlichen Einträge im Ergebnissatz abzurufen, wird ein zusätzlicher Aufruf einschließlich `nextPageToken` mit dem empfangenen Wert aus der vorherigen Antwort im neuen Aufruf durchgeführt. Die resultierende Antwort gibt die nächste Seite im Ergebnissatz zurück.
+Der zweite Typ des Paging-Tokens kann bei jedem Batch-Abruf an eine Lead-Datenbank-API zurückgegeben werden. Dieser Typ von Paging-Token ähnelt vom Konzept her einem Datenbank-Cursor, der das Durchlaufen von Datensätzen ermöglicht. Beispielsweise kann ein Aufruf Leads nach Filtertyp abrufen einen Satz darstellen, der größer ist als die angegebene Batch-Größe, normalerweise der maximale Wert und der Standardwert 300. Wenn weitere Ergebnisse vorliegen, ist in der Antwort das Feld „moreResult“ auf „true“ gesetzt und eine `nextPageToken` wird zurückgegeben. Um die zusätzlichen Datensätze in der Ergebnismenge abzurufen, führen Sie im neuen Aufruf einen zusätzlichen Aufruf aus, der `nextPageToken` mit dem empfangenen Wert aus der vorherigen Antwort enthält. Die resultierende Antwort gibt die nächste Seite in der Ergebnismenge zurück.

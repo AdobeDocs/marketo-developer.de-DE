@@ -6,20 +6,20 @@ exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '83'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
 
 # Benutzerprofile
 
-Benutzerprofile erstellen
+Erstellen von Benutzerprofilen
 
 1. [Erstellen von Benutzerprofilen in iOS](#ios_user_profiles)
 1. [Erstellen von Benutzerprofilen in Android](#android_user_profiles)
 
 ## Erstellen von Benutzerprofilen in iOS {#ios_user_profiles}
 
-Sie können Rich-Profile erstellen, indem Sie die Benutzerfelder wie unten dargestellt senden.
+Sie können umfangreiche Profile erstellen, indem Sie die Benutzerfelder wie unten dargestellt senden.
 
 ```
 MarketoLead *profile = [[MarketoLead alloc] init];
@@ -65,7 +65,7 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-Fügen Sie weitere [Standardfelder](../rest-api/list-of-standard-fields.md) hinzu.
+Fügen Sie weitere [Standardfelder“ ](../rest-api/list-of-standard-fields.md).
 
 >[!BEGINTABS]
 
@@ -89,7 +89,7 @@ profile.setFieldName("phone", withValue:"123.456.7890");
 
 >[!ENDTABS]
 
-Profil des Berichtsbenutzers.
+Benutzerprofil melden.
 
 >[!BEGINTABS]
 
@@ -115,9 +115,9 @@ marketo.associateLead(profile)
 
 ## Erstellen von Benutzerprofilen in Android {#android_user_profiles}
 
-1. Benutzerprofil erstellen.
+1. Erstellen Sie ein Benutzerprofil.
 
-   Sie können Rich-Profile erstellen, indem Sie wie unten gezeigt Benutzerfelder senden.
+   Sie können umfangreiche Profile erstellen, indem Sie Benutzerfelder senden, wie unten dargestellt.
 
    ```java
    MarketoLead profile = new MarketoLead();
@@ -135,7 +135,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. Fügen Sie weitere [Standardfelder](../rest-api/list-of-standard-fields.md) hinzu.
+1. Fügen Sie weitere [Standardfelder“ ](../rest-api/list-of-standard-fields.md).
 
    ```java
    // Add other custom fields
@@ -152,7 +152,7 @@ marketo.associateLead(profile)
    profile.setCustomField("linkedInDisplayName", "Android");
    ```
 
-1. Profil des Berichtsbenutzers.
+1. Benutzerprofil melden.
 
    ```java
    MarketoLead profile = new MarketoLead();

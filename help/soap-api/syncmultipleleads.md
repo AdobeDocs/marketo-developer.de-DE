@@ -1,7 +1,7 @@
 ---
-title: syncMultipleLeads
+title: Mehrere Leads synchronisieren
 feature: SOAP
-description: syncMultipleLeads SOAP Aufrufe
+description: syncMultipleLeads-SOAP-Aufrufe
 exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -10,28 +10,28 @@ ht-degree: 4%
 
 ---
 
-# syncMultipleLeads
+# Mehrere Leads synchronisieren
 
-Diese Funktion fordert einen Einfüge- oder Aktualisierungsvorgang (Upsert) für _mehrere_ Lead-Datensätze an. Beim Aktualisieren eines vorhandenen Leads kann der Lead mit einem der folgenden Schlüssel identifiziert werden:
+Diese Funktion fordert einen Einfüge- oder Aktualisierungsvorgang (upsert) für (_)_ Lead-Datensätze an. Beim Aktualisieren eines bestehenden Leads kann der Lead mit einem der folgenden Schlüssel identifiziert werden:
 
 - Marketo-ID
-- Fremdsystem-ID
+- ID des Fremdsystems
 - E-Mail
 
-Wenn mehr als ein Schlüssel vorhanden ist, hat die Marketo ID Vorrang vor `ForeignSysPersonId` und der letztere wird aktualisiert. Wenn E-Mail jedoch auch als Schlüssel vorhanden ist, wird sie nur aktualisiert, wenn sie in der Attributliste angegeben ist.
+Wenn mehr als ein Schlüssel vorhanden ist, hat die Marketo-ID Vorrang vor `ForeignSysPersonId`, und letztere wird aktualisiert. Wenn jedoch auch E-Mail als Schlüssel vorhanden ist, wird sie nicht aktualisiert, es sei denn, sie wird in der Liste der Attribute angegeben.
 
-Wir empfehlen, die Stapelgröße auf 300 zu begrenzen. Höhere Größen werden nicht unterstützt und können dazu führen, dass Timeouts auftreten und in Extremfällen gedrosselt werden.
+Unsere Empfehlung lautet, dass die Losgrößen nicht höher als 300 sind. Höhere Größen werden nicht unterstützt und können zu Zeitüberschreitungen und in extremen Fällen zu Einschränkungen führen.
 
-Mit diesem Funktionsaufruf können Sie die Deduplizierungsfunktion deaktivieren. Wenn dedupEnabled auf &quot;true&quot;gesetzt ist und keine andere eindeutige Kennung angegeben wird (`foreignSysPersonId` oder Marketo-Lead-ID), wird der Lead-Datensatz mithilfe der E-Mail-Adresse dedupliziert. Beachten Sie, dass die Übergabe von false in Marketo zu Duplikaten führt.
+Mit diesem Funktionsaufruf können Sie die Deduplizierungsfunktion deaktivieren. Wenn dedupEnabled auf „true“ gesetzt ist und keine andere eindeutige Kennung angegeben wird (`foreignSysPersonId` oder Marketo-Lead-ID), wird der Lead-Datensatz mithilfe der E-Mail-Adresse dedupliziert. Beachten Sie, dass durch die Übergabe von „false“ Duplikate in Marketo erstellt werden.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| leadRecordList->leadRecord | Erforderlich | Array von LeadRecords, die Sie synchronisieren möchten. LeadRecords muss die Lead-ID, E-Mail oder ForeignSysPersonId angeben |
-| dedupEnabled | optional | Optionaler Wert, mit dem Sie die Deduplizierungsfunktion deaktivieren können. Wenn Sie den Wert `false` übergeben, werden in Marketo Duplikate erstellt. |
+| leadRecordList->leadRecord | Erforderlich | Array von LeadRecords, die Sie synchronisieren möchten. LeadRecords muss die Lead-ID, E-Mail-Adresse oder ForeignSysPersonId angeben |
+| dedupEnabled | optional | Optionaler Wert, mit dem Sie die Deduplizierungsfunktion deaktivieren können. Die Übergabe des Werts `false` führt zu Duplikaten in Marketo |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

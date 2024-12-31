@@ -1,26 +1,26 @@
 ---
-title: descriptionMObject
+title: describeMObject
 feature: SOAP
-description: descriptionMObjects SOAP Aufrufe
+description: descriptionMObjects-SOAP-Aufrufe
 exl-id: a5ee60c4-b0ec-49a2-9a9d-22806ddde8f7
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '71'
-ht-degree: 7%
+ht-degree: 9%
 
 ---
 
-# descriptionMObject
+# describeMObject
 
-Diese Funktion gibt die Metadaten für Standard- und Virtual MObjects zurück. Es nimmt das Marketo-Objekt als Eingabe auf und gibt die mit diesem Objekt verknüpften Feldattribute zurück.
+Diese Funktion gibt die Metadaten für Standard- und Virtual MObjects zurück. Sie nimmt das Marketo-Objekt als Eingabe auf und gibt die Feldattribute zurück, die mit diesem Objekt verknüpft sind.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| objectName | Erforderlich | Der Name des Objekts, für das Sie Metadaten abrufen möchten. `objectName` kann einer der folgenden sein: `ActivityRecord`, `LeadRecord`, `Opportunity`, `OpportunityPersonRole` |
+| objectName | Erforderlich | Der Name des MO-Objekts, für das Sie Metadaten abrufen möchten. `objectName` kann `ActivityRecord`, `LeadRecord`, `Opportunity` oder `OpportunityPersonRole` sein |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

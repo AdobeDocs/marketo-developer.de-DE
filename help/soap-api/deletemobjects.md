@@ -1,27 +1,27 @@
 ---
 title: deleteMObjects
 feature: SOAP
-description: deleteMObjects SOAP Aufrufe
+description: deleteMObjects-SOAP-Aufrufe
 exl-id: 31511584-5366-4af1-975b-94417680c4d9
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '58'
-ht-degree: 10%
+ht-degree: 13%
 
 ---
 
 # deleteMObjects
 
-Löscht ein oder mehrere [MObjects](marketo-objects.md) und gibt das Ergebnis des Vorgangs zurück (LÖSCHT, UNCHANGED, FEHLGESCHLAGEN).
+Löscht ein oder mehrere [MObjects](marketo-objects.md) und gibt das Ergebnis des Vorgangs zurück (DELETED, UNCHANGED, FAILED).
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| mObjectList->mObject->type | Erforderlich | Kann einer von `Opportunity` oder `OpportunityPersonRole` sein |
-| mObjectList->mObject->id | Erforderlich | ID des zu löschenden Betreffs |
+| mObjectList->mObject->type | Erforderlich | Kann `Opportunity` oder `OpportunityPersonRole` sein |
+| mObjectList->mObject->id | Erforderlich | ID des zu löschenden Objekts |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

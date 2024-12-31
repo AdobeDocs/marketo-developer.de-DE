@@ -1,31 +1,31 @@
 ---
 title: getTags
 feature: SOAP, Tags
-description: getTags SOAP Aufrufe
+description: getTags-SOAP-Aufrufe
 exl-id: 4fd9de1a-9362-479a-afe1-09ef0aaf5e6e
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '94'
-ht-degree: 7%
+ht-degree: 9%
 
 ---
 
 # getTags
 
-Diese Funktion ruft die folgenden Informationen zu in Marketo eingerichteten Nicht-Kanal-Tags ab.
+Diese Funktion ruft die folgenden Informationen zu Nicht-Kanal-Tags ab, die in Marketo eingerichtet sind.
 
 - Tag-Typ
 - Tag-Wert
 
-Sie können Informationen zu allen Nicht-Kanal-Tags abrufen oder eine spezifische Liste von Tags und/oder Werten angeben.
+Sie können Informationen zu allen Nicht-Kanal-Tags abrufen oder eine bestimmte Liste von Tags und/oder Werten angeben.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| tagList->tag | optional | Liste der Tags, die Sie abfragen möchten. Jedes Tag kann einen Typ und ein Array von Werten als Zeichenfolgen haben. Wenn `<tagList>` weggelassen wird, erhalten Sie Informationen zu allen Kanälen |
+| tagList->tag | Optional | Liste der Tags, die Sie abfragen möchten. Jedes Tag kann einen Typ und ein Array von Werten als Zeichenfolgen haben. Wenn `<tagList>` ausgelassen wird, erhalten Sie Informationen zu allen Kanälen |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

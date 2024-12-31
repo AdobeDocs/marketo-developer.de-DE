@@ -1,28 +1,28 @@
 ---
-title: mergeLeads
+title: Zusammenführen von Leads
 feature: SOAP
-description: mergeLeads SOAP Aufrufe
+description: mergeLeads-SOAP-Aufrufe
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '83'
-ht-degree: 8%
+ht-degree: 10%
 
 ---
 
-# mergeLeads
+# Zusammenführen von Leads
 
-Akzeptiert den Schlüssel eines siegreichen Leads und die Schlüssel mehrerer verlorener Leads, um einen Zusammenführungsvorgang durchzuführen. Gibt die ID der Leads und den Status zurück.
+Akzeptiert den Schlüssel eines erfolgreichsten Leads und mehrere Schlüssel eines verlorenen Leads, um einen Zusammenführungsvorgang durchzuführen. Gibt die ID der Leads und den Status zurück.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
-| winningLeadKeyList | Erforderlich | Der Schlüssel, mit dem der erfolgreichste Lead identifiziert wird. Mögliche Werte sind: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
-| loseLeadKeyLists | Erforderlich | Eine Liste der Schlüssel, mit denen die verlorenen Leads identifiziert werden. |
-| mergeInSales | optional | Wird als boolescher Wert übergeben, entweder als &quot;True&quot;oder als &quot;False&quot; |
+| winningLeadKeyList | Erforderlich | Der Schlüssel zur Identifizierung des erfolgreichsten Leads. Mögliche Werte sind: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| SchließenLeadKeyLists | Erforderlich | Eine Liste der Schlüssel zur Identifizierung der verlorenen Leads. |
+| mergeInSales | Optional | Als boolescher Wert übergeben, entweder als „True“ oder als „False“ |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

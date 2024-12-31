@@ -1,7 +1,7 @@
 ---
 title: Benutzerdefinierte Objekte
 feature: SOAP
-description: Erstellen benutzerdefinierter Objekte
+description: Erstellen benutzerdefinierter Objekte.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
@@ -12,27 +12,27 @@ ht-degree: 2%
 
 # Benutzerdefinierte Objekte
 
-Ein benutzerdefiniertes Marketo-Objekt ermöglicht die Erstellung einer 1:n-Beziehung zwischen Ihren Marketo-Leads und den benutzerdefinierten Objektdatensätzen. Sie können beispielsweise alle Roadshows verfolgen, die von einem Lead besucht werden. Da Leads an einer Reihe von Roadshows (über mehrere Jahre) teilnehmen können, sind benutzerdefinierte Objekte besser geeignet, diese Informationen zu speichern.
+Ein benutzerdefiniertes Marketo-Objekt ermöglicht die Erstellung einer 1:n-Beziehung zwischen Ihren Marketo-Leads und den benutzerdefinierten Objektdatensätzen. Sie können beispielsweise alle Roadshows verfolgen, an denen ein Lead teilgenommen hat. Da Leads möglicherweise an einer Reihe von Roadshows (über mehrere Jahre) teilnehmen, eignen sich benutzerdefinierte Objekte besser zum Speichern dieser Informationen.
 
-Benutzerdefinierte Objekte werden in allen Marketo-Editionen außer Spark unterstützt. Wenn das benutzerdefinierte Marketo-Objekt in Ihrem Konto erfolgreich bereitgestellt wurde, können Sie
+Benutzerdefinierte Objekte werden in allen Marketo-Editionen mit Ausnahme von Spark unterstützt. Wenn das benutzerdefinierte Marketo-Objekt erfolgreich in Ihrem Konto bereitgestellt wurde, können Sie
 
-- Erstellen/Lesen/Aktualisieren/Löschen von Datensätzen im benutzerdefinierten Objekt über die Marketo SOAP API
-- Verwenden Sie den Smart-List-Trigger, wenn dem benutzerdefinierten Objekt neue Datensätze hinzugefügt werden
-- Verwenden der benutzerdefinierten Objektdaten als Filter in Smart-Listen
-- Verwenden der benutzerdefinierten Objektdaten in E-Mails mithilfe von Marketo Email Scripting
+- Erstellen/Lesen/Aktualisieren/Löschen von Datensätzen im benutzerdefinierten Objekt über die Marketo-SOAP-API
+- Smart-Listen-Trigger verwenden, wenn dem benutzerdefinierten Objekt neue Datensätze hinzugefügt werden
+- Verwenden der benutzerdefinierten Objektdaten als Filter in Smart Lists
+- Verwenden der benutzerdefinierten Objektdaten in E-Mails mit Marketo Email Scripting
 
-## Struktur von benutzerdefinierten Objekten
+## Struktur benutzerdefinierter Objekte
 
 Benutzerdefinierte Objekte bestehen aus:
 
-- Ein kleiner Satz fester Attribute, die für alle benutzerdefinierten Objekte gelten:
-   - Objektname (auch Objekttyp-Name genannt)
+- Ein kleiner Satz fester Attribute, die allen benutzerdefinierten Objekten gemeinsam sind:
+   - Objektname (auch als Objekttyp-Name bezeichnet)
    - Objektbeschreibung
-   - Benutzerdefiniertes Objekt zum Marketo-Lead-Link-Feldnamen - dies ist ein Feld im Lead-Objekt (Person), auf das das benutzerdefinierte Objekt verweist
-   - Object Key Field Name - der von Ihrem Objekt verwendete Primärschlüssel
-- Ein oder mehrere objektspezifische Felder (maximal 50 solche Felder werden unterstützt)
+   - Benutzerdefiniertes Objekt für Marketo-Lead-Link-Feldname : Dies ist ein Feld auf dem Lead (Person)-Objekt, auf das das benutzerdefinierte Objekt verweist
+   - Feldname für Objektschlüssel - der von Ihrem Objekt verwendete Primärschlüssel
+- Ein oder mehrere objektspezifische Felder (wir unterstützen maximal 50 solcher Felder)
 
-## Benutzerdefinierte Objektoperationen
+## Vorgänge bei benutzerdefinierten Objekten
 
 Die folgenden Aufrufe können zur Interaktion mit COs verwendet werden.
 

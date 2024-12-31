@@ -1,20 +1,20 @@
 ---
 title: importToList
 feature: SOAP
-description: importToList-SOAP
+description: importToList-SOAP-Aufrufe
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
 source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '317'
-ht-degree: 5%
+ht-degree: 6%
 
 ---
 
 # importToList
 
-Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statische Liste in Marketo importieren, ähnlich wie bei der Import-Listenfunktion in der Benutzeroberfläche von Marketo.
+Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statische Liste in Marketo importieren, ähnlich der Funktion Liste importieren in der Marketo-Benutzeroberfläche.
 
-**Importformat:** Diese Werte sind mit der Struktur einer CSV-Datei identisch, die in einem Listenimport verwendet wird.
+**Importformat** Diese Werte sind identisch mit der Struktur einer CSV-Datei, die beim Listenimport verwendet wird.
 
 **Beispiel:**
 
@@ -24,33 +24,33 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Hinweis:** `displayName` -Werte sollten in den `importFileHeader` anstelle der `name` -Werte verwendet werden.
+**Hinweis:** `displayName` sollten im `importFileHeader` statt der `name` verwendet werden.
 
-**Dynamischer E-Mail-Inhalt:** Optional können Sie Werte pro Lead weitergeben, die als Ersatz für My Tokens in einer E-Mail dienen.
+**Dynamischer E-Mail-Inhalt** Optional können Sie Werte pro Lead übergeben, die als Ersatz für meine Token in einer E-Mail dienen.
 
 | E-Mail | Zuerst | Zuletzt | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
 | joe@company.com | Joe | Smith | Fisch | Blue |
 | mary@company.com | Mary | Rodgers | Huhn | Braun |
-| wanda@megacorp.com | Wanda | Williams | Veggie | Hazel |
+| wanda@megacorp.com | Wanda | Williams | Veggie | Haselnuss |
 
-**Wichtig:** Wenn Sie Token für die Leads hinzufügen, müssen Sie die Smart-Kampagne angeben, die diese verwendet. Wenn die angegebene Smart-Kampagne das nächste Mal ausgeführt wird, verwendet sie die Werte aus Ihrer Liste anstelle der normalen My Token-Werte. Nachdem diese einzelne Kampagne ausgeführt wurde, werden die Token verworfen.
+**Wichtig:** Wenn Sie Token für die Leads hinzufügen, müssen Sie die Smart Campaign angeben, die sie verwendet. Bei der nächsten Ausführung der angegebenen Smart-Kampagne werden die Werte aus Ihrer Liste anstelle der normalen Werte unter „Mein Token“ verwendet. Nach der Ausführung dieser einzelnen Kampagne werden die Token verworfen.
 
-**HINWEIS:** `importToList` kann einige Zeit in Anspruch nehmen, insbesondere bei großen Listen. Wenn Sie die neu importierte Liste in anderen API-Aufrufen verwenden möchten, sollten Sie mit `importToListStatus` überprüfen, ob der Vorgang abgeschlossen ist.
+**HINWEIS:** `importToList` kann einige Zeit in Anspruch nehmen, insbesondere bei großen Listen. Wenn Sie die neu importierte Liste in anderen API-Aufrufen verwenden möchten, sollten Sie `importToListStatus` verwenden, um zu überprüfen, ob der Vorgang abgeschlossen ist.
 
 ## Anfrage
 
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
 | programName | Erforderlich | Name des Programms, das die statische Liste enthält |
-| campaignName | optional | Wenn My Token Overrides verwendet wird, ist dies der Name der Kampagne, in der diese Token verwendet werden. Die Kampagne muss sich innerhalb des angegebenen Programms befinden. |
-| listName | Erforderlich | Name der statischen Liste in Marketo, die Leads hinzugefügt werden |
-| importFileHeader | Erforderlich | Spaltenüberschriften für die zu importierenden Leads, einschließlich Lead-Attribut und meiner Token-Namen. |
-| importFileRows->stringItem | Erforderlich | Kommagetrennte Werte mit einer Zeile pro Lead |
+| campaignName | Optional | Wenn die Verwendung von „Mein Token“ Überschreibungen vornimmt, ist dies der Name der Kampagne, in der diese Token verwendet werden. Die Kampagne muss innerhalb des angegebenen Programms liegen. |
+| listName | Erforderlich | Name der statischen Liste in Marketo, zu der Leads hinzugefügt werden |
+| importFileHeader | Erforderlich | Spaltenüberschriften für die zu importierenden Leads, einschließlich Lead-Attribut und meinen Token-Namen. |
+| importFileRows->stringItem | Erforderlich | Kommagetrennte Werte, mit einer Zeile pro Lead |
 | importListMode | Erforderlich | Gültige Optionen: `UPSERTLEADS` und `LISTONLY` |
-| clearList | optional | Wenn &quot;true&quot;, wird die statische Liste vor dem Import gelöscht. Wenn falsche Leads angehängt werden. |
+| clearList | Optional | Wenn „true“, wird die statische Liste vor dem Import gelöscht. Wenn „false“ angehängt wird. |
 
-## XML anfordern
+## Anfrage-XML
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

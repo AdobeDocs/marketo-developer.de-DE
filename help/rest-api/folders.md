@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # Ordner
 
-[Ordner-Endpunktverweis](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Ordner-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
 
-Ordner sind das zentrale organisatorische Asset in Marketo und jeder andere Asset-Typ hat mindestens einen Ordner als übergeordneten Ordner. Dieser übergeordnete Ordner kann entweder ein Ordner sein, der rein organisatorisch ist, oder ein Programm, das eine funktionale Beziehung zu anderen Asset-Typen aufweist und auch über andere Assets verfügen kann. Ordner können über die API erstellt, abgefragt, aktualisiert und gelöscht werden und außerdem das Abrufen einer Liste ihrer Inhalte zulassen. Programme können zwar durch Abfrage der Ordner-API zurückgegeben werden, das Erstellen, Aktualisieren und Löschen von Programmen muss jedoch über die Programm-API erfolgen.
+Ordner sind das zentrale organisatorische Asset in Marketo, und jeder andere Asset-Typ hat mindestens einen Ordner als übergeordneten Asset. Dieser übergeordnete Ordner kann entweder ein rein organisatorischer Ordner oder ein Programm sein, das eine funktionale Beziehung zu anderen Asset-Typen hat und auch das übergeordnete Element anderer Assets sein kann. Ordner können über die API erstellt, abgefragt, aktualisiert und gelöscht werden und es kann auch eine Liste ihrer Inhalte abgerufen werden. Obwohl Programme über die Abfrage der Ordner-API zurückgegeben werden können, müssen das Erstellen, Aktualisieren und Löschen von Programmen über die Programme-API durchgeführt werden.
 
-## Anfrage
+## Abfrage
 
-Beim Abfragen von Ordnern werden die standardmäßigen Abfragetypen für Assets von [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) und [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET) verwendet.
+Die Ordnerabfrage folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
 
 ### Nach ID
 
@@ -59,7 +59,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-Der Typparameter ist erforderlich und muss &quot;Ordner&quot;oder &quot;Programm&quot;lauten.  Der Typ bestimmt, ob die Suche nach dem Ordner mit einer Ordner-ID oder einer Programm-ID erfolgt. Für diesen Endpunkt wird nur ein einzelner Datensatz im Ergebnisarray zurückgegeben. Notieren Sie den Parameter folderType in der Antwort. Dies kann auf viele verschiedene Ordnertypen hinweisen. Marketo-Aktivitätsordner verfügen entweder über einen Typ von Marketing-Ordner oder Programm, der viele verschiedene Asset-Typen enthalten kann, während Design Studio-Ordner einen Typ haben, der dem Asset-Typ entspricht, den sie enthalten können. Beispielsweise kann ein Ordner mit dem Ordnertyp &quot;E-Mail&quot;nur E-Mails oder andere Unterordner enthalten, die möglicherweise einen Ordner vom Typ E-Mail oder E-Mail-Vorlage haben. Zu den Typen können gehören:
+Der Typparameter ist erforderlich und muss einer der Werte „Folder“ oder „Program“ sein.  Der Typ bestimmt, ob die Suche nach dem Ordner für eine Ordner-ID oder eine Programm-ID erfolgt. Für diesen Endpunkt wird im Ergebnis-Array nur ein einzelner Datensatz zurückgegeben. Beachten Sie den Parameter „folderType“ in der Antwort. Dies kann auf viele verschiedene Ordnertypen hinweisen. Marketo-Aktivitätsordner weisen entweder einen Typ von Marketing-Ordner oder -Programmen auf, der viele verschiedene Arten von Assets enthalten kann, während Design Studio-Ordner einen Typ haben, der dem Asset-Typ entspricht, den sie speichern können. Beispielsweise kann ein Ordner mit „folderType“ nur E-Mails oder andere Unterordner enthalten, die möglicherweise den „folderType“ E-Mail oder E-Mail-Vorlage haben. Mögliche Typen sind:
 
 - E-Mail
 - E-Mail-Vorlage
@@ -70,7 +70,7 @@ Der Typparameter ist erforderlich und muss &quot;Ordner&quot;oder &quot;Programm
 
 ### Nach Name
 
-[Eine Abfrage nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) ist ebenfalls zulässig. Die Abfrage nach Name-Endpunkt hat den Namen als einzigen erforderlichen Parameter. Der Name führt eine exakte Zeichenfolgenübereinstimmung mit dem Namensfeld von Ordnern in der Instanz durch und gibt Ergebnisse für jeden Ordner zurück, der mit diesem Namen übereinstimmt. Es enthält auch die optionalen Abfrageparameter &quot;type&quot;, die Ordner oder Programm sein können, die Kennung des Ordners, der durchsucht werden soll, &quot;root&quot; oder den Namen des Arbeitsbereichs, in dem gesucht werden soll, &quot;workspace&quot;. Wenn der Root-Parameter festgelegt ist, muss auch der type-Parameter festgelegt werden.
+[Abfrage nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) ist ebenfalls zulässig. Der Endpunkt „Abfrage nach Name“ hat den Namen als einzigen erforderlichen Parameter. Name führt eine exakte Zeichenfolgenübereinstimmung mit dem Namensfeld der Ordner in der Instanz durch und gibt Ergebnisse für jeden Ordner zurück, der diesem Namen entspricht. Darüber hinaus verfügt es über die optionalen Abfrageparameter „type“, d. h. Ordner oder Programm, „root“, die ID des zu durchsuchenden Ordners oder „workspace“ und den Namen des zu durchsuchenden Arbeitsbereichs. Wenn der Stammparameter festgelegt ist, muss auch der Typparameter festgelegt werden.
 
 ```
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -109,21 +109,21 @@ GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 }
 ```
 
-Bei der Suche nach Namen ist es wichtig zu beachten, dass sowohl Marketing Activities als auch Design Studio eigene Stammordner sind, damit sie nach Namen abgerufen und verwendet werden können, um den Rest der Ordnerhierarchie in einer Zielinstanz zu durchlaufen.
+Bei der Suche nach Namen ist es wichtig zu beachten, dass sowohl Marketing-Aktivitäten als auch Design Studio ihre eigenen Stammordner sind, sodass sie nach Namen abgerufen und verwendet werden können, um den Rest der Ordnerhierarchie in einer Zielinstanz zu durchlaufen.
 
 ### Durchsuchen
 
-Ordner können auch [ stapelweise abgerufen werden](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Der Parameter &quot;root&quot;kann verwendet werden, um den übergeordneten Ordner anzugeben, unter dem die Abfrage ausgeführt wird, und ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Der Stamm hat zwei Mitglieder:
+Ordner können auch [stapelweise abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
 
-1. id - Die ID des Ordners oder Programms.
-1. type - Entweder Ordner oder Programm, je nach Typ des zu Browser gehörigen Stammordners.
+1. id : Die ID des Ordners oder Programms.
+1. type - Entweder Ordner oder Programm, je nach dem Typ des Stammordners, der im Browser gespeichert werden soll.
 
-Wenn der Stammordner nicht bekannt ist oder der Zweck darin besteht, alle Ordner in einem bestimmten Bereich abzurufen, kann der Stammordner als die Bereiche &quot;Marketing-Aktivitäten&quot;, &quot;Design Studio&quot;oder &quot;Lead-Datenbank&quot;angegeben werden. Die IDs für jede dieser IDs können über die API [Ordner nach Name abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) abgerufen werden und den Namen des gewünschten Bereichs angeben.
+Wenn der Stammordner nicht bekannt ist oder alle Ordner in einem bestimmten Bereich abgerufen werden sollen, kann der Stamm als Bereich „Marketing-Aktivitäten“, „Design Studio“ oder „Lead-Datenbank“ angegeben werden. Die IDs für jede dieser Variablen können über die API [Ordner nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) und den Namen des gewünschten Bereichs angeben.
 
-Wie andere Massen-Asset-Abruf-Endpunkte sind Offset und maxReturn optionale Parameter für das Paging.   Andere optionale Parameter sind:
+Wie andere Endpunkte für den Massenabruf von Assets sind Offset und maxReturn optionale Parameter für das Paging.   Weitere optionale Parameter sind:
 
-- workSpace - Der Name des Arbeitsbereichs, nach dem gefiltert werden soll.
-- maxDepth - Die maximale Anzahl von Ebenen, die in der Ordnerhierarchie durchlaufen werden sollen. Wenn der Wert auf 0 gesetzt ist, wird nur der im Stammverzeichnis angegebene Ordner zurückgegeben. Wenn kein Wert angegeben wird, ist der Standardwert 2.
+- workSpace : Der Name des Arbeitsbereichs, nach dem gefiltert werden soll.
+- maxDepth : Die maximale Anzahl von Ebenen, die in der Ordnerhierarchie durchlaufen werden sollen. Wenn auf 0 gesetzt, wird nur der im Stammverzeichnis angegebene Ordner zurückgegeben. Wenn kein Wert angegeben ist, ist der Standardwert 2.
 
 ```
 GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
@@ -203,15 +203,15 @@ GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 }
 ```
 
-## Reaktionsstruktur
+## Antwortstruktur
 
-Ein Großteil der Ordnerantwort-Struktur ist selbsterklärend, aber es lohnt sich, einzelne Felder zu beachten. Die Felder `folderId` und übergeordnete sind JSON-Objekte, die die explizite ID und den Typ des Ordners selbst enthalten. Dieser Typ wird in Abfragen, Stamm- und übergeordneten Parametern von der API verwendet, um eine ordnungsgemäße Trennung zwischen Ordnern- und Programmtypen sicherzustellen. `folderType` spiegelt die Verwendung des Ordners wider, der einer der Ordner sein kann: &quot;Marketing-Ordner&quot;, &quot;Programm&quot;, &quot;E-Mail&quot;, &quot;E-Mail-Vorlage&quot;, &quot;Landingpage-Vorlage&quot;, &quot;Snippet&quot;, &quot;Bild&quot;, &quot;Zone&quot;oder &quot;Datei&quot;.  Die Typen Marketing-Ordner und Programm geben an, dass sie in Marketingaktivitäten vorhanden sind und mehrere Asset-Typen enthalten können. Die anderen Typen weisen darauf hin, dass sie ggf. nur diesen Typ von Asset, Unterordnern und die Vorlagenversion dieses Typs enthalten dürfen. Der Typ Zone stellt Ordner der Stammebene dar, die in Marketing-Aktivitäten zu finden sind.
+Ein Großteil der Antwortstruktur des Ordners ist selbsterklärend, aber einige Felder sind einzeln erwähnenswert. Die `folderId` und übergeordneten Felder sind JSON-Objekte, die die explizite ID und den Typ des Ordners selbst enthalten. Dieser Typ wird von der API in Abfragen, Stamm- und übergeordneten Parametern verwendet, um eine ordnungsgemäße Abgrenzung zwischen Ordner- und Programmtypen von Ordnern sicherzustellen. `folderType` spiegelt die Verwendung des Ordners wider, der einer der folgenden sein kann: „Marketing-Ordner“, „Programm“, „E-Mail“, „E-Mail-Vorlage“, „Landingpage“, Landingpage-Vorlage, „Ausschnitt“, „Bild“, „Zone“ oder „Datei“.  Die Typen Marketing-Ordner und -Programm geben an, dass sie in Marketing-Aktivitäten vorhanden sind und mehrere Arten von Assets enthalten können. Die anderen Typen geben an, dass sie möglicherweise nur diesen Asset-Typ, Unterordner und die Vorlagenversion dieses Typs enthalten. Der Zonentyp stellt die Ordner auf Stammebene dar, die in Marketing-Aktivitäten zu finden sind.
 
-Der Pfad eines Ordners zeigt seine Hierarchie in der Ordnerstruktur an, ähnlich wie bei einem Unix-Pfad. Der erste Eintrag im Pfad lautet immer Marketing Activities oder Design Studio. Wenn die Zielinstanz über Arbeitsbereiche verfügt, ist der zweite Eintrag im Pfad der Name des eigenen Arbeitsbereichs. Das Feld `url` zeigt die explizite URL des Assets in der angegebenen Instanz an. Dies ist kein universeller Link und muss als Benutzer authentifiziert werden, damit er ordnungsgemäß funktioniert. `isSystem` gibt an, ob der Ordner ein Systemordner ist. Wenn dies auf &quot;true&quot;gesetzt ist, ist der Ordner selbst schreibgeschützt, obwohl Ordner als untergeordnete Elemente erstellt werden können.
+Der Pfad eines Ordners zeigt seine Hierarchie in der Ordnerstruktur an, ähnlich wie ein Pfad im Unix-Stil. Der erste Eintrag im Pfad ist immer Marketing-Aktivitäten oder Design Studio. Wenn die Zielinstanz über Arbeitsbereiche verfügt, ist der zweite Eintrag im Pfad der Name des zugehörigen Arbeitsbereichs. Das Feld `url` zeigt die explizite URL des Assets in der angegebenen Instanz an. Dies ist kein universeller Link und muss als Benutzer authentifiziert werden, damit er ordnungsgemäß funktioniert. `isSystem` gibt an, ob der Ordner ein Systemordner ist. Wenn dies auf „true“ festgelegt ist, ist der Ordner selbst schreibgeschützt, obwohl Ordner als untergeordnete Elemente davon erstellt werden können.
 
-## Erstellen und Aktualisieren
+## Erstellen und aktualisieren
 
-[Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einer anwendungs-/x-www-form-urlencoded -POST ausgeführt, die über zwei erforderliche Parameter verfügt: &quot;name&quot;, eine Zeichenfolge und &quot;parent&quot;, das übergeordnete Element, in dem der Ordner erstellt werden soll. Hierbei handelt es sich um ein eingebettetes JSON-Objekt mit zwei Mitgliedern, ID und Typ, je nach Typ des Zielordners oder Programms. Optional kann auch &quot;description&quot;, eine Zeichenfolge, einbezogen werden und bis zu 2000 Zeichen umfassen.
+[Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einer application/x-www-form-urlencoded-POST ausgeführt, die zwei erforderliche Parameter, „name“, eine Zeichenfolge und „parent“, das übergeordnete Element zum Erstellen des Ordners, enthält. Dies ist ein eingebettetes JSON-Objekt mit zwei Elementen, „id“ und „type“, entweder „Folder“ oder „Program“, je nach Typ des Zielordners. Optional kann auch „description“, eine Zeichenfolge, eingeschlossen werden, die bis zu 2.000 Zeichen lang sein kann.
 
 ```
 POST /rest/asset/v1/folders.json
@@ -258,7 +258,7 @@ parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a t
 }
 ```
 
-Aktualisierungen an Ordnern erfolgen über einen separaten Endpunkt. Beschreibung, Name und `isArchive` sind optionale Parameter für die Aktualisierung. Wenn `isArchive` durch eine Aktualisierung geändert wird, wird der Ordner in der Marketo-Benutzeroberfläche archiviert, wenn er in &quot;true&quot;geändert oder in &quot;false&quot;nicht archiviert wird. Programme können mit dieser API nicht aktualisiert werden.
+Die Aktualisierung von Ordnern erfolgt über einen separaten Endpunkt. Beschreibung, Name und `isArchive` sind optionale Parameter für die Aktualisierung. Wenn `isArchive` durch eine Aktualisierung geändert wird, führt dies dazu, dass der Ordner in der Marketo-Benutzeroberfläche archiviert wird, wenn er in „true“ geändert wurde, oder zu „unarchived“, wenn er in „false“ geändert wurde. Programme können mit dieser API nicht aktualisiert werden.
 
 ```
 POST /rest/asset/v1/folder/{id}.json
@@ -307,7 +307,7 @@ type=Folder&description=This is a test (update 01)
 
 ### Löschen
 
-Löschungen können für einzelne Ordner vorgenommen werden, wenn sie leer sind, d. h., sie enthalten keine Assets oder Unterordner. Wenn ein Ordner vom Typ Programm ist oder das Feld isSystem auf &quot;true&quot;gesetzt ist, kann er mit dieser API nicht gelöscht werden.
+Für einzelne Ordner können Löschungen durchgeführt werden, wenn sie leer sind, d. h. wenn sie keine Assets oder Unterordner enthalten. Wenn ein Ordner vom Typ „Programm“ ist oder das Feld „isSystem“ auf „true“ gesetzt ist, kann er mit dieser API nicht gelöscht werden.
 
 ```
 POST /rest/asset/v1/folder/{id}/delete.json

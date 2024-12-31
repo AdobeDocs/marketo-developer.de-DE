@@ -1,7 +1,7 @@
 ---
-title: '[!DNL Adobe Launch] Installation der Erweiterung'
+title: Installation der [!DNL Adobe Launch]
 feature: Mobile Marketing
-description: Installationsübersicht für [!DNL Adobe Launch] Erweiterungen
+description: '[!DNL Adobe Launch] - Installationsübersicht'
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -10,36 +10,36 @@ ht-degree: 0%
 
 ---
 
-# [!DNL Adobe Launch] Installation der Erweiterung
+# Installation der [!DNL Adobe Launch]
 
-Installationsanweisungen für die Marketo-Erweiterung [!DNL Adobe Launch]. Die folgenden Schritte sind erforderlich, um Push-Benachrichtigungen und/oder In-App-Nachrichten zu senden.
+Installationsanweisungen für [!DNL Adobe Launch] Marketo-Erweiterung. Die folgenden Schritte sind erforderlich, um Push-Benachrichtigungen und/oder In-App-Nachrichten zu senden.
 
 ## Voraussetzungen
 
-1. [Hinzufügen einer Anwendung in Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des Geheimnisschlüssels für die Anwendung und der Munchkin ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Konfigurieren Sie die Eigenschaft in [!DNL Adobe Launch] portal](https://experience.adobe.com/#/@amc/data-collection/home)
-1. Anwendungsgeheimschlüssel und Munchkin-ID für die Eigenschaft im Portal [!DNL Adobe Launch] konfigurieren
+1. Konfigurieren Sie den geheimen Anwendungsschlüssel und die Munchkin-ID für die Eigenschaft im [!DNL Adobe Launch]
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
 ## Installieren der Marketo-Erweiterung auf iOS
 
 ### Swift Bridging-Kopfzeile einrichten
 
-1. Wechseln Sie zu [!UICONTROL Datei] > [!UICONTROL Neu] > [!UICONTROL Datei] und wählen Sie **[!UICONTROL Header-Datei]** aus.
+1. Gehen Sie zu [!UICONTROL Datei] > [!UICONTROL Neu] > [!UICONTROL Datei] und wählen Sie **[!UICONTROL Header-Datei]**.
 
-1. Nennen Sie die Datei &quot;&lt;_Projektname_>-Bridging-Header&quot;.
+1. Nennen Sie die Datei &quot;&lt;_ProjectName_>-Bridging-Header“.
 
-1. Wechseln Sie zu [!UICONTROL Projekt] > [!UICONTROL Ziel] > [!UICONTROL Build-Einstellungen] > [!UICONTROL Swift-Compiler] > [!UICONTROL Codegenerierung]. Fügen Sie den folgenden Pfad zur Kopfzeile &quot;Objective-Bridging&quot;hinzu:
+1. Navigieren Sie [!UICONTROL Projekt] > [!UICONTROL Target] > [!UICONTROL Build-Einstellungen] > [!UICONTROL Swift-] > [!UICONTROL Code-Generierung]. Fügen Sie den folgenden Pfad zum „Objective-Bridging“-Header hinzu:
 
 `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
-## Initialisieren der Erweiterung
+## Erweiterung initialisieren
 
 >[!BEGINTABS]
 
 >[!TAB Ziel C]
 
-Aktualisieren Sie die `applicationDidBecomeActive` -Methode wie unten
+Aktualisieren Sie die `applicationDidBecomeActive` wie unten beschrieben
 
 ```
 (void)applicationDidBecomeActive:(UIApplication*) application
@@ -50,7 +50,7 @@ Aktualisieren Sie die `applicationDidBecomeActive` -Methode wie unten
 
 >[!TAB Swift]
 
-Aktualisieren Sie die `applicationDidBecomeActive` -Methode wie unten
+Aktualisieren Sie die `applicationDidBecomeActive` wie unten beschrieben
 
 ```
 func applicationDidBecomeActive(_ application: UIApplication)
@@ -63,12 +63,12 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ## iOS-Testgeräte
 
-1. Wählen Sie **[!UICONTROL Projekt]** > **[!UICONTROL Ziel]** > **[!UICONTROL Info]** > **[!UICONTROL URL-Typen]** aus.
+1. Wählen Sie **[!UICONTROL Projekt]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL-Typen]**.
 1. Kennung hinzufügen: ${PRODUCT_NAME}
-1. Festlegen von URL-Schemata: mkto-&lt;S_ecret Key_>
+1. Festlegen von URL-Schemata: &lt;s_secret_key>
 1. `application:openURL:sourceApplication:annotation:` in `AppDelegate.m file` einschließen (Objective-C)
 
-### Umgang mit benutzerdefiniertem URL-Typ in AppDelegate
+### Verarbeiten eines benutzerdefinierten URL-Typs in AppDelegate
 
 >[!BEGINTABS]
 
@@ -107,26 +107,26 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
 
 >[!ENDTABS]
 
-## Installieren des Marketo SDK in Android
+## Installieren von Marketo SDK auf Android
 
-### Einrichten der Android-Erweiterung
+### Einrichtung der Android-Erweiterung
 
-Befolgen Sie die Anweisungen in [!DNL Adobe Launch] Portal
+Folgen Sie den Anweisungen [!DNL Adobe Launch] Portal
 
-### Berechtigungen konfigurieren
+### Konfigurieren von Berechtigungen
 
-Öffnen Sie `AndroidManifest.xml` und fügen Sie die folgenden Berechtigungen hinzu. Ihre App muss die Berechtigungen &quot;INTERNET&quot;und &quot;ACCESS_NETWORK_STATE&quot;anfordern. Wenn Ihre App diese Berechtigungen bereits anfordert, überspringen Sie diesen Schritt.
+Öffnen Sie `AndroidManifest.xml` und fügen Sie die folgenden Berechtigungen hinzu. Ihre App muss die Berechtigungen „INTERNET“ und „ACCESS_NETWORK_STATE“ anfordern. Wenn Ihre Anwendung diese Berechtigungen bereits anfordert, überspringen Sie diesen Schritt.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
 <uses‐permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses‐permission>
 ```
 
-## Initialisieren der Erweiterung
+## Erweiterung initialisieren
 
-ProGuard-Konfiguration (optional)
+ProGuard Konfiguration (optional)
 
-Wenn Sie ProGuard für Ihre App verwenden, fügen Sie die folgenden Zeilen in Ihrer `proguard.cfg` -Datei hinzu. Die Datei befindet sich im Ordner &quot;`project`&quot;. Durch Hinzufügen dieses Codes wird das Marketo SDK aus dem Verschleierungsprozess ausgeschlossen.
+Wenn Sie ProGuard für Ihre App verwenden, fügen Sie die folgenden Zeilen in Ihrer `proguard.cfg`-Datei hinzu. Die Datei befindet sich in Ihrem `project`. Durch Hinzufügen dieses Codes wird die Marketo SDK aus dem Verschleierungsprozess ausgeschlossen.
 
 ```
 -dontwarn com.marketo.*
@@ -136,7 +136,7 @@ Wenn Sie ProGuard für Ihre App verwenden, fügen Sie die folgenden Zeilen in Ih
 
 ## Android  Test  Geräte
 
-Fügen Sie &quot;MarketoActivity&quot;zu `AndroidManifest.xml` im Anwendungs-Tag hinzu.
+Fügen Sie „MarketoActivity“ zu `AndroidManifest.xml` im Anwendungs-Tag hinzu.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity"  android:configChanges="orientation|screenSize" >
@@ -151,28 +151,28 @@ Fügen Sie &quot;MarketoActivity&quot;zu `AndroidManifest.xml` im Anwendungs-Tag
 
 ## Firebase Cloud Messaging-Unterstützung
 
-Das MME Software Development Kit (SDK) für Android wurde auf ein moderneres, stabileres und skalierbareres Framework aktualisiert, das mehr Flexibilität und neue Engineering-Funktionen für Ihren Android-App-Entwickler bietet.
+Das MME Software Development Kit (SDK) für Android wurde auf ein moderneres, stabileres und skalierbareres Framework aktualisiert, das mehr Flexibilität und neue Engineering-Funktionen für Ihre Android-App-Entwicklerinnen und -Entwickler enthält.
 
-Entwickler von Android-Apps können jetzt mit diesem SDK Googles [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) direkt verwenden.
+Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) direkt mit diesem SDK verwenden.
 
 ### Hinzufügen von FCM zu Ihrer Anwendung
 
-1. Integrieren Sie das neueste Marketo Android SDK in die Android App.  Schritte sind unter [GitHub](https://github.com/Marketo/android-sdk) verfügbar.
-1. Konfigurieren Sie die Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in der Firebase-Konsole [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/).
-      1. Wählen Sie in der [Firebase-Konsole](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/) die Option **[!UICONTROL Projekt hinzufügen]** aus.
-      1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte und dann **[!UICONTROL Firebase hinzufügen]** aus.
-      1. Wählen Sie im Begrüßungsbildschirm von Firebase die Option **[!UICONTROL Firebase zu Ihrer Android App hinzufügen]**.
-      1. Geben Sie Ihren Paketnamen und SHA-1 ein und wählen Sie **[!UICONTROL App hinzufügen]** aus. Eine neue `google-services.json` -Datei für Ihre Firebase-App wird heruntergeladen.
+1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ ](https://github.com/Marketo/android-sdk).
+1. Konfigurieren der Firebase App in der Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
+      1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
+      1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
+      1. Wählen Sie im Firebase-Begrüßungsbildschirm die Option **[!UICONTROL Firebase zu Ihrer Android-App hinzufügen]**.
+      1. Geben Sie Ihren Paketnamen und SHA-1 an und wählen Sie **[!UICONTROL App hinzufügen]** aus. Eine neue `google-services.json` für Ihre Firebase-App wird heruntergeladen.
       1. Wählen Sie **[!UICONTROL Weiter]** und befolgen Sie die detaillierten Anweisungen zum Hinzufügen des Google Services-Plug-ins in Android Studio.
 
-   1. Navigieren Sie in [!UICONTROL Project Overview] zu **[!UICONTROL Projekteinstellungen]** .
-      1. Klicken Sie auf die Registerkarte **[!UICONTROL Allgemein]**. Laden Sie die Datei `google-services.json` herunter.
-      1. Klicken Sie auf die Registerkarte **[!UICONTROL Cloud Messaging]** . Kopieren Sie [!UICONTROL Server-Schlüssel] und [!UICONTROL Sender-ID]. Stellen Sie diese [!UICONTROL Server-Schlüssel] und die [!UICONTROL Sender-ID] für Marketo bereit.
-   1. Konfigurieren von FCM-Änderungen in der Android App
-      1. Wechseln Sie in Android Studio zur Projektansicht, um den Stammordner Ihres Projekts anzuzeigen.
-         1. Verschieben Sie die heruntergeladene `google-services.json` -Datei in den Stammordner des Android-Anwendungsmoduls.
-         1. Fügen Sie auf Projektebene `build.gradle` Folgendes hinzu:
+   1. Navigieren Sie **[!UICONTROL Projekteinstellungen]** in [!UICONTROL Projektübersicht]
+      1. Klicken Sie auf **[!UICONTROL Allgemein]** Registerkarte. Laden Sie die Datei `google-services.json` herunter.
+      1. Klicken Sie auf **[!UICONTROL Registerkarte]** Cloud Messaging“. Kopieren [!UICONTROL Server-Schlüssel] und [!UICONTROL Absender-ID]. Stellen Sie diese [!UICONTROL Serverschlüssel] und [!UICONTROL Absender-ID] für Marketo bereit.
+   1. Konfigurieren von FCM-Änderungen in der Android-App
+      1. Wechseln Sie zur Projektansicht in Android Studio, um den Projektstammordner anzuzeigen
+         1. Verschieben Sie die heruntergeladene `google-services.json` in das Stammverzeichnis des Android-App-Moduls.
+         1. Fügen Sie in `build.gradle` auf Projektebene Folgendes hinzu:
 
             ```
             buildscript {
@@ -182,7 +182,7 @@ Entwickler von Android-Apps können jetzt mit diesem SDK Googles [Firebase Cloud
             }
             ```
 
-         1. Fügen Sie in &quot;build.gradle&quot;auf Anwendungsebene Folgendes hinzu:
+         1. Fügen Sie in build.gradle auf App-Ebene Folgendes hinzu:
 
             ```
             dependencies {
@@ -192,8 +192,8 @@ Entwickler von Android-Apps können jetzt mit diesem SDK Googles [Firebase Cloud
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Klicken Sie abschließend in der in der ID angezeigten Leiste auf **[!UICONTROL Jetzt synchronisieren]** .
-   1. Bearbeiten des Manifests Ihrer App Das FCM-SDK fügt automatisch alle erforderlichen Berechtigungen und die erforderlichen Empfängerfunktionen hinzu. Achten Sie darauf, die folgenden veralteten (und potenziell schädlichen) Elemente aus dem Manifest Ihrer App zu entfernen, da sie eine Nachrichtenduplizierung verursachen können:
+         1. Klicken Sie abschließend in der Leiste **[!UICONTROL die in der ID angezeigt wird,]** auf „Jetzt synchronisieren“
+   1. Manifest der App bearbeiten Die FCM-SDK fügt automatisch alle erforderlichen Berechtigungen und die erforderliche Empfängerfunktion hinzu. Entfernen Sie die folgenden veralteten (und potenziell schädlichen, da sie zu einer Duplizierung von Nachrichten führen können) Elemente aus dem Manifest Ihrer App:
 
       ```xml
       <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -218,17 +218,17 @@ Entwickler von Android-Apps können jetzt mit diesem SDK Googles [Firebase Cloud
 
 Häufig gestellte Fragen zur Unterstützung von Firebase Cloud Messaging.
 
-**Q: Wo finde ich Anweisungen zum Aktualisieren auf die neueste Version des MME-SDK?** Anweisungen finden Sie auf der Marketo Developer Site [HIER](installation.md).
+**F: Wo finde ich Anleitungen zum Aktualisieren auf die neueste Version des MME SDK?** Anweisungen finden Sie auf der Marketo Developer Site [HIER](installation.md).
 
-**F: Muss ich bei der Aktualisierung auf die neueste Version des SDK eine aktualisierte Version meiner Android-Anwendung für meine bestehenden Benutzer veröffentlichen?** Nein.
+**F: Ist es bei der Aktualisierung auf die neueste Version von SDK erforderlich, dass ich eine aktualisierte Version meiner Android-Anwendung für meine bestehenden Anwender veröffentliche?**
 
-**F: Wie wirkt sich dies auf bestehende MME-Kunden aus, die Android-Apps veröffentlicht haben, die mit dem Marketo Android SDK integriert sind?** Sie können eine vorhandene GCM-Client-App in Android wie folgt zu Firebase Cloud Messaging (FCM) migrieren:
+**F: Wie wirkt sich dies auf die bestehenden MME-Kunden aus, die Android-Apps veröffentlicht haben, die in Marketo Android SDK integriert sind?** Sie können eine bestehende GCM-Client-App in Android wie folgt zu Firebase Cloud Messaging (FCM) migrieren:
 
-1. Wählen Sie in der [Firebase-Konsole](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/) die Option **[!UICONTROL Projekt hinzufügen]** aus.
-1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte und dann **[!UICONTROL Firebase hinzufügen]** aus.
-1. Wählen Sie im Begrüßungsbildschirm von Firebase die Option **[!UICONTROL Firebase zu Ihrer Android App hinzufügen]**.
-1. Geben Sie Ihren Paketnamen und SHA-1 ein und wählen Sie **[!UICONTROL App hinzufügen]** aus. Eine neue Datei google-services.json für Ihre
-1. Das Firebase-Programm wird heruntergeladen.
+1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
+1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
+1. Wählen Sie im Firebase-Begrüßungsbildschirm die Option **[!UICONTROL Firebase zu Ihrer Android-App hinzufügen]**.
+1. Geben Sie Ihren Paketnamen und SHA-1 an und wählen Sie **[!UICONTROL App hinzufügen]** aus. Eine neue Datei „google-services.json“ für Ihre
+1. Die Firebase App wird heruntergeladen.
 1. Wählen Sie **[!UICONTROL Weiter]** und befolgen Sie die detaillierten Anweisungen zum Hinzufügen des Google Services-Plug-ins in Android Studio.
 
-**Q: Können wir die Leads, die mit dem alten Marketo SDK erstellt wurden, das die GCM App verwendet hat, als Ziel auswählen?** Ja. Alle Leads, die mit dem Marketo SDK erstellt wurden, können für den Versand der Push-Benachrichtigungen ausgewählt werden.
+**F: Können wir die Leads auswählen, die mit dem alten Marketo SDK erstellt wurden, das die GCM-App verwendet?** Ja. Alle mit Marketo SDK erstellten Leads können für den Versand der Push-Benachrichtigungen ausgewählt werden.
