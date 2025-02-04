@@ -3,10 +3,10 @@ title: importToList
 feature: SOAP
 description: importToList-SOAP-Aufrufe
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
 workflow-type: tm+mt
-source-wordcount: '317'
-ht-degree: 6%
+source-wordcount: '393'
+ht-degree: 5%
 
 ---
 
@@ -24,7 +24,7 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Hinweis:** `displayName` sollten im `importFileHeader` statt der `name` verwendet werden.
+`displayName` Werte sollten im `importFileHeader` statt der `name` verwendet werden.
 
 **Dynamischer E-Mail-Inhalt** Optional können Sie Werte pro Lead übergeben, die als Ersatz für meine Token in einer E-Mail dienen.
 
@@ -36,7 +36,9 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 
 **Wichtig:** Wenn Sie Token für die Leads hinzufügen, müssen Sie die Smart Campaign angeben, die sie verwendet. Bei der nächsten Ausführung der angegebenen Smart-Kampagne werden die Werte aus Ihrer Liste anstelle der normalen Werte unter „Mein Token“ verwendet. Nach der Ausführung dieser einzelnen Kampagne werden die Token verworfen.
 
-**HINWEIS:** `importToList` kann einige Zeit in Anspruch nehmen, insbesondere bei großen Listen. Wenn Sie die neu importierte Liste in anderen API-Aufrufen verwenden möchten, sollten Sie `importToListStatus` verwenden, um zu überprüfen, ob der Vorgang abgeschlossen ist.
+`importToList` kann einige Zeit in Anspruch nehmen, insbesondere bei großen Listen. Wenn Sie die neu importierte Liste in anderen API-Aufrufen verwenden möchten, sollten Sie `importToListStatus` verwenden, um zu überprüfen, ob der Vorgang abgeschlossen ist.
+
+**Hinweis:** Importieren von NULL-Werten für numerische Felder in einer CSV-Datei kann eine Aktivität „Datenwert ändern“ für diese Felder erzeugen, auch wenn das Feld bereits leer ist. Alle Smart-Kampagnen, die einen Filter „Datenwertänderung“ oder einen Trigger „Datenwertänderung“ verwenden, können dazu führen, dass sich Leads für diese Kampagnen qualifizieren, obwohl sich die Daten tatsächlich nicht ändern. Verwenden Sie Einschränkungen für diese Filter/Trigger, um sicherzustellen, dass Leads bei der Durchführung von Importen nicht für falsche Kampagnen qualifiziert sind.
 
 ## Anfrage
 
