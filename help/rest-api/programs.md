@@ -3,9 +3,9 @@ title: Programme
 feature: REST API, Programs
 description: Erstellen und Bearbeiten von Programminformationen.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
 workflow-type: tm+mt
-source-wordcount: '843'
+source-wordcount: '848'
 ht-degree: 2%
 
 ---
@@ -320,9 +320,12 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Erstellen und aktualisieren
 
-[Erstellen]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) und [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) von Programmen folgt dem Standard-Asset-Muster und verfügt über `folder`, `name`, `type` und `channel` als erforderliche Parameter, wobei `description`, `costs` und `tags` optional sind. Kanal und Typ können nur bei der Programmerstellung festgelegt werden. Nur Beschreibung, Name, `tags` und `costs` können nach der Erstellung aktualisiert werden, wobei ein zusätzlicher `costsDestructiveUpdate` zulässig ist. Wenn Sie `costsDestructiveUpdate` als „true“ übergeben, werden alle vorhandenen Kosten gelöscht und durch alle im Aufruf enthaltenen Kosten ersetzt. Beachten Sie, dass Tags für einige Programmtypen in einigen Abonnements erforderlich sein können. Dies ist jedoch konfigurationsabhängig und sollte zunächst mit Tags abrufen überprüft werden, um zu sehen, ob instanzspezifische Anforderungen vorliegen.
+[Erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) und [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) von Programmen folgt dem Standard-Asset-Muster und `folder`, `name`, `type` und `channel` als erforderliche Parameter, wobei `description`, `costs` und `tags` optional sind. Kanal und Typ können nur bei der Programmerstellung festgelegt werden. Nur Beschreibung, Name, `tags` und `costs` können nach der Erstellung aktualisiert werden, wobei ein zusätzlicher `costsDestructiveUpdate` zulässig ist. Wenn Sie `costsDestructiveUpdate` als „true“ übergeben, werden alle vorhandenen Kosten gelöscht und durch alle im Aufruf enthaltenen Kosten ersetzt. Beachten Sie, dass Tags für einige Programmtypen in einigen Abonnements erforderlich sein können. Dies ist jedoch konfigurationsabhängig und sollte zunächst mit Tags abrufen überprüft werden, um zu sehen, ob instanzspezifische Anforderungen vorliegen.
 
-Beim Erstellen oder Aktualisieren eines E-Mail-Programms können auch ein `startDate` und ein `endDate` übergeben werden.
+Beim Erstellen oder Aktualisieren eines E-Mail-Programms können `startDate` und `endDate` auch als UTC-Datum/-Uhrzeit übergeben werden:
+
+`"startDate": "2022-10-19T15:00:00.000Z"`
+`"endDate": "2022-10-19T15:00:00.000Z"`
 
 ### Erstellen
 
