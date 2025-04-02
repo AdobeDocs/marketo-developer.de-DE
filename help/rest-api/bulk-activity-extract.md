@@ -3,9 +3,9 @@ title: Massenaktivität-Extrakt
 feature: REST API
 description: Daten zu Batch-Verarbeitungsaktivitäten aus Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 8c22255673fee1aa0f5b47393a241fcf6680778b
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1343'
+source-wordcount: '1342'
 ht-degree: 7%
 
 ---
@@ -36,7 +36,7 @@ Die APIs zum Extrahieren von Massenaktivitäten erfordern, dass der API-Benutzer
 | Datenwert ändern | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
 | Bewertung ändern | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
 | Status in Entwicklung ändern | Programm-ID | [Programm nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | Marketingprogramm |
-| Zu Liste hinzufügen | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
+| Zur Liste hinzufügen | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
 | Aus Liste entfernen | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
 | Formular ausfüllen | Formular-ID | [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Webformular |
 
@@ -70,7 +70,7 @@ Beispiel-Anfragetext:
 | Datenwert ändern | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
 | Bewertung ändern | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
 | Status in Entwicklung ändern | Programmname | [Programm nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | Marketingprogramm |
-| Zu Liste hinzufügen | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
+| Zur Liste hinzufügen | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
 | Aus Liste entfernen | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
 | Formular ausfüllen | Formularname | [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Webformular |
 
@@ -222,7 +222,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei.
 
-Wenn ein angefordertes Lead-Feld leer ist (keine Daten enthält), wird `then null` in der Exportdatei im entsprechenden Feld platziert.  Im folgenden Beispiel ist das Feld campaignId für die zurückgegebene Aktivität leer.
+Wenn ein angefordertes Lead-Feld leer ist (keine Daten enthält), wird `then null` in der Exportdatei im entsprechenden Feld platziert.  Im folgenden Beispiel ist das `campaignId` Feld für die zurückgegebene Aktivität leer.
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes

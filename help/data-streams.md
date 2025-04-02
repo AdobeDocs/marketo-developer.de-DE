@@ -2,16 +2,16 @@
 title: Datenströme
 description: Übersicht über Datenströme
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1594'
+source-wordcount: '1588'
 ht-degree: 2%
 
 ---
 
 # Datenströme
 
-Die Marketing-Organisationen unserer Kunden verlassen sich auf rechtzeitige und fokussierte Marketing-Kampagnen, um über ihr Geschäft auf dem Laufenden zu bleiben und wettbewerbsfähig zu sein. Um schnelle Entscheidungen zu unterstützen und strategische Änderungen schnell zu ermöglichen, ist es wichtig, über Daten zu verfügen, die die wichtigen Entscheidungen unterstützen und vorantreiben, die zielgerichtete und zielgerichtete Kampagnen liefern. Es gibt auch einige Kunden, die Marketing-Maßnahmen auf der Ebene ihrer Kundensegmente sowohl innerhalb als auch außerhalb von Marketo Engage durchführen. Um diese verschiedenen Bemühungen zu unterstützen, hat Marketo die Möglichkeit geschaffen, große Datenmengen nahezu in Echtzeit über Datenströme zu erfassen.
+Die Marketing-Organisationen unserer Kunden verlassen sich auf rechtzeitige und fokussierte Marketing-Kampagnen, um über ihr Geschäft auf dem Laufenden zu bleiben und wettbewerbsfähig zu sein. Um schnelle Entscheidungen zu unterstützen und strategische Änderungen schnell zu ermöglichen, ist es wichtig, über Daten zu verfügen, die die wichtigen Entscheidungen unterstützen und vorantreiben, die zielgerichtete und zielgerichtete Kampagnen liefern. Es gibt auch einige Kundinnen und Kunden, die Marketing-Maßnahmen auf der Ebene ihrer Kundensegmente sowohl innerhalb als auch außerhalb von Marketo Engage durchführen. Um diese verschiedenen Bemühungen zu unterstützen, hat Marketo die Möglichkeit geschaffen, große Datenmengen nahezu in Echtzeit über Datenströme zu erfassen.
 
 Neben den Vorteilen von nahezu Echtzeitdaten gibt es produktbezogene Vorteile:
 
@@ -80,7 +80,7 @@ Liste der gestreamten Benutzerüberwachungsereignisse:
 | E-Mail | Genehmigen, klonen, erstellen, löschen, bearbeiten, verschieben, umbenennen, Genehmigung aufheben |
 | E-Mail-Stapelprogramm | Genehmigen, untergeordnet aktualisieren, klonen, erstellen, löschen, bearbeiten, Kanal bearbeiten, Programmzeitplan ändern, Programmeinrichtung ändern, Programm-Token ändern, umbenennen, Genehmigung aufheben |
 | E-Mail-Vorlage | Genehmigen, klonen, erstellen, löschen, entwurfErstellen, entwurfVerwerfen, bearbeiten, umbenennen, Genehmigung aufheben |
-| Engagementprogramm | Klonen, Erstellen, Löschen, Kanal bearbeiten, Programmeinrichtung ändern, Programmstream ändern, Programm-Token ändern, umbenennen |
+| Interaktionsprogramm | Klonen, Erstellen, Löschen, Kanal bearbeiten, Programmeinrichtung ändern, Programmstream ändern, Programm-Token ändern, umbenennen |
 | Veranstaltungsprogramm | Klonen, Erstellen, Löschen, Kanal bearbeiten, Programmzeitplan ändern, Programmeinrichtung ändern, Programm-Token ändern, umbenennen |
 | Ordner | Erstellen, Löschen, Bearbeiten, Umbenennen |
 | Formular | Genehmigen, klonen, erstellen, löschen, Entwurf erstellen, bearbeiten, verschieben, umbenennen |
@@ -128,7 +128,7 @@ Beispiel eines Benutzerüberwachungsereignisses:
 
 ## Übersicht über den Benachrichtigungsdatenstrom
 
-Benachrichtigungsdatenstrom ist als Teil der Leistungsstufenangebote von Marketo Engage verfügbar.
+Der Benachrichtigungsdatenstrom ist als Teil der Leistungsstufenangebote von Marketo Engage verfügbar.
 
 Derzeit kann das Benachrichtigungszentrum in Marketo so konfiguriert werden, dass Benachrichtigungen an eine E-Mail-Adresse gesendet werden. Benachrichtigungsdatenstrom ermöglicht das direkte Senden der Benachrichtigungen über Adobe I/O-Ereignisse an einen konfigurierbaren Endpunkt. Benachrichtigungen werden heute über die Benutzeroberfläche bereitgestellt und können durch die orangefarbene Glocke oben rechts im Bildschirm referenziert werden. Dieser Stream nimmt diese Benachrichtigungen und sendet sie über einen Stream.
 
@@ -180,15 +180,15 @@ Der Lead-Aktivitäts-Stream bietet nahezu in Echtzeit Streaming von Marketo-Lead
 Um den Lead-Aktivitäts-Datenstrom zu implementieren, führen Kunden folgende Schritte aus:
 
 1. Zeigen Sie einen HTTP-Endpunkt an, der POST-Anfragen mit einem JSON-Text aus dem öffentlichen Internet empfangen kann. Der Aktivitäts-Push-Datenstrom sendet Anfragen an:
-1. Geben Sie Adobe Folgendes an:
+1. Geben Sie Adobe Folgendes:
    1. Marketo Munchkin-ID für ihr Abonnement
    1. Die URL des Endpunkts in Schritt 1
    1. Die Aktivitätstypen, die sie erhalten möchten (vollständige Liste oben)
    1. Eine Authentifizierungsmethode, mit der der Kunde überprüfen kann, ob die Anfragen rechtmäßig sind. Entweder:
       1. Eine Identitätsanbieter-URL, Client-ID und ein Client-Geheimnis für die OAuth-Authentifizierung [Client-Anmeldeinformationen](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
-      1. Ein API-Token, das in Anfragen enthalten sein kann, die vom Lead-Aktivitäts-Datenstrom entweder in Abfrageparametern oder in einer Autorisierungs-Kopfzeile gesendet werden (nach Wahl des Kunden)
+      1. Ein API-Token, das in Anfragen enthalten sein kann, die vom Lead-Aktivitätsdatenstrom in einer Autorisierungs-HTTP-Kopfzeile gesendet werden
 
-Adobe aktiviert dann den Datenstrom, sodass Kunden ab diesem Zeitpunkt Daten empfangen können.
+Adobe aktiviert dann den Daten-Stream, sodass Kunden ab diesem Zeitpunkt Daten empfangen können.
 
 UML-Diagramm eines typischen Lead Activity-Datenstrom-Aufrufs:
 
@@ -243,9 +243,9 @@ Ein Codebeispiel für eine Anwendung, die den Marketo-Lead-Aktivitäts-Datenstro
 
 ### Benutzer-Audit-Datenstrom und Benachrichtigungsdatenstrom
 
-Benutzerüberwachungsereignisse werden an Adobe-E/A gesendet und können durch Anmeldung mit einer Adobe ID genutzt werden. Die folgenden Schritte sind zu befolgen:
+Benutzerüberwachungsereignisse werden an Adobe I/O gesendet und können durch Anmeldung mit einer Adobe ID genutzt werden. Die folgenden Schritte sind zu befolgen:
 
-1. Kunden bieten Adobe mit folgenden Inhalten:
+1. Kunden bieten Adobe Folgendes:
    1. Adobe ID
    1. Marketo Munchkin-ID für ihr Abonnement
 1. Der Kunde stellt einen REST-Endpunkt bereit, um Ereignisse zu nutzen, die normalerweise in Form eines Webhooks auftreten.
@@ -254,7 +254,7 @@ Benutzerüberwachungsereignisse werden an Adobe-E/A gesendet und können durch A
    1. Dieser Schritt erfordert eine Adobe-Organisation
    1. Erfordert, dass der Adobe-Organisationsbenutzer die Rolle „Entwickler“ oder „Systemadministrator“ hat
 
-Informationen zum Einrichten von Adobe-IO finden [ unter „Einrichten von Marketo User Audit Data Streams mit Adobe-IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) im Abschnitt zur öffentlichen Dokumentation.
+Informationen zum Einrichten von Adobe IO finden [ unter „Einrichten von Marketo User Audit Data Streams mit Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) im Abschnitt zur öffentlichen Dokumentation.
 
 ### Einrichten des User Audit-Datenstroms in Marketo
 
@@ -262,7 +262,7 @@ Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit 
 
 ### Einrichten von Adobe I/O
 
-[Siehe Erste Schritte mit Adobe I/O-Ereignissen](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+[Siehe Erste Schritte mit Adobe I/O Events](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
 Grundlegende Anweisungen für diesen Anwendungsfall, beginnend bei [console.adobe.io](https://developer.adobe.com/console):
 

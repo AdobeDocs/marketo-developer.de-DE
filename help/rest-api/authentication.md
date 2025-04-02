@@ -3,9 +3,9 @@ title: Authentifizierung
 feature: REST API
 description: Authentifizieren von Marketo-Benutzern für die API-Nutzung.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '567'
+source-wordcount: '573'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Die `Client ID` und `Client Secret` befinden sich im Menü **[!UICONTROL Admin]*
 
 Der `Identity URL` befindet sich im **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** im Abschnitt REST-API .
 
-Erstellen Sie ein Zugriffstoken mithilfe einer HTTP-GET- (oder POST-)Anfrage wie der folgenden:
+Erstellen Sie ein Zugriffs-Token mithilfe einer HTTP-GET-Anfrage (oder POST-Anfrage) wie folgt:
 
 ```
 GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client Id>&client_secret=<Client Secret>
@@ -52,13 +52,15 @@ Definition der Antwort
 
 Beim Aufrufen von REST-API-Methoden muss jeder Aufruf ein Zugriffstoken enthalten, damit der Aufruf erfolgreich ist.
 
-Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden.
-
-`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
 >[!IMPORTANT]
 >
 >Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
+
+Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden. Beispiel: in einer CURL-Anfrage:
+
+```bash
+$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+```
 
 ## Tipps und Best Practices
 

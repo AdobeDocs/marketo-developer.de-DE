@@ -3,9 +3,9 @@ title: Massenextraktion benutzerdefinierter Objekte
 feature: REST API, Custom Objects
 description: Stapelverarbeitung von benutzerdefinierten Marketo-Objekten.
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1300'
+source-wordcount: '1298'
 ht-degree: 1%
 
 ---
@@ -403,7 +403,7 @@ leadId,color,make,model,vIN
 13,Fusion Red,Tesla,Roadster,SFGRC3C41FF154321
 ```
 
-Um das partielle und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Datei-Endpunkt optional den HTTP-Header-Bereich vom Typ Byte. Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Weitere Informationen zur Verwendung der Kopfzeile „Bereich“ finden Sie in Marketo [Massenextraktion](bulk-extract.md).
+Um das teilweise und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional die HTTP-Header-`Range` vom Typ `bytes`. Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Weitere Informationen zur Verwendung der Kopfzeile „Bereich“ finden Sie in Marketo [Massenextraktion](bulk-extract.md).
 
 ## Abbrechen von Aufträgen
 
