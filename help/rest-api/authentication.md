@@ -3,9 +3,9 @@ title: Authentifizierung
 feature: REST API
 description: Authentifizieren von Marketo-Benutzern für die API-Nutzung.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
 workflow-type: tm+mt
-source-wordcount: '573'
+source-wordcount: '619'
 ht-degree: 0%
 
 ---
@@ -51,15 +51,27 @@ Definition der Antwort
 ## Verwenden eines Zugriffs-Tokens
 
 Beim Aufrufen von REST-API-Methoden muss jeder Aufruf ein Zugriffstoken enthalten, damit der Aufruf erfolgreich ist.
+Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden.
 
 >[!IMPORTANT]
 >
 >Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
 
-Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden. Beispiel: in einer CURL-Anfrage:
+### Wechseln zur Autorisierungs-Kopfzeile
+
+
+Um von der Verwendung des `access_token` Abfrageparameters zu einer Autorisierungs-Kopfzeile zu wechseln, ist eine kleine Code-Änderung erforderlich.
+
+Wenn Sie CURL als Beispiel verwenden, sendet dieser Code den `access_token` als Formularparameter (das -F-Flag):
 
 ```bash
-$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+curl ...  -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/apiCall.json
+```
+
+Dieser Code sendet denselben Wert wie der `Authorization: Bearer`-HTTP-Header (das -H-Flag):
+
+```bash
+curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/bulk/v1/apiCall.json
 ```
 
 ## Tipps und Best Practices
