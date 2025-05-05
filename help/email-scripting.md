@@ -112,7 +112,7 @@ Nachdem Sie Ihr Skript in einem „Mein Programm-Token“ definiert haben, könn
 
 ![E-Mail-Skript](assets/email-script-marketo-email.png)
 
-Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet werden kann, müssen Sie im Feld „Lead“ einen vorhandenen Lead auswählen[!UICONTROL  für den stellvertretend agiert ]. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger ] auswählen. Hierbei werden die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject` verwendet.
+Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet werden kann, müssen Sie im Feld „Lead“ einen vorhandenen Lead auswählen[!UICONTROL &#x200B; für den stellvertretend agiert &#x200B;]. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger &#x200B;] auswählen. Hierbei werden die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject` verwendet.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 

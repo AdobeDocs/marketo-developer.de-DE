@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
 - Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
-- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in ](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) Entwicklerkonsole von Google gefunden wurde.[
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in [&#128279;](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) Entwicklerkonsole von Google gefunden wurde.
 
 Die Registrierung des Tokens kann auch beim Abmelden aufgehoben werden.
 

@@ -66,7 +66,7 @@ Fügen Sie die Plattformen hinzu, die für die App ausgewählt werden sollen `$c
 1. Firebase Cloud Messaging-Unterstützung
 
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [](https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Willkommensbildschirm „Firebase zu Ihrer Android-App hinzufügen“ aus.
@@ -197,7 +197,7 @@ marketo.initializeMarketoPush(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
 - Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
-- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in ](https://console.developers.google.com/) Entwicklerkonsole von Google gefunden wurde.[
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in [&#128279;](https://console.developers.google.com/) Entwicklerkonsole von Google gefunden wurde.
 
 Die Registrierung des Tokens kann auch beim Abmelden aufgehoben werden.
 
