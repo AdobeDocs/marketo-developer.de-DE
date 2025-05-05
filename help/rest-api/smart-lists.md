@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Marketo bietet eine Reihe von REST-APIs zum Ausführen von Vorgängen für Smart-Listen. Diese APIs folgen dem Standard-Schnittstellenmuster für Asset-APIs und bieten Optionen für Abfrage, Löschen und Klonen.
 
-Hinweis: Diese APIs werden nur für benutzerdefinierte Smart Lists unterstützt. Sie können nicht für [Integrierte/System-Smart-Listen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists) verwendet werden.
+Hinweis: Diese APIs werden nur für benutzerdefinierte Smart Lists unterstützt. Sie können nicht für [Integrierte/System-Smart-Listen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists) verwendet werden.
 
 ## Abfrage
 
