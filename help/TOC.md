@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
 workflow-type: tm+mt
-source-wordcount: '247'
-ht-degree: 37%
+source-wordcount: '249'
+ht-degree: 41%
 
 ---
 
@@ -17,24 +17,24 @@ ht-degree: 37%
 
 - [Startseite](home.md)
 - [Erste Schritte](getting-started.md)
-- JavaScript-API-{#javascriptapi}
+- JavaScript-API {#javascriptapi}
    - [Benutzerspezifische Datenereignisse](javascript-api/custom-data-events.md)
    - [Beispiele](javascript-api/examples.md)
    - [Forms-API-Referenz](javascript-api/forms-api-reference.md)
    - [Besucherdaten abrufen](javascript-api/get-visitor-data.md)
    - [JavaScript-API](javascript-api/javascript-api.md)
-   - Lead-{#leadtracking}
+   - Lead-Verfolgung {#leadtracking}
       - [Lead-Verfolgung](javascript-api/lead-tracking.md)
       - [Konfiguration](javascript-api/configuration.md)
       - [Munchkin-API-Referenz](javascript-api/api-reference.md)
    - [Musterübereinstimmung](javascript-api/pattern-match.md)
    - [Predictive Content](javascript-api/predictive-content.md)
    - [Redirects](javascript-api/redirect.md)
-   - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Rich-Media-Empfehlungen](javascript-api/rich-media-recommendation.md)
    - [Social](javascript-api/social.md)
    - [Trigger](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
-- Mobil {#mobile}
+- Mobile {#mobile}
    - [install. [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension.md)
    - [Erweiterter Sicherheitsmodus](mobile/advanced-security-access-mode.md)
@@ -48,7 +48,7 @@ ht-degree: 37%
    - [Push-Benachrichtigungen](mobile/push-notifications.md)
    - [React Native](mobile/react-native.md)
    - [Benutzerprofile](mobile/user-profiles.md)
-- REST{#rest}
+- RUHE{#rest}
    - [REST-API - Übersicht](rest-api/rest-api.md)
    - [REST-API-Referenz](https://developer.adobe.com/marketo-apis/)
    - Assets {#assets}
@@ -59,7 +59,7 @@ ht-degree: 37%
       - [Dateien](rest-api/files.md)
       - [Ordner](rest-api/folders.md)
       - [Formulare](rest-api/forms.md)
-      - [Landing Page](rest-api/landing-pages.md)
+      - [Landingpages](rest-api/landing-pages.md)
       - [Zielseiten-Umleitungsregeln](rest-api/landing-page-redirect-rules.md)
       - [Landing Page-Vorlagen](rest-api/landing-page-templates.md)
       - [Liste der Standardfelder](rest-api/list-of-standard-fields.md)
@@ -73,13 +73,13 @@ ht-degree: 37%
    - [Authentifizierung](rest-api/authentication.md)
    - [Basis-URL](rest-api/base-url.md)
    - [Bewährte Methoden](rest-api/marketo-integration-best-practices.md)
-   - {#bulk-extract}
+   - Massenextrakt {#bulk-extract}
       - [Massenaktivität](rest-api/bulk-activity-extract.md)
       - [Benutzerdefiniertes Massenobjekt](rest-api/bulk-custom-object-extract.md)
       - [Massenextrakt](rest-api/bulk-extract.md)
       - [Massenkabel](rest-api/bulk-lead-extract.md)
       - [Massenprogrammteilnehmer](rest-api/bulk-program-member-extract.md)
-   - Massenimport-{#bulk-import}
+   - Massenimport {#bulk-import}
       - [Benutzerdefiniertes Massenobjekt](rest-api/bulk-custom-object-import.md)
       - [Massenimport](rest-api/bulk-import.md)
       - [Massenkabel](rest-api/bulk-lead-import.md)
@@ -90,7 +90,7 @@ ht-degree: 37%
    - [Swagger-Definitionen herunterladen](rest-api/swagger.md)
    - [Endpunktverweis](rest-api/endpoint-reference.md)
    - [Fehler-Codes](rest-api/error-codes.md)
-   - Lead-{#lead-database}
+   - Lead-Datenbank {#lead-database}
       - [Aktivitäten](rest-api/activities.md)
       - [Firmen](rest-api/companies.md)
       - [Benutzerdefinierte Objekte](rest-api/custom-objects.md)
@@ -111,7 +111,7 @@ ht-degree: 37%
    - [Tags](rest-api/tags.md)
    - [Benutzerkontext](rest-api/user-context.md)
    - [Benutzerverwaltung](rest-api/user-management.md)
-- SOAP-{#soap}
+- SOAP {#soap}
    - Aktivitäten {#activities}
       - [Aktivitäten](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
@@ -128,7 +128,7 @@ ht-degree: 37%
       - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
       - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
    - [Fehler-Codes](soap-api/error-codes.md)
-   - Lead-{#leads}
+   - Leads {#leads}
       - [[!DNL getLead]](soap-api/getlead.md)
       - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
       - [[!DNL mergeLeads]](soap-api/mergeleads.md)
@@ -153,7 +153,7 @@ ht-degree: 37%
       - [[!DNL importToList]](soap-api/importtolist.md)
       - [[!DNL listOperation]](soap-api/listoperation.md)
    - [Stromposition](soap-api/stream-position.md)
-- Webhooks-{#webhooks}
+- Webhooks {#webhooks}
    - [Fehler](webhooks/errors.md)
    - [Response Mappings](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
@@ -163,3 +163,4 @@ ht-degree: 37%
 - [Lizenz](api-license.md)
 - [Partner-Sandbox](partner-sandbox.md)
 - [Self-Service-Flussschritte](self-service-flow-steps.md)
+- [Blog-Archiv](blog.md)
