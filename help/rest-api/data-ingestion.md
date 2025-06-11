@@ -3,10 +3,10 @@ title: Datenaufnahme
 feature: REST API, Dynamic Content
 description: Daten mit Marketo-APIs nutzen.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 32e42ef5678c1cef76e66822809091ee602e9df8
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '968'
-ht-degree: 12%
+source-wordcount: '965'
+ht-degree: 13%
 
 ---
 
@@ -14,11 +14,11 @@ ht-degree: 12%
 
 Die Datenerfassungs-API ist ein Service mit hoher Datenmenge und geringer Latenz, der mit hoher Verfügbarkeit entwickelt wurde, um die Aufnahme großer Mengen von Personen- und personenbezogenen Daten effizient und mit minimalen Verzögerungen zu handhaben.
 
-Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt werden. Der Anfragestatus kann abgerufen werden, indem Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) abonniert werden&#x200B;
+Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt werden. Der Anfragestatus kann abgerufen werden, indem Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) abonniert werden&#x200B;
 
 Schnittstellen werden für zwei Objekttypen angeboten: Personen, Benutzerdefinierte Objekte. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
 
-Die Datenaufnahme-API befindet sich derzeit in der privaten Beta-Phase.  Eingeladene müssen über eine Berechtigung für das Paket der [Marketo Engage-Leistungsstufe](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) verfügen.
+Die Datenaufnahme-API befindet sich derzeit in der privaten Beta-Phase.  Eingeladene müssen über eine Berechtigung für das Paket [Marketo Engage-](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) verfügen.
 
 ## Authentifizierung
 
@@ -62,7 +62,7 @@ Die Datendarstellung ist im Anfragetext als application/json enthalten.
 
 Der Domain-Name lautet: `mkto-ingestion-api.adobe.io`
 
-Der Pfad beginnt mit `/subscriptions/MunchkinId`, wobei MunchkinId spezifisch für Ihre Marketo-Instanz ist. Ihre Munchkin-ID finden Sie in der Marketo Engage-Benutzeroberfläche unter **Admin** > **Mein Konto** > **Support-Informationen**.  Der Rest des Pfads wird verwendet, um die gewünschte Ressource anzugeben.
+Der Pfad beginnt mit `/subscriptions/MunchkinId`, wobei MunchkinId spezifisch für Ihre Marketo-Instanz ist. Ihre Munchkin-ID finden Sie in der Marketo Engage-Benutzeroberfläche unter **Admin** > **Mein** > **Support-Informationen**.  Der Rest des Pfads wird verwendet, um die gewünschte Ressource anzugeben.
 
 Beispiel-URL für Personen:
 
