@@ -3,9 +3,9 @@ title: Fehler-Codes
 feature: REST API
 description: Beschreibungen des Marketo-Fehlercodes.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
+source-git-commit: d44ec0442bc33e3e5cb7e2dd6ce3947036c7cd25
 workflow-type: tm+mt
-source-wordcount: '2273'
+source-wordcount: '2283'
 ht-degree: 3%
 
 ---
@@ -34,7 +34,7 @@ Unter normalen Betriebsbedingungen sollte Marketo nur zwei HTTP-Status-Code-Fehl
 
 Marketo gibt 413 zurück, wenn die Payload der Anfrage 1 MB überschreitet, oder 10 MB im Fall des Leadimports. In den meisten Szenarien ist es unwahrscheinlich, dass diese Beschränkungen erreicht werden. Durch Hinzufügen einer Prüfung der Größe der Anfrage und Verschieben von Datensätzen, die dazu führen, dass das Limit überschritten wird, zu einer neuen Anfrage sollten jedoch alle Umstände verhindert werden, die zu diesem Fehler bei Endpunkten führen.
 
-414 wird zurückgegeben, wenn der URI einer GET-Anfrage 8 KB überschreitet. Um dies zu vermeiden, überprüfen Sie die Länge Ihrer Abfragezeichenfolge, um festzustellen, ob sie diesen Grenzwert überschreitet. Wenn Ihre Anfrage jedoch in eine POST-Methode geändert wird, geben Sie Ihre Abfragezeichenfolge als Anfragetext mit dem zusätzlichen `_method=GET` ein. Dadurch wird die Einschränkung für URIs aufgegeben. In den meisten Fällen ist es selten, dieses Limit zu erreichen, aber es ist etwas üblich, wenn große Batches von Datensätzen mit langen individuellen Filterwerten wie einer GUID abgerufen werden.
+414 wird zurückgegeben, wenn der URI einer GET-Anfrage 8 KB überschreitet. Um dies zu vermeiden, überprüfen Sie die Länge Ihrer Abfragezeichenfolge, um festzustellen, ob sie diesen Grenzwert überschreitet. Wenn Ihre Anfrage jedoch in eine POST-Methode geändert wird, geben Sie Ihre Abfragezeichenfolge als Anfragetext mit dem zusätzlichen Parameter `_method=GET` ein. Dadurch wird die Einschränkung für URIs aufgegeben. In den meisten Fällen ist es selten, dieses Limit zu erreichen, aber es ist etwas üblich, wenn große Batches von Datensätzen mit langen individuellen Filterwerten wie einer GUID abgerufen werden.
 Der [Identity](https://developer.adobe.com/marketo-apis/api/identity/)-Endpunkt kann einen 401-Fehler „Nicht autorisiert“ zurückgeben. Dies ist normalerweise auf eine ungültige Client-ID oder ein ungültiges Client-Geheimnis zurückzuführen. Fehlercodes auf HTTP-Ebene
 
 <table>
@@ -54,7 +54,7 @@ Der [Identity](https://developer.adobe.com/marketo-apis/api/identity/)-Endpunkt 
     <tr>
       <td><a name="414"></a>414</td>
       <td>Anfrage-URI zu lang</td>
-      <td>Der URI der Anfrage überschritt 8k. Die Anfrage sollte als POST mit dem Parameter „_method=GET" in der URL wiederholt werden und der Rest der Abfragezeichenfolge im Hauptteil der Anfrage.</td>
+      <td>Der URI der Anfrage überschritt 8k. Die Anfrage sollte als POST-Anfrage mit dem Parameter „_method=GET" in der URL wiederholt werden und der Rest der Abfragezeichenfolge im Hauptteil der Anfrage.</td>
     </tr>
   </tbody>
 </table>
@@ -109,8 +109,8 @@ Ein API-Aufruf, der diesen Antwort-Code zurückgibt, wird nicht auf Ihr täglich
     </tr>
     <tr>
       <td><a name="603"></a>603</td>
-      <td>Zugriff verweigert </td>
-      <td>Die Authentifizierung ist erfolgreich, aber der Benutzer verfügt nicht über ausreichende Berechtigungen, um diese API aufzurufen. [Zusätzliche Berechtigungen](custom-services.md) müssen der Benutzerrolle möglicherweise zugewiesen werden, oder <a href="https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Zulassungsliste für IP-basierten API-Zugriff</a> muss aktiviert werden.</td>
+      <td>Zugriff verweigert</td>
+      <td>Die Authentifizierung ist erfolgreich, aber der Benutzer verfügt nicht über ausreichende Berechtigungen, um diese API aufzurufen. [Zusätzliche Berechtigungen](custom-services.md) müssen der Benutzerrolle möglicherweise zugewiesen werden, oder <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Zulassungsliste für IP-basierten API-Zugriff</a> muss aktiviert werden.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -160,7 +160,7 @@ Ein API-Aufruf, der diesen Antwort-Code zurückgibt, wird nicht auf Ihr täglich
     <tr>
       <td><a name="613"></a>613</td>
       <td>Ungültige mehrteilige Anfrage</td>
-      <td>Der mehrteilige Inhalt der POST war nicht korrekt formatiert</td>
+      <td>Der mehrteilige Inhalt des POST-Berichts war nicht korrekt formatiert.</td>
     </tr>
     <tr>
       <td><a name="614"></a>614</td>
@@ -287,8 +287,10 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann auf individueller Basis erfo
 
 #### Fehlercodes auf Datensatzebene
 
-<table>
-  <tbody>
+>[!NOTE]
+>
+><table>
+<tbody>
     <tr>
       <td>Antwortcode</td>
       <td>Beschreibung</td>
@@ -430,10 +432,12 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann auf individueller Basis erfo
       <td><ul>
           <li>Zu viele Aufträge in der Warteschlange</li>
           <li>Tägliches Exportkontingent überschritten</li>
+          <li>Auftrag bereits in der Warteschlange</li>
         </ul></td>
       <td><ul>
           <li>Abonnements dürfen zu einem bestimmten Zeitpunkt maximal 10 Massenextraktionsaufträge in der Warteschlange enthalten.</li>
           <li>Standardmäßig sind Extraktionsaufträge auf 500 MB pro Tag beschränkt (wird täglich um 0:00 Uhr CST zurückgesetzt).</li>
+          <li>Die Export-ID wurde bereits in die Warteschlange gestellt.</li>
         </ul></td>
     </tr>
     <tr>
@@ -486,3 +490,4 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann auf individueller Basis erfo
     </tr>
   </tbody>
 </table>
+
