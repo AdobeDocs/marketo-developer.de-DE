@@ -3,7 +3,7 @@ title: E-Mail-Skripterstellung
 feature: Email Programs
 description: Übersicht über E-Mail-Scripting
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 9012135dc7a295c2462574dad1aca2d06a9077ea
 workflow-type: tm+mt
 source-wordcount: '963'
 ht-degree: 0%
@@ -17,19 +17,19 @@ HINWEIS: Es wird dringend empfohlen, das [Velocity-Benutzerhandbuch](https://vel
 [Apache Velocity](https://velocity.apache.org/) ist eine Sprache, die auf Java basiert und für die Erstellung von Vorlagen und Skripten für HTML-Inhalte entwickelt wurde. Marketo ermöglicht die Verwendung im Kontext von E-Mails mithilfe von Skript-Token. Dadurch erhalten Sie Zugriff auf Daten, die in Opportunities und benutzerdefinierten Objekten gespeichert sind, und können dynamische Inhalte in E-Mails erstellen. Velocity bietet standardmäßige Steuerungsabläufe auf hoher Ebene mit if/else, for und for each, um eine bedingte und iterative Manipulation der Inhalte zu ermöglichen. Im Folgenden finden Sie ein einfaches Beispiel zum Drucken einer Begrüßung mit der richtigen Anrede:
 
 ```java
-//check if the lead is male
-if(${lead.MarketoSocialGender} == "Male")
-    if the lead is male, use the salutation 'Mr.'
-    set($greeting = "Dear Mr. ${lead.LastName},")
-//check is the lead is female
-elseif(${lead.MarketoSocialGender} == "Female")
-    if female, use the salutation 'Ms.'
-    set($greeting = "Dear Ms. ${lead.LastName},")
-else
-    //otherwise, use the first name
-    set($greeting = "Dear ${lead.FirstName},")
-end
-print the greeting and some content
+##check if the lead is male
+#if(${lead.MarketoSocialGender} == "Male")
+    ##if the lead is male, use the salutation 'Mr.'
+    #set($greeting = "Dear Mr. ${lead.LastName},")
+##check is the lead is female
+#elseif(${lead.MarketoSocialGender} == "Female")
+    ##if female, use the salutation 'Ms.'
+    #set($greeting = "Dear Ms. ${lead.LastName},")
+#else
+    ##otherwise, use the first name
+    #set($greeting = "Dear ${lead.FirstName},")
+#end
+##print the greeting and some content
 ${greeting}
 
     Lorem ipsum dolor sit amet...
@@ -51,7 +51,7 @@ $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
 
-Es gibt auch eine ruhige Referenznotation, bei der nach der `$` ein `!` enthalten ist. Wenn die Geschwindigkeit auf eine undefinierte Referenz trifft, bleibt die Zeichenfolge, die die Referenz darstellt, normalerweise an Ort und Stelle. Bei ruhiger Referenznotation wird kein Wert ausgegeben, wenn ein undefinierter Verweis gefunden wird:
+Es gibt auch eine ruhige Referenznotation, bei der nach der `!` ein `$` enthalten ist. Wenn die Geschwindigkeit auf eine undefinierte Referenz trifft, bleibt die Zeichenfolge, die die Referenz darstellt, normalerweise an Ort und Stelle. Bei ruhiger Referenznotation wird kein Wert ausgegeben, wenn ein undefinierter Verweis gefunden wird:
 
 ```
 ##Defined Reference
@@ -112,7 +112,7 @@ Nachdem Sie Ihr Skript in einem „Mein Programm-Token“ definiert haben, könn
 
 ![E-Mail-Skript](assets/email-script-marketo-email.png)
 
-Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet werden kann, müssen Sie im Feld „Lead“ einen vorhandenen Lead auswählen[!UICONTROL &#x200B; für den stellvertretend agiert &#x200B;]. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger &#x200B;] auswählen. Hierbei werden die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject` verwendet.
+Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet werden kann, müssen Sie im Feld „Lead“ einen vorhandenen Lead auswählen[!UICONTROL  für den stellvertretend agiert ]. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger ] auswählen. Hierbei werden die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject` verwendet.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 
@@ -130,7 +130,7 @@ Die Gesamtlänge aller E-Mail-Skript-Token in einer bestimmten E-Mail darf 100.0
 - Sie können auf benutzerdefinierte Objekte verweisen, die mit einem Lead, Kontakt oder Konto verbunden sind, jedoch nicht mit mehr als einem.
 - Benutzerdefinierte Objekte können nur über eine einzige Verbindung, einen Lead, einen Kontakt oder ein Konto referenziert werden
 - Sie müssen das Kontrollkästchen im Skript-Editor für die Felder aktivieren, die Sie verwenden, da sie sonst nicht verarbeitet werden
-- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar und werden von der zuletzt aktualisierten Version (bei 0) zur ältesten aktualisierten Version (bei 9) sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [den Anweisungen) ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar und werden von der zuletzt aktualisierten Version (bei 0) zur ältesten aktualisierten Version (bei 9) sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [den Anweisungen) ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Wenn Sie mehr als ein E-Mail-Skript in eine E-Mail einbeziehen, werden diese von oben nach unten ausgeführt. Der Variablenumfang, der im ersten auszuführenden Skript definiert ist, steht in nachfolgenden Skripten zur Verfügung.
 - Tools-Referenz: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Ein Hinweis zu Token, die Zeilenumbruchzeichen &quot;\\n“ oder &quot;\\r\\n“ enthalten. Wenn eine E-Mail über das Versandbeispiel oder eine Batch-Kampagne gesendet wird, werden Zeilenumbruchzeichen in Token durch Leerzeichen ersetzt. Wenn E-Mails über Trigger Campaign gesendet werden, bleiben Zeilenumbruchzeichen unberührt.
