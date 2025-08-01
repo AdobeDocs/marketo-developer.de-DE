@@ -816,7 +816,7 @@ Mitgliedschaft
 Lead-Datensätze können auch basierend auf der Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, bei denen ein Lead Mitglied ist.
 
 Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl filterType und filterValues mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
 
 ### Anfrage
 
