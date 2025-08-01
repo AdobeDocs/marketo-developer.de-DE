@@ -3,7 +3,7 @@ title: Opportunity-Rollen
 feature: REST API
 description: Umgang mit Opportunity-Rollen in Marketo.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
@@ -27,72 +27,72 @@ GET /rest/v1/opportunities/roles/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunityRole",
          "displayName":"Opportunity Role",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId",
             "leadId",
             "role"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId",
                "leadId",
                "role"
             ],
-            [  
+            [
                "marketoGUID"
             ],
-            [  
+            [
                "leadId"
             ],
-            [  
+            [
                "externalOpportunityId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"leadId",
                "displayName":"Lead Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"role",
                "displayName":"Role",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"isPrimary",
                "displayName":"Is Primary",
                "dataType":"boolean",
                "updateable":true
             },
-            {  
+            {
                "name":"externalCreatedDate",
                "displayName":"External Created Date",
                "dataType":"datetime",
@@ -106,33 +106,33 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## Abfrage
 
-Beachten Sie, dass sich sowohl `dedupeFields` als auch `searchableFields` in gewisser Weise von Opportunities unterscheiden. `dedupeFields` stellt einen zusammengesetzten Schlüssel bereit, für den alle drei `externalOpportunityId`, `leadId` und `role` erforderlich sind. Sowohl die Opportunity- als auch die Lead-Relation nach den ID-Feldern müssen in der Zielinstanz vorhanden sein, damit die Datensatzerstellung erfolgreich ist. `searchableFields` sind `marketoGUID`, `leadId` und `externalOpportunityId` alle für Abfragen allein gültig und verwenden ein Muster, das mit Opportunities identisch ist. Es gibt jedoch eine zusätzliche Option, den zusammengesetzten Schlüssel für die Abfrage zu verwenden, was erfordert, dass ein JSON-Objekt über die POST mit dem zusätzlichen Abfrageparameter `_method=GET` übermittelt wird.
+Beachten Sie, dass sich sowohl `dedupeFields` als auch `searchableFields` in gewisser Weise von Opportunities unterscheiden. `dedupeFields` stellt einen zusammengesetzten Schlüssel bereit, für den alle drei `externalOpportunityId`, `leadId` und `role` erforderlich sind. Sowohl die Opportunity- als auch die Lead-Relation nach den ID-Feldern müssen in der Zielinstanz vorhanden sein, damit die Datensatzerstellung erfolgreich ist. `searchableFields` sind `marketoGUID`, `leadId` und `externalOpportunityId` alle für Abfragen allein gültig und verwenden ein Muster, das mit Opportunities identisch ist. Es gibt jedoch eine zusätzliche Option, den zusammengesetzten Schlüssel für die Abfrage zu verwenden, was erfordert, dass ein JSON-Objekt über POST mit dem zusätzlichen Abfrageparameter `_method=GET` übermittelt wird.
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType": "dedupeFields",
-   "fields": [  
+   "fields": [
       "marketoGuid",
       "externalOpportunityId",
       "leadId",
       "role"
    ],
-   "input": [  
-      {  
+   "input": [
+      {
         "externalOpportunityId": "Opportunity1",
         "leadId": 1,
         "role": "Captain"
       },
-      {  
+      {
         "externalOpportunityId": "Opportunity2",
         "leadId": 1872,
         "role": "Commander"
       },
-      {  
+      {
         "externalOpportunityId": "Opportunity3",
         "leadId": 273891,
         "role": "Lieutenant Commander"
@@ -141,7 +141,7 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-Dadurch wird dieselbe Art von Antwort erzeugt wie bei einer standardmäßigen GET-Abfrage, sie verfügt lediglich über eine andere Oberfläche für die Anfrage.
+Dadurch wird derselbe Antworttyp erzeugt wie bei einer standardmäßigen GET-Abfrage, sie weist einfach eine andere Oberfläche für die Anfrage auf.
 
 ## Erstellen und aktualisieren
 
@@ -156,7 +156,7 @@ POST /rest/v1/opportunities/roles.json
    "action": "createOrUpdate",
    "dedupeBy": "dedupeFields",
    "input": [
-      {  
+      {
          "externalOpportunityId": "19UYA31581L000000",
          "leadId": 456783,
          "role": "Technical Buyer",
@@ -200,10 +200,10 @@ POST /rest/v1/opportunities/roles/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy": "dedupeFields",
-   "input": [  
-      {  
+   "input": [
+      {
         "externalOpportunityId": "19UYA31581L000000",
         "leadId": 456783,
         "role": "Technical Buyer"

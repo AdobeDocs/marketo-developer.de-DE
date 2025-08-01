@@ -3,7 +3,7 @@ title: Web-Personalisierung
 description: Web-Personalisierung
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 7%
@@ -14,7 +14,7 @@ ht-degree: 7%
 
 Die Web Personalization JavaScript-API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Ereignisverfolgung und dynamische Anpassung einer Web-Seite. Zusätzliche Funktionen: [Benutzerdefinierte Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
 
-- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [&#128279;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTPTag auf Ihrer Site bereitgestellt haben.
+- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [ und das RTP](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Tag-Setup
@@ -22,7 +22,7 @@ Die Web Personalization JavaScript-API erweitert die automatisierte Personalisie
 Das RTP-Tag sollte in die Kopfzeile der personalisierten Seite eingefügt werden.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -76,7 +76,7 @@ Um bestimmte Browser vom Senden von Daten an die Web-Personalization-Plattform a
 Im folgenden Code-Beispiel wird „googlebot|msnbot“ als Bot-Beispiel verwendet, um aus Web-Personalization-Aktivitäten auszuschließen.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -111,7 +111,7 @@ Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personaliz
 
 | Name | Beschreibung | Kontrollvariante |
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
-| ga-integration-2.0.1.js | Wird verwendet, wenn die Integration von Google Analytics/Facebook/SiteCatalyst aktiviert ist | Kontrolliert von Marketo |
+| ga-integration-2.0.1.js | Wird verwendet, wenn die Integration von Google Analytics/Facebook/SiteCatalyst aktiviert ist. | Kontrolliert von Marketo |
 | insightera-bar-2.1.js | Wird verwendet, wenn die Leiste für prädiktive Inhaltsempfehlungen aktiviert ist | Kontrolliert von Marketo |
 | froogaloop2.min.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der Vimeo-Player auf der Seite vorhanden ist. | – |
 | iframe-api-v1.js | Wird verwendet, wenn das Inhalts-Tracking aktiviert ist und der YouTube-Player auf der Seite vorhanden ist | – |

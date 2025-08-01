@@ -3,9 +3,9 @@ title: Installation
 feature: Mobile Marketing
 description: Installieren von SDKs für Mobile Marketo
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '763'
+source-wordcount: '762'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ Installationsanweisungen für Marketo Mobile SDK. Die folgenden Schritte sind er
 
 ### Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
 ### Installieren von Framework über CocoaPods
@@ -110,10 +110,10 @@ sharedInstance.initialize(withMunchkinID: "munchkinAccountId", appSecret: "secre
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 
@@ -132,7 +132,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Push-Benachrichtigungen einrichten](push-notifications.md#android_setup_push) (optional)
 1. [Marketo SDK für Android herunterladen](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
@@ -208,8 +208,8 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
 
 1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ ](https://github.com/Marketo/android-sdk).
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
-      1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Konsole“ `Add Project` aus.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+      1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole“ `Add Project` aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf `Add Firebase`.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm `Add Firebase to your Android App` aus.
       1. Geben Sie Ihren Paketnamen und SHA-1 an und wählen Sie `Add App`. Eine neue `google-services.json` für Ihre Firebase-App wird heruntergeladen.
@@ -236,8 +236,8 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
             ```
             dependencies {
               compile 'com.google.firebase:firebase-core:17.4.0'
-            } 
-            // Add to the bottom of the file 
+            }
+            // Add to the bottom of the file
             apply plugin: 'com.google.gms.google-services'
             ```
 
@@ -258,6 +258,6 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
         <intent-filter>
           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
           <category android:name="<your-package-name> />
-        </intent-filter> 
+        </intent-filter>
       </receiver>
       ```

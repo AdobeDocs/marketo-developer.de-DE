@@ -3,9 +3,9 @@ title: Lead-Datenbank
 feature: REST API, Database
 description: Bearbeiten Sie die Hauptdatenbank für Leads.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '1345'
+source-wordcount: '1342'
 ht-degree: 1%
 
 ---
@@ -44,79 +44,79 @@ Bei Instanzen mit aktivierter nativer CRM-Integration (entweder Microsoft Dynami
 
 ## beschreiben
 
-Für Leads, Unternehmen, Opportunities, Rollen, Vertriebspersonen und benutzerdefinierte Objekte wird eine API mit einer Beschreibung bereitgestellt. Durch diesen Aufruf werden Metadaten für das -Objekt sowie eine Liste der Felder, die zum Aktualisieren und Abfragen verfügbar sind, abgerufen. Beschreiben ist ein wichtiger Teil beim Entwerfen einer ordnungsgemäßen Integration mit Marketo. Es bietet umfangreiche Metadaten darüber, wie Objekte interagiert werden können und nicht, und wie sie erstellt, aktualisiert und abgefragt werden können. Außer Leads beschreiben gibt jeder von diesen eine Liste von Schlüsseln zurück, die im `dedupeFields`-Antwortparameter für die `deduplication` verfügbar sind. Eine Liste von Feldern ist als Schlüssel für die Abfrage im `searchableFields`-Antwortparameter verfügbar.
+Für Leads, Unternehmen, Opportunities, Rollen, Vertriebspersonen und benutzerdefinierte Objekte wird eine API mit einer Beschreibung bereitgestellt. Durch diesen Aufruf werden Metadaten für das -Objekt sowie eine Liste der Felder, die zum Aktualisieren und Abfragen verfügbar sind, abgerufen. Beschreiben ist ein wichtiger Teil beim Entwerfen einer ordnungsgemäßen Integration mit Marketo. Es bietet umfangreiche Metadaten darüber, wie Objekte interagiert werden können und nicht, und wie sie erstellt, aktualisiert und abgefragt werden können. Außer Leads beschreiben gibt jeder von diesen eine Liste von Schlüsseln zurück, die im `deduplication`-Antwortparameter für die `dedupeFields` verfügbar sind. Eine Liste von Feldern ist als Schlüssel für die Abfrage im `searchableFields`-Antwortparameter verfügbar.
 
 ```
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunityRole",
          "displayName":"Opportunity Role",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId",
             "leadId",
             "role"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId",
                "leadId",
                "role"
             ],
-            [  
+            [
                "marketoGUID"
             ],
-            [  
+            [
                "leadId"
             ],
-            [  
+            [
                "externalOpportunityId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"leadId",
                "displayName":"Lead Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"role",
                "displayName":"Role",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"isPrimary",
                "displayName":"Is Primary",
                "dataType":"boolean",
                "updateable":true
             },
-            {  
+            {
                "name":"externalCreatedDate",
                "displayName":"External Created Date",
                "dataType":"datetime",
@@ -140,12 +140,12 @@ Lead-Datenbankobjekte verwenden alle dasselbe grundlegende Muster für Abfragen 
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
-Für alle Objekte außer Leads können Sie Ihr {field to query} aus den searchableFields des entsprechenden Describe-Aufrufs auswählen und eine kommagetrennte Liste mit bis zu 300 Werten erstellen. Es gibt auch diese optionalen Abfrageparameter:
+Für alle Objekte außer Leads können Sie Ihre {field to query} aus den durchsuchbaren Feldern des entsprechenden Describe-Aufrufs auswählen und eine kommagetrennte Liste mit bis zu 300 Werten erstellen. Es gibt auch diese optionalen Abfrageparameter:
 
 - `batchSize` : Eine ganzzahlige Anzahl der zurückzugebenden Ergebnisse. Standard und Maximum sind 300.
 - `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [ unter ](paging-tokens.md)Paging-Token“.
 - `fields` : Eine kommagetrennte Liste von Feldnamen, die für jeden Datensatz zurückgegeben werden sollen. Eine Liste der gültigen Felder finden Sie in der entsprechenden Beschreibung. Wenn ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, ist der Wert impliziert null.
-- `_method` - Wird zum Senden von Abfragen mithilfe der HTTP-Methode der POST verwendet. Weitere Informationen zur Verwendung finden Sie im Abschnitt _method=GET unten.
+- `_method` - Wird zum Senden von Abfragen mithilfe der POST-HTTP-Methode verwendet. Weitere Informationen zur Verwendung finden Sie im Abschnitt _method=GET unten.
 
 Ein kurzes Beispiel finden Sie unter Abfragemöglichkeiten:
 
@@ -154,11 +154,11 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -167,7 +167,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -186,7 +186,7 @@ Wenn die Menge der Datensätze in der Abfrage 300 überschreitet oder die angege
 
 ### Lange URIs
 
-Manchmal, z. B. bei der Abfrage anhand von GUIDs, kann der URI lang sein und die vom REST-Service zulässigen 8 KB überschreiten. In diesem Fall müssen Sie die HTTP-POST-Methode anstelle von GET verwenden und einen `_method=GET` für Abfrageparameter hinzufügen. Darüber hinaus müssen die übrigen Abfrageparameter im Hauptteil der POST als Zeichenfolge „application/x-www-form-urlencoded“ übergeben werden und die zugehörige Kopfzeile für den Inhaltstyp übergeben werden.
+Manchmal, z. B. bei der Abfrage anhand von GUIDs, kann der URI lang sein und die vom REST-Service zulässigen 8 KB überschreiten. In diesem Fall müssen Sie die HTTP-POST-Methode anstelle von GET verwenden und einen `_method=GET` für Abfrageparameter hinzufügen. Darüber hinaus müssen die übrigen Abfrageparameter im POST-Text als Zeichenfolge „application/x-www-form-urlencoded“ übergeben werden und die zugehörige Kopfzeile für den Inhaltstyp übergeben werden.
 
 ```
 POST /rest/v1/opportunities.json?_method=GET
@@ -211,26 +211,26 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType":"dedupeFields",
-   "fields":[  
+   "fields":[
       "marketoGuid",
       "externalOpportunityId",
       "leadId",
       "role"
    ],
-   "input":[  
-      {  
+   "input":[
+      {
         "externalOpportunityId":"Opportunity1",
         "leadId": 1,
         "role": "Captain"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity2",
         "leadId": 1872,
         "role": "Commander"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity3",
         "leadId": 273891,
         "role": "Lieutenant Commander"
@@ -254,18 +254,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -277,16 +277,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -306,16 +306,16 @@ POST /rest/v1/customobjects/{name}/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "vin":"19UYA31581L000000"
       },
-      {  
+      {
          "vin":"29UYA31581L000000"
       },
-      {  
+      {
          "vin":"39UYA31581L000000"
       }
    ]

@@ -3,16 +3,16 @@ title: SOAP-API
 feature: SOAP
 description: Übersicht über Marketo SOAP
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '245'
+source-wordcount: '244'
 ht-degree: 2%
 
 ---
 
 # SOAP-API
 
-Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Oktober 2025 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](../rest-api/rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-[ (Migrationshandbuch](./migration.md) Informationen zur Migration.
+Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Oktober 2025 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](../rest-api/rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-API[Migrationshandbuch](./migration.md) Informationen zur Migration.
 
 ## SOAP WSDL
 
@@ -28,7 +28,7 @@ Verwenden Sie nicht den in der WSDL definierten Endpunkt. Jede Marketo-Instanz v
 
 ## Beschränkungen
 
-- **Tägliches Kontingent:** Die meisten Abonnements erhalten 10.000 API-Aufrufe pro Tag (die täglich um 0:00 Uhr CST zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
+- **Tägliches Kontingent:** Die meisten Abonnements erhalten 10.000 API-Aufrufe pro Tag (die täglich um 12 % :00AM zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
 - **Ratenlimit:** API-Zugriff pro Instanz beschränkt auf 100 Aufrufe pro 20 Sekunden.
 - **Parallelitätslimit:**  Maximal zehn gleichzeitige API-Aufrufe.
 

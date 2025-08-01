@@ -3,10 +3,10 @@ title: Endpunktverweis
 feature: REST API
 description: Marketo API-Endpunktverweise
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 3632d2b713d97a2c895c65f144c07e62e1d369cb
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '4676'
-ht-degree: 27%
+source-wordcount: '4448'
+ht-degree: 28%
 
 ---
 
@@ -188,37 +188,37 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Abrufen dynamischer Landingpage-Inhalte | Inhalt der Landingpage | GET | /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json | Schreibgeschütztes Asset |
 | Abschnitt zum Aktualisieren des Landingpage-Inhalts | Inhalt der Landingpage | POST | /rest/asset/v1/landingPage/{id}/content/{contentId}.json | Asset mit Lese- und Schreibzugriff |
 | Abschnitt zu dynamischen Inhalten für Landingpages aktualisieren | Inhalt der Landingpage | POST | /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json | Asset mit Lese- und Schreibzugriff |
-| Entwurf der Landingpage-Vorlage genehmigen | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page-Vorlage klonen | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page-Vorlage erstellen | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page-Vorlage löschen | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
-| Entwurf der Landingpage-Vorlage verwerfen | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
-| Landingpage-Vorlage nach ID abrufen | Landing Page-Vorlagen | GET | /rest/asset/v1/landingPageTemplate/{id}.json | Schreibgeschütztes Asset |
-| Landingpage-Vorlage nach Namen abrufen | Landing Page-Vorlagen | GET | /rest/asset/v1/landingPageTemplates/byName.json | Schreibgeschütztes Asset |
-| Abrufen des Inhalts einer Landingpage-Vorlage | Landing Page-Vorlagen | GET | /rest/asset/v1/landingPageTemplate/{id}/content.json | Schreibgeschütztes Asset |
-| Abrufen von Landingpage-Vorlagen | Landing Page-Vorlagen | GET | /rest/asset/v1/landingPageTemplates.json | Schreibgeschütztes Asset |
-| Genehmigung für Landing Page-Vorlage entziehen | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
-| Inhalt der Landingpage-Vorlage aktualisieren | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/content.json | Asset mit Lese- und Schreibzugriff |
-| Aktualisieren der Metadaten der Landingpage-Vorlage | Landing Page-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}.json | Asset mit Lese- und Schreibzugriff |
-| Landingpage-Entwurf genehmigen | Landing Page | POST | /rest/asset/v1/landingPage/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page klonen | Landing Page | POST | /rest/asset/v1/landingPage/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
-| Landingpages erstellen | Landing Page | POST | /rest/asset/v1/landingPages.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page löschen | Landing Page | POST | /rest/asset/v1/landingPage/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
-| Entwurf der Landingpage verwerfen | Landing Page | POST | /rest/asset/v1/landingPage/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
-| Landingpage nach ID abrufen | Landing Page | GET | /rest/asset/v1/landingPage/{id}.json | Schreibgeschütztes Asset |
-| Landingpage nach Namen abrufen | Landing Page | GET | /rest/asset/v1/landingPage/byName.json | Schreibgeschütztes Asset |
-| Abrufen von Landingpage-Variablen | Landing Page | GET | /rest/asset/v1/landingPage/{id}/variables.json | Schreibgeschütztes Asset |
-| Landingpages abrufen | Landing Page | GET | /rest/asset/v1/landingPages.json | Schreibgeschütztes Asset |
-| Vorschau der Landingpage | Landing Page | GET | /rest/asset/v1/landingPage/{id}/preview.json | Schreibgeschütztes Asset |
-| Genehmigung der Landing Page aufheben | Landing Page | POST | /rest/asset/v1/landingPage/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
-| Aktualisieren von Landingpage-Metadaten | Landing Page | POST | /rest/asset/v1/{id}.json | Asset mit Lese- und Schreibzugriff |
-| Aktualisieren von Landingpage-Variablen | Landing Page | POST | /rest/asset/v1/landingPage/{id}/variable/{variableId}.json | Asset mit Lese- und Schreibzugriff |
-| Erstellen von Umleitungsregeln für Landingpages | Landing Page | POST | /rest/asset/v1/redirectRules.json | Schreib-Lese-Umleitungsregeln |
-| Umleitungsregel für Landingpage löschen | Landing Page | POST | /rest/asset/v1/redirectRule/{id}/delete.json | Schreib-Lese-Umleitungsregeln |
-| Regeln für Landingpage-Umleitung abrufen | Landing Page | GET | /rest/asset/v1/redirectRules.json | Schreibgeschützte Umleitungsregeln |
-| Abrufen der Umleitungsregel für Landingpages nach ID | Landing Page | GET | /rest/asset/v1/redirectRule/{id}.json | Schreibgeschützte Umleitungsregeln |
-| Aktualisieren der Umleitungsregel für Landingpages | Landing Page | POST | /rest/asset/v1/redirectRule/{id}.json | Schreib-Lese-Umleitungsregeln |
-| Landingpage-Domains abrufen | Landing Page | GET | /rest/asset/v1/landingPageDomains.json | Schreibgeschützte Umleitungsregeln |
+| Entwurf der Landingpage-Vorlage genehmigen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
+| Landing Page-Vorlage klonen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
+| Landing Page-Vorlage erstellen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate.json | Asset mit Lese- und Schreibzugriff |
+| Landing Page-Vorlage löschen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
+| Entwurf der Landingpage-Vorlage verwerfen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
+| Landingpage-Vorlage nach ID abrufen | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplate/{id}.json | Schreibgeschütztes Asset |
+| Landingpage-Vorlage nach Namen abrufen | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplates/byName.json | Schreibgeschütztes Asset |
+| Abrufen des Inhalts einer Landingpage-Vorlage | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplate/{id}/content.json | Schreibgeschütztes Asset |
+| Abrufen von Landingpage-Vorlagen | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplates.json | Schreibgeschütztes Asset |
+| Genehmigung für Landing Page-Vorlage entziehen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
+| Inhalt der Landingpage-Vorlage aktualisieren | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/content.json | Asset mit Lese- und Schreibzugriff |
+| Aktualisieren der Metadaten der Landingpage-Vorlage | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}.json | Asset mit Lese- und Schreibzugriff |
+| Landingpage-Entwurf genehmigen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
+| Landing Page klonen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
+| Landingpages erstellen | Landingpages | POST | /rest/asset/v1/landingPages.json | Asset mit Lese- und Schreibzugriff |
+| Landingpage löschen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
+| Entwurf der Landingpage verwerfen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
+| Landingpage nach ID abrufen | Landingpages | GET | /rest/asset/v1/landingPage/{id}.json | Schreibgeschütztes Asset |
+| Landingpage nach Namen abrufen | Landingpages | GET | /rest/asset/v1/landingPage/byName.json | Schreibgeschütztes Asset |
+| Abrufen von Landingpage-Variablen | Landingpages | GET | /rest/asset/v1/landingPage/{id}/variables.json | Schreibgeschütztes Asset |
+| Landingpages abrufen | Landingpages | GET | /rest/asset/v1/landingPages.json | Schreibgeschütztes Asset |
+| Vorschau der Landingpage | Landingpages | GET | /rest/asset/v1/landingPage/{id}/preview.json | Schreibgeschütztes Asset |
+| Genehmigung der Landing Page aufheben | Landingpages | POST | /rest/asset/v1/landingPage/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
+| Aktualisieren von Landingpage-Metadaten | Landingpages | POST | /rest/asset/v1/{id}.json | Asset mit Lese- und Schreibzugriff |
+| Aktualisieren von Landingpage-Variablen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/variable/{variableId}.json | Asset mit Lese- und Schreibzugriff |
+| Erstellen von Umleitungsregeln für Landingpages | Landingpages | POST | /rest/asset/v1/redirectRules.json | Schreib-Lese-Umleitungsregeln |
+| Umleitungsregel für Landingpage löschen | Landingpages | POST | /rest/asset/v1/redirectRule/{id}/delete.json | Schreib-Lese-Umleitungsregeln |
+| Regeln für Landingpage-Umleitung abrufen | Landingpages | GET | /rest/asset/v1/redirectRules.json | Schreibgeschützte Umleitungsregeln |
+| Abrufen der Umleitungsregel für Landingpages nach ID | Landingpages | GET | /rest/asset/v1/redirectRule/{id}.json | Schreibgeschützte Umleitungsregeln |
+| Aktualisieren der Umleitungsregel für Landingpages | Landingpages | POST | /rest/asset/v1/redirectRule/{id}.json | Schreib-Lese-Umleitungsregeln |
+| Landingpage-Domains abrufen | Landingpages | GET | /rest/asset/v1/landingPageDomains.json | Schreibgeschützte Umleitungsregeln |
 | Lead verknüpfen | Leads | POST | /rest/v1/lead/{id}/associate.json | Lead mit Lese-/Schreibzugriff |
 | Status des Lead-Programms ändern | Leads | POST | /rest/v1/lead/programs/{programId}/status.json | Lead mit Lese-/Schreibzugriff |
 | Leads löschen | Leads | POST | /rest/v1/leads.json | Lead mit Lese-/Schreibzugriff |
@@ -319,7 +319,7 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Snippet-Inhalt aktualisieren | Snippets | POST | /rest/asset/v1/snippet/{id}/content.json | Asset mit Lese- und Schreibzugriff |
 | Dynamischen Snippet-Inhalt aktualisieren | Snippets | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | Asset mit Lese- und Schreibzugriff |
 | Snippet-Metadaten aktualisieren | Snippets | POST | /rest/asset/v1/snippet/{id}.json | Asset mit Lese- und Schreibzugriff |
-| Zu Liste hinzufügen | Statische Listen | POST | /rest/v1/lists/{listId}/leads.json | Lead mit Lese-/Schreibzugriff |
+| Zur Liste hinzufügen | Statische Listen | POST | /rest/v1/lists/{listId}/leads.json | Lead mit Lese-/Schreibzugriff |
 | Erstellen einer statischen Liste | Statische Listen | POST | /asset/v1/staticLists.json | Asset mit Lese- und Schreibzugriff |
 | Statische Liste löschen | Statische Listen | POST | /asset/v1/staticList/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
 | Leads nach Listen-ID abrufen | Statische Listen | GET | /rest/v1/lists/{listId}/leads.json | Schreibgeschützter Lead |

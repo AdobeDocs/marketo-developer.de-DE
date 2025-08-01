@@ -3,7 +3,7 @@ title: Rich-Media-Empfehlung
 description: Rich-Media-Empfehlung
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 5%
@@ -21,7 +21,7 @@ Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, au
 1. Im Hauptteil der Seite
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
-Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 
@@ -103,7 +103,7 @@ Dieser Code-Ausschnitt zeigt das Festlegen von Kategorien mit mehreren Konfigura
 ```javascript
 rtp("set", "rcmd", "richmedia",
     {
-        "template1": 
+        "template1":
         {
             "rcmd.title.text": "RECOMMENDED CONTENT",
             "rcmd.general.font.family": "arial",
@@ -156,7 +156,7 @@ Hinweis: Die Konfigurationsunterstützung kann sich pro Vorlage ändern.
 
 #### Einfaches Beispiel
 
-Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Kopieren Sie dieses Beispiel auf eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
+Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Kopieren Sie dieses Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
 
 ```html
 <!DOCTYPE>
@@ -164,7 +164,7 @@ Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Kopieren Sie dieses
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -188,7 +188,7 @@ rtp('get','rcmd', 'richmedia');
 
 #### Erweitertes Beispiel
 
-Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Der Vorlagentitel lautet „RECOMMENDED CONTENT“ und der Schaltflächentext lautet „Read More“. Kopieren Sie dieses Beispiel auf eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
+Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Der Vorlagentitel lautet „RECOMMENDED CONTENT“ und der Schaltflächentext lautet „Read More“. Kopieren Sie dieses Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
 
 ```html
 <!DOCTYPE>
@@ -196,7 +196,7 @@ Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Der Vorlagentitel l
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -232,13 +232,13 @@ rtp('get','rcmd', 'richmedia');
 
 #### Beispiel für #1 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template1 **Description**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Aktionsaufruf-Schaltfläche.
+**Name**: template1 **Description**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Schaltfläche &quot;call to action&quot;.
 
 ![Rich-Media-Vorlage](assets/rich-media-template1.png)
 
 #### Beispiel für #2 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template2 **Beschreibung**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Aktionsaufruf-Schaltfläche.
+**Name**: template2 **Beschreibung**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Schaltfläche call to action.
 
 ![Rich-Media-Vorlage](assets/rich-media-template2.png)
 

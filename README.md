@@ -1,5 +1,5 @@
 ---
-source-git-commit: 4c6df71f0d7f569582597eac48c8f44ea12036f8
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '483'
 ht-degree: 100%
@@ -56,9 +56,9 @@ Alle Artikel in diesem Repository verwenden GitHub Flavored Markdown. Wenn Sie m
 * [Markdown-Grundlagen](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/)
 * [Druckbares Markdown-Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
-## Beschriftungen
+## Labels
 
-Im öffentlichen Repository werden automatisierte Bezeichnungen Pull-Anforderungen zugewiesen, damit wir den Arbeitsablauf für Pull-Anforderungen verwalten und Ihnen mitteilen können, was mit Ihrer Pull-Anforderung passiert:
+Im öffentlichen Repository werden automatisierte Labels Pull-Anforderungen zugewiesen, damit wir den Arbeitsablauf für Pull-Anforderungen verwalten und Ihnen mitteilen können, was mit Ihrer Pull-Anforderung passiert:
 
 * **Change sent to author**: Der Autor wurde über die ausstehende Pull-Anforderung informiert.
 * **ready-to-merge**: Bereit zur Überprüfung durch unser Pull-Anforderung-Überprüfungsteam.

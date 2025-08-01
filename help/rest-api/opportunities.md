@@ -3,7 +3,7 @@ title: Opportunitys
 feature: REST API
 description: ' Konfigurieren von Opportunities mit der Marketo-API'
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '786'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo stellt APIs zum Lesen, Schreiben, Erstellen und Aktualisieren von Opportunity-Datensätzen bereit. In Marketo werden Opportunity-Datensätze über das dazwischenliegende Opportunity-Rollenobjekt mit Lead- und Kontaktdatensätzen verknüpft, sodass eine Opportunity mit vielen einzelnen Leads verknüpft werden kann.  Beide Objekttypen werden über die API verfügbar gemacht. Wie die meisten Objekttypen der Lead-Datenbank verfügen beide über einen entsprechenden Describe-Aufruf, der Metadaten über die Objekttypen zurückgibt.
 
-Opportunity-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert sind.
+Opportunity-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert sind.
 
 ## beschreiben
 
@@ -27,48 +27,48 @@ GET /rest/v1/opportunities/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunity",
          "displayName":"Opportunity",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId"
             ],
-            [  
+            [
                "marketoGUID"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
@@ -92,11 +92,11 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -105,7 +105,7 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -133,18 +133,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -156,16 +156,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -303,13 +303,13 @@ POST /rest/v1/opportunities/delete.json
 ```
 
 ```json
-{ 
+{
    "deleteBy":"dedupeFields",
-   "input":[ 
-      { 
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000"
       },
-      { 
+      {
          "externalOpportunityId":"29UYA31581L000000"
       }
    ]
@@ -317,16 +317,16 @@ POST /rest/v1/opportunities/delete.json
 ```
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[ 
-      { 
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"
       },
-      { 
+      {
          "seq":1,
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb",
          "status":"deleted"

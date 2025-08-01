@@ -1,20 +1,20 @@
 ---
-title: Weiterleiten
-description: Weiterleiten
+title: Umleiten
+description: Umleiten
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '468'
 ht-degree: 8%
 
 ---
 
-# Weiterleiten
+# Umleiten
 
 Mit der RTP Redirect-API können Sie segmentierte Zielgruppen an eine Ziel-URL umleiten.
 
-- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Nutzung
@@ -57,7 +57,7 @@ Organisation, Branche, ABM-Listen, Standort, ISP, passende Segmente
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -65,18 +65,18 @@ Organisation, Branche, ABM-Listen, Standort, ISP, passende Segmente
 c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
 g.src=f+'?rh='+c.location.hostname+'&aid='+i;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b);
 })(window,document,"rtp","//xyz.marketo.com/rtp-api/v1/rtp.js","xyz");
- 
-// START REDIRECT EXAMPLE 
+
+// START REDIRECT EXAMPLE
 //   - Using a helper redirect function
 //   - Redirect based on named account
 rtp('send','redirect','org', ['microsoft'],'http://www.marketo.com');
- 
+
 // Redirect based on named account list (ABM)
 rtp('send','redirect','abm.name', {
     // Redirect visitors that match 'first_abm' list to www.marketo.com
     'http://www.marketo.com' : ['first_abm'],
     // Redirect visitors that match 'second_abm' list to blog.marketo.com
-    'http://blog.marketo.com' : ['second_abm'] 
+    'http://blog.marketo.com' : ['second_abm']
 });
 // END REDIRECT EXAMPLE
 rtp('send','view');

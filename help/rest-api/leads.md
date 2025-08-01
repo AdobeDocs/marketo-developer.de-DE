@@ -3,7 +3,7 @@ title: Leads
 feature: REST API
 description: Details zu den Leads-API-Aufrufen
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 3%
@@ -37,20 +37,20 @@ GET /rest/v1/leads/describe.json
 ### Antwort
 
 ```json
-{  
+{
    "requestId":"37ca#1475b74e276",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":2,
          "displayName":"Company Name",
          "dataType":"string",
          "length":255,
-         "rest":{  
+         "rest":{
             "name":"company",
             "readOnly":false
          },
-         "soap":{  
+         "soap":{
             "name":"Company",
             "readOnly":false
          }
@@ -175,21 +175,21 @@ POST /rest/v1/leads.json
 ### Textkörper
 
 ```json
-{  
+{
    "action":"createOnly",
    "lookupField":"email",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"kjashaedd-1@klooblept.com",
          "firstName":"Kataldar-1",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-2@klooblept.com",
          "firstName":"Kataldar-2",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-3@klooblept.com",
          "firstName":"Kataldar-3",
          "postalCode":"04828"
@@ -201,19 +201,19 @@ POST /rest/v1/leads.json
 ### Antwort
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "id":52,
          "status":"created"
       }
@@ -474,7 +474,7 @@ POST /rest/v1/leads/schema/fields.json
 
 ## Feld aktualisieren
 
-Der Endpunkt Lead-Feld aktualisieren aktualisiert ein einzelnes benutzerdefiniertes Feld im Lead-Objekt. Im Großen und Ganzen sind Feldaktualisierungsvorgänge, die mithilfe der Marketo Engage-Benutzeroberfläche durchgeführt werden, mit der -API erreichbar. In der folgenden Tabelle sind einige Unterschiede zusammengefasst.
+Der Endpunkt Lead-Feld aktualisieren aktualisiert ein einzelnes benutzerdefiniertes Feld im Lead-Objekt. Im Großen und Ganzen sind Feldaktualisierungsvorgänge, die mit der Marketo Engage-Benutzeroberfläche durchgeführt werden, mit der -API erreichbar. In der folgenden Tabelle sind einige Unterschiede zusammengefasst.
 
 <table>
 <tbody>
@@ -700,7 +700,7 @@ Der Endpunkt „Formular senden“ unterstützt die folgenden Funktionen:
 * Ermöglicht die Lead-Zuordnung basierend auf dem Cookie-Wert
 * Formularfeldüberprüfung durchführen
 
-Das Senden eines Formulars folgt dem standardmäßigen Lead-Datenbankmuster. Ein einziger Objektdatensatz wird im erforderlichen Eingabeelement des JSON-Hauptteils einer POST-Anfrage übergeben. Das erforderliche `formId` enthält die Marketo-Zielformular-ID.
+Das Senden eines Formulars folgt dem standardmäßigen Lead-Datenbankmuster. Ein einzelner Objektdatensatz wird im erforderlichen Eingabeelement des JSON-Hauptteils einer POST-Anfrage übergeben. Das erforderliche `formId` enthält die Marketo-Zielformular-ID.
 
 Mit der optionalen `programId` können Sie das Programm angeben, dem der Lead hinzugefügt werden soll, und/oder das Programm angeben, dem benutzerdefinierte Felder für Programmteilnehmer hinzugefügt werden sollen. Wenn `programId` angegeben ist, wird der Lead zum Programm hinzugefügt und alle im Formular vorhandenen Felder für Programmmitglieder werden ebenfalls hinzugefügt. Beachten Sie, dass sich das angegebene Programm im selben Arbeitsbereich wie das Formular befinden muss. Wenn das Formular keine benutzerdefinierten Felder für Programmmitglieder enthält und keine `programId` angegeben sind, wird der Lead nicht zu einem Programm hinzugefügt. Wenn sich das Formular in einem Programm befindet und `programId` nicht angegeben wird, wird dieses Programm verwendet, wenn ein oder mehrere benutzerdefinierte Felder für Programmmitglieder im Formular vorhanden sind.
 
@@ -764,7 +764,7 @@ Content-Type: application/json
 }
 ```
 
-Hier können wir die entsprechenden Aktivitätsdetails zum Ausfüllen des Formulars von der Marketo Engage-Benutzeroberfläche aus sehen:
+Hier können Sie die entsprechenden Aktivitätsdetails zum Ausfüllen des Formulars von der Marketo Engage-Benutzeroberfläche aus sehen:
 
 ![Formular-Benutzeroberfläche ausfüllen](assets/fill_out_form_activity_details.png)
 
@@ -781,7 +781,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ### Antwort
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -804,7 +804,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 ### Antwort
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -816,7 +816,7 @@ Mitgliedschaft
 Lead-Datensätze können auch basierend auf der Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, bei denen ein Lead Mitglied ist.
 
 Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl filterType und filterValues mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
 
 ### Anfrage
 
@@ -827,14 +827,14 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ### Antwort
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
    "nextPageToken":
 "PS5VL5WD4UOWGOUCJR6VY7JQO2KUXL7BGBYXL4XH4BYZVPYSFBAONP4V4KQKN4SSBS55U4LEMAKE6===",
     "result":[
        {
-            "id":50,  
+            "id":50,
             "email":"kjashaedd@klooblept.com",
             "firstName":"Kataldar",
              "postalCode":"04828"
@@ -843,11 +843,11 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
            "id":2343,
            "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
-           "postalCode":"04828" 
+           "postalCode":"04828"
        },
       {
            "id":88498,
-           "email":"kjashaedd@klooblept.com", 
+           "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
          "postalCode":"04828"
          }

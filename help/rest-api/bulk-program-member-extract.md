@@ -3,7 +3,7 @@ title: Massenprogramm-Mitgliederextraktion
 feature: REST API
 description: Batch-Verarbeitung der Mitgliederdatenextraktion.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 4%
@@ -235,7 +235,7 @@ Programmmitglieder unterstützen verschiedene Filteroptionen. Für einen Auftrag
     <tr>
       <td>isExhausted</td>
       <td>Boolesch</td>
-      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
+      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
     </tr>
     <tr>
       <td>Kadenz des Nährwerts</td>
@@ -334,9 +334,9 @@ POST /bulk/v1/program/members/export/create.json
 ```
 
 ```json
-{ 
+{
    "format": "CSV",
-   "fields": [ 
+   "fields": [
         "firstName",
         "lastName",
         "email",
@@ -350,7 +350,7 @@ POST /bulk/v1/program/members/export/create.json
         "pMCustomField01",
         "pMCustomField02"
    ],
-   "filter": { 
+   "filter": {
       "programId":1044
    }
 }

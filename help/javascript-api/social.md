@@ -3,7 +3,7 @@ title: Social
 description: Social
 feature: Social, Javascript
 exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 4%
@@ -17,12 +17,12 @@ Mit [Marketo Social-Marketing](https://business.adobe.com/products/marketo/socia
 ## Beispiel für eingebettetes Freigabe-Widget
 
 ```html
-<!-- Marketo Widget Loader Script --> 
+<!-- Marketo Widget Loader Script -->
 
 <script type="text/javascript" src="//b2c-mlm.marketo.com/jsloader/271d8232-1500-4305-b7ed-05d451b9ee0c/loader.php.js">
 </script>
 
- <!-- The Location of the Social Widget --> 
+ <!-- The Location of the Social Widget -->
 
 <divclass='cf_widgetloader cf_w_245d8f3c0955454cbd26abc39d0d874c'="" options="{&quot;outerHeight&quot;:400, &quot;outerWidth&quot;:600}">
 </divclass='cf_widgetloader'>
@@ -89,13 +89,13 @@ Dieses Beispiel zeigt ein zuvor ausgeblendetes Element mit der ID „signedUp“
 ## Tabelle mit einfachen Ereignissen
 
 | Ereignisname | Beschreibung | Widgets, die dieses Ereignis verwenden | Unterstützte Argumente (an die Rückruffunktion des Ereignisses übergeben) |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | share_sent | Wird jedes Mal ausgelöst, wenn eine Freigabeanforderung zur Verarbeitung an den Server gesendet wird | Alle Widgets, die die Möglichkeit zur Freigabe haben | 1.“share_sent“ (String)<br>2. Gesendete Parameter (Objekt) |
 | share_success | Wird ausgelöst, wenn die Freigabeanfrage erfolgreich verarbeitet wurde. | Alle Widgets, die freigeben können. | 1.“share_success“ (Zeichenfolge)<br>2. Antwortobjekt freigeben, das die gesendete und gekürzte URL enthält (Objekt) |
-| Stimme_Erfolg | Wird ausgelöst, wenn ein Benutzer erfolgreich an einer Abstimmung teilgenommen hat. | Umfrage-, VS-, Abstimmungs-Widgets | 1. „vote_success“ (Zeichenfolge)<br>2. Element, für das gestimmt wurde, einschließlich Titel, Beschreibung, Entitätskennung (Objekt) |
+| Stimme_Erfolg | Wird ausgelöst, wenn ein Benutzer erfolgreich an einer Abstimmung teilgenommen hat. | Umfrage-, VS-, Abstimmungs-Widgets | &#x200B;1. „vote_success“ (Zeichenfolge)<br>2. Element, für das gestimmt wurde, einschließlich Titel, Beschreibung, Entitätskennung (Objekt) |
 | offer_enrolled | Wird ausgelöst, wenn ein Benutzer sich erfolgreich für ein Angebot registriert hat | Alle Angebots-Widgets | 1.“offer_enrolled“ (Zeichenfolge)<br>2. Geänderte Benutzereigenschaften (Objekt),<br>3. Geänderte Benutzerattribute (Objekt) |
 | profile_saved | Wird ausgelöst, wenn ein Benutzer sein Profil aus der Profilerfassung aktualisiert hat | Alle Nicht-Angebots-Widgets, für die die Profilerfassung aktiviert ist | 1.“profile_saved„(Zeichenfolge)<br>2. Geänderte Benutzereigenschaften (Objekt)<br>3. Geänderte Benutzerattribute (Objekt) |
-| video_loaded | Wird ausgelöst, wenn ein eingebettetes Video vollständig geladen und initialisiert wurde. | VideoShare-Widget | 1. „video_loaded“ (Zeichenfolge) 2. &quot;.cf_videoshare_wrap“-Element, das das Video enthält (jQuery-Objekt) |
+| video_loaded | Wird ausgelöst, wenn ein eingebettetes Video vollständig geladen und initialisiert wurde. | VideoShare-Widget | &#x200B;1. „video_loaded“ (Zeichenfolge) 2. &quot;.cf_videoshare_wrap“-Element, das das Video enthält (jQuery-Objekt) |
 
 ## Ersetzen der Benutzeroberfläche durch eine benutzerdefinierte Benutzeroberfläche
 

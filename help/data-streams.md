@@ -2,7 +2,7 @@
 title: Datenströme
 description: Übersicht über Datenströme
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 43bcafd335a2fdc709e917ef74504500422c2889
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1601'
 ht-degree: 2%
@@ -124,7 +124,7 @@ Beispiel eines Benutzerüberwachungsereignisses:
             "munchkinId": "123-ABC-456",
             "imsOrgId": "ADOBEORGID@AdobeOrg",
             "user": 253,
-            "userId": "example@marketo.com"          
+            "userId": "example@marketo.com"
         }
     }
 }
@@ -262,7 +262,7 @@ Informationen zum Einrichten von Adobe IO finden [ unter „Einrichten von Marke
 
 ### Einrichten des User Audit-Datenstroms in Marketo
 
-Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
+Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
 
 ### Einrichten von Adobe I/O
 

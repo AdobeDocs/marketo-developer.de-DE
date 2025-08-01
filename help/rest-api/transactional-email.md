@@ -3,7 +3,7 @@ title: Transaktions-E-Mail
 feature: REST API
 description: Verarbeiten Sie Transaktions-E-Mails für Anfragekampagnen.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '971'
 ht-degree: 0%
@@ -28,7 +28,7 @@ Genehmigen Sie ihn, und wir sind bereit, unsere Kampagne zu erstellen:
 
 ![RequestCampaign-approve-draft](assets/request-campaign-approve-draft.png)
 
-Wenn Sie mit dem Erstellen von Kampagnen noch nicht vertraut sind, lesen Sie den Artikel [Erstellen einer neuen intelligenten Kampagne](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=de) . Nachdem Sie Ihre Kampagne erstellt haben, müssen wir diese Schritte durchlaufen. Konfigurieren Sie Ihre Smart-Liste mit dem Trigger Kampagne ist angefordert :
+Wenn Sie mit dem Erstellen von Kampagnen noch nicht vertraut sind, lesen Sie den Artikel [Erstellen einer neuen intelligenten Kampagne](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) . Nachdem Sie Ihre Kampagne erstellt haben, müssen wir diese Schritte durchlaufen. Konfigurieren Sie Ihre Smart-Liste mit dem Trigger Kampagne ist angefordert :
 
 ![request-campaign-smart-list](assets/request-campaign-smart-list.png)
 
@@ -53,7 +53,7 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -108,7 +108,7 @@ public class RequestCampaign {
     private Auth auth;
     public ArrayList leads = new ArrayList();
     public ArrayList tokens = new ArrayList();
-    
+
     public RequestCampaign(Auth auth, int campaignId) {
         this.auth = auth;
         this.endpoint = this.auth.marketoInstance + "/rest/v1/campaigns/" + campaignId + "/trigger.json";
@@ -156,7 +156,7 @@ public class RequestCampaign {
         }
         return result;
     }
-    
+
     private JsonObject buildRequest(){
         JsonObject requestBody = new JsonObject(); //Create a new JsonObject for the Request Body
         JsonObject input = new JsonObject();
@@ -182,7 +182,7 @@ Diese Klasse verfügt über einen Konstruktor, der eine Authentifizierung akzept
 
 ### E-Mail erstellen
 
-Um unseren Inhalt anzupassen, müssen wir zunächst ein [Programm](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=de) und eine [E-Mail](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de) in Marketo konfigurieren. Um unsere benutzerdefinierten Inhalte zu generieren, müssen wir Token innerhalb des Programms erstellen und sie dann in der E-Mail platzieren, die wir senden werden. Der Einfachheit halber verwenden wir in diesem Beispiel nur ein Token, aber Sie können eine beliebige Anzahl von Token in einer E-Mail ersetzen, in der Absender-E-Mail, im Absendernamen, in der Antwortadresse oder in einem beliebigen Inhalt in der E-Mail. Erstellen wir also ein Rich-Text-Token für die Ersetzung und nennen es „bodyReplacement“. Rich-Text ermöglicht es uns, jeden Inhalt im Token durch beliebige HTML zu ersetzen, die wir eingeben möchten.
+Um unseren Inhalt anzupassen, müssen wir zunächst ein [Programm](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) und eine [E-Mail](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de) in Marketo konfigurieren. Um unsere benutzerdefinierten Inhalte zu generieren, müssen wir Token innerhalb des Programms erstellen und sie dann in der E-Mail platzieren, die wir senden werden. Der Einfachheit halber verwenden wir in diesem Beispiel nur ein Token, aber Sie können eine beliebige Anzahl von Token in einer E-Mail ersetzen, in der Absender-E-Mail, im Absendernamen, in der Antwortadresse oder in einem beliebigen Inhalt in der E-Mail. Erstellen wir also ein Rich-Text-Token für die Ersetzung und nennen es „bodyReplacement“. Rich-Text ermöglicht es uns, alle Inhalte im Token durch beliebige HTML zu ersetzen, die wir eingeben möchten.
 
 ![new-token](assets/New-Token.png)
 
@@ -199,22 +199,22 @@ package dev.marketo.blog_request_campaign;
 
 import com.eclipsesource.json.JsonArray;
 
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
         //Create an instance of Auth so that we can authenticate with our Marketo instance
         Auth auth = new Auth("Client ID - CHANGE ME", "Client Secret - CHANGE ME", "Host - CHANGE ME");
-        
+
         //Create and parameterize an instance of Leads
         Leads leadsRequest = new Leads(auth).setFilterType("email").addFilterValue("requestCampaign.test@marketo.com");
-        
+
         //get the inner results array of the response
         JsonArray leadsResult = leadsRequest.getData().get("result").asArray();
-        
+
         //get the id of the record indexed at 0
         int lead = leadsResult.get(0).asObject().get("id").asInt();
-        
+
         //Set the ID of our campaign from Marketo
         int campaignId = 1578;
         RequestCampaign rc = new RequestCampaign(auth, campaignId).addLead(lead);
