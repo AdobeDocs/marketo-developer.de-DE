@@ -55,7 +55,7 @@ Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden.
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Oktober 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Oktober 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
 
 ### Wechseln zur Autorisierungs-Kopfzeile
 
