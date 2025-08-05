@@ -5,7 +5,7 @@ breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 05f8966a2eafca71a00f1e22b6edd4d8dae6b6ac
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '247'
 ht-degree: 42%
@@ -61,7 +61,7 @@ ht-degree: 42%
       - [Formulare](rest-api/forms.md)
       - [Landingpages](rest-api/landing-pages.md)
       - [Zielseiten-Umleitungsregeln](rest-api/landing-page-redirect-rules.md)
-      - [Landing Page-Vorlagen](rest-api/landing-page-templates.md)
+      - [Landingpage-Vorlagen](rest-api/landing-page-templates.md)
       - [Liste der Standardfelder](rest-api/list-of-standard-fields.md)
       - [Programme](rest-api/programs.md)
       - [Intelligente Kampagnen](rest-api/smart-campaigns.md)

@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: importToList-SOAP-Aufrufe
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '387'
 ht-degree: 5%
 
 ---
@@ -20,9 +20,9 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 
 | E-Mail | Zuerst | Zuletzt |
 | --- | --- | --- |
-| joe@company.com | Joe | Smith |
-| mary@company.com | Mary | Rodgers |
-| wanda@megacorp.com | Wanda | Williams |
+| <joe@company.com> | Joe | Smith |
+| <mary@company.com> | Mary | Rodgers |
+| <wanda@megacorp.com> | Wanda | Williams |
 
 `displayName` Werte sollten im `importFileHeader` statt der `name` verwendet werden.
 
@@ -30,9 +30,9 @@ Mit dieser Funktion können Sie eine Liste von Leads in eine bestehende statisch
 
 | E-Mail | Zuerst | Zuletzt | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
-| joe@company.com | Joe | Smith | Fisch | Blue |
-| mary@company.com | Mary | Rodgers | Huhn | Braun |
-| wanda@megacorp.com | Wanda | Williams | Veggie | Haselnuss |
+| <joe@company.com> | Joe | Smith | Fisch | Blue |
+| <mary@company.com> | Mary | Rodgers | Huhn | Braun |
+| <wanda@megacorp.com> | Wanda | Williams | Veggie | Haselnuss |
 
 **Wichtig:** Wenn Sie Token für die Leads hinzufügen, müssen Sie die Smart Campaign angeben, die sie verwendet. Bei der nächsten Ausführung der angegebenen Smart-Kampagne werden die Werte aus Ihrer Liste anstelle der normalen Werte unter „Mein Token“ verwendet. Nach der Ausführung dieser einzelnen Kampagne werden die Token verworfen.
 

@@ -3,7 +3,7 @@ title: Telefonlücke
 feature: Mobile Marketing
 description: Verwenden von PhoneGap mit Marketo auf Mobilgeräten
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '818'
 ht-degree: 1%
@@ -16,7 +16,7 @@ Integration des Marketo PhoneGap-Plug-ins
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
 1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [Installieren von PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -66,7 +66,7 @@ Fügen Sie die Plattformen hinzu, die für die App ausgewählt werden sollen `$c
 1. Firebase Cloud Messaging-Unterstützung
 
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Willkommensbildschirm „Firebase zu Ihrer Android-App hinzufügen“ aus.
@@ -112,7 +112,6 @@ Fügen Sie die Plattformen hinzu, die für die App ausgewählt werden sollen `$c
             //to
             fs.writeFileSync("platforms/android/app/src/main/res/values/strings.xml", strings);
             ```
-
 
 ### &#x200B;3. Aktivieren von Push-Benachrichtigungen in xCode
 

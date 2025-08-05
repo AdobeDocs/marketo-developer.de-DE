@@ -3,7 +3,7 @@ title: scheduleCampaign
 feature: SOAP, Smart Campaigns
 description: scheduleCampaign-SOAP-Aufrufe
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 5%
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 Diese Funktion legt den Zeitplan einer Batch-Smart-Kampagne fest, sodass sie entweder sofort oder zu einem zukünftigen Datum ausgeführt wird. Eine vorhandene Smart Campaign ist für einen erfolgreichen Abschluss erforderlich. Dies kann mit importToList verwendet werden, um eine Liste von Leads hochzuladen und dann eine Batch-Kampagne mit dieser neu erstellten Liste auszuführen.
 
-## Optionale Programm-Token:
+## Optionale Programm-Token
 
 Ähnlich wie bei der Funktion requestCampaign können Sie ein Array von My Tokens an diesen API-Aufruf übergeben, wodurch vorhandene Token überschrieben werden. Nach der Ausführung der Kampagne werden die Token verworfen.
 

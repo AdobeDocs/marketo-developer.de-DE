@@ -3,7 +3,7 @@ title: Token
 feature: REST API, Tokens
 description: Verwalten von Token in Marketo.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '297'
 ht-degree: 4%
@@ -28,7 +28,6 @@ Token können mit den folgenden Datentypen erstellt werden:
 | Bewertung | Eine vorzeichenbehaftete 32-Bit-Ganzzahl |
 | SFDC Campaign | Wird bei der Integration der Kampagnenverwaltung in Salesforce verwendet |
 | Text | Eine Zeichenfolge |
-
 
 Dies sind die einzigen Datentypen, die beim Erstellen eines Tokens über die API verwendet werden können.
 
@@ -67,7 +66,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Erstellen und aktualisieren
 
-Der Endpunkt [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) erstellt Token oder aktualisiert sie, falls vorhanden, mit gesendeten Werten. Token werden im Kontext eines Ordners oder Programms erstellt. Der erforderliche `id` ist die ID des Ordners, mit dem das Token verknüpft werden soll. `name`, `type`, `value` und `folderType` sind alle erforderlichen Parameter des Tokens. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON. Das `name` Feld des Tokens darf 50 Zeichen nicht überschreiten.
+Der Endpunkt [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) erstellt Token oder aktualisiert sie, falls vorhanden, mit gesendeten Werten. Token werden im Kontext eines Ordners oder Programms erstellt. Der erforderliche `id` ist die ID des Ordners, mit dem das Token verknüpft werden soll. `name`, `type`, `value` und `folderType` sind alle erforderlichen Parameter des Tokens. Die Daten werden als POST x-www-form-urlencoded und nicht als JSON übergeben. Das `name` Feld des Tokens darf 50 Zeichen nicht überschreiten.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -108,7 +107,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Löschen
 
-[Token nach Namen löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) akzeptiert eine ID als Pfadparameter entweder vom Typ „Programm“ oder „Ordner“. Dieser Typ wird durch den `folderType` angegeben. Token werden je nach übergeordnetem Ordner, `name` und `type` des Tokens gelöscht. Diese sind jeweils erforderlich. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON.
+[Token nach Namen löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) akzeptiert eine ID als Pfadparameter entweder vom Typ „Programm“ oder „Ordner“. Dieser Typ wird durch den `folderType` angegeben. Token werden je nach übergeordnetem Ordner, `name` und `type` des Tokens gelöscht. Diese sind jeweils erforderlich. Die Daten werden als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

@@ -3,9 +3,9 @@ title: Massenextrakt
 feature: REST API
 description: Batch-Vorgänge für die Extraktion von Marketo-Daten.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '1683'
+source-wordcount: '1682'
 ht-degree: 1%
 
 ---
@@ -36,7 +36,7 @@ Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethod
 - Max. gleichzeitige Exportvorgänge: 2
 - Max. in die Warteschlange gestellte Exportaufträge (einschließlich der aktuell exportierten Aufträge): 10
 - Aufbewahrungszeitraum für Dateien: sieben Tage
-- Standardmäßige tägliche Exportzuweisung: 500 MB (wird täglich um 0:00 Uhr CST zurückgesetzt). Erhöhungen können erworben werden.
+- Standardmäßige tägliche Exportzuweisung: 500 MB (wird täglich mit 12 % CST :00AM). Erhöhungen können erworben werden.
 - Maximale Zeitspanne für den Datumsbereichsfilter (createdAt oder updatedAt): 31 Tage
 
 Massenfilter für die Lead-Extraktion für aktualisierte Daten und Smart-Listen sind für einige Abonnementtypen nicht verfügbar. Wenn nicht verfügbar, gibt ein Aufruf des Endpunkts „Export-Lead-Auftrag erstellen“ den Fehler „1035, Nicht unterstützter Filtertyp für Zielabonnement“ zurück. Kunden können sich an den Marketo-Support wenden, um diese Funktion in ihrem Abonnement aktivieren zu lassen.
@@ -123,7 +123,6 @@ Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konf
 | columnHeaderNames | Objekt | Ermöglicht das Festlegen der Namen von Spaltenüberschriften in der zurückgegebenen Datei. Jeder Memberschlüssel ist der Name der umzubenennenden Spaltenüberschrift und der Wert ist der neue Name der Spaltenüberschrift. Beispiel: „columnHeaderNames“: { „firstName“: „First Name“, „lastName“: „Last Name“ }, |
 | filter | Objekt | Auf den Extraktionsvorgang angewendeter Filter. Die Typen und Optionen variieren je nach Vorgangstyp. |
 
-
 ## Abrufen von Aufträgen
 
 Manchmal müssen Sie möglicherweise Ihre aktuellen Aufträge abrufen. Dies ist mit den GET-Exportvorgängen für den entsprechenden Objekttyp einfach möglich. Jeder Endpunkt Abrufen von Exportvorgängen unterstützt ein `status` Filterfeld, eine  `batchSize`, um die Anzahl der zurückgegebenen Aufträge zu begrenzen, und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportvorgang: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen und Fehlgeschlagen. Die batchSize-Eigenschaft ist auf maximal 300 festgelegt. Rufen wir die Liste der Lead-Exportvorgänge ab:
@@ -209,7 +208,7 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei. Wenn ein Auftrag nicht abgeschlossen oder eine fehlerhafte Auftrags-ID übergeben wurde, antworten die Dateiendpunkte mit dem Status „404 Not Found“ und einer Klartext-Fehlermeldung als Payload, im Gegensatz zu den meisten anderen Marketo-REST-Endpunkten.
 
-Um das teilweise und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional die HTTP-Header-`Range` vom Typ `bytes` (gemäß [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer Datei abzurufen, würden Sie die folgende Kopfzeile als Teil Ihrer GET-Anfrage an den Endpunkt übergeben, beginnend mit Byte 0:
+Um das teilweise und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional die HTTP-Header-`Range` vom Typ `bytes` (gemäß [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer Datei abzurufen, würden Sie die folgende Kopfzeile als Teil Ihrer GET-Anfrage an den -Endpunkt übergeben, beginnend mit Byte 0:
 
 ```
 Range: bytes=0-9999

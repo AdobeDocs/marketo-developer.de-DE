@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: Installieren von React Native für Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '810'
 ht-degree: 0%
@@ -16,7 +16,7 @@ Dieser Artikel enthält Informationen zur Installation und Einrichtung der nativ
 
 ## Voraussetzungen
 
-[Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+[Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
 
 ## SDK-Integration
 
@@ -393,7 +393,7 @@ const { RNMarketoModule } = NativeModules;
 
 Sobald die oben genannten Dateien korrekt platziert sind, können wir das js-Modul in eine beliebige js-Klasse importieren und seine Methoden direkt aufrufen. Beispiel:
 
-Beachten Sie, dass wir „reactNative“ als Framework-Typ für React-native Apps übergeben müssen. 
+Beachten Sie, dass wir „reactNative“ als Framework-Typ für React-native Apps übergeben müssen.
 
 ```
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
@@ -489,7 +489,6 @@ RNMarketoModule.registerForRemoteNotifications();
 
 export { requestPermission, registerForRemoteNotifications };
 ```
-
 
 `App.tsx` hinzufügen, um Push-Benachrichtigungen zuzulassen
 
@@ -595,7 +594,7 @@ Fügen Sie „MarketoActivity“ zu `AndroidManifest.xml` Datei im Anwendungs-Ta
 
 1. `application:openURL:sourceApplication:annotation:` in `AppDelegate.m`-Datei einschließen (Objective-C)
 
-**iOS - Benutzerdefinierte URL-Typen/Deeplinks in AppDelegate verarbeiten** 
+**iOS - Benutzerdefinierte URL-Typen/Deeplinks in AppDelegate verarbeiten**
 
 ```
 - (BOOL)application:(UIApplication *)app

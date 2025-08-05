@@ -3,7 +3,7 @@ title: Massenimport
 feature: REST API
 description: Batch-Import von Personendaten.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '592'
 ht-degree: 2%
@@ -96,7 +96,6 @@ Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konf
 |---|---|---|
 | Format | String | Bestimmt das Dateiformat der importierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und Semikolon-getrennte Werte. Akzeptiert eine der folgenden Optionen: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
 | Datei | String | Daten werden durch mehrteilige Formulardaten in der Datei angegeben. |
-
 
 ## Status des Abrufauftrags
 

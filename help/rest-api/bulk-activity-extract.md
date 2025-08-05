@@ -3,7 +3,7 @@ title: Massenaktivität-Extrakt
 feature: REST API
 description: Daten zu Batch-Verarbeitungsaktivitäten aus Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1332'
 ht-degree: 7%
@@ -105,7 +105,6 @@ Bei Verwendung von `primaryAttributeValues` muss der `activityTypeIds` vorhanden
 | Format | Zeichenfolge | Nein | Akzeptiert eine der folgenden Dateien: CSV, TSV, SSV Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, falls festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 | columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
 | Felder | array[string] | Nein | Optionales Zeichenfolgen-Array, das Feldwerte enthält. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Standardmäßig werden die folgenden Felder zurückgegeben: <ul><li>`marketoGUIDleadId`</li><li> `activityDate` </li><li>`activityTypeId` </li><li>`campaignId`</li><li> `primaryAttributeValueId` </li><li>`primaryAttributeValue`</li><li> `attributes`</li></ul>. Dieser Parameter kann verwendet werden, um die Anzahl der zurückgegebenen Felder zu reduzieren, indem eine Teilmenge aus der obigen Liste angegeben wird:`"fields": ["leadId", "activityDate", "activityTypeId"]`. Sie können ein zusätzliches `actionResult` angeben, um die Aktivitätsaktion einzuschließen: `("succeeded", "skipped", or "failed")`. |
-
 
 ## Erstellen von Aufträgen
 

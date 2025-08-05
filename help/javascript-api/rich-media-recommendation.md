@@ -3,7 +3,7 @@ title: Rich-Media-Empfehlung
 description: Rich-Media-Empfehlung
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 5%
@@ -21,7 +21,7 @@ Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, au
 1. Im Hauptteil der Seite
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
-Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 
@@ -66,7 +66,6 @@ Diese Methode füllt alle Rich-Media-`<divs>` auf der Seite mit Empfehlungen.
 | &#39;rcmd&#39; | Erforderlich | String | Methodenname. |
 | &#39;richmedia&#39; | Erforderlich | String | Name der Untermethode. |
 
-
 ## Vorlagenkonfiguration ändern
 
 Diese Methode ändert die Standardkonfiguration für die Vorlage.
@@ -84,7 +83,6 @@ Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&
 | &#39;richmedia&#39; | Erforderlich | String | Name der Untermethode. |
 | template_id | Optional | String | Die Vorlagen-ID für Konfigurationsänderungen. Verwenden Sie , um Änderungen der Einstellungen nur für eine Vorlage anzugeben. |
 | conf_obj | Erforderlich | Objekt | Die neue Konfiguration. Das -Objekt enthält alle Konfigurationen als Schlüssel-Wert-Paar. |
-
 
 ### Beispiele
 
@@ -150,7 +148,6 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.font.color | „rcmd.cta.font.color“ : „RGB(90, 84, 164)“ | Ändert die Schriftfarbe der Schaltfläche. Diese Eigenschaft unterstützt alle Schriftfarbwerte (rgb, hex, …) |
 | rcmd.cta.text | „rcmd.cta.text“ : „Push“ | Ändert den Schaltflächentext. Der Text ist für alle Schaltflächen identisch. |
 | Kategorie | „category“ : [ „one category“] | Ändert die Empfehlungskategorie, die diese Vorlage unterstützt. Die Vorlage zeigt nur Empfehlungen mit einer der von dieser Konfiguration festgelegten Kategorien an. |
-
 
 Hinweis: Die Konfigurationsunterstützung kann sich pro Vorlage ändern.
 

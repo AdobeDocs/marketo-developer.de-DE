@@ -1,9 +1,9 @@
 ---
 title: Datenaufnahme
 description: Übersicht über die Datenaufnahme-API
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '945'
+source-wordcount: '940'
 ht-degree: 13%
 
 ---
@@ -11,13 +11,13 @@ ht-degree: 13%
 
 # Datenaufnahme
 
-Die Datenaufnahme-API ist ein Service mit hoher Datenmenge und geringer Latenz, der hochverfügbar ist und der die Aufnahme großer Mengen von Personen- und personenbezogenen Daten effizient und mit minimalen Verzögerungen verarbeitet. 
+Die Datenaufnahme-API ist ein Service mit hoher Datenmenge und geringer Latenz, der hochverfügbar ist und der die Aufnahme großer Mengen von Personen- und personenbezogenen Daten effizient und mit minimalen Verzögerungen verarbeitet.
 
 Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt werden. Der Anfragestatus kann abgerufen werden, indem Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/) abonniert werden&#x200B;
 
 Schnittstellen werden für zwei Objekttypen angeboten: Personen, Benutzerdefinierte Objekte. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
 
-Die Datenaufnahme-API befindet sich in der privaten Beta-Phase. Eingeladene Benutzer müssen über eine Berechtigung für das [Marketo Engage-Leistungspaketpaket verfügen](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Die Datenaufnahme-API befindet sich in der privaten Beta-Phase. Eingeladene müssen über eine Berechtigung für das [Marketo Engage-Leistungsstufenpaket](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) verfügen.
 
 ## Authentifizierung
 
@@ -100,7 +100,7 @@ Im Folgenden finden Sie wiederverwendete Fehler-Codes vom Adobe Developer-Gatewa
 | 404 | 404040 | Ressource nicht gefunden |
 | 429 | 429001 | Service-Nutzungsbeschränkung erreicht |
 
-Im Folgenden finden Sie Fehler-Codes, die eindeutig für die Datenaufnahme-API sind und aus drei Segmenten bestehen. Die ersten drei Ziffern geben den Status an (zurückgegeben vom Adobe IO Gateway), gefolgt von einer Null „0“, gefolgt von drei Ziffern.
+Im Folgenden finden Sie Fehler-Codes, die eindeutig für die Datenaufnahme-API sind und aus drei Segmenten bestehen. Die ersten drei Ziffern geben den Status an (von Adobe IO Gateway zurückgegeben), gefolgt von einer Null „0“, gefolgt von drei Ziffern.
 
 | HTTP-Status-Code | error_code | Nachricht |
 |--- |--- |--- |
@@ -143,7 +143,7 @@ Anfragetext
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 |---|---|---|---|---|
-| Priorität | Zeichenfolge | Nein | Priorität der Anfrage:normalHoch | Normal |
+| Priorität | Zeichenfolge | Nein | Priorität der Anfrage:normalhigh | Normal |
 | partitionName | Zeichenfolge | Nein | Name der Personenpartition | Standard |
 | deduplizierte Felder | Objekt | Nein | Zu deduplizierende Attribute. Ein oder zwei Attributnamen sind zulässig. In einem AND-Vorgang werden zwei Attribute verwendet. Wenn beispielsweise sowohl `email` als auch `firstName` angegeben sind, können beide zum Suchen einer Person mithilfe des AND-Vorgangs verwendet werden. Unterstützte Attribute sind: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` (nur vom Typ „String“ und „Integer„) | E-Mail |
 | Personen | Array von Objekten | Ja | Liste der Name-Wert-Paare für das Attribut der Person | – |
@@ -214,8 +214,8 @@ Anfragetext
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 |---|---|---|---|---|
-| Priorität | Zeichenfolge | Nein | Priorität der Anfrage:normalHoch | Normal |
-| deduplizieren nach | Zeichenfolge | Nein | Zu deduplizierende Attribute für: dedupeFieldsMarketoGUID | deduplizierte Felder |
+| Priorität | Zeichenfolge | Nein | Priorität der Anfrage:normalhigh | Normal |
+| deduplizieren nach | Zeichenfolge | Nein | Zu deduplizierende Attribute für:dedupeFieldsmarketoGUID | deduplizierte Felder |
 | customObjects | Array von Objekten | Ja | Liste der Name-Wert-Paare für das Attribut des Objekts. | – |
 
 | Berechtigung |

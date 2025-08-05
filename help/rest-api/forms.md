@@ -3,7 +3,7 @@ title: Formulare
 feature: REST API, Forms
 description: Erstellen und Verwalten von Formularen über die API.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1598'
 ht-degree: 2%
@@ -305,7 +305,6 @@ Beim Bearbeiten von Feldern oder deren Verhalten innerhalb eines Formulars sollt
 | Währung | currency |
 | Kontrollkästchen | single_checkbox |
 | Schieberegler | Bereich |
-
 
 ### Abhängigkeiten
 
@@ -631,7 +630,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Jedes Formular enthält eine bearbeitbare Liste von Feldern, die den Endbenutzenden angezeigt wird, wenn sie geladen werden. Jedes Feld wird einzeln über die jeweiligen Endpunkte zur Feldliste hinzugefügt, aktualisiert oder gelöscht.
 
-[Feld hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) erfordert nur die ID des übergeordneten Formulars und die fieldId des Felds. Alle anderen Felder sind entweder leer oder haben Standardwerte, die auf ihrem Datentyp und den Feldmetadaten basieren. Daten werden als POST x-www-form-urlencoded übergeben, nicht als JSON.
+[Feld hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) erfordert nur die ID des übergeordneten Formulars und die fieldId des Felds. Alle anderen Felder sind entweder leer oder haben Standardwerte, die auf ihrem Datentyp und den Feldmetadaten basieren. Die Daten werden als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
 ```
 POST /rest/asset/v1/form/{id}/fields.json
@@ -789,8 +788,6 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 }
 ```
 
- 
-
 Um zu bestimmen, wie Sie ein komplexes Formularfeld formatieren, sehen Sie sich die Antwort von Feld zum Formular hinzufügen an.
 
 ### Feld wird neu angeordnet
@@ -833,7 +830,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### RTF
 
-Rich-Text-Felder werden über einen [separaten Endpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) von Lead-Feldern hinzugefügt. Der Feldinhalt wird als multipart/form-data übergeben. Es sollte als HTML-Inhalt strukturiert sein, der kein Skript, Meta-Tags oder Link-Tags enthält.
+Rich-Text-Felder werden über einen [separaten Endpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) von Lead-Feldern hinzugefügt. Der Feldinhalt wird als multipart/form-data übergeben. Sie sollte als HTML-Inhalt strukturiert sein, der kein Skript, Meta-Tags oder Link-Tags enthält.
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +871,7 @@ Content-Type: text/html
 
 Marketo Forms verfügen über eine optionale Komponente, die als Feldsätze bezeichnet wird. Feldsätze sind Gruppen von Feldern, die in der Feldliste der obersten Ebene für die Zwecke der Verschiebung und Behandlung durch Sichtbarkeitsregeln als ein einzelnes Feld behandelt werden. Wenn beispielsweise ein Feld für Kompatibilitätsanforderungen vorhanden ist und ein Client „Ja“ auswählt, kann ein Feldsatz angezeigt werden, der Felder für HIPAA- und PCI-Kompatibilitätsanforderungen enthält.
 
-Felder in Feldsätzen sind für das Formular als Ganzes eindeutig, sodass doppelte Felder möglicherweise nicht sowohl in der Liste der übergeordneten Felder des Formulars als auch in einer untergeordneten Feldgruppe enthalten sind. Feldsätze werden über den Endpunkt [Feldsatz zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzugefügt und erscheinen dann im Ergebnis von [Felder für Formular abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Felder werden einem Feldsatz hinzugefügt, indem sie über „Feldpositionen aktualisieren“ in die [ des Feldsatzes verschoben ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Für diese Endpunkte werden Daten als POST x-www-form-urlencoded übergeben, nicht als JSON.
+Felder in Feldsätzen sind für das Formular als Ganzes eindeutig, sodass doppelte Felder möglicherweise nicht sowohl in der Liste der übergeordneten Felder des Formulars als auch in einer untergeordneten Feldgruppe enthalten sind. Feldsätze werden über den Endpunkt [Feldsatz zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzugefügt und erscheinen dann im Ergebnis von [Felder für Formular abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Felder werden einem Feldsatz hinzugefügt, indem sie über „Feldpositionen aktualisieren“ in die [ des Feldsatzes verschoben ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Für diese Endpunkte werden Daten als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
 ## Sichtbarkeitsregel
 

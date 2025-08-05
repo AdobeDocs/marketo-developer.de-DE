@@ -3,7 +3,7 @@ title: Massenauszug von Blei
 feature: REST API
 description: Batch-Extraktion von Lead-Daten.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1173'
 ht-degree: 2%
@@ -33,7 +33,6 @@ Leads unterstützen verschiedene Filteroptionen. Bestimmte Filter, einschließli
 | smartListName* | String | Akzeptiert den Namen einer Smart-Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der Smart-Listen sind, zu dem der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listennamen mithilfe des Endpunkts „Smart-Listen abrufen“. |
 | smartListId* | Ganzzahl | Akzeptiert die ID einer Smart-Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der Smart-Listen sind, zu dem der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listen-IDs mit dem Endpunkt Smart-Listen abrufen . |
 
-
 Filtertyp ist für einige Abonnements nicht verfügbar. Wenn für Ihr Abonnement nicht verfügbar ist, erhalten Sie eine Fehlermeldung beim Aufruf des Endpunkts „Exportleitungs-Auftrag erstellen“ („1035, Nicht unterstützter Filtertyp für Zielabonnement„). Kunden können sich an den Marketo-Support wenden, um diese Funktion in ihrem Abonnement aktivieren zu lassen.
 
 ## Optionen
@@ -45,7 +44,6 @@ Der Endpunkt Exportvorgang erstellen bietet mehrere Formatierungsoptionen, die e
 | Felder | array[string] | Ja | Der Feldparameter akzeptiert ein JSON-Zeichenfolgen-Array. Jede Zeichenfolge muss der REST-API-Name eines Marketo-Lead-Felds sein. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die Spaltenüberschrift für jedes Feld ist der REST-API-Name jedes Felds, sofern er nicht mit columnHeader überschrieben wird. Hinweis: Wenn die [!DNL Adobe Experience Cloud Audience Sharing]-Funktion aktiviert ist, findet ein Cookie-Synchronisierungsvorgang statt, der [!DNL Adobe Experience Cloud] ID (ECID) mit Marketo-Leads verknüpft. Sie können das Feld „ecids“ angeben, um ECIDs in die Exportdatei aufzunehmen. |
 | columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Dies ist der API-Name des Felds, das durch Aufruf von Describe Lead abgerufen werden kann. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
 | Format | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
-
 
 ## Erstellen von Aufträgen
 

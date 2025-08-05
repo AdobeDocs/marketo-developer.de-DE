@@ -3,7 +3,7 @@ title: Forms-API-Referenz
 description: Forms-API-Referenz
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 2%
@@ -93,13 +93,13 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     <tr valign="top">
       <td>.allForms()</td>
       <td>Ruft ein Array aller Formularobjekte ab, die zuvor auf der Seite erstellt wurden.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Array von Formularobjekten</td>
     </tr>
     <tr valign="top">
       <td>.getPageFields()</td>
       <td>Ruft ein JS-Objekt ab, das Daten von der URL und dem Referrer enthält, die für Tracking-Zwecke interessant sein können.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Objekt</td>
     </tr>
     <tr valign="top">
@@ -122,7 +122,6 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     </tr>
 </table>
 
-
 ## Formularmethoden
 
 <table>
@@ -142,19 +141,19 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     <tr valign="top">
       <td>.getId()</td>
       <td>Ruft die ID des Formulars ab.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Number : Die ID des Formularobjekts, das dieses Formular darstellt</td>
     </tr>
     <tr valign="top">
       <td>.getFormElement()</td>
       <td>Ruft das in jQuery eingeschlossene Formularelement eines gerenderten Formulars ab.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Ein in ein jQuery-Objekt eingeschlossenes Formularelement oder null, wenn das Formular noch nicht mit der render()-Methode gerendert wurde.</td>
     </tr>
     <tr valign="top">
       <td>.validate()</td>
       <td>Erzwingt die Validierung des Formulars, wobei eventuell vorhandene Fehler hervorgehoben und das Ergebnis zurückgegeben werden. Sendet das Formular nicht.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Boolesch - Gibt „true“ zurück, wenn alle Validierer im Formular übergeben wurden, andernfalls „false“.</td>
     </tr>
     <tr valign="top">
@@ -166,7 +165,7 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     <tr valign="top">
       <td>.submit()</td>
       <td>Trigger des Übermittlungsereignisses des Formulars. Dieser startet den Übermittlungsfluss, führt die Validierung durch, löst alle onSubmit-Ereignisse aus, übermittelt das Formular und löst alle onSuccess-Ereignisse aus, wenn die Formularübermittlung erfolgreich war.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Formularobjekt : Dasselbe Formularobjekt, für das die Methode zu Verkettungszwecken aufgerufen wurde.</td>
     </tr>
     <tr valign="top">
@@ -190,7 +189,7 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     <tr valign="top">
       <td>.allFieldsFilled()</td>
       <td>Gibt „true“ zurück, wenn alle Felder im Formular nicht leere Werte aufweisen.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Boolesch - True, wenn alle Felder nicht leere/leere/unset/null-Werte aufweisen, andernfalls „false“.</td>
     </tr>
     <tr valign="top">
@@ -202,7 +201,7 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     <tr valign="top">
       <td>.getValues()</td>
       <td>Ruft alle Werte aller Felder im Formular ab.</td>
-      <td>Nicht zutreffend</td>
+      <td>k. A.</td>
       <td>Objekt - Ein JS-Objekt, das Schlüssel/Wert-Paare enthält, die die Namen und Werte der Felder im Formular darstellen.</td>
     </tr>
     <tr valign="top">

@@ -3,7 +3,7 @@ title: Leistung
 feature: REST API
 description: Tipps zur Leistung bei der Arbeit mit der Marketo-API.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 4e64b8a801e443471f52090b7f008b11e628012d
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '122'
 ht-degree: 1%
@@ -37,5 +37,5 @@ Content-Encoding: gzip
 Im Folgenden finden Sie ein Beispiel unter Verwendung von cURL zum Aufrufen [ Endpunkts „Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) um 5 Leads abzurufen:
 
 ```bash
-$ curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'
+curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'
 ```

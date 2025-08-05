@@ -1,16 +1,16 @@
 ---
-title: Landing Page
+title: Landingpages
 feature: REST API, Landing Pages
 description: Abfragen von Landingpages in Marketo.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1000'
 ht-degree: 2%
 
 ---
 
-# Landing Page
+# Landingpages
 
 [Endpunkt-Referenz für Landingpages](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
 
@@ -58,7 +58,7 @@ Die Ergebnisse unterscheiden sich zwischen geführten und Freiformvorlagen, da d
 
 [Landingpages werden erstellt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/createLandingPageUsingPOST) indem auf eine Vorlage verwiesen wird. Die einzigen erforderlichen Felder für die Erstellung sind Name, Vorlage (die ID der Vorlage) und der Ordner, in dem die Seite platziert werden soll. Weitere Metadaten, die ausgefüllt werden können, finden Sie in der Endpunkt-Referenz.
 
-Gültige Inhaltstypen für Endpunkte [Landingpage-Inhalte](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) sind: richText, HTML, Formular, Bild, Rechteck, Snippet.
+Gültige Inhaltstypen für Endpunkte [Inhalt der Landingpage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) sind: richText, HTML, Form, Image, Rectangle, Snippet.
 
 ```
 POST rest/asset/v1/landingPages.json
@@ -113,11 +113,11 @@ Landingpages folgen dem standardmäßigen Entwurfsvalidierungsmodell, für das e
 
 ## Löschen
 
-Um eine Landingpage zu löschen, muss sie zunächst nicht mehr verwendet und nicht von anderen Marketo-Assets referenziert werden und muss außerdem nicht genehmigt sein. Seiten werden einzeln mit dem Endpunkt [Landingpage löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) gelöscht. Landingpages mit eingebetteten Social-Media-Schaltflächen können über diese API nicht gelöscht werden. 
+Um eine Landingpage zu löschen, muss sie zunächst nicht mehr verwendet und nicht von anderen Marketo-Assets referenziert werden und muss außerdem nicht genehmigt sein. Seiten werden einzeln mit dem Endpunkt [Landingpage löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) gelöscht. Landingpages mit eingebetteten Social-Media-Schaltflächen können über diese API nicht gelöscht werden.
 
 ## Klonen
 
-Marketo bietet eine einfache Methode zum Klonen einer Landingpage. Dies ist eine Anfrage zur application/x-www-url-formencoded-POST.
+Marketo bietet eine einfache Methode zum Klonen einer Landingpage. Dies ist eine application/x-www-url-formecodierte POST-Anfrage.
 
 Der `id`-Pfadparameter gibt die ID der zu klonenden Quell-Landingpage an.
 
@@ -173,7 +173,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Abschnitt „Inhalt verwalten“
 
-Inhaltsabschnitte werden nach ihrer Indexeigenschaft sortiert und letztendlich gemäß den CSS-Regeln angeordnet, die beim Anzeigen durch den Client angewendet werden. Die Inhaltsabschnitte werden mit den entsprechenden Endpunkten [Hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) und [Löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) des Inhalts der Landingpage eingeschlossen und verwaltet und können mithilfe von [Landingpage-Inhalt abfragen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Jeder Abschnitt verfügt über einen Typ und einen Wertparameter. Der Typ bestimmt, was in den Wert eingefügt werden soll.  Für diese Endpunkte werden Daten als POST x-www-form-urlencoded übergeben, nicht als JSON.
+Inhaltsabschnitte werden nach ihrer Indexeigenschaft sortiert und letztendlich gemäß den CSS-Regeln angeordnet, die beim Anzeigen durch den Client angewendet werden. Die Inhaltsabschnitte werden mit den entsprechenden Endpunkten [Hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) und [Löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) des Inhalts der Landingpage eingeschlossen und verwaltet und können mithilfe von [Landingpage-Inhalt abfragen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Jeder Abschnitt verfügt über einen Typ und einen Wertparameter. Der Typ bestimmt, was in den Wert eingefügt werden soll.  Für diese Endpunkte werden Daten als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
 **Abschnittstypen**
 
@@ -181,10 +181,10 @@ Inhaltsabschnitte werden nach ihrer Indexeigenschaft sortiert und letztendlich g
 |--- |--- |
 | DynamicContent | Die ID der Segmentierung. |
 | Formular | Die ID des Formulars. |
-| HTML | Text HTML Inhalt. |
+| HTML | Text HTML-Inhalt. |
 | Bild | Die ID des Bild-Assets. |
 | Rechteck | Leer. |
-| RichText | Text HTML Inhalt.  Darf nur Rich-Text-Elemente enthalten. |
+| RichText | Text HTML-Inhalt.  Darf nur Rich-Text-Elemente enthalten. |
 | Ausschnitt | Die ID des Snippets. |
 | Schaltfläche „Social“ | Die ID von  Die Schaltfläche „Social“. |
 | Video | Die ID des Videos. |
@@ -274,7 +274,7 @@ Variablen werden als Meta-Tags innerhalb `<head>` Elements einer Landingpage-Vor
 </head>
 ```
 
-Weitere Informationen finden Sie im Abschnitt „Bearbeitbare Variable“ in der Dokumentation [Erstellen einer geführten Landingpage](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Weitere Informationen finden Sie im Abschnitt „Bearbeitbare Variable“ in der Dokumentation [Erstellen einer geführten Landingpage](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Abfrage
 

@@ -3,7 +3,7 @@ title: Web-Personalisierung
 description: Web-Personalisierung
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 7%
@@ -14,7 +14,7 @@ ht-degree: 7%
 
 Die Web Personalization JavaScript-API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Ereignisverfolgung und dynamische Anpassung einer Web-Seite. Zusätzliche Funktionen: [Benutzerdefinierte Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
 
-- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [ und das RTP](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
+- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [ und das RTP](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Tag-Setup
@@ -41,7 +41,6 @@ Diese Methode wird automatisch auf Tag-Ebene aufgerufen, um die entsprechende Ko
 | &#39;setAccount&#39; | Erforderlich | String | Methodenname. |
 | accountId | Erforderlich | String | Konto-ID |
 
-
 ```javascript
 var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
@@ -58,7 +57,6 @@ Durch Übergeben des optionalen Parameters „page“ in dieser Methode kann die
 | &#39;Senden&#39; | Erforderlich | String | Aktion der Methode. |
 | &#39;Ansicht&#39; | Erforderlich | String | Methodenname. |
 | Seite | Optional | String | Relativer Pfad oder vollständige Seiten-URL. |
-
 
 ```javascript
 // Example for Default Page
@@ -103,7 +101,6 @@ Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personaliz
 | jquery.min.js | v1.8.3 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
 | jquery-custom-ui-min.js | v1.9.2 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
 | query-ui-1.8.17-dialog.js | v1.9.2* | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
-
 
 *Wird nur verwendet, wenn das Dialogfeld in der jQuery-Benutzeroberfläche fehlt.
 

@@ -3,7 +3,7 @@ title: Lead-Datenbank
 feature: REST API, Database
 description: Bearbeiten Sie die Hauptdatenbank für Leads.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1342'
 ht-degree: 1%
@@ -245,7 +245,7 @@ Die Struktur des JSON-Objekts ist größtenteils flach, und alle Abfrageparamete
 
 Erstellt und aktualisiert Lead-Datenbank-Datensätze. Dies geschieht alles über POSTs mit JSON-Bodies. Die Benutzeroberfläche für Opportunities, Rollen, benutzerdefinierte Objekte, Unternehmen und Vertriebspersonen ist jeweils identisch. Die Benutzeroberfläche des Leads ist ein wenig anders, und Sie können dort mehr darüber lesen.
 
-Der einzige erforderliche Parameter ist ein Array namens `input` mit bis zu 300 Objekten, von denen jedes die Felder enthält, die Sie als Member einfügen/aktualisieren möchten. Optional können Sie auch einen `action` Parameter einbeziehen, der einer der folgenden sein kann: `createOnly`, `updateOnly` oder `createOrUpdate`. Wenn die Aktion ausgelassen wird, ist der Modus standardmäßig `createOrUpdate`. `dedupeBy` ist ein weiterer optionaler Parameter, der verwendet werden kann, wenn für die Aktion entweder „createOnly“ oder &quot;`createOrUpdate`&quot; festgelegt ist. ` dedupeBy` kann entweder `idField` oder `dedupeFields` sein. Wenn `idField` ausgewählt ist, wird die in der Beschreibung aufgeführte `idField` für die Deduplizierung verwendet und muss in jedem Datensatz enthalten sein. `idField` Modus ist nicht mit dem `createOnly` Modus kompatibel. Wenn `dedupeFields` ausgewählt sind, werden die in der verwendeten Objektbeschreibung aufgelisteten `dedupeFields` verwendet, und jede einzelne muss in jedem Datensatz enthalten sein. Wenn der `dedupeBy` Parameter weggelassen wird, ist der Modus standardmäßig `dedupeFields`.
+Der einzige erforderliche Parameter ist ein Array namens `input` mit bis zu 300 Objekten, von denen jedes die Felder enthält, die Sie als Member einfügen/aktualisieren möchten. Optional können Sie auch einen `action` Parameter einbeziehen, der einer der folgenden sein kann: `createOnly`, `updateOnly` oder `createOrUpdate`. Wenn die Aktion ausgelassen wird, ist der Modus standardmäßig `createOrUpdate`. `dedupeBy` ist ein weiterer optionaler Parameter, der verwendet werden kann, wenn für die Aktion entweder „createOnly“ oder &quot;`createOrUpdate`&quot; festgelegt ist. `dedupeBy` kann entweder `idField` oder `dedupeFields` sein. Wenn `idField` ausgewählt ist, wird die in der Beschreibung aufgeführte `idField` für die Deduplizierung verwendet und muss in jedem Datensatz enthalten sein. `idField` Modus ist nicht mit dem `createOnly` Modus kompatibel. Wenn `dedupeFields` ausgewählt sind, werden die in der verwendeten Objektbeschreibung aufgelisteten `dedupeFields` verwendet, und jede einzelne muss in jedem Datensatz enthalten sein. Wenn der `dedupeBy` Parameter weggelassen wird, ist der Modus standardmäßig `dedupeFields`.
 
 Beim Übergeben einer Liste von Feldwerten wird ein Wert von `null` oder eine leere Zeichenfolge wie `null` in die Datenbank geschrieben.
 

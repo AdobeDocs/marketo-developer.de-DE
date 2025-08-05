@@ -3,7 +3,7 @@ title: Spezifische Kontolisten
 feature: REST API
 description: Konfigurieren von Listen benannter Konten.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 3%
@@ -14,7 +14,7 @@ ht-degree: 3%
 
 [Endpunkt-Referenz für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Spezifische Kontolisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
+[Spezifische Kontolisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
 `Content`
 
 ## Berechtigungen
@@ -33,7 +33,6 @@ Benannte Kontolisten verfügen über eine begrenzte Anzahl von Standardfeldern u
 | createdAt | Datum/Uhrzeit | Falsch | Datum/Uhrzeit der Erstellung der Liste. Dieses Feld wird vom System verwaltet und ist als Feld beim Erstellen oder Aktualisieren eines Datensatzes nicht zulässig. |
 | updatedAt | Datum/Uhrzeit | Falsch | Datum/Uhrzeit der letzten Aktualisierung der Liste. Dieses Feld wird vom System verwaltet und ist als Feld beim Erstellen oder Aktualisieren eines Datensatzes nicht zulässig. |
 | type | Zeichenfolge | Falsch | Listentyp. Kann den Wert „default“ oder „external“ haben. Externe Listen werden von der CRM-Kontoansicht erstellt. |
-
 
 ## Abfrage
 
@@ -294,9 +293,9 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ## Zeitüberschreitungen
 
 - Die maximale Wartezeit für Endpunkte benannter Kontolisten beträgt 30 Sekunden, es sei denn, dies wird unten angegeben
-   - Spezifische Kontenlisten synchronisieren: 60er 
-   - Spezifische Kontenlisten löschen: 60er 
-   - Benannte Kontenlisten abrufen: 60er 
-   - Mitglieder der benannten Kontoliste hinzufügen: 60s 
-   - Mitglieder der benannten Kontoliste entfernen: 60s 
+   - Spezifische Kontenlisten synchronisieren: 60er
+   - Spezifische Kontenlisten löschen: 60er
+   - Benannte Kontenlisten abrufen: 60er
+   - Mitglieder der benannten Kontoliste hinzufügen: 60s
+   - Mitglieder der benannten Kontoliste entfernen: 60s
    - Mitglieder der benannten Kontoliste abrufen: 60er

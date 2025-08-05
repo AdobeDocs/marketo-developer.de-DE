@@ -3,7 +3,7 @@ title: Authentifizierung
 feature: REST API
 description: Authentifizieren von Marketo-Benutzern für die API-Nutzung.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 206724e5177eb9040fa36202d91b2ed9daa734c3
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '618'
 ht-degree: 0%
@@ -55,10 +55,9 @@ Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden.
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Oktober 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Oktober 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
 
 ### Wechseln zur Autorisierungs-Kopfzeile
-
 
 Um von der Verwendung des `access_token` Abfrageparameters zu einer Autorisierungs-Kopfzeile zu wechseln, ist eine kleine Code-Änderung erforderlich.
 

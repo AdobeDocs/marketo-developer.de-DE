@@ -3,9 +3,9 @@ title: getMultipleLeads
 feature: SOAP
 description: getMultipleLeads - SOAP-Aufrufe
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '384'
+source-wordcount: '383'
 ht-degree: 3%
 
 ---
@@ -28,7 +28,7 @@ Ein gängiges Anwendungsbeispiel für diesen Endpunkt besteht darin, Leads zu fi
 | --- | --- | --- |
 | LeadSelector | Erforderlich | Kann einer der folgenden drei Typen sein:`LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
 | keyType | Erforderlich | Der ID-Typ, den Sie abfragen möchten. Die Werte umfassen IDNUM, COOKIE, EMAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID, SFDCOPPTYID. |
-| keyValues->stringItem | Erforderlich | Liste der Schlüsselwerte. Das heißt, &quot;lead@email.com&quot; |
+| keyValues->stringItem | Erforderlich | Liste der Schlüsselwerte. Das heißt, &quot;<lead@email.com>&quot; |
 | LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Erforderlich | Der Zeitstempel zur Angabe der „seit“-Kriterien. Das heißt, alle Leads zurückgeben, die seit der angegebenen Zeit aktualisiert wurden. (W3C WSDL-Datums-/Uhrzeitformat) |
 | LastUpdateAtSelector: leadSelector->latestUpdatedAt | Optional | Der Zeitstempel zur Angabe der „bis“-Kriterien. Das heißt, alle Leads zurückgeben, die bis zum angegebenen Zeitpunkt aktualisiert wurden. (W3C WSDL-Datums-/Uhrzeitformat) |
 | StaticListSelector: leadSelector->staticListName | Optional, wenn `leadSelector->staticListId` vorhanden ist | Der Name der statischen Liste |

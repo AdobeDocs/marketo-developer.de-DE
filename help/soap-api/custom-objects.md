@@ -3,7 +3,7 @@ title: Benutzerdefinierte Objekte
 feature: SOAP
 description: Erstellen benutzerdefinierter Objekte.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '231'
 ht-degree: 2%
@@ -16,7 +16,7 @@ Ein benutzerdefiniertes Marketo-Objekt ermöglicht die Erstellung einer 1:n-Bezi
 
 Benutzerdefinierte Objekte werden in allen Marketo-Editionen mit Ausnahme von Spark unterstützt. Wenn das benutzerdefinierte Marketo-Objekt erfolgreich in Ihrem Konto bereitgestellt wurde, können Sie
 
-- Erstellen/Lesen/Aktualisieren/Löschen von Datensätzen im benutzerdefinierten Objekt über die Marketo-SOAP-API
+- Erstellen/Lesen/Aktualisieren/Löschen von Datensätzen im benutzerdefinierten Objekt über die Marketo SOAP-API
 - Smart-Listen-Trigger verwenden, wenn dem benutzerdefinierten Objekt neue Datensätze hinzugefügt werden
 - Verwenden der benutzerdefinierten Objektdaten als Filter in Smart Lists
 - Verwenden der benutzerdefinierten Objektdaten in E-Mails mit Marketo Email Scripting

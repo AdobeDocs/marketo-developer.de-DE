@@ -3,9 +3,9 @@ title: Musterübereinstimmung
 description: Musterübereinstimmung
 feature: Javascript
 exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '134'
+source-wordcount: '133'
 ht-degree: 7%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 7%
 
 RTP stellt eine Dienstprogramm-Funktion zur Verfügung, um zu überprüfen, ob das Muster mit bestimmten Zeichenfolgen übereinstimmt. Das Dienstprogramm kann nicht asynchron verwendet werden, da es eine Angabe zurückgibt, ob eine Übereinstimmung vorliegt oder nicht.
 
-Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 
 ## Nutzung
 
@@ -23,8 +23,7 @@ Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experien
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|
 | check_against | Erforderlich | String | Zeichenfolge, mit der das Muster abgeglichen wird. Beispiel: aktuelle Seiten-URL, Produktname. |
-| pattern | Erforderlich | String | % für Platzhalter hinzufügen. Das Muster kann sein: Start mit Ende mit enthält vollständige Übereinstimmung |
-
+| pattern | Erforderlich | String | % für Platzhalter hinzufügen. Das Muster kann sein:start wobei Ende mit vollständige Übereinstimmung enthält. |
 
 ## Beispiele
 

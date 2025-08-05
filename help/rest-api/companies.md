@@ -3,7 +3,7 @@ title: Firmen
 feature: REST API
 description: Konfigurieren von Unternehmensdaten mit Marketo-APIs.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '564'
 ht-degree: 1%
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Firmen stellen die Organisation dar, zu der Lead-Datensätze gehören. Leads werden zu einem Unternehmen hinzugefügt, indem das entsprechende `externalCompanyId` mithilfe der Endpunkte [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) oder [Massenimport von Leads](bulk-lead-import.md) ausgefüllt wird. Nachdem ein Lead zu einer Firma hinzugefügt wurde, können Sie den Lead nicht mehr aus dieser Firma löschen (es sei denn, Sie fügen den Lead einer anderen Firma hinzu). Mit einem Unternehmensdatensatz verknüpfte Leads erben die Werte direkt von einem Unternehmensdatensatz, als ob die Werte im eigenen Datensatz des Leads vorhanden wären.
 
-Unternehmens-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert sind.
+Unternehmens-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert sind.
 
 ## beschreiben
 
@@ -360,5 +360,5 @@ POST /rest/v1/companies/delete.json
 ## Zeitüberschreitungen
 
 - Für Unternehmens-Endpunkte gilt eine Zeitüberschreitung von 30 Sekunden, sofern unten nicht anders angegeben
-   - Synchronisierungsunternehmen: 60er 
+   - Synchronisierungsunternehmen: 60er
    - Firmen löschen: 60er

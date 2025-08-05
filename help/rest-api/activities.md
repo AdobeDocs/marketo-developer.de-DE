@@ -3,7 +3,7 @@ title: Aktivitäten
 feature: REST API
 description: Eine API zur Verwaltung von Marketo Engage-Aktivitäten.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
@@ -131,7 +131,7 @@ Wenn das Attribut `moreResult` wahr ist, bedeutet dies, dass mehr Ergebnisse ver
 
 In einigen Fällen reagiert diese API möglicherweise mit weniger als 300 Aktivitätselementen, aber auch das `moreResult` Attribut ist auf „true“ gesetzt.  Dies zeigt an, dass mehr Aktivitäten zurückgegeben werden können und dass der Endpunkt nach neueren Aktivitäten abgefragt werden kann, indem die zurückgegebene `nextPageToken` in einen nachfolgenden Aufruf aufgenommen wird.
 
-Beachten Sie, dass innerhalb jedes Ergebnis-Array-Elements das `id` Ganzzahlattribut durch das `marketoGUID` Zeichenfolgenattribut als eindeutige Kennung ersetzt wird. 
+Beachten Sie, dass innerhalb jedes Ergebnis-Array-Elements das `id` Ganzzahlattribut durch das `marketoGUID` Zeichenfolgenattribut als eindeutige Kennung ersetzt wird.
 
 ### Datenwertänderungen
 
@@ -435,7 +435,6 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 Typen können wie bei Standard-Marketo-Assets mit den Aktivitätstypen „Benutzerdefinierten Typ validieren“, „Benutzerdefinierten Aktivitätstyp verwerfen“, „Entwurf“ und „Benutzerdefinierten Aktivitätstyp löschen“ verwaltet werden.
 
-
 ## Benutzerdefinierte Aktivitätstypattribute
 
 Jeder benutzerdefinierte Aktivitätstyp kann zwischen 0 und 20 sekundäre Attribute aufweisen. Sekundäre Attribute können einen beliebigen gültigen Feldtyp für ein Marketo-Feld aufweisen. Sie werden getrennt vom übergeordneten Typ hinzugefügt, aktualisiert und entfernt, können jedoch bearbeitet werden, während ein Aktivitätstyp verwendet und dann genehmigt wird. Wenn Felder eines Live-Typs bearbeitet werden, wird für alle Aktivitäten dieses Typs, die nach der Genehmigung erstellt werden, das neue sekundäre Attribut festgelegt. Änderungen werden nicht rückwirkend auf bestehende Aktivitäten mit diesem Typ angewendet.
@@ -450,7 +449,7 @@ Beim Ändern des primären Attributs eines Aktivitätstyps sollte jedes vorhande
 
 ### Erstellen von Attributen
 
-Zum Erstellen eines Attributs wird ein erforderlicher `apiName` verwendet. Außerdem sind die Parameter `name` und `dataType` erforderlich.` The description and` `isPrimary` sind optional.
+Zum Erstellen eines Attributs wird ein erforderlicher `apiName` verwendet. Außerdem sind die Parameter `name` und `dataType` erforderlich.`The description and` `isPrimary` sind optional.
 
 ```
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -709,5 +708,5 @@ POST /rest/v1/activities/external.json
 
 Aktivitäts-Endpunkte haben eine Zeitüberschreitung von 30 s, sofern unten nicht anders angegeben.
 
-* Paging-Token abrufen: 300s 
+* Paging-Token abrufen: 300s
 * Benutzerdefinierte Aktivität hinzufügen: 90er

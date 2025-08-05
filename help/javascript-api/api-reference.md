@@ -3,7 +3,7 @@ title: Munchkin-API-Referenz
 description: Verwenden Sie die Munchkin-JavaScript-API, um Ihre Munchkin-Daten anzupassen.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 9%
@@ -41,7 +41,6 @@ Beim Aufruf von wird überprüft, ob ein `_mkto_trk`-Cookie im Browser vorhanden
 | --- | --- | --- | --- |
 | forceCreate | Erforderlich | Boolesch | Erstellen Sie ein Cookie, selbst wenn `cookieAnon` auf „false“ gesetzt ist. |
 
-
 ```javascript
 Munchkin.createTrackingCookie(true);
 ```
@@ -62,7 +61,7 @@ Der Aufruf von `munchkinFunction()` mit `visitWebPage` sendet eine Aktivität de
 | Name der Dateneigenschaft | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
 | URL | Erforderlich | String | Der zum Aufzeichnen eines Seitenbesuchs verwendete URL-Dateipfad.  Dieser Wert wird an den aktuellen Domain-Namen angehängt, um den vollständigen Seitennamen zu erstellen. Wenn beispielsweise die URL `/index.html` und der Domain-Name `www.example.com` ist, wird die besuchte Seite als `www.example.com/index.html` aufgezeichnet. |
-| Parameter | Optional | String | Eine Abfragezeichenfolge der gewünschten aufzuzeichnenden Parameter. |
+| params | Optional | String | Eine Abfragezeichenfolge der gewünschten aufzuzeichnenden Parameter. |
 
 Beispiel: `foo=bar&biz=baz`.
 
