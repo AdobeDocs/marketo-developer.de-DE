@@ -890,7 +890,7 @@ Mit [ Endpunkt „Benutzerdefinierte Objekttypfelder hinzufügen](https://develo
 Bei einer Eins-zu-viele-Objektstruktur können Sie ein Verknüpfungsfeld in einem benutzerdefinierten Objekt verwenden, um es mit einem Standardobjekt zu verbinden: Lead oder Unternehmen. Mithilfe des Beispiels für Fahrzeugbesitzer aus der Marketo-Produktdokumentation [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) erstellen wir ein benutzerdefiniertes Objekt, das autobezogene Informationen enthält, um eine Verbindung mit Leads herzustellen.
 
 1. Erstellen eines **Car**-Objekts
-1. Felder zu **Auto** Objekt: deduplizieren auf **VIN**, Link zu **Lead****/Lead-ID**
+1. Felder zu **Auto** Objekt: deduplizieren auf **VIN**, Link zu **Lead**&#x200B;**/Lead-ID**
 1. Objekt **Car** genehmigen
 
 Erstellen Sie zunächst den benutzerdefinierten Objekttyp, der autospezifische Informationen enthält.
@@ -994,7 +994,7 @@ Viele-zu-viele-Beziehungen werden mithilfe eines benutzerdefinierten „Brücken
 1. Felder zu **Kurs:** Deduplizierung auf **Kurs-ID** hinzufügen
 1. Approve **COURSE**
 1. Erstellen eines **Enrollment**-Brückenobjekts
-1. Fügen Sie Felder zu **Enrollment:** dedupe on **Enrollment ID**, link to **Course****/Course ID** field and link to **Lead**/**/Lead ID**
+1. Fügen Sie Felder zu **Enrollment:** dedupe on **Enrollment ID**, link to **Course**&#x200B;**/Course ID** field and link to **Lead**/**/Lead ID**
 1. Approve **Enrollment**
 
 Erstellen Sie zunächst den Edge-Objekttyp, um kursspezifische Informationen zu enthalten:
