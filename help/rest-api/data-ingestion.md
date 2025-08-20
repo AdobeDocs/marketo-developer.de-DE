@@ -3,7 +3,7 @@ title: Datenaufnahme
 feature: REST API, Dynamic Content
 description: Daten mit Marketo-APIs nutzen.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 13%
@@ -18,7 +18,9 @@ Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt we
 
 Schnittstellen werden für zwei Objekttypen angeboten: Personen, Benutzerdefinierte Objekte. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
 
-Die Datenaufnahme-API befindet sich derzeit in der privaten Beta-Phase.  Eingeladene müssen über eine Berechtigung für das Paket [Marketo Engage-](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) verfügen.
+>[!NOTE]
+>
+>Die Datenaufnahme-API befindet sich derzeit in der privaten Beta-Phase.  Eingeladene müssen über eine Berechtigung für das Paket [Marketo Engage-](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835) verfügen.
 
 ## Authentifizierung
 
