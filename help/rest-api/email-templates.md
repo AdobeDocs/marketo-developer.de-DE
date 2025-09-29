@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [Endpunktreferenz für E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  Während E-Mails durch HTML-Ersatz von Vorlagen getrennt werden können, müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Einschränkungen hinsichtlich des Inhalts, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier [ Anforderungen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  Während E-Mails durch HTML-Ersatz von Vorlagen getrennt werden können, müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Einschränkungen hinsichtlich des Inhalts, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier [ Anforderungen ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Abfrage
 

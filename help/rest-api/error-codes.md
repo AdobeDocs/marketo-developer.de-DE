@@ -109,7 +109,7 @@ Ein API-Aufruf, der diesen Antwort-Code zurückgibt, wird nicht auf Ihr täglich
     <tr>
       <td><a name="603"></a>603</td>
       <td>Zugriff verweigert</td>
-      <td>Die Authentifizierung ist erfolgreich, aber der Benutzer verfügt nicht über ausreichende Berechtigungen, um diese API aufzurufen. [Zusätzliche Berechtigungen](custom-services.md) müssen der Benutzerrolle möglicherweise zugewiesen werden, oder <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Zulassungsliste für IP-basierten API-Zugriff</a> muss aktiviert werden.</td>
+      <td>Die Authentifizierung ist erfolgreich, aber der Benutzer verfügt nicht über ausreichende Berechtigungen, um diese API aufzurufen. [Zusätzliche Berechtigungen](custom-services.md) müssen der Benutzerrolle möglicherweise zugewiesen werden, oder <a href="https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Zulassungsliste für IP-basierten API-Zugriff</a> muss aktiviert werden.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>

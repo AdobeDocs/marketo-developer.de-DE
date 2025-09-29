@@ -14,7 +14,7 @@ ht-degree: 3%
 
 Diese Methode sendet benutzerdefinierte Ereignisse zum Tracking und zur Echtzeit-Personalisierung. Sie kann zum Senden von Drittanbieterdaten oder zum Trigger Ihres eigenen benutzerspezifischen Ereignisses auf Grundlage des Besucherverhaltens verwendet werden. Benutzerdefinierte Datenereignisse werden einmal in der Sitzung eines Besuchers gezählt.
 
-Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [ und das RTP](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
+Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [ und das RTP](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|

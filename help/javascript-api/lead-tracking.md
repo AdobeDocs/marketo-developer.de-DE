@@ -100,7 +100,7 @@ Munchkin-Cookies sind spezifisch für jede Domain der zweiten Ebene, d. h. `exam
 
 ## Beta
 
-Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
+Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
 
 ## Opt-out
 

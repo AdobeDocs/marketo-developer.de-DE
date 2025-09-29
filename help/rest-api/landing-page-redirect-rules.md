@@ -155,7 +155,7 @@ Der `redirectTo` gibt die Ziel-Landingpage an. Dies ist ein JSON-Objekt, das ein
 | Marketo | landingPageId | {„type“:„landingPageId“,„value“:„1774“} |
 | Nicht-Marketo | URL | {„type“:„url“,„value“:“www.contactLogs.com&quot;} |
 
-Weitere Informationen zum Erstellen von Umleitungsregeln für Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
+Weitere Informationen zum Erstellen von Umleitungsregeln für Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=de).
 
 ```
 POST /rest/asset/v1/redirectRules.json
