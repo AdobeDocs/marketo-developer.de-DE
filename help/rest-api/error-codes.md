@@ -288,208 +288,208 @@ Jeder Datensatz in einer erfolgreichen Anfrage kann auf individueller Basis erfo
 >[!NOTE]
 >
 ><table>
-<tbody>
-    <tr>
-      <td>Antwortcode</td>
-      <td>Beschreibung</td>
-      <td>Kommentar</td>
-    </tr>
-    <tr>
-      <td><a name="1001"></a>1001</td>
-      <td>Ungültiger Wert "%s“. Erforderlich vom Typ "%s“</td>
-      <td>Ein Fehler wird immer dann generiert, wenn ein Parameterwert nicht mit dem Typ übereinstimmt. Beispiel: der für einen ganzzahligen Parameter angegebene Zeichenfolgenwert.</td>
-    </tr>
-    <tr>
-      <td><a name="1002"></a>1002</td>
-      <td>Fehlender Wert für den erforderlichen Parameter '%s'</td>
-      <td>Fehler wird generiert, wenn in der Anfrage ein erforderlicher Parameter fehlt</td>
-    </tr>
-    <tr>
-      <td><a name="1003"></a>1003</td>
-      <td>Ungültige Daten</td>
-      <td>Wenn die übermittelten Daten für den angegebenen Endpunkt oder Modus keinen gültigen Typ haben; z. B. wenn die ID für einen Lead mit der Aktion „createOnly“ gesendet wird oder wenn die Anfragekampagne in einer Batch-Kampagne verwendet wird.</td>
-    </tr>
-    <tr>
-      <td><a name="1004"></a>1004</td>
-      <td>Lead nicht gefunden</td>
-      <td>Für syncLead, wenn die Aktion „updateOnly“ ist und wenn kein Lead gefunden wird</td>
-    </tr>
-    <tr>
-      <td><a name="1005"></a>1005</td>
-      <td>Lead existiert bereits</td>
-      <td>Für syncLead, wenn die Aktion „createOnly“ lautet und bereits ein Lead vorhanden ist</td>
-    </tr>
-    <tr>
-      <td><a name="1006"></a>1006</td>
-      <td>Feld "%s“ nicht gefunden</td>
-      <td>Ein im Aufruf eingeschlossenes Feld ist kein gültiges Feld.</td>
-    </tr>
-    <tr>
-      <td><a name="1007"></a>1007</td>
-      <td>Mehrere Leads entsprechen den Suchkriterien</td>
-      <td>Mehrere Leads entsprechen den Suchkriterien. Aktualisierungen können nur durchgeführt werden, wenn der Schlüssel mit einem einzelnen Datensatz übereinstimmt.</td>
-    </tr>
-    <tr>
-      <td><a name="1008"></a>1008</td>
-      <td>Zugriff auf Partition '%s' verweigert</td>
-      <td>Der Benutzer für den benutzerdefinierten Dienst hat keinen Zugriff auf einen Arbeitsbereich mit der Partition, auf der der Datensatz vorhanden ist.</td>
-    </tr>
-    <tr>
-      <td><a name="1009"></a>1009</td>
-      <td>Partitionsname muss angegeben werden</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a name="1010"></a>1010</td>
-      <td>Partitionsaktualisierung nicht zulässig</td>
-      <td>Der angegebene Datensatz existiert bereits in einer separaten Lead-Partition.</td>
-    </tr>
-    <tr>
-      <td><a name="1011"></a>1011</td>
-      <td>Feld "%s“ wird nicht unterstützt</td>
-      <td>Wenn das Suchfeld oder „filterType“ mit nicht unterstützten Standardfeldern angegeben wird (z. B.: firstName, lastName)</td>
-    </tr>
-    <tr>
-      <td><a name="1012"></a>1012</td>
-      <td>Ungültiger Cookie-Wert "%s“</td>
-      <td>Kann auftreten, wenn der Aufruf <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Parameter „cookie“ erfolgt.
-        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit „filterType=cookies“ und einem ungültigen Wert für den Parameter „filterValues“ aufgerufen wird.</td>
-    </tr>
-    <tr>
-      <td><a name="1013"></a>1013</td>
-      <td>Objekt nicht gefunden</td>
-      <td>Objekt abrufen (Liste, Kampagne) nach ID gibt diesen Fehlercode zurück</td>
-    </tr>
-    <tr>
-      <td><a name="1014"></a>1014</td>
-      <td>Objekt konnte nicht erstellt werden</td>
-      <td>Objekt (Liste) konnte nicht erstellt werden</td>
-    </tr>
-    <tr>
-      <td><a name="1015"></a>1015</td>
-      <td>Lead nicht in Liste</td>
-      <td>Der angegebene Lead ist kein Mitglied der Zielliste</td>
-    </tr>
-    <tr>
-      <td><a name="1016"></a>1016</td>
-      <td>Zu viele Importe</td>
-      <td>Es gibt zu viele Importe in der Warteschlange. Es sind maximal 10 zulässig</td>
-    </tr>
-    <tr>
-      <td><a name="1017"></a>1017</td>
-      <td>Objekt bereits vorhanden</td>
-      <td>Erstellung fehlgeschlagen, da der Datensatz bereits existiert</td>
-    </tr>
-    <tr>
-      <td><a name="1018"></a>1018</td>
-      <td>CRM aktiviert</td>
-      <td>Die Aktion konnte nicht ausgeführt werden, da für die Instanz eine native CRM-Integration aktiviert ist.</td>
-    </tr>
-    <tr>
-      <td><a name="1019"></a>1019</td>
-      <td>Importvorgang wird durchgeführt</td>
-      <td>Die Zielliste wird bereits in importiert.</td>
-    </tr>
-    <tr>
-      <td><a name="1020"></a>1020</td>
-      <td>Zu viele Klone zum Programmieren</td>
-      <td>Das Abonnement hat die zugewiesene Verwendung von „cloneToProgramName“ im Zeitplan-Programm für den Tag erreicht</td>
-    </tr>
-    <tr>
-      <td><a name="1021"></a>1021</td>
-      <td>Update der Firma nicht zulässig</td>
-      <td>Update des Unternehmens während der Synchronisierung nicht zulässig</td>
-    </tr>
-    <tr>
-      <td><a name="1022"></a>1022</td>
-      <td>Verwendetes Objekt</td>
-      <td>Löschen ist nicht zulässig, wenn ein Objekt von einem anderen Objekt verwendet wird</td>
-    </tr>
-    <tr>
-      <td><a name="1025"></a>1025</td>
-      <td>Programmstatus nicht gefunden</td>
-      <td>Zum Ändern des Status des Lead-Programms wurde ein Status angegeben, der nicht mit einem Status übereinstimmt, der für den Kanal des Programms verfügbar ist.</td>
-    </tr>
-    <tr>
-      <td><a name="1026"></a>1026</td>
-      <td>Benutzerdefiniertes Objekt nicht aktiviert</td>
-      <td>Die Aktion konnte nicht ausgeführt werden, da für die Instanz die Integration benutzerdefinierter Objekte nicht aktiviert ist.</td>
-    </tr>
-    <tr>
-      <td><a name="1027"></a>1027</td>
-      <td>Maximales Limit für Aktivitätstyp erreicht</td>
-      <td>Das Abonnement hat die maximale Anzahl der verfügbaren benutzerdefinierten Aktivitätstypen erreicht.</td>
-    </tr>
-    <tr>
-      <td><a name="1028"></a>1028</td>
-      <td>Maximale Feldgrenze erreicht</td>
-      <td>Benutzerdefinierte Aktivitäten haben maximal 20 sekundäre Attribute.</td>
-    </tr>
-    <tr>
-      <td><a name="1029"></a>1029</td>
-      <td><ul>
-          <li>Zu viele Aufträge in der Warteschlange</li>
-          <li>Tägliches Exportkontingent überschritten</li>
-          <li>Auftrag bereits in der Warteschlange</li>
-        </ul></td>
-      <td><ul>
-          <li>Abonnements dürfen zu einem bestimmten Zeitpunkt maximal 10 Massenextraktionsaufträge in der Warteschlange enthalten.</li>
-          <li>Standardmäßig sind Extraktionsaufträge auf 500 MB pro Tag beschränkt (wird täglich um 0:00 Uhr CST zurückgesetzt).</li>
-          <li>Die Export-ID wurde bereits in die Warteschlange gestellt.</li>
-        </ul></td>
-    </tr>
-    <tr>
-      <td><a name="1035"></a>1035</td>
-      <td>Nicht unterstützter Filtertyp</td>
-      <td>In einigen Abonnements werden die folgenden Filtertypen für die Lead-Massenextraktion nicht unterstützt: updatedAt, smartListId, smartListName.</td>
-    </tr>
-    <tr>
-      <td><a name="1036"></a>1036</td>
-      <td>Doppeltes Objekt in Eingabe gefunden</td>
-      <td>Es wurde ein Aufruf ausgeführt, zwei oder mehr Datensätze mit demselben Fremdschlüssel zu aktualisieren. Beispiel: Ein Aufruf vom Typ „Unternehmen synchronisieren“, der dieselbe externalCompanyId für mehr als ein Unternehmen verwendet.</td>
-    </tr>
-    <tr>
-      <td><a name="1037"></a>1037</td>
-      <td>Lead wurde übersprungen</td>
-      <td>Der Lead wurde übersprungen, da er sich bereits in oder hinter diesem Status befindet.</td>
-    </tr>
-    <tr>
-      <td><a name="1042"></a>1042</td>
-      <td>Ungültiges Ausführungsdatum</td>
-      <td>Das für „Kampagne planen“ angegebene „runAt“-Datum lag zu weit in der Zukunft (maximal 2 Jahre).</td>
-    </tr>
-    <tr>
-      <td><a name="1048"></a>1048</td>
-      <td>Entwurf zum Verwerfen benutzerdefinierter Objekte fehlgeschlagen</td>
-      <td>Es wurde ein Aufruf ausgeführt, um die Entwurfsversion eines benutzerdefinierten -Objekts zu verwerfen.</td>
-    </tr>
-    <tr>
-      <td><a name="1049"></a>1049</td>
-      <td>Aktivität konnte nicht erstellt werden</td>
-      <td>Attributarray zu lang.
-        Das Array von Attributen, die an den Datensatz übergeben werden, hat die maximale Länge von 65536 Byte überschritten</td>
-    </tr>
-    <tr>
-      <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> Aufruf mit mergeInCRM-Flag ist 4.</td>
-      <td>Es wird ein doppelter Eintrag erstellt. Es wird empfohlen, stattdessen einen vorhandenen Datensatz zu verwenden.
-        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
-    </tr>
-    <tr>
-      <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf aufgrund der Länge des "SFDC-Felds“ fehlgeschlagen</td>
-      <td>Ein Aufruf zum Zusammenführen von Leads, bei dem mergeInCRM auf „true“ festgelegt ist, ist fehlgeschlagen, da das "SFDC-Feld“ die zulässige Zeichenbeschränkung überschreitet. Um dies zu korrigieren, reduzieren Sie die Länge von "SFDC Field“ oder setzen Sie mergeInCRM auf „false“.</td>
-    </tr>
-    <tr>
-      <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf fehlgeschlagen, da die gelöschte Entität, kein Lead/Kontakt oder die Feldfilterkriterien nicht übereinstimmen.</td>
-      <td>Zusammenführungsfehler, Zusammenführungsvorgang kann im nativ synchronisierten CRM nicht durchgeführt werden
-        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
-    </tr>
-    <tr>
-      <td><a name="1079"></a>1079</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Lead zusammenführen</a>-Aufruf aufgrund eines personalisierten URL-Konflikts in doppelten Einträgen fehlgeschlagen</td>
-      <td>Bei einem Aufruf zum Zusammenführen von Leads wurden viele Leads mit derselben personalisierten URL angegeben. Verwenden Sie zum Auflösen die Marketo Engage-Benutzeroberfläche, um diese Datensätze zusammenzuführen.</td>
-    </tr>
-  </tbody>
-</table>
+><tbody>
+>    <tr>
+>      <td>Antwortcode</td>
+>      <td>Beschreibung</td>
+>      <td>Kommentar</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1001"></a>1001</td>
+>      <td>Ungültiger Wert "%s“. Erforderlich vom Typ "%s“</td>
+>      <td>Ein Fehler wird immer dann generiert, wenn ein Parameterwert nicht mit dem Typ übereinstimmt. Beispiel: der für einen ganzzahligen Parameter angegebene Zeichenfolgenwert.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1002"></a>1002</td>
+>      <td>Fehlender Wert für den erforderlichen Parameter '%s'</td>
+>      <td>Fehler wird generiert, wenn in der Anfrage ein erforderlicher Parameter fehlt</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1003"></a>1003</td>
+>      <td>Ungültige Daten</td>
+>      <td>Wenn die übermittelten Daten für den angegebenen Endpunkt oder Modus keinen gültigen Typ haben; z. B. wenn die ID für einen Lead mit der Aktion „createOnly“ gesendet wird oder wenn die Anfragekampagne in einer Batch-Kampagne verwendet wird.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1004"></a>1004</td>
+>      <td>Lead nicht gefunden</td>
+>      <td>Für syncLead, wenn die Aktion „updateOnly“ ist und wenn kein Lead gefunden wird</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1005"></a>1005</td>
+>      <td>Lead existiert bereits</td>
+>      <td>Für syncLead, wenn die Aktion „createOnly“ lautet und bereits ein Lead vorhanden ist</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1006"></a>1006</td>
+>      <td>Feld "%s“ nicht gefunden</td>
+>      <td>Ein im Aufruf eingeschlossenes Feld ist kein gültiges Feld.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1007"></a>1007</td>
+>      <td>Mehrere Leads entsprechen den Suchkriterien</td>
+>      <td>Mehrere Leads entsprechen den Suchkriterien. Aktualisierungen können nur durchgeführt werden, wenn der Schlüssel mit einem einzelnen Datensatz übereinstimmt.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1008"></a>1008</td>
+>      <td>Zugriff auf Partition '%s' verweigert</td>
+>      <td>Der Benutzer für den benutzerdefinierten Dienst hat keinen Zugriff auf einen Arbeitsbereich mit der Partition, auf der der Datensatz vorhanden ist.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1009"></a>1009</td>
+>      <td>Partitionsname muss angegeben werden</td>
+>      <td></td>
+>    </tr>
+>    <tr>
+>      <td><a name="1010"></a>1010</td>
+>      <td>Partitionsaktualisierung nicht zulässig</td>
+>      <td>Der angegebene Datensatz existiert bereits in einer separaten Lead-Partition.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1011"></a>1011</td>
+>      <td>Feld "%s“ wird nicht unterstützt</td>
+>      <td>Wenn das Suchfeld oder „filterType“ mit nicht unterstützten Standardfeldern angegeben wird (z. B.: firstName, lastName)</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1012"></a>1012</td>
+>      <td>Ungültiger Cookie-Wert "%s“</td>
+>      <td>Kann auftreten, wenn der Aufruf <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Parameter „cookie“ erfolgt.
+>        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit „filterType=cookies“ und einem ungültigen Wert für den Parameter „filterValues“ aufgerufen wird.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1013"></a>1013</td>
+>      <td>Objekt nicht gefunden</td>
+>      <td>Objekt abrufen (Liste, Kampagne) nach ID gibt diesen Fehlercode zurück</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1014"></a>1014</td>
+>      <td>Objekt konnte nicht erstellt werden</td>
+>      <td>Objekt (Liste) konnte nicht erstellt werden</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1015"></a>1015</td>
+>      <td>Lead nicht in Liste</td>
+>      <td>Der angegebene Lead ist kein Mitglied der Zielliste</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1016"></a>1016</td>
+>      <td>Zu viele Importe</td>
+>      <td>Es gibt zu viele Importe in der Warteschlange. Es sind maximal 10 zulässig</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1017"></a>1017</td>
+>      <td>Objekt bereits vorhanden</td>
+>      <td>Erstellung fehlgeschlagen, da der Datensatz bereits existiert</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1018"></a>1018</td>
+>      <td>CRM aktiviert</td>
+>      <td>Die Aktion konnte nicht ausgeführt werden, da für die Instanz eine native CRM-Integration aktiviert ist.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1019"></a>1019</td>
+>      <td>Importvorgang wird durchgeführt</td>
+>      <td>Die Zielliste wird bereits in importiert.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1020"></a>1020</td>
+>      <td>Zu viele Klone zum Programmieren</td>
+>      <td>Das Abonnement hat die zugewiesene Verwendung von „cloneToProgramName“ im Zeitplan-Programm für den Tag erreicht</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1021"></a>1021</td>
+>      <td>Update der Firma nicht zulässig</td>
+>      <td>Update des Unternehmens während der Synchronisierung nicht zulässig</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1022"></a>1022</td>
+>      <td>Verwendetes Objekt</td>
+>      <td>Löschen ist nicht zulässig, wenn ein Objekt von einem anderen Objekt verwendet wird</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1025"></a>1025</td>
+>      <td>Programmstatus nicht gefunden</td>
+>      <td>Zum Ändern des Status des Lead-Programms wurde ein Status angegeben, der nicht mit einem Status übereinstimmt, der für den Kanal des Programms verfügbar ist.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1026"></a>1026</td>
+>      <td>Benutzerdefiniertes Objekt nicht aktiviert</td>
+>      <td>Die Aktion konnte nicht ausgeführt werden, da für die Instanz die Integration benutzerdefinierter Objekte nicht aktiviert ist.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1027"></a>1027</td>
+>      <td>Maximales Limit für Aktivitätstyp erreicht</td>
+>      <td>Das Abonnement hat die maximale Anzahl der verfügbaren benutzerdefinierten Aktivitätstypen erreicht.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1028"></a>1028</td>
+>      <td>Maximale Feldgrenze erreicht</td>
+>      <td>Benutzerdefinierte Aktivitäten haben maximal 20 sekundäre Attribute.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1029"></a>1029</td>
+>      <td><ul>
+>          <li>Zu viele Aufträge in der Warteschlange</li>
+>          <li>Tägliches Exportkontingent überschritten</li>
+>          <li>Auftrag bereits in der Warteschlange</li>
+>        </ul></td>
+>      <td><ul>
+>          <li>Abonnements dürfen zu einem bestimmten Zeitpunkt maximal 10 Massenextraktionsaufträge in der Warteschlange enthalten.</li>
+>          <li>Standardmäßig sind Extraktionsaufträge auf 500 MB pro Tag beschränkt (wird täglich um 0:00 Uhr CST zurückgesetzt).</li>
+>          <li>Die Export-ID wurde bereits in die Warteschlange gestellt.</li>
+>        </ul></td>
+>    </tr>
+>    <tr>
+>      <td><a name="1035"></a>1035</td>
+>      <td>Nicht unterstützter Filtertyp</td>
+>      <td>In einigen Abonnements werden die folgenden Filtertypen für die Lead-Massenextraktion nicht unterstützt: updatedAt, smartListId, smartListName.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1036"></a>1036</td>
+>      <td>Doppeltes Objekt in Eingabe gefunden</td>
+>      <td>Es wurde ein Aufruf ausgeführt, zwei oder mehr Datensätze mit demselben Fremdschlüssel zu aktualisieren. Beispiel: Ein Aufruf vom Typ „Unternehmen synchronisieren“, der dieselbe externalCompanyId für mehr als ein Unternehmen verwendet.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1037"></a>1037</td>
+>      <td>Lead wurde übersprungen</td>
+>      <td>Der Lead wurde übersprungen, da er sich bereits in oder hinter diesem Status befindet.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1042"></a>1042</td>
+>      <td>Ungültiges Ausführungsdatum</td>
+>      <td>Das für „Kampagne planen“ angegebene „runAt“-Datum lag zu weit in der Zukunft (maximal 2 Jahre).</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1048"></a>1048</td>
+>      <td>Entwurf zum Verwerfen benutzerdefinierter Objekte fehlgeschlagen</td>
+>      <td>Es wurde ein Aufruf ausgeführt, um die Entwurfsversion eines benutzerdefinierten -Objekts zu verwerfen.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1049"></a>1049</td>
+>      <td>Aktivität konnte nicht erstellt werden</td>
+>      <td>Attributarray zu lang.
+>        Das Array von Attributen, die an den Datensatz übergeben werden, hat die maximale Länge von 65536 Byte überschritten</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1076"></a>1076</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> Aufruf mit mergeInCRM-Flag ist 4.</td>
+>      <td>Es wird ein doppelter Eintrag erstellt. Es wird empfohlen, stattdessen einen vorhandenen Datensatz zu verwenden.
+>        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1077"></a>1077</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf aufgrund der Länge des "SFDC-Felds“ fehlgeschlagen</td>
+>      <td>Ein Aufruf zum Zusammenführen von Leads, bei dem mergeInCRM auf „true“ festgelegt ist, ist fehlgeschlagen, da das "SFDC-Feld“ die zulässige Zeichenbeschränkung überschreitet. Um dies zu korrigieren, reduzieren Sie die Länge von "SFDC Field“ oder setzen Sie mergeInCRM auf „false“.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1078"></a>1078</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf fehlgeschlagen, da die gelöschte Entität, kein Lead/Kontakt oder die Feldfilterkriterien nicht übereinstimmen.</td>
+>      <td>Zusammenführungsfehler, Zusammenführungsvorgang kann im nativ synchronisierten CRM nicht durchgeführt werden
+>        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
+>    </tr>
+>    <tr>
+>      <td><a name="1079"></a>1079</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Lead zusammenführen</a>-Aufruf aufgrund eines personalisierten URL-Konflikts in doppelten Einträgen fehlgeschlagen</td>
+>      <td>Bei einem Aufruf zum Zusammenführen von Leads wurden viele Leads mit derselben personalisierten URL angegeben. Verwenden Sie zum Auflösen die Marketo Engage-Benutzeroberfläche, um diese Datensätze zusammenzuführen.</td>
+>    </tr>
+>  </tbody>
+></table>
