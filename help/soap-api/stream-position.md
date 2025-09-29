@@ -1,11 +1,11 @@
 ---
 title: Stromposition
 feature: SOAP
-description: Dampfposition - Übersicht
+description: Erläutert die Stream-Position für die Paginierung zeitsequenzierter Daten in SOAP, einfache und komplexe Formate und die Verwendung in getLeadChanges, getLeadActivity und mehr
 exl-id: c3a3fc1e-086b-4822-b2c7-2a7959db557c
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '138'
+source-wordcount: '156'
 ht-degree: 0%
 
 ---

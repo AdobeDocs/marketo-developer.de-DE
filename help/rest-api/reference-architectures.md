@@ -1,11 +1,11 @@
 ---
 title: Referenzarchitekturen
 feature: REST API
-description: Referenzmaterial zur Marketo-Architektur.
+description: Erkunden Sie die Marketo-Referenzarchitekturen mit Best Practices für die Synchronisierung von Daten mit externen Systemen, einschließlich CRM- und Data Warehouse-Integrationen.
 exl-id: ba413814-d81a-4c55-a5d0-4386d87038fe
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '31'
+source-wordcount: '44'
 ht-degree: 0%
 
 ---

@@ -1,11 +1,11 @@
 ---
 title: Felder
 feature: REST API, Field Management
-description: Eine Liste der unterstützten Feldnamen.
+description: Erfahren Sie mehr über die Benennung von REST- und SOAP-Lead-Feldern, Listenfeldern über REST, beschreiben Sie den Lead, die Funktionszuordnung, warum die sfdcId null ist, und verwenden Sie die sfdcLeadId oder die sfdcContactId.
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '194'
+source-wordcount: '212'
 ht-degree: 6%
 
 ---

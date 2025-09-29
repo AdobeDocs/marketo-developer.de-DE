@@ -1,11 +1,11 @@
 ---
 title: E-Mail-Vorlagen
 feature: REST API
-description: Erstellen von E-Mail-Vorlagen mit Marketo-APIs.
+description: Erfahren Sie, wie Sie E-Mail-Vorlagen für die Marketo-REST-API erstellen und verwalten, einschließlich HTML-Anforderungen, Abfragen nach ID oder Namen und Durchsuchen von Ordnern
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '569'
+source-wordcount: '585'
 ht-degree: 2%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [Endpunktreferenz für E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  Während E-Mails durch HTML-Ersetzung von Vorlagen getrennt werden können, müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Einschränkungen hinsichtlich des Inhalts. Das HTML der Vorlage muss jedoch gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier [ Anforderungen ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  Während E-Mails durch HTML-Ersatz von Vorlagen getrennt werden können, müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Einschränkungen hinsichtlich des Inhalts, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier [ Anforderungen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Abfrage
 
@@ -192,9 +192,9 @@ Bei der Abfrage des Datensatzes selbst werden nur Metadaten über den Datensatz 
 
 ## Erstellen und aktualisieren
 
-[Erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) oder [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) ist ziemlich einfach. Der Inhalt jeder Vorlage wird als HTML-Dokument gespeichert und muss mit dem Datentyp „multipart/form-data“ der POST an Marketo übergeben werden. Sie müssen den entsprechenden Inhaltstyp-Header übergeben, der eine Begrenzung enthält, wie in den RFCs für [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) und [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt) beschrieben.
+[Erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/createEmailTemplateUsingPOST) oder [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) ist ziemlich einfach. Der Inhalt jeder Vorlage wird als HTML-Dokument gespeichert und muss mit dem Datentyp „multipart/form“ POST an Marketo übergeben werden. Sie müssen den entsprechenden Inhaltstyp-Header übergeben, der eine Begrenzung enthält, wie in den RFCs für [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) und [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt) beschrieben.
 
-Um eine Vorlage zu erstellen, müssen Sie drei Parameter einbeziehen: Name, Ordner, Inhalt. Ein optionaler Beschreibungsparameter kann enthalten sein.  Das HTML-Dokument wird im Inhaltsparameter übergeben, der auch den herkömmlichen Dateinamenparameter als Teil seines Content-Disposition-Headers enthalten muss.
+Um eine Vorlage zu erstellen, müssen Sie drei Parameter einbeziehen: Name, Ordner, Inhalt. Ein optionaler Beschreibungsparameter kann enthalten sein.  Das HTML-Dokument wird im -Inhaltsparameter übergeben, der auch den herkömmlichen Dateinamenparameter als Teil seines Content-Disposition-Headers enthalten muss.
 
 ```
 POST /rest/asset/v1/emailTemplates.json
@@ -299,7 +299,7 @@ Content-Type: text/html
 
 ## Aktualisieren von Metadaten
 
-Um [Metadaten, Namen und Beschreibung einer Vorlage zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST) können Sie denselben Endpunkt wie für die Aktualisierung von Inhalten verwenden, jedoch stattdessen eine POST application/x-www-url-formencoded mit den Parametern Name und Beschreibung übergeben.
+Um [Metadaten, Namen und Beschreibung einer Vorlage zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST) können Sie denselben Endpunkt wie für die Aktualisierung von Inhalten verwenden, aber stattdessen einen POST mit dem Namen und der Beschreibung übergeben, der vom Typ application/x-www-url-formencoded entspricht.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}.json
@@ -457,9 +457,9 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 }
 ```
 
-## Klonen
+## Klon
 
-Marketo bietet eine einfache Methode zum [Klonen einer E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). Im Gegensatz zur Erstellung erfolgt dieser Anfragetyp mit einer application/x-www-url-formencoded-POST und benötigt zwei erforderliche Parameter, Name und Ordner, ein eingebettetes JSON-Objekt mit der ID und dem Typ .  Beschreibung ist auch ein optionaler Parameter.
+Marketo bietet eine einfache Methode zum [Klonen einer E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). Im Gegensatz zur Erstellung erfolgt dieser Anfragetyp mit einem POST-Code „application/x-www-url-formencoded“ und benötigt zwei erforderliche Parameter: „name“ und „folder“, ein eingebettetes JSON-Objekt mit der ID und dem Typ .  Beschreibung ist auch ein optionaler Parameter.
 
 ```
 POST /rest/asset/v1/emailTemplate/{id}/clone.json

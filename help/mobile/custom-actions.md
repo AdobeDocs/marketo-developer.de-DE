@@ -1,12 +1,12 @@
 ---
 title: Benutzerdefinierte Aktionen
 feature: Mobile Marketing
-description: Übersicht über benutzerdefinierte Aktionen
+description: Erfahren Sie, wie Sie benutzerdefinierte Aktionen mit der Marketo Mobile SDK für iOS und Android senden und melden, offline in die Warteschlange stellen, Trigger Smart-Kampagnen durchführen und die 20 Zeichen…
 exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '291'
-ht-degree: 1%
+source-wordcount: '313'
+ht-degree: 0%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Sie können Benutzerinteraktionen verfolgen, indem Sie benutzerdefinierte Aktionen senden. Wenn Ihre Mobile App zum Senden einer benutzerdefinierten Aktion in Marketo SDK aufruft, wird die benutzerdefinierte Aktion zunächst auf dem Gerät gespeichert. Marketo SDK prüft dann, ob eine ausreichende Internetverbindung besteht, bevor die benutzerdefinierte Aktion gesendet wird. Daher kann es zu einer Verzögerung zwischen dem Zeitpunkt kommen, zu dem die benutzerdefinierte Aktion gesendet wird, und dem Zeitpunkt, zu dem sie von Marketo empfangen wird.
 
-Benutzerdefinierte Aktionen können als Trigger und Filter in Smart-Kampagnen verwendet werden. Weitere Informationen finden Sie unter [Aktivität von Mobile Apps](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Benutzerdefinierte Aktionen können als Trigger und Filter in Smart-Kampagnen verwendet werden. Weitere Informationen finden Sie unter [Aktivität von Mobile Apps](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Senden benutzerdefinierter Aktionen auf iOS
 

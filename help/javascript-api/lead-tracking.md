@@ -1,11 +1,11 @@
 ---
 title: Lead-Verfolgung
-description: Lead-Tracking-API
+description: Erfahren Sie, wie Sie Marketo Munchkin JavaScript einbetten, Besuche und Klicks verfolgen, bekannte oder anonyme Leads, domänenübergreifende Cookies und das Opt-out für intelligente Kampagnen verwalten.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '766'
+source-wordcount: '786'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Es wird dringend empfohlen, den asynchronen Trackingcode zum Einbetten von Munch
 
 Einige Content-Management-Systeme verfügen möglicherweise über bestimmte Methoden oder Einschränkungen beim Einbetten beliebiger Skripte.
 
-Als Referenz sollte Ihre letzte Seite einen Code enthalten, der dem in `<head>` Ihres HTML-Dokuments ähnelt:
+Als Referenz sollte Ihre letzte Seite Code enthalten, der dem in `<head>` Ihres HTML-Dokuments ähnelt:
 
 ```html
 <head>
@@ -66,7 +66,7 @@ Das Standardverhalten von Marketo Munchkin besteht darin, beim Laden der Seite F
 1. Senden Sie mit den Informationen auf der aktuellen Seite und im aktuellen Browser ein „Web-Seite besuchen“-Ereignis an die vorgesehene Marketo-Instanz. Dadurch wird eine Aktivität auf den entsprechenden Datensatz in Marketo aufgezeichnet.
 1. Senden Sie das Ereignis „Auf Link auf Web-Seite geklickt“ für alle Benutzerklicks auf Links.
 
-Das Verhalten von Munchkin kann durch die Verwendung von Munchkin [Konfigurationseinstellungen](configuration.md) geändert werden, z. B. ob beim Besuch der Seite mit der `cookieAnon` ein Cookie für alle Leads erstellt wird oder durch Änderung der Klickverzögerung mit `clickTime` Einstellung. Das Senden der Aktivität Besuch kann deaktiviert werden, indem die Einstellung „apiOnly“ auf „true“ gesetzt wird. Ab Version 162 (August 2022) werden neben `http/s` Links auch Klicks `tel` und `mailto` Links verfolgt.
+Das Verhalten von Munchkin kann durch die Verwendung von Munchkin [Konfigurationseinstellungen](configuration.md) geändert werden, z. B. ob beim Besuch der Seite mit der `cookieAnon` ein Cookie für alle Leads erstellt wird oder durch Änderung der Klickverzögerung mit `clickTime` Einstellung. Das Senden der Aktivität Besuch kann deaktiviert werden, indem die Einstellung „apiOnly“ auf „true“ gesetzt wird. Ab Version 162 (August 2022) werden neben `tel` Links auch Klicks `mailto` und `http/s` Links verfolgt.
 
 ## Bekannte und anonyme Leads
 
@@ -100,7 +100,7 @@ Munchkin-Cookies sind spezifisch für jede Domain der zweiten Ebene, d. h. `exam
 
 ## Beta
 
-Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
+Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
 
 ## Opt-out
 

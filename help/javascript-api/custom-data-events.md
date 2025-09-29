@@ -1,11 +1,11 @@
 ---
 title: Benutzerspezifische Datenereignisse
-description: Verwenden Sie die JavaScript-API für benutzerdefinierte Datenereignisse zum Tracking Ihrer eindeutigen Ereignisse.
+description: Senden Sie benutzerspezifische Ereignisse mit der RTP JavaScript-API für Web Personalization mit Parametern, Zeichenfolgen- oder Array-Daten von bis zu vier Elementen und klickbasierten Triggern.
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '231'
+source-wordcount: '243'
 ht-degree: 3%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 3%
 
 Diese Methode sendet benutzerdefinierte Ereignisse zum Tracking und zur Echtzeit-Personalisierung. Sie kann zum Senden von Drittanbieterdaten oder zum Trigger Ihres eigenen benutzerspezifischen Ereignisses auf Grundlage des Besucherverhaltens verwendet werden. Benutzerdefinierte Datenereignisse werden einmal in der Sitzung eines Besuchers gezählt.
 
-Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [&#128279;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTPTag auf Ihrer Site bereitgestellt haben.
+Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [ und das RTP](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 |---|---|---|---|

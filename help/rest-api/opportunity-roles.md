@@ -1,11 +1,11 @@
 ---
 title: Opportunity-Rollen
 feature: REST API
-description: Umgang mit Opportunity-Rollen in Marketo.
+description: Verwalten Sie Opportunity-Rollen von Marketo über die REST-API, einschließlich Beschreiben von Abfragen mit zusammengesetzten Deduplizierungsfeldern, Erstellen, Aktualisieren, Löschen, Timeouts und keiner CRM-Synchronisierung.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '253'
+source-wordcount: '270'
 ht-degree: 0%
 
 ---

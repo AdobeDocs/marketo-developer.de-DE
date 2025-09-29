@@ -1,11 +1,11 @@
 ---
 title: Lead-Datenbank
 feature: REST API, Database
-description: Bearbeiten Sie die Hauptdatenbank für Leads.
+description: Handbuch zu Marketo-Lead-Datenbank-APIs mit Informationen zu Objekten, CRUD-Methoden und beschreibenden Methoden, Abfragemustern, Batch-Beschränkungen und CRM-Integrationsbeschränkungen.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1342'
+source-wordcount: '1357'
 ht-degree: 1%
 
 ---

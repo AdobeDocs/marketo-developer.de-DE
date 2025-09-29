@@ -1,16 +1,16 @@
 ---
-title: Snippets
+title: Ausschnitte
 feature: REST API, Snippets
-description: Verwalten von Snippets über die Marketo-API.
+description: Marketo Asset REST-API für Snippets, die die Abfrage nach ID und das Durchsuchen mit dem Status, das Abrufen von Inhalten, das Erstellen und Aktualisieren von HTML-, Text- und dynamischen Inhalten behandelt.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '438'
+source-wordcount: '456'
 ht-degree: 2%
 
 ---
 
-# Snippets
+# Ausschnitte
 
 [Snippet-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
@@ -139,7 +139,7 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-Der Aufruf gibt eine Liste von Inhaltsabschnitten zurück,  die aus Abschnitten des Typs HTML oder des Typs DynamicContent und optional aus einem Abschnitt mit dem Typ Text bestehen.
+Der Aufruf gibt eine Liste von Inhaltsabschnitten zurück,  die aus Abschnitten des Typs HTML oder des Typs DynamicContent und optional einem Abschnitt mit dem Typ Text bestehen.
 
 ## Erstellen und aktualisieren
 
@@ -183,7 +183,7 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 }
 ```
 
-Das Hinzufügen oder Ersetzen von Inhalten in einem Snippet erfolgt nach ID. Der Inhalt kann vom Typ Text, HTML oder DynamicContent sein. Wenn der Typ „Text“ ist, ist der Inhaltsparameter ein Nur-Text-Endpunkt, während es sich bei &quot;HTML&quot; um den gewünschten Markup-Text handelt. Wenn der Typ auf DynamicContent festgelegt ist, sollte der Parameter content auf die ID der Segmentierung festgelegt werden, die mit dem Snippet verknüpft werden soll.
+Das Hinzufügen oder Ersetzen von Inhalten in einem Snippet erfolgt nach ID. Der Inhalt kann vom Typ Text, HTML oder DynamicContent sein. Wenn der Typ „Text“ ist, ist der Inhaltsparameter ein Nur-Text-Endpunkt, während es bei HTML der gewünschte Markup-Text ist. Wenn der Typ auf DynamicContent festgelegt ist, sollte der Parameter content auf die ID der Segmentierung festgelegt werden, die mit dem Snippet verknüpft werden soll.
 
 ```
 POST /rest/asset/v1/snippet/{id}/content.json
@@ -251,7 +251,7 @@ name=Test Snippet&description=New Description
 }
 ```
 
-## Dynamischer Inhalt
+## Dynamische Inhalte
 
 Ausschnitte folgen dem Standardmuster für dynamische Inhalte, stellen jedoch nur einen ganzen Inhaltsabschnitt für sich dar, sodass jedes Snippet nur einen dynamischen Abschnitt mit einer Liste interner Abschnitte enthalten kann, optional für jedes Segment in der verwendeten Segmentierung. Dynamische Inhalte können nur über Snippet-IDs abgefragt werden, da ein Snippet möglicherweise nur einen dynamischen Inhaltsabschnitt enthält.
 
@@ -398,7 +398,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 }
 ```
 
-## Klonen
+## Klon
 
 [Klonen eines Snippets](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) mit der API ist einfach und folgt dem Standardmuster, mit einem erforderlichen Namen, der ID des ursprünglichen Snippets und Ordners sowie einer optionalen Beschreibung.  Wenn keine genehmigte Version vorhanden ist, wird die Entwurfsversion geklont.
 

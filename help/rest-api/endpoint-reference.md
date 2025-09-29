@@ -1,11 +1,11 @@
 ---
 title: Endpunktverweis
 feature: REST API
-description: Marketo API-Endpunktverweise
+description: Umfassende Liste der Marketo REST-API-Endpunkte mit Methoden, URIs und erforderlichen Berechtigungen für Aktivitäten, Massenexport, Identität, Leads, Assets und Benutzer.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '4448'
+source-wordcount: '4464'
 ht-degree: 28%
 
 ---
@@ -80,7 +80,7 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Programmmitglieder importieren | Massenimport-Programmmitglieder | POST | /bulk/v1/program/{programId}/members/import.json | Lead mit Lese-/Schreibzugriff |
 | Abrufen einer Kampagne nach ID | Kampagnen | GET | /rest/v1/campaigns/{id}.json | Schreibgeschützte Kampagnen |
 | Abrufen von Kampagnen | Kampagnen | GET | /rest/v1/campaigns.json | Schreibgeschützte Kampagnen |
-| Kampagne anfordern | Kampagnen | POST | /rest/v1/campaigns/{id}/trigger.json | Kampagnen mit Lese- und Schreibzugriff |
+| Anfordern von Kampagne | Kampagnen | POST | /rest/v1/campaigns/{id}/trigger.json | Kampagnen mit Lese- und Schreibzugriff |
 | Kampagne planen | Kampagnen | POST | /rest/v1/campaigns/{id}/schedule.json | Kampagnen mit Lese- und Schreibzugriff |
 | Kanal nach Namen abrufen | Kanäle | GET | /rest/asset/v1/channel/byName.json | Schreibgeschütztes Asset |
 | Kanäle abrufen | Kanäle | GET | /rest/asset/v1/channels.json | Schreibgeschütztes Asset |
@@ -306,20 +306,20 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Smart-Liste nach ID abrufen | Intelligente Listen | GET | /rest/asset/v1/smartList/{id}.json | Schreibgeschütztes Asset |
 | Smart-Liste nach Namen abrufen | Intelligente Listen | GET | /rest/asset/v1/smartList/byName.json | Schreibgeschütztes Asset |
 | Abrufen von Smart-Listen | Intelligente Listen | GET | /rest/asset/v1/smartLists.json | Schreibgeschütztes Asset |
-| Snippet-Entwurf genehmigen | Snippets | POST | /rest/asset/v1/snippet/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
-| Ausschnitt klonen | Snippets | POST | /rest/asset/v1/snippet/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
-| Snippet erstellen | Snippets | POST | /rest/asset/v1/snippets.json | Asset mit Lese- und Schreibzugriff |
-| Ausschnitt löschen | Snippets | POST | /rest/asset/v1/snippet/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
-| Entwurf für Ausschnitt verwerfen | Snippets | POST | /rest/asset/v1/snippet/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
-| Dynamische Inhalte abrufen | Snippets | GET | /rest/asset/v1/snippet/{id}/dynamicContent.json | Schreibgeschütztes Asset |
-| Ausschnitt nach ID abrufen | Snippets | GET | /rest/asset/v1/snippet/{id}.json | Schreibgeschütztes Asset |
-| Snippet-Inhalt abrufen | Snippets | GET | /rest/asset/v1/snippet/{id}/content.json | Schreibgeschütztes Asset |
-| Snippets abrufen | Snippets | GET | /rest/asset/v1/snippets.json | Schreibgeschütztes Asset |
-| Genehmigung für Ausschnitt aufheben | Snippets | POST | /rest/asset/v1/snippet/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
-| Snippet-Inhalt aktualisieren | Snippets | POST | /rest/asset/v1/snippet/{id}/content.json | Asset mit Lese- und Schreibzugriff |
-| Dynamischen Snippet-Inhalt aktualisieren | Snippets | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | Asset mit Lese- und Schreibzugriff |
-| Snippet-Metadaten aktualisieren | Snippets | POST | /rest/asset/v1/snippet/{id}.json | Asset mit Lese- und Schreibzugriff |
-| Zur Liste hinzufügen | Statische Listen | POST | /rest/v1/lists/{listId}/leads.json | Lead mit Lese-/Schreibzugriff |
+| Snippet-Entwurf genehmigen | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
+| Ausschnitt klonen | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
+| Snippet erstellen | Ausschnitte | POST | /rest/asset/v1/snippets.json | Asset mit Lese- und Schreibzugriff |
+| Ausschnitt löschen | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
+| Entwurf für Ausschnitt verwerfen | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
+| Dynamische Inhalte abrufen | Ausschnitte | GET | /rest/asset/v1/snippet/{id}/dynamicContent.json | Schreibgeschütztes Asset |
+| Ausschnitt nach ID abrufen | Ausschnitte | GET | /rest/asset/v1/snippet/{id}.json | Schreibgeschütztes Asset |
+| Snippet-Inhalt abrufen | Ausschnitte | GET | /rest/asset/v1/snippet/{id}/content.json | Schreibgeschütztes Asset |
+| Snippets abrufen | Ausschnitte | GET | /rest/asset/v1/snippets.json | Schreibgeschütztes Asset |
+| Genehmigung für Ausschnitt aufheben | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
+| Snippet-Inhalt aktualisieren | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/content.json | Asset mit Lese- und Schreibzugriff |
+| Dynamischen Snippet-Inhalt aktualisieren | Ausschnitte | POST | /rest/asset/v1/snippet/{id}/dynamicContent/{segmentId}.json | Asset mit Lese- und Schreibzugriff |
+| Snippet-Metadaten aktualisieren | Ausschnitte | POST | /rest/asset/v1/snippet/{id}.json | Asset mit Lese- und Schreibzugriff |
+| Hinzufügen zur Liste | Statische Listen | POST | /rest/v1/lists/{listId}/leads.json | Lead mit Lese-/Schreibzugriff |
 | Erstellen einer statischen Liste | Statische Listen | POST | /asset/v1/staticLists.json | Asset mit Lese- und Schreibzugriff |
 | Statische Liste löschen | Statische Listen | POST | /asset/v1/staticList/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
 | Leads nach Listen-ID abrufen | Statische Listen | GET | /rest/v1/lists/{listId}/leads.json | Schreibgeschützter Lead |
@@ -329,7 +329,7 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Abrufen einer statischen Liste nach Namen | Statische Listen | GET | /asset/v1/staticList/byName.json | Schreibgeschütztes Asset |
 | Abrufen von statischen Listen | Statische Listen | GET | /asset/v1/staticLists.json | Schreibgeschütztes Asset |
 | Listenmitglied | Statische Listen | GET | /rest/v1/lists/{listId}/leads/ismember.json | Schreibgeschützter Lead |
-| Aus Liste entfernen | Statische Listen | DELETE | /rest/v1/lists/{listId}/leads.json | Lead mit Lese-/Schreibzugriff |
+| Entfernen aus Liste | Statische Listen | DELETE | /rest/v1/lists/{listId}/leads.json | Lead mit Lese-/Schreibzugriff |
 | Aktualisieren von Metadaten der statischen Liste | Statische Listen | POST | /asset/v1/staticList/{id}.json | Asset mit Lese- und Schreibzugriff |
 | Tag nach Namen abrufen | Tags | GET | /rest/asset/v1/tagType/byName.json | Schreibgeschütztes Asset |
 | Tag-Typen abrufen | Tags | GET | /rest/asset/v1/tagTypes.json | Schreibgeschütztes Asset |

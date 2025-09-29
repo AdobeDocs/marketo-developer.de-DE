@@ -1,11 +1,11 @@
 ---
 title: Massenimport von Leads
 feature: REST API
-description: Batch-Import von Lead-Daten.
+description: Erstellen und überwachen Sie asynchrone Massenimporte von Leads in Marketo mit CSV TSV oder SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '803'
+source-wordcount: '812'
 ht-degree: 0%
 
 ---

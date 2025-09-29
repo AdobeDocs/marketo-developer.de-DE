@@ -1,10 +1,10 @@
 ---
 title: Datenströme
-description: Übersicht über Datenströme
+description: Übersicht über Marketo Engage-Datenströme, die nahezu in Echtzeit Lead-Aktivitäten und Benutzerüberwachungsereignisse ermöglichen und so die API-Beschränkungen für Kunden der Leistungsstufe verringern
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1601'
+source-wordcount: '1620'
 ht-degree: 2%
 
 ---
@@ -90,8 +90,8 @@ Liste der gestreamten Benutzerüberwachungsereignisse:
 | Formular | Genehmigen, klonen, erstellen, löschen, Entwurf erstellen, bearbeiten, verschieben, umbenennen |
 | Formular -> Landingpage-Formular | Erstellen, klonen, bearbeiten, löschen, genehmigen, umbenennen |
 | Landingpage | Genehmigen, klonen, erstellen, löschen, Entwurf verwerfen, bearbeiten, umbenennen, Genehmigung aufheben |
-| Landing Page-Vorlage | Genehmigen, klonen, erstellen, löschen, entwurfErstellen, entwurfVerwerfen, bearbeiten, umbenennen, Genehmigung aufheben |
-| Smart List | Klonen, Erstellen, Löschen, Bearbeiten, Exportieren, Ändern der Smart-Listen-Einrichtung, Umbenennen |
+| Landingpage-Vorlage | Genehmigen, klonen, erstellen, löschen, entwurfErstellen, entwurfVerwerfen, bearbeiten, umbenennen, Genehmigung aufheben |
+| Intelligente Liste | Klonen, Erstellen, Löschen, Bearbeiten, Exportieren, Ändern der Smart-Listen-Einrichtung, Umbenennen |
 | Marketingordner | Erstellen, Bearbeiten, Löschen |
 | Nurturing-Programm | Klonen, erstellen, löschen, Kanal bearbeiten, Programmeinrichtung ändern, Programmstream ändern, Programm-Token ändern, umbenennen |
 | Segment | Erstellen, Löschen, Bearbeiten, Umbenennen |
@@ -262,7 +262,7 @@ Informationen zum Einrichten von Adobe IO finden [ unter „Einrichten von Marke
 
 ### Einrichten des User Audit-Datenstroms in Marketo
 
-Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
+Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
 
 ### Einrichten von Adobe I/O
 

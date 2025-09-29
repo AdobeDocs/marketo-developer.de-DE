@@ -1,15 +1,15 @@
 ---
-title: Predictive Content
-description: Predictive Content
+title: Prädiktive Inhalte
+description: Erfahren Sie, wie die Predictive Content JavaScript-API die dynamische Anpassung von Web-Seiten mithilfe von Rich-Media-Empfehlungen ermöglicht, um die Relevanz zu erhöhen.
 feature: Predictive Content, Javascript
 exl-id: 14c80ed6-01b3-4dfc-9073-e6b881bb0fb8
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '28'
-ht-degree: 21%
+source-wordcount: '44'
+ht-degree: 9%
 
 ---
 
-# Predictive Content
+# Prädiktive Inhalte
 
-Die JavaScript-API für prädiktive Inhalte erweitert den prädiktiven Inhalt der Plattform. Sie ermöglicht die dynamische Anpassung einer Web-Seite über [Rich Media Recommendations](rich-media-recommendation.md).
+Die JavaScript-API für prädiktive Inhalte erweitert den prädiktiven Inhalt der Plattform. Dies ermöglicht die dynamische Anpassung einer Web-Seite über [Rich-Media-Empfehlungen](rich-media-recommendation.md).

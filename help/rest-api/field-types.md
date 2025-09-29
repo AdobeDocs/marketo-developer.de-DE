@@ -1,18 +1,18 @@
 ---
 title: Feldtypen
 feature: REST API
-description: Eine Liste von Marketo-Feldtypen
+description: Umfassende Liste der Marketo-Feldtypen mit Definitionen, Beispielen und Formaten, einschließlich ISO 8601-Datum/Uhrzeit, Textbereichsbeschränkungen, Währung und boolescher Wert.
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '307'
+source-wordcount: '322'
 ht-degree: 8%
 
 ---
 
 # Feldtypen
 
-Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Informationen zu Feldtypen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Weitere Informationen zu Feldtypbeschränkungen finden Sie [hier](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Informationen zu Feldtypen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Weitere Informationen zu Feldtypbeschränkungen finden Sie [hier](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Feldtyp | Beschreibung | Beispiel |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Inf
 | E-Mail | Ein Zeichenfolgenfeld, das E-Mail-Adressen akzeptiert | <example@example.com> |
 | Gleitkomma | Ein Zahlenfeld, das reelle Zahlen enthält und eine Dezimalstelle verwenden kann. | 10,4 |
 | Ganzzahl | Ganzzahlen | 10 |
-| Formel | Felder, deren Werte durch Bearbeiten von Daten aus anderen Feldern in einem Lead-Datensatz generiert werden. Sie werden nicht exportiert und können nicht in Smart-Kampagnen verwendet werden. | Siehe diesen [Artikel](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Formel | Felder, deren Werte durch Bearbeiten von Daten aus anderen Feldern in einem Lead-Datensatz generiert werden. Sie werden nicht exportiert und können nicht in Smart-Kampagnen verwendet werden. | Siehe diesen [Artikel](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Prozent | Ein als Ganzzahl ausgedrückter Prozentsatz | 30 |
 | URL | Ein Textfeld, das die Eingabe auf URLs einschränkt, einschließlich des Protokolls der URL. | <http://example.com/> |
 | Telefon | Telefonnummer | 111-111-1111 |

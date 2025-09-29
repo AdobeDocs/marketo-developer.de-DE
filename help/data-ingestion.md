@@ -1,9 +1,9 @@
 ---
 title: Datenaufnahme
-description: Übersicht über die Datenaufnahme-API
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+description: Marketo-Datenaufnahme-API für Upserts von Personen und benutzerdefinierten Objekten mit hoher Lautstärke und niedriger Latenz, asynchroner Status über Observability, OAuth-Header-Authentifizierung, private Betaversion.
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '940'
+source-wordcount: '960'
 ht-degree: 13%
 
 ---

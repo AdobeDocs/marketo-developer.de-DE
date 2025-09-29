@@ -1,12 +1,12 @@
 ---
 title: JavaScript-API
-description: JavaScript-API
+description: Erfahren Sie, wie Sie die Marketo JavaScript-API mit Einbettungs-Code für Munchkin-Lead-Tracking, Forms 2.0, Web-Personalization und prädiktiven Inhalt verwenden.
 feature: Munchkin Tracking Code, Forms, Web Personalization, Predictive Content, Social, Javascript
 exl-id: 6129a467-be44-44bd-9e02-62009070c318
-source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '289'
-ht-degree: 2%
+source-wordcount: '309'
+ht-degree: 1%
 
 ---
 
@@ -28,7 +28,7 @@ Der [Munchkin JavaScript-Trackingcode](lead-tracking.md) von Marketo ist der Sch
 
 [Marketo Web Personalization](web-personalization.md) ist eine Targeting- und Personalization-Plattform, mit der Sie Tausende von potenziellen Kunden in Echtzeit auf Ihre Website ansprechen können, je nachdem, wer sie sind und was sie tun.
 
-## Predictive Content
+## Prädiktive Inhalte
 
 [Prädiktiver Inhalt von Marketo](predictive-content.md) Ermöglicht es Ihnen, Ihre Web-Besucher mit den relevantesten Inhalten zu interagieren, die auf maschinellem Lernen und prädiktiver Analyse basieren. Verbessern Sie Ihre Inhalte mit Textbeschreibungen und Bildern und betten Sie mehrere Inhaltsempfehlungen in Ihre Website ein.
 

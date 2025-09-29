@@ -1,12 +1,12 @@
 ---
 title: SOAP-API
 feature: SOAP
-description: Übersicht über Marketo SOAP
+description: Die Marketo SOAP-API wird nach dem 31. Oktober 2025 nicht mehr unterstützt. Erfahren Sie, wie Sie zu REST migrieren, Ihre WSDL abrufen, Kontingente, Ratenbeschränkungen und Authentifizierungseinstellungen anzeigen.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '244'
-ht-degree: 2%
+source-wordcount: '265'
+ht-degree: 1%
 
 ---
 

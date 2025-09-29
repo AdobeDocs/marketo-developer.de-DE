@@ -1,11 +1,11 @@
 ---
 title: Basis-URL
 feature: REST API
-description: Beschreibt, wie URLs für Marketo erstellt werden.
+description: Erfahren Sie, wie Sie Marketo-REST-API-Anfragen erstellen, den Basis-URL-Pfad und die Ressourcenparameter verstehen und Ihre eindeutige Basis-URL finden.
 exl-id: 6c3f122c-3ace-4ed3-bed0-a6b89cedc99a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '142'
+source-wordcount: '156'
 ht-degree: 2%
 
 ---

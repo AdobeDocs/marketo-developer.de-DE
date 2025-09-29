@@ -1,11 +1,11 @@
 ---
 title: Massenaktivität-Extrakt
 feature: REST API
-description: Daten zu Batch-Verarbeitungsaktivitäten aus Marketo.
+description: Marketo Bulk Activity Extract REST-API zum Exportieren von Aktivitätsdaten mit hohem Volumen unter Verwendung eines 31-tägigen Datumsbereichs, Aktivität und primären Attributfiltern für ETL und CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1332'
+source-wordcount: '1351'
 ht-degree: 7%
 
 ---
@@ -34,10 +34,10 @@ Die APIs zum Extrahieren von Massenaktivitäten erfordern, dass der API-Benutzer
 | Aktivitätstyp | Primäre Attributwert-ID | Retrieval-Endpunkt | Asset-Gruppe |
 | --- | --- | --- | --- |
 | Datenwert ändern | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
-| Bewertung ändern | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
+| Ändern von Bewertung | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
 | Status in Entwicklung ändern | Programm-ID | [Programm nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | Marketingprogramm |
-| Zur Liste hinzufügen | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
-| Aus Liste entfernen | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
+| Hinzufügen zur Liste | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
+| Entfernen aus Liste | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
 | Formular ausfüllen | Formular-ID | [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Webformular |
 
 Bei Verwendung von `primaryAttributeValueIds` muss der `activityTypeIds` vorhanden sein und darf nur Aktivitäts-IDs enthalten, die mit der entsprechenden Asset-Gruppe übereinstimmen. Wenn Sie beispielsweise nach Web-Formular-Assets filtern, ist in `activityTypeIds` nur die Aktivitätstyp-ID „Formular ausfüllen“ zulässig.
@@ -68,10 +68,10 @@ Beispiel-Anfragetext:
 | Aktivitätstyp | Primärer Attributwert | Retrieval-Endpunkt | Asset-Gruppe |
 | --- | --- | --- | --- |
 | Datenwert ändern | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
-| Bewertung ändern | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
+| Ändern von Bewertung | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributname |
 | Status in Entwicklung ändern | Programmname | [Programm nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | Marketingprogramm |
-| Zur Liste hinzufügen | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
-| Aus Liste entfernen | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
+| Hinzufügen zur Liste | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
+| Entfernen aus Liste | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
 | Formular ausfüllen | Formularname | [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Webformular |
 
 Beachten Sie, dass Sie &quot;&lt;<em>program</em>> verwenden müssen.&lt;<em>asset</em>>&quot; verwenden, um den Namen für die folgenden Asset-Gruppen anzugeben: Marketing-Programm, statische Liste, Web-Formular. Beispielsweise würde ein Formular mit dem Namen „MPS Outbound“, das sich unter einem Programm mit dem Namen „GL_OP_ALL_2021“ befindet, als „GL_OP_ALL_2021.MPS Outbound“ angegeben.

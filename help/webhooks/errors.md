@@ -1,11 +1,11 @@
 ---
 title: Fehler
 feature: Webhooks
-description: Fehlercodes für Webhooks
+description: Erfahren Sie mehr über Marketo Webhook-Fehler-Codes, warum 2xx-Antworten erforderlich sind, um Lead-Felder zu aktualisieren, und wie Sie Fehler mit Webhook abfangen und behandeln können.
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '235'
+source-wordcount: '256'
 ht-degree: 2%
 
 ---
@@ -20,12 +20,12 @@ Damit Marketo Werte wieder einem Feld zuordnen kann, muss der Webhook-Antwort-Co
 
 | Antwortcode | Beschreibung |
 | --- | --- |
-| 1000 | Dies zeigt an, dass die Flussaktion „Webhook aufrufen“ in einer Batch-Kampagne gespeichert wird. Webhooks können nur aus Trigger-Kampagnen ausgelöst werden. |
+| 1.000 | Dies zeigt an, dass die Flussaktion „Webhook aufrufen“ in einer Batch-Kampagne gespeichert wird. Webhooks können nur aus Trigger-Kampagnen ausgelöst werden. |
 | 1001 | Dies zeigt an, dass der Webservice einen leeren Antworttext ausgegeben hat. |
 
 ## Webhook-Fehler abfangen
 
-Fehler aus Webhooks können vom Trigger [!UICONTROL Webhook wird aufgerufen) erfasst &#x200B;] verarbeitet werden:
+Fehler aus Webhooks können vom Trigger [!UICONTROL Webhook wird aufgerufen) erfasst ] verarbeitet werden:
 
 ![Webhook wird aufgerufen](assets/webhook-called.png)
 

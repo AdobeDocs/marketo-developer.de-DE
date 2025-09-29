@@ -1,22 +1,22 @@
 ---
-title: Dynamischer Inhalt
+title: Dynamische Inhalte
 feature: REST API, Dynamic Content
-description: Konfigurieren von dynamischen Inhalten mit Marketo-APIs.
+description: Konfigurieren Sie dynamische Marketo-Inhalte auf Abschnittsebene über REST-APIs mithilfe von Segmentierungen, um E-Mails, Landingpages und Snippets mit Endpunkten und Beispielen zu personalisieren
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '426'
+source-wordcount: '441'
 ht-degree: 2%
 
 ---
 
-# Dynamischer Inhalt
+# Dynamische Inhalte
 
 Marketo erleichtert die Verwendung dynamischer Inhalte durch Lead-Segmentierung für mehrere Asset-Typen:
 
 - E-Mails
-- Landing Page
-- Snippets
+- Landingpages
+- Ausschnitte
 
 ## Überblick
 

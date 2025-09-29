@@ -1,11 +1,11 @@
 ---
 title: Ordner
 feature: REST API
-description: Bearbeiten von Ordnern mit der Marketo-API.
+description: 'Marketo-REST-API-Handbuch für Ordner, in dem Folgendes behandelt wird: Erstellen, Aktualisieren, Löschen, Abfrage nach ID und Namen, Massendurchsuchen mit Stamm, Workspace, maxDepth und Paginierung.'
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1008'
+source-wordcount: '1025'
 ht-degree: 1%
 
 ---
@@ -64,7 +64,7 @@ Der Typparameter ist erforderlich und muss einer der Werte „Folder“ oder „
 - E-Mail
 - E-Mail-Vorlage
 - Landingpage
-- Landing Page-Vorlage
+- Landingpage-Vorlage
 - Ausschnitt
 - Datei
 
@@ -211,7 +211,7 @@ Der Pfad eines Ordners zeigt seine Hierarchie in der Ordnerstruktur an, ähnlich
 
 ## Erstellen und aktualisieren
 
-[Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einer application/x-www-form-urlencoded-POST ausgeführt, die zwei erforderliche Parameter, „name“, eine Zeichenfolge und „parent“, das übergeordnete Element zum Erstellen des Ordners, enthält. Dies ist ein eingebettetes JSON-Objekt mit zwei Elementen, „id“ und „type“, entweder „Folder“ oder „Program“, je nach Typ des Zielordners. Optional kann auch „description“, eine Zeichenfolge, eingeschlossen werden, die bis zu 2.000 Zeichen lang sein kann.
+[Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einem application/x-www-form-urlencoded POST ausgeführt, der zwei erforderliche Parameter aufweist: „name“, eine Zeichenfolge und „parent“, das übergeordnete Element zum Erstellen des Ordners, wobei es sich um ein eingebettetes JSON-Objekt mit zwei Elementen, „id“ und „type“, entweder „Folder“ oder „Program“, je nach Typ des Zielordners. Optional kann auch „description“, eine Zeichenfolge, eingeschlossen werden, die bis zu 2.000 Zeichen lang sein kann.
 
 ```
 POST /rest/asset/v1/folders.json

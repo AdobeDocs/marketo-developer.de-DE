@@ -1,11 +1,11 @@
 ---
 title: Programme
 feature: REST API, Programs
-description: Erstellen und Bearbeiten von Programminformationen.
+description: Marketo-Programmhandbuch für die Asset-REST-API, das Typen, Kanäle, Tags, Mitgliedschaftsstatus und Endpunkte abdeckt, um nach ID oder Namen zu erhalten, zu durchsuchen und nach Status zu filtern.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '848'
+source-wordcount: '870'
 ht-degree: 2%
 
 ---
@@ -21,7 +21,7 @@ Programme sind eine zentrale organisatorische Komponente der Marketo-Marketing-A
 In Marketo gibt es fünf Kerntypen von Programmen:
 
 - Standard
-- Veranstaltung
+- Ereignis
 - Veranstaltung mit Webinar
 - Interaktion
 - E-Mail
@@ -483,7 +483,7 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 }
 ```
 
-## Klonen
+## Klon
 
 [Klonen von Programmen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) folgt dem Standard-Asset-Muster, dem neuen Namen und Ordner als erforderliche Parameter und einer optionalen Beschreibung.  Der `name` muss global eindeutig sein und darf 255 Zeichen nicht überschreiten.  Der `folder` ist der übergeordnete Ordner.  Das Attribut für den `folder`-Parametertyp muss auf „Ordner“ festgelegt sein und der Zielordner muss sich im selben Arbeitsbereich wie das Programm befinden, das geklont wird.
 

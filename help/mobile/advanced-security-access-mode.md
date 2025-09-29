@@ -1,11 +1,11 @@
 ---
 title: Erweiterter Sicherheitszugriffsmodus
 feature: Mobile Marketing
-description: Details zum erweiterten Sicherheitszugriffsmodus
+description: Erfahren Sie mehr über den erweiterten Sicherheitszugriffsmodus für Marketo Mobile SDK mit Beispielen für die HMAC-Signaturgenerierung, die Einrichtung von Server-Endpunkten, die Verwendung von Geräte-IDs und iOS und Android
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '303'
+source-wordcount: '321'
 ht-degree: 0%
 
 ---

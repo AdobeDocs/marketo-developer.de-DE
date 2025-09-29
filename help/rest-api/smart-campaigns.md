@@ -1,11 +1,11 @@
 ---
 title: Intelligente Kampagnen
 feature: REST API, Smart Campaigns
-description: Smart Campaign - Übersicht
+description: Erfahren Sie, wie Sie Marketo-REST-APIs für Smart-Kampagnen verwenden, einschließlich Abfragen nach ID oder Namen, Durchsuchen von Filtern, Erstellen und Löschen von Klonen und Planen oder Anfordern von Triggern
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '989'
+source-wordcount: '1012'
 ht-degree: 1%
 
 ---
@@ -185,7 +185,7 @@ Bei diesem Endpunkt gibt es einen oder mehrere Datensätze im `result`-Array.
 
 ## Erstellen
 
-Der [Create Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)-Endpunkt wird mit einer application/x-www-form-urlencoded-POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `name` gibt den Namen der zu erstellenden Smart-Kampagne an. Der Parameter `folder` gibt den übergeordneten Ordner an, in dem die intelligente Kampagne erstellt wird. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
+Der [Create Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST)-Endpunkt wird mit einem application/x-www-form-urlencoded POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `name` gibt den Namen der zu erstellenden Smart-Kampagne an. Der Parameter `folder` gibt den übergeordneten Ordner an, in dem die intelligente Kampagne erstellt wird. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
 
 Optional können Sie die Smart-Kampagne mit dem `description` Parameter (maximal 2.000 Zeichen) beschreiben.
 
@@ -239,7 +239,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 ## Update
 
-Der [Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/)-Endpunkt wird mit einer application/x-www-form-urlencoded-POST ausgeführt. Eine einzelne Smart-Campaign-`id` ist als Pfadparameter erforderlich. Sie können den `name`-Parameter verwenden, um den Namen der intelligenten Kampagne zu aktualisieren, oder den `description`-Parameter, um die Beschreibung der intelligenten Kampagne zu aktualisieren.
+Der [Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/)-Endpunkt wird mit einem application/x-www-form-urlencoded POST ausgeführt. Eine einzelne Smart-Campaign-`id` ist als Pfadparameter erforderlich. Sie können den `name`-Parameter verwenden, um den Namen der intelligenten Kampagne zu aktualisieren, oder den `description`-Parameter, um die Beschreibung der intelligenten Kampagne zu aktualisieren.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -289,9 +289,9 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 }
 ```
 
-## Klonen
+## Klon
 
-Der Endpunkt [Klonen von Smart](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)Campaign) wird mit einer application/x-www-form-urlencoded-POST mit drei erforderlichen Parametern ausgeführt. Dazu benötigt man einen `id`, der die zu klonende Smart-Kampagne angibt, einen `name`, der den Namen der neuen Smart-Kampagne angibt, und einen `folder`, der den übergeordneten Ordner angibt, in dem die neue Smart-Kampagne erstellt wird. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
+Der Endpunkt [Klonen der Smart](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)Kampagne) wird mit einem application/x-www-form-urlencoded POST mit drei erforderlichen Parametern ausgeführt. Dazu benötigt man einen `id`, der die zu klonende Smart-Kampagne angibt, einen `name`, der den Namen der neuen Smart-Kampagne angibt, und einen `folder`, der den übergeordneten Ordner angibt, in dem die neue Smart-Kampagne erstellt wird. Das Format ist ein JSON-Block mit `id` und `type` Attributen.
 
 Optional können Sie die Smart-Kampagne mit dem `description` Parameter (maximal 2.000 Zeichen) beschreiben.
 
@@ -426,7 +426,7 @@ Verwenden Sie den [Kampagne anfragen](https://developer.adobe.com/marketo-apis/a
 
 Dieser Endpunkt erfordert einen Campaign-`id` als Pfadparameter und einen `leads` ganzzahligen Array-Parameter mit Lead-IDs . Pro Aufruf sind maximal 100 Leads zulässig.
 
-Optional kann der Parameter „Array `tokens`&quot; verwendet werden, um „Meine Token lokal“ für das übergeordnete Programm der Kampagne zu überschreiben. `tokens` akzeptiert maximal 100 Token. Jedes `tokens` Array-Element enthält ein Name/Wert-Paar. Der Name des Tokens muss als &quot;{{my.name}}&quot; formatiert sein. Wenn Sie den Ansatz [Hinzufügen eines System-Tokens als Link in einer E-Mail](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) verwenden, um das System-Token „viewAsWebpageLink“ hinzuzufügen, können Sie es nicht mit `tokens` überschreiben. Verwenden Sie stattdessen [ Ansatz „Ansicht als Webseitenlink zu E-Mail hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) mit dem Sie „viewAsWebPageLink“ mit `tokens` überschreiben können.
+Optional kann der Parameter „Array `tokens`&quot; verwendet werden, um „Meine Token lokal“ für das übergeordnete Programm der Kampagne zu überschreiben. `tokens` akzeptiert maximal 100 Token. Jedes `tokens` Array-Element enthält ein Name/Wert-Paar. Der Name des Tokens muss als &quot;{{my.name}}&quot; formatiert sein. Wenn Sie den Ansatz [Hinzufügen eines System-Tokens als Link in einer E-Mail](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) verwenden, um das System-Token „viewAsWebpageLink“ hinzuzufügen, können Sie es nicht mit `tokens` überschreiben. Verwenden Sie stattdessen [ Ansatz „Ansicht als Webseitenlink zu E-Mail hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) mit dem Sie „viewAsWebPageLink“ mit `tokens` überschreiben können.
 
 Die Parameter `leads` und `tokens` werden im Anfragetext als application/json übergeben.
 

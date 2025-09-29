@@ -1,12 +1,12 @@
 ---
 title: deleteMObjects
 feature: SOAP
-description: deleteMObjects SOAP-Aufrufe
+description: Marketo SOAP deleteMObjects zum Löschen von Opportunity und OpportunityPersonRole mit Anfrage- und Antwort-XML, Code-Beispiele, die DELETED UNCHANGED FEHLGESCHLAGEN zurückgeben.
 exl-id: 31511584-5366-4af1-975b-94417680c4d9
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '58'
-ht-degree: 13%
+source-wordcount: '74'
+ht-degree: 10%
 
 ---
 

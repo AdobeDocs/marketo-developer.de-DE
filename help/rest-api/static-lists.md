@@ -1,11 +1,11 @@
 ---
 title: Statische Listen
 feature: REST API, Static Lists
-description: Durchführen von CRUD-Vorgängen für statische Listen.
+description: Verwenden Sie Marketo-REST-APIs zum Abfragen, Erstellen, Aktualisieren und Löschen von statischen Listen mit Endpunkten für ID, Name und Durchsuchen, Ordnerumfang, Paging und Datumsfilter.
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '741'
+source-wordcount: '760'
 ht-degree: 1%
 
 ---
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Erstellen und aktualisieren
 
-[Erstellen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) wird mit einer application/x-www-form-urlencoded-POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `folder` wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die statische Liste erstellt wird, und ist als JSON-Objekt mit der ID und dem Typ formatiert. Der Parameter `name` wird zum Benennen der statischen Liste verwendet und muss eindeutig sein. Optional kann der `description` Parameter zur Beschreibung der statischen Liste verwendet werden.
+[Erstellen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) wird mit einem application/x-www-form-urlencoded POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `folder` wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die statische Liste erstellt wird, und ist als JSON-Objekt mit der ID und dem Typ formatiert. Der Parameter `name` wird zum Benennen der statischen Liste verwendet und muss eindeutig sein. Optional kann der `description` Parameter zur Beschreibung der statischen Liste verwendet werden.
 
 ```
 POST /rest/asset/v1/staticLists.json
@@ -229,7 +229,7 @@ POST /rest/asset/v1/staticList/{id}/delete.json
 
 Die Listenmitgliedschafts-Endpunkte bieten die Möglichkeit, statische Listenmitglieder hinzuzufügen, zu entfernen und abzufragen. Darüber hinaus können Sie die Zugehörigkeit zu einer statischen Liste abfragen.
 
-### Zu Liste hinzufügen
+### Hinzufügen zur Liste
 
 Der [Zu Liste hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST)-Endpunkt wird verwendet, um ein oder mehrere Mitglieder zu einer Liste hinzuzufügen. Der Endpunkt benötigt einen erforderlichen `listId`-Pfadparameter und mindestens einen ID-Abfrageparameter, der Lead-IDs enthält (maximal zulässig ist 300).
 
@@ -262,7 +262,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 }
 ```
 
-### Aus Liste entfernen
+### Entfernen aus Liste
 
 Der [Aus Liste entfernen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE)-Endpunkt wird verwendet, um ein oder mehrere Mitglieder aus einer Liste zu entfernen. Der Endpunkt benötigt einen erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält (maximal zulässig ist 300).
 

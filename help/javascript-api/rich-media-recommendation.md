@@ -1,12 +1,12 @@
 ---
 title: Rich-Media-Empfehlung
-description: Rich-Media-Empfehlung
+description: Rich-Media-Empfehlung mit Marketo Predictive Content RTP-Tag einrichten, template1 template2 template3-divs, GET zum Ausfüllen, SET zum Konfigurieren von Kategorien.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '812'
-ht-degree: 5%
+source-wordcount: '831'
+ht-degree: 4%
 
 ---
 
@@ -21,7 +21,7 @@ Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, au
 1. Im Hauptteil der Seite
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
-Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 

@@ -1,11 +1,11 @@
 ---
 title: Benannte Konten
 feature: REST API
-description: Bearbeiten von benannten Konten über die API.
+description: Marketo-REST-Handbuch für CRUD zu spezifischen Konten für ABM mit Beschreibung, Abfrage, Aktualisierungsbeispielen, durchsuchbaren Feldern, Deduplizierungsregeln und keiner Lead-Verknüpfung.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '679'
+source-wordcount: '697'
 ht-degree: 1%
 
 ---

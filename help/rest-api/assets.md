@@ -1,11 +1,11 @@
 ---
 title: Assets
 feature: REST API
-description: Eine API zum Arbeiten mit Marketo-Assets.
+description: Übersicht über Marketo Asset REST-APIs zum Abfragen nach ID oder Namen, zum Durchsuchen mit Paging und zum Erstellen oder Aktualisieren von Ordnern, E-Mails, Formularen, Vorlagen, Dateien oder Token.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '876'
+source-wordcount: '894'
 ht-degree: 2%
 
 ---
@@ -22,9 +22,9 @@ Zu den Marketo-Assets gehören:
 - Programme
 - E-Mails
 - E-Mail-Vorlagen
-- Landing Page
-- Landing Page-Vorlagen
-- Snippets
+- Landingpages
+- Landingpage-Vorlagen
+- Ausschnitte
 - Formulare
 - Token
 - Dateien

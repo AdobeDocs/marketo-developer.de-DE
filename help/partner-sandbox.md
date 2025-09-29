@@ -1,10 +1,10 @@
 ---
 title: Partner-Sandbox
-description: Partner-Sandbox - Übersicht
+description: Übersicht über die Marketo Engage-Partner-Sandboxes mit Bereitstellungsinformationen und Einschränkungen für API-Aufrufe, Datensätze, E-Mail-Sendungen, benutzerdefinierte Objekte und Benutzende.
 exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '184'
+source-wordcount: '202'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 Eine Partner-Sandbox ist eine Marketo Engage-Instanz, die von Partnern während des Software-Entwicklungslebenszyklus verwendet wird. Partner verwenden ihre Sandbox, um mehr über die Vorteile zu erfahren.  und außerhalb der Marketo Engage-Benutzeroberfläche sowie für den Zugriff auf Marketo Engage-API-Services.
 
-Eine Sandbox wird bereitgestellt, nachdem ein Partner in akzeptiert wurde.  das [Adobe Exchange-Partnerprogramm „Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). In den meisten Fällen entsprechen Partner-Sandboxes einer Produktionsinstanz. In Partner-Sandboxes sind keine Add-on-Module installiert und es sind feste Kapazitätsbeschränkungen vorhanden. Nachstehend finden Sie eine FAQ gefolgt von einer Zusammenfassung der Partner-Sandbox-Funktionen.
+Eine Sandbox wird bereitgestellt, nachdem ein Partner in akzeptiert wurde.  das [Adobe Exchange-Partnerprogramm, Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). In den meisten Fällen entsprechen Partner-Sandboxes einer Produktionsinstanz. In Partner-Sandboxes sind keine Add-on-Module installiert und es sind feste Kapazitätsbeschränkungen vorhanden. Nachstehend finden Sie eine FAQ gefolgt von einer Zusammenfassung der Partner-Sandbox-Funktionen.
 
 ## Funktionsübersicht
 

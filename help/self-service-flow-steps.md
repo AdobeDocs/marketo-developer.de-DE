@@ -1,10 +1,10 @@
 ---
 title: Self-Service-Flussschritte
-description: Übersicht über Self-Service-Flussschritte
+description: Mit Self-Service-Flussschritten können Integratoren Web-APIs als Marketo-Flussschritte bereitstellen, um Lead-Daten zu verarbeiten, Services aufzurufen und Lead- und Aktivitätsdaten zurückzuschreiben
 exl-id: f4353692-9e6c-431c-b8b7-3ae96040cf3a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '80'
+source-wordcount: '101'
 ht-degree: 0%
 
 ---

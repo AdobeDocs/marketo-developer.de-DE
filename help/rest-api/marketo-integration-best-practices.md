@@ -1,11 +1,11 @@
 ---
 title: Best Practices für die Marketo-Integration
 feature: REST API
-description: Best Practices für die Verwendung von Marketo-APIs.
+description: Best Practices für Marketo-API-Integrationen, einschließlich Kontingenten, Rate- und Gleichzeitigkeitsbeschränkungen, Batching, Massenimport und -export, Caching und Latenzplanung.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '952'
+source-wordcount: '966'
 ht-degree: 0%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 0%
 
 ## API-Beschränkungen
 
-- **Tägliches Kontingent:** Die meisten Abonnements erhalten 50.000 API-Aufrufe pro Tag (die täglich um 0:00 Uhr CST zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
+- **Tägliches Kontingent:** Die meisten Abonnements erhalten 50.000 API-Aufrufe pro Tag (die täglich um 12 % :00AM zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
 - **Ratenlimit:** API-Zugriff pro Instanz beschränkt auf 100 Aufrufe pro 20 Sekunden.
 - **Parallelitätslimit:**  Maximal zehn gleichzeitige API-Aufrufe.
 - **Batch-Größe:** Lead-DB - 300 Datensätze; Asset-Abfrage - 200 Datensätze
 - **REST-API-Payload-Größe:** 1 MB
 - **Größe der Massenimportdatei:** 10 MB
-- Max. Batch-Größe für **SOAP:** 300 Datensätze
+- Maximale Batch-Größe von **SOAP:** 300 Datensätze
 - **Massenextraktionsaufträge:** 2 werden ausgeführt; 10 in die Warteschlange gestellt (einschließlich)
 
 ## Schnelltipps

@@ -1,11 +1,11 @@
 ---
 title: Landingpages
 feature: REST API, Landing Pages
-description: Abfragen von Landingpages in Marketo.
+description: Verwenden Sie die Marketo-REST-API, um Metadaten und Inhalte abzufragen, Landingpages, einschließlich geführter und Freiformtypen, zu erstellen, zu aktualisieren, zu genehmigen, zu löschen und zu klonen.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1018'
 ht-degree: 2%
 
 ---
@@ -115,7 +115,7 @@ Landingpages folgen dem standardmäßigen Entwurfsvalidierungsmodell, für das e
 
 Um eine Landingpage zu löschen, muss sie zunächst nicht mehr verwendet und nicht von anderen Marketo-Assets referenziert werden und muss außerdem nicht genehmigt sein. Seiten werden einzeln mit dem Endpunkt [Landingpage löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) gelöscht. Landingpages mit eingebetteten Social-Media-Schaltflächen können über diese API nicht gelöscht werden.
 
-## Klonen
+## Klon
 
 Marketo bietet eine einfache Methode zum Klonen einer Landingpage. Dies ist eine application/x-www-url-formecodierte POST-Anfrage.
 
@@ -191,7 +191,7 @@ Inhaltsabschnitte werden nach ihrer Indexeigenschaft sortiert und letztendlich g
 
 Bei Freiformseiten müssen alle gewünschten Inhaltsabschnitte hinzugefügt werden und werden in das div-Element mit der ID `mktoContent` eingebettet. Für geführte Seiten kann eine Liste vordefinierter Elemente in der Liste vom Endpunkt [Landingpage-Inhalte abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) vorhanden sein. Weitere können über ihre jeweiligen Endpunkte hinzugefügt [aktualisiert](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) werden.
 
-### Dynamischer Inhalt
+### Dynamische Inhalte
 
 Um einen Abschnitt mit dynamischen Inhalten zu erstellen, muss er bereits in der Inhaltsliste der Landingpage vorhanden sein. Der Endpunkt [Abschnitt Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) muss dann verwendet werden, um den Typ auf „DynamicContent“ festzulegen. Wenn ein Abschnitt auf dynamische Inhalte festgelegt ist, werden zugrunde liegende dynamische Abschnitte im Inhaltsabschnitt erstellt, die alle den Basistyp des konvertierten Elements erben. Jeder dynamische Abschnitt übernimmt auch den Inhalt des konvertierten Abschnitts.
 
@@ -274,7 +274,7 @@ Variablen werden als Meta-Tags innerhalb `<head>` Elements einer Landingpage-Vor
 </head>
 ```
 
-Weitere Informationen finden Sie im Abschnitt „Bearbeitbare Variable“ in der Dokumentation [Erstellen einer geführten Landingpage](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Weitere Informationen finden Sie im Abschnitt „Bearbeitbare Variable“ in der Dokumentation [Erstellen einer geführten Landingpage](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Abfrage
 

@@ -1,11 +1,11 @@
 ---
 title: Benutzerdefinierte Objekte
 feature: SOAP
-description: Erstellen benutzerdefinierter Objekte.
+description: Erfahren Sie, wie benutzerdefinierte Marketo-Objekte einen Lead mit vielen Datensätzen verknüpfen, mit Struktur, Beschränkungen und SOAP-API-Aufrufen für GET, SYNC, DELETE sowie die Verwendung von Smart List und E-Mail.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '231'
+source-wordcount: '256'
 ht-degree: 2%
 
 ---

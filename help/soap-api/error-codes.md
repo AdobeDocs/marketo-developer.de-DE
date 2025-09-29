@@ -1,11 +1,11 @@
 ---
 title: Fehler-Codes
 feature: SOAP
-description: Fehlercodes für SOAP-Aufrufe
+description: Referenzhandbuch zu Marketo SOAP-API-Fehler-Codes mit Nachrichten und Hinweisen, das Authentifizierungsfehler, Rate- und Parallelitätsbeschränkungen und Anfrageprobleme behandelt.
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '390'
+source-wordcount: '407'
 ht-degree: 11%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 11%
 
 Bei der Entwicklung für Marketo ist es sehr wichtig, dass Anfragen und Antworten protokolliert werden, wenn eine unerwartete Ausnahme auftritt.  Während bestimmte Arten von Ausnahmen, z. B. abgelaufene Authentifizierungen, sicher durch erneute Authentifizierung verarbeitet werden können, erfordern andere möglicherweise Support-Interaktionen, und Anfragen und Antworten werden immer in diesem Szenario angefordert.
 
-Nachfolgend finden Sie eine Liste der SOAP-API-Fehler-Codes.
+Nachfolgend finden Sie eine Liste der Fehler-Codes der SOAP-API.
 
 | Code | Nachricht | Hinweise |
 |--- |--- |--- |

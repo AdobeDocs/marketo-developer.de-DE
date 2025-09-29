@@ -1,11 +1,11 @@
 ---
 title: Massenimport benutzerdefinierter Objekte
 feature: Custom Objects
-description: Batch-Import von benutzerdefinierten Objekten.
+description: Erfahren Sie, wie Sie benutzerdefinierte Marketo-Objekte mithilfe von CSV-, TSV- oder SSV-Dateien per Massenimport über REST importieren.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: '866'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ Es ist zulässig, innerhalb von Beschränkungen mehr als eine Massenimportanfrag
 
 ## Beispiel für ein benutzerdefiniertes Objekt
 
-Vor der Verwendung der Bulk-API müssen Sie zunächst die Admin-Benutzeroberfläche von Marketo verwenden, um [Ihr benutzerdefiniertes Objekt zu erstellen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Angenommen, wir haben ein benutzerdefiniertes „Auto“-Objekt mit den Feldern „Farbe“, „Marke“, „Modell“ und „FIN“ erstellt. Im Folgenden finden Sie Bildschirme der Admin-Benutzeroberfläche mit dem benutzerdefinierten Objekt. Sie können sehen, dass wir das FIN-Feld für die Deduplizierung verwendet haben. Die API-Namen sind hervorgehoben, da sie beim Aufrufen von API-bezogenen Massenendpunkten verwendet werden müssen.
+Vor der Verwendung der Bulk-API müssen Sie zunächst die Admin-Benutzeroberfläche von Marketo verwenden, um [Ihr benutzerdefiniertes Objekt zu erstellen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Angenommen, wir haben ein benutzerdefiniertes „Auto“-Objekt mit den Feldern „Farbe“, „Marke“, „Modell“ und „FIN“ erstellt. Im Folgenden finden Sie Bildschirme der Admin-Benutzeroberfläche mit dem benutzerdefinierten Objekt. Sie können sehen, dass wir das FIN-Feld für die Deduplizierung verwendet haben. Die API-Namen sind hervorgehoben, da sie beim Aufrufen von API-bezogenen Massenendpunkten verwendet werden müssen.
 
 ![Benutzerdefiniertes Objekt einfügen](assets/bulk-insert-co-car-1.png)
 

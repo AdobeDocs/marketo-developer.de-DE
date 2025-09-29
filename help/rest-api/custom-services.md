@@ -1,11 +1,11 @@
 ---
 title: Benutzerdefinierte Services
 feature: REST API
-description: Authentifizierungsdaten mit Marketo.
+description: Erstellen Sie benutzerdefinierte Marketo-Services, legen Sie Rollen und Berechtigungen nur für APIs fest, rufen Sie die Client-ID und das Client-Geheimnis in LaunchPoint ab und erhalten Sie Zugriffstoken.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '985'
+source-wordcount: '1002'
 ht-degree: 6%
 
 ---
@@ -79,7 +79,7 @@ Im Folgenden finden Sie eine Liste aller Berechtigungen, die nur für Benutzer m
 | Rollenberechtigung | Gewährt Zugriff auf… |
 | --- | --- |
 | Assets genehmigen | Assets genehmigen |
-| Kampagne ausführen | Kampagne anfordern oder planen |
+| Ausführen von Kampagne | Kampagne anfordern oder planen |
 | Schreibgeschützte Aktivität | Lead-Aktivitäten abrufen |
 | Metadaten der schreibgeschützten Aktivität | Abrufen von Metadaten der Lead-Aktivität |
 | Schreibgeschützte Assets | Abrufen von Asset-Details |

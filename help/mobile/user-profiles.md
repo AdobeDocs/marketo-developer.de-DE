@@ -1,12 +1,12 @@
 ---
 title: Benutzerprofile
 feature: Mobile Marketing, Users and Roles
-description: Verwenden von Benutzerprofilen in Marketo Mobile
+description: Erfahren Sie, wie Sie Benutzerprofile in Marketo Mobile SDK in iOS und Android mit Swift Objective C und Java, Standard- und benutzerdefinierten Feldern erstellen und aktualisieren können, AssociateLead
 exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '83'
-ht-degree: 2%
+source-wordcount: '103'
+ht-degree: 1%
 
 ---
 

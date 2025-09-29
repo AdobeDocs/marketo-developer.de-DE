@@ -1,11 +1,11 @@
 ---
 title: '[!DNL Ionic]'
 feature: Mobile Marketing
-description: Verwenden  [!DNL Ionic]  Marketo für Mobilgeräte
+description: Schritt-für-Schritt-Anleitung zur Integration des Marketo Cordova-Plug-ins mit Ionic, zur Aktivierung von Push-Benachrichtigungen, zur Initialisierung von SDK, zur Verfolgung von Sitzungen und zur Zuordnung von Leads.
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '606'
+source-wordcount: '620'
 ht-degree: 2%
 
 ---
@@ -16,7 +16,7 @@ In diesem Abschnitt wird die Integration des Marketo Cordova-Plug-ins beschriebe
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
 1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
 1. Installieren Sie [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 

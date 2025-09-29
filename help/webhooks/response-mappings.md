@@ -1,11 +1,11 @@
 ---
 title: Response Mappings
 feature: Webhooks
-description: Antwort-Mappings für Marketo
+description: Marketo Webhooks-Antwortzuordnungen für JSON und XML, Zuordnungsattribute zu Lead-Feldern mit SOAP-API-Namen, Punkt- und Array-Notation und Typkompatibilität.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '461'
+source-wordcount: '481'
 ht-degree: 1%
 
 ---
