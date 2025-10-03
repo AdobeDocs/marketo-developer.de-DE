@@ -3,9 +3,9 @@ title: Leads
 feature: REST API
 description: Erkunden Sie die Funktionen der Marketo Leads-REST-API, einschließlich Beschreiben, Abfragen nach ID oder Filter, Standardfeldern, Beschränkungen und Abrufen von ECIDs.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: cc4bd7c18124bb039386a1cec06b9f1da0d047cb
 workflow-type: tm+mt
-source-wordcount: '3351'
+source-wordcount: '3411'
 ht-degree: 3%
 
 ---
@@ -768,7 +768,12 @@ Hier können Sie die entsprechenden Aktivitätsdetails zum Ausfüllen des Formul
 
 ## Zusammenführen
 
-Manchmal ist es erforderlich, doppelte Datensätze zusammenzuführen, und Marketo erleichtert dies über die Zusammenführungs-Leads-API. Beim Zusammenführen von Leads werden Aktivitätsprotokolle, Programm-, Kampagnen- und Listenmitgliedschaften sowie CRM-Informationen kombiniert und alle zugehörigen Feldwerte zu einem einzigen Datensatz zusammengeführt. Beim Zusammenführen von Leads wird eine Lead-ID als Pfadparameter und entweder eine einzelne `leadId` als Abfrageparameter oder eine Liste mit kommagetrennten IDs im `leadIds` Parameter verwendet.
+>[!NOTE]
+>Ab dem 31. März 2026 führen Aufrufe, die mehr als 25 IDs im `leadIds`-Parameter eines Aufrufs der Zusammenführungs-Leads-API enthalten, zu einem 1080-Fehler-Code, und der Aufruf wird übersprungen. Aufträge, für die mehr als 25 Datensätze zu einem zusammengeführt werden müssen, sollten in mehrere Aufträge aufgeteilt werden, um den Erfolg dieser Aufrufe sicherzustellen.
+>
+
+Manchmal ist es erforderlich, doppelte Datensätze zusammenzuführen, und Marketo erleichtert dies über die Zusammenführungs-Leads-API. Beim Zusammenführen von Leads werden Aktivitätsprotokolle, Programm-, Kampagnen- und Listenmitgliedschaften sowie CRM-Informationen kombiniert und alle zugehörigen Feldwerte zu einem einzigen Datensatz zusammengeführt. Beim Zusammenführen von Leads wird eine Lead-ID als Pfadparameter und entweder eine einzelne `leadId` als Abfrageparameter oder eine Liste von 25 oder weniger kommagetrennten IDs im `leadIds` Parameter verwendet
+
 
 ### Anfrage
 
@@ -814,7 +819,7 @@ Mitgliedschaft
 Lead-Datensätze können auch basierend auf der Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, bei denen ein Lead Mitglied ist.
 
 Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl filterType und filterValues mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
 
 ### Anfrage
 
