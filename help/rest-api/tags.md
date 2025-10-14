@@ -101,7 +101,7 @@ Tags können massenweise mit dem Endpunkt [Programmmetadaten aktualisieren](http
 
 ## Löschen
 
-Mit [ Endpunkt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
+Mit [&#x200B; Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

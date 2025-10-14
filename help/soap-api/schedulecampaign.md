@@ -18,7 +18,7 @@ Diese Funktion legt den Zeitplan einer Batch-Smart-Kampagne fest, sodass sie ent
 
 Ähnlich wie bei der Funktion requestCampaign können Sie ein Array von My Tokens an diesen API-Aufruf übergeben, wodurch vorhandene Token überschrieben werden. Nach der Ausführung der Kampagne werden die Token verworfen.
 
-Wenn Sie diesen optionalen Parameter mit „importToList[ verwenden](importtolist.md) werden die Token in dieser Reihenfolge priorisiert:
+Wenn Sie diesen optionalen Parameter mit „importToList[&#x200B; verwenden](importtolist.md) werden die Token in dieser Reihenfolge priorisiert:
 
 1. importToList pro Lead-Token
 1. scheduleCampaign pro Kampagnen-Token

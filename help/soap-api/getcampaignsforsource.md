@@ -16,7 +16,7 @@ Diese Funktion gibt eine Liste der in Frage kommenden Marketo-Kampagnen zurück,
 
 Wichtig: Die Smart-Kampagne muss den Trigger „Kampagne ist angefordert“ aufweisen, um sich zu qualifizieren. Seine Quelle muss die Webservice-API enthalten.
 
-![campaign_is_requested_Trigger ](assets/campaign-is-requested-trigger.png)
+![campaign_is_requested_Trigger &#x200B;](assets/campaign-is-requested-trigger.png)
 
 ## Anfrage
 

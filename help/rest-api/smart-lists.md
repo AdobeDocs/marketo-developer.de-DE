@@ -161,7 +161,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### Nach Name
 
-[Abfrage nach ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)) akzeptiert eine Smart-Listen-`name` als Parameter und gibt einen einzelnen Smart-Listen-Datensatz zurück.  Es wird eine exakte Zeichenfolgenübereinstimmung für alle Smart-Listennamen in der Instanz durchgeführt und ein Ergebnis für die Smart-Liste zurückgegeben, die mit diesem Namen übereinstimmt.
+[Abfrage nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)) akzeptiert eine Smart-Listen-`name` als Parameter und gibt einen einzelnen Smart-Listen-Datensatz zurück.  Es wird eine exakte Zeichenfolgenübereinstimmung für alle Smart-Listennamen in der Instanz durchgeführt und ein Ergebnis für die Smart-Liste zurückgegeben, die mit diesem Namen übereinstimmt.
 
 ```
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -191,7 +191,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Durchsuchen
 
-Smart-Listen können auch [in Batches abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, unter dem die Abfrage ausgeführt wird. Sie ist als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Die optionalen `earliestUpdatedAt`- und `latestUpdatedAt` Datums-/Uhrzeitparameter können verwendet werden, um die Ergebnisse nach dem Datumsbereich UpdatedAt zu filtern.
+Smart-Listen können auch [in Batches abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, unter dem die Abfrage ausgeführt wird. Sie ist als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Die optionalen `earliestUpdatedAt`- und `latestUpdatedAt` Datums-/Uhrzeitparameter können verwendet werden, um die Ergebnisse nach dem Datumsbereich UpdatedAt zu filtern.
 
 ```
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}

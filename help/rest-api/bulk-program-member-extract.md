@@ -446,7 +446,7 @@ Der Status-Endpunkt antwortet und gibt an, dass der Auftrag noch verarbeitet wir
 
 ## Daten abrufen
 
-Um die Datei eines abgeschlossenen Exports von Programmmitgliedern abzurufen, rufen Sie einfach den Endpunkt [Abrufen der ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)-Datei für Programmmitglieder) mit Ihrem `exportId` auf.
+Um die Datei eines abgeschlossenen Exports von Programmmitgliedern abzurufen, rufen Sie einfach den Endpunkt [Abrufen der &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)-Datei für Programmmitglieder) mit Ihrem `exportId` auf.
 
 Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei. Wenn ein angefordertes Programmmitgliedsfeld leer ist (keine Daten enthält), wird `null` in der Exportdatei im entsprechenden Feld platziert.
 

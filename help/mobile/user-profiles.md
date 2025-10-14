@@ -65,7 +65,7 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-Fügen Sie weitere [Standardfelder“ ](../rest-api/list-of-standard-fields.md).
+Fügen Sie weitere [Standardfelder“ &#x200B;](../rest-api/list-of-standard-fields.md).
 
 >[!BEGINTABS]
 
@@ -135,7 +135,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. Fügen Sie weitere [Standardfelder“ ](../rest-api/list-of-standard-fields.md).
+1. Fügen Sie weitere [Standardfelder“ &#x200B;](../rest-api/list-of-standard-fields.md).
 
    ```java
    // Add other custom fields

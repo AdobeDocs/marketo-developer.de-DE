@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Referenz zum Massenprogramm-Member-Importendpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
 
-Bei großen Mengen an Programmmitgliedsdatensätzen können Programmmitglieder asynchron mit der [Bulk-API“ importiert ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
+Bei großen Mengen an Programmmitgliedsdatensätzen können Programmmitglieder asynchron mit der [Bulk-API“ importiert &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
 
 ## Verarbeitungsbeschränkungen
 
@@ -139,7 +139,7 @@ Wenn der Vorgang abgeschlossen ist, wird eine Liste der verarbeiteten Zeilen, de
 
 ## Fehler
 
-Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Abrufen des Mitgliedsstatus ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an.
+Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Abrufen des Mitgliedsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an.
 
 Verwenden Sie den Endpunkt Abrufen von Fehlern bei Programmmitgliedern des Importprogramms , um Datensätze und Ursachen fehlgeschlagener Zeilen abzurufen, indem Sie den `batchId` Pfadparameter übergeben.
 
@@ -193,9 +193,9 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Warnungen
 
-Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort [Abrufen des Mitgliedsstatus ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn `numOfRowsWithWarning` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an.
+Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort [Abrufen des Mitgliedsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn `numOfRowsWithWarning` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an.
 
-Verwenden Sie den Endpunkt [Abrufen von Warnhinweisen zu ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)Abonnenten des Importprogramms“, um Datensätze und Ursachen von Warnzeilen abzurufen, indem Sie den `batchId` Pfadparameter übergeben.
+Verwenden Sie den Endpunkt [Abrufen von Warnhinweisen zu &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)Abonnenten des Importprogramms“, um Datensätze und Ursachen von Warnzeilen abzurufen, indem Sie den `batchId` Pfadparameter übergeben.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/warnings.json

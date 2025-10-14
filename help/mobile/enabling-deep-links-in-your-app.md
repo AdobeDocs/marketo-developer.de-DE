@@ -22,7 +22,7 @@ Der Prozess funktioniert wie folgt:
 
 Dazu müssen Sie eine benutzerdefinierte URI-Struktur für Ihre App definieren, das Schema im Manifest Ihrer App registrieren und dann Code hinzufügen, um Deep-Link-Ereignisse zu verarbeiten und zum richtigen Speicherort in Ihrer App zu routen.
 
-Informationen zu iOS finden Sie in der Apple-Dokumentation unter [ eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+Informationen zu iOS finden Sie in der Apple-Dokumentation unter [&#x200B; eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
 Informationen zu Android finden Sie in der Google-Dokumentation unter [Aktivieren von Deep-Links für App-Inhalte](https://developer.android.com/training/app-links/deep-linking).
 
@@ -30,7 +30,7 @@ Bei PhoneGap-Apps ist Deep-Linking nicht so einfach wie bei nativen iOS- oder An
 
 Wenn Sie Deep-Linking in Ihrer App aktiviert haben, geben Sie Ihre benutzerdefinierten URIs für Ihre Marketo-Benutzenden frei, damit diese sie in die Tipp-Aktion für Push-Nachrichten einfügen können.
 
-Marketo verwendet beim Einrichten von Testgeräten eine vordefinierte URI-Struktur. Weitere Informationen finden Sie im Abschnitt „Testgeräte[ des ](installation.md).
+Marketo verwendet beim Einrichten von Testgeräten eine vordefinierte URI-Struktur. Weitere Informationen finden Sie im Abschnitt „Testgeräte[&#x200B; des &#x200B;](installation.md).
 
 ## Best Practices für die Definition einer URI-Struktur
 

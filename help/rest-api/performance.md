@@ -34,7 +34,7 @@ Die Marketo-REST-API komprimiert den Antworttext und enthält diese Kopfzeile:
 Content-Encoding: gzip
 ```
 
-Im Folgenden finden Sie ein Beispiel unter Verwendung von cURL zum Aufrufen [ Endpunkts „Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) um 5 Leads abzurufen:
+Im Folgenden finden Sie ein Beispiel unter Verwendung von cURL zum Aufrufen [&#x200B; Endpunkts „Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) um 5 Leads abzurufen:
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

@@ -19,7 +19,7 @@ Marketo bietet eine Reihe von User Management-Endpunkten, mit denen Sie CRUD-Vor
 Im Gegensatz zu anderen Marketo-REST-APIs sollten Sie bei der Verwendung der User Management-APIs Folgendes beachten:
 
 - Sie müssen die HTTP-Header-Methode verwenden, um das Zugriffstoken zur Authentifizierung zu senden. Zugriffstoken kann nicht als Abfragezeichenfolgenparameter übergeben werden. Weitere Informationen zur Authentifizierung finden Sie [hier](authentication.md).
-- Sie müssen eine Rollenberechtigung aus zwei verschiedenen Gruppen auswählen, wenn Sie die Benutzerrolle für die REST-API [Benutzerdefinierter ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)) erstellen:
+- Sie müssen eine Rollenberechtigung aus zwei verschiedenen Gruppen auswählen, wenn Sie die Benutzerrolle für die REST-API [Benutzerdefinierter &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api)) erstellen:
    1. Berechtigung „Zugriff auf Benutzer“ aus der Gruppe [Zugriff auf Admin](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
    1. „Zugriff auf User Management-API“ aus der Gruppe [Zugriff-API](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
 - Antworttexte enthalten nicht das boolesche Attribut „success“, das den Erfolg oder Misserfolg eines Aufrufs angibt. Stattdessen müssen Sie den HTTP-Antwort-Status-Code auswerten. Wenn ein Aufruf erfolgreich ist, wird ein Status-Code von 200 zurückgegeben. Wenn ein Aufruf fehlschlägt, wird ein Status-Code ungleich 200 zurückgegeben und der Antworttext enthält das standardmäßige Array „errors“ mit Fehlercode und einer beschreibenden Fehlermeldung.
@@ -308,7 +308,7 @@ Die folgenden Parameter sind erforderlich:  `emailAddress`, `firstName`, `lastN
 
 Der `userid`-Parameter ist ein eindeutiger Zeichenfolgenwert für die Benutzerkennung, der für die Benutzeranmeldung verwendet wird und als E-Mail-Adresse formatiert sein muss. Wenn in der Anfrage nicht angegeben, wird der Wert von `userid` standardmäßig auf den in `emailAddress` Parameter angegebenen Wert festgelegt.
 
-Der boolesche `apiOnly` gibt an, ob es sich bei dem Benutzer um einen [API-only-Benutzer) ](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Der `expiresAt`-Parameter gibt an, wann die Benutzeranmeldung abläuft, und ist mit dem W3C ISO-8601-Format (ohne Millisekunden) formatiert. Wenn dies nicht in der Anfrage angegeben wird, läuft der Benutzer nie ab. Der `reason` ist eine Zeichenfolge, die den Grund für die Benutzereinladung beschreibt.
+Der boolesche `apiOnly` gibt an, ob es sich bei dem Benutzer um einen [API-only-Benutzer) &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Der `expiresAt`-Parameter gibt an, wann die Benutzeranmeldung abläuft, und ist mit dem W3C ISO-8601-Format (ohne Millisekunden) formatiert. Wenn dies nicht in der Anfrage angegeben wird, läuft der Benutzer nie ab. Der `reason` ist eine Zeichenfolge, die den Grund für die Benutzereinladung beschreibt.
 
 Der Endpunkt gibt bei Erfolg den Wert „true“ zurück, andernfalls wird eine Fehlermeldung zurückgegeben.
 
