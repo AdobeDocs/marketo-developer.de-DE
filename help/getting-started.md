@@ -31,7 +31,7 @@ Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Le
 
 Leads interagieren auf verschiedene Weise mit Ihrer Organisation. Ein Lead kann eine Seite auf der Website Ihres Unternehmens besuchen, an einer Messe teilnehmen oder ein Whitepaper herunterladen. Jede dieser Aktionen kann in Marketo erfasst werden, damit Marketing-Experten besser verstehen können, welche Aktivitäten ein Lead wann ausgeführt hat, damit sie zeitnahe und relevante Nachrichten koordinieren können. Aktivitäten werden durch die Lead-ID immer wieder mit Leads verbunden.
 
-Sie können Ihre eigenen benutzerdefinierten Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie benutzerdefinierte Aktivitäten über die Marketo-API hinzufügen. Weitere Informationen zu benutzerdefinierten Aktivitäten finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+Sie können Ihre eigenen benutzerdefinierten Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie benutzerdefinierte Aktivitäten über die Marketo-API hinzufügen. Weitere Informationen zu benutzerdefinierten Aktivitäten finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -49,7 +49,7 @@ Tags sind eine Möglichkeit, Daten zu Berichtszwecken zu gruppieren. Diese Kennu
 
 Als Marketo-Administrator können Sie erforderliche und optionale Tag-Typen erstellen, die ausgewählt werden können, wenn ein Marketo-Benutzer ein Programm erstellt. Mögliche Werte für jeden dieser Tag-Typen werden von Ihnen definiert und spiegeln wider, wie Ihr Unternehmen benutzerdefinierte Tags zu Berichtszwecken verwenden möchte.
 
-Beispielsweise können Sie einen benutzerdefinierten Tag-Typ „Region“ mit mehreren Tag-Werten (z. B. Nordosten, Südosten) erstellen, um zu analysieren, welche Region die meisten Leads generiert. Sie können auch einen Tag-Typ „Verantwortlicher“ erstellen, mit dem Sie beurteilen und verstehen können, welche Programm-Verantwortlichen (z. B. Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen zu Tags finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Beispielsweise können Sie einen benutzerdefinierten Tag-Typ „Region“ mit mehreren Tag-Werten (z. B. Nordosten, Südosten) erstellen, um zu analysieren, welche Region die meisten Leads generiert. Sie können auch einen Tag-Typ „Verantwortlicher“ erstellen, mit dem Sie beurteilen und verstehen können, welche Programm-Verantwortlichen (z. B. Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen zu Tags finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
@@ -85,7 +85,7 @@ Auf Programm- oder Ordnerebene definierte Token werden in Marketo als „Meine T
 
 Meine Token, die lokal in einem bestimmten Kampagnenordner oder -programm erstellt wurden, stehen diesem bestimmten Programm oder Kampagnenordner (lokal) zur Verfügung. Meine Token, die auf der Kampagnenordnerebene erstellt werden, sind für alle Programme in diesem Kampagnenordner verfügbar (geerbt). Meine Token, die auf Programmebene mit benutzerdefinierten Werten geändert werden, ändern den übergeordneten Wert meines Tokens des Tokens auf Programmebene nicht (überschrieben).
 
-Meine Token verwenden die Namenskonvention {{my.My Token}}, wobei das Wort „my“ am Anfang des Token-Namens hinzugefügt wird. Wenn Sie beispielsweise einen Datumstyp My Token mit dem Namen EventDate erstellen, wird der Name des Tokens {{my.EventDate}}. Weitere Informationen zu „Meine Token“ finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Meine Token verwenden die Namenskonvention {{my.My Token}}, wobei das Wort „my“ am Anfang des Token-Namens hinzugefügt wird. Wenn Sie beispielsweise einen Datumstyp My Token mit dem Namen EventDate erstellen, wird der Name des Tokens {{my.EventDate}}. Weitere Informationen zu „Meine Token“ finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 
