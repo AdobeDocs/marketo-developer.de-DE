@@ -3,9 +3,9 @@ title: REST-API
 feature: REST API
 description: Erfahren Sie, wie Sie die Marketo-REST-API verwenden, API-Benutzer und LaunchPoint einrichten, Kontingente und Beschränkungen anzeigen, sich mit dem Autorisierungs-Header authentifizieren und Leads abrufen.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 5f2dcb4864cdcd110ba9f199ef9c86dcee522335
 workflow-type: tm+mt
-source-wordcount: '828'
+source-wordcount: '844'
 ht-degree: 1%
 
 ---
@@ -14,10 +14,14 @@ ht-degree: 1%
 
 Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis zum Massenimport von Leads gibt es viele Optionen, die eine feinkörnige Steuerung einer Marketo-Instanz ermöglichen.
 
-Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[&#x200B; „Lead-](https://developer.adobe.com/marketo-apis/api/mapi/)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
+Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[ „Lead-](https://developer.adobe.com/marketo-apis/api/mapi/)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
 
 >[!NOTE]
->Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Oktober 2025 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](./rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-API[Migrationshandbuch](../soap-api/migration.md) Informationen zur Migration.
+>Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Januar 2026 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](./rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-API[Migrationshandbuch](../soap-api/migration.md) Informationen zur Migration.
+>
+
+>[!IMPORTANT]
+>Siehe diesen [Nation-Beitrag](https://nation.marketo.com/t5/product-blogs/rest-api-double-slash-deprecation/ba-p/358616) über die Einstellung des doppelten Schrägstrichs in API-Gateway-URLs.
 >
 
 - **Tägliches Kontingent:**-Abonnements werden mit 50.000 API-Aufrufen pro Tag zugewiesen (die täglich um 12 Uhr :00AM zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
