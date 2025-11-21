@@ -1,11 +1,11 @@
 ---
 title: Lead-Verfolgung
-description: Erfahren Sie, wie Sie Marketo Munchkin JavaScript einbetten, Besuche und Klicks verfolgen, bekannte oder anonyme Leads, domänenübergreifende Cookies und das Opt-out für intelligente Kampagnen verwalten.
+description: Erfahren Sie, wie Sie Marketo Munchkin JavaScript einbetten, Besuche und Klicks verfolgen, bekannte oder anonyme Leads verwalten, domänenübergreifende Cookies verwenden und sich gegen intelligente Kampagnen entscheiden.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '786'
+source-wordcount: '787'
 ht-degree: 0%
 
 ---
@@ -76,7 +76,7 @@ Beim ersten Besuch eines Leads auf einer Seite Ihrer Domain wird in Marketo ein 
 - Der Lead muss ein Marketo-Formular ausfüllen.
 - Ein REST[Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)-Aufruf muss gesendet werden.
 
-Sobald eine dieser Bedingungen erfüllt ist, werden das Cookie und alle zugehörigen Web-Aktivitäten mit dem bekannten Lead verknüpft.
+Wenn eine dieser Bedingungen erfüllt ist, werden das Cookie und alle zugehörigen Web-Aktivitäten mit dem bekannten Lead verknüpft.
 
 Für jeden einzelnen Browser wird ein neuer anonymer Webaktivitätseintrag erstellt. Wenn also ein Lead zum ersten Mal mit einem neuen Computer und/oder Browser Ihre Domain besucht, muss diese Zuordnung erneut stattfinden.
 
@@ -84,23 +84,23 @@ Für jeden einzelnen Browser wird ein neuer anonymer Webaktivitätseintrag erste
 
 Munchkin erstellt und verfolgt einzelne Cookies domänenweise. Damit das bekannte Lead-Tracking domänenübergreifend erfolgt, muss für jede Domain ein Lead-Zuordnungsereignis vorliegen. Wenn ich beispielsweise zwei Domains, `marketo.com` und `example.com`, kontrolliere und ein Lead ein Formular bei `marketo.com` ausfüllt und dann zu `example.com` navigiert, wird seine Aktivität bei `marketo.com` in einem bekannten Lead-Eintrag verfolgt, aber seine Aktivität bei `example.com` ist anonym. Bekannte Leads bleiben jedoch über Subdomains hinweg bestehen, sodass ein bekannter Lead auf `www.example.com` auch ein bekannter Lead auf `info.example.com` ist.
 
-Falls Ihre Domain auf oberster Ebene aus zwei Teilen besteht, z. B. `.co.uk`, fügen Sie Ihrem Munchkin-Snippet einen domainLevel-Parameter hinzu, damit der Code ordnungsgemäß verfolgt wird. Weitere Informationen [&#x200B; Sie &#x200B;](configuration.md#domainlevel)hier).
+Falls Ihre Domain auf oberster Ebene aus zwei Teilen besteht, z. B. `.co.uk`, fügen Sie Ihrem Munchkin-Snippet einen domainLevel-Parameter hinzu, damit der Code ordnungsgemäß verfolgt wird. Weitere Informationen [ Sie ](configuration.md#domainlevel)hier).
 
 ## Cookie
 
 Das Munchkin-Cookie verwendet die `_mkto_trk` und hat einen Wert, der diesem Muster folgt:
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
+`id:561-HYG-937&token:_mch-marketo.com-1374552656411-90718`
 
-oder
+Or
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-97bf4361ef4433921a6da262e8df45a`
+`id:561-HYG-937&token:_mch-marketo.com-97bf4361ef4433921a6da262e8df45a`
 
 Munchkin-Cookies sind spezifisch für jede Domain der zweiten Ebene, d. h. `example.com`. Die Standardlebensdauer des Cookies beträgt 2 Jahre (730 Tage).
 
 ## Beta
 
-Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
+Um sich für Ihre Landingpages für den Munchkin Beta-Kanal zu registrieren, gehen Sie zum Menü [Admin -> Schatztruhe](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) und aktivieren Sie die Einstellung &quot;Munchkin Beta auf Landingpages“. Dadurch werden neue Code-Snippets in der Datei **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]**-Menü, über das Sie die Betaversion auf externen Sites verwenden können.
 
 ## Opt-out
 
