@@ -99,7 +99,7 @@ Die SOAP-API unterstützt nur drei Anwendungsfälle für intelligente Kampagnen:
 
 | SOAP-Methode | REST-Methode(n) |
 | --- | --- |
-| [getCampaignForSource](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/campaigns/getcampaignsforsource) | [Intelligente Kampagnen ](https://developer.adobe.com/marketo-apis/api/asset/#operation/getAllSmartCampaignsGET) |
+| [getCampaignForSource](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/campaigns/getcampaignsforsource) | [Intelligente Kampagnen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#operation/getAllSmartCampaignsGET) |
 | [requestCampaign](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/campaigns/requestcampaign) | [Kampagne anfordern](https://developer.adobe.com/marketo-apis/api/mapi/#operation/triggerCampaignUsingPOST) |
 | [scheduleCampaign](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/campaigns/schedulecampaign) | [Kampagne planen](https://developer.adobe.com/marketo-apis/api/mapi/#operation/scheduleCampaignUsingPOST) |
 
