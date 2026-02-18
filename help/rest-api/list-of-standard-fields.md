@@ -3,10 +3,10 @@ title: Standardfelder
 feature: REST API, Field Management
 description: Durchsuchen Sie die vollständige Liste der standardmäßigen Marketo-Lead-Felder mit REST- und SOAP-Namen, -Kennzeichnungen und -Beschreibungen sowie Anleitungen zum Abrufen über die API zum Beschreiben von Leads.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
 workflow-type: tm+mt
-source-wordcount: '1161'
-ht-degree: 28%
+source-wordcount: '727'
+ht-degree: 25%
 
 ---
 
@@ -47,33 +47,6 @@ Sie können die Liste aller unterstützten Feldnamen in Ihren Lead-Datensätzen 
 | mainPhone | MainPhone | Haupttelefonnummer | Primäre Telefonnummer des Unternehmens des Leads |
 | jigsawContactId | Marketo Jigsaw – Kontakt-ID | Marketo Data.com – ID | Data.com ID des Leads, falls verfügbar |
 | PuzzleContactStatus | Marketo Jigsaw – Kontaktstatus | Marketo Data.com – Status | Status Data.com des Leads, falls verfügbar |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Marketo Social – Facebook-Anzeigename | Facebook-Anzeigename des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| facebookId | MarketoSocialFacebookId | Marketo Social Facebook-ID | Facebook-ID des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| facebookFotoURL | MarketoSocialFacebookPhotoURL | Marketo Social – Facebook-Foto-URL | URL des Facebook-Profilbilds des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| facebookProfileURL | MarketoSocialFacebookProfileURL | Marketo Social – Facebook-Profil-URL | URL des Facebook-Profils des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| facebookReach | MarketoSocialFacebookReach | Marketo Social – Facebook-Reichweite | Die Facebook-Reichweite des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| facebookReferredEnrollments | MarketoSocialFacebookReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei Facebook | Anzahl der weitergeleiteten Registrierungen, die dem Lead über Facebook zugeordnet wurden. Vom System verwaltet |
-| facebookReferredVisits | MarketoSocialFacebookReferredVisits | Marketo Social – Bezeichnete Besuche bei Facebook | Anzahl der verwiesenen Besuche, die dem Lead über Facebook zugeordnet wurden. Vom System verwaltet |
-| Geschlecht | MarketoSocialGender | Marketo Social – Geschlecht | Geschlecht des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| lastReferredEnrollment | MarketoSocialLastReferredEnrollment | Marketo Social – Letzte bezeichnete Registrierung | Datum der letzten abgeschlossenen Empfehlung. Vom System verwaltet |
-| lastReferredVisit | MarketoSocialLastReferredVisit | Marketo Social – Letzter bezeichneter Besuch | Datum des letzten Besuchs. Vom System verwaltet |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Marketo Social – LinkedIn-Anzeigename | LinkedIn-Anzeigename des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| linkinId | MarketoSocialLinkedInId | Marketo Social LinkedIn-ID | LinkedIn-ID des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | Marketo Social – LinkedIn-Foto-URL | LinkedIn-Foto-URL des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| linkedInProfileURL | MarketoSocialLinkedInProfileURL | Marketo Social – LinkedIn-Profil-URL | LinkedIn-Profil des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| linkedInReach | MarketoSocialLinkedInReach | Marketo Social – LinkedIn-Reichweite | LinkedIn-Reichweite des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| linkedInReferredEnrollments | MarketoSocialLinkedInReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei LinkedIn | Anzahl der verwiesenen Registrierungen, die dem Lead über LinkedIn zugewiesen wurden. Vom System verwaltet |
-| linkedInReferredVisits | MarketoSocialLinkedInReferredVisits | Marketo Social – Bezeichnete Besuche bei LinkedIn | Anzahl der dem Lead über LinkedIn zugewiesenen verwiesenen Besuche. Vom System verwaltet |
-| syndicationId |  - | Marketo Social Syndication-ID | Interne Marketo Social-ID des Leads. Vom System verwaltet |
-| totalReferredEnrollments | MarketoSocialTotalReferredEnrollments | Marketo Social – Bezeichnete Registrierungen insgesamt | Gesamtzahl der abgeschlossenen Empfehlungsregistrierungen, die dem Lead zugeordnet wurden |
-| totalReferredVisits | MarketoSocialTotalReferredVisits | Marketo Social – Bezeichnete Besuche insgesamt | Gesamtzahl der dem Lead zugewiesenen verwiesenen Besuche |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo Social – Twitter-Anzeigename | Twitter-Anzeigename des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| twitterId | MarketoSocialTwitterId | Marketo Social Twitter-ID | Twitter-ID des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| twitterFotoURL | MarketoSocialTwitterPhotoURL | Marketo Social – Twitter-Foto-URL | Twitter-Foto-URL des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| twitterProfileURL | MarketoSocialTwitterProfileURL | Marketo Social – Twitter-Profil-URL | Twitter-Profil-URL des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| twitterReach | MarketoSocialTwitterReach | Marketo Social – Twitter-Reichweite | Twitter-Reichweite des Leads. System wird während der Anmeldung bei Social Media ausgefüllt |
-| twitterReferredEnrollments | MarketoSocialTwitterReferredEnrollments | Marketo Social – Bezeichnete Registrierungen bei Twitter | Anzahl der weitergeleiteten Registrierungen, die dem Lead über Twitter zugeordnet wurden. Vom System verwaltet |
-| twitterReferredVisits | MarketoSocialTwitterReferredVisits | Marketo Social – Bezeichnete Besuche bei Twitter | Anzahl der verwiesenen Besuche, die dem Lead über Twitter zugeordnet wurden. Vom System verwaltet |
 | MiddleName | MiddleName | Zweiter Vorname | Zweiter Vorname des Leads |
 | Mobiltelefon | MobilePhone | Mobiltelefonnummer | Mobiltelefonnummer des Leads |
 | numberOfEmployees | NumberOfEmployees | Anzahl Mitarbeiter | Anzahl der Mitarbeiter des Lead-Unternehmens |
