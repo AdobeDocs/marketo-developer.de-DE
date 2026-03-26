@@ -3,9 +3,9 @@ title: Massenimport
 feature: REST API
 description: Massenimport von Marketo zum Laden von Leads, benutzerdefinierten Objekten und Programmmitgliedern über mehrteilige Uploads, Erstellen asynchroner Aufträge, Abfragestatus und die Verarbeitung von Fehlern.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '610'
+source-wordcount: '660'
 ht-degree: 2%
 
 ---
@@ -46,7 +46,7 @@ Der Massenimport ist ein Datensatzvorgang vom Typ „Einfügen oder Aktualisiere
 
 ## Erstellen von Aufträgen
 
-Die Massenimport-APIs von Marketo verwenden das Konzept eines Auftrags zum Ausführen des Datenimports. Im Folgenden wird das Erstellen eines einfachen Lead-Importvorgangs mit dem Endpunkt [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) beschrieben.  Beachten Sie, dass dieser Endpunkt [multipart/form-data als Inhaltstyp“ &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dies kann schwierig sein, sodass die Best Practice darin besteht, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden.  Wenn Sie nur nasse Füße bekommen, empfehlen wir, dass Sie [cURL](https://curl.se/) verwenden.
+Die Massenimport-APIs von Marketo verwenden das Konzept eines Auftrags zum Ausführen des Datenimports. Im Folgenden wird das Erstellen eines einfachen Lead-Importvorgangs mit dem Endpunkt [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) beschrieben.  Beachten Sie, dass dieser Endpunkt [multipart/form-data als Inhaltstyp“ ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dies kann schwierig sein, sodass die Best Practice darin besteht, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden.  Wenn Sie nur nasse Füße bekommen, empfehlen wir, dass Sie [cURL](https://curl.se/) verwenden.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -93,7 +93,7 @@ Wenn wir den Auftrag übermitteln, wird eine batchId zurückgegeben, mit der wir
 Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konfigurieren des Dateiformats, der Feldnamen und des Filters eines Massenextraktionsauftrags.  Jeder Subtyp des Extraktionsvorgangs kann über zusätzliche Parameter verfügen:
 
 | Parameter | Datentyp | Hinweise |
-|---|---|---|
+| --- | --- | --- |
 | Format | String | Bestimmt das Dateiformat der importierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und Semikolon-getrennte Werte. Akzeptiert eine der folgenden Optionen: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
 | Datei | String | Daten werden durch mehrteilige Formulardaten in der Datei angegeben. |
 

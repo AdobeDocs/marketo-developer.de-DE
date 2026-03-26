@@ -3,9 +3,9 @@ title: Fehler-Codes
 feature: SOAP
 description: Referenzhandbuch zu Marketo SOAP-API-Fehler-Codes mit Nachrichten und Hinweisen, das Authentifizierungsfehler, Rate- und Parallelitätsbeschränkungen und Anfrageprobleme behandelt.
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
+source-wordcount: '408'
 ht-degree: 11%
 
 ---
@@ -17,7 +17,7 @@ Bei der Entwicklung für Marketo ist es sehr wichtig, dass Anfragen und Antworte
 Nachfolgend finden Sie eine Liste der Fehler-Codes der SOAP-API.
 
 | Code | Nachricht | Hinweise |
-|--- |--- |--- |
+| --- | --- | --- |
 | 10001 | Interner Fehler | Schwerwiegender Systemausfall |
 | 20011 | Interner Fehler | API-Dienstfehler |
 | 20012 | Anfrage nicht verstanden | Unerwartete SOAP-Nachricht |

@@ -3,7 +3,7 @@ title: Zusammenführen von Leads
 feature: SOAP
 description: Verwenden Sie mergeLeads mit Marketo SOAP, um erfolgreichste und verlorene Lead-Datensätze zusammenzuführen. Enthält Anfragefelder, XML-Anfrage und -Antwort sowie PHP- und Java-Beispiele.
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '104'
 ht-degree: 8%

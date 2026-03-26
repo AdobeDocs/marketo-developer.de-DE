@@ -3,9 +3,9 @@ title: Zielseiten-Umleitungsregeln
 feature: REST API, Landing Pages
 description: Verwenden Sie Marketo Asset REST-APIs zum Erstellen, Abfragen, Aktualisieren und Löschen von Umleitungsregeln für Landingpages mit Filtern, Paginierung, Host-Namen-Optionen und Nicht-Marketo-Zielen.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '655'
+source-wordcount: '776'
 ht-degree: 3%
 
 ---
@@ -143,7 +143,7 @@ Der Parameter `hostname` gibt den Host-Namen für die Landingpage an. Dieser sol
 Der `redirectFrom` gibt die Quell-Landingpage an. Dies ist ein JSON-Objekt, das ein Typ-Wert-Paar enthält, das bestimmt, ob es sich bei der Quelle um eine Marketo-Landingpage oder eine Nicht-Marketo-Landingpage handelt. Das `type`-Attribut kann entweder „landingPageId“ oder „path“ sein.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;GET&#39; | Erforderlich | String | Aktion der Methode. |
 | &#39;Besucher&#39; | Erforderlich | String | Methodenname. |
 | Rückruf | Erforderlich | Funktion | Callback-Funktion, die für jede zurückgegebene Kampagne ausgelöst werden soll. |
@@ -151,11 +151,11 @@ Der `redirectFrom` gibt die Quell-Landingpage an. Dies ist ein JSON-Objekt, das 
 Der `redirectTo` gibt die Ziel-Landingpage an. Dies ist ein JSON-Objekt, das ein Typ-Wert-Paar enthält, das bestimmt, ob es sich bei der Quelle um eine Marketo-Landingpage oder eine Nicht-Marketo-Landingpage handelt. Das `type`-Attribut kann entweder „landingPageId“ oder „url“ sein.
 
 | Landingpage-Typ | redirectTo-Typ | Beispiel |
-|---|---|---|
+| --- | --- | --- |
 | Marketo | landingPageId | {„type“:„landingPageId“,„value“:„1774“} |
 | Nicht-Marketo | URL | {„type“:„url“,„value“:“www.contactLogs.com&quot;} |
 
-Weitere Informationen zum Erstellen von Umleitungsregeln für Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=de).
+Weitere Informationen zum Erstellen von Umleitungsregeln für Landingpages finden Sie [hier](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
 ```
 POST /rest/asset/v1/redirectRules.json
@@ -198,7 +198,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Update
 
-Der Endpunkt [Aktualisierung der Umleitungsregeln für &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ akzeptiert eine einzige Umleitungsregel für Landingpages `id` den Pfadparameter . Dieser Endpunkt wird mit einem application/x-www-form-urlencoded POST ausgeführt.
+Der Endpunkt [Aktualisierung der Umleitungsregeln für ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ akzeptiert eine einzige Umleitungsregel für Landingpages `id` den Pfadparameter . Dieser Endpunkt wird mit einem application/x-www-form-urlencoded POST ausgeführt.
 
 Wie beim oben beschriebenen create-Aufruf werden einer oder mehrere der folgenden Abfrageparameter übergeben, um anzugeben, welches Attribut der Regel aktualisiert werden soll: `hostname`, `redirectFrom`, `redirectTo`.
 

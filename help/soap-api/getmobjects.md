@@ -3,9 +3,9 @@ title: getMObjects
 feature: SOAP
 description: Verwenden Sie getMObjects, um Marketo-MObjects nach ID, Attributen oder Zuordnungen bis zu 100 pro Batch abzurufen, mit streamPosition paginieren, mit XML-Beispielen.
 exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '245'
+source-wordcount: '246'
 ht-degree: 7%
 
 ---
@@ -25,7 +25,7 @@ Gibt eine Liste übereinstimmender MO-Objekte eines einzigen Typs mit bis zu 100
 | Feldname | Erforderlich/Optional | Beschreibung |
 | --- | --- | --- |
 | type | Erforderlich | Der Objekttyp, den Sie abfragen möchten. Kann einer der folgenden sein: `Opportunity`, `OpportunityPersonRole` oder `Program` |
-| ID | Optional | ID des MObject |
+| id | Optional | ID des MObject |
 | includeDetails | Optional | Wenn „true“, werden alle Attribute für ein bestimmtes MObject zurückgegeben. Dieser Parameter gilt nur bei Verwendung mit Program MObjects |
 | mObjCriteriaList->mObjCriteria->attrName | Optional | Es können ein oder mehrere der folgenden Eingabeparameter verwendet werden: `Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` oder `Tag Type` (nur einer kann angegeben werden), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive` |
 | mObjCriteriaList->mObjCriteria->attrValue | Optional | Der Wert, den Sie für die Filterung verwenden möchten |

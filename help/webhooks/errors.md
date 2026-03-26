@@ -3,9 +3,9 @@ title: Fehler
 feature: Webhooks
 description: Erfahren Sie mehr über Marketo Webhook-Fehler-Codes, warum 2xx-Antworten erforderlich sind, um Lead-Felder zu aktualisieren, und wie Sie Fehler mit Webhook abfangen und behandeln können.
 exl-id: adce40c3-87b1-4f31-8995-eb64e8a72b55
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '256'
+source-wordcount: '257'
 ht-degree: 2%
 
 ---
@@ -25,7 +25,7 @@ Damit Marketo Werte wieder einem Feld zuordnen kann, muss der Webhook-Antwort-Co
 
 ## Webhook-Fehler abfangen
 
-Fehler aus Webhooks können vom Trigger [!UICONTROL Webhook wird aufgerufen) erfasst &#x200B;] verarbeitet werden:
+Fehler aus Webhooks können vom Trigger [!UICONTROL Webhook wird aufgerufen) erfasst ] verarbeitet werden:
 
 ![Webhook wird aufgerufen](assets/webhook-called.png)
 

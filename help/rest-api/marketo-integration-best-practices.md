@@ -3,9 +3,9 @@ title: Best Practices für die Marketo-Integration
 feature: REST API
 description: Best Practices für Marketo-API-Integrationen, einschließlich Kontingenten, Rate- und Gleichzeitigkeitsbeschränkungen, Batching, Massenimport und -export, Caching und Latenzplanung.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '966'
+source-wordcount: '1012'
 ht-degree: 0%
 
 ---
@@ -39,7 +39,7 @@ Um eine optimale Leistung Ihrer Integrationen bei der Durchführung von Einfügu
 Die Bestimmung Ihrer Latenztoleranzen oder der maximalen Zeit, die vor dem Senden eines API-Aufrufs vergehen kann, wird viele, wenn nicht die meisten Entscheidungen beeinflussen, die Sie beim Entwerfen Ihrer Integration in Marketo treffen. Marketo bietet viele verschiedene Methoden und Konfigurationsoptionen, die für verschiedene Anwendungsfälle und verschiedene Latenzklassen geeignet sind. Beispielsweise kann eine Echtzeit-Integration, die einen Vertriebsmitarbeiter über einen Benutzer benachrichtigt, der sich für eine Testversion anmeldet, Batches nur dann senden, wenn eine sofortige Nachverfolgung erforderlich ist. In den meisten Fällen ist dies jedoch nicht erforderlich und sie können zusätzliche Latenzen vertragen sowie durch Warteschlangen- und Batch-Aufrufe effizienter verwaltet werden.
 
 | Akzeptable Latenz | Bevorzugte Methoden | Hinweise |
-|---|---|---|
+| --- | --- | --- |
 | Niedrig (&lt;10s) | Synchrone APIs (Batch oder Unbatch) | Stellen Sie sicher, dass dies für Ihren Anwendungsfall erforderlich ist. Das Senden sofortiger und synchroner Aufrufe für Anwendungsfälle mit hohem Volumen kann schnell ein tägliches API-Kontingent beanspruchen und möglicherweise sowohl die Rate als auch die Gleichzeitigkeitsbeschränkungen überschreiten. |
 | Medium (10 - 60 Mio.) | Synchrone APIs (in Batches) | Für eingehende Datenintegrationen in Marketo wird die Verwendung einer Warteschlange mit sowohl einem Alter als auch einer Größenbeschränkung dringend empfohlen. Wenn eines der beiden Limits erreicht ist, leeren Sie die Warteschlange und senden Sie Ihre API-Anfrage mit den gesammelten Datensätzen. Dies ist ein starker Kompromiss zwischen Geschwindigkeit und Effizienz, der sicherstellt, dass Ihre Anfragen mit der erforderlichen Kadenz auftreten, während gleichzeitig so viele Datensätze in Batches aufgenommen werden, wie das Alter der Warteschlange es zulässt. |
 | Hoch (>60m) | Massenimport/-export (falls unterstützt) | Bei Integrationen eingehender Daten sollten Datensätze, sofern verfügbar, in die Warteschlange gestellt und über die Massen-APIs von Marketo übermittelt werden. |
@@ -72,4 +72,4 @@ Die meisten Anwendungsfälle für die Integration profitieren nicht von gleichze
 
 ## Fehler
 
-Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [&#x200B; unter &#x200B;](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.
+Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [ unter ](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.

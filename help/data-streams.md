@@ -2,10 +2,10 @@
 title: Datenströme
 description: Übersicht über Marketo Engage-Datenströme, die nahezu in Echtzeit Lead-Aktivitäten und Benutzerüberwachungsereignisse ermöglichen und so die API-Beschränkungen für Kunden der Leistungsstufe verringern
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1620'
-ht-degree: 2%
+source-wordcount: '1719'
+ht-degree: 3%
 
 ---
 
@@ -23,7 +23,7 @@ Neben den Vorteilen von nahezu Echtzeitdaten gibt es produktbezogene Vorteile:
 - Verringert das Szenario von API-Beschränkungen und erzeugt weniger Warnmeldungen.
 - Aufgrund der Data Streaming-Funktion muss keine Massenexporte durchführen, um Daten zu extrahieren.
 
-Datenströme stehen denjenigen zur Verfügung, die ein [Marketo Engage-Leistungspaket erworben &#x200B;](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Datenströme stehen denjenigen zur Verfügung, die ein [Marketo Engage-Leistungspaket erworben ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Übersicht über den Lead-Aktivitäts-Datenstrom
 
@@ -44,7 +44,7 @@ Durch die Bereitstellung von Ansichten zu Lead-Änderungen können Kundinnen und
 Liste der gestreamten Aktivitäten:
 
 | AchieveGoalInReferral | ClickPredictiveContent | ReceivedForwardToFriendEmail |
-|--- |--- |--- |
+| --- | --- | --- |
 | AddToList | ClickRTPCallToAction | ReceiveSalesEmail |
 | AddToNurture | ClickSalesEmail | ReferenzToSocial-App |
 | AddToOpportunity | ClickSharedLink | RemoveFromList |
@@ -79,7 +79,7 @@ Ein guter Anwendungsfall für das Abonnieren dieses Streams wäre:
 Liste der gestreamten Benutzerüberwachungsereignisse:
 
 | KOMPONENTE | EREIGNISTYP-LISTE |
-|--- |--- |
+| --- | --- |
 | Standardprogramm | Klonen, erstellen, löschen, Kanal bearbeiten, exportieren, Programmeinrichtung ändern, Programm-Token ändern, umbenennen |
 | E-Mail | Genehmigen, klonen, erstellen, löschen, bearbeiten, verschieben, umbenennen, Genehmigung aufheben |
 | E-Mail-Stapelprogramm | Genehmigen, untergeordnet aktualisieren, klonen, erstellen, löschen, bearbeiten, Kanal bearbeiten, Programmzeitplan ändern, Programmeinrichtung ändern, Programm-Token ändern, umbenennen, Genehmigung aufheben |
@@ -139,7 +139,7 @@ Derzeit kann das Benachrichtigungszentrum in Marketo so konfiguriert werden, das
 Liste der Benachrichtigungsereignisse:
 
 | KOMPONENTE | EREIGNISTYP-LISTE |
-|--- |--- |
+| --- | --- |
 | Benachrichtigung | Kampagnenabbruch, Kampagnenfehler, Pflege (Programm erschöpft), Salesforce-Synchronisierungsfehler, Testgruppe (A/B-Testergebnis), Web-Services (tägliches Kontingent) |
 
 Beispiel für ein Benachrichtigungsereignis:
@@ -258,11 +258,11 @@ Benutzerüberwachungsereignisse werden an Adobe I/O gesendet und können durch A
    1. Dieser Schritt erfordert eine Adobe-Organisation
    1. Erfordert, dass der Adobe-Organisationsbenutzer die Rolle „Entwickler“ oder „Systemadministrator“ hat
 
-Informationen zum Einrichten von Adobe IO finden [&#x200B; unter „Einrichten von Marketo User Audit Data Streams mit Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) im Abschnitt zur öffentlichen Dokumentation.
+Informationen zum Einrichten von Adobe IO finden [ unter „Einrichten von Marketo User Audit Data Streams mit Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) im Abschnitt zur öffentlichen Dokumentation.
 
 ### Einrichten des User Audit-Datenstroms in Marketo
 
-Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [&#x200B; „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
+Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
 
 ### Einrichten von Adobe I/O
 

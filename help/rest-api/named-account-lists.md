@@ -3,9 +3,9 @@ title: Spezifische Kontolisten
 feature: REST API
 description: Erfahren Sie, wie Sie Marketo Named Account Lists mit der REST-API verwalten, einschließlich Berechtigungen, Feldern, Filtern und Endpunkten zum Abfragen, Erstellen, Aktualisieren und Löschen.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '716'
+source-wordcount: '746'
 ht-degree: 2%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [Endpunkt-Referenz für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Spezifische Kontolisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
+[Spezifische Kontolisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
 `Content`
 
 ## Berechtigungen
@@ -27,12 +27,12 @@ Benannte Kontolisten verfügen über eine begrenzte Anzahl von Standardfeldern u
 `Named Account List Field`
 
 | Name | Datentyp | Aktualisierbar | Hinweise |
-|---|---|---|---|
-| marketoGUID | Zeichenfolge | Falsch | Eindeutige Zeichenfolgenkennung der benannten Kontoliste. Dieses Feld wird vom System verwaltet und ist beim Erstellen eines Datensatzes nicht als Feld zulässig. Von „dedupeBy“ verwendetes Feld:„idField“ beim Erstellen oder Aktualisieren. |
-| name | Zeichenfolge | True | Name der Liste. Von „dedupeBy“ verwendetes Feld: „dedupeFields“ bei der Durchführung eines Erstellungs- oder Aktualisierungsvorgangs. |
+| --- | --- | --- | --- |
+| marketoGUID | String | Falsch | Eindeutige Zeichenfolgenkennung der benannten Kontoliste. Dieses Feld wird vom System verwaltet und ist beim Erstellen eines Datensatzes nicht als Feld zulässig. Von „dedupeBy“ verwendetes Feld:„idField“ beim Erstellen oder Aktualisieren. |
+| name | String | True | Name der Liste. Von „dedupeBy“ verwendetes Feld: „dedupeFields“ bei der Durchführung eines Erstellungs- oder Aktualisierungsvorgangs. |
 | createdAt | Datum/Uhrzeit | Falsch | Datum/Uhrzeit der Erstellung der Liste. Dieses Feld wird vom System verwaltet und ist als Feld beim Erstellen oder Aktualisieren eines Datensatzes nicht zulässig. |
 | updatedAt | Datum/Uhrzeit | Falsch | Datum/Uhrzeit der letzten Aktualisierung der Liste. Dieses Feld wird vom System verwaltet und ist als Feld beim Erstellen oder Aktualisieren eines Datensatzes nicht zulässig. |
-| type | Zeichenfolge | Falsch | Listentyp. Kann den Wert „default“ oder „external“ haben. Externe Listen werden von der CRM-Kontoansicht erstellt. |
+| type | String | Falsch | Listentyp. Kann den Wert „default“ oder „external“ haben. Externe Listen werden von der CRM-Kontoansicht erstellt. |
 
 ## Abfrage
 

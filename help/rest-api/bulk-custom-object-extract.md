@@ -3,20 +3,20 @@ title: Massenextraktion benutzerdefinierter Objekte
 feature: REST API, Custom Objects
 description: Handbuch zu Marketo Bulk Custom Object Extract REST APIs zum Exportieren von Lead-verknüpften benutzerdefinierten Objekten mit UpdatedAt- und Listenfiltern, ausgewählten Feldern und…
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1315'
+source-wordcount: '1473'
 ht-degree: 1%
 
 ---
 
 # Massenextraktion benutzerdefinierter Objekte
 
-[Massenreferenz zum Extrahieren von benutzerdefinierten Objekten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
+[Massenreferenz zum Extrahieren benutzerdefinierter Objekte aus Endpunkten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
 
 Die Gruppe der REST-APIs zum Extrahieren benutzerdefinierter Massenobjekte bietet eine programmgesteuerte Schnittstelle zum Abrufen großer Mengen benutzerdefinierter Objektdatensätze aus Marketo. Dies ist die empfohlene Oberfläche für Anwendungsfälle, in denen Daten aus Gründen der ETL, des Data Warehousing und der Archivierung kontinuierlich zwischen Marketo und einem oder mehreren externen Systemen ausgetauscht werden müssen.
 
-Diese API unterstützt den Export von benutzerdefinierten Marketo-Objektdatensätzen der ersten Ebene, die direkt mit einem Lead verknüpft sind. Übergeben Sie den Namen des benutzerdefinierten Objekts und eine Liste der Leads, mit denen das Objekt verknüpft ist. Für jeden Lead in der Liste werden die verknüpften benutzerdefinierten Objektdatensätze, die mit dem angegebenen benutzerdefinierten Objektnamen übereinstimmen, als Zeilen in die Exportdatei geschrieben. Benutzerdefinierte Objektdaten werden auf der Registerkarte [Benutzerdefiniertes Objekt“ der Detailseite des Leads in der Marketo-Benutzeroberfläche angezeigt](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Diese API unterstützt den Export von benutzerdefinierten Marketo-Objektdatensätzen der ersten Ebene, die direkt mit einem Lead verknüpft sind. Übergeben Sie den Namen des benutzerdefinierten Objekts und eine Liste der Leads, mit denen das Objekt verknüpft ist. Für jeden Lead in der Liste werden die verknüpften benutzerdefinierten Objektdatensätze, die mit dem angegebenen benutzerdefinierten Objektnamen übereinstimmen, als Zeilen in die Exportdatei geschrieben. Benutzerdefinierte Objektdaten werden auf der Registerkarte [Benutzerdefiniertes Objekt“ der Detailseite des Leads in der Marketo-Benutzeroberfläche angezeigt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Berechtigungen
 
@@ -27,7 +27,7 @@ Die APIs zum Extrahieren benutzerdefinierter Massenobjekte erfordern, dass der A
 Benutzerdefiniertes Objekt - Extrahieren unterstützt mehrere Filteroptionen, mit denen eine Liste von Leads angegeben wird, die mit dem benutzerdefinierten Objekt verknüpft sind. Wenn ein Lead in der Liste mit benutzerdefinierten Objektdatensätzen verknüpft ist, die mit einem angegebenen benutzerdefinierten Objektnamen übereinstimmen, werden die Datensätze in die Exportdatei geschrieben. Pro Exportvorgang kann nur ein Filtertyp angegeben werden.
 
 | Filtertyp | Datentyp | Hinweise |
-|---|---|---|
+| --- | --- | --- |
 | `updatedAt` | Datumsbereich | Akzeptiert ein JSON-Objekt mit den Membern `startAt` und `endAt` &amp;nbsp.;`startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. |
 | `staticListName` | String | Akzeptiert den Namen einer statischen Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der statischen Liste sind, zu dem der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listennamen mithilfe des Endpunkts „Listen abrufen“ ab. |
 | `staticListId` | Ganzzahl | Akzeptiert die ID einer statischen Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der statischen Liste sind, zu dem der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listen-IDs mithilfe des Endpunkts „Listen abrufen“ ab. |
@@ -45,16 +45,16 @@ Der Endpunkt [Benutzerdefinierten Objektauftrag erstellen](https://developer.ado
 - Geben Sie das Format der exportierten Datei an
 
 | Parameter | Datentyp | Erforderlich | Hinweise |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `fields` | array[string] | Ja | Array von Zeichenfolgen, das den Wert des benutzerdefinierten Objektattributnamens enthält, der vom Endpunkt „Describe Custom Object“ zurückgegeben wird. Die aufgelisteten Felder sind in der exportierten Datei enthalten. |
 | `columnHeaderNames` | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| `format` | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| `format` | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 
 ## Erstellen von Aufträgen
 
 Die Parameter für den Auftrag werden vor dem Start des Exports mithilfe des Endpunkts [Benutzerdefinierten Objektauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) definiert.
 
-Der erforderliche `apiName`-Pfadparameter ist der benutzerdefinierte Objektname, der vom Endpunkt [Benutzerdefiniertes Objekt beschreiben“ zurückgegeben &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1). Dies gibt an, welches benutzerdefinierte Marketo-Objekt exportiert werden soll. Benutzerdefinierte CRM-Objekte sind nicht zulässig. Der erforderliche `filter` enthält die Liste der Leads, die mit dem benutzerdefinierten Objekt verknüpft sind. Dies kann auf eine statische Liste oder eine Smart-Liste verweisen. Der erforderliche `fields`-Parameter enthält die API-Namen der benutzerdefinierten Objektattribute, die in die Exportdatei aufgenommen werden sollen. Optional können wir den `format` der Datei und die `columnHeaderNames` definieren.
+Der erforderliche `apiName`-Pfadparameter ist der benutzerdefinierte Objektname, der vom Endpunkt [Benutzerdefiniertes Objekt beschreiben“ zurückgegeben ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1). Dies gibt an, welches benutzerdefinierte Marketo-Objekt exportiert werden soll. Benutzerdefinierte CRM-Objekte sind nicht zulässig. Der erforderliche `filter` enthält die Liste der Leads, die mit dem benutzerdefinierten Objekt verknüpft sind. Dies kann auf eine statische Liste oder eine Smart-Liste verweisen. Der erforderliche `fields`-Parameter enthält die API-Namen der benutzerdefinierten Objektattribute, die in die Exportdatei aufgenommen werden sollen. Optional können wir den `format` der Datei und die `columnHeaderNames` definieren.
 
 Nehmen wir als Beispiel an, dass wir ein benutzerdefiniertes Objekt namens „Auto“ mit den folgenden Feldern erstellt haben: Farbe, Marke, Modell, FIN. Das Verknüpfungsfeld ist die Lead-ID und das Deduplizierungsfeld ist die FIN.
 
@@ -338,7 +338,7 @@ Dies antwortet mit der anfänglichen `status` „In Warteschlange“, nach der a
 
 Der Status kann nur für Aufträge abgerufen werden, die vom selben API-Benutzer erstellt wurden.
 
-Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Abrufen des benutzerdefinierten Objektauftragsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Das Statusfeld kann mit einem der folgenden Elemente antworten: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen oder Fehlgeschlagen.
+Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Abrufen des benutzerdefinierten Objektauftragsstatus ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Das Statusfeld kann mit einem der folgenden Elemente antworten: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen oder Fehlgeschlagen.
 
 ```
 GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json

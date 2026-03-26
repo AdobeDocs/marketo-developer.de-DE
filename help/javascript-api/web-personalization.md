@@ -3,9 +3,9 @@ title: Web-Personalisierung
 description: Handbuch für die Web Personalization JavaScript-API und das RTP-Tag, in dem Seitenansichtsereignisse, Kontoeinrichtung, Bot-Ausschlüsse sowie Kern- und On-Demand-Skripte behandelt werden
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '422'
+source-wordcount: '452'
 ht-degree: 6%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 6%
 
 Die Web Personalization JavaScript-API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Ereignisverfolgung und dynamische Anpassung einer Web-Seite. Zusätzliche Funktionen: [Benutzerdefinierte Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
 
-- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [&#x200B; und das RTP](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript)Tag auf Ihrer Site bereitgestellt haben.
+- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTP[Tag auf Ihrer Site bereitgestellt haben.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Tag-Setup
@@ -37,7 +37,7 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 Diese Methode wird automatisch auf Tag-Ebene aufgerufen, um die entsprechende Konto-ID festzulegen. Sie können die Konto-ID festlegen, wenn Sie eine Aufteilung auf verschiedene Domains wünschen.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
-|--------------|-------------------|--------|--------------|
+| --- | --- | --- | --- |
 | &#39;setAccount&#39; | Erforderlich | String | Methodenname. |
 | accountId | Erforderlich | String | Konto-ID |
 
@@ -53,7 +53,7 @@ Diese Methode sendet ein Ansichtsereignis, das für die Seitenverfolgung verwend
 Durch Übergeben des optionalen Parameters „page“ in dieser Methode kann die aktuelle Seite überschrieben werden.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
-|-----------|-------------------|--------|---------------------------------|
+| --- | --- | --- | --- |
 | &#39;Senden&#39; | Erforderlich | String | Aktion der Methode. |
 | &#39;Ansicht&#39; | Erforderlich | String | Methodenname. |
 | Seite | Optional | String | Relativer Pfad oder vollständige Seiten-URL. |
@@ -96,7 +96,7 @@ Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personaliz
 ### Core/Dependent JavaScript
 
 | Name | Beschreibung | Kontrollvariante |
-|---------------------------|-------------|--------------------------------------------------------|
+| --- | --- | --- |
 | rtp.js | – | Kontrolliert von Marketo |
 | jquery.min.js | v1.8.3 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
 | jquery-custom-ui-min.js | v1.9.2 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
@@ -107,7 +107,7 @@ Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personaliz
 ### JavaScript On Demand
 
 | Name | Beschreibung | Kontrollvariante |
-|-------------------------|-----------------------------------------------------------------------|-----------------------|
+| --- | --- | --- |
 | ga-integration-2.0.1.js | Wird verwendet, wenn die Integration von Google Analytics/Facebook/SiteCatalyst aktiviert ist. | Kontrolliert von Marketo |
 | insightera-bar-2.1.js | Wird verwendet, wenn die Leiste für prädiktive Inhaltsempfehlungen aktiviert ist | Kontrolliert von Marketo |
 | froogaloop2.min.js | Wird verwendet, wenn das Content-Tracking aktiviert ist und der Vimeo-Player auf der Seite vorhanden ist. | – |

@@ -3,9 +3,9 @@ title: Felder
 feature: REST API, Field Management
 description: Erfahren Sie mehr 체ber die Benennung von REST- und SOAP-Lead-Feldern, Listenfeldern 체ber REST, beschreiben Sie den Lead, die Funktionszuordnung, warum die sfdcId null ist, und verwenden Sie die sfdcLeadId oder die sfdcContactId.
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '212'
+source-wordcount: '213'
 ht-degree: 6%
 
 ---
@@ -23,7 +23,7 @@ Rufen Sie die Liste aller unterst체tzten Feldnamen ab, die in Ihren Lead-Datens�
 Manchmal ist es schwierig zu wissen, welchen Feldnamenstyp Sie bei der Verwendung einer bestimmten integrationsbezogenen Funktion verwenden m체ssen. Im Folgenden finden Sie eine Kurz체bersicht dar체ber, welche Funktionen REST- oder SOAP-Feldnamenstypen verwenden.
 
 | Funktion | Zu verwendender Feldnamenstyp |
-|--- |--- |
+| --- | --- |
 | Lead-Tracking-API (Munchkin) | SOAP |
 | Forms 2.0-API | SOAP |
 | Listen-Import (Benutzeroberfl채che) | SOAP |

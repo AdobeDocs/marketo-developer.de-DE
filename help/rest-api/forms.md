@@ -3,18 +3,18 @@ title: Formulare
 feature: REST API, Forms
 description: Marketo Forms REST-API-Handbuch zum Erstellen und Verwalten von Formularen, zum Abrufen nach ID oder Name, zum Durchsuchen mit Statusfiltern und zum Verwalten von Feldern, Feldsätzen und Regeln.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1616'
+source-wordcount: '1823'
 ht-degree: 2%
 
 ---
 
 # Formulare
 
-[Endpunkt-Referenz für Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[Forms-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
-[Endpunkt-Referenz für Formularfelder](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
+[Endpunktreferenz für Formularfelder](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
 
 Marketo Forms verfügt über einen komplexen Satz von Endpunkten, der die vollständige Steuerung der Formularverwaltung über Remote-Systeme ermöglicht. Die Struktur von Formularen kann komplex sein, da es viele verschiedene Typen von Objekten gibt, die als Teil eines Formulars verwaltet werden müssen: Forms, Felder, Feldsätze, Sichtbarkeitsregeln und Folgeseitenregeln.
 
@@ -290,12 +290,12 @@ Beim Bearbeiten von Feldern oder deren Verhalten innerhalb eines Formulars sollt
 ### Feldtypen
 
 | UI-Typ | API-Name |
-|--------------|-----------------|
+| --- | --- |
 | Kontrollkästchen | Kontrollkästchen |
 | Optionsfeld | Funk |
 | Textbereich | Textbereich |
 | Auswahlliste | Auswahlliste |
-| Zeichenfolge | string |
+| String | string |
 | E-Mail | E-Mail |
 | Datum | Datum |
 | Zahl | number |
@@ -334,7 +334,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Erstellen und aktualisieren
 
-Beim [Erstellen eines &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) gibt es nur zwei erforderliche Felder: den übergeordneten Ordner des Formulars und den Namen des Formulars. Alle anderen Parameter sind optional und haben einen Standardwert. Wenn das Formular erstellt wird, enthält es drei Standardfelder: Vorname, Nachname, E-Mail.
+Beim [Erstellen eines ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) gibt es nur zwei erforderliche Felder: den übergeordneten Ordner des Formulars und den Namen des Formulars. Alle anderen Parameter sind optional und haben einen Standardwert. Wenn das Formular erstellt wird, enthält es drei Standardfelder: Vorname, Nachname, E-Mail.
 
 ```
 POST /rest/asset/v1/forms.json
@@ -871,7 +871,7 @@ Content-Type: text/html
 
 Marketo Forms verfügen über eine optionale Komponente, die als Feldsätze bezeichnet wird. Feldsätze sind Gruppen von Feldern, die in der Feldliste der obersten Ebene für die Zwecke der Verschiebung und Behandlung durch Sichtbarkeitsregeln als ein einzelnes Feld behandelt werden. Wenn beispielsweise ein Feld für Kompatibilitätsanforderungen vorhanden ist und ein Client „Ja“ auswählt, kann ein Feldsatz angezeigt werden, der Felder für HIPAA- und PCI-Kompatibilitätsanforderungen enthält.
 
-Felder in Feldsätzen sind für das Formular als Ganzes eindeutig, sodass doppelte Felder möglicherweise nicht sowohl in der Liste der übergeordneten Felder des Formulars als auch in einer untergeordneten Feldgruppe enthalten sind. Feldsätze werden über den Endpunkt [Feldsatz zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzugefügt und erscheinen dann im Ergebnis von [Felder für Formular abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Felder werden einem Feldsatz hinzugefügt, indem sie über „Feldpositionen aktualisieren“ in die [&#x200B; des Feldsatzes verschoben &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Für diese Endpunkte werden Daten als POST x-www-form-urlencoded und nicht als JSON übergeben.
+Felder in Feldsätzen sind für das Formular als Ganzes eindeutig, sodass doppelte Felder möglicherweise nicht sowohl in der Liste der übergeordneten Felder des Formulars als auch in einer untergeordneten Feldgruppe enthalten sind. Feldsätze werden über den Endpunkt [Feldsatz zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzugefügt und erscheinen dann im Ergebnis von [Felder für Formular abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Felder werden einem Feldsatz hinzugefügt, indem sie über „Feldpositionen aktualisieren“ in die [ des Feldsatzes verschoben ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Für diese Endpunkte werden Daten als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
 ## Sichtbarkeitsregel
 
@@ -918,7 +918,7 @@ Eine vollständige Liste der verfügbaren Operatoren finden Sie auf der Endpunkt
 
 ## Nachbereitung
 
-Marketo-Formulare können ein dynamisches Verhalten im Anschluss an Seiten aufweisen, bei dem Regeln für die Umleitung zu einer bestimmten Seite oder das Verweilen auf der aktuellen Seite basierend auf dem Inhalt bestimmter Felder bei der Übermittlung angewendet werden können. Regeln können synonym als Dankeseitenregeln oder Folgeseitenregeln bezeichnet werden. Diese Regeln werden als JSON-Array mit den Membern `followupType`, `followupValue`, `operator`, `subjectField`, `values` und `default` dargestellt. `default` ist ein boolescher Wert, bei dem nur ein Datensatz im Array „true“ sein kann. Wenn ein Besucher für keine anderen Regeln qualifiziert ist, wird die als Standard festgelegte Regel verwendet. `followupType` kann entweder lp oder url sein, wobei lp eine Marketo-Landingpage-ID für `followupValue` angibt und url eine URL zu einer anderen Seite angibt. Der Operator wird verwendet, um den Wert des Betrefffelds mit der Liste der bereitgestellten Werte zu vergleichen.
+Marketo-Formulare können ein dynamisches Verhalten im Anschluss an Seiten aufweisen, bei dem Regeln für die Umleitung zu einer bestimmten Seite oder das Verweilen auf der aktuellen Seite basierend auf dem Inhalt bestimmter Felder bei der Übermittlung angewendet werden können. Regeln können synonym als Dankeseitenregeln oder Folgeseitenregeln bezeichnet werden. Diese Regeln werden als JSON-Array mit den Membern `followupType`, `followupValue`, `operator`, `subjectField`, `values` und `default` dargestellt. `default` ist ein boolescher Wert, bei dem nur ein Datensatz im Array „true“ sein kann. Wenn ein Besucher für keine anderen Regeln qualifiziert ist, wird die als Standard festgelegte Regel verwendet. `followupType` Kann entweder lp oder url sein, wobei lp eine Marketo-Landingpage-ID für `followupValue` angibt und url eine URL zu einer anderen Seite angibt. Der Operator wird verwendet, um den Wert des Betrefffelds mit der Liste der bereitgestellten Werte zu vergleichen.
 
 ## Senden-Schaltfläche
 

@@ -3,10 +3,10 @@ title: Endpunktverweis
 feature: REST API
 description: Umfassende Liste der Marketo REST-API-Endpunkte mit Methoden, URIs und erforderlichen Berechtigungen für Aktivitäten, Massenexport, Identität, Leads, Assets und Benutzer.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '4464'
-ht-degree: 28%
+source-wordcount: '4793'
+ht-degree: 29%
 
 ---
 
@@ -24,7 +24,7 @@ Im Folgenden finden Sie Links zu den Referenzen zur Marketo REST-API.
 Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 
 | Name | Gruppe | Methode | URI | Erforderliche Berechtigung |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | Hinzufügen benutzerdefinierter Aktivitäten | Aktivitäten | POST | /rest/v1/activities/external.json | Aktivität mit Lese-/Schreibzugriff |
 | Benutzerdefinierten Aktivitätstyp genehmigen | Aktivitäten | POST | /rest/v1/activities/external/type/{apiName}/approve.json | Metadaten der Aktivität mit Lese-/Schreibzugriff |
 | Erstellen benutzerdefinierter Aktivitätstypattribute | Aktivitäten | POST | /rest/v1/activities/external/type/{apiName}/attributes/create.json | Metadaten der Aktivität mit Lese-/Schreibzugriff |
@@ -202,7 +202,7 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Aktualisieren der Metadaten der Landingpage-Vorlage | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}.json | Asset mit Lese- und Schreibzugriff |
 | Landingpage-Entwurf genehmigen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
 | Landing Page klonen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
-| Landingpages erstellen | Landingpages | POST | /rest/asset/v1/landingPages.json | Asset mit Lese- und Schreibzugriff |
+| Erstellen von Landingpages | Landingpages | POST | /rest/asset/v1/landingPages.json | Asset mit Lese- und Schreibzugriff |
 | Landingpage löschen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
 | Entwurf der Landingpage verwerfen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
 | Landingpage nach ID abrufen | Landingpages | GET | /rest/asset/v1/landingPage/{id}.json | Schreibgeschütztes Asset |

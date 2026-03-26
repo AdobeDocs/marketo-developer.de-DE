@@ -3,16 +3,16 @@ title: Massenprogramm-Mitgliederextraktion
 feature: REST API
 description: Verwenden Sie die Marketo Bulk Program Member Extract REST-APIs, um große Mitgliederdatensätze für ETL, Data Warehousing und Archivierung mit Berechtigungen und Feldmetadaten zu exportieren.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1160'
+source-wordcount: '1284'
 ht-degree: 4%
 
 ---
 
 # Massenprogramm-Mitgliederextraktion
 
-[Referenz zum Extrahieren von Endpunkten für Massenprogrammmember](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[Referenz zum Extraktionsendpunkt des Massenprogrammmitglieds](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
 
 Der Satz von REST-APIs zum Extrahieren von Programmmitgliedern stellt eine programmgesteuerte Schnittstelle zum Abrufen großer Mengen von Programmmitgliederdatensätzen aus Marketo bereit. Dies ist die empfohlene Oberfläche für Anwendungsfälle, in denen Daten aus Gründen der ETL, des Data Warehousing und der Archivierung kontinuierlich zwischen Marketo und einem oder mehreren externen Systemen ausgetauscht werden müssen.
 
@@ -235,7 +235,7 @@ Programmmitglieder unterstützen verschiedene Filteroptionen. Für einen Auftrag
     <tr>
       <td>isExhausted</td>
       <td>Boolesch</td>
-      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
+      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
     </tr>
     <tr>
       <td>Kadenz des Nährwerts</td>
@@ -319,10 +319,10 @@ Der Endpunkt Abonnentenauftrag für Exportprogramm erstellen bietet mehrere Form
 - Geben Sie das Format der exportierten Datei an
 
 | Parameter | Datentyp | Erforderlich | Hinweise |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Felder | array[string] | Ja | Der Feldparameter akzeptiert ein JSON-Zeichenfolgen-Array. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die folgenden Feldtypen können exportiert werden:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Geben Sie ein Feld mithilfe des REST-API-Namens an, der mithilfe der Endpunkte „Lead2 beschreiben“ und/oder „Programmteilnehmer beschreiben“ abgerufen werden kann. |
 | columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| Format | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| Format | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 
 ## Erstellen von Aufträgen
 
@@ -446,7 +446,7 @@ Der Status-Endpunkt antwortet und gibt an, dass der Auftrag noch verarbeitet wir
 
 ## Daten abrufen
 
-Um die Datei eines abgeschlossenen Exports von Programmmitgliedern abzurufen, rufen Sie einfach den Endpunkt [Abrufen der &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)-Datei für Programmmitglieder) mit Ihrem `exportId` auf.
+Um die Datei eines abgeschlossenen Exports von Programmmitgliedern abzurufen, rufen Sie einfach den Endpunkt [Abrufen der ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET)-Datei für Programmmitglieder) mit Ihrem `exportId` auf.
 
 Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei. Wenn ein angefordertes Programmmitgliedsfeld leer ist (keine Daten enthält), wird `null` in der Exportdatei im entsprechenden Feld platziert.
 

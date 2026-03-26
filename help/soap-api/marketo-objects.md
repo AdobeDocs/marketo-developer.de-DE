@@ -3,9 +3,9 @@ title: Marketo-Objekte
 feature: SOAP
 description: Übersicht über Marketo-MO-Objekte einschließlich Typen, Attributen, Verhalten bei externen Schlüsseln und unterstützten SOAP-APIs für Opportunity-, Programm- und verwandte Datensätze.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '274'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Externe Schlüssel sind benutzerdefinierte Felder, die für Marketo-Objekte defi
 ### Verfügbare APIs
 
 | API | Kann ausgeführt werden am |
-|---|---|
+| --- | --- |
 | describeMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
 | getMObjects | Opportunity, OpportunityPersonRole, Programm |
 | syncMObjects | Opportunity, OpportunityPersonRole, Programm |

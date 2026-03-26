@@ -3,10 +3,10 @@ title: Authentifizierungssignatur
 feature: SOAP
 description: Handbuch zur Marketo SOAP-API-Authentifizierung mit HMAC-SHA1 über HTTPS, erforderliche Header-Felder, Zeitstempelformat und Beispielanforderungen und Fehlerantworten
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '225'
-ht-degree: 4%
+source-wordcount: '232'
+ht-degree: 3%
 
 ---
 

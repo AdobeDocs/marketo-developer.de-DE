@@ -3,9 +3,9 @@ title: REST-API
 feature: REST API
 description: Erfahren Sie, wie Sie die Marketo-REST-API verwenden, API-Benutzer und LaunchPoint einrichten, Kontingente und Beschränkungen anzeigen, sich mit dem Autorisierungs-Header authentifizieren und Leads abrufen.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '880'
+source-wordcount: '897'
 ht-degree: 2%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis zum Massenimport von Leads gibt es viele Optionen, die eine feinkörnige Steuerung einer Marketo-Instanz ermöglichen.
 
-Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[&#x200B; „Lead-](https://developer.adobe.com/marketo-apis/api/mapi/)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
+Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[ „Lead-](https://developer.adobe.com/marketo-apis/api/mapi/)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset/). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
 
 >[!NOTE]
 >Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Juli 2026 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](./rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-API[Migrationshandbuch](../soap-api/migration.md) Informationen zur Migration.
@@ -112,3 +112,5 @@ Wenn Sie keinen Lead-Eintrag mit Ihrer E-Mail-Adresse in Ihrer Datenbank haben, 
 ## API-Nutzung
 
 Jeder Ihrer API-Benutzer wird einzeln im API-Nutzungsbericht gemeldet, sodass Sie durch die Aufspaltung Ihrer Web-Services nach Benutzer einfach die Nutzung jeder Ihrer Integrationen erfassen können. Wenn die Anzahl der API-Aufrufe an Ihre Instanz das Limit überschreitet und nachfolgende Aufrufe fehlschlagen, können Sie mit dieser Vorgehensweise das Volumen aus jedem Ihrer Services berücksichtigen und bewerten, wie Sie das Problem beheben können. Überprüfen Sie Ihre Nutzung, indem Sie zu **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** wechseln und auf die Anzahl der Aufrufe in den letzten sieben Tagen klicken.
+
+Die REST-Endpunkte, die die täglichen und die Nutzungs- und Fehlerstatistiken der letzten 7 Tage zurückgeben, finden Sie unter [Nutzung](usage.md).

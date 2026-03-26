@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '251'
-ht-degree: 41%
+source-wordcount: '277'
+ht-degree: 39%
 
 ---
 
@@ -34,7 +34,7 @@ ht-degree: 41%
    - [Trigger](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
 - Mobile {#mobile}
-   - [install. [!DNL Adobe Launch] &#x200B;](mobile/adobe-launch-extension-installation.md)
+   - [install. [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension.md)
    - [Erweiterter Sicherheitsmodus](mobile/advanced-security-access-mode.md)
    - [Benutzerdefinierte Aktionen](mobile/custom-actions.md)
@@ -64,7 +64,7 @@ ht-degree: 41%
       - [Liste der Standardfelder](rest-api/list-of-standard-fields.md)
       - [Programme](rest-api/programs.md)
       - [Intelligente Kampagnen](rest-api/smart-campaigns.md)
-      - [Smart Lists](rest-api/smart-lists.md)
+      - [Intelligente Listen](rest-api/smart-lists.md)
       - [Ausschnitte](rest-api/snippets.md)
       - [Statische Listen](rest-api/static-lists.md)
       - [Token](rest-api/tokens.md)
@@ -102,6 +102,8 @@ ht-degree: 41%
       - [Opportunity-Rollen](rest-api/opportunity-roles.md)
       - [Programm-Mitglieder](rest-api/program-members.md)
       - [Vertriebspersonal](rest-api/sales-persons.md)
+      - [Statische Liste](rest-api/list-membership.md)
+      - [Nutzung](rest-api/usage.md)
    - [Paging-Token](rest-api/paging-tokens.md)
    - [Leistung](rest-api/performance.md)
    - [Referenzarchitekturen](rest-api/reference-architectures.md)

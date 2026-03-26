@@ -3,9 +3,9 @@ title: E-Mails
 feature: REST API
 description: Erfahren Sie, wie Sie mit der Marketo Asset REST-API E-Mail-Assets nach ID, Name oder Ordnersuche abfragen und verwalten können, einschließlich Hinweisen zu prädiktiven Inhalten und A/B-Testbeschränkungen.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1971'
+source-wordcount: '2301'
 ht-degree: 1%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 1%
 
 [E-Mail-](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails): Ein vollständiger Satz von REST-Endpunkten wird zur Bearbeitung von E-Mail-Assets bereitgestellt.
 
-Hinweis: Wenn Sie [prädiktiven Marketo-Inhalt verwenden](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) schlagen die folgenden Endpunkte fehl, wenn sie auf eine E-Mail verweisen, die prädiktiven Inhalt enthält: [E-Mail-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Abschnitt E-Mail-Inhalt aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) [E-Mail-Entwurf genehmigen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). Der Aufruf gibt einen 709-Fehler-Code und die entsprechende Fehlermeldung zurück.
+Hinweis: Wenn Sie [prädiktiven Marketo-Inhalt verwenden](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) schlagen die folgenden Endpunkte fehl, wenn sie auf eine E-Mail verweisen, die prädiktiven Inhalt enthält: [E-Mail-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Abschnitt E-Mail-Inhalt aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) [E-Mail-Entwurf genehmigen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). Der Aufruf gibt einen 709-Fehler-Code und die entsprechende Fehlermeldung zurück.
 
 ## Abfrage
 
-Das Abfragemuster für E-Mails ist identisch mit dem von Vorlagen und ermöglicht Abfragen [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) und [Browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET) sowie zum Filtern nach Ordner mit den APIs zum Durchsuchen und nach Namen.
+Das Abfragemuster für E-Mails ist identisch mit dem von Vorlagen und ermöglicht Abfragen [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [nach ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) und [Browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET) sowie zum Filtern nach Ordner mit den APIs zum Durchsuchen und nach Namen.
 
-Hinweis: Wenn eine E-Mail Teil eines E-Mail-Programms ist, das [A/B-Tests](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) verwendet, ist diese E-Mail nicht für eine Abfrage mit den folgenden Endpunkten verfügbar: [E-Mail nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [E-Mail nach Name abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [E-Mails abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). Der Aufruf zeigt an, dass der Vorgang erfolgreich war, enthält jedoch die folgende Warnung: „Für die angegebenen Suchkriterien wurden keine Assets gefunden.“
+Hinweis: Wenn eine E-Mail Teil eines E-Mail-Programms ist, das [A/B-Tests](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) verwendet, ist diese E-Mail nicht für eine Abfrage mit den folgenden Endpunkten verfügbar: [E-Mail nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [E-Mail nach Name abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [E-Mails abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). Der Aufruf zeigt an, dass der Vorgang erfolgreich war, enthält jedoch die folgende Warnung: „Für die angegebenen Suchkriterien wurden keine Assets gefunden.“
 
 ### Nach ID
 
@@ -151,7 +151,7 @@ GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Fol
 
 ### Durchsuchen
 
-Das Durchsuchen von Ordnern funktioniert wie andere Asset-API-Durchsuchen-Endpunkte und ermöglicht das optionale Filtern nach `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn` und `offset`. `status` ist entweder genehmigt oder Entwurf. `folder` ist ein JSON-Objekt, das `id` und `type` enthält. `maxReturn` ist eine Ganzzahl, die die Anzahl der Ergebnisse begrenzt (standardmäßig ist 20, der Höchstwert 200), und `offset` ist eine Ganzzahl, die mit `maxReturn` verwendet werden kann, um große Ergebnismengen zu lesen (der Standardwert ist 0).
+Das Durchsuchen von Ordnern funktioniert wie andere Asset-API-Durchsuchen-Endpunkte und ermöglicht das optionale Filtern nach `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn` und `offset`. `status` ist entweder genehmigt oder Entwurf. `folder` ist ein JSON-Objekt, das `id` und `type` enthält. `maxReturn` ist eine Ganzzahl, die die Anzahl der Ergebnisse begrenzt (Standard ist 20, Maximum ist 200), und `offset` ist eine Ganzzahl, die mit `maxReturn` verwendet werden kann, um große Ergebnismengen zu lesen (Standard ist 0).
 
 ```
 GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
@@ -249,7 +249,7 @@ GET /rest/asset/v1/email/1356/content.json
 }
 ```
 
-Abschnitte können als mit dem Typ „dynamicContent“ zurückgegeben werden. Weitere Informationen finden Sie [&#x200B; Abschnitt &#x200B;](dynamic-content.md)Dynamische Inhalte“.
+Abschnitte können als mit dem Typ „dynamicContent“ zurückgegeben werden. Weitere Informationen finden Sie [ Abschnitt ](dynamic-content.md)Dynamische Inhalte“.
 
 ## CC-Felder abfragen
 
@@ -284,9 +284,9 @@ GET /rest/asset/v1/email/ccFields.json
 
 ## Erstellen und aktualisieren
 
-[E-Mails werden basierend &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) einer Quellvorlage erstellt und enthalten eine Liste bearbeitbarer Abschnitte, die von jedem separaten HTML-Element in dieser Vorlage mit der Klasse „mktEditable“ und einer eindeutigen ID-Eigenschaft abgeleitet werden. Beim Erstellen einer E-Mail mit der API wird ein Datensatz erstellt, der auf der Vorlage basiert, zusammen mit allen übergebenen zusätzlichen Metadaten. Für einen erfolgreichen E-Mail-Aufruf von „Erstellen“ sind die folgenden Parameter erforderlich: Name, Vorlage, Ordner.
+[E-Mails werden basierend ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) einer Quellvorlage erstellt und enthalten eine Liste bearbeitbarer Abschnitte, die von jedem separaten HTML-Element in dieser Vorlage mit der Klasse „mktEditable“ und einer eindeutigen ID-Eigenschaft abgeleitet werden. Beim Erstellen einer E-Mail mit der API wird ein Datensatz erstellt, der auf der Vorlage basiert, zusammen mit allen übergebenen zusätzlichen Metadaten. Für einen erfolgreichen E-Mail-Aufruf von „Erstellen“ sind die folgenden Parameter erforderlich: Name, Vorlage, Ordner.
 
-Die folgenden Parameter sind für die Erstellung optional: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. Wenn nicht festgelegt, ist `subject` leer, `fromName`, `fromEmail` und `replyEmail` auf die Instanzstandardwerte festgelegt und `operational` und `isOpenTrackingDisabled` auf „false“ gesetzt. `isOpenTrackingDisabled` bestimmt, ob das Öffnungs-Tracking-Pixel beim Versand in einer E-Mail enthalten ist.
+Die folgenden Parameter sind für die Erstellung optional: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. Wenn nicht festgelegt, ist `subject` leer, `fromName`, `fromEmail` und `replyEmail` auf die Instanzstandardwerte festgelegt und `operational` und `isOpenTrackingDisabled` auf „false“ gesetzt. `isOpenTrackingDisabled` Bestimmt, ob das Öffnungs-Tracking-Pixel beim Versand in einer E-Mail enthalten ist.
 
 ```
 POST /rest/asset/v1/emails.json
@@ -484,7 +484,7 @@ Hinweis: Wenn die automatische Textkopie für einen in eine E-Mail eingebetteten
 
 ## Module
 
-Im E-Mail-Editor 1.0 ist ein Modul ein Abschnitt Ihrer E-Mail, der in der Vorlage definiert ist. Module können eine beliebige Kombination aus Elementen, Variablen und anderen HTML-Inhalten enthalten, wie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) beschrieben. Marketo bietet eine Reihe von APIs zum Verwalten von Modulen innerhalb einer E-Mail. Bei modulbezogenen Endpunkten, für die die HTTP-POST-Methode erforderlich ist, wird der Hauptteil als „application/x-www-form-urlencoded“ formatiert (nicht als JSON).
+Im E-Mail-Editor 1.0 ist ein Modul ein Abschnitt Ihrer E-Mail, der in der Vorlage definiert ist. Module können eine beliebige Kombination aus Elementen, Variablen und anderen HTML-Inhalten enthalten, wie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) beschrieben. Marketo bietet eine Reihe von APIs zum Verwalten von Modulen innerhalb einer E-Mail. Bei modulbezogenen Endpunkten, für die die HTTP-POST-Methode erforderlich ist, wird der Hauptteil als „application/x-www-form-urlencoded“ formatiert (nicht als JSON).
 
 Die meisten modulbezogenen Endpunkte erfordern eine „moduleId“ als Pfadparameter. Dies ist eine Zeichenfolge, die das Modul beschreibt. moduleIds werden vom Endpunkt [E-Mail-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) als „htmlId“-Attribut zurückgegeben (siehe Abschnitt [Abfrage](#modules_query) unten).
 
@@ -710,7 +710,7 @@ Das Ergebnis-Array enthält -Elemente, die sowohl die -Module als auch die gemis
 Um mit dem obigen Beispiel „Skelett“ fortzufahren, enthält die folgende Tabelle eine Zusammenfassung der Modul-IDs und der entsprechenden Indizes, die in der E-Mail enthalten sind.
 
 | moduleId (alias htmlId) | Index |
-|---|---|
+| --- | --- |
 | Distanzstück | 0 |
 | Frei-Bild | 1 |
 | video | 2 |
@@ -774,7 +774,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 #### Duplizieren
 
-[Duplizieren Sie ein &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST), indem Sie die E-Mail-ID und die moduleId als Pfadparameter angeben. Dieser Aufruf dupliziert das Modul, platziert es unter dem ursprünglichen Modul und pusht die anderen Module nach unten.
+[Duplizieren Sie ein ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST), indem Sie die E-Mail-ID und die moduleId als Pfadparameter angeben. Dieser Aufruf dupliziert das Modul, platziert es unter dem ursprünglichen Modul und pusht die anderen Module nach unten.
 
 ```
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
@@ -796,7 +796,7 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 #### neu ordnen
 
-[Module neu anordnen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)Array, das alle Module und für jedes die gewünschte Position innerhalb der E-Mail enthält. Jedes Array-Element enthält ein JSON-Objekt der folgenden Form:  { „index“: &lt;_index_>, „moduleId“: &quot;&lt;_moduleId_>&quot; }, wobei &lt;_index_> die Bestellnummer des nullbasierten Moduls und &lt;_moduleId_> die moduleId ist.
+[Module neu anordnen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)Array, das alle Module und für jedes die gewünschte Position innerhalb der E-Mail enthält. Jedes Array-Element enthält ein JSON-Objekt der folgenden Form:  { „index“: „ph id=&#39;78&#39;/>index _>, „moduleId“: &quot;_ moduleId _>&quot; }, wobei „ph id=&#39;129&#39;/>index_> die Bestellnummer des nullbasierten Moduls und „ph id=&#39;184&#39;/>moduleId _> die moduleId ist.___
 
 ```
 POST /rest/asset/v1/email/{id}/content/rearrange.json
@@ -826,7 +826,7 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 #### Umbenennen
 
-[Benennen Sie ein Modul &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) einer E-Mail um, indem Sie den neuen Namen über den Parameter „name“ übergeben. Geben Sie die E-Mail-ID und die moduleId (vorhandener Name) als Pfadparameter an.
+[Benennen Sie ein Modul ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) einer E-Mail um, indem Sie den neuen Namen über den Parameter „name“ übergeben. Geben Sie die E-Mail-ID und die moduleId (vorhandener Name) als Pfadparameter an.
 
 ```
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
@@ -856,7 +856,7 @@ name=MarketoVideo
 
 ## Variablen
 
-Im E-Mail-Editor 1.0 werden Variablen verwendet, um Werte für Elemente in Ihrer E-Mail zu speichern. Jede Variable wird definiert, indem Sie Ihrer HTML wie [&#x200B; beschrieben eine Marketo-spezifische Syntax &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo bietet eine Reihe von APIs zum Verwalten von Variablen in einer E-Mail.
+Im E-Mail-Editor 1.0 werden Variablen verwendet, um Werte für Elemente in Ihrer E-Mail zu speichern. Jede Variable wird definiert, indem Sie Ihrer HTML wie [ beschrieben eine Marketo-spezifische Syntax ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo bietet eine Reihe von APIs zum Verwalten von Variablen in einer E-Mail.
 
 ### Abfrage
 
@@ -1112,7 +1112,7 @@ value=2
 }
 ```
 
-Im folgenden Beispiel aktualisieren wir eine lokale Variable mit dem Namen „ctaLinkText“ auf den Wert „Click this button!“. in moduleId &quot;CTA&quot;.
+Im folgenden Beispiel aktualisieren wir eine lokale Variable mit dem Namen „ctaLinkText“ auf den Wert „Click this button!“ in moduleId &quot;CTA&quot;.
 
 ```
 POST /rest/asset/v1/email/1032/variable/ctaLinkText.json

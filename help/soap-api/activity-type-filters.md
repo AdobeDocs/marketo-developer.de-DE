@@ -3,7 +3,7 @@ title: Aktivitätstyp-Filter
 feature: SOAP
 description: Durchsuchen Sie alle unterstützten Filter für Aktivitätstypen nach SOAP-Aufrufen, von E-Mail-Klicks und Formularausfüllungen bis hin zu SFDC-Kampagnenänderungen und Opportunity-Aktualisierungen.
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 87%
@@ -13,7 +13,7 @@ ht-degree: 87%
 # Aktivitätstyp-Filter
 
 | Hinzufügen zur Liste |
-|-------------------------------------|
+| --- |
 | Zu Nurture hinzufügen |
 | Zu Opportunity hinzufügen |
 | Zu Segment hinzufügen |

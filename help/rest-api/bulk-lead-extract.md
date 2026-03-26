@@ -3,16 +3,16 @@ title: Massenauszug von Blei
 feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs für die Massenextraktion von Leads Leads Datums-, Listen- und Smart-Listen-Filtern, benutzerdefinierten Feldern und CSV/TSV-Formaten exportieren können.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1195'
+source-wordcount: '1273'
 ht-degree: 2%
 
 ---
 
 # Massenauszug von Blei
 
-[Referenz zum Massenextraktions-Endpunkt für Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
+[Referenz zum Massenextraktionsendpunkt von Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
 
 Der Satz von REST-APIs für die Lead-Massenextraktion bietet eine programmgesteuerte Schnittstelle zum Abrufen großer Mengen von Lead/Personen-Datensätzen aus Marketo. Sie kann auch verwendet werden, um Leads inkrementell basierend auf dem Erstellungsdatum des Datensatzes, der letzten Aktualisierung, der statischen Listenmitgliedschaft oder der Smart-Listen-Mitgliedschaft abzurufen. Die empfohlene Benutzeroberfläche für Anwendungsfälle, für die ein kontinuierlicher Datenaustausch zwischen Marketo und einem oder mehreren externen Systemen für ETL-, Data Warehousing- und Archivierungszwecke erforderlich ist.
 
@@ -25,9 +25,9 @@ Die APIs zum Massen-Lead-Extrahieren erfordern, dass der besitzende API-Benutzer
 Leads unterstützen verschiedene Filteroptionen. Bestimmte Filter, einschließlich `updatedAt`, `smartListName` und `smartListId`, erfordern zusätzliche Infrastrukturkomponenten, die noch nicht für alle Abonnements bereitgestellt wurden. Pro Exportvorgang kann nur ein Filtertyp angegeben werden.
 
 | Filtertyp | Datentyp | Hinweise |
-|---|---|---|
-| createdAt | Datumsbereich | Akzeptiert ein JSON-Objekt mit den `startAt` und `endAt`. `startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. |
-| updatedAt* | Datumsbereich | Akzeptiert ein JSON-Objekt mit den `startAt` und `endAt`. `startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. Hinweis: Dieser Filter filtert nicht nach dem sichtbaren Feld „updatedAt“, sondern nur Aktualisierungen an Standardfeldern. Es filtert danach, wann die letzte Aktualisierung des Felds an einen Lead-Datensatz vorgenommen wurde. Vorgänge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zuletzt im Datumsbereich aktualisiert wurden. |
+| --- | --- | --- |
+| createdAt | Datumsbereich | Akzeptiert ein JSON-Objekt mit den Membern `startAt` und `endAt`. `startAt` Akzeptiert ein Datum/Uhrzeit-Format, das das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert ein Datum/Uhrzeit-Format, das das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. |
+| updatedAt* | Datumsbereich | Akzeptiert ein JSON-Objekt mit den Membern `startAt` und `endAt`. `startAt` Akzeptiert ein Datum/Uhrzeit-Format, das das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert ein Datum/Uhrzeit-Format, das das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. Hinweis: Dieser Filter filtert nicht nach dem sichtbaren Feld „updatedAt“, sondern nur Aktualisierungen an Standardfeldern. Es filtert danach, wann die letzte Aktualisierung des Felds an einen Lead-Datensatz vorgenommen wurde. Vorgänge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zuletzt im Datumsbereich aktualisiert wurden. |
 | staticListName | String | Akzeptiert den Namen einer statischen Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der statischen Liste sind, zu dem der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listennamen mithilfe des Endpunkts „Listen abrufen“ ab. |
 | staticListId | Ganzzahl | Akzeptiert die ID einer statischen Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der statischen Liste sind, zu dem der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listen-IDs mithilfe des GET-Listen-Endpunkts ab. |
 | smartListName* | String | Akzeptiert den Namen einer Smart-Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der Smart-Listen sind, zu dem der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listennamen mithilfe des Endpunkts „Smart-Listen abrufen“. |
@@ -40,10 +40,10 @@ Filtertyp ist für einige Abonnements nicht verfügbar. Wenn für Ihr Abonnement
 Der Endpunkt Exportvorgang erstellen bietet mehrere Formatierungsoptionen, die es Benutzenden ermöglichen, bestimmte Felder in die exportierte Datei einzuschließen, Spaltenüberschriften dieser Felder umzubenennen und das Format der exportierten Datei anzugeben.
 
 | Parameter | Datentyp | Erforderlich | Hinweise |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Felder | array[string] | Ja | Der Feldparameter akzeptiert ein JSON-Zeichenfolgen-Array. Jede Zeichenfolge muss der REST-API-Name eines Marketo-Lead-Felds sein. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die Spaltenüberschrift für jedes Feld ist der REST-API-Name jedes Felds, sofern er nicht mit columnHeader überschrieben wird. Hinweis: Wenn die [!DNL Adobe Experience Cloud Audience Sharing]-Funktion aktiviert ist, findet ein Cookie-Synchronisierungsvorgang statt, der [!DNL Adobe Experience Cloud] ID (ECID) mit Marketo-Leads verknüpft. Sie können das Feld „ecids“ angeben, um ECIDs in die Exportdatei aufzunehmen. |
 | columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Dies ist der API-Name des Felds, das durch Aufruf von Describe Lead abgerufen werden kann. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| Format | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| Format | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 
 ## Erstellen von Aufträgen
 

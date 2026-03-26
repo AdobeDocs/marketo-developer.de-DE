@@ -3,9 +3,9 @@ title: Massenextrakt
 feature: REST API
 description: Erfahren Sie, wie Sie mit der Marketo Bulk Extract-REST-API Leads, Aktivitäten, Programmmitglieder und benutzerdefinierte Objekte mit OAuth, Auftragswarteschlangen und täglichen 500-MB-Beschränkungen exportieren können.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1702'
+source-wordcount: '1723'
 ht-degree: 1%
 
 ---
@@ -51,7 +51,7 @@ Die maximale Anzahl von Aufträgen in der Warteschlange ist 10. Wenn Sie versuch
 
 Die APIs für die Massenextraktion basieren auf der Größe der Daten, die über einen Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Vorgang kann durch Lesen des `fileSize` Attributs aus der Antwort „Abgeschlossener Status“ eines Exportvorgangs bestimmt werden.
 
-Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
+Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt ](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
 Sobald ein Auftrag in die Warteschlange gestellt wurde oder verarbeitet wird, wird er bis zum Ende ausgeführt (sofern kein Fehler vorliegt oder der Auftrag nicht abgebrochen wurde). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status Abgeschlossen erreicht (partielle Dateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie ihren SHA-256-Hash berechnen und diesen mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
 
@@ -118,7 +118,7 @@ Wenn wir den Auftrag erstellen, wird eine Auftrags-ID im `exportId`-Attribut zur
 Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konfigurieren des Dateiformats, der Feldnamen und des Filters eines Massenextraktionsauftrags. Jeder Subtyp des Extraktionsvorgangs kann über zusätzliche Parameter verfügen:
 
 | Parameter | Datentyp | Hinweise |
-|---|---|---|
+| --- | --- | --- |
 | Format | String | Bestimmt das Dateiformat der extrahierten Daten mit Optionen für kommagetrennte Werte, tabulatorgetrennte Werte und Semikolon-getrennte Werte. Akzeptiert eine der folgenden Optionen: CSV, SSV, TSV. Das Format ist standardmäßig CSV. |
 | columnHeaderNames | Objekt | Ermöglicht das Festlegen der Namen von Spaltenüberschriften in der zurückgegebenen Datei. Jeder Memberschlüssel ist der Name der umzubenennenden Spaltenüberschrift und der Wert ist der neue Name der Spaltenüberschrift. Beispiel: „columnHeaderNames“: { „firstName“: „First Name“, „lastName“: „Last Name“ }, |
 | filter | Objekt | Auf den Extraktionsvorgang angewendeter Filter. Die Typen und Optionen variieren je nach Vorgangstyp. |

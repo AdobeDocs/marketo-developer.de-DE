@@ -3,9 +3,9 @@ title: Rich-Media-Empfehlung
 description: Rich-Media-Empfehlung mit Marketo Predictive Content RTP-Tag einrichten, template1 template2 template3-divs, GET zum Ausfüllen, SET zum Konfigurieren von Kategorien.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '831'
+source-wordcount: '854'
 ht-degree: 4%
 
 ---
@@ -21,12 +21,12 @@ Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, au
 1. Im Hauptteil der Seite
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
-Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 
 | Attribut | Optional/Erforderlich | Beschreibung |
-|---|---|---|
+| --- | --- | --- |
 | klasse | Erforderlich | Geben Sie an, dass dieses div-HTML-Element RTP-Empfehlungs-div ist. |
 | data-rtp-template-id | Erforderlich | Die Vorlagen-ID. Dies bestimmt die Ausrichtung Ihrer Empfehlung. Verwenden Sie „template1“ für die horizontale Ausrichtung, „template2“ für die vertikale Ausrichtung oder „template3“ für die vertikale Ausrichtung, die nur Titel und Beschreibung enthält. Das Skript fügt die übereinstimmende Vorlage in diese `div.Permissible` ein: template1, template2, template3. |
 
@@ -61,7 +61,7 @@ Diese Methode füllt alle Rich-Media-`<divs>` auf der Seite mit Empfehlungen.
 `rtp('get', 'rcmd', 'richmedia');`
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;GET&#39; | Erforderlich | String | Aktion der Methode. |
 | &#39;rcmd&#39; | Erforderlich | String | Methodenname. |
 | &#39;richmedia&#39; | Erforderlich | String | Name der Untermethode. |
@@ -77,7 +77,7 @@ Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&
 `rtp('set', 'rcmd', 'richmedia', 'template_id', conf_obj);`
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | &#39;Satz&#39; | Erforderlich | String | Aktion der Methode. |
 | &#39;rcmd&#39; | Erforderlich | String | Methodenname. |
 | &#39;richmedia&#39; | Erforderlich | String | Name der Untermethode. |
@@ -136,7 +136,7 @@ rtp("set", "rcmd", "richmedia",
 #### Konfigurationseigenschaften
 
 | Konfiguration | Beispiel | Beschreibung |
-|---|---|---|
+| --- | --- | --- |
 | rcmd.general.font.family | „rcmd.general.font.family“ : „Arial“ | Ändert die Schriftfamilie für den gesamten Text in der Vorlage. Diese Eigenschaft unterstützt alle CSS-Werte nach Browser-Typ. Es ist möglich, eine benutzerdefinierte Schriftfamilie zu verwenden, wenn sie auf der Seite vorhanden ist. |
 | rcmd.content.background.color | „rcmd.content.background.color“ : „Schwarz“ | Ändert die Hintergrundfarbe der inneren Vorlagenfelder. Diese Eigenschaft unterstützt alle CSS-Werte nach Browser-Typ. |
 | rcmd.title.text | „rcmd.title.text“ : „EMPFOHLENER INHALT“ | Ändert den Vorlagentitel. |
@@ -241,4 +241,4 @@ rtp('get','rcmd', 'richmedia');
 
 #### Beispiel für #3 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template3 **Beschreibung**: Vertikaler Inhalt, der nur Titel und Beschreibung enthält. Beim Bewegen des Mauszeigers ändert sich die Farbe der Kopfzeile und sie wird mit der Inhalts-URL verknüpft. Die Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-Vorlage](assets/rich-media-template3.png)
+**Name**: template3 **Beschreibung**: Vertikaler Inhalt, der nur Titel und Beschreibung enthält. Beim Bewegen des Mauszeigers ändert sich die Farbe der Kopfzeile und sie wird mit der Inhalts-URL verknüpft. Die Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-](assets/rich-media-template3.png)
