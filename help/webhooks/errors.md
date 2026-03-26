@@ -25,7 +25,7 @@ Damit Marketo Werte wieder einem Feld zuordnen kann, muss der Webhook-Antwort-Co
 
 ## Webhook-Fehler abfangen
 
-Fehler aus Webhooks können vom Trigger [!UICONTROL Webhook wird aufgerufen) erfasst ] verarbeitet werden:
+Fehler aus Webhooks können vom Trigger [!UICONTROL Webhook wird aufgerufen) erfasst &#x200B;] verarbeitet werden:
 
 ![Webhook wird aufgerufen](assets/webhook-called.png)
 

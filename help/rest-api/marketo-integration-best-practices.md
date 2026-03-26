@@ -72,4 +72,4 @@ Die meisten Anwendungsfälle für die Integration profitieren nicht von gleichze
 
 ## Fehler
 
-Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [ unter ](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.
+Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [&#x200B; unter &#x200B;](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.
