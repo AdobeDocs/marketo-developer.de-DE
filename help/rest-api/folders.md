@@ -3,9 +3,9 @@ title: Ordner
 feature: REST API
 description: 'Marketo-REST-API-Handbuch für Ordner, in dem Folgendes behandelt wird: Erstellen, Aktualisieren, Löschen, Abfrage nach ID und Namen, Massendurchsuchen mit Stamm, Workspace, maxDepth und Paginierung.'
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '1025'
+source-wordcount: '1099'
 ht-degree: 1%
 
 ---
@@ -59,7 +59,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-Der Typparameter ist erforderlich und muss einer der Werte „Folder“ oder „Program“ sein.  Der Typ bestimmt, ob die Suche nach dem Ordner für eine Ordner-ID oder eine Programm-ID erfolgt. Für diesen Endpunkt wird im Ergebnis-Array nur ein einzelner Datensatz zurückgegeben. Beachten Sie den Parameter „folderType“ in der Antwort. Dies kann auf viele verschiedene Ordnertypen hinweisen. Marketo-Aktivitätsordner weisen entweder einen Typ von Marketing-Ordner oder -Programmen auf, der viele verschiedene Arten von Assets enthalten kann, während Design Studio-Ordner einen Typ haben, der dem Asset-Typ entspricht, den sie speichern können. Beispielsweise kann ein Ordner mit „folderType“ nur E-Mails oder andere Unterordner enthalten, die möglicherweise den „folderType“ E-Mail oder E-Mail-Vorlage haben. Mögliche Typen sind:
+Der Typparameter ist erforderlich und muss einer der Werte „Folder“ oder „Program“ sein.  Der Typ bestimmt, ob die Suche nach dem Ordner für eine Ordner-ID oder eine Programm-ID erfolgt. Für diesen Endpunkt wird im Ergebnis-Array nur ein einzelner Datensatz zurückgegeben. Beachten Sie den `folderType` Parameter in der Antwort. Dies kann auf viele verschiedene Ordnertypen hinweisen. Marketo-Aktivitätsordner weisen entweder einen Typ von Marketing-Ordner oder -Programmen auf, der viele verschiedene Arten von Assets enthalten kann, während Design Studio-Ordner einen Typ haben, der dem Asset-Typ entspricht, den sie speichern können. Ein Ordner mit dem `folderType` „E-Mail“ kann beispielsweise nur E-Mails oder andere Unterordner enthalten, die einen `folderType` E-Mail oder E-Mail-Vorlage haben können. Mögliche Typen sind:
 
 - E-Mail
 - E-Mail-Vorlage
@@ -113,7 +113,7 @@ Bei der Suche nach Namen ist es wichtig zu beachten, dass sowohl Marketing-Aktiv
 
 ### Durchsuchen
 
-Ordner können auch [stapelweise abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
+Ordner können auch [stapelweise abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
 
 1. id : Die ID des Ordners oder Programms.
 1. type - Entweder Ordner oder Programm, je nach dem Typ des Stammordners, der im Browser gespeichert werden soll.

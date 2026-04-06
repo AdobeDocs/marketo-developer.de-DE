@@ -3,27 +3,27 @@ title: Benutzerkontext
 feature: REST API
 description: Erfahren Sie, wie Sie die Marketo RTP User Context API aktivieren und verwenden, um benutzerdefinierte Variablen festzulegen, Benutzerdaten über Besuche hinweg zu lesen und angesehene und angeklickte Kampagnen zu verfolgen.
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
 workflow-type: tm+mt
-source-wordcount: '303'
-ht-degree: 4%
+source-wordcount: '296'
+ht-degree: 5%
 
 ---
 
 # Benutzerkontext
 
-User Context JavaScript-API stellt Daten auf Benutzer- und Besucherebene über mehrere Sitzungen hinweg bereit, um erweiterte Personalisierungsfunktionen unter Verwendung historischer Benutzerverhaltensdaten und -daten zu ermöglichen. Die API geht über das Lesen von Daten hinaus und stellt benutzerdefinierte Variablen bereit, mit denen Sie aussagekräftige Daten und Ereignisse für erweiterte Segmentierungs- und Personalisierungszwecke an das RTP-Backend übertragen können. Zusätzliche Funktionen: [Trigger &#x200B;](../javascript-api/triggers.md), [Musterübereinstimmung](../javascript-api/pattern-match.md).
+User Context JavaScript-API stellt Daten auf Benutzer- und Besucherebene über mehrere Sitzungen hinweg bereit, um erweiterte Personalisierungsfunktionen unter Verwendung historischer Benutzerverhaltensdaten und -daten zu ermöglichen. Die API geht über das Lesen von Daten hinaus und stellt benutzerdefinierte Variablen bereit, mit denen Sie aussagekräftige Daten und Ereignisse für erweiterte Segmentierungs- und Personalisierungszwecke an das RTP-Backend übertragen können. Zusätzliche Funktionen: [Trigger ](../javascript-api/triggers.md), [Musterübereinstimmung](../javascript-api/pattern-match.md).
 
-- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [&#128279;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTPTag auf Ihrer Site bereitgestellt haben.
+- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTP[Tag auf Ihrer Site bereitgestellt haben.
 - Die User Context-API ist eine Funktion, die vom Marketo-Support auf Anfrage aktiviert werden muss. Wenn die API aktiviert ist, wird ein userContext-Objekt unter dem globalen RTP-Objekt verfügbar gemacht.
 
 ## Benutzerkontexteigenschaften
 
 | Name | Typ | Beschreibung |
 | --- | --- | --- |
-| customVar[1-5] | String | Benutzerdefinierte Daten werden im Benutzerkontext gespeichert. |
-| Angezeigte Kampagnen | Kampagnen-IDs als kommagetrennte Zeichenfolge | Kampagnen bei aktuellen oder vorherigen Besuchen angezeigt. |
-| ClickedCampaign | Kampagnen-IDs als kommagetrennte Zeichenfolge | Durch Kampagnen bei aktuellen oder vorherigen Besuchen geklickt. |
+| `customVar[1-5]` | Zeichenfolge | Benutzerdefinierte Daten werden im Benutzerkontext gespeichert. |
+| `viewedCampaigns` | Kampagnen-IDs als kommagetrennte Zeichenfolge | Kampagnen bei aktuellen oder vorherigen Besuchen angezeigt. |
+| `clickedCampaigns` | Kampagnen-IDs als kommagetrennte Zeichenfolge | Durch Kampagnen bei aktuellen oder vorherigen Besuchen geklickt. |
 
 ## Festlegen benutzerdefinierter Variablen
 
@@ -35,9 +35,9 @@ Hinzufügen benutzerdefinierter Daten zum Benutzerkontext.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| &#39;Satz&#39; | Erforderlich | String | Aktion der Methode. |
-| customVar | Erforderlich | String | Benutzerdefinierter Variablenname |
-| my_custom_value | Erforderlich | String | Benutzerdefinierter Wert, der für die benutzerdefinierte Variable in Index 1-5 gespeichert wird. |
+| `'set'` | Erforderlich | String | Aktion der Methode. |
+| `customVar` | Erforderlich | String | Benutzerdefinierter Variablenname |
+| `my_custom_value` | Erforderlich | String | Benutzerdefinierter Wert, der für die benutzerdefinierte Variable in Index 1-5 gespeichert wird. |
 
 Hinweis: Benutzerdefinierte Variablen werden nur im Ansichtsaufruf an RTP gesendet. Daher wird empfohlen, benutzerdefinierte Variablen festzulegen, bevor die Ansicht aufgerufen wird. Andernfalls wird sie nur beim nächsten Ansichtsaufruf gesendet.
 

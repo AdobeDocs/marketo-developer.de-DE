@@ -3,16 +3,16 @@ title: Tags
 feature: REST API, Tags
 description: Abfragen von Tag-Typen, Abrufen zulässiger Werte nach Namen, Aktualisieren oder Löschen von Programm-Tags in Marketo über die REST Asset-API, mit Anfragebeispielen.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
 workflow-type: tm+mt
-source-wordcount: '221'
-ht-degree: 2%
+source-wordcount: '258'
+ht-degree: 1%
 
 ---
 
 # Tags
 
-[Tags-Endpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
+[Tags-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags)
 
 Tags sind benutzerdefinierte Felder für Programme. Jedes Tag kann sich auf einen oder mehrere Programmtypen beziehen und kann entweder erforderlich oder optional sein, je nachdem, wie das Tag definiert wurde. Tags können auch eine Liste zulässiger Werte bereitstellen, aus denen Sie zur Verwendung auswählen müssen.
 
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Tags können massenweise mit dem Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) aktualisiert werden. Ein Beispiel dafür finden Sie [hier](programs.md#update).
+Tags können massenweise mit dem Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) aktualisiert werden. Ein Beispiel finden Sie im Abschnitt [Programmaktualisierung](programs.md#update).
 
 ## Löschen
 
-Mit [&#x200B; Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
+Mit [ Endpunkt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

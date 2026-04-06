@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '277'
-ht-degree: 39%
+source-wordcount: '284'
+ht-degree: 38%
 
 ---
 
@@ -34,7 +34,7 @@ ht-degree: 39%
    - [Trigger](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
 - Mobile {#mobile}
-   - [install. [!DNL Adobe Launch] &#x200B;](mobile/adobe-launch-extension-installation.md)
+   - [install. [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension.md)
    - [Erweiterter Sicherheitsmodus](mobile/advanced-security-access-mode.md)
    - [Benutzerdefinierte Aktionen](mobile/custom-actions.md)
@@ -54,10 +54,13 @@ ht-degree: 39%
       - [Assets](rest-api/assets.md)
       - [Dynamische Inhalte](rest-api/dynamic-content.md)
       - [E-Mails](rest-api/emails.md)
+      - [E-Mails (neu)](rest-api/emails-new.md)
       - [E-Mail-Vorlagen](rest-api/email-templates.md)
+      - [E-Mail-Vorlagen (neu)](rest-api/email-templates-new.md)
       - [Dateien](rest-api/files.md)
       - [Ordner](rest-api/folders.md)
       - [Formulare](rest-api/forms.md)
+      - [Fragmente (neu)](rest-api/fragments.md)
       - [Landingpages](rest-api/landing-pages.md)
       - [Zielseiten-Umleitungsregeln](rest-api/landing-page-redirect-rules.md)
       - [Landingpage-Vorlagen](rest-api/landing-page-templates.md)

@@ -3,10 +3,10 @@ title: Datenaufnahme
 feature: REST API, Dynamic Content
 description: Verwenden Sie die Marketo-Datenaufnahme-API für die Aufnahme von Personen, benutzerdefinierten Objekten, Unternehmen und Programmmitgliedern mit hohem Volumen und geringer Latenz.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '1786'
-ht-degree: 16%
+source-wordcount: '1789'
+ht-degree: 17%
 
 ---
 
@@ -116,7 +116,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Fehler
 
-Wenn ein Aufruf einen Fehler erzeugt, wird ein Nicht-202-Status zusammen mit einem Antworttext mit zusätzlichen Fehlerdetails zurückgegeben.  Der Antworttext ist application/json und enthält ein einzelnes Objekt mit Membern und Fehlercode sowie Nachricht.
+Wenn ein Aufruf einen Fehler erzeugt, wird ein Nicht-202-Status zusammen mit einem Antworttext mit zusätzlichen Fehlerdetails zurückgegeben. Der Antworttext ist `application/json` und enthält ein einzelnes -Objekt mit `error_code` und `message`.
 
 Im Folgenden finden Sie wiederverwendete Fehler-Codes vom Adobe Developer-Gateway.
 
@@ -139,7 +139,16 @@ Im Folgenden finden Sie Fehlercodes, die für die Datenaufnahme-API eindeutig si
 
 ## Weitere Zustellversuche
 
-Wenn ein vorübergehender Fehler erkannt wird, versucht der Service den Vorgang dreimal erneut.  Der erste erneute Versuch findet nach einer Wartezeit von 5 Minuten statt, der zweite nach 30 weiteren Minuten und schließlich der dritte nach 30 weiteren Minuten.  Weitere Zustellversuche erfolgen aus verschiedenen Gründen, in erster Linie, wenn ein abhängiger Service eine Zeitüberschreitung aufweist oder vorübergehend nicht verfügbar ist.
+Wenn ein vorübergehender Fehler erkannt wird, versucht der Service den Vorgang erneut. Weitere Zustellversuche erfolgen aus verschiedenen Gründen, in erster Linie, wenn ein abhängiger Service eine Zeitüberschreitung aufweist oder vorübergehend nicht verfügbar ist.
+
+Wiederholungsintervalle:
+
+* Anfänglicher Vorgang und erster erneuter Versuch : 5 Minuten
+* &#x200B;1. und 2. : 15 Min
+* &#x200B;2. und 3. : 20 Min
+* &#x200B;3. und 4. : 20 Min
+* &#x200B;4. und 5. : 2 Stunden
+* Nach 5. Wiederholung -> 3 Stunden
 
 ## Endpunkte
 
@@ -164,8 +173,8 @@ Endpunkt, der zur Aktualisierung von Personendatensätzen verwendet wird.
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 | --- | --- | --- | --- | --- |
-| `priority` | String | Nein | Priorität der Anfrage: normal oder hoch | Normal |
-| `partitionName` | String | Nein | Name der Personenpartition | Standard |
+| `priority` | Zeichenfolge | Nein | Priorität der Anfrage: normal oder hoch | Normal |
+| `partitionName` | Zeichenfolge | Nein | Name der Personenpartition | Standard |
 | `dedupeFields` | Objekt | Nein | Zu deduplizierende Attribute. Ein oder zwei Attributnamen sind zulässig. <br/> In einem AND-Vorgang werden zwei Attribute verwendet. Wenn beispielsweise sowohl `email` als auch `firstName` angegeben sind, werden sie beide verwendet, um eine Person mithilfe des AND-Vorgangs nachzuschlagen. <br/>Unterstützte Attribute sind: `id`, `email`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId` `sfdcLeadOwnerId`, benutzerdefinierte Attribute (nur vom Typ „string“ und „integer„) `email` |  |
 | `persons` | Array von Objekten | Ja | Liste der Name-Wert-Paare für das Attribut der Person | – |
 
@@ -233,13 +242,13 @@ Endpunkt zum Upsertieren benutzerdefinierter Objektdatensätze.
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 | --- | --- | --- | --- | --- |
-| `priority` | String | Nein | Priorität der Anfrage: normal, hoch | Normal |
-| `dedupeBy` | String | Nein | Zu deduplizierende Attribute für: dedupeFields, marketoGUID | deduplizierte Felder |
+| `priority` | Zeichenfolge | Nein | Priorität der Anfrage: normal, hoch | Normal |
+| `dedupeBy` | Zeichenfolge | Nein | Zu deduplizierende Attribute für: dedupeFields, marketoGUID | deduplizierte Felder |
 | `customObjects` | Array von Objekten | Ja | Liste der Name-Wert-Paare für das Attribut des Objekts. | – |
 
 Erforderliche Berechtigungen sind `Read-Write Custom Object`.
 
-Wenn in der Anfrage ein Verknüpfungsfeld zu einer Person angegeben ist und diese Person nicht vorhanden ist, werden mehrere weitere Zustellversuche unternommen. Wenn diese Person im Wiederholungsfenster (65 Minuten) hinzugefügt wird, ist die Aktualisierung erfolgreich. Wenn beispielsweise das Verknüpfungsfeld E-Mail an Person lautet und Person nicht vorhanden ist, werden weitere Zustellversuche unternommen.
+Wenn in der Anfrage ein Verknüpfungsfeld zu einer Person angegeben ist und diese Person nicht vorhanden ist, werden mehrere weitere Zustellversuche unternommen. Wenn diese Person im Wiederholungsfenster (65 Minuten) hinzugefügt wird, ist die Aktualisierung erfolgreich. Wenn beispielsweise das Verknüpfungsfeld auf Person `email` ist und Person nicht vorhanden ist, werden weitere Zustellversuche unternommen.
 
 ### Beispiel für benutzerdefinierte Objekte
 
@@ -303,8 +312,8 @@ Endpunkt zum Synchronisieren von Firmendatensätzen. Unterstützt das Erstellen,
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 | --- | --- | --- | --- | --- |
-| `action` | String | Nein | Synchronisierungsaktion: `createOnly`, `updateOnly` oder `createOrUpdate` | `createOrUpdate` |
-| `dedupeBy` | String | Nein | Feld für Deduplizierung: `dedupeFields` oder `idField` (ohne Unterscheidung zwischen Groß- und Kleinschreibung). Für `createOnly` und `createOrUpdate` ist nur `dedupeFields` zulässig. Beides ist `updateOnly` zulässig. | `dedupeFields` |
+| `action` | Zeichenfolge | Nein | Synchronisierungsaktion: `createOnly`, `updateOnly` oder `createOrUpdate` | `createOrUpdate` |
+| `dedupeBy` | Zeichenfolge | Nein | Feld für Deduplizierung: `dedupeFields` oder `idField` (ohne Unterscheidung zwischen Groß- und Kleinschreibung). Für `createOnly` und `createOrUpdate` ist nur `dedupeFields` zulässig. Beides ist `updateOnly` zulässig. | `dedupeFields` |
 | `input` | Array von Objekten | Ja | Liste der Name-Wert-Paare für Firmenattribute. Akzeptiert JSON-`input` oder -`companies`. | – |
 
 Jedes Unternehmensobjekt im `input`-Array unterstützt die folgenden Felder:
@@ -313,7 +322,7 @@ Jedes Unternehmensobjekt im `input`-Array unterstützt die folgenden Felder:
 | --- | --- | --- | --- |
 | `externalCompanyId` | Zeichenfolge | bedingt | Externe Unternehmenskennung. Erforderlich, wenn `dedupeBy` `dedupeFields` ist. Nicht zulässig, wenn `dedupeBy` `idField` ist. |
 | `id` | Lang | bedingt | Interne Marketo-Unternehmens-ID. Erforderlich, wenn `dedupeBy` `idField` und `action` `updateOnly` ist. Nicht zulässig, wenn `dedupeBy` `dedupeFields` ist. |
-| `company` | String | Nein | Firmenname. |
+| `company` | Zeichenfolge | Nein | Firmenname. |
 | (beliebiges Feld) | Beliebig | Nein | Zusätzliche standardmäßige oder benutzerdefinierte Unternehmensfelder gemäß Definition in [Firmen beschreiben](companies.md). Bei Feldnamen wird nicht zwischen Groß- und Kleinschreibung unterschieden. |
 
 Erforderliche Berechtigungen sind `Read-Write Company`.
@@ -380,7 +389,7 @@ Erforderliche Berechtigungen sind `Read-Write Company`.
 | --- | --- |
 | Aktion | Muss eines der folgenden sein: `createOnly`, `updateOnly`, `createOrUpdate`. Von Schreibweise abhängig. |
 | deduplizieren nach | Muss `dedupeFields` oder `idField` sein (ohne Unterscheidung zwischen Groß- und Kleinschreibung). Die Standardeinstellung ist `dedupeFields`. |
-| deduplizierenNach + Aktion | `createOnly` und `createOrUpdate` nur `dedupeFields`. `updateOnly` Ermöglicht sowohl `dedupeFields` als auch `idField`. |
+| deduplizierenNach + Aktion | `createOnly` und `createOrUpdate` nur `dedupeFields`. `updateOnly` erlaubt sowohl `dedupeFields` als auch `idField`. |
 | Wenn `dedupeBy=dedupeFields` | Jedes Unternehmen muss über `externalCompanyId` verfügen. Feld `id` darf nicht vorhanden sein. |
 | Wenn `dedupeBy=idField` | Jedes Unternehmen muss über `id` verfügen. Feld `externalCompanyId` darf nicht vorhanden sein. |
 | `input` / `companies` | Darf nicht null oder leer sein. |

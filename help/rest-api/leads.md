@@ -3,16 +3,16 @@ title: Leads
 feature: REST API
 description: Erkunden Sie die Funktionen der Marketo Leads-REST-API, einschließlich Beschreiben, Abfragen nach ID oder Filter, Standardfeldern, Beschränkungen und Abrufen von ECIDs.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: 66154fa4aa37190a49dcc62f57debef5e1e829a1
 workflow-type: tm+mt
-source-wordcount: '3409'
+source-wordcount: '3457'
 ht-degree: 3%
 
 ---
 
 # Leads
 
-[Leads-Endpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Leads-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
 
 Die API des Leads von Marketo bietet eine große Anzahl von Funktionen für einfache CRUD-Anwendungen gegen Lead-Datensätze sowie die Möglichkeit, die Zugehörigkeit eines Leads zu statischen Listen und Programmen zu ändern und die intelligente Kampagnenverarbeitung für Leads zu starten.
 
@@ -95,7 +95,7 @@ Bei dieser Methode befindet sich immer ein einzelner Datensatz an der ersten Pos
 
 Das Abrufen von Leads nach Filtertyp gibt den gleichen Datensatztyp zurück, kann jedoch bis zu 300 pro Seite zurückgeben. Dazu sind die Abfrageparameter `filterType` und `filterValues` erforderlich.
 
-`filterType` akzeptiert ein benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den `Describe2`-Endpunkt auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die für die Verwendung in `filterType` zulässig sind. Bei der Suche nach benutzerdefiniertem Feld werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Felddetails (Beschreibung, Typ usw.) können Sie mit der oben genannten Describe-Methode abrufen.
+`filterType` akzeptiert ein benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den `Describe2`-Endpunkt auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die für die Verwendung in `filterType` zulässig sind. Bei der Suche nach benutzerdefiniertem Feld werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Sie können Felddetails (Beschreibung, Typ usw.) unter Verwendung der oben genannten Describe-Methode.
 
 `filterValues` akzeptiert bis zu 300 Werte im kommagetrennten Format. Der Aufruf sucht nach Datensätzen, bei denen das Feld des Leads mit einem der enthaltenen `filterValues` übereinstimmt. Wenn die Anzahl der Leads, die mit dem Lead-Filter übereinstimmen, größer als 1.000 ist, wird ein Fehler zurückgegeben: „1003, Zu viele Ergebnisse stimmen mit dem Filter überein“.
 
@@ -160,7 +160,7 @@ Zusätzlich zum Abrufen von Lead-Daten können Sie Lead-Datensätze über die AP
 
 >[!NOTE]
 >
-> Die Aktualisierung von Unternehmensfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden [&#x200B; stattdessen den Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)Unternehmen synchronisieren“.
+> Die Aktualisierung von Unternehmensfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden [ stattdessen den Endpunkt ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)Unternehmen synchronisieren“.
 
 >[!NOTE]
 >
@@ -221,7 +221,7 @@ POST /rest/v1/leads.json
 }
 ```
 
-In dieser Anfrage werden zwei wichtige Felder angezeigt: `action` und `lookupField`.  `action` gibt den Vorgangstyp der Anfrage an und kann `createOrUpdate`, `createOnly`, `updateOnly` oder `createDuplicate` sein. Wenn sie ausgelassen wird, wird für die Aktion standardmäßig `createOrUpdate` festgelegt.  Der `lookupField` gibt den Schlüssel an, der verwendet werden soll, wenn die Aktion entweder `createOrUpdate` oder `updateOnly` ist. Wenn `lookupField` weggelassen wird, wird der Standardschlüssel `email`.
+In dieser Anfrage werden zwei wichtige Felder angezeigt: `action` und `lookupField`. `action` gibt den Vorgangstyp der Anfrage an und kann `createOrUpdate`, `createOnly`, `updateOnly` oder `createDuplicate` sein. Wenn sie ausgelassen wird, wird für die Aktion standardmäßig `createOrUpdate` festgelegt.  Der `lookupField` gibt den Schlüssel an, der verwendet werden soll, wenn die Aktion entweder `createOrUpdate` oder `updateOnly` ist. Wenn `lookupField` weggelassen wird, wird der Standardschlüssel `email`.
 
 Standardmäßig wird die Standardpartition verwendet. Optional können Sie den `partitionName` angeben, der nur funktioniert, wenn die Aktion `createOnly` oder `createOrUpdate` ist. Damit `partitionName` als zusätzliches Deduplizierungskriterium funktioniert, muss es Teil des Quelltyps in benutzerdefinierten Deduplizierungsregeln sein. Wenn während eines Aktualisierungsvorgangs in der angegebenen Partition kein Lead vorhanden ist, wird ein Fehler zurückgegeben. Wenn der Benutzer „Nur API“ nicht berechtigt ist, auf die angegebene Partition zuzugreifen, wird ein Fehler zurückgegeben.
 
@@ -816,8 +816,10 @@ Mitgliedschaft
 
 Lead-Datensätze können auch basierend auf der Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, bei denen ein Lead Mitglied ist.
 
-Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl filterType und filterValues mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl `filterType` und `filterValues` mit dieser API nicht verwendet werden können.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+
+## Abrufen von Programmen nach Lead-ID
 
 ### Anfrage
 
@@ -855,6 +857,8 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
     ]
 }
 ```
+
+## Abrufen von Listen nach Lead-ID
 
 Der Endpunkt Listen nach Lead-ID abrufen nimmt einen Lead-Datensatz `id` Pfadparameter und gibt alle statischen Listendatensätze zurück, denen der Lead angehört.
 

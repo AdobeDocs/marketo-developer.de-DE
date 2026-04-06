@@ -3,9 +3,9 @@ title: Push-Benachrichtigungen
 feature: Mobile Marketing
 description: Anleitung zur Aktivierung von iOS-Push-Benachrichtigungen mit Marketo, von APNs-Zertifikaten und Xcode-Setup bis hin zur Marketo SDK-Integration, Token-Registrierung und Verarbeitung.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
 workflow-type: tm+mt
-source-wordcount: '1344'
+source-wordcount: '1338'
 ht-degree: 0%
 
 ---
@@ -32,7 +32,7 @@ Es gibt drei Schritte zum Aktivieren von Push-Benachrichtigungen:
 1. Wählen Sie die Anwendungskennung aus, die Sie verwenden, um die App zu erstellen.![](assets/push-appid.png)
 1. Erstellen und hochladen von CSR, um das Push-Zertifikat zu generieren. ![](assets/push-ssl.png)
 1. Zertifikat auf lokalen Computer herunterladen und zur Installation doppelklicken. ![](assets/certificate-download.png)
-1. Öffnen Sie „Schlüsselbund-Zugriff“, klicken Sie mit der rechten Maustaste auf das Zertifikat und exportieren Sie zwei Elemente in die `.p12`.![key_chain](assets/key-chain.png)
+1. Öffnen Sie „Schlüsselbund-Zugriff“, klicken Sie mit der rechten Maustaste auf das Zertifikat und exportieren Sie zwei Elemente in die `.p12`.![Schlüsselbund](assets/key-chain.png)
 1. Laden Sie diese Datei über Marketo Admin Console hoch, um Benachrichtigungen zu konfigurieren.
 1. App-Bereitstellungsprofile aktualisieren.
 
@@ -285,7 +285,7 @@ Im Folgenden finden Sie ein Marketo-Aktivitätsprotokoll von Marketo, das App-Er
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Einrichten von FCM mit HTTPv1 (Google hat [veraltetes XMPP-](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref)) am 12. Juni 2023 veröffentlicht und wird im Juni 2024 entfernt)
+1. Einrichten von FCM mit HTTPv1
 
 - Aktivieren von MME FCM HTTPv1 in Marketo Feature Manager ![](assets/feature-manager.png)
    - Laden Sie die JSON-Datei des Service-Kontos für die App in MLM hoch.
