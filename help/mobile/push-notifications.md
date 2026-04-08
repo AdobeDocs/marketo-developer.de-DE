@@ -3,7 +3,7 @@ title: Push-Benachrichtigungen
 feature: Mobile Marketing
 description: Anleitung zur Aktivierung von iOS-Push-Benachrichtigungen mit Marketo, von APNs-Zertifikaten und Xcode-Setup bis hin zur Marketo SDK-Integration, Token-Registrierung und Verarbeitung.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
+source-git-commit: 14ca3ca1f1aa07bb3e54802003190a4a2b4fbcb9
 workflow-type: tm+mt
 source-wordcount: '1338'
 ht-degree: 0%
@@ -24,7 +24,7 @@ Es gibt drei Schritte zum Aktivieren von Push-Benachrichtigungen:
 
 ### Konfigurieren von Push-Benachrichtigungen im Apple-Entwicklerkonto
 
-1. Melden Sie sich beim Apple Developer [Member Center](http://developer.apple.com/membercenter) an.
+1. Melden Sie sich beim Apple Developer [Member Center](https://developer.apple.com/membercenter) an.
 1. Klicken Sie auf „Zertifikate, Kennungen und Profile“.
 1. Klicken Sie auf den Ordner „Zertifikate->Alle“ unter &quot;iOS, tvOS, watchOS“.
 1. Wählen Sie das &quot;+&quot; auf dem Bildschirm links oben neben Zertifikate ![](assets/certificates-plus.png)
