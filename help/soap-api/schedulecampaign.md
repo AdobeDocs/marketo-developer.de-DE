@@ -3,7 +3,7 @@ title: scheduleCampaign
 feature: SOAP, Smart Campaigns
 description: Verwenden Sie scheduleCampaign, um jetzt oder später Batch-Smart-Kampagnen für Marketo auszuführen, Token zu überschreiben, Programme zu klonen und über SOAP XML mit PHP- und Java-Beispielen zu implementieren.
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '274'
 ht-degree: 4%
@@ -18,7 +18,7 @@ Diese Funktion legt den Zeitplan einer Batch-Smart-Kampagne fest, sodass sie ent
 
 Ähnlich wie bei der Funktion requestCampaign können Sie ein Array von My Tokens an diesen API-Aufruf übergeben, wodurch vorhandene Token überschrieben werden. Nach der Ausführung der Kampagne werden die Token verworfen.
 
-Wenn Sie diesen optionalen Parameter mit „importToList[&#x200B; verwenden](importtolist.md) werden die Token in dieser Reihenfolge priorisiert:
+Wenn Sie diesen optionalen Parameter mit „importToList[ verwenden](importtolist.md) werden die Token in dieser Reihenfolge priorisiert:
 
 1. importToList pro Lead-Token
 1. scheduleCampaign pro Kampagnen-Token
@@ -32,7 +32,7 @@ Wenn Sie diesen optionalen Parameter mit „importToList[&#x200B; verwenden](imp
 | campaignName | Erforderlich | Der Name der Smart-Kampagne |
 | campaignRunAt | Optional | Die Zeit für die Ausführung der geplanten Kampagne (W3C WSDL-Datumsformat). |
 | cloneToProgramName | Optional | Wenn dieses Attribut vorhanden ist, wird das übergeordnete Programm der Kampagne geklont und die neu erstellte Kampagne wird geplant. Das Attribut gibt den gewünschten Namen für das resultierende Programm an. Hinweis: Bei Verwendung dieses Felds sind nur 10 Aufrufe pro Tag zulässig. |
-| programTokenList->attribute->name | Optional | Der Name des Tokens, für das Sie einen neuen Wert senden möchten. Verwenden Sie das vollständige Token-Format wie in der Marketo-Benutzeroberfläche. Das heißt, &quot;{{my.message}}&quot; |
+| programTokenList->attribute->name | Optional | Der Name des Tokens, für das Sie einen neuen Wert senden möchten. Verwenden Sie das vollständige Token-Format wie in der Marketo-Benutzeroberfläche. Das heißt, &quot;`{{my.message}}`&quot; |
 | programTokenList->attribute->value | Optional | Der Wert des zugehörigen Token-Namens. |
 
 ## Anfrage-XML

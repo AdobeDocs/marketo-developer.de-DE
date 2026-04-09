@@ -3,7 +3,7 @@ title: requestCampaign
 feature: SOAP, Smart Campaigns
 description: Führen Sie Leads in einer Marketo Smart Campaign über SOAP requestCampaign aus, einschließlich Parametersätzen, Token-Handhabung, 100-Lead-Limit, XML-Anfragen und PHP-Java-Beispielen.
 exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
 source-wordcount: '298'
 ht-degree: 4%
@@ -29,7 +29,7 @@ Hinweis: Limit von 100 leadKey-Werten pro Aufruf. Zusätzliche Schlüssel werden
 | campaignName | Optional, wenn campaignId vorhanden ist. Andernfalls erforderlich in einem Satz wie `campaignName`, programName und programTokenList | Der Name der Kampagne |
 | programName | Optional, wenn campaignId vorhanden ist. Andernfalls erforderlich in einem Satz wie `campaignName`, programName und programTokenList | Der Name des Programms |
 | programTokenList | Optional, wenn campaignId vorhanden ist; andernfalls erforderlich in einem Satz wie `campaignName`, `programName` und `programTokenList` | Array von Token zur Verwendung in der Kampagne. Wenn Sie Token angeben, sind „programName“ und &quot;`campaignName`&quot; erforderlich. |
-| programTokenList->attribute->name | Optional | Der Name des Programm-Tokens, dessen Wert Sie übergeben möchten. ex:{{my.message}} |
+| programTokenList->attribute->name | Optional | Der Name des Programm-Tokens, dessen Wert Sie übergeben möchten. Beispiel: `{{my.message}}` |
 | programTokenList->attribute->value | Optional | Der Wert für den angegebenen Token-Namen. |
 
 ## Anfrage-XML
