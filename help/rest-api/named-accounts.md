@@ -3,9 +3,9 @@ title: Benannte Konten
 feature: REST API
 description: Marketo-REST-Handbuch für CRUD zu spezifischen Konten für ABM mit Beschreibung, Abfrage, Aktualisierungsbeispielen, durchsuchbaren Feldern, Deduplizierungsregeln und keiner Lead-Verknüpfung.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '697'
+source-wordcount: '730'
 ht-degree: 1%
 
 ---
@@ -22,7 +22,7 @@ Derzeit sind die einzigen ABM-bezogenen Funktionen, die über die APIs von Marke
 
 Bei der Beschreibung benannter Konten werden Metadaten zurückgegeben, die sich auf die Verwendung benannter Konten über die APIs von Marketo beziehen, einschließlich einer Liste der gültigen durchsuchbaren Felder bei der Abfrage und einer Liste aller für die API-Nutzung verfügbaren Felder. Die `idField` eines benannten Kontos ist immer `marketoGUID`, und die einzige verfügbare `dedupeField` und der Schlüssel für die Erstellung ist das `name` Feld des -Objekts.
 
-```
+```http
 GET /rest/v1/namedaccounts/describe.json
 ```
 
@@ -137,7 +137,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 Die Abfrage nach benannten Konten basiert auf der Verwendung eines filterType und einem Satz von bis zu 300 kommagetrennten filterValues. `filterType` kann ein beliebiges einzelnes Feld sein, das im `searchableFields` des Ergebnisses „Beschreiben“ für benannte Konten zurückgegeben wird, während „filterValues“ eine beliebige gültige Eingabe für den Datentyp des Felds sein kann. Um einen bestimmten Satz von Feldern aus zurückzugeben, muss ein -Feldparameter übergeben werden, wobei der Wert eine kommagetrennte Liste von Feldern ist, die in der Antwort zurückgegeben werden sollen. Wie bei anderen Abfrageoptionen beträgt die maximale Anzahl von Datensätzen für eine einzelne Abfrageseite 300, und zusätzliche Datensätze im Satz müssen mit der Verwendung des NextPageToken angefordert werden, das vom Aufruf zurückgegeben wird.
 
-```
+```http
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 ```
 
@@ -168,11 +168,11 @@ GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 
 Das Erstellen und Aktualisieren benannter Konten folgt dem standardmäßigen Lead-Datenbankmuster. Datensätze müssen in einer POST-Anfrage im Eingabemitglied eines JSON-Textkörpers übergeben werden. `input` ist das einzige erforderliche Element, wobei `action` und `dedupeBy` optionale Elemente sind. Es können bis zu 300 Datensätze eingegeben werden. Aktion kann entweder createOnly, updateOnly oder createOrUpdate sein. Wenn nicht anders angegeben, wird für die Aktion standardmäßig „createOrUpdate“ festgelegt. dedupeBy darf nur angegeben werden, wenn actionOnly ist, und akzeptiert nur eines der dedupeFields oder idField, die den Feldern name bzw. marketoGUID entsprechen.
 
-```
+```http
 POST /rest/v1/namedaccounts.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -226,7 +226,7 @@ Die Abfrage benannter Kontofelder ist einfach. Sie können ein einzelnes benannt
 
 Der Endpunkt [Benanntes Kontofeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für ein einzelnes Feld im benannten Kontoobjekt ab. Der erforderliche fieldApiName-Pfadparameter gibt den API-Namen des Felds an. Die Antwort ähnelt dem benannten Konto-Endpunkt Describe , enthält jedoch zusätzliche Metadaten wie das Attribut isCustom, das angibt, ob das Feld ein benutzerdefiniertes Feld ist.
 
-```
+```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 ```
 
@@ -254,7 +254,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 Der Endpunkt [Benannte Kontofelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für alle Felder des benannten Kontoobjekts ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können den Abfrageparameter „batchSize“ verwenden, um diese Anzahl zu reduzieren. Wenn das Attribut moreResult wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind. Das von dieser API zurückgegebene nextPageToken sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
 
-```
+```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 ```
 
@@ -333,11 +333,11 @@ GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 
 Löschungen werden über eine JSON-POST-Anfrage durchgeführt und weisen ein erforderliches Eingabemittel und ein optionales deleteBy-Element auf. deleteBy kann eines der folgenden sein: „dedupeFields“ oder „idField“, die dem Namen bzw. der marketoGUID entsprechen, und wird standardmäßig auf „dedupeFields“ festgelegt, wenn nicht festgelegt. Das Eingabeelement akzeptiert ein Array von bis zu 300 Datensätzen, die je ein Element enthalten, entweder name oder marketoGUID, je nach der Einstellung von deleteBy.
 
-```
+```http
 POST /rest/v1/namedaccounts/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

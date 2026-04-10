@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installieren und richten Sie die Marketo SDK in React Native-Apps mit den Schritten Android Gradle und iOS CocoaPods, nativer Modulüberbrückung, Push-Benachrichtigung und Lead-Zuordnung ein.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '830'
+source-wordcount: '854'
 ht-degree: 1%
 
 ---
@@ -16,7 +16,7 @@ Dieser Artikel enthält Informationen zur Installation und Einrichtung der nativ
 
 ## Voraussetzungen
 
-[Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+[Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
 
 ## SDK-Integration
 
@@ -26,7 +26,7 @@ Dieser Artikel enthält Informationen zur Installation und Einrichtung der nativ
 
 Fügen Sie die Marketo SDK-Abhängigkeit mit der neuesten Version hinzu: Fügen Sie in der `build.gradle` auf Programmebene im Abschnitt „Abhängigkeiten“ hinzu (einschließlich der entsprechenden Version von Marketo SDK)
 
-```
+```groovy
 implementation 'com.marketo:MarketoSDK:0.x.x'
 ```
 
@@ -34,7 +34,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 Marketo SDK ist im [Maven Central Repository](https://mvnrepository.com/) verfügbar. Um diese Dateien zu synchronisieren, fügen Sie `mavencentral` Repository zum `build.gradle` hinzu
 
-```
+```groovy
 build script {
   repositories {
     google()
@@ -91,7 +91,7 @@ React Native Bridge wird für die Kommunikation zwischen der JSX- und der native
 
 Diese Datei enthält die Wrapper-Methoden , die die Methoden von Marketo SDK intern mit den von Ihnen angegebenen Parametern aufrufen können.
 
-```
+```java
 public class RNMarketoModule extends ReactContextBaseJavaModule {
 
    final Marketo marketoSdk;
@@ -179,7 +179,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
 
 Informieren Sie React-Native über das Marketo-Paket.
 
-```
+```java
 public class MarketoPluginPackage implements ReactPackage {
 
    @NonNull
@@ -202,7 +202,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
 Um die Paketregistrierung abzuschließen, fügen Sie das MarketoPluginPackage der React-Paketliste in der Application-Klasse hinzu:
 
-```
+```java
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -231,7 +231,7 @@ Im folgenden Handbuch erstellen Sie ein natives Modul, _RNMarketoModule_, mit de
 
 Erstellen Sie unsere wichtigsten benutzerdefinierten Kopfzeilen- und Implementierungsdateien des nativen Moduls. Erstellen Sie eine neue Datei mit dem Namen `MktoBridge.h` und fügen Sie ihr Folgendes hinzu:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_END
 
 Erstellen Sie die entsprechende Implementierungsdatei `MktoBridge.m` im selben Ordner und schließen Sie die folgenden Inhalte ein:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //  Created by Marketo, An Adobe company.
@@ -364,7 +364,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications) {
 
 Suchen Sie in der Anwendung einen Ort, an dem Sie der Methode createCalendarEvent() des nativen Moduls einen Aufruf hinzufügen möchten. Nachfolgend finden Sie ein Beispiel für eine Komponente, NewModuleButton, die Sie Ihrer App hinzufügen können. Sie können das native Modul in der Funktion onPress() von NewModuleButton aufrufen.
 
-```
+```javascript
 import React from 'react';
 import { NativeModules, Button } from 'react-native';
 
@@ -395,7 +395,7 @@ Sobald die oben genannten Dateien korrekt platziert sind, können wir das js-Mod
 
 Beachten Sie, dass wir „reactNative“ als Framework-Typ für React-native Apps übergeben müssen.
 
-```
+```javascript
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
 RNMarketoModule.initializeSDK("MunchkinID","SecreteKEY","FrameworkType")
 
@@ -419,7 +419,7 @@ RNMarketoModule.uninitializeMarketoPush()
 
 Push mit Projekt-ID und Kanalnamen initialisieren
 
-```
+```javascript
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
@@ -467,7 +467,7 @@ Um Push-Benachrichtigungen zu senden, [Push-Benachrichtigungen hinzufügen](push
 Einrichten von iOS-Push-Benachrichtigungen,
 Erstellen Sie die Datei PushNotifications.tsx und fügen Sie Folgendes hinzu:
 
-```
+```javascript
 import { NativeModules } from 'react-native';
 const { RNMarketoModule } = NativeModules;
 
@@ -492,7 +492,7 @@ export { requestPermission, registerForRemoteNotifications };
 
 `App.tsx` hinzufügen, um Push-Benachrichtigungen zuzulassen
 
-```
+```javascript
 import React, { useEffect } from 'react';
 
 useEffect(() => {
@@ -506,7 +506,7 @@ registerForRemoteNotifications();
 
 Aktualisieren Sie `AppDelegate.mm` mit APNS-Delegatmethoden:
 
-```
+```objectivec
 #import "AppDelegate.h"
 #import "MktoBridge.h"
 #import <MarketoFramework/Marketo.h>
@@ -596,7 +596,7 @@ Fügen Sie „MarketoActivity“ zu `AndroidManifest.xml` Datei im Anwendungs-Ta
 
 **iOS - Benutzerdefinierte URL-Typen/Deeplinks in AppDelegate verarbeiten**
 
-```
+```objectivec
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
@@ -609,7 +609,7 @@ Fügen Sie „MarketoActivity“ zu `AndroidManifest.xml` Datei im Anwendungs-Ta
 
 Diese Konstanten werden beim Aufruf der API aus JavaScript verwendet. Sie müssen konstante Dateien erstellen und Folgendes hinzufügen.
 
-```
+```objectivec
 // Lead attributes.
 static NSString *const KEY_FIRST_NAME = @"firstName";
 static NSString *const KEY_LAST_NAME = @"lastName";
@@ -641,7 +641,7 @@ static NSString *const KEY_TIMESTAMP = @"timeStamp";
 
 Beispielverwendung
 
-```
+```javascript
 //You can create a Marketo Lead by calling the associateLead function.
 RNMarketoModule.associateLead({ email: "", firstName: "", lastName:"", city:""})
 ```

@@ -3,9 +3,9 @@ title: Lead-Datenbank
 feature: REST API, Database
 description: Handbuch zu Marketo-Lead-Datenbank-APIs mit Informationen zu Objekten, CRUD-Methoden und beschreibenden Methoden, Abfragemustern, Batch-Beschränkungen und CRM-Integrationsbeschränkungen.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '1357'
+source-wordcount: '1373'
 ht-degree: 1%
 
 ---
@@ -44,9 +44,9 @@ Bei Instanzen mit aktivierter nativer CRM-Integration (entweder Microsoft Dynami
 
 ## beschreiben
 
-Für Leads, Unternehmen, Opportunities, Rollen, Vertriebspersonen und benutzerdefinierte Objekte wird eine API mit einer Beschreibung bereitgestellt. Durch diesen Aufruf werden Metadaten für das -Objekt sowie eine Liste der Felder, die zum Aktualisieren und Abfragen verfügbar sind, abgerufen. Beschreiben ist ein wichtiger Teil beim Entwerfen einer ordnungsgemäßen Integration mit Marketo. Es bietet umfangreiche Metadaten darüber, wie Objekte interagiert werden können und nicht, und wie sie erstellt, aktualisiert und abgefragt werden können. Außer Leads beschreiben gibt jeder von diesen eine Liste von Schlüsseln zurück, die im `deduplication`-Antwortparameter für die `dedupeFields` verfügbar sind. Eine Liste von Feldern ist als Schlüssel für die Abfrage im `searchableFields`-Antwortparameter verfügbar.
+Für Leads, Unternehmen, Opportunities, Rollen, Vertriebspersonen und benutzerdefinierte Objekte wird eine API mit einer Beschreibung bereitgestellt. Durch diesen Aufruf werden Metadaten für das -Objekt sowie eine Liste der Felder, die zum Aktualisieren und Abfragen verfügbar sind, abgerufen. Beschreiben ist ein wichtiger Teil beim Entwerfen einer ordnungsgemäßen Integration mit Marketo. Es bietet umfangreiche Metadaten darüber, wie Objekte interagiert werden können und nicht, und wie sie erstellt, aktualisiert und abgefragt werden können. Außer Leads beschreiben gibt jeder von diesen eine Liste von Schlüsseln zurück, die im `dedupeFields`-Antwortparameter für die `deduplication` verfügbar sind. Eine Liste von Feldern ist als Schlüssel für die Abfrage im `searchableFields`-Antwortparameter verfügbar.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -136,20 +136,20 @@ Es gibt auch einen Feldantwort-Parameter, der den Namen jedes Felds, die `displa
 
 Lead-Datenbankobjekte verwenden alle dasselbe grundlegende Muster für Abfragen anhand einfacher Schlüssel, bei denen nur ein Feld referenziert wird.
 
-```
+```http
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
 Für alle Objekte außer Leads können Sie Ihre {field to query} aus den durchsuchbaren Feldern des entsprechenden Describe-Aufrufs auswählen und eine kommagetrennte Liste mit bis zu 300 Werten erstellen. Es gibt auch diese optionalen Abfrageparameter:
 
 - `batchSize` : Eine ganzzahlige Anzahl der zurückzugebenden Ergebnisse. Standard und Maximum sind 300.
-- `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [&#x200B; unter &#x200B;](paging-tokens.md)Paging-Token“.
+- `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [ unter ](paging-tokens.md)Paging-Token“.
 - `fields` : Eine kommagetrennte Liste von Feldnamen, die für jeden Datensatz zurückgegeben werden sollen. Eine Liste der gültigen Felder finden Sie in der entsprechenden Beschreibung. Wenn ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, ist der Wert impliziert null.
 - `_method` - Wird zum Senden von Abfragen mithilfe der POST-HTTP-Methode verwendet. Weitere Informationen zur Verwendung finden Sie im Abschnitt _method=GET unten.
 
 Ein kurzes Beispiel finden Sie unter Abfragemöglichkeiten:
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -182,21 +182,21 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 
 Der in diesem Aufruf angegebene `filterType` lautet „idField“ und nicht „marketoGUID“. Dies und „dedupeFields“ sind beides Sonderfälle, in denen das Feld, das dem idField, bzw. dedupeFields entspricht, auf diese Weise aliasiert werden kann. Die „marketoGUID“ ist weiterhin das resultierende Suchfeld im Aufruf, wird aber nicht explizit im Aufruf festgelegt. Die Felder und/oder Feldgruppen, die durch die `idField` und `dedupeFields` einer Objektbeschreibung angegeben werden, sind immer `filterTypes` für eine Abfrage gültig. Dieser Aufruf sucht nach Datensätzen, die mit den in filterValues enthaltenen GUIDs übereinstimmen, und gibt übereinstimmende Datensätze zurück. Wenn mit dieser Methode keine Datensätze gefunden werden, zeigt die Antwort weiterhin Erfolg an, aber das Ergebnis-Array ist leer, da die Suche erfolgreich ausgeführt wurde, aber es gab keine zurückzugebenden Datensätze.
 
-Wenn die Menge der Datensätze in der Abfrage 300 überschreitet oder die angegebene `batchSize` überschreitet, je nachdem, welcher Wert kleiner ist, verfügt die Antwort über einen `moreResult` mit dem Wert „true“ und einen `nextPageToken`, der in einen nachfolgenden Aufruf eingeschlossen werden kann, um einen größeren Teil der Menge abzurufen. Weitere Informationen finden [&#x200B; unter &#x200B;](paging-tokens.md)Paging-Token“.
+Wenn die Menge der Datensätze in der Abfrage 300 überschreitet oder die angegebene `batchSize` überschreitet, je nachdem, welcher Wert kleiner ist, verfügt die Antwort über einen `moreResult` mit dem Wert „true“ und einen `nextPageToken`, der in einen nachfolgenden Aufruf eingeschlossen werden kann, um einen größeren Teil der Menge abzurufen. Weitere Informationen finden [ unter ](paging-tokens.md)Paging-Token“.
 
 ### Lange URIs
 
 Manchmal, z. B. bei der Abfrage anhand von GUIDs, kann der URI lang sein und die vom REST-Service zulässigen 8 KB überschreiten. In diesem Fall müssen Sie die HTTP-POST-Methode anstelle von GET verwenden und einen `_method=GET` für Abfrageparameter hinzufügen. Darüber hinaus müssen die übrigen Abfrageparameter im POST-Text als Zeichenfolge „application/x-www-form-urlencoded“ übergeben werden und die zugehörige Kopfzeile für den Inhaltstyp übergeben werden.
 
-```
+```http
 POST /rest/v1/opportunities.json?_method=GET
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb,544fb7f5-2ddf-4fca-ae32-7e6ef1415e9f,f1ba41a2-69d1-4a35-9807-0e159d66f2c9,f7521272-3331-4a89-a768-222baff2f894
 ```
 
@@ -206,7 +206,7 @@ Neben langen URIs ist dieser Parameter auch bei der Abfrage von zusammengesetzte
 
 Das Muster für die Abfrage von zusammengesetzten Schlüsseln unterscheidet sich von einfachen Schlüsseln, da eine POST mit einem JSON-Hauptteil gesendet werden muss. Dies ist nicht in allen Fällen erforderlich, sondern nur in den Fällen, in denen eine `dedupeFields` Option mit mehreren Feldern als `filterType` verwendet wird. Derzeit werden zusammengesetzte Schlüssel nur von Opportunity-Rollen und einigen benutzerdefinierten Objekten verwendet. Sehen wir uns ein Beispiel einer Abfrage für Opportunity-Rollen mit dem zusammengesetzten Schlüssel aus `dedupeFields` an:
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -249,7 +249,7 @@ Der einzige erforderliche Parameter ist ein Array namens `input` mit bis zu 300 
 
 Beim Übergeben einer Liste von Feldwerten wird ein Wert von `null` oder eine leere Zeichenfolge wie `null` in die Datenbank geschrieben.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -301,7 +301,7 @@ Anders als die Lead-API geben Aufrufe zum Erstellen oder Aktualisieren von Lead-
 
 Die Benutzeroberfläche für Löschvorgänge ist standardmäßig für Lead-Datenbankobjekte neben Leads. Neben der Eingabe gibt es nur einen erforderlichen Parameter `deleteBy,` , der den Wert idField oder dedupeFields haben kann. Sehen wir uns das Löschen einiger benutzerdefinierter Objekte an.
 
-```
+```http
 POST /rest/v1/customobjects/{name}/delete.json
 ```
 

@@ -3,7 +3,7 @@ title: Spezifische Kontolisten
 feature: REST API
 description: Erfahren Sie, wie Sie Marketo Named Account Lists mit der REST-API verwalten, einschließlich Berechtigungen, Feldern, Filtern und Endpunkten zum Abfragen, Erstellen, Aktualisieren und Löschen.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 2%
@@ -14,7 +14,7 @@ ht-degree: 2%
 
 [Endpunkt-Referenz für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Spezifische Kontolisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
+[Spezifische Kontolisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
 `Content`
 
 ## Berechtigungen
@@ -38,7 +38,7 @@ Benannte Kontolisten verfügen über eine begrenzte Anzahl von Standardfeldern u
 
 Die Abfrage von Kontolisten ist einfach und unkompliziert. Derzeit gibt es nur zwei gültige Filtertypen für die Abfrage benannter Kontolisten: „dedupeFields“ und „idField“. Das Feld, nach dem gefiltert werden soll, wird im `filterType`-Parameter der Abfrage festgelegt, und die Werte werden in `filterValues as` kommagetrennten Liste festgelegt. Die `nextPageToken`- und `batchSize` sind ebenfalls optionale Parameter.
 
-```
+```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
 ```
 
@@ -77,7 +77,7 @@ Der Endpunkt lässt die beiden Standardaktionstypen zu: „createOnly“ und „
 
 Die optionale `dedupeBy parameter` kann angegeben werden, wenn die Aktion `updateOnly` ist.  Zulässige Werte sind „dedupeFields“ (entspricht „name„) oder „idField“ (entspricht „marketoGUID„).  In `createOnly` Modi ist nur „name“ als `dedupeBy` zulässig. Sie können bis zu 300 Datensätze gleichzeitig senden.
 
-```
+```http
 POST /rest/v1/namedAccountLists.json
 ```
 
@@ -119,7 +119,7 @@ POST /rest/v1/namedAccountLists.json
 
 Das Löschen von Listen benannter Konten ist einfach und kann entweder auf der Grundlage der `name` oder der `marketoGUID` der Liste erfolgen. Um den Schlüssel auszuwählen, den Sie verwenden möchten, übergeben Sie entweder „dedupeFields“ für den Namen oder „idField“ für marketoGUID im `deleteB` Ihrer Anfrage. Wenn nicht festgelegt, werden standardmäßig deduplizierte Felder verwendet. Sie können bis zu 300 Datensätze gleichzeitig löschen.
 
-```
+```http
 POST /rest/v1/namedAccountLists/delete.json
 ```
 
@@ -183,7 +183,7 @@ Die Abfrage der Mitgliedschaft in einer benannten Kontoliste ist einfach und erf
 
 Wenn`field` nicht festgelegt ist`marketoGUI` werden `nam`, `createdA` und `updatedA` zurückgegeben. `batchSiz` hat einen maximalen und einen standardmäßigen Wert von 300.
 
-```
+```http
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -214,7 +214,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Benannte Konten können einfach zu einer Liste benannter Konten hinzugefügt werden. Konten können nur mit ihrer marketoGUID hinzugefügt werden. Sie können bis zu 300 Datensätze gleichzeitig hinzufügen.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -254,7 +254,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Das Entfernen von Datensätzen aus einer Kontenliste hat einen anderen Pfad, aber dieselbe Benutzeroberfläche, sodass für jeden Datensatz, den Sie löschen möchten, `marketoGUI` erforderlich ist. Sie können bis zu 300 Datensätze gleichzeitig entfernen.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ```
 

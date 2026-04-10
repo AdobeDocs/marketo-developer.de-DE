@@ -3,9 +3,9 @@ title: Opportunitys
 feature: REST API
 description: Marketo-REST-API zum Beschreiben, Abfragen, Erstellen und Aktualisieren von Opportunities, Deduplizierung und durchsuchbaren Feldern, Einschränkungen und schreibgeschütztem Verhalten bei der SFDC- oder Dynamics-Synchronisierung.
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '803'
+source-wordcount: '879'
 ht-degree: 0%
 
 ---
@@ -16,13 +16,13 @@ ht-degree: 0%
 
 Marketo stellt APIs zum Lesen, Schreiben, Erstellen und Aktualisieren von Opportunity-Datensätzen bereit. In Marketo werden Opportunity-Datensätze über das dazwischenliegende Opportunity-Rollenobjekt mit Lead- und Kontaktdatensätzen verknüpft, sodass eine Opportunity mit vielen einzelnen Leads verknüpft werden kann.  Beide Objekttypen werden über die API verfügbar gemacht. Wie die meisten Objekttypen der Lead-Datenbank verfügen beide über einen entsprechenden Describe-Aufruf, der Metadaten über die Objekttypen zurückgibt.
 
-Opportunity-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert sind.
+Opportunity-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert sind.
 
 ## beschreiben
 
 Die Beschreibung der Opportunity-Datensätze folgt dem Standardmuster für Lead-Datenbankobjekte.
 
-```
+```http
 GET /rest/v1/opportunities/describe.json
 ```
 
@@ -87,7 +87,7 @@ Die wichtigsten Felder für diesen Antworttyp sind `idField`, `dedupeFields` und
 
 Das Muster für [Opportunities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) folgt dem der Leads-API mit der zusätzlichen Einschränkung, dass der `filterType` die im `searchableFields`-Array aufgelisteten Felder oder den entsprechenden Describe-Aufruf akzeptiert, oder dedupeFields.  Beachten Sie, dass bei der Verwendung benutzerdefinierter Opportunity-Felder nur benutzerdefinierte Opportunity-Felder vom Typ Zeichenfolge oder Ganzzahl im Array „SearchableFields“ aufgeführt werden.
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -128,7 +128,7 @@ Der `lookupField` Parameter aus der Leads-API ist nicht verfügbar und wird durc
 
 Sie können bis zu 300 Datensätze gleichzeitig senden.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -190,7 +190,7 @@ Die Abfrage von Opportunity-Feldern ist unkompliziert.  Sie können ein einzeln
 
 Der Endpunkt [Feld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) ruft Metadaten für ein einzelnes Feld im Firmenobjekt ab.  Der erforderliche `fieldApiName`-Pfadparameter gibt den API-Namen des Felds an.  Die Antwort ähnelt dem Opportunity-Endpunkt, enthält jedoch zusätzliche Metadaten wie das `isCustom`, das angibt, ob das Feld ein benutzerdefiniertes Feld ist.
 
-```
+```http
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 ```
 
@@ -219,7 +219,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 Der Endpunkt [Chancen-Felder abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) ruft Metadaten für alle Felder im Unternehmensobjekt ab.  Standardmäßig werden maximal 300 Datensätze zurückgegeben.  Sie können den `batchSize` Abfrageparameter verwenden, um diese Zahl zu reduzieren.  Wenn das Attribut `moreResult` wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind.  Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind.  Die von dieser API zurückgegebene `nextPageToken` sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
 
-```
+```http
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 ```
 
@@ -298,7 +298,7 @@ GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 
 Opportunities können nach Deduplizierungsfeldern oder ID-Feldern gelöscht werden. Geben Sie mithilfe des `deleteBy`-Parameters mit dem Wert dedupeFields oder idField an. Wenn kein Wert angegeben ist, lautet der Standardwert dedupeFields. Der Anfragetext enthält eine `input` Reihe von Gelegenheiten zum Löschen. Pro Anruf sind maximal 300 Opportunities zulässig.
 
-```
+```http
 POST /rest/v1/opportunities/delete.json
 ```
 

@@ -3,7 +3,7 @@ title: E-Mails
 feature: REST API
 description: Verwenden Sie die Marketo Asset REST-API, um Abhängigkeiten für E-Mail-Assets abzufragen, zu erstellen, zu aktualisieren, zu klonen, zu löschen, zu genehmigen und zu überprüfen.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '497'
 ht-degree: 5%
@@ -38,7 +38,7 @@ Sie können E-Mail-Metadaten nach Asset-`id` oder mit dem Filter-Endpunkt abrufe
 
 #### Anfrage
 
-```text
+```http
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -95,7 +95,7 @@ Unterstützte Abfrageparameter:
 
 #### Anfrage
 
-```text
+```http
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -125,7 +125,7 @@ Erstellen Sie eine E-Mail, indem Sie eine JSON-Payload senden. `name`, `appData`
 
 ### Anfrage
 
-```text
+```http
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -192,7 +192,7 @@ Aktualisieren einer E-Mail nach Asset-ID. Der Anfragetext verwendet das `UpdateE
 
 ### Anfrage
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -240,7 +240,7 @@ Gültige `action` sind:
 
 ### Anfrage
 
-```text
+```http
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -260,7 +260,7 @@ Verwenden Sie den Klon-Endpunkt , um eine Kopie einer vorhandenen E-Mail zu erst
 
 ### Anfrage
 
-```text
+```http
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -283,7 +283,7 @@ Löschen einer E-Mail nach Asset-ID.
 
 ### Anfrage
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
@@ -296,7 +296,7 @@ Verwenden Sie den `usedby`-Endpunkt zum Abrufen von Assets, die auf eine bestimm
 
 ### Anfrage
 
-```text
+```http
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```

@@ -3,7 +3,7 @@ title: Tags
 feature: REST API, Tags
 description: Abfragen von Tag-Typen, Abrufen zulässiger Werte nach Namen, Aktualisieren oder Löschen von Programm-Tags in Marketo über die REST Asset-API, mit Anfragebeispielen.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '258'
 ht-degree: 1%
@@ -22,7 +22,7 @@ Tags werden mit dem Standard-Asset-Muster abgefragt, haben jedoch keinen Endpunk
 
 ### Tags abrufen
 
-```
+```http
 GET /rest/asset/v1/tagTypes.json
 ```
 
@@ -54,7 +54,7 @@ GET /rest/asset/v1/tagTypes.json
 
 ### Nach Name
 
-```
+```http
 GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 ```
 
@@ -79,7 +79,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 Der Endpunkt [Programm-Tag](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) ermöglicht es Ihnen, den Wert für einen bestimmten Tag-Typ zu aktualisieren. Der Endpunkt akzeptiert einen `id` und `tagType` Pfadparameter, die die Programm-ID und den zu aktualisierenden Tag-Typ angeben. Ein `tagValue` Abfrageparameter wird verwendet, um den neuen Wert für den Tag-Typ anzugeben. Alle Parameter sind erforderlich.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 ```
 
@@ -101,9 +101,9 @@ Tags können massenweise mit dem Endpunkt [Programmmetadaten aktualisieren](http
 
 ## Löschen
 
-Mit [&#x200B; Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
+Mit [ Endpunkt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST)Programm-Tag löschen“ können Sie einen nicht erforderlichen Tag-Typ löschen. Der Endpunkt akzeptiert `id` und `tagType` Pfadparameter, die die Programm-ID und den zu löschenden Tag-Typ angeben.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json
 ```
 

@@ -3,18 +3,18 @@ title: Vertriebspersonal
 feature: REST API
 description: Marketo-REST-API-Handbuch für Vertriebspersonendatensätze mit SFDC oder Dynamics Sync, unter Verwendung von externalSalesPersonId, um Leads zu verknüpfen und Abfragen, Upsert und Löschen durchzuführen.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '322'
+source-wordcount: '396'
 ht-degree: 0%
 
 ---
 
 # Vertriebspersonal
 
-[Endpunkt-Referenz für Vertriebspersonen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
+[Endpunktreferenz für Vertriebspersonen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-Vertriebspersonen-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert sind. Verkaufspersonen sind eine Art von Personendatensätzen, die Verkaufseigentümer von Lead-Datensätzen sind. Sie sind durch das Feld externalSalesPersonId für jeden Lead-Datensatz mit Lead-Datensätzen verknüpft. Wenn ein Lead durch ein ausgefülltes externes Feld „SalesPersonId“ mit einer Verkaufsperson verknüpft ist, werden die entsprechenden Suchfelder für den Lead-Inhaber für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
+Vertriebspersonen-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert sind. Verkaufspersonen sind eine Art von Personendatensätzen, die Verkaufseigentümer von Lead-Datensätzen sind. Sie sind durch das Feld externalSalesPersonId für jeden Lead-Datensatz mit Lead-Datensätzen verknüpft. Wenn ein Lead durch ein ausgefülltes externes Feld „SalesPersonId“ mit einer Verkaufsperson verknüpft ist, werden die entsprechenden Suchfelder für den Lead-Inhaber für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
 
 Vertriebspersonen werden mit Lead-Datensätzen verknüpft, indem sie den Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 
@@ -28,7 +28,7 @@ Die Datensätze von Vertriebspersonen können nur über die API bearbeitet werde
 
 Die Beschreibung der Datensätze von Vertriebspersonen folgt dem Standardmuster für Lead-Datenbankobjekte.
 
-```
+```http
 GET /rest/v1/salespersons/describe.json
 ```
 
@@ -101,7 +101,7 @@ Standardmäßig lautet der `idField` der Vertriebspersonen „id“ und der `ded
 
 Vertriebspersonen, die das Standardabfragemuster für einfache Schlüssel verwenden. Dieses Beispiel zeigt, wie die E-Mail-Adresse des Benutzers als externe SalesPersonId verwendet wird. Standardmäßig gibt die Abfrage alle Felder zurück, die für die zurückgegebenen Datensätze ausgefüllt sind.
 
-```
+```http
 GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.com,sam@test.com
 ```
 
@@ -132,7 +132,7 @@ GET /rest/v1/salespersons.json?filterType=dedupeFields&filterValues=david@test.c
 
 Das Muster für Aktualisierungen ist Standard.
 
-```
+```http
 POST /rest/v1/salespersons.json
 ```
 
@@ -185,7 +185,7 @@ Die Löschung von Vertriebspersonen ist bei „Verwendung“ nicht zulässig. In
 - Wenn Vertriebsperson mit aktiven Leads verknüpft ist
 - Wenn ein Vertriebsmitarbeiter mit einer Firma verknüpft ist, die gelöscht wurde
 
-```
+```http
 POST /rest/v1/salespersons/delete.json
 ```
 

@@ -3,9 +3,9 @@ title: Aktivitäten
 feature: REST API
 description: Verwenden Sie die Marketo Engage-Aktivitäts-REST-API, um Aktivitätstypen aufzulisten, Lead-Aktivitäten mit Paging-Token abzurufen und benutzerdefinierte Änderungen und Änderungen von Datenwerten zu verarbeiten.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '2046'
+source-wordcount: '2139'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Die meisten Aktivitäten werden nach einiger Zeit bereinigt.
 
 Um eine Liste der verfügbaren Typen und ihrer Definitionen für eine Instanz abzurufen, können Sie den Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) verwenden.
 
-```
+```http
 GET /rest/v1/activities/types.json
 ```
 
@@ -75,11 +75,11 @@ Die Antworten der realen Welt umfassen weitaus mehr Definitionen. In diesem Beis
 
 ## Abfrage
 
-Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
+Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
 
 Sie können optional entweder einen listId-Abfrageparameter einschließen, um Ihre Suche auf die Datensätze einzugrenzen, die in einer bestimmten statischen Liste enthalten sind, oder einen leadIds-Abfrageparameter und Aktivitäten aus einem bestimmten Satz von Leads suchen. Sie können bis zu 30 leadIds als kommagetrennte Liste übergeben.
 
-```
+```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -140,7 +140,7 @@ Für Aktivitäten mit Datenwertänderung wird eine spezielle Version der Aktivit
 * Es gibt keinen `activityTypeIds`, da der Endpunkt nur die Aktivitäten Datenwertänderung und Neuer Lead zurückgibt.
 * Der `fields` Abfrageparameter ist erforderlich, wobei Sie eine kommagetrennte Liste von Feldern übergeben können, um anzugeben, für welche Felder Sie Änderungen abrufen möchten.
 
-```
+```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
 ```
 
@@ -192,7 +192,7 @@ Beachten Sie, dass innerhalb jedes Ergebnis-Array-Elements das `id` Ganzzahlattr
 
 Es gibt auch einen speziellen Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) zum Abrufen gelöschter Aktivitäten aus Marketo.
 
-```
+```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
 ```
 
@@ -250,7 +250,7 @@ Zusätzlich zum standardmäßigen Endpunkt Abrufen von Aktivitätstypen geben di
 
 ### Typen abrufen
 
-```
+```http
 GET /rest/v1/activities/external/types.json
 ```
 
@@ -278,7 +278,7 @@ GET /rest/v1/activities/external/types.json
 
 Für Typbeschreibungen müssen Sie `apiName` als Pfadparameter übergeben. Standardmäßig wird die genehmigte Version der Aktivität angezeigt. Sie können optional den `draft=true` übergeben, um die Entwurfsversion der Aktivität abzurufen.
 
-```
+```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
 ```
 
@@ -344,7 +344,7 @@ Wenn eine benutzerdefinierte Aktivität erstellt wird, wird sie als Entwurf erst
 
 Beim Erstellen eines Typs ist der Beschreibungsparameter optional, während alle folgenden Parameter erforderlich sind: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute`.
 
-```
+```http
 POST /rest/v1/activities/external/type.json
 ```
 
@@ -390,7 +390,7 @@ POST /rest/v1/activities/external/type.json
 
 Die Aktualisierung eines Typs ist sehr ähnlich, mit der Ausnahme, dass der apiName der einzige erforderliche Parameter als Pfadparameter ist.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}.json
 ```
 
@@ -451,7 +451,7 @@ Beim Ändern des primären Attributs eines Aktivitätstyps sollte jedes vorhande
 
 Zum Erstellen eines Attributs wird ein erforderlicher `apiName` verwendet. Außerdem sind die Parameter `name` und `dataType` erforderlich.`The description and` `isPrimary` sind optional.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 ```
 
@@ -518,7 +518,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 
 Beim Aktualisieren von Attributen ist der `apiName` des Attributs der Primärschlüssel. Der `apiName` Parameter muss vorhanden sein, damit die Aktualisierung erfolgreich ist (d. h., Sie können den `apiName` Parameter nicht mithilfe von „update“ ändern).
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 ```
 
@@ -585,7 +585,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 
 Beim Löschen eines Attributs wird ein erforderlicher `apiName` verwendet, bei dem es sich um den benutzerdefinierten Aktivitäts-API-Namen handelt.  Außerdem ist ein Attributparameter erforderlich, der ein Array von Attributobjekten ist.  Jedes -Objekt muss einen `apiName` enthalten, bei dem es sich um den benutzerdefinierten Aktivitätstyp-API-Namen handelt.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 ```
 
@@ -629,7 +629,7 @@ Das Eingabeelement ist ein Array von Aktivitätsobjekten. Es können maximal 30
 
 Die Member `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue` und attributes sind erforderlich. Das Attribut-Array muss das nicht-primäre Attribut enthalten. Dies kann entweder mit Name (Feldname) oder apiName (API-Name) und einem Wert angegeben werden, der dem von Ihnen festgelegten Wert entspricht.
 
-```
+```http
 POST /rest/v1/activities/external.json
 ```
 

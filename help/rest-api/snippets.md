@@ -3,9 +3,9 @@ title: Ausschnitte
 feature: REST API, Snippets
 description: Marketo Asset REST-API für Snippets, die die Abfrage nach ID und das Durchsuchen mit dem Status, das Abrufen von Inhalten, das Erstellen und Aktualisieren von HTML-, Text- und dynamischen Inhalten behandelt.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '456'
+source-wordcount: '511'
 ht-degree: 2%
 
 ---
@@ -22,7 +22,7 @@ Die Abfrage von Ausschnitten folgt dem Standardmuster für Assets, mit der Ausna
 
 ### Nach ID
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}.json?status=approved
 ```
 
@@ -52,7 +52,7 @@ GET /rest/asset/v1/snippet/{id}.json?status=approved
 
 ### Durchsuchen
 
-```
+```http
 GET /rest/asset/v1/snippets.json?maxReturn=3
 ```
 
@@ -116,7 +116,7 @@ GET /rest/asset/v1/snippets.json?maxReturn=3
 
 Der Inhalt eines bestimmten Snippets kann basierend auf der Snippet-ID abgerufen werden.
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}/content.json
 ```
 
@@ -145,15 +145,15 @@ Der Aufruf gibt eine Liste von Inhaltsabschnitten zurück,  die aus Abschnitten
 
 Snippets folgen dem komplexen Asset-Erstellungsmuster, bei dem der Aufruf von [Snippet erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) und sein Inhalt separat durchgeführt werden. Daher muss der erste Aufruf an den create-Endpunkt mit einer optionalen Beschreibung erfolgen.   Die Daten werden als x-www-form-urlencoded und nicht als JSON übergeben.
 
-```
+```http
 POST /rest/asset/v1/snippets.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=This is a test snippet
 ```
 
@@ -185,15 +185,15 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 
 Das Hinzufügen oder Ersetzen von Inhalten in einem Snippet erfolgt nach ID. Der Inhalt kann vom Typ Text, HTML oder DynamicContent sein. Wenn der Typ „Text“ ist, ist der Inhaltsparameter ein Nur-Text-Endpunkt, während es bei HTML der gewünschte Markup-Text ist. Wenn der Typ auf DynamicContent festgelegt ist, sollte der Parameter content auf die ID der Segmentierung festgelegt werden, die mit dem Snippet verknüpft werden soll.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/content.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 ```
 
@@ -213,15 +213,15 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 
 [Aktualisieren von Metadaten](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) erfolgt auch nach ID. Nur Name und Beschreibung können aktualisiert werden:
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet&description=New Description
 ```
 
@@ -255,7 +255,7 @@ name=Test Snippet&description=New Description
 
 Ausschnitte folgen dem Standardmuster für dynamische Inhalte, stellen jedoch nur einen ganzen Inhaltsabschnitt für sich dar, sodass jedes Snippet nur einen dynamischen Abschnitt mit einer Liste interner Abschnitte enthalten kann, optional für jedes Segment in der verwendeten Segmentierung. Dynamische Inhalte können nur über Snippet-IDs abgefragt werden, da ein Snippet möglicherweise nur einen dynamischen Inhaltsabschnitt enthält.
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}/dynamicContent.json
 ```
 
@@ -312,7 +312,7 @@ Snippets verfügen über Endpunkte, die dem standardmäßigen Asset-Muster entsp
 
 ### Genehmigen
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/approveDraft.json
 ```
 
@@ -346,7 +346,7 @@ POST /rest/asset/v1/snippet/{id}/approveDraft.json
 
 Der `unapprove` Endpunkt kann nur für genehmigte Snippets verwendet werden.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/unapprove.json
 ```
 
@@ -380,7 +380,7 @@ POST /rest/asset/v1/snippet/{id}/unapprove.json
 
 Der Ausschnitt muss den Status Entwurf aufweisen, damit er verworfen werden kann.  Ein genehmigtes Snippet kann nicht verworfen werden.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/discardDraft.json
 ```
 
@@ -402,15 +402,15 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 [Klonen eines Snippets](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) mit der API ist einfach und folgt dem Standardmuster, mit einem erforderlichen Namen, der ID des ursprünglichen Snippets und Ordners sowie einer optionalen Beschreibung.  Wenn keine genehmigte Version vorhanden ist, wird die Entwurfsversion geklont.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet Clone 3 - deverly&folder={"id":395,"type":"Folder"}&description=This is a test snippet
 ```
 

@@ -3,7 +3,7 @@ title: Massenaktivität-Extrakt
 feature: REST API
 description: Marketo Bulk Activity Extract REST-API zum Exportieren von Aktivitätsdaten mit hohem Volumen unter Verwendung eines 31-tägigen Datumsbereichs, Aktivität und primären Attributfiltern für ETL und CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1564'
 ht-degree: 6%
@@ -25,7 +25,7 @@ Die APIs zum Extrahieren von Massenaktivitäten erfordern, dass der API-Benutzer
 | Filtertyp | Datentyp | Erforderlich | Hinweise |
 | --- | --- | --- | --- |
 | `createdAt` | Datumsbereich | Ja | Akzeptiert ein JSON-Objekt mit den `startAt` und `endAt`. `startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. |
-| `activityTypeIds` | Array\[Ganzzahl\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `activityTypeIds`. Der Wert muss ein Array von Ganzzahlen sein, das den gewünschten Aktivitätstypen entspricht. Die Aktivität „Lead löschen“ wird nicht unterstützt (stattdessen den Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) verwenden). Rufen Sie Aktivitätstyp-IDs mithilfe des Endpunkts [Aktivitätstypen abrufen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
+| `activityTypeIds` | Array\[Ganzzahl\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `activityTypeIds`. Der Wert muss ein Array von Ganzzahlen sein, das den gewünschten Aktivitätstypen entspricht. Die Aktivität „Lead löschen“ wird nicht unterstützt (stattdessen den Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) verwenden). Rufen Sie Aktivitätstyp-IDs mithilfe des Endpunkts [Aktivitätstypen abrufen“ ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
 | [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Ganzzahl\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `primaryAttributeValueIds`. Der Wert ist ein Array von IDs, die die primären Attribute angeben, nach denen gefiltert werden soll. Es können maximal 50 IDs angegeben werden. Die IDs sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie den Formularnamen an den Endpunkt [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) um die Formular-ID abzurufen. Im Folgenden finden Sie eine Liste der Aktivitätstypen, bei denen die Filterung primärer Attribute unterstützt wird. |
 | [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `primaryAttributeValues`. Der Wert ist ein Array von Namen, die die primären Attribute zum Filtern angeben. Es können maximal 50 Namen angegeben werden. Die Namen sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie die Formular-ID an den Endpunkt [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) um den Formularnamen abzurufen. Im Folgenden finden Sie eine Liste der Aktivitätstypen, bei denen die Filterung primärer Attribute unterstützt wird. |
 
@@ -108,9 +108,9 @@ Bei Verwendung von `primaryAttributeValues` muss der `activityTypeIds` vorhanden
 
 ## Erstellen von Aufträgen
 
-Um Datensätze zu exportieren, müssen Sie zunächst den Auftrag und die Menge der Datensätze definieren, die Sie abrufen möchten.  Erstellen Sie den Auftrag mit [&#x200B; Endpunkt „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  Beim Exportieren von Aktivitäten können zwei primäre Filter angewendet werden: `createdAt`, was immer erforderlich ist, und `activityTypeIds`, was optional ist.  Der `createdAt` Filter wird verwendet, um einen Datumsbereich zu definieren, in dem Aktivitäten erstellt wurden. Dabei werden die Parameter `startAt` und `endAt` verwendet, die beide Datums-/Uhrzeitfelder sind und das früheste zulässige Erstellungsdatum bzw. das späteste zulässige Erstellungsdatum darstellen.  Optional können Sie auch mit dem `activityTypeIds` Filter nur nach bestimmten Aktivitätstypen filtern.  Dies ist nützlich, um Ergebnisse zu entfernen, die für Ihren Anwendungsfall nicht relevant sind.
+Um Datensätze zu exportieren, müssen Sie zunächst den Auftrag und die Menge der Datensätze definieren, die Sie abrufen möchten.  Erstellen Sie den Auftrag mit [ Endpunkt „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  Beim Exportieren von Aktivitäten können zwei primäre Filter angewendet werden: `createdAt`, was immer erforderlich ist, und `activityTypeIds`, was optional ist.  Der `createdAt` Filter wird verwendet, um einen Datumsbereich zu definieren, in dem Aktivitäten erstellt wurden. Dabei werden die Parameter `startAt` und `endAt` verwendet, die beide Datums-/Uhrzeitfelder sind und das früheste zulässige Erstellungsdatum bzw. das späteste zulässige Erstellungsdatum darstellen.  Optional können Sie auch mit dem `activityTypeIds` Filter nur nach bestimmten Aktivitätstypen filtern.  Dies ist nützlich, um Ergebnisse zu entfernen, die für Ihren Anwendungsfall nicht relevant sind.
 
-```
+```http
 POST /bulk/v1/activities/export/create.json
 ```
 
@@ -149,7 +149,7 @@ POST /bulk/v1/activities/export/create.json
 
 Der Auftrag hat jetzt den Status „Erstellt“, befindet sich jedoch noch nicht in der Verarbeitungswarteschlange.  Um ihn in die Warteschlange einzustellen, damit er mit der Verarbeitung beginnen kann, rufen Sie den Endpunkt [Exportaktivitätsauftrag in die Warteschlange](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) mit der exportId aus der Antwort auf den Erstellungsstatus auf.
 
-```
+```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
 ```
 
@@ -177,7 +177,7 @@ Der Auftragsstatus kann nur für Aufträge abgerufen werden, die vom selben API-
 
 Marketos Massenaktivität-Extraktion ist ein asynchroner Endpunkt, sodass der Auftragsstatus abgefragt werden muss, um zu bestimmen, wann der Auftrag abgeschlossen ist.  Abfrage mit dem Endpunkt [Exportaktivitätsstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) wie folgt:
 
-```
+```http
 GET /bulk/v1/activities/export/{exportId}/status.json
 ```
 
@@ -215,7 +215,7 @@ Das Statusfeld kann mit einem der folgenden Werte antworten:
 
 Sobald der Auftrag abgeschlossen ist, rufen Sie Ihre Daten mit dem Endpunkt [Exportaktivitätsdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) ab.
 
-```
+```http
 GET /bulk/v1/activities/export/{exportId}/file.json
 ```
 
@@ -237,7 +237,7 @@ Um das teilweise und fortsetzungsfreundliche Abrufen extrahierter Daten zu unter
 
 Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach mit dem Endpunkt [Exportaktivitätsauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) abgebrochen werden:
 
-```
+```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json
 ```
 

@@ -3,7 +3,7 @@ title: Token
 feature: REST API, Tokens
 description: Meine Marketo-Token mit der Asset-REST-API verwalten Siehe Unterstützte Datentypen, Nach Ordner oder Programm abrufen, Erstellen oder Aktualisieren über einen formularkodierten POST und Löschen nach Namen.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '364'
 ht-degree: 3%
@@ -35,7 +35,7 @@ Dies sind die einzigen Datentypen, die beim Erstellen eines Tokens über die API
 
 [Token nach Ordner-ID abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) akzeptiert eine `id` als Pfadparameter entweder vom Typ „Programm“ oder „Ordner“. Dieser Typ wird durch den `folderType` angegeben.
 
-```curl
+```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 ```
 
@@ -68,15 +68,15 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 Der Endpunkt [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) erstellt Token oder aktualisiert sie, falls vorhanden, mit gesendeten Werten. Token werden im Kontext eines Ordners oder Programms erstellt. Der erforderliche `id` ist die ID des Ordners, mit dem das Token verknüpft werden soll. `name`, `type`, `value` und `folderType` sind alle erforderlichen Parameter des Tokens. Die Daten werden als POST x-www-form-urlencoded und nicht als JSON übergeben. Das `name` Feld des Tokens darf 50 Zeichen nicht überschreiten.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&type=date&value=2015-04-01&folderType=Folder
 ```
 
@@ -109,15 +109,15 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 [Token nach Namen löschen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) akzeptiert eine ID als Pfadparameter entweder vom Typ „Programm“ oder „Ordner“. Dieser Typ wird durch den `folderType` angegeben. Token werden je nach übergeordnetem Ordner, `name` und `type` des Tokens gelöscht. Diese sind jeweils erforderlich. Die Daten werden als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=AprilFool - deverly&type=date&folderType=Program
 ```
 

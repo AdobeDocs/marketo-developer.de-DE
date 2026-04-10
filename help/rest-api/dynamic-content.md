@@ -3,9 +3,9 @@ title: Dynamische Inhalte
 feature: REST API, Dynamic Content
 description: Konfigurieren Sie dynamische Marketo-Inhalte auf Abschnittsebene über REST-APIs mithilfe von Segmentierungen, um E-Mails, Landingpages und Snippets mit Endpunkten und Beispielen zu personalisieren
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '441'
+source-wordcount: '463'
 ht-degree: 2%
 
 ---
@@ -30,11 +30,11 @@ Hinweis: Sowohl E-Mails als auch Landingpages folgen diesem Muster. Snippets wei
 
 Im folgenden Beispiel wird der Abschnitt als Abschnitt mit dynamischem Inhalt festgelegt, der nach Segmentierung 1001 segmentiert ist.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/Q1-promotion-banner.json
 ```
 
-```
+```text
 type=DynamicContent&value=1001
 ```
 
@@ -56,11 +56,11 @@ Um Inhalte für einzelne Segmente hinzuzufügen, müssen wir den Endpunkt [Absch
 
 Im folgenden Beispiel wird der Abschnitt so eingestellt, dass unser spezielles Bannerbild für Leads im Segment Südwest anstelle des Standardbilds angezeigt wird. Wenn wir mehr Varianten für weitere Segmente erstellen möchten, rufen wir diesen Endpunkt für jedes Segment und jeden Abschnitt erneut auf.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 segment=Southwest&type=HTML&value=<img src='//www.example.com/SuperSpecialBannerForAmericanSouthwestLeads.jpg'/>
 ```
 
@@ -86,7 +86,7 @@ Die Segmentierung ist der Kern von Marketo Dynamic Content. Eine Segmentierung i
 
 Segmentierungen haben einen Listenendpunkt, der eine Antwort mit einer Liste der verfügbaren Segmentierungen zurückgibt.
 
-```
+```http
 GET /rest/asset/v1/segmentation.json
 ```
 
@@ -133,7 +133,7 @@ GET /rest/asset/v1/segmentation.json
 
 Segmentierungen haben auch einen Endpunkt, der eine Antwort mit einer Liste von Segmenten aus einer übergeordneten Segmentierung zurückgibt.
 
-```
+```http
 GET /rest/asset/v1/segmentation/1001/segments.json
 ```
 

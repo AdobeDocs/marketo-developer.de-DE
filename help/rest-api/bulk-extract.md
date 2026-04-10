@@ -3,7 +3,7 @@ title: Massenextrakt
 feature: REST API
 description: Erfahren Sie, wie Sie mit der Marketo Bulk Extract-REST-API Leads, Aktivitäten, Programmmitglieder und benutzerdefinierte Objekte mit OAuth, Auftragswarteschlangen und täglichen 500-MB-Beschränkungen exportieren können.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1723'
 ht-degree: 1%
@@ -51,7 +51,7 @@ Die maximale Anzahl von Aufträgen in der Warteschlange ist 10. Wenn Sie versuch
 
 Die APIs für die Massenextraktion basieren auf der Größe der Daten, die über einen Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Vorgang kann durch Lesen des `fileSize` Attributs aus der Antwort „Abgeschlossener Status“ eines Exportvorgangs bestimmt werden.
 
-Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
+Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt ](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
 Sobald ein Auftrag in die Warteschlange gestellt wurde oder verarbeitet wird, wird er bis zum Ende ausgeführt (sofern kein Fehler vorliegt oder der Auftrag nicht abgebrochen wurde). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status Abgeschlossen erreicht (partielle Dateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie ihren SHA-256-Hash berechnen und diesen mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
 
@@ -69,7 +69,7 @@ Massenextraktionsendpunkte kennen Marketo-Arbeitsbereiche nicht. Extraktionsanfr
 
 Die Massenextraktions-APIs von Marketo verwenden das Konzept eines Auftrags zum Initiieren und Ausführen der Datenextraktion. Betrachten wir das Erstellen eines einfachen Lead-Exportvorgangs.
 
-```
+```http
 POST /bulk/v1/leads/export/create.json
 ```
 
@@ -127,7 +127,7 @@ Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konf
 
 Manchmal müssen Sie möglicherweise Ihre aktuellen Aufträge abrufen. Dies ist mit den GET-Exportvorgängen für den entsprechenden Objekttyp einfach möglich. Jeder Endpunkt Abrufen von Exportvorgängen unterstützt ein `status` Filterfeld, eine  `batchSize`, um die Anzahl der zurückgegebenen Aufträge zu begrenzen, und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportvorgang: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen und Fehlgeschlagen. Die batchSize-Eigenschaft ist auf maximal 300 festgelegt. Rufen wir die Liste der Lead-Exportvorgänge ab:
 
-```
+```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
 ```
 
@@ -159,7 +159,7 @@ Der Endpunkt antwortet mit `status` Antwort jedes Auftrags, der in den letzten s
 
 Lassen Sie uns mit unserer Job-ID anfangen:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
@@ -171,7 +171,7 @@ Die Bestimmung des Status des Auftrags ist einfach.
 
 Der Status kann nur für Aufträge abgerufen werden, die von demselben API-Benutzer erstellt wurden, der sie erstellt hat.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/status.json
 ```
 
@@ -202,7 +202,7 @@ Das innere `status` gibt den Fortschritt des Auftrags an und kann einen der folg
 
 Wenn Ihr Auftrag abgeschlossen ist, können Sie die Datei einfach abrufen.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
@@ -210,13 +210,13 @@ Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfigu
 
 Um das teilweise und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Dateiendpunkt optional die HTTP-Header-`Range` vom Typ `bytes` (gemäß [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Um die ersten 10.000 Byte einer Datei abzurufen, würden Sie die folgende Kopfzeile als Teil Ihrer GET-Anfrage an den -Endpunkt übergeben, beginnend mit Byte 0:
 
-```
+```text
 Range: bytes=0-9999
 ```
 
 Beim Abrufen der partiellen Datei antwortet der Endpunkt mit Status-Code 206 und gibt die Kopfzeilen Accept-Ranges, Content-Length und Content-Range zurück:
 
-```
+```text
 Accept-Ranges: bytes
 Content-Length: 1000
 Content-Range: bytes 0-9999/123424
@@ -226,7 +226,7 @@ Content-Range: bytes 0-9999/123424
 
 Dateien können teilweise abgerufen oder später mit dem `Range`-Header fortgesetzt werden. Der Bereich für eine Datei beginnt bei Byte 0 und endet bei dem Wert `fileSize` minus 1. Die Länge der Datei wird auch als Nenner im Wert des `Content-Range`-Antwort-Headers beim Aufruf eines GET-Exportdatei-Endpunkts angegeben. Schlägt ein Abruf teilweise fehl, kann er später fortgesetzt werden. Wenn Sie beispielsweise versuchen, eine Datei mit einer Länge von 1.000 Byte abzurufen, aber nur die ersten 725 Byte empfangen wurden, kann der Abruf an der Fehlerstelle erneut versucht werden, indem Sie den Endpunkt erneut aufrufen und einen neuen Bereich übergeben:
 
-```
+```text
 Range: bytes 724-999
 ```
 
@@ -255,7 +255,7 @@ Im Folgenden finden Sie eine Beispielantwort mit der Prüfsumme:
 
 Im Folgenden finden Sie ein Beispiel für die Erstellung des SHA-256-Hash einer abgerufenen Datei mit dem Namen „bulk_lead_export.csv“ mithilfe des Befehlszeilen-Dienstprogramms „sha256sum“:
 
-```
+```bash
 $ sha256sum bulk_lead_export.csv
 83aca1351c9398d2770330e21a9e278880fd2f1eeaf8c8238bf7676d5c21d1c6 *bulk_lead_export.csv
 ```
@@ -264,7 +264,7 @@ $ sha256sum bulk_lead_export.csv
 
 Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach abgebrochen werden:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
 ```
 

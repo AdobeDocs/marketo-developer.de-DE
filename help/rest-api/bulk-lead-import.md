@@ -3,18 +3,18 @@ title: Massenimport von Leads
 feature: REST API
 description: Erstellen und überwachen Sie asynchrone Massenimporte von Leads in Marketo mit CSV TSV oder SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '795'
-ht-degree: 1%
+source-wordcount: '825'
+ht-degree: 0%
 
 ---
 
 # Massenimport von Leads
 
-[Referenz zum Massenimport-Endpunkt für Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Referenz zum Massenimport von Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
-Bei großen Mengen an Lead-Datensätzen können Leads asynchron mit der [Bulk-API“ importiert &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
+Bei großen Mengen an Lead-Datensätzen können Leads asynchron mit der [Bulk-API“ importiert ](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
 
 ## Verarbeitungsbeschränkungen
 
@@ -39,17 +39,17 @@ Dieser Anfragetyp kann schwierig zu implementieren sein. Daher wird dringend emp
 
 Um eine Massenimportanfrage zu stellen, müssen Sie Ihre Kopfzeile für den Inhaltstyp auf `multipart/form-data` festlegen und mindestens einen `file` Parameter in Ihren Dateiinhalt und einen `format` mit dem Wert `csv`, `tsv` oder `ssv` einschließen, der Ihr Dateiformat bezeichnet.
 
-```
+```http
 POST /bulk/v1/leads.json?format=csv
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Length: 311
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
@@ -77,13 +77,13 @@ Easy,Fox,easyfox@marketo.com,Marketo
 
 Dieser Endpunkt verwendet [multipart/form-data als Inhaltstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Es empfiehlt sich, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden, um eine korrekte Verwendung sicherzustellen. Das folgende Beispiel zeigt eine einfache Möglichkeit, dies mit cURL über die Befehlszeile zu tun:
 
-```
+```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
 Wenn die Importdatei `lead_data.csv` Folgendes enthält:
 
-```
+```text
 firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
@@ -98,7 +98,7 @@ Beachten Sie in der Antwort auf unseren Aufruf, dass es keine Liste von Erfolgen
 
 Es empfiehlt sich, den Auftrag je nach erforderlicher Latenz und den API-Aufrufbeschränkungen alle 5 bis 30 Sekunden abzufragen, um den Status des Importvorgangs anzuzeigen. Dies können Sie mit der API Lead-Status abrufen tun.
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}.json
 ```
 
@@ -134,7 +134,7 @@ Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort zum Abrufen de
 
 Um die Datensätze und Ursachen fehlgeschlagener Zeilen abzurufen, müssen Sie die Fehlerdatei abrufen:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
@@ -146,7 +146,7 @@ Warnungen werden durch das Attribut `numOfRowsWithWarning` in einer Antwort zum 
 
 Um die Datensätze und Ursachen von Warnzeilen abzurufen, rufen Sie die Warndatei ab:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 

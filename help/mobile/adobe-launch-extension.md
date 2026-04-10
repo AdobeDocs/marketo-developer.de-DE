@@ -3,10 +3,10 @@ title: Marketo Mobile-Erweiterung für [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Installieren und konfigurieren Sie die Marketo Mobile SDK-Erweiterung in Adobe Launch für iOS und Android, einschließlich der Einrichtung für Push-Benachrichtigungen und In-App-Nachrichten.
 exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '287'
-ht-degree: 1%
+source-wordcount: '305'
+ht-degree: 0%
 
 ---
 
@@ -16,7 +16,7 @@ Installationsanweisungen für die Marketo Mobile SDK-Erweiterung in [!DNL Adobe 
 
 ## Voraussetzungen
 
-- [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+- [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 - Befolgen Sie bei der Installation die Anweisungen im [!DNL Adobe Launch] Portal
 - [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
@@ -25,7 +25,7 @@ Installationsanweisungen für die Marketo Mobile SDK-Erweiterung in [!DNL Adobe 
 ### Swift Bridging-Kopfzeile einrichten
 
 1. Gehen Sie zu Datei > Neu > Datei und wählen Sie „Header-Datei“.
-1. Nennen Sie die Datei &quot;&lt;_ProjectName_>-Bridging-Header“.
+1. Nennen Sie die Datei &quot;_Projektname_>-Bridging-Header“.
 1. Gehen Sie zu Projekt > Target > Build-Phasen > Swift-Compiler > Codegenerierung. Fügen Sie den folgenden Pfad zur Kopfzeile „Objective-Bridging“ hinzu:
 
    `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
@@ -61,7 +61,7 @@ Befolgen Sie [hier](push-notifications.md) und verwenden Sie den Klassennamen �
 
 Wenn Sie ProGuard für Ihre App verwenden, fügen Sie die folgenden Zeilen in Ihrer `proguard.cfg`-Datei hinzu. Die Datei befindet sich im Projektordner. Durch Hinzufügen dieses Codes wird die Marketo SDK aus dem Verschleierungsprozess ausgeschlossen.
 
-```
+```text
 -dontwarn com.marketo.*
 -dontnote com.marketo.*
 -keep class com.marketo.**{ *; }
@@ -75,4 +75,4 @@ Folgen Sie den Anweisungen [hier](installation.md#android_test_devices)
 
 Befolgen Sie [hier](installation.md#android_firebase_cloud_messaging_support) und verwenden Sie den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;
 
-Befolgen Sie beim Einrichten von Benutzerprofilen [&#x200B; Anweisungen &#x200B;](user-profiles.md)hier) und bei benutzerdefinierten Aktionen die Anweisungen [hier](custom-actions.md#android_custom_action). Verwenden Sie in den folgenden Anweisungen den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;
+Befolgen Sie beim Einrichten von Benutzerprofilen [ Anweisungen ](user-profiles.md)hier) und bei benutzerdefinierten Aktionen die Anweisungen [hier](custom-actions.md#android_custom_action). Verwenden Sie in den folgenden Anweisungen den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;

@@ -3,7 +3,7 @@ title: Datenaufnahme
 feature: REST API, Dynamic Content
 description: Verwenden Sie die Marketo-Datenaufnahme-API für die Aufnahme von Personen, benutzerdefinierten Objekten, Unternehmen und Programmmitgliedern mit hohem Volumen und geringer Latenz.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1789'
 ht-degree: 17%
@@ -107,7 +107,7 @@ Wenn ein Aufruf erfolgreich war, wird der Status 202 zurückgegeben.  Es wird ke
 
 Beispiel für eine erfolgreiche Antwort:
 
-```
+```http
 HTTP/1.1 202 Accepted
 X-Request-Id: e3d92152-0fb1-444a-8f8f-29d5a2338598
 Content-Length: 0

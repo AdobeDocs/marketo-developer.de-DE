@@ -3,7 +3,7 @@ title: Assets
 feature: REST API
 description: Übersicht über Marketo Asset REST-APIs zum Abfragen nach ID oder Namen, zum Durchsuchen mit Paging und zum Erstellen oder Aktualisieren von Ordnern, E-Mails, Formularen, Vorlagen, Dateien oder Token.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '898'
 ht-degree: 2%
@@ -42,7 +42,7 @@ In bestimmten Fällen gibt der Durchsuchen-Endpunkt für einige Asset-Typen kein
 
 ### Nach ID
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -83,7 +83,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 Aus technischen Gründen können die Asset-APIs nicht nach Asset-Namen suchen, die Kommas (,) enthalten.  Es wird empfohlen, dass Ihre Namenskonvention Kommas für alle Asset-Typen ausschließt.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=My File
 ```
 
@@ -119,7 +119,7 @@ Beim Durchsuchen von Assets sind immer zwei Abfrageparameter zulässig:
 - offset - Ein ganzzahliger Offset, aus dem Ergebnisse zurückgegeben werden sollen.
 - maxReturn - Begrenzt die Anzahl der zurückgegebenen Datensätze.  Die Standardeinstellung ist 20, wenn nicht festgelegt, und hat einen Maximalwert von 200.
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 ```
 
@@ -179,15 +179,15 @@ Bei einfachen Asset-Typen wie Ordnern, Token und Dateien gibt es normalerweise n
 
 So erstellen Sie beispielsweise ein Token:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&value=2015-04-01&type=date&folderType=Folder
 ```
 
@@ -218,15 +218,15 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 
 Gehen Sie wie folgt vor, um einen Ordner zu aktualisieren:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -271,15 +271,15 @@ Um beispielsweise eine Landingpage zu erstellen, müssen Sie deren create-Endpun
 
 Für Landingpages muss zunächst ein Landingpage-Asset mithilfe einer übergeordneten Vorlage erstellt werden.  Dadurch wird eine neue Landingpage erstellt, die den Standardinhalt der Vorlage für jeden Inhaltsabschnitt enthält.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -320,7 +320,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 Um den Inhalt für eine Landingpage zu füllen, müssen Sie die Liste der Inhaltsabschnitte abrufen und dann einzelne Aktualisierungen für jeden Abschnitt durchführen, der von der Vorlage abweicht.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -352,7 +352,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 #### Abschnitt aktualisieren
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 ```
 
@@ -374,7 +374,7 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 Viele Asset-Typen verfügen über ein zugehöriges Entwurfs- und Genehmigungssystem, einschließlich E-Mails, Landingpages, Snippets, Forms und die zugehörigen Vorlagen.  Beim Versuch, ein Asset zu genehmigen, wird es anhand eines bestimmten Satzes von Validierungsregeln geprüft und dann entweder in einen genehmigten Status versetzt oder eine Fehlerursache zurückgegeben.  Bei diesen Asset-Typen werden bei jeder Aktualisierung des Inhalts eines bestimmten Assets Änderungen an einem Entwurf des Assets vorgenommen, die sich nicht auf die genehmigte Version auswirken.  Dadurch können Änderungen am Inhalt sicher vorgenommen werden, ohne dass Live-Versionen des Assets betroffen sind.  Die Änderungen können dann mithilfe des Genehmigungsendpunkts auf die Live-Version angewendet werden.  Dadurch wird auch der Entwurfsstatus des Assets gelöscht, bis zusätzliche Aktualisierungen angewendet werden.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -406,7 +406,7 @@ Die erfolgreiche Genehmigung ersetzt die vorherige Live-Version durch die aktual
 
 Entwürfe verwerfen ist auch über einen Endpunkt für jeden gültigen Asset-Typ verfügbar.  Wenn Sie dies für ein Asset verwenden, das den Status Genehmigt mit Entwurf aufweist, werden der aktuelle Entwurf und alle ausstehenden Änderungen verworfen.  Die Verwendung dieser Option für ein Asset, das derzeit keine genehmigte Version hat, führt zu nichts und gibt einen Fehler zurück.  Assets, die nur auf Entwurf basieren, können gelöscht, aber nicht verworfen werden.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -436,7 +436,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 Die Genehmigung von Assets kann auch aufgehoben werden, wenn sich diese in einem schreibgeschützten Status befinden.  Dadurch werden alle Live-Versionen des Assets entfernt und das Asset wird in einen reinen Entwurfsstatus zurückgesetzt, während gleichzeitig alle zugehörigen Entwürfe verworfen werden.  Diese Aktion kann für die meisten Assets nur ausgeführt werden, wenn sie nirgendwo in Marketo verwendet wird, z. B. wenn in einem Schritt „E-Mail senden“ auf eine E-Mail verwiesen wird oder wenn ein Code-Ausschnitt in eine E-Mail eingebettet ist.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -458,7 +458,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 Assets mit dem Status Genehmigung und Entwurf , mit Ausnahme von Formularen, darf nicht gelöscht werden, während es genehmigt wurde, und muss vor dem Löschen genehmigt werden.  Löschungen können im Allgemeinen nur durchgeführt werden, wenn ein Asset nicht genehmigt und nicht mehr verwendet wird und im Fall von Ordnern keine Assets enthält.  Eine wichtige Ausnahme bilden Programme, die zusammen mit allen untergeordneten Inhalten gelöscht werden können, solange das Programm und seine Inhalte nicht außerhalb des Programmbereichs verwendet werden.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

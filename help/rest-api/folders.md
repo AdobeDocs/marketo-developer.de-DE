@@ -3,7 +3,7 @@ title: Ordner
 feature: REST API
 description: 'Marketo-REST-API-Handbuch für Ordner, in dem Folgendes behandelt wird: Erstellen, Aktualisieren, Löschen, Abfrage nach ID und Namen, Massendurchsuchen mit Stamm, Workspace, maxDepth und Paginierung.'
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1099'
 ht-degree: 1%
@@ -22,7 +22,7 @@ Die Ordnerabfrage folgt den Standardabfragetypen für Assets von [nach ID](https
 
 ### Nach ID
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -72,7 +72,7 @@ Der Typparameter ist erforderlich und muss einer der Werte „Folder“ oder „
 
 [Abfrage nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) ist ebenfalls zulässig. Der Endpunkt „Abfrage nach Name“ hat den Namen als einzigen erforderlichen Parameter. Name führt eine exakte Zeichenfolgenübereinstimmung mit dem Namensfeld der Ordner in der Instanz durch und gibt Ergebnisse für jeden Ordner zurück, der diesem Namen entspricht. Darüber hinaus verfügt es über die optionalen Abfrageparameter „type“, d. h. Ordner oder Programm, „root“, die ID des zu durchsuchenden Ordners oder „workspace“ und den Namen des zu durchsuchenden Arbeitsbereichs. Wenn der Stammparameter festgelegt ist, muss auch der Typparameter festgelegt werden.
 
-```
+```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 ```
 
@@ -113,7 +113,7 @@ Bei der Suche nach Namen ist es wichtig zu beachten, dass sowohl Marketing-Aktiv
 
 ### Durchsuchen
 
-Ordner können auch [stapelweise abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
+Ordner können auch [stapelweise abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
 
 1. id : Die ID des Ordners oder Programms.
 1. type - Entweder Ordner oder Programm, je nach dem Typ des Stammordners, der im Browser gespeichert werden soll.
@@ -125,7 +125,7 @@ Wie andere Endpunkte für den Massenabruf von Assets sind Offset und maxReturn o
 - workSpace : Der Name des Arbeitsbereichs, nach dem gefiltert werden soll.
 - maxDepth : Die maximale Anzahl von Ebenen, die in der Ordnerhierarchie durchlaufen werden sollen. Wenn auf 0 gesetzt, wird nur der im Stammverzeichnis angegebene Ordner zurückgegeben. Wenn kein Wert angegeben ist, ist der Standardwert 2.
 
-```
+```http
 GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 ```
 
@@ -213,15 +213,15 @@ Der Pfad eines Ordners zeigt seine Hierarchie in der Ordnerstruktur an, ähnlich
 
 [Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einem application/x-www-form-urlencoded POST ausgeführt, der zwei erforderliche Parameter aufweist: „name“, eine Zeichenfolge und „parent“, das übergeordnete Element zum Erstellen des Ordners, wobei es sich um ein eingebettetes JSON-Objekt mit zwei Elementen, „id“ und „type“, entweder „Folder“ oder „Program“, je nach Typ des Zielordners. Optional kann auch „description“, eine Zeichenfolge, eingeschlossen werden, die bis zu 2.000 Zeichen lang sein kann.
 
-```
+```http
 POST /rest/asset/v1/folders.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a test
 ```
 
@@ -260,15 +260,15 @@ parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a t
 
 Die Aktualisierung von Ordnern erfolgt über einen separaten Endpunkt. Beschreibung, Name und `isArchive` sind optionale Parameter für die Aktualisierung. Wenn `isArchive` durch eine Aktualisierung geändert wird, führt dies dazu, dass der Ordner in der Marketo-Benutzeroberfläche archiviert wird, wenn er in „true“ geändert wurde, oder zu „unarchived“, wenn er in „false“ geändert wurde. Programme können mit dieser API nicht aktualisiert werden.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -309,7 +309,7 @@ type=Folder&description=This is a test (update 01)
 
 Für einzelne Ordner können Löschungen durchgeführt werden, wenn sie leer sind, d. h. wenn sie keine Assets oder Unterordner enthalten. Wenn ein Ordner vom Typ „Programm“ ist oder das Feld „isSystem“ auf „true“ gesetzt ist, kann er mit dieser API nicht gelöscht werden.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/delete.json
 ```
 
