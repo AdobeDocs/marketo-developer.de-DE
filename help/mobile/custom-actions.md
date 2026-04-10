@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Sie können Benutzerinteraktionen verfolgen, indem Sie benutzerdefinierte Aktionen senden. Wenn Ihre Mobile App zum Senden einer benutzerdefinierten Aktion in Marketo SDK aufruft, wird die benutzerdefinierte Aktion zunächst auf dem Gerät gespeichert. Marketo SDK prüft dann, ob eine ausreichende Internetverbindung besteht, bevor die benutzerdefinierte Aktion gesendet wird. Daher kann es zu einer Verzögerung zwischen dem Zeitpunkt kommen, zu dem die benutzerdefinierte Aktion gesendet wird, und dem Zeitpunkt, zu dem sie von Marketo empfangen wird.
 
-Benutzerdefinierte Aktionen können als Trigger und Filter in Smart-Kampagnen verwendet werden. Weitere Informationen finden Sie unter [Aktivität von Mobile Apps](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Benutzerdefinierte Aktionen können als Trigger und Filter in Smart-Kampagnen verwendet werden. Weitere Informationen finden Sie unter [Aktivität von Mobile Apps](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Senden benutzerdefinierter Aktionen auf iOS
 
