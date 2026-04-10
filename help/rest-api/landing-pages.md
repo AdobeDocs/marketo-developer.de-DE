@@ -18,7 +18,7 @@ Landingpages sind von Marketo gehostete Web-Seiten.
 
 ## Abfrage
 
-Wie die meisten anderen Assets können Landingpages [nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByNameUsingGET) &quot;[nach ID“ ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) &quot;[&quot; ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/browseLandingPagesUsingGET) werden. Diese Abfragen geben nur Metadaten zurück. Die Liste der Inhaltsabschnitte für eine Landingpage muss separat nach der ID der Landingpage abgefragt werden.
+Wie die meisten anderen Assets können Landingpages [nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByNameUsingGET) &quot;[nach ID“ &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) &quot;[&quot; &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/browseLandingPagesUsingGET) werden. Diese Abfragen geben nur Metadaten zurück. Die Liste der Inhaltsabschnitte für eine Landingpage muss separat nach der ID der Landingpage abgefragt werden.
 
 Wenn Sie den Inhalt der Landingpage abfragen, wird eine Liste der Inhaltsabschnitte zurückgegeben, die in der Landingpage verfügbar sind. Ein Abschnitt muss in der Inhaltsliste einer Seite vorhanden sein, um den Inhalt zu aktualisieren:
 
@@ -105,7 +105,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
 
 ## Genehmigung
 

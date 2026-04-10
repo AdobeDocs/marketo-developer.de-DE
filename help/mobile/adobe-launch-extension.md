@@ -75,4 +75,4 @@ Folgen Sie den Anweisungen [hier](installation.md#android_test_devices)
 
 Befolgen Sie [hier](installation.md#android_firebase_cloud_messaging_support) und verwenden Sie den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;
 
-Befolgen Sie beim Einrichten von Benutzerprofilen [ Anweisungen ](user-profiles.md)hier) und bei benutzerdefinierten Aktionen die Anweisungen [hier](custom-actions.md#android_custom_action). Verwenden Sie in den folgenden Anweisungen den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;
+Befolgen Sie beim Einrichten von Benutzerprofilen [&#x200B; Anweisungen &#x200B;](user-profiles.md)hier) und bei benutzerdefinierten Aktionen die Anweisungen [hier](custom-actions.md#android_custom_action). Verwenden Sie in den folgenden Anweisungen den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;

@@ -32,7 +32,7 @@ Programme haben immer einen Kanal. Sie leiten die möglichen eingerichteten Prog
 
 ## Abfrage
 
-Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option, um nach Tag-Typ und Werten abzufragen. Verfügbare Tags und Werte können mit &quot;[ Tag-Typen abrufen“ ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
+Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option, um nach Tag-Typ und Werten abzufragen. Verfügbare Tags und Werte können mit &quot;[&#x200B; Tag-Typen abrufen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
 
 ### Nach ID
 
@@ -126,7 +126,7 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Durchsuchen
 
-Mit [ Endpunkt ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)Programme abrufen“ können Sie nach Programmen suchen.
+Mit [&#x200B; Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)Programme abrufen“ können Sie nach Programmen suchen.
 
 Mit dem optionalen `status` können Sie nach dem Programmstatus filtern. Dieser Parameter gilt nur für Interaktions- und E-Mail-Programme. Die möglichen Werte sind „on“ und „off“ für Interaktionsprogramme und „unlocked“ für E-Mail-Programme.
 

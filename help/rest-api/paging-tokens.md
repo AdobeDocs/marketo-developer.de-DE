@@ -14,9 +14,9 @@ ht-degree: 1%
 
 Um durch Ergebnisse zu blättern oder aktualisierte Daten in Bezug auf bestimmte Daten abzurufen, stellt Marketo Paging-Token bereit.
 
-In bestimmten Fällen können lange Paging-Token-Zeichenfolgen zurückgegeben werden. Dies kann zu einem HTTP 414-Fehler-Code führen. Weitere Informationen zum Umgang mit diesen ([) ](error-codes.md).
+In bestimmten Fällen können lange Paging-Token-Zeichenfolgen zurückgegeben werden. Dies kann zu einem HTTP 414-Fehler-Code führen. Weitere Informationen zum Umgang mit diesen ([) &#x200B;](error-codes.md).
 
-Weitere Informationen finden Sie in [ Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET)Token-API .
+Weitere Informationen finden Sie in [&#x200B; Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET)Token-API .
 
 ## Tokentypen
 
