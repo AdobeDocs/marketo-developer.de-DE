@@ -2,13 +2,13 @@
 title: MCP-Server
 description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
 hidefromtoc: true
-source-git-commit: a9946d79bfc4cabd27fe33d95f25ee99d777fb1b
+exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
+source-git-commit: 85285b49ce2540542d6169cd1466ced02955b586
 workflow-type: tm+mt
 source-wordcount: '1324'
 ht-degree: 1%
 
 ---
-
 
 # [!DNL Marketo] MCP-Server
 
@@ -234,37 +234,37 @@ Beispiel-Eingabeaufforderungen:
 
 ## Häufig gestellte Fragen
 
-### Sind meine Daten sicher?
-
++++Sind meine Daten sicher?
 Anmeldeinformationen werden bei jeder einzelnen Anfrage in HTTP-Headern übertragen. Der Server speichert oder speichert Anmeldeinformationen nicht zwischen Sitzungen und jede Anfrage ist vollständig isoliert.
++++
 
-### Können mehrere Personen das gleichzeitig benutzen?
-
++++Können mehrere Personen das gleichzeitig benutzen?
 Ja. Der Server ist mehrmandantenfähig. Jeder Benutzer stellt eine Verbindung mit seinen eigenen Anmeldeinformationen her, und Anfragen werden voneinander isoliert.
++++
 
-### Was passiert, wenn mein Zugriffs-Token abläuft?
-
++++Was passiert, wenn mein Zugriffs-Token abläuft?
 Bei der Authentifizierung mit Client-ID und Client-Geheimnis verarbeitet der Server die Token-Aktualisierung automatisch. Sie müssen keinerlei Maßnahmen ergreifen.
++++
 
-### Muss ich etwas installieren oder ausführen?
-
++++Muss ich etwas installieren oder ausführen?
 Nein. Der MCP-Server wird von Adobe gehostet. Sie müssen lediglich Ihr KI-Tool konfigurieren, um eine Verbindung herzustellen.
++++
 
-### Welche [!DNL Marketo] Berechtigungen benötigt mein API-Benutzer?
-
++++Welche [!DNL Marketo] Berechtigungen benötigt mein API-Benutzer?
 Der API-Benutzer benötigt Zugriff auf die Asset-Typen, die Sie verwalten möchten. Weisen Sie mindestens eine schreibgeschützte Rolle für Browservorgänge und eine Lese-/Schreibrolle für das Erstellen oder Ändern von Assets zu. Wenden Sie sich an Ihren [!DNL Marketo], um die entsprechenden Berechtigungen zuzuweisen.
++++
 
-### Wie hoch sind die Limits?
-
++++Wie hoch sind die Limits?
 Der MCP-Server übernimmt die API-Ratenbeschränkungen der Marketo-Instanz. Verwenden Sie einen dedizierten API-Benutzer, um die Kontingentnutzung zu verfolgen und zu verwalten.
++++
 
-### Welche KI-Tools werden unterstützt?
-
++++Welche KI-Tools werden unterstützt?
 Claude Desktop, Cursor, Claude Code (CLI) und VS-Code mit GitHub Copilot. Jedes KI-Tool, das das Model Context Protocol über HTTP unterstützt, sollte funktionieren.
++++
 
-### Kann ich eine Verbindung zu mehreren [!DNL Marketo]-Instanzen herstellen?
-
++++Kann ich eine Verbindung zu mehreren [!DNL Marketo]-Instanzen herstellen?
 Ja. Fügen Sie der MCP-Konfiguration Ihres KI-Tools mehrere Einträge mit jeweils einem eindeutigen Namen und den Anmeldeinformationen für die entsprechende Instanz hinzu. Sie können beispielsweise `marketo-prod` und `marketo-staging` als separate Server konfigurieren.
++++
 
 ## Sicherheitsüberlegungen
 
