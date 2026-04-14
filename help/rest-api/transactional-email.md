@@ -18,7 +18,7 @@ Ein gängiges Anwendungsbeispiel für die Marketo-API ist der Trigger des Versan
 - In Ihrer Marketo-Instanz muss eine Transaktions-E-Mail erstellt und genehmigt sein.
 - Es muss eine aktive Kampagnenkampagne mit dem Trigger „Kampagne ist angefordert, 1. Source: Web Service API“, das zum Senden der E-Mail eingerichtet ist
 
-Zunächst [E-Mail erstellen und ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail wirklich eine Transaktion ist, müssen Sie sie wahrscheinlich auf „betriebsbereit“ setzen, aber sicherstellen, dass sie rechtlich als funktionsfähig eingestuft wird. Dies wird über den Bildschirm Bearbeiten unter E-Mail-Aktionen > E-Mail-Einstellungen konfiguriert:
+Zunächst [E-Mail erstellen und &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail wirklich eine Transaktion ist, müssen Sie sie wahrscheinlich auf „betriebsbereit“ setzen, aber sicherstellen, dass sie rechtlich als funktionsfähig eingestuft wird. Dies wird über den Bildschirm Bearbeiten unter E-Mail-Aktionen > E-Mail-Einstellungen konfiguriert:
 
 ![request-campaign-email-settings](assets/request-campaign-email-settings.png)
 

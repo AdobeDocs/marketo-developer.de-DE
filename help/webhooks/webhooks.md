@@ -27,7 +27,7 @@ Jeder einzelne Webhook hat die folgenden Eigenschaften:
 - [!UICONTROL Antworttyp] - Wählen Sie das Format der Antwort aus, die Sie vom Dienst erhalten (JSON oder XML). Es muss der richtige Antworttyp ausgewählt werden, um Eigenschaften der Antwort wieder den Lead-Feldern in Marketo zuzuordnen
 - [!UICONTROL Benutzerdefinierte Kopfzeilen] - Zugriff über [!UICONTROL Webhooks-Aktionen] -> [!UICONTROL Benutzerdefinierte Kopfzeile festlegen]. In diesem Menü können beliebig viele benutzerdefinierte Schlüssel-Wert-Paare als HTTP-Kopfzeilen hinzugefügt werden.
 
-Daten können aus Web-Service-Antworten mithilfe von „Antwort-Mappings“ in [ Leads zurückgeschrieben ](response-mappings.md)
+Daten können aus Web-Service-Antworten mithilfe von „Antwort-Mappings“ in [&#x200B; Leads zurückgeschrieben &#x200B;](response-mappings.md)
 
 ## Token
 

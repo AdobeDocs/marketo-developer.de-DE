@@ -14,7 +14,7 @@ ht-degree: 2%
 
 Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis zum Massenimport von Leads gibt es viele Optionen, die eine feinkörnige Steuerung einer Marketo-Instanz ermöglichen.
 
-Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[ „Lead-](https://developer.adobe.com/marketo-apis/api/mapi)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
+Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[&#x200B; „Lead-](https://developer.adobe.com/marketo-apis/api/mapi)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
 
 >[!NOTE]
 >
