@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '284'
+source-wordcount: '286'
 ht-degree: 38%
 
 ---
@@ -34,7 +34,7 @@ ht-degree: 38%
    - [Trigger](javascript-api/triggers.md)
    - [Web-Personalisierung](javascript-api/web-personalization.md)
 - Mobile {#mobile}
-   - [install. [!DNL Adobe Launch] &#x200B;](mobile/adobe-launch-extension-installation.md)
+   - [install. [!DNL Adobe Launch] ](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Erweiterung](mobile/adobe-launch-extension.md)
    - [Erweiterter Sicherheitsmodus](mobile/advanced-security-access-mode.md)
    - [Benutzerdefinierte Aktionen](mobile/custom-actions.md)
@@ -165,6 +165,7 @@ ht-degree: 38%
 - [E-Mail-Skripterstellung](email-scripting.md)
 - [Beispiele für E-Mail-Skripterstellung](examples.md)
 - [Marketo-Objekte](marketo-objects.md)
+- [MCP-Server](mcp-server.md)
 - [Lizenz](api-license.md)
 - [Partner-Sandbox](partner-sandbox.md)
 - [Self-Service-Flussschritte](self-service-flow-steps.md)

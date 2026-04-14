@@ -3,9 +3,9 @@ title: Massenextrakt
 feature: REST API
 description: Erfahren Sie, wie Sie mit der Marketo Bulk Extract-REST-API Leads, Aktivitäten, Programmmitglieder und benutzerdefinierte Objekte mit OAuth, Auftragswarteschlangen und täglichen 500-MB-Beschränkungen exportieren können.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '1723'
+source-wordcount: '1724'
 ht-degree: 1%
 
 ---
@@ -51,9 +51,9 @@ Die maximale Anzahl von Aufträgen in der Warteschlange ist 10. Wenn Sie versuch
 
 Die APIs für die Massenextraktion basieren auf der Größe der Daten, die über einen Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Vorgang kann durch Lesen des `fileSize` Attributs aus der Antwort „Abgeschlossener Status“ eines Exportvorgangs bestimmt werden.
 
-Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
+Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt ](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
-Sobald ein Auftrag in die Warteschlange gestellt wurde oder verarbeitet wird, wird er bis zum Ende ausgeführt (sofern kein Fehler vorliegt oder der Auftrag nicht abgebrochen wurde). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status Abgeschlossen erreicht (partielle Dateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie ihren SHA-256-Hash berechnen und diesen mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
+Sobald ein Auftrag in die Warteschlange gestellt wurde oder verarbeitet wird, wird er bis zum Ende ausgeführt (sofern kein Fehler vorliegt oder der Auftrag nicht abgebrochen wurde). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status Abgeschlossen erreicht (partielle Dateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie ihren SHA-256-Hash berechnen und ihn mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
 
 Sie können die Gesamtmenge der für den aktuellen Tag verwendeten Festplatte ermitteln, indem Sie „Export-Lead/Aktivität/Programmteilnehmeraufträge abrufen“ aufrufen. Diese Endpunkte geben eine Liste aller Aufträge der letzten sieben Tage zurück. Sie können diese Liste nach den Aufträgen filtern, die am aktuellen Tag abgeschlossen wurden (mithilfe der Attribute `status` und `finishedAt`). Addieren Sie dann die Dateigrößen für diese Aufträge, um die insgesamt verwendete Menge zu generieren. Es gibt keine Möglichkeit, eine Datei zu löschen, um Speicherplatz freizugeben.
 

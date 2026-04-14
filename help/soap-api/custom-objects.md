@@ -3,9 +3,9 @@ title: Benutzerdefinierte Objekte
 feature: SOAP
 description: Erfahren Sie, wie benutzerdefinierte Marketo-Objekte einen Lead mit vielen Datensätzen verknüpfen, mit Struktur, Beschränkungen und SOAP-API-Aufrufen für GET, SYNC, DELETE sowie die Verwendung von Smart List und E-Mail.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '256'
+source-wordcount: '286'
 ht-degree: 2%
 
 ---
@@ -36,6 +36,6 @@ Benutzerdefinierte Objekte bestehen aus:
 
 Die folgenden Aufrufe können zur Interaktion mit COs verwendet werden.
 
-- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
-- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
-- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)
+- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
+- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
+- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)

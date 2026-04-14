@@ -3,9 +3,9 @@ title: Installation der [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Installieren Sie die Adobe Launch Marketo-Erweiterung für Mobilgeräte. Befolgen Sie die Schritte zur Einrichtung von iOS und Android, Testgeräte, Berechtigungen und FCM für Push- und In-App-Nachrichten.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '814'
+source-wordcount: '813'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Installationsanweisungen für [!DNL Adobe Launch] Marketo-Erweiterung. Die folge
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Konfigurieren Sie die Eigenschaft in [!DNL Adobe Launch] portal](https://experience.adobe.com/#/@amc/data-collection/home)
 1. Konfigurieren Sie den geheimen Anwendungsschlüssel und die Munchkin-ID für die Eigenschaft im [!DNL Adobe Launch]
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
@@ -157,9 +157,9 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
 
 ### Hinzufügen von FCM zu Ihrer Anwendung
 
-1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ &#x200B;](https://github.com/Marketo/android-sdk).
+1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ ](https://github.com/Marketo/android-sdk).
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm die Option **[!UICONTROL Firebase zu Ihrer Android-App hinzufügen]**.
@@ -192,7 +192,7 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Klicken Sie abschließend in der Leiste **[!UICONTROL die in der ID angezeigt wird,]** auf „Jetzt synchronisieren“
+         1. Wählen Sie abschließend **[!UICONTROL Jetzt synchronisieren]** in der Leiste aus, die in der ID angezeigt wird
    1. Manifest der App bearbeiten Die FCM-SDK fügt automatisch alle erforderlichen Berechtigungen und die erforderliche Empfängerfunktion hinzu. Entfernen Sie die folgenden veralteten (und potenziell schädlichen, da sie zu einer Duplizierung von Nachrichten führen können) Elemente aus dem Manifest Ihrer App:
 
       ```xml

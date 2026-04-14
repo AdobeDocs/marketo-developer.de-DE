@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installieren und richten Sie die Marketo SDK in React Native-Apps mit den Schritten Android Gradle und iOS CocoaPods, nativer Modulüberbrückung, Push-Benachrichtigung und Lead-Zuordnung ein.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '854'
+source-wordcount: '857'
 ht-degree: 1%
 
 ---
@@ -16,7 +16,7 @@ Dieser Artikel enthält Informationen zur Installation und Einrichtung der nativ
 
 ## Voraussetzungen
 
-[Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+[Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
 
 ## SDK-Integration
 
@@ -47,7 +47,7 @@ Synchronisieren Sie dann Ihr Projekt mit den Gradle-Dateien.
 
 #### Integration von iOS SDK
 
-Bevor Sie eine Brücke für Ihr React Native-Projekt erstellen, müssen Sie unser SDK in Ihrem Xcode-Projekt einrichten.
+Bevor Sie eine Brücke für Ihr React Native-Projekt erstellen, müssen Sie unsere SDK in Ihrem Xcode-Projekt einrichten.
 
 **SDK-Integration - mit CocoaPods**
 

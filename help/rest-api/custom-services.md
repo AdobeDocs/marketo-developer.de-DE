@@ -3,22 +3,22 @@ title: Benutzerdefinierte Services
 feature: REST API
 description: Erstellen Sie benutzerdefinierte Marketo-Services, legen Sie Rollen und Berechtigungen nur für APIs fest, rufen Sie die Client-ID und das Client-Geheimnis in LaunchPoint ab und erhalten Sie Zugriffstoken.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 1f01457919b9fe110b98603f5b8c0996ba8aee4b
 workflow-type: tm+mt
-source-wordcount: '1002'
-ht-degree: 6%
+source-wordcount: '1053'
+ht-degree: 8%
 
 ---
 
 # Benutzerdefinierte Services
 
-Ein benutzerdefinierter Service stellt Anmeldeinformationen zur Authentifizierung bei Marketo bereit. Anmeldeinformationen werden benötigt, um ein Zugriffstoken vom Marketo ([) &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzelnen Benutzer (nur API) beschränkt, von dem er seine Berechtigungen ableitet.
+Ein benutzerdefinierter Service stellt Anmeldeinformationen zur Authentifizierung bei Marketo bereit. Anmeldeinformationen werden benötigt, um ein Zugriffstoken vom Marketo ([) ](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzelnen Benutzer (nur API) beschränkt, von dem er seine Berechtigungen ableitet.
 
 ## Rollen
 
 Der erste Schritt beim Erstellen eines benutzerdefinierten Service besteht darin, eine Rolle zu erstellen, die Sie auf den relevanten Benutzer „Nur API“ anwenden können. Dies erfolgt über das Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer &amp; Rollen]** > **[!UICONTROL Rollen]**.
 
-Rollen sind Container für einzelne Berechtigungen, die den Zugriff auf bestimmte Funktionen ermöglichen oder einschränken. In Abonnements mit aktivierten Arbeitsbereichen und Partitionen werden die Berechtigungen pro Arbeitsbereich erteilt. Wenn ein(e) Benutzende(r) in einem Arbeitsbereich über eine Berechtigung verfügt, in einem anderen jedoch nicht, kann er/sie nur zulässige Aktionen in diesem Arbeitsbereich ausführen. Um eine Rolle zu erstellen, klicken Sie auf die Schaltfläche Neue Rolle .
+Rollen sind Container für einzelne Berechtigungen, die den Zugriff auf bestimmte Funktionen ermöglichen oder einschränken. In Abonnements mit aktivierten Arbeitsbereichen und Partitionen werden die Berechtigungen pro Arbeitsbereich erteilt. Wenn ein(e) Benutzende(r) in einem Arbeitsbereich über eine Berechtigung verfügt, in einem anderen jedoch nicht, kann er/sie nur zulässige Aktionen in diesem Arbeitsbereich ausführen. Um eine Rolle zu erstellen, wählen Sie &quot;**[!UICONTROL Rolle“]**.
 
 ![Benutzer und Rollen](assets/admin-users-and-roles-roles.png)
 
@@ -42,15 +42,15 @@ Nachdem Sie eine Rolle erstellt haben, müssen Sie einen „Nur-API“-Benutzer 
 
 >[!MORELIKETHIS]
 >
->Um einen Benutzer nur mit API zu erstellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer und Rollen]** > **[!UICONTROL Benutzer]** und klicken Sie auf [!UICONTROL Neuen Benutzer einladen].
+>Um einen Benutzer nur mit API zu erstellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Benutzer und Rollen]** > **[!UICONTROL Benutzer]** und wählen Sie **[!UICONTROL Neuen Benutzer einladen]**.
 
 ![Neue Benutzerinformationen](assets/new-user-info.png)
 
-Geben Sie Ihrem Benutzer einen beschreibenden Namen und eine E-Mail-Adresse (sie muss nicht gültig sein), basierend auf dem Service und der Anwendung, für die sie verwendet werden soll. Füllen Sie die erforderlichen Felder im Dialogfeldmenü aus, klicken Sie auf das Kontrollkästchen „Nur API“ und weisen Sie dem Benutzer eine Ihrer API-Rollen zu. Dadurch werden die für diese Rolle festgelegten Berechtigungen dem Benutzer zugewiesen.
+Geben Sie Ihrem Benutzer einen beschreibenden Namen und eine E-Mail-Adresse (sie muss nicht gültig sein), basierend auf dem Service und der Anwendung, für die sie verwendet werden soll. Füllen Sie die erforderlichen Felder im Dialogfeldmenü aus, aktivieren Sie das Kontrollkästchen **[!UICONTROL Nur API]** und weisen Sie dem Benutzer eine Ihrer API-Rollen zu. Dadurch werden die für diese Rolle festgelegten Berechtigungen dem Benutzer zugewiesen.
 
 ![Berechtigungen für neue Benutzer](assets/new-user-permissions.png)
 
-Klicken Sie abschließend auf „Senden“, um den Benutzer „Nur API“ zu erstellen.
+Wählen Sie abschließend **[!UICONTROL Senden]**, um den Benutzer „Nur API“ zu erstellen.
 
 Erwägen Sie bei der Bereitstellung einer neuen Anwendung mit Anmeldeinformationen dringend, einen neuen Benutzer für den Service zu ernennen, selbst wenn er denselben Berechtigungssatz wie eine andere vorhandene Integration hat. Statistiken und Fehler zur Nutzung von API-Aufrufen werden benutzerspezifisch verfolgt, sodass die Bereitstellung eines Benutzers für jede Anwendung dabei hilft, Nutzungsszenarien und Probleme auf bestimmte Anwendungen zu isolieren. Dies ist praktisch, wenn Probleme beim Erzielen der täglichen API-Aufrufbeschränkungen auftreten oder Fehler aufgrund von API-Aufrufen auftreten, die von Integrationen vorgenommen werden.
 
@@ -58,7 +58,7 @@ Erwägen Sie bei der Bereitstellung einer neuen Anwendung mit Anmeldeinformation
 
 Benutzerdefinierte Services stellen die tatsächlichen Anmeldeinformationen, die Client-ID und das Client-Geheimnis, bereit, die erforderlich sind, um eine Authentifizierung mit einer Marketo-Instanz durchzuführen. Um einen Service bereitzustellen, gehen Sie zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Integrationen]** > **[!UICONTROL LaunchPoint]** und wählen Sie **[!UICONTROL Neuer Service]**.
 
-Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie in der Liste „Dienst“ die Option „Benutzerdefiniert“ aus. Geben Sie Ihrem Service eine ausführliche Beschreibung, wählen Sie einen geeigneten Benutzer aus der Liste Nur API-Benutzer aus und klicken Sie auf [!UICONTROL Erstellen].
+Geben Sie Ihrem Dienst einen beschreibenden Namen und wählen Sie in der Liste „Dienst“ die Option „Benutzerdefiniert“ aus. Geben Sie dem Service eine ausführliche Beschreibung und wählen Sie einen entsprechenden Benutzer aus der Liste Nur API-Benutzer aus. Wählen Sie dann **[!UICONTROL Erstellen]**.
 
 ![Neuer benutzerdefinierter Service](assets/admin-launchpoint-new-service.png)
 

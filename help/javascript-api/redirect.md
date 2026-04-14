@@ -3,10 +3,10 @@ title: Umleiten
 description: Implementieren Sie die RTP-Redirect-API, um segmentierte Besucher mithilfe von Feldern wie ABM, Organisation, Standort und Segmenten mit Beispielen und Tipps an zielgerichtete URLs zu senden.
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 18d828b5d98c00f04739d417d043a33fcbb9c37a
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '500'
-ht-degree: 8%
+source-wordcount: '502'
+ht-degree: 7%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 8%
 
 Mit der RTP Redirect-API können Sie segmentierte Zielgruppen an eine Ziel-URL umleiten.
 
-- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Nutzung
@@ -86,7 +86,7 @@ rtp('get','campaign');
 
 ## Weiterleiten getrackter Besucher
 
-1. Fügen Sie einen -Parameter an das Ende der Ziel-URL an: d. h. &lt;www.marketo.com?rtp=redirect>
+1. Hängen Sie einen -Parameter an das Ende der Ziel-URL an, nämlich &lt;www.marketo.com?rtp=redirect>
 1. Erstellen Sie ein Segment mit dem Namen „Weitergeleitet von RTP“.
 1. Verwenden Sie den Parameter „Bestimmte Seiten“, um Besuchende anzusprechen, die eine beliebige Seite mit dem unten gezeigten Parameter ansehen.
 

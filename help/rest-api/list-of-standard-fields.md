@@ -3,9 +3,9 @@ title: Standardfelder
 feature: REST API, Field Management
 description: Durchsuchen Sie die vollständige Liste der standardmäßigen Marketo-Lead-Felder mit REST- und SOAP-Namen, -Kennzeichnungen und -Beschreibungen sowie Anleitungen zum Abrufen über die API zum Beschreiben von Leads.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '727'
+source-wordcount: '742'
 ht-degree: 25%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 25%
 
 Im Folgenden finden Sie eine Liste der in Marketo verfügbaren Standardfelder, auf die über die API zugegriffen werden kann.
 
-Sie können die Liste aller unterstützten Feldnamen in Ihren Lead-Datensätzen abrufen, indem Sie den REST-Endpunkt [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/) verwenden.
+Sie können die Liste aller unterstützten Feldnamen in Ihren Lead-Datensätzen abrufen, indem Sie den REST-Endpunkt [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi) verwenden.
 
 | REST-API-Name | SOAP-API-Name | Angezeigte Bezeichnung | Beschreibung |
 | --- | --- | --- | --- |
@@ -53,7 +53,7 @@ Sie können die Liste aller unterstützten Feldnamen in Ihren Lead-Datensätzen 
 | Telefon | Telefon | Telefonnummer | Telefonnummer des Leads |
 | Postleitzahl | PostalCode | Postleitzahl | Postleitzahl des Leads |
 | Bewertung | Rating | Lead-Bewertung | Marketing-/Verkaufsbewertung des Leads |
-| Begrüßung | Anrede | Anrede | Die bevorzugte Begrüßung des Leads, d.h. Mister, Misses…etc. |
+| Begrüßung | Anrede | Anrede | Leads bevorzugte Begrüßung, das heißt Mister, Miss…und so weiter |
 | sicCode | SICCode | SIC-Code | Standard-Industrieklassifizierungscode des Unternehmens des Leads |
 | Baustelle | Seite | Seite |  |
 | state | Land | Land | Lead-Status |

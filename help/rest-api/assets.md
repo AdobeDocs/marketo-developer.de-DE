@@ -3,9 +3,9 @@ title: Assets
 feature: REST API
 description: Übersicht über Marketo Asset REST-APIs zum Abfragen nach ID oder Namen, zum Durchsuchen mit Paging und zum Erstellen oder Aktualisieren von Ordnern, E-Mails, Formularen, Vorlagen, Dateien oder Token.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '898'
+source-wordcount: '899'
 ht-degree: 2%
 
 ---
@@ -265,7 +265,7 @@ type=Folder&description=This is a test (update 01)
 
 Andere Assets haben komplexere Strukturen und erfordern Aktualisierungen zusätzlicher Unterabschnitte oder untergeordneter Objekte. Anschließend müssen sie genehmigt werden, bevor sie verwendet werden können.  Zu diesen Asset-Typen gehören Forms, E-Mails, E-Mail-Vorlagen, Landingpages und Landingpage-Vorlagen.  Diese verfügen jeweils über einen einzigen Endpunkt zum Erstellen eines Datensatzes und zusätzliche Endpunkte zum Aktualisieren der Metadaten-, Inhalts- und Inhaltsabschnitte.
 
-Um beispielsweise eine Landingpage zu erstellen, müssen Sie deren create-Endpunkt mit einer Vorlagen-ID aufrufen, dann die Inhaltsabschnitte abrufen und jeden einzelnen Inhaltsabschnitt einzeln aktualisieren, um Inhalte hinzuzufügen, bevor Sie ihn genehmigen, damit er live bereitgestellt werden kann.
+Um beispielsweise eine Landingpage zu erstellen, müssen Sie deren create-Endpunkt mit einer Vorlagen-ID aufrufen und dann die Inhaltsabschnitte abrufen und jeden einzelnen Inhaltsabschnitt einzeln aktualisieren, um Inhalte hinzuzufügen, bevor Sie ihn genehmigen, damit er live bereitgestellt werden kann.
 
 ### Komplexes Erstellen
 

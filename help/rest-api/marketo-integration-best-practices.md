@@ -3,9 +3,9 @@ title: Best Practices für die Marketo-Integration
 feature: REST API
 description: Best Practices für Marketo-API-Integrationen, einschließlich Kontingenten, Rate- und Gleichzeitigkeitsbeschränkungen, Batching, Massenimport und -export, Caching und Latenzplanung.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1013'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Um eine optimale Leistung Ihrer Integrationen bei der Durchführung von Einfügu
 
 ## Akzeptable Latenz
 
-Die Bestimmung Ihrer Latenztoleranzen oder der maximalen Zeit, die vor dem Senden eines API-Aufrufs vergehen kann, wird viele, wenn nicht die meisten Entscheidungen beeinflussen, die Sie beim Entwerfen Ihrer Integration in Marketo treffen. Marketo bietet viele verschiedene Methoden und Konfigurationsoptionen, die für verschiedene Anwendungsfälle und verschiedene Latenzklassen geeignet sind. Beispielsweise kann eine Echtzeit-Integration, die einen Vertriebsmitarbeiter über einen Benutzer benachrichtigt, der sich für eine Testversion anmeldet, Batches nur dann senden, wenn eine sofortige Nachverfolgung erforderlich ist. In den meisten Fällen ist dies jedoch nicht erforderlich und sie können zusätzliche Latenzen vertragen sowie durch Warteschlangen- und Batch-Aufrufe effizienter verwaltet werden.
+Die Bestimmung Ihrer Latenztoleranzen oder der maximalen Zeit, die vor dem Senden eines API-Aufrufs vergehen kann, wird viele, wenn nicht die meisten Entscheidungen beeinflussen, die Sie beim Entwerfen Ihrer Integration in Marketo treffen. Marketo bietet viele verschiedene Methoden und Konfigurationsoptionen, die für verschiedene Anwendungsfälle und verschiedene Latenzklassen geeignet sind. Beispielsweise kann eine Echtzeit-Integration, die einen Vertriebsmitarbeiter über einen Benutzer benachrichtigt, der sich für eine Testversion anmeldet, Batches nur dann senden, wenn eine sofortige Nachverfolgung erforderlich ist. In den meisten Fällen ist dies jedoch nicht erforderlich und kann zusätzliche Latenzen vertragen. Außerdem lässt sich dies durch Warteschlangen- und Batch-Aufrufe effizienter verwalten.
 
 | Akzeptable Latenz | Bevorzugte Methoden | Hinweise |
 | --- | --- | --- |
@@ -48,15 +48,15 @@ Die Bestimmung Ihrer Latenztoleranzen oder der maximalen Zeit, die vor dem Sende
 
 Jede API-fähige Instanz von Marketo verfügt über eine tägliche Zuordnung von mindestens 10.000 REST-API-Aufrufen pro Tag, aber häufiger 50.000 oder mehr, und 500 MB oder mehr der Massenextraktionskapazität. Während zusätzliche tägliche Kapazität im Rahmen eines Marketo-Abonnements erworben werden kann, sollte Ihr Anwendungsdesign die allgemeinen Beschränkungen von Marketo-Abonnements berücksichtigen.
 
-Da die Kapazität von allen API-Services und Benutzern in einer Instanz gemeinsam genutzt wird, empfiehlt es sich, redundante Aufrufe zu eliminieren und Datensätze in so wenige Aufrufe wie möglich zu stapeln. Die aufrufeffizienteste Möglichkeit zum Importieren von Datensätzen besteht in der Verwendung der Massenimport-APIs von Marketo, die für [Leads/Personen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) und [benutzerdefinierte Objekte](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST) verfügbar sind. Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
+Da die Kapazität von allen API-Services und Benutzern in einer Instanz gemeinsam genutzt wird, empfiehlt es sich, redundante Aufrufe zu eliminieren und Datensätze in so wenige Aufrufe wie möglich zu stapeln. Die aufrufeffizienteste Möglichkeit zum Importieren von Datensätzen besteht in der Verwendung der Massenimport-APIs von Marketo, die für [Leads/Personen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) und [benutzerdefinierte Objekte](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST) verfügbar sind. Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
 
 ### Caching
 
 Die Ergebnisse aus den folgenden Vorgängen können in der Regel einen Tag oder länger Client-seitig zwischengespeichert werden, da sie sich selten ändern:
 
 - Ergebnisse von Describe Operations
-- [Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Partitionen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Partitionen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 Das Zwischenspeichern bestimmter Asset-Typen wie Programme, E-Mails und Ordner ist auch für bestimmte Anwendungsfälle geeignet, z. B. die Anreicherung von Daten für Lead- oder Aktivitätsdatensätze.
 
@@ -72,4 +72,4 @@ Die meisten Anwendungsfälle für die Integration profitieren nicht von gleichze
 
 ## Fehler
 
-Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [&#x200B; unter &#x200B;](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.
+Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [ unter ](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.

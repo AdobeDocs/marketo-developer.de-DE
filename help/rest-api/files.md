@@ -3,7 +3,7 @@ title: Dateien
 feature: REST API
 description: Handbuch zu Marketo REST-API-Dateien, Abfrage nach ID oder Namen, Durchsuchen von Ordner und Versatz, Erstellen oder Aktualisieren über mehrteiligen Upload, insertOnly, MIME-Typen, kein Streaming
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '347'
 ht-degree: 1%
@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # Dateien
 
-[Referenz zum Dateiendpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files)
+[Referenz zum Dateiendpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Files)
 
 Marketo-Abonnements ermöglichen die Speicherung beliebiger Dateien wie Bilder, Skripte, Dokumente und Stylesheets. Alle diese Funktionen können über die REST-API remote verwendet werden. Der in Marketo-Abonnements verfügbare Speicher ist nicht für bandbreitenintensive Anwendungen optimiert. Daher sollten Alternativen für geeignete Audio- und Video-Streaming-Anwendungen verwendet werden.
 
 ## Abfrage
 
-Die Dateiabfrage ist einfach und folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Die Dateiabfrage ist einfach und folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET).
 
 ### Nach ID
 
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Erstellen und aktualisieren
 
-[Erstellen einer Datei](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) erfolgt mit dem Datentyp „multipart/form-data“ der Anfrage. In der Anfrage sind mindestens der Name, der Ordner und die Datei mit einer optionalen Beschreibung und einem insertOnly-Flag erforderlich. Dadurch wird verhindert, dass durch einen create-Aufruf eine vorhandene Datei mit demselben Namen aktualisiert wird. Für den Dateiparameter ist zusätzlich zum Parameter name ein „filename“ im Content-Disposition-Header erforderlich. Sie müssen auch eine Kopfzeile für den Inhaltstyp für die Datei übergeben, bei der es sich um den MIME-Typ handelt, mit dem Marketo die Datei bereitstellt.
+[Erstellen einer Datei](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST) erfolgt mit dem Datentyp „multipart/form-data“ der Anfrage. In der Anfrage sind mindestens der Name, der Ordner und die Datei mit einer optionalen Beschreibung und einem insertOnly-Flag erforderlich. Dadurch wird verhindert, dass durch einen create-Aufruf eine vorhandene Datei mit demselben Namen aktualisiert wird. Für den Dateiparameter ist zusätzlich zum Parameter name ein „filename“ im Content-Disposition-Header erforderlich. Sie müssen auch eine Kopfzeile für den Inhaltstyp für die Datei übergeben, bei der es sich um den MIME-Typ handelt, mit dem Marketo die Datei bereitstellt.
 
 ```http
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[Datei aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) kann basierend auf ihrer ID durchgeführt werden. Der einzige Parameter ist ein Dateiparameter, der dieselben Anforderungen wie die Erstellung hat.
+[Datei aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST) kann basierend auf ihrer ID durchgeführt werden. Der einzige Parameter ist ein Dateiparameter, der dieselben Anforderungen wie die Erstellung hat.
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

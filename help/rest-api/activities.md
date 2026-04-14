@@ -3,7 +3,7 @@ title: Aktivitäten
 feature: REST API
 description: Verwenden Sie die Marketo Engage-Aktivitäts-REST-API, um Aktivitätstypen aufzulisten, Lead-Aktivitäten mit Paging-Token abzurufen und benutzerdefinierte Änderungen und Änderungen von Datenwerten zu verarbeiten.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '2139'
 ht-degree: 0%
@@ -22,7 +22,7 @@ Die meisten Aktivitäten werden nach einiger Zeit bereinigt.
 
 ## beschreiben
 
-Um eine Liste der verfügbaren Typen und ihrer Definitionen für eine Instanz abzurufen, können Sie den Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) verwenden.
+Um eine Liste der verfügbaren Typen und ihrer Definitionen für eine Instanz abzurufen, können Sie den Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) verwenden.
 
 ```http
 GET /rest/v1/activities/types.json
@@ -75,7 +75,7 @@ Die Antworten der realen Welt umfassen weitaus mehr Definitionen. In diesem Beis
 
 ## Abfrage
 
-Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
+Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
 
 Sie können optional entweder einen listId-Abfrageparameter einschließen, um Ihre Suche auf die Datensätze einzugrenzen, die in einer bestimmten statischen Liste enthalten sind, oder einen leadIds-Abfrageparameter und Aktivitäten aus einem bestimmten Satz von Leads suchen. Sie können bis zu 30 leadIds als kommagetrennte Liste übergeben.
 
@@ -135,7 +135,7 @@ Beachten Sie, dass innerhalb jedes Ergebnis-Array-Elements das `id` Ganzzahlattr
 
 ### Datenwertänderungen
 
-Für Aktivitäten mit Datenwertänderung wird eine spezielle Version der Aktivitäts-API bereitgestellt. Der Endpunkt [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) gibt nur Aktivitäten von Datenwert-Änderungsdatensätzen an Lead-Felder zurück. Die Benutzeroberfläche entspricht der API für Abrufen von Lead-Aktivitäten mit zwei Unterschieden:
+Für Aktivitäten mit Datenwertänderung wird eine spezielle Version der Aktivitäts-API bereitgestellt. Der Endpunkt [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) gibt nur Aktivitäten von Datenwert-Änderungsdatensätzen an Lead-Felder zurück. Die Benutzeroberfläche entspricht der API für Abrufen von Lead-Aktivitäten mit zwei Unterschieden:
 
 * Es gibt keinen `activityTypeIds`, da der Endpunkt nur die Aktivitäten Datenwertänderung und Neuer Lead zurückgibt.
 * Der `fields` Abfrageparameter ist erforderlich, wobei Sie eine kommagetrennte Liste von Feldern übergeben können, um anzugeben, für welche Felder Sie Änderungen abrufen möchten.
@@ -190,7 +190,7 @@ Beachten Sie, dass innerhalb jedes Ergebnis-Array-Elements das `id` Ganzzahlattr
 
 ### Gelöschte Leads
 
-Es gibt auch einen speziellen Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) zum Abrufen gelöschter Aktivitäten aus Marketo.
+Es gibt auch einen speziellen Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) zum Abrufen gelöschter Aktivitäten aus Marketo.
 
 ```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -242,11 +242,11 @@ Benutzerdefinierte Aktivitäten funktionieren genau wie Standardaktivitäten, mi
 * Maximale Anzahl benutzerdefinierter Aktivitäten: 10
 * Maximale Anzahl von Attributen pro benutzerdefinierter Aktivität: 20
 
-Das Abrufen benutzerdefinierter Aktivitätsdaten erfolgt auf die gleiche Weise wie bei Standardaktivitäten über die [Lead-Aktivitäten abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET)-API.
+Das Abrufen benutzerdefinierter Aktivitätsdaten erfolgt auf die gleiche Weise wie bei Standardaktivitäten über die [Lead-Aktivitäten abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)-API.
 
 ## Abfragetypen
 
-Zusätzlich zum standardmäßigen Endpunkt Abrufen von Aktivitätstypen geben die Endpunkte [Abrufen benutzerdefinierter Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getCustomActivityTypeUsingGET) und [Beschreiben benutzerdefinierter Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/describeCustomActivityTypeUsingGET) Details zu den in der Marketo-Instanz bereitgestellten Aktivitätstypen sowie Metadaten zu den Attributen für einen bestimmten Typ zurück. Die normale [Abrufen von Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) gibt weiterhin Metadaten zu benutzerdefinierten Aktivitäten zurück, gibt jedoch nicht an, ob ein bestimmter Typ benutzerdefiniert ist.
+Zusätzlich zum standardmäßigen Endpunkt Abrufen von Aktivitätstypen geben die Endpunkte [Abrufen benutzerdefinierter Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) und [Beschreiben benutzerdefinierter Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) Details zu den in der Marketo-Instanz bereitgestellten Aktivitätstypen sowie Metadaten zu den Attributen für einen bestimmten Typ zurück. Die normale [Abrufen von Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) gibt weiterhin Metadaten zu benutzerdefinierten Aktivitäten zurück, gibt jedoch nicht an, ob ein bestimmter Typ benutzerdefiniert ist.
 
 ### Typen abrufen
 
@@ -621,7 +621,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 
 ## Hinzufügen benutzerdefinierter Aktivitäten
 
-Benutzerdefinierte Aktivitäten sind Einmalschreibaufzeichnungen historischer Aktivitäten, die sich auf einzelne Personendatensätze in Marketo beziehen. Diese Aktivitäten verfügen über ein Schema, das von Marketo-Administratoren oder remote über eine API-Integration verwaltet wird. Benutzerdefinierte Aktivitäten werden über den Endpunkt [Benutzerdefinierte Aktivitäten hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/addCustomActivityUsingPOST) zu Lead-Datensätzen hinzugefügt und über das `leadId` Feld mit jedem Lead-Datensatz verknüpft. Benutzerdefinierte Aktivitäten können in der Benutzeroberfläche über das Aktivitätsprotokoll des Leads angezeigt oder über den Endpunkt „Lead-Aktivitäten abrufen“ abgerufen werden, indem die Typ-ID der benutzerdefinierten Aktivität angegeben wird.
+Benutzerdefinierte Aktivitäten sind Einmalschreibaufzeichnungen historischer Aktivitäten, die sich auf einzelne Personendatensätze in Marketo beziehen. Diese Aktivitäten verfügen über ein Schema, das von Marketo-Administratoren oder remote über eine API-Integration verwaltet wird. Benutzerdefinierte Aktivitäten werden über den Endpunkt [Benutzerdefinierte Aktivitäten hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST) zu Lead-Datensätzen hinzugefügt und über das `leadId` Feld mit jedem Lead-Datensatz verknüpft. Benutzerdefinierte Aktivitäten können in der Benutzeroberfläche über das Aktivitätsprotokoll des Leads angezeigt oder über den Endpunkt „Lead-Aktivitäten abrufen“ abgerufen werden, indem die Typ-ID der benutzerdefinierten Aktivität angegeben wird.
 
 Benutzerdefinierte Aktivitäten eignen sich für die Aufzeichnung von Daten, die sich auf einen Datensatz für eine einzelne Person beziehen und nicht aktualisiert oder überschrieben werden müssen. Ein Beispiel wäre die Aufzeichnung einer Person, die an einer Veranstaltung teilnimmt, als Aktivität „Teilgenommen“. Für Datensätze, die sich im Zusammenhang mit einer Person ändern können, z. B. bei der Registrierung für einen Studenten, sollten stattdessen benutzerdefinierte Objekte verwendet werden, da sie aktualisiert werden können, wo benutzerdefinierte Aktivitäten möglicherweise nicht.
 

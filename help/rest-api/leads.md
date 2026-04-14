@@ -3,16 +3,16 @@ title: Leads
 feature: REST API
 description: Erkunden Sie die Funktionen der Marketo Leads-REST-API, einschließlich Beschreiben, Abfragen nach ID oder Filter, Standardfeldern, Beschränkungen und Abrufen von ECIDs.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '3457'
+source-wordcount: '3460'
 ht-degree: 3%
 
 ---
 
 # Leads
 
-[Leads-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Leads-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 Die API des Leads von Marketo bietet eine große Anzahl von Funktionen für einfache CRUD-Anwendungen gegen Lead-Datensätze sowie die Möglichkeit, die Zugehörigkeit eines Leads zu statischen Listen und Programmen zu ändern und die intelligente Kampagnenverarbeitung für Leads zu starten.
 
@@ -58,7 +58,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Normalerweise enthalten die Antworten eine viel größere Anzahl von Feldern im Ergebnis-Array, aber wir lassen sie zu Demonstrationszwecken aus. Jedes Element im Ergebnis-Array entspricht einem Feld, das im Lead-Datensatz verfügbar ist, und weist mindestens eine ID, einen displayName und einen Datentyp auf. Die untergeordneten REST- und SOAP-Objekte können für ein bestimmtes Feld vorhanden sein oder nicht, und ihr Vorhandensein gibt an, ob das Feld für die Verwendung in den REST- oder SOAP-APIs gültig ist. Die `readOnly`-Eigenschaft gibt an, ob das Feld über die entsprechende API (REST oder SOAP) schreibgeschützt ist. Die Eigenschaft „length“ gibt die maximale Länge des Felds an, falls vorhanden. Die dataType-Eigenschaft gibt den Datentyp des Felds an.
+Normalerweise enthalten Antworten einen viel größeren Satz von Feldern im Ergebnis-Array, aber wir lassen sie zu Demonstrationszwecken aus. Jedes Element im Ergebnis-Array entspricht einem Feld, das im Lead-Datensatz verfügbar ist, und weist mindestens eine ID, einen displayName und einen Datentyp auf. Die untergeordneten REST- und SOAP-Objekte können für ein bestimmtes Feld vorhanden sein oder nicht, und ihr Vorhandensein gibt an, ob das Feld für die Verwendung in den REST- oder SOAP-APIs gültig ist. Die `readOnly`-Eigenschaft gibt an, ob das Feld über die entsprechende API (REST oder SOAP) schreibgeschützt ist. Die Eigenschaft „length“ gibt die maximale Länge des Felds an, falls vorhanden. Die dataType-Eigenschaft gibt den Datentyp des Felds an.
 
 ## Abfrage
 
@@ -95,7 +95,7 @@ Bei dieser Methode befindet sich immer ein einzelner Datensatz an der ersten Pos
 
 Das Abrufen von Leads nach Filtertyp gibt den gleichen Datensatztyp zurück, kann jedoch bis zu 300 pro Seite zurückgeben. Dazu sind die Abfrageparameter `filterType` und `filterValues` erforderlich.
 
-`filterType` akzeptiert ein benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den `Describe2`-Endpunkt auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die für die Verwendung in `filterType` zulässig sind. Bei der Suche nach benutzerdefiniertem Feld werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Sie können Felddetails (Beschreibung, Typ usw.) unter Verwendung der oben genannten Describe-Methode.
+`filterType` akzeptiert ein benutzerdefiniertes Feld oder die meisten häufig verwendeten Felder. Rufen Sie den `Describe2`-Endpunkt auf, um eine umfassende Liste durchsuchbarer Felder zu erhalten, die für die Verwendung in `filterType` zulässig sind. Bei der Suche nach benutzerdefiniertem Feld werden nur die folgenden Datentypen unterstützt: `string`, `email`, `integer`. Sie können Felddetails (Beschreibung, Typ usw.) mithilfe der oben genannten Describe-Methode abrufen.
 
 `filterValues` akzeptiert bis zu 300 Werte im kommagetrennten Format. Der Aufruf sucht nach Datensätzen, bei denen das Feld des Leads mit einem der enthaltenen `filterValues` übereinstimmt. Wenn die Anzahl der Leads, die mit dem Lead-Filter übereinstimmen, größer als 1.000 ist, wird ein Fehler zurückgegeben: „1003, Zu viele Ergebnisse stimmen mit dem Filter überein“.
 
@@ -160,7 +160,7 @@ Zusätzlich zum Abrufen von Lead-Daten können Sie Lead-Datensätze über die AP
 
 >[!NOTE]
 >
-> Die Aktualisierung von Unternehmensfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden [&#x200B; stattdessen den Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST)Unternehmen synchronisieren“.
+> Die Aktualisierung von Unternehmensfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden [ stattdessen den Endpunkt ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)Unternehmen synchronisieren“.
 
 >[!NOTE]
 >
@@ -767,6 +767,7 @@ Hier können Sie die entsprechenden Aktivitätsdetails zum Ausfüllen des Formul
 ## Zusammenführen
 
 >[!NOTE]
+>
 >Ab dem 31. März 2026 führen Aufrufe, die mehr als 25 IDs im `leadIds`-Parameter eines Aufrufs der Zusammenführungs-Leads-API enthalten, zu einem 1080-Fehler-Code, und der Aufruf wird übersprungen. Aufträge, für die mehr als 25 Datensätze zu einem zusammengeführt werden müssen, sollten in mehrere Aufträge aufgeteilt werden, um den Erfolg dieser Aufrufe sicherzustellen.
 >
 
@@ -817,7 +818,7 @@ Mitgliedschaft
 Lead-Datensätze können auch basierend auf der Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, bei denen ein Lead Mitglied ist.
 
 Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl `filterType` und `filterValues` mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
 
 ## Abrufen von Programmen nach Lead-ID
 

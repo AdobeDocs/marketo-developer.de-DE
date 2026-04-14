@@ -3,10 +3,10 @@ title: Webhooks
 feature: Webhooks
 description: Erfahren Sie, wie Sie Marketo-Webhooks konfigurieren, um Drittanbieterdienste aufzurufen, Payload-Vorlagen, Codierung, Antwortzuordnungen, Token, benutzerdefinierte Kopfzeilen und Tipps festzulegen.
 exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '604'
-ht-degree: 0%
+source-wordcount: '721'
+ht-degree: 3%
 
 ---
 
@@ -14,28 +14,28 @@ ht-degree: 0%
 
 Marketo ermöglicht die Verwendung von Webhooks für die Kommunikation mit Webdiensten von Drittanbietern. Webhooks unterstützen die Verwendung der GET- oder POST-HTTP-Verben zum Pushen oder Abrufen von Daten von einer bestimmten URL. Detaillierte Anweisungen zur Erstellung von Webhooks innerhalb der Anwendung und zum Hinzufügen zu Smart-Kampagnen finden Sie in den folgenden Artikeln:
 
-- [Erstellen eines Webhooks](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [Webhook aufrufen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [Verwenden eines Webhooks in einer intelligenten Kampagne](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [Erstellen eines Webhooks](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [Webhook aufrufen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [Verwenden eines Webhooks in einer intelligenten Kampagne](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 Jeder einzelne Webhook hat die folgenden Eigenschaften:
 
 - [!UICONTROL URL] - Geben Sie die URL ein, mit der Sie Ihre Anfrage an den Webservice senden.
 - [!UICONTROL Request Type] - die HTTP-Methode.
-- [!UICONTROL Payload-Vorlage] - Wenn Sie Informationen im Textkörper des POST übertragen möchten, geben Sie die Vorlage ein. Verwenden Sie ein beliebiges Datenformat, das HTTP-POST unterstützt, einschließlich XML, JSON oder SOAP. Das Serialisierungsformat muss doppelte Anführungszeichen um Zeichenfolgen zulassen. Um ein Token in Ihre Vorlage einzufügen, klicken Sie auf **[!UICONTROL Token einfügen]**.  Token vom Typ Zeichenfolge werden automatisch in doppelte Anführungszeichen gesetzt.
+- [!UICONTROL Payload-Vorlage] - Wenn Sie Informationen im Textkörper des POST übertragen möchten, geben Sie die Vorlage ein. Verwenden Sie ein beliebiges Datenformat, das HTTP-POST unterstützt, einschließlich XML, JSON oder SOAP. Das Serialisierungsformat muss doppelte Anführungszeichen um Zeichenfolgen zulassen. Um ein Token in Ihre Vorlage einzufügen, wählen Sie **[!UICONTROL Token einfügen]**.  Token vom Typ Zeichenfolge werden automatisch in doppelte Anführungszeichen gesetzt.
 - [!UICONTROL Anfragetokenkodierung] - Wenn die Tokenwerte Sonderzeichen enthalten (z. B. ein kaufmännisches Und-Zeichen, &quot;&amp;„), geben Sie das Format Ihrer Anfrage an (JSON oder Formular/URL). Für den Hauptteil sollte die richtige Codierung ausgewählt werden, um sicherzustellen, dass der Webhook mit dem Webservice ordnungsgemäß kommuniziert.
 - [!UICONTROL Antworttyp] - Wählen Sie das Format der Antwort aus, die Sie vom Dienst erhalten (JSON oder XML). Es muss der richtige Antworttyp ausgewählt werden, um Eigenschaften der Antwort wieder den Lead-Feldern in Marketo zuzuordnen
 - [!UICONTROL Benutzerdefinierte Kopfzeilen] - Zugriff über [!UICONTROL Webhooks-Aktionen] -> [!UICONTROL Benutzerdefinierte Kopfzeile festlegen]. In diesem Menü können beliebig viele benutzerdefinierte Schlüssel-Wert-Paare als HTTP-Kopfzeilen hinzugefügt werden.
 
-Daten können aus Web-Service-Antworten mithilfe von „Antwort-Mappings“ in [&#x200B; Leads zurückgeschrieben &#x200B;](response-mappings.md)
+Daten können aus Web-Service-Antworten mithilfe von „Antwort-Mappings“ in [ Leads zurückgeschrieben ](response-mappings.md)
 
 ## Token
 
 Alle ausgehenden Felder in einem Webhook (URL, Vorlage und benutzerdefinierte Kopfzeilen) füllen den Inhalt von Token im selben Kontext des Flussschritts aus. Das bedeutet, dass Lead- und System-Token immer verfügbar sind, während Trigger-, Kampagnen- und Programm-Token in ihren jeweiligen Bereichen verfügbar sind. Siehe Artikel zu Token:
 
-- [Token-Übersicht](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
-- [Glossar zu System-Token](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [Token für interessante Momente](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [Token – Übersicht](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
+- [Glossar zu System-Token](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
+- [Token für interessante Momente](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
 Ein gängiges Beispiel hierfür ist, wenn ein Programm oder eine Kampagne explizit einer Ressource eines Drittanbieters zugeordnet wird. Eine ID kann auf Programmebene als `My Token` festgelegt und dann als Token an die Webhook-Anfrage übergeben werden.
 

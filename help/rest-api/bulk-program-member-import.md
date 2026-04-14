@@ -3,7 +3,7 @@ title: Massenimport von Programmmitgliedern
 feature: REST API
 description: Erfahren Sie, wie Sie Programmmitglieder per Marketo-REST-API mithilfe von CSV-TSV- oder SSV-Dateien unter 10 MB massenhaft importieren können, Warteschlangenbeschränkungen, erforderliche Parameter und den Status des Abrufauftrags.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '962'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Massenimport von Programmmitgliedern
 
-[Referenz zum Massenimport-Endpunkt des Programmmitglieds](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
+[Referenz zum Massenimport-Endpunkt des Programmmitglieds](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)
 
-Bei großen Mengen an Programmmitgliedsdatensätzen können Programmmitglieder asynchron mit der [Bulk-API“ importiert &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
+Bei großen Mengen an Programmmitgliedsdatensätzen können Programmmitglieder asynchron mit der [Bulk-API“ importiert ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
 
 ## Verarbeitungsbeschränkungen
 
@@ -22,7 +22,7 @@ Es ist zulässig, mehr als eine Massenimportanfrage zu senden, mit Einschränkun
 
 ## Datei importieren
 
-Die erste Zeile der Datei muss eine Kopfzeile sein, die die entsprechenden REST-API-Namen als Felder auflistet, denen die Werte jeder Zeile zugeordnet werden sollen. REST-API-Namen können mit den Endpunkten [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) und/oder [Programmmitglied beschreiben](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET) abgerufen werden. Datensätze können Lead-Felder, benutzerdefinierte Lead-Felder und benutzerdefinierte Programmmitgliedsfelder enthalten.
+Die erste Zeile der Datei muss eine Kopfzeile sein, die die entsprechenden REST-API-Namen als Felder auflistet, denen die Werte jeder Zeile zugeordnet werden sollen. REST-API-Namen können mit den Endpunkten [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) und/oder [Programmmitglied beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeProgramMemberUsingGET) abgerufen werden. Datensätze können Lead-Felder, benutzerdefinierte Lead-Felder und benutzerdefinierte Programmmitgliedsfelder enthalten.
 
 Eine typische Datei würde diesem grundlegenden Muster folgen:
 
@@ -37,7 +37,7 @@ Dieser Anfragetyp kann schwierig zu implementieren sein. Daher wird dringend emp
 
 ## Erstellen von Aufträgen
 
-Der Endpunkt [Programmmitglieder importieren](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) liest eine Datei mit Programmmitgliedsdatensätzen und fügt sie einem Programm mit einem bestimmten Status hinzu. Die Datensätze können sowohl Lead-Felder als auch benutzerdefinierte Felder für Programmmitglieder enthalten. Alle Datensätze müssen das E-Mail-Feld enthalten, das für Deduplizierungszwecke verwendet wird.
+Der Endpunkt [Programmmitglieder importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) liest eine Datei mit Programmmitgliedsdatensätzen und fügt sie einem Programm mit einem bestimmten Status hinzu. Die Datensätze können sowohl Lead-Felder als auch benutzerdefinierte Felder für Programmmitglieder enthalten. Alle Datensätze müssen das E-Mail-Feld enthalten, das für Deduplizierungszwecke verwendet wird.
 
 Der `programId` Pfadparameter gibt das Programm an, dem die Member hinzugefügt werden.
 
@@ -109,7 +109,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## Status des Abrufauftrags
 
-Nachdem der Importvorgang erstellt wurde, müssen Sie seinen Status abfragen. Es empfiehlt sich, den Importauftrag alle 5 bis 30 Sekunden abzufragen. Übergeben Sie dazu den `batchId`-Pfadparameter an den Endpunkt [Abrufen des Mitgliedsstatus des Importprogramms](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET).
+Nachdem der Importvorgang erstellt wurde, müssen Sie seinen Status abfragen. Es empfiehlt sich, den Importauftrag alle 5 bis 30 Sekunden abzufragen. Übergeben Sie dazu den `batchId`-Pfadparameter an den Endpunkt [Abrufen des Mitgliedsstatus des Importprogramms](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET).
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -139,7 +139,7 @@ Wenn der Vorgang abgeschlossen ist, wird eine Liste der verarbeiteten Zeilen, de
 
 ## Fehler
 
-Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Abrufen des Mitgliedsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an.
+Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Abrufen des Mitgliedsstatus ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an.
 
 Verwenden Sie den Endpunkt Abrufen von Fehlern bei Programmmitgliedern des Importprogramms , um Datensätze und Ursachen fehlgeschlagener Zeilen abzurufen, indem Sie den `batchId` Pfadparameter übergeben.
 
@@ -193,9 +193,9 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Warnungen
 
-Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort [Abrufen des Mitgliedsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn `numOfRowsWithWarning` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an.
+Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort [Abrufen des Mitgliedsstatus ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) Importprogramms“ angezeigt. Wenn `numOfRowsWithWarning` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an.
 
-Verwenden Sie den Endpunkt [Abrufen von Warnhinweisen zu &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)Abonnenten des Importprogramms“, um Datensätze und Ursachen von Warnzeilen abzurufen, indem Sie den `batchId` Pfadparameter übergeben.
+Verwenden Sie den Endpunkt [Abrufen von Warnhinweisen zu ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET)Abonnenten des Importprogramms“, um Datensätze und Ursachen von Warnzeilen abzurufen, indem Sie den `batchId` Pfadparameter übergeben.
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json

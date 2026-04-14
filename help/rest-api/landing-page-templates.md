@@ -3,7 +3,7 @@ title: Landingpage-Vorlagen
 feature: REST API, Landing Pages
 description: Verwalten Sie Landingpage-Vorlagen von Marketo über REST-API-Endpunkte für Freiform und geführte Typen, fragen Sie nach ID oder Namen ab, erstellen, aktualisieren Sie HTML, klonen Sie Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '703'
 ht-degree: 1%
@@ -12,17 +12,17 @@ ht-degree: 1%
 
 # Landingpage-Vorlagen
 
-[Endpunkt-Referenz für Landingpage-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
+[Endpunkt-Referenz für Landingpage-Vorlage](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates)
 
 Landingpage-Vorlagen sind eine übergeordnete Ressource und eine Abhängigkeit für einzelne Marketo-Landingpages. Landingpages leiten das Skelett ihrer Inhalte von der übergeordneten Vorlage ab.
 
 ## Vorlagentypen
 
-Marketo verfügt über zwei Arten von Landingpage-Vorlagen: Freiform und Geführt. Freiform-Landingpage-Vorlagen bieten ein locker strukturiertes Bearbeitungserlebnis für die von ihnen abgeleiteten Seiten. Geführte Vorlagen bieten ein stark strukturiertes Erlebnis, in dem Elementtypen und Speicherorte auf Vorlagenebene eingeschränkt werden können. Weitere Informationen zu den Unterschieden finden Sie [diesem Dokument](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo verfügt über zwei Arten von Landingpage-Vorlagen: Freiform und Geführt. Freiform-Landingpage-Vorlagen bieten ein locker strukturiertes Bearbeitungserlebnis für die von ihnen abgeleiteten Seiten. Geführte Vorlagen bieten ein stark strukturiertes Erlebnis, in dem Elementtypen und Speicherorte auf Vorlagenebene eingeschränkt werden können. Weitere Informationen zu den Unterschieden finden Sie [diesem Dokument](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Abfrage
 
-Landingpage-Vorlagen unterstützen die standardmäßigen Abfragetypen für Assets [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Diese Endpunkte geben Metadaten für die Vorlagen zurück. Das Abrufen des HTML-Inhalts von Vorlagen muss für jede Vorlage über ihre ID erfolgen.
+Landingpage-Vorlagen unterstützen die standardmäßigen Abfragetypen für Assets [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Diese Endpunkte geben Metadaten für die Vorlagen zurück. Das Abrufen des HTML-Inhalts von Vorlagen muss für jede Vorlage über ihre ID erfolgen.
 
 ## Erstellen und aktualisieren
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Der Inhalt der Vorlage muss separat über den Endpunkt [Inhalt der Landingpage-Vorlage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) ausgefüllt werden.
+Der Inhalt der Vorlage muss separat über den Endpunkt [Inhalt der Landingpage-Vorlage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) ausgefüllt werden.
 
 ### Aktualisieren von Metadaten
 
-Metadaten für Landingpage-Vorlagen können über den Endpunkt [Aktualisieren von Landingpage-Vorlagen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) aktualisiert werden. Name, Beschreibung und die Einstellung enableMunchkin können auf diese Weise aktualisiert werden.
+Metadaten für Landingpage-Vorlagen können über den Endpunkt [Aktualisieren von Landingpage-Vorlagen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) aktualisiert werden. Name, Beschreibung und die Einstellung enableMunchkin können auf diese Weise aktualisiert werden.
 
 ### Inhalt aktualisieren
 
@@ -167,9 +167,9 @@ Landingpage-Vorlagen folgen dem standardmäßigen Entwurfsbestätigungsmodell, f
 
 Damit eine Vorlage genehmigt werden kann, muss sie den Regeln für ihren Typ entsprechen, entweder geführt von Freiform. Weitere Informationen zu den Anforderungen für das Erstellen und Genehmigen von Vorlagen der jeweiligen Typen finden Sie in den jeweiligen Erstellungsdokumenten:
 
-- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Löschen
 

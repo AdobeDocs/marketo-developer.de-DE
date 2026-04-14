@@ -3,9 +3,9 @@ title: Marketo-Objekte
 feature: Email Programs
 description: Anleitung zur Verwendung von Marketo Velocity mit Leads, Opportunities und benutzerdefinierten Objekten, Ladefeldern, Zugriff auf die zehn wichtigsten Listen, SFDC-Beziehungen und $TriggerObject.
 exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '530'
+source-wordcount: '532'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ Hier ist ein Beispielskript für eine E-Mail zur Nachverfolgung von Bestellungen
 </div>
 ```
 
-Der Vorteil der Verwendung der `$TriggerObject`-Variablen besteht darin, dass Sie keinen Code dedizieren müssen, um zu bestimmen, aus welchen der verfügbaren Objekte Sie Ihre lokalen Daten abrufen möchten.  Das Objekt wird durch die Auslöseaktion bestimmt. Dies ist die explizitste Methode zur Auswahl eines Objekts, auf das verwiesen werden soll, und sollte verwendet werden, wann immer verfügbar und angemessen.
+Der Vorteil der Verwendung der `$TriggerObject`-Variablen besteht darin, dass Sie keinen Code dedizieren müssen, um zu bestimmen, aus welchem der verfügbaren Objekte Sie Ihre lokalen Daten abrufen möchten.  Das Objekt wird durch die Auslöseaktion bestimmt. Dies ist die explizitste Methode zur Auswahl eines Objekts, auf das verwiesen werden soll, und sollte verwendet werden, wann immer verfügbar und angemessen.
 
 Hinweis: Bei Verwendung der `$TriggerObject` müssen Felder im Bearbeitungsbereich markiert werden, damit das Objekt dem Skript zur Verfügung gestellt werden kann.
 

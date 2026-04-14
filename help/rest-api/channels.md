@@ -3,7 +3,7 @@ title: Kanäle
 feature: REST API
 description: Erfahren Sie, wie Sie Marketo-Kanäle über die Asset-REST-API abfragen, mit Paginierung suchen oder nach Namen abrufen, Fortschrittsstatus anzeigen und Programmtypregeln verstehen.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '151'
 ht-degree: 2%
@@ -12,7 +12,7 @@ ht-degree: 2%
 
 # Kanäle
 
-[Endpunktreferenz für Kanäle](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[Endpunktreferenz für Kanäle](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels)
 
 Kanäle sind ein Standardfeld und ein Pflichtfeld für alle Programmtypen. Jeder Kanaltyp kann nur mit dem angegebenen `applicableProgramType` verwendet werden und liefert die Liste der verfügbaren Programmstatus, die für Programmmitglieder in jedem Programm gültig sind. Wenn die Programmstatus eines Kanals geändert werden, nachdem ein Programm erstellt wurde, entspricht die Liste der Programmstatus, zu der ein Lead geändert werden kann, der Liste, die der Kanal zu diesem Zeitpunkt gegeben hat. Sie ändert jedoch nicht rückwirkend den Programmstatus für vorhandene Programmmitgliedsdatensätze.
 

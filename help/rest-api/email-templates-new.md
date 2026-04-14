@@ -3,7 +3,7 @@ title: E-Mail-Vorlagen
 feature: REST API
 description: Verwenden Sie die Marketo Asset REST-API, um Abhängigkeiten für E-Mail-Vorlagen abzufragen, zu erstellen, zu aktualisieren, zu klonen, zu löschen, zu genehmigen und zu überprüfen.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 9%
@@ -12,7 +12,7 @@ ht-degree: 9%
 
 # E-Mail-Vorlagen
 
-[Endpunktreferenz für E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[Endpunktreferenz für E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
 E-Mail-Vorlagen definieren die Struktur und das wiederverwendbare Layout, die beim Erstellen von E-Mails verwendet werden.
 

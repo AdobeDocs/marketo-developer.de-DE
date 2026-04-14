@@ -3,7 +3,7 @@ title: SOAP-API
 feature: SOAP
 description: Die Marketo SOAP-API wird nach dem 31. Oktober 2025 nicht mehr unterstützt. Erfahren Sie, wie Sie zu REST migrieren, Ihre WSDL abrufen, Kontingente, Ratenbeschränkungen und Authentifizierungseinstellungen anzeigen.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
 source-wordcount: '269'
 ht-degree: 1%
@@ -36,10 +36,10 @@ Unsere Empfehlung lautet, dass die Losgrößen nicht größer als 300 sind. Grö
 
 ## SOAP-API-Einstellungen in Marketo
 
-1. Gehen Sie zum Abschnitt **[!UICONTROL Admin]** und klicken Sie auf **[!UICONTROL Web-Services]**.
+1. Gehen Sie zum Abschnitt **[!UICONTROL Admin]** und wählen Sie **[!UICONTROL Web-Services]** aus.
 
 ![admin-web-services2](assets/admin-web-services2.png)
 
-1. Legen Sie einen geeigneten [!UICONTROL Verschlüsselungsschlüssel] fest, klicken Sie auf **[!UICONTROL Änderungen speichern]** und verwenden Sie die Werte für die SOAP-API [!UICONTROL Endpunkt], [!UICONTROL Benutzer-ID] und [!UICONTROL Verschlüsselungsschlüssel], um für jeden SOAP-API-Aufruf die richtige [Authentifizierungssignatur](authentication-signature.md) zu generieren.
+1. Legen Sie einen geeigneten [!UICONTROL Verschlüsselungsschlüssel] fest, wählen Sie **[!UICONTROL Änderungen speichern]** und verwenden Sie die Werte für die SOAP-API [!UICONTROL Endpunkt], [!UICONTROL Benutzer-ID] und [!UICONTROL Verschlüsselungsschlüssel], um für jeden SOAP-API-Aufruf die richtige [Authentifizierungssignatur](authentication-signature.md) zu generieren.
 
 ![admin-web-services3](assets/admin-web-services3.png)

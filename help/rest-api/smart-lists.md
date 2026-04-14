@@ -3,7 +3,7 @@ title: Intelligente Listen
 feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs benutzerdefinierte Smart Lists abfragen, klonen und löschen können, einschließlich Endpunkten nach ID, Name, Kampagne und Programm mit Regeln.
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '576'
 ht-degree: 1%
@@ -12,19 +12,19 @@ ht-degree: 1%
 
 # Intelligente Listen
 
-[Endpunkt-Referenz für Smart Lists](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists)
+[Endpunkt-Referenz für Smart Lists](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists)
 
 Marketo bietet eine Reihe von REST-APIs zum Ausführen von Vorgängen für Smart-Listen. Diese APIs folgen dem Standard-Schnittstellenmuster für Asset-APIs und bieten Optionen für Abfrage, Löschen und Klonen.
 
-Hinweis: Diese APIs werden nur für benutzerdefinierte Smart Lists unterstützt. Sie können nicht für [Integrierte/System-Smart-Listen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists) verwendet werden.
+Hinweis: Diese APIs werden nur für benutzerdefinierte Smart Lists unterstützt. Sie können nicht für [Integrierte/System-Smart-Listen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists) verwendet werden.
 
 ## Abfrage
 
-Die Abfrage von Smart-Listen folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) und [Durchsuchen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET).
+Die Abfrage von Smart-Listen folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET) und [Durchsuchen](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET).
 
 ### Nach ID
 
-[Abfrage nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) verwendet einen einzelnen Smart-Listen-`id` als Pfadparameter und gibt einen einzelnen Smart-Listen-Datensatz zurück. Optional können Sie den `includeRules` booleschen Parameter übergeben, um Smart-Listen-Regeln in die Antwort aufzunehmen.
+[Abfrage nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET) verwendet einen einzelnen Smart-Listen-`id` als Pfadparameter und gibt einen einzelnen Smart-Listen-Datensatz zurück. Optional können Sie den `includeRules` booleschen Parameter übergeben, um Smart-Listen-Regeln in die Antwort aufzunehmen.
 
 ![SmartList-Regeln](assets/smartlist-rules.png)
 
@@ -99,7 +99,7 @@ GET /rest/asset/v1/smartList/{id}.json?includeRules=true
 
 ### Nach Smart-Kampagnen-ID
 
-[Abfrage nach Smart-Kampagnen-](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET): Verwendet eine einzelne Smart-Kampagnen-`id` als Pfadparameter und gibt einen einzelnen Smart-Listen-Datensatz zurück. Optional können Sie den `includeRules` booleschen Parameter übergeben, um Smart-Listen-Regeln in die Antwort aufzunehmen.
+[Abfrage nach Smart-Kampagnen-](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET): Verwendet eine einzelne Smart-Kampagnen-`id` als Pfadparameter und gibt einen einzelnen Smart-Listen-Datensatz zurück. Optional können Sie den `includeRules` booleschen Parameter übergeben, um Smart-Listen-Regeln in die Antwort aufzunehmen.
 
 ```http
 GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
@@ -130,7 +130,7 @@ GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
 
 ### Nach Programm-ID
 
-[Abfrage nach Programm-ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET) verwendet ein einzelnes E-Mail-Programm `id` als Pfadparameter und gibt einen einzelnen Smart-Listen-Datensatz zurück. Optional können Sie den `includeRules` booleschen Parameter übergeben, um Smart-Listen-Regeln in die Antwort aufzunehmen.
+[Abfrage nach Programm-ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getSmartListByProgramIdUsingGET) verwendet ein einzelnes E-Mail-Programm `id` als Pfadparameter und gibt einen einzelnen Smart-Listen-Datensatz zurück. Optional können Sie den `includeRules` booleschen Parameter übergeben, um Smart-Listen-Regeln in die Antwort aufzunehmen.
 
 ```http
 GET /rest/asset/v1/program/{programId}/smartList.json
@@ -161,7 +161,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### Nach Name
 
-[Abfrage nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET)) akzeptiert eine Smart-Listen-`name` als Parameter und gibt einen einzelnen Smart-Listen-Datensatz zurück.  Es wird eine exakte Zeichenfolgenübereinstimmung für alle Smart-Listennamen in der Instanz durchgeführt und ein Ergebnis für die Smart-Liste zurückgegeben, die mit diesem Namen übereinstimmt.
+[Abfrage nach ](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET)) akzeptiert eine Smart-Listen-`name` als Parameter und gibt einen einzelnen Smart-Listen-Datensatz zurück.  Es wird eine exakte Zeichenfolgenübereinstimmung für alle Smart-Listennamen in der Instanz durchgeführt und ein Ergebnis für die Smart-Liste zurückgegeben, die mit diesem Namen übereinstimmt.
 
 ```http
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -191,7 +191,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Durchsuchen
 
-Smart-Listen können auch [in Batches abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, unter dem die Abfrage ausgeführt wird. Sie ist als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Die optionalen `earliestUpdatedAt`- und `latestUpdatedAt` Datums-/Uhrzeitparameter können verwendet werden, um die Ergebnisse nach dem Datumsbereich UpdatedAt zu filtern.
+Smart-Listen können auch [in Batches abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET). Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, unter dem die Abfrage ausgeführt wird. Sie ist als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Die optionalen `earliestUpdatedAt`- und `latestUpdatedAt` Datums-/Uhrzeitparameter können verwendet werden, um die Ergebnisse nach dem Datumsbereich UpdatedAt zu filtern.
 
 ```http
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
@@ -245,7 +245,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## Klon
 
-[Klonen einer Smart-](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST)) wird mit einem application/x-www-form-urlencoded POST ausgeführt. Die zu klonende Smart-Liste wird im `id` angegeben. Der Parameter `folder` wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die Smart-Liste erstellt wird, und ist als JSON-Objekt mit der ID und dem Typ formatiert. Der übergeordnete Ordner muss entweder ein Programm- oder ein Smart List-Ordner sein. Der `name` Parameter wird zum Benennen der neuen Smart-Liste verwendet und muss eindeutig sein. Optional kann der `description` Parameter zur Beschreibung der Smart-Liste verwendet werden.
+[Klonen einer Smart-](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/cloneSmartListUsingPOST)) wird mit einem application/x-www-form-urlencoded POST ausgeführt. Die zu klonende Smart-Liste wird im `id` angegeben. Der Parameter `folder` wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die Smart-Liste erstellt wird, und ist als JSON-Objekt mit der ID und dem Typ formatiert. Der übergeordnete Ordner muss entweder ein Programm- oder ein Smart List-Ordner sein. Der `name` Parameter wird zum Benennen der neuen Smart-Liste verwendet und muss eindeutig sein. Optional kann der `description` Parameter zur Beschreibung der Smart-Liste verwendet werden.
 
 ```http
 POST /rest/asset/v1/smartList/{id}/clone.json
@@ -283,7 +283,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## Löschen
 
-[Löschen einer Smart](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST)Liste) akzeptiert eine einzelne Smart-Listen-`id` als Pfadparameter.
+[Löschen einer Smart](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST)Liste) akzeptiert eine einzelne Smart-Listen-`id` als Pfadparameter.
 
 ```http
 POST /rest/asset/v1/smartList/{id}/delete.json

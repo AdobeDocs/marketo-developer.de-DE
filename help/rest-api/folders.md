@@ -3,7 +3,7 @@ title: Ordner
 feature: REST API
 description: 'Marketo-REST-API-Handbuch für Ordner, in dem Folgendes behandelt wird: Erstellen, Aktualisieren, Löschen, Abfrage nach ID und Namen, Massendurchsuchen mit Stamm, Workspace, maxDepth und Paginierung.'
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1099'
 ht-degree: 1%
@@ -12,13 +12,13 @@ ht-degree: 1%
 
 # Ordner
 
-[Ordner-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Ordner-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders)
 
 Ordner sind das zentrale organisatorische Asset in Marketo, und jeder andere Asset-Typ hat mindestens einen Ordner als übergeordneten Asset. Dieser übergeordnete Ordner kann entweder ein rein organisatorischer Ordner oder ein Programm sein, das eine funktionale Beziehung zu anderen Asset-Typen hat und auch das übergeordnete Element anderer Assets sein kann. Ordner können über die API erstellt, abgefragt, aktualisiert und gelöscht werden und es kann auch eine Liste ihrer Inhalte abgerufen werden. Obwohl Programme über die Abfrage der Ordner-API zurückgegeben werden können, müssen das Erstellen, Aktualisieren und Löschen von Programmen über die Programme-API durchgeführt werden.
 
 ## Abfrage
 
-Die Ordnerabfrage folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
+Die Ordnerabfrage folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) und [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
 
 ### Nach ID
 
@@ -70,7 +70,7 @@ Der Typparameter ist erforderlich und muss einer der Werte „Folder“ oder „
 
 ### Nach Name
 
-[Abfrage nach Namen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) ist ebenfalls zulässig. Der Endpunkt „Abfrage nach Name“ hat den Namen als einzigen erforderlichen Parameter. Name führt eine exakte Zeichenfolgenübereinstimmung mit dem Namensfeld der Ordner in der Instanz durch und gibt Ergebnisse für jeden Ordner zurück, der diesem Namen entspricht. Darüber hinaus verfügt es über die optionalen Abfrageparameter „type“, d. h. Ordner oder Programm, „root“, die ID des zu durchsuchenden Ordners oder „workspace“ und den Namen des zu durchsuchenden Arbeitsbereichs. Wenn der Stammparameter festgelegt ist, muss auch der Typparameter festgelegt werden.
+[Abfrage nach Namen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) ist ebenfalls zulässig. Der Endpunkt „Abfrage nach Name“ hat den Namen als einzigen erforderlichen Parameter. Name führt eine exakte Zeichenfolgenübereinstimmung mit dem Namensfeld der Ordner in der Instanz durch und gibt Ergebnisse für jeden Ordner zurück, der diesem Namen entspricht. Darüber hinaus verfügt es über die optionalen Abfrageparameter „type“, d. h. Ordner oder Programm, „root“, die ID des zu durchsuchenden Ordners oder „workspace“ und den Namen des zu durchsuchenden Arbeitsbereichs. Wenn der Stammparameter festgelegt ist, muss auch der Typparameter festgelegt werden.
 
 ```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -113,12 +113,12 @@ Bei der Suche nach Namen ist es wichtig zu beachten, dass sowohl Marketing-Aktiv
 
 ### Durchsuchen
 
-Ordner können auch [stapelweise abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
+Ordner können auch [stapelweise abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
 
 1. id : Die ID des Ordners oder Programms.
 1. type - Entweder Ordner oder Programm, je nach dem Typ des Stammordners, der im Browser gespeichert werden soll.
 
-Wenn der Stammordner nicht bekannt ist oder alle Ordner in einem bestimmten Bereich abgerufen werden sollen, kann der Stamm als Bereich „Marketing-Aktivitäten“, „Design Studio“ oder „Lead-Datenbank“ angegeben werden. Die IDs für jede dieser Variablen können über die API [Ordner nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) und den Namen des gewünschten Bereichs angeben.
+Wenn der Stammordner nicht bekannt ist oder alle Ordner in einem bestimmten Bereich abgerufen werden sollen, kann der Stamm als Bereich „Marketing-Aktivitäten“, „Design Studio“ oder „Lead-Datenbank“ angegeben werden. Die IDs für jede dieser Variablen können über die API [Ordner nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) und den Namen des gewünschten Bereichs angeben.
 
 Wie andere Endpunkte für den Massenabruf von Assets sind Offset und maxReturn optionale Parameter für das Paging.   Weitere optionale Parameter sind:
 
@@ -211,7 +211,7 @@ Der Pfad eines Ordners zeigt seine Hierarchie in der Ordnerstruktur an, ähnlich
 
 ## Erstellen und aktualisieren
 
-[Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einem application/x-www-form-urlencoded POST ausgeführt, der zwei erforderliche Parameter aufweist: „name“, eine Zeichenfolge und „parent“, das übergeordnete Element zum Erstellen des Ordners, wobei es sich um ein eingebettetes JSON-Objekt mit zwei Elementen, „id“ und „type“, entweder „Folder“ oder „Program“, je nach Typ des Zielordners. Optional kann auch „description“, eine Zeichenfolge, eingeschlossen werden, die bis zu 2.000 Zeichen lang sein kann.
+[Erstellen von Ordnern](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) ist einfach und wird mit einem application/x-www-form-urlencoded POST ausgeführt, der zwei erforderliche Parameter aufweist: „name“, eine Zeichenfolge und „parent“, das übergeordnete Element zum Erstellen des Ordners, wobei es sich um ein eingebettetes JSON-Objekt mit zwei Elementen, „id“ und „type“, entweder „Folder“ oder „Program“, je nach Typ des Zielordners. Optional kann auch „description“, eine Zeichenfolge, eingeschlossen werden, die bis zu 2.000 Zeichen lang sein kann.
 
 ```http
 POST /rest/asset/v1/folders.json

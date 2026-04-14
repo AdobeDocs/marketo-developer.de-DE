@@ -3,7 +3,7 @@ title: Massenauszug von Blei
 feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs für die Massenextraktion von Leads Leads Datums-, Listen- und Smart-Listen-Filtern, benutzerdefinierten Feldern und CSV/TSV-Formaten exportieren können.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1273'
 ht-degree: 2%
@@ -12,7 +12,7 @@ ht-degree: 2%
 
 # Massenauszug von Blei
 
-[Referenz zum Massenextraktionsendpunkt von Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
+[Referenz zum Massenextraktionsendpunkt von Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads)
 
 Der Satz von REST-APIs für die Lead-Massenextraktion bietet eine programmgesteuerte Schnittstelle zum Abrufen großer Mengen von Lead/Personen-Datensätzen aus Marketo. Sie kann auch verwendet werden, um Leads inkrementell basierend auf dem Erstellungsdatum des Datensatzes, der letzten Aktualisierung, der statischen Listenmitgliedschaft oder der Smart-Listen-Mitgliedschaft abzurufen. Die empfohlene Benutzeroberfläche für Anwendungsfälle, für die ein kontinuierlicher Datenaustausch zwischen Marketo und einem oder mehreren externen Systemen für ETL-, Data Warehousing- und Archivierungszwecke erforderlich ist.
 
@@ -43,11 +43,11 @@ Der Endpunkt Exportvorgang erstellen bietet mehrere Formatierungsoptionen, die e
 | --- | --- | --- | --- |
 | Felder | array[string] | Ja | Der Feldparameter akzeptiert ein JSON-Zeichenfolgen-Array. Jede Zeichenfolge muss der REST-API-Name eines Marketo-Lead-Felds sein. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die Spaltenüberschrift für jedes Feld ist der REST-API-Name jedes Felds, sofern er nicht mit columnHeader überschrieben wird. Hinweis: Wenn die [!DNL Adobe Experience Cloud Audience Sharing]-Funktion aktiviert ist, findet ein Cookie-Synchronisierungsvorgang statt, der [!DNL Adobe Experience Cloud] ID (ECID) mit Marketo-Leads verknüpft. Sie können das Feld „ecids“ angeben, um ECIDs in die Exportdatei aufzunehmen. |
 | columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Dies ist der API-Name des Felds, das durch Aufruf von Describe Lead abgerufen werden kann. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| Format | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| Format | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 
 ## Erstellen von Aufträgen
 
-Die Parameter für den Auftrag werden vor dem Start des Exports mithilfe des Endpunkts [Exportvorgang erstellen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) definiert. Wir müssen die für den Export erforderlichen `fields`, den Parametertyp des `filter`, den `format` der Datei und gegebenenfalls die Namen der Spaltenüberschriften definieren.
+Die Parameter für den Auftrag werden vor dem Start des Exports mithilfe des Endpunkts [Exportvorgang erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) definiert. Wir müssen die für den Export erforderlichen `fields`, den Parametertyp des `filter`, den `format` der Datei und gegebenenfalls die Namen der Spaltenüberschriften definieren.
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -95,7 +95,7 @@ Diese Anfrage beginnt mit dem Export eines Lead-Satzes, der zwischen dem 1. Janu
 }
 ```
 
-Dadurch wird eine Statusantwort zurückgegeben, die angibt, dass der Auftrag erstellt wurde. Der Auftrag wurde definiert und erstellt, aber noch nicht gestartet. Dazu muss der Endpunkt [Exportauftrag in die Warteschlange einreihen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) mit der exportId aus der Erstellungsstatusantwort aufgerufen werden:
+Dadurch wird eine Statusantwort zurückgegeben, die angibt, dass der Auftrag erstellt wurde. Der Auftrag wurde definiert und erstellt, aber noch nicht gestartet. Dazu muss der Endpunkt [Exportauftrag in die Warteschlange einreihen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) mit der exportId aus der Erstellungsstatusantwort aufgerufen werden:
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -123,7 +123,7 @@ Daraufhin wird mit der `status` „In Warteschlange“ geantwortet, die auf „W
 
 `Note:` Status kann nur für Aufträge abgerufen werden, die vom selben API-Benutzer erstellt wurden.
 
-Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Status des Exportvorgangs abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Werfen wir einen kurzen Blick auf die Umfragen.
+Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Status des Exportvorgangs abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Werfen wir einen kurzen Blick auf die Umfragen.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -158,7 +158,7 @@ Das Statusfeld kann mit einem der folgenden Elemente antworten:
 
 ## Daten abrufen
 
-Um die Datei eines abgeschlossenen Lead-Exports abzurufen, rufen Sie einfach den Endpunkt [Lead-Exportdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) mit Ihrem `exportId` auf.
+Um die Datei eines abgeschlossenen Lead-Exports abzurufen, rufen Sie einfach den Endpunkt [Lead-Exportdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) mit Ihrem `exportId` auf.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -177,7 +177,7 @@ Um das partielle und fortsetzungsfreundliche Abrufen extrahierter Daten zu unter
 
 ## Abbrechen von Aufträgen
 
-Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach mit dem Endpunkt [Exportvorgang abbrechen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) abgebrochen werden:
+Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach mit dem Endpunkt [Exportvorgang abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) abgebrochen werden:
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json

@@ -3,7 +3,7 @@ title: Endpunktverweis
 feature: REST API
 description: Umfassende Liste der Marketo REST-API-Endpunkte mit Methoden, URIs und erforderlichen Berechtigungen für Aktivitäten, Massenexport, Identität, Leads, Assets und Benutzer.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
 source-wordcount: '4793'
 ht-degree: 29%
@@ -14,9 +14,9 @@ ht-degree: 29%
 
 Im Folgenden finden Sie Links zu den Referenzen zur Marketo REST-API.
 
-- [Asset](https://developer.adobe.com/marketo-apis/api/asset/)
+- [Asset](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identität](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Lead-Datenbank](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Lead-Datenbank](https://developer.adobe.com/marketo-apis/api/mapi)
 - [Benutzerverwaltung](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Endpunktliste {#endpoint_list}

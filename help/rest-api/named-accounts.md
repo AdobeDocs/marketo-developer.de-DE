@@ -3,7 +3,7 @@ title: Benannte Konten
 feature: REST API
 description: Marketo-REST-Handbuch für CRUD zu spezifischen Konten für ABM mit Beschreibung, Abfrage, Aktualisierungsbeispielen, durchsuchbaren Feldern, Deduplizierungsregeln und keiner Lead-Verknüpfung.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '730'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # Benannte Konten
 
-[Endpunkt-Referenz für benannte Konten](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[Endpunkt-Referenz für benannte Konten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts)
 
 Marketo bietet eine Reihe von APIs zur Durchführung von CRUD-Vorgängen für benannte Konten zur Verwendung mit Marketo ABM. Diese APIs folgen dem Standard-Schnittstellenmuster für Lead-Datenbank-APIs und bieten Optionen zum Beschreiben, Erstellen/Aktualisieren, Löschen und Abfragen.
 
@@ -224,7 +224,7 @@ Die Abfrage benannter Kontofelder ist einfach. Sie können ein einzelnes benannt
 
 #### Nach Name
 
-Der Endpunkt [Benanntes Kontofeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für ein einzelnes Feld im benannten Kontoobjekt ab. Der erforderliche fieldApiName-Pfadparameter gibt den API-Namen des Felds an. Die Antwort ähnelt dem benannten Konto-Endpunkt Describe , enthält jedoch zusätzliche Metadaten wie das Attribut isCustom, das angibt, ob das Feld ein benutzerdefiniertes Feld ist.
+Der Endpunkt [Benanntes Kontofeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für ein einzelnes Feld im benannten Kontoobjekt ab. Der erforderliche fieldApiName-Pfadparameter gibt den API-Namen des Felds an. Die Antwort ähnelt dem benannten Konto-Endpunkt Describe , enthält jedoch zusätzliche Metadaten wie das Attribut isCustom, das angibt, ob das Feld ein benutzerdefiniertes Feld ist.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Durchsuchen
 
-Der Endpunkt [Benannte Kontofelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für alle Felder des benannten Kontoobjekts ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können den Abfrageparameter „batchSize“ verwenden, um diese Anzahl zu reduzieren. Wenn das Attribut moreResult wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind. Das von dieser API zurückgegebene nextPageToken sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
+Der Endpunkt [Benannte Kontofelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für alle Felder des benannten Kontoobjekts ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können den Abfrageparameter „batchSize“ verwenden, um diese Anzahl zu reduzieren. Wenn das Attribut moreResult wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind. Das von dieser API zurückgegebene nextPageToken sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

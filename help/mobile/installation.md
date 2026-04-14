@@ -3,7 +3,7 @@ title: Installation
 feature: Mobile Marketing
 description: Anleitung zur Installation und Initialisierung von Marketo Mobile SDK auf iOS und Android mithilfe von CocoaPods, Swift Package Manager oder Gradle, um Push- und In-App-Nachrichten zu ermöglichen.
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '855'
 ht-degree: 0%
@@ -18,7 +18,7 @@ Installationsanweisungen für Marketo Mobile SDK. Die folgenden Schritte sind er
 
 ### Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
 ### Installieren von Framework über CocoaPods
@@ -132,7 +132,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Push-Benachrichtigungen einrichten](push-notifications.md#android_setup_push) (optional)
 1. [Herunterladen von Marketo SDK für Android](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
@@ -206,9 +206,9 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
 
 ### Hinzufügen von FCM zu Ihrer Anwendung
 
-1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ &#x200B;](https://github.com/Marketo/android-sdk).
+1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ ](https://github.com/Marketo/android-sdk).
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole“ `Add Project` aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf `Add Firebase`.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm `Add Firebase to your Android App` aus.
@@ -241,7 +241,7 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Klicken Sie abschließend in der Leiste, die in der ID angezeigt wird, auf „Jetzt synchronisieren“
+         1. Wählen Sie abschließend **[!UICONTROL Jetzt synchronisieren]** in der Leiste aus, die in der ID angezeigt wird
    1. Manifest der App bearbeiten Die FCM-SDK fügt automatisch alle erforderlichen Berechtigungen und die erforderliche Empfängerfunktion hinzu. Entfernen Sie die folgenden veralteten (und potenziell schädlichen, da sie zu einer Duplizierung von Nachrichten führen können) Elemente aus dem Manifest Ihrer App:
 
       ```xml

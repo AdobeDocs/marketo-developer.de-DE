@@ -3,7 +3,7 @@ title: Dynamische Inhalte
 feature: REST API, Dynamic Content
 description: Konfigurieren Sie dynamische Marketo-Inhalte auf Abschnittsebene über REST-APIs mithilfe von Segmentierungen, um E-Mails, Landingpages und Snippets mit Endpunkten und Beispielen zu personalisieren
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '463'
 ht-degree: 2%
@@ -24,7 +24,7 @@ Dynamische Inhalte werden auf Abschnittsebene implementiert, indem bestimmte Var
 
 ## Beispiel
 
-Zur Veranschaulichung sehen wir uns ein E-Mail-Beispiel an, in dem wir eine Segmentierung nach Region (USA) haben und eine Ereignisaktion nur für Leads anzeigen möchten, die zum Segment „Südwest“ gehören, das Kalifornien, Nevada, Utah, Colorado, Arizona und New Mexico umfasst. Dazu wird ein bearbeitbarer Abschnitt in unserer E-Mail mit der ID „Q1-Promotion-Banner“ in einen DynamicContent-Abschnitt umgewandelt. Dazu müssen wir den Endpunkt [Abschnitt E-Mail-Inhalt aktualisieren](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) für unsere E-Mail verwenden. Mit dem Parameter `value` wird die ID der Segmentierung angegeben.
+Zur Veranschaulichung sehen wir uns ein E-Mail-Beispiel an, in dem wir eine Segmentierung nach Region (USA) haben und eine Ereignisaktion nur für Leads anzeigen möchten, die zum Segment „Südwest“ gehören, das Kalifornien, Nevada, Utah, Colorado, Arizona und New Mexico umfasst. Dazu wird ein bearbeitbarer Abschnitt in unserer E-Mail mit der ID „Q1-Promotion-Banner“ in einen DynamicContent-Abschnitt umgewandelt. Dazu müssen wir den Endpunkt [Abschnitt E-Mail-Inhalt aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) für unsere E-Mail verwenden. Mit dem Parameter `value` wird die ID der Segmentierung angegeben.
 
 Hinweis: Sowohl E-Mails als auch Landingpages folgen diesem Muster. Snippets weisen ein anderes Muster auf, das in der Dokumentation zur Snippets-API beschrieben wird.
 
@@ -52,7 +52,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-Um Inhalte für einzelne Segmente hinzuzufügen, müssen wir den Endpunkt [Abschnitt zum Aktualisieren dynamischer E-Mail-Inhalte](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) für den jeweiligen Abschnitt aufrufen.
+Um Inhalte für einzelne Segmente hinzuzufügen, müssen wir den Endpunkt [Abschnitt zum Aktualisieren dynamischer E-Mail-Inhalte](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST) für den jeweiligen Abschnitt aufrufen.
 
 Im folgenden Beispiel wird der Abschnitt so eingestellt, dass unser spezielles Bannerbild für Leads im Segment Südwest anstelle des Standardbilds angezeigt wird. Wenn wir mehr Varianten für weitere Segmente erstellen möchten, rufen wir diesen Endpunkt für jedes Segment und jeden Abschnitt erneut auf.
 
