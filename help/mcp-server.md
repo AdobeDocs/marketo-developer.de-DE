@@ -3,9 +3,9 @@ title: MCP-Server
 description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
 hidefromtoc: true
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 3fe1c3e9fe572ef68d20ba10f93535aac9a98602
+source-git-commit: d659eb0f604a68d03d5b00c0109d59ff321415df
 workflow-type: tm+mt
-source-wordcount: '1324'
+source-wordcount: '1303'
 ht-degree: 1%
 
 ---
@@ -30,7 +30,6 @@ Sie benötigen die folgenden Werte aus Ihrer [!DNL Marketo]:
 - **Client-ID**
 - **Client Secret** (Client-Geheimnis)
 - **Munchkin-Konto-ID**
-- **REST-API-Endpunkt**
 
 Wenn Sie bereits über diese verfügen, fahren Sie mit [KI-Tool konfigurieren](#configure-your-ai-tool) fort.
 
@@ -44,11 +43,6 @@ Wenn Sie bereits über diese verfügen, fahren Sie mit [KI-Tool konfigurieren](#
 
 1. Navigieren Sie **[!UICONTROL Admin]** > **[!UICONTROL Munchkin]**.
 1. Kopieren Sie die **[!UICONTROL Munchkin-Konto-ID]**. Das Format ist `XXX-XXX-XXX` und entspricht dem Präfix Ihrer Instanz-URL.
-
-### REST API-Endpunkt
-
-1. Navigieren Sie **[!UICONTROL Admin]** > **[!UICONTROL Web-Services]**.
-1. Kopieren **[!UICONTROL unter „REST]** API“ die URL **[!UICONTROL Endpunkt]**. Das Format ist `https://XXX-XXX-XXX.mktorest.com`.
 
 ## Konfigurieren Ihres KI-Tools
 
