@@ -2,16 +2,20 @@
 title: MCP-Server
 description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
 hidefromtoc: true
-badgeBeta: label="Beta" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer frühen Beta-Version"
+badgeBeta: label="Beta" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer geschlossenen Beta-Version"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
+source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
 workflow-type: tm+mt
-source-wordcount: '1431'
+source-wordcount: '1428'
 ht-degree: 1%
 
 ---
 
 # [!DNL Marketo] MCP-Server
+
+>[!NOTE]
+>
+>Der MCP-Server befindet sich derzeit in einer geschlossenen Beta-Version. Sie steht derzeit nicht allen Benutzern zur Verfügung.
 
 Das Model Context Protocol (MCP) ist ein offener Standard, der es KI-Tools ermöglicht, mit externen Services zu kommunizieren. Der [!DNL Marketo] MCP-Server fungiert als Brücke zwischen Ihrem KI-Assistenten und [!DNL Marketo]. Es stellt mehr als 100 Vorgänge in Formularen, Programmen, intelligenten Kampagnen, Leads, E-Mails, Snippets, Listen und Ordnern bereit.
 
@@ -222,7 +226,6 @@ Beispiel-Eingabeaufforderungen:
 
 | Fehler | Ursache | Korrigieren |
 | ------- | ------- | ----- |
-| &quot;Marketo-Endpunkt nicht bereitgestellt“ | Die Kopfzeile &quot;`X-Marketo-Endpoint`&quot; fehlt in der Konfiguration. | Überprüfen Sie Ihre MCP-Konfiguration erneut und bestätigen Sie, dass alle vier Header vorhanden sind. |
 | &quot;Marketo-Anmeldeinformationen nicht bereitgestellt“ | Mindestens ein `X-Marketo-Client-Id`, `X-Marketo-Client-Secret` oder `X-Marketo-Munchkin-Id` fehlt. | Überprüfen Sie, ob alle vier Kopfzeilen in Ihrer Konfiguration vorhanden sind. |
 | „Authentifizierungsfehler“ | Ihre Anmeldedaten sind ungültig oder abgelaufen. | Überprüfen Sie Ihre Client-ID und Ihren geheimen Client-Schlüssel unter **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**. |
 | „403 Verboten“ | Ihre Munchkin ID befindet sich nicht auf der Server-Zulassungsliste. | Wenden Sie sich an Ihren [!DNL Marketo] MCP-Administrator, um Ihre Munchkin ID hinzuzufügen. |
