@@ -3,9 +3,9 @@ title: Aktivitäten
 feature: REST API
 description: Verwenden Sie die Marketo Engage-Aktivitäts-REST-API, um Aktivitätstypen aufzulisten, Lead-Aktivitäten mit Paging-Token abzurufen und benutzerdefinierte Änderungen und Änderungen von Datenwerten zu verarbeiten.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 5260338681c4ea670f6f1b1a1603e30f6acc0865
 workflow-type: tm+mt
-source-wordcount: '2139'
+source-wordcount: '2218'
 ht-degree: 0%
 
 ---
@@ -75,9 +75,13 @@ Die Antworten der realen Welt umfassen weitaus mehr Definitionen. In diesem Beis
 
 ## Abfrage
 
-Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
+Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. You need to first retrieve a paging token for the datetime that you want to begin retrieving activities from. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
 
-Sie können optional entweder einen listId-Abfrageparameter einschließen, um Ihre Suche auf die Datensätze einzugrenzen, die in einer bestimmten statischen Liste enthalten sind, oder einen leadIds-Abfrageparameter und Aktivitäten aus einem bestimmten Satz von Leads suchen. Sie können bis zu 30 leadIds als kommagetrennte Liste übergeben.
+Sie können optional entweder einen `listId` Abfrageparameter einbeziehen, um Ihre Suche auf die Datensätze einzugrenzen, die in einer bestimmten statischen Liste enthalten sind, oder einen `leadIds` Abfrageparameter und nur nach Aktivitäten aus einem bestimmten Satz von Leads suchen. Sie können bis zu 30 `leadIds` als kommagetrennte Liste übergeben.
+
+>[!CAUTION]
+>
+>Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden.
 
 ```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
@@ -127,7 +131,7 @@ GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK
 
 Verwenden Sie für den ersten Aufruf die API Paging-Token abrufen , um `nextPageToken` abzurufen. Verwenden Sie für nachfolgende Aufrufe an diesen Endpunkt die `nextPageToken returned` aus der Antwort. Dieser Endpunkt gibt immer `the nextPageToken` zurück.
 
-Wenn das Attribut `moreResult` wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das `moreResult`-Attribut „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind. Die von dieser API zurückgegebene `nextPageToken` sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
+Wenn das Attribut `moreResult` wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Continue to call this endpoint until the `moreResult` attribute returns false, which means there are no results available. The `nextPageToken` returned from this API should always be reused for the next iteration of this call.
 
 In einigen Fällen reagiert diese API möglicherweise mit weniger als 300 Aktivitätselementen, aber auch das `moreResult` Attribut ist auf „true“ gesetzt.  Dies zeigt an, dass mehr Aktivitäten zurückgegeben werden können und dass der Endpunkt nach neueren Aktivitäten abgefragt werden kann, indem die zurückgegebene `nextPageToken` in einen nachfolgenden Aufruf aufgenommen wird.
 
@@ -135,10 +139,14 @@ Beachten Sie, dass innerhalb jedes Ergebnis-Array-Elements das `id` Ganzzahlattr
 
 ### Datenwertänderungen
 
-Für Aktivitäten mit Datenwertänderung wird eine spezielle Version der Aktivitäts-API bereitgestellt. Der Endpunkt [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) gibt nur Aktivitäten von Datenwert-Änderungsdatensätzen an Lead-Felder zurück. Die Benutzeroberfläche entspricht der API für Abrufen von Lead-Aktivitäten mit zwei Unterschieden:
+For Data Value Change activities, a specialized version of the activities API is provided. The [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) endpoint only returns activities of Data Value Change records to lead fields. Die Benutzeroberfläche entspricht der API für Abrufen von Lead-Aktivitäten mit zwei Unterschieden:
 
 * Es gibt keinen `activityTypeIds`, da der Endpunkt nur die Aktivitäten Datenwertänderung und Neuer Lead zurückgibt.
 * Der `fields` Abfrageparameter ist erforderlich, wobei Sie eine kommagetrennte Liste von Feldern übergeben können, um anzugeben, für welche Felder Sie Änderungen abrufen möchten.
+
+>[!CAUTION]
+>
+>Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden.
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
@@ -340,9 +348,9 @@ Um die Konsistenz Ihrer Typen mit den Konventionen von Marketo sicherzustellen u
 
 **Primäres Attribut** Das Hauptattribut einer benutzerdefinierten Aktivität sollte das für den Aktivitätstyp bedeutendste Feld sein. Bei einer Aktivität des Typs „Teilgenommene Veranstaltung“ wäre dies beispielsweise der Name der Veranstaltung. Primäre Attribute werden standardmäßig in jeder Instanz eines Triggers oder Filters für diesen Aktivitätstyp als Parameter eingeschlossen. Der Wert wird im Aktivitätsprotokoll eines Personendatensatzes angezeigt, ohne dass eine Aufschlüsselung der Aktivität erforderlich ist.
 
-Wenn eine benutzerdefinierte Aktivität erstellt wird, wird sie als Entwurf erstellt und muss genehmigt werden, bevor sie zum Hinzufügen von Aktivitätsdatensätzen dieses Typs verwendet werden kann. Alle Aktualisierungen werden implizit auf die Entwurfsversion des Typs angewendet. Um die Änderungen in der Live-Version des Typs widerzuspiegeln, muss er genehmigt werden. Wenn ein benutzerdefinierter Aktivitätstyp genehmigt und verwendet wird, können keine Änderungen an den oben genannten Feldern vorgenommen werden.
+Wenn eine benutzerdefinierte Aktivität erstellt wird, wird sie als Entwurf erstellt und muss genehmigt werden, bevor sie zum Hinzufügen von Aktivitätsdatensätzen dieses Typs verwendet werden kann. Alle Aktualisierungen werden implizit auf die Entwurfsversion des Typs angewendet. Um die Änderungen in der Live-Version des Typs widerzuspiegeln, muss er genehmigt werden. When a custom activity type is approved and in use, no changes to the above fields may be made.
 
-Beim Erstellen eines Typs ist der Beschreibungsparameter optional, während alle folgenden Parameter erforderlich sind: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute`.
+When creating a type, the description parameter is optional, while all of the following parameters are required: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute`.
 
 ```http
 POST /rest/v1/activities/external/type.json
@@ -386,9 +394,9 @@ POST /rest/v1/activities/external/type.json
 }
 ```
 
-## Update-Typ
+## Update Type
 
-Die Aktualisierung eines Typs ist sehr ähnlich, mit der Ausnahme, dass der apiName der einzige erforderliche Parameter als Pfadparameter ist.
+Updating a type is very similar, except the apiName is the only required parameter as a path parameter.
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}.json
@@ -431,25 +439,25 @@ POST /rest/v1/activities/external/type/{apiName}.json
 }
 ```
 
-## Typ genehmigen
+## Approve Type
 
-Typen können wie bei Standard-Marketo-Assets mit den Aktivitätstypen „Benutzerdefinierten Typ validieren“, „Benutzerdefinierten Aktivitätstyp verwerfen“, „Entwurf“ und „Benutzerdefinierten Aktivitätstyp löschen“ verwaltet werden.
+Types can be managed with the Approve Custom Activity Type, Discard Custom Activity Type Draft, and Delete Custom Activity Type, just like standard Marketo assets.
 
-## Benutzerdefinierte Aktivitätstypattribute
+## Custom Activity Type Attributes
 
-Jeder benutzerdefinierte Aktivitätstyp kann zwischen 0 und 20 sekundäre Attribute aufweisen. Sekundäre Attribute können einen beliebigen gültigen Feldtyp für ein Marketo-Feld aufweisen. Sie werden getrennt vom übergeordneten Typ hinzugefügt, aktualisiert und entfernt, können jedoch bearbeitet werden, während ein Aktivitätstyp verwendet und dann genehmigt wird. Wenn Felder eines Live-Typs bearbeitet werden, wird für alle Aktivitäten dieses Typs, die nach der Genehmigung erstellt werden, das neue sekundäre Attribut festgelegt. Änderungen werden nicht rückwirkend auf bestehende Aktivitäten mit diesem Typ angewendet.
+Each custom activity type can have from 0-20 secondary attributes. Secondary attributes may have any valid field type for a Marketo field. They are added, updated, and removed separately from the parent type, but may be edited while an activity type is in use and then approved. When fields are edited on a live type, then all activities of that type created after approval has the new secondary attribute set. Changes will not be applied retroactively to existing activities sharing that type.
 
-Gehen Sie beim Entfernen von Attributen vorsichtig vor, da dies deren Verfügbarkeit zur Verwendung in den entsprechenden Filtern beeinflusst.
+Be careful about the removal of attributes, as this will affect their availability for use in the corresponding filters.
 
-Bei Aktualisierungen der Liste der sekundären Attribute wird der API-Name jedes Attributs als Primärschlüssel verwendet. Der API-Name für ein Attribut darf nicht geändert werden, er muss gelöscht und erneut mit dem gewünschten API-Namen hinzugefügt werden.
+Updates made to the secondary attribute list use the API name of each attribute as a primary key. The API Name for an attribute may not be changed, it must be deleted and added again with the desired API name.
 
-Gültige Datentypen für Attribute sind: Zeichenfolge, Boolescher Wert, Ganzzahl, Gleitkommazahl, Link, E-Mail, Währung, Datum, Datum/Uhrzeit, Telefon, Text.
+Valid data types for attributes are: string, boolean, integer, float, link, email, currency, date, datetime, phone, text.
 
-Beim Ändern des primären Attributs eines Aktivitätstyps sollte jedes vorhandene primäre Attribut herabgestuft werden, indem zuerst `isPrimary` auf „false“ gesetzt wird.
+When changing the primary attribute of an activity type, any existing primary attribute should be demoted by setting `isPrimary` to false first.
 
-### Erstellen von Attributen
+### Create Attributes
 
-Zum Erstellen eines Attributs wird ein erforderlicher `apiName` verwendet. Außerdem sind die Parameter `name` und `dataType` erforderlich.`The description and` `isPrimary` sind optional.
+Creating an attribute takes a required `apiName` path parameter. Also required are the `name` and `dataType` parameters.`The description and` `isPrimary` parameters are optional.
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -514,9 +522,9 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 }
 ```
 
-### Attribute aktualisieren
+### Update attributes
 
-Beim Aktualisieren von Attributen ist der `apiName` des Attributs der Primärschlüssel. Der `apiName` Parameter muss vorhanden sein, damit die Aktualisierung erfolgreich ist (d. h., Sie können den `apiName` Parameter nicht mithilfe von „update“ ändern).
+When performing updates to attributes, the `apiName` of the attribute is the primary key. The `apiName` parameter must exist for the update to succeed (that is, you cannot change the `apiName` parameter using update).
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
@@ -581,9 +589,9 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 }
 ```
 
-### Attribute löschen
+### Delete Attributes
 
-Beim Löschen eines Attributs wird ein erforderlicher `apiName` verwendet, bei dem es sich um den benutzerdefinierten Aktivitäts-API-Namen handelt.  Außerdem ist ein Attributparameter erforderlich, der ein Array von Attributobjekten ist.  Jedes -Objekt muss einen `apiName` enthalten, bei dem es sich um den benutzerdefinierten Aktivitätstyp-API-Namen handelt.
+Deleting an attribute takes a required `apiName` path parameter that is the custom activity API name.  Also required is an attribute parameter that is an array of attribute objects.  Each object must contain an `apiName` parameter that is the custom activity type API name.
 
 ```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
@@ -619,15 +627,15 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 }
 ```
 
-## Hinzufügen benutzerdefinierter Aktivitäten
+## Add Custom Activities
 
-Benutzerdefinierte Aktivitäten sind Einmalschreibaufzeichnungen historischer Aktivitäten, die sich auf einzelne Personendatensätze in Marketo beziehen. Diese Aktivitäten verfügen über ein Schema, das von Marketo-Administratoren oder remote über eine API-Integration verwaltet wird. Benutzerdefinierte Aktivitäten werden über den Endpunkt [Benutzerdefinierte Aktivitäten hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST) zu Lead-Datensätzen hinzugefügt und über das `leadId` Feld mit jedem Lead-Datensatz verknüpft. Benutzerdefinierte Aktivitäten können in der Benutzeroberfläche über das Aktivitätsprotokoll des Leads angezeigt oder über den Endpunkt „Lead-Aktivitäten abrufen“ abgerufen werden, indem die Typ-ID der benutzerdefinierten Aktivität angegeben wird.
+Custom activities are write-once records of historical activities related to individual person records in Marketo. These activities have a schema that is managed by Marketo Admins or remotely via an API integration. Custom activities are added to lead records via the [Add Custom Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST) endpoint and related to each lead record via its `leadId` field. Custom activities can be viewed in the user interface via the lead&#39;s activity log, or retrieved via Get Lead Activities endpoint by specifying the custom activity&#39;s type ID.
 
-Benutzerdefinierte Aktivitäten eignen sich für die Aufzeichnung von Daten, die sich auf einen Datensatz für eine einzelne Person beziehen und nicht aktualisiert oder überschrieben werden müssen. Ein Beispiel wäre die Aufzeichnung einer Person, die an einer Veranstaltung teilnimmt, als Aktivität „Teilgenommen“. Für Datensätze, die sich im Zusammenhang mit einer Person ändern können, z. B. bei der Registrierung für einen Studenten, sollten stattdessen benutzerdefinierte Objekte verwendet werden, da sie aktualisiert werden können, wo benutzerdefinierte Aktivitäten möglicherweise nicht.
+Custom activities are appropriate for recording data that is related to a single person record and which does not need to be updated or overwritten. An example would be recording a person attending an event as an &quot;Attended Event&quot; activity. For records related to a person that may change, such as student enrollment, custom objects should be used instead, as they can be updated, where custom activities may not.
 
-Das Eingabeelement ist ein Array von Aktivitätsobjekten. Es können maximal 300 Aktivitätsdatensätze gleichzeitig eingereicht werden.
+The input member is an array of activity objects. A maximum of 300 activity records can be submitted at a time.
 
-Die Member `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue` und attributes sind erforderlich. Das Attribut-Array muss das nicht-primäre Attribut enthalten. Dies kann entweder mit Name (Feldname) oder apiName (API-Name) und einem Wert angegeben werden, der dem von Ihnen festgelegten Wert entspricht.
+The `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue`, and attributes members are required. The attributes array must contain the non-primary attribute. This can be specified using either name (field name), or apiName (API name), and value that corresponds to the value that you are setting.
 
 ```http
 POST /rest/v1/activities/external.json
@@ -704,9 +712,9 @@ POST /rest/v1/activities/external.json
 }
 ```
 
-## Zeitüberschreitungen
+## Timeouts
 
-Aktivitäts-Endpunkte haben eine Zeitüberschreitung von 30 s, sofern unten nicht anders angegeben.
+Activities endpoints have a timeout of 30s unless noted below.
 
-* Paging-Token abrufen: 300s
-* Benutzerdefinierte Aktivität hinzufügen: 90er
+* Get Paging Token: 300s
+* Add Custom Activity: 90s
