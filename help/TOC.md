@@ -5,10 +5,10 @@ breadcrumb-title: '[!DNL Marketo]-Entwicklerhandbuch'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 74f277aa200fa54bc386c067ec3302d144ec250a
 workflow-type: tm+mt
 source-wordcount: '286'
-ht-degree: 38%
+ht-degree: 37%
 
 ---
 
@@ -165,8 +165,8 @@ ht-degree: 38%
 - [E-Mail-Skripterstellung](email-scripting.md)
 - [Beispiele für E-Mail-Skripterstellung](examples.md)
 - [Marketo-Objekte](marketo-objects.md)
-- [MCP-Server](mcp-server.md)
-- [Lizenz](api-license.md)
+- {hide-from-toc}[MCP-Server](mcp-server.md)
+- {hide-from-toc}[Lizenz](api-license.md)
 - [Partner-Sandbox](partner-sandbox.md)
 - [Self-Service-Flussschritte](self-service-flow-steps.md)
 - [Blog-Archiv](blog.md)

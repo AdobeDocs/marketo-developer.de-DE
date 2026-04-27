@@ -1,10 +1,9 @@
 ---
 title: MCP-Server
 description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
-hidefromtoc: true
 badgeBeta: label="Beta" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer geschlossenen Beta-Version"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
+source-git-commit: 74f277aa200fa54bc386c067ec3302d144ec250a
 workflow-type: tm+mt
 source-wordcount: '1428'
 ht-degree: 1%
