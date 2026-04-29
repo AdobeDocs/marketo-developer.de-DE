@@ -3,9 +3,9 @@ title: MCP-Server
 description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
 badgeBeta: label="Beta" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer geschlossenen Beta-Version"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 74f277aa200fa54bc386c067ec3302d144ec250a
+source-git-commit: 738fabea9eefbc6aafee4ffa7972c9e3e2bd430c
 workflow-type: tm+mt
-source-wordcount: '1428'
+source-wordcount: '1478'
 ht-degree: 1%
 
 ---
@@ -26,28 +26,60 @@ Wenn Ihr KI-Tool den MCP-Server aufruft, führt der Server den entsprechenden RE
 >Die Verbindung von MCP-Clients oder -Servern mit Adobe-Produkten ist eine vom Kunden gewählte Konfiguration, und die Kunden sind dafür verantwortlich, die Sicherheit und Eignung jeder MCP-Integration zu bewerten. Adobe übernimmt keine Verantwortung für Probleme, die sich aus einer Fehlkonfiguration, einer fehlerhaften Verwendung des MCP, Sicherheitslücken in Drittanbieterimplementierungen oder unbeabsichtigten Aktionen ergeben, die über MCP-fähige Workflows ausgeführt werden.
 >Um Risiken zu reduzieren, empfiehlt Adobe, Integrationen vor der produktiven Verwendung in einer Sandbox-Umgebung zu testen und alle MCP-initiierten Aktionen und Antworten sorgfältig zu überprüfen und zu validieren, bevor sie bestätigt oder sich auf sie verlassen.
 
+## MCP-Grundlagen
+
+>Stellen Sie sich MCP wie einen USB-C-Port für KI-Anwendungen vor. USB-C bietet eine standardisierte Möglichkeit, Ihre Geräte mit verschiedenen Peripheriegeräten und Zubehör zu verbinden. MCP bietet eine standardisierte Möglichkeit, KI-Modelle mit verschiedenen Datenquellen und Tools zu verbinden. — [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro){target="_blank"}
+
+MCP ermöglicht einem KI-Tool, gleichzeitig eine Verbindung zu mehreren externen Services herzustellen. Ein KI-Assistent könnte beispielsweise:
+
+* Herstellen einer Verbindung zu einem Textverarbeitungsprogramm für die KI-gestützte Dokumenterstellung
+* Verbinden mit 3D-Modellierungs-Apps wie Blender zum Erstellen von Animationen
+* Herstellen einer Verbindung zu After Effects für die Videobearbeitung
+
+MCP ist ein Kommunikationsprotokoll - ein offener Standard, den jede Anwendung implementieren kann, um ihre Daten und Aktionen KI-Tools zur Verfügung zu stellen.
+
+## Was [!DNL Marketo] MCP tut und was nicht
+
+Wenn Sie den Umfang von MCP verstehen, können Sie Erwartungen definieren, bevor Sie Ihr KI-Tool verbinden.
+
+**MCP macht:**
+
+* Ermöglichen des Zugriffs auf [!DNL Marketo] Daten und Funktionen über standardmäßige REST-APIs
+* Ausführen von API-Aufrufen in Ihrem Namen mit den Anmeldedaten, die Sie bei jeder Anfrage angeben
+* Unterstützung mehrerer gleichzeitiger Benutzer, von denen jeder mit seinen eigenen Anmeldeinformationen verbunden ist
+* Automatische Aktualisierung des OAuth-Tokens - Sie müssen den Token-Ablauf nicht verwalten
+* Arbeiten Sie in Umgebungen, die durch Mandanten isoliert sind, sodass sich Ihre Daten nie mit der Sitzung eines anderen Benutzers überschneiden
+
+**MCP nicht:**
+
+* KI oder Modelle für maschinelles Lernen verwenden, hosten oder ausführen — die gesamte KI-Verarbeitung erfolgt in Ihrem KI-Tool, nicht im MCP
+* Trainieren Sie mit beliebigen Daten, einschließlich Ihrer Kundendaten, oder lernen Sie daraus
+* Prognosen, Empfehlungen oder Entscheidungen generieren - die Entscheidungsfindung liegt in der Verantwortung des nachgelagerten KI-Tools oder -Benutzers
+* Speichern oder Speichern von Anmeldeinformationen, Anfragedaten oder Sitzungsstatus zwischen Anfragen
+* Installation, Bereitstellung und Verwaltung von Server-seitiger Software erforderlich
+
 ## Voraussetzungen
 
-- Eine [!DNL Marketo] mit aktiviertem REST-API-Zugriff
-- Administratorzugriff zum Erstellen von API-Anmeldeinformationen in [!DNL Marketo] LaunchPoint
-- Eines der folgenden KI-Tools: Claude Desktop, Cursor, Claude Code (CLI) oder VS Code mit GitHub Copilot
-- Netzwerkzugriff auf die MCP-Server-URL: `https://marketo-mcp.adobe.io/mcp`
+* Eine [!DNL Marketo] mit aktiviertem REST-API-Zugriff
+* Administratorzugriff zum Erstellen von API-Anmeldeinformationen in [!DNL Marketo] LaunchPoint
+* Eines der folgenden KI-Tools: Claude Desktop, Cursor, Claude Code (CLI) oder VS Code mit GitHub Copilot
+* Netzwerkzugriff auf die MCP-Server-URL: `https://marketo-mcp.adobe.io/mcp`
 
 ## Marketo-Anmeldedaten abrufen
 
 Sie benötigen die folgenden Werte aus Ihrer [!DNL Marketo]:
 
-- **Client-ID**
-- **Client Secret** (Client-Geheimnis)
-- **Munchkin-Konto-ID**
+* **Client-ID**
+* **Client Secret** (Client-Geheimnis)
+* **Munchkin-Konto-ID**
 
 Wenn Sie bereits über diese verfügen, fahren Sie mit [KI-Tool konfigurieren](#configure-your-ai-tool) fort.
 
 ### Client-ID und Client-Geheimnis
 
 1. Navigieren Sie **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**.
-1. Klicken Sie auf Ihren API-Service. Wenn Sie noch keinen haben, wählen Sie **[!UICONTROL Neu]** > **[!UICONTROL Neuer Service]**, wählen Sie **[!UICONTROL Benutzerdefiniert]** als Service-Typ und weisen Sie einen dedizierten API-Benutzer zu.
-1. Klicken Sie auf **[!UICONTROL Details anzeigen]** und kopieren Sie die Werte **[!UICONTROL Client-ID]** und **[!UICONTROL Client-]**).
+1. Wählen Sie Ihren API-Service aus. Wenn Sie noch keinen haben, wählen Sie **[!UICONTROL Neu]** > **[!UICONTROL Neuer Service]**, wählen Sie **[!UICONTROL Benutzerdefiniert]** als Service-Typ und weisen Sie einen dedizierten API-Benutzer zu.
+1. Wählen Sie **[!UICONTROL Details anzeigen]** und kopieren Sie die Werte **[!UICONTROL Client-ID]** und **[!UICONTROL Client-]**).
 
 ### Munchkin-Konto-ID
 
@@ -58,13 +90,16 @@ Wenn Sie bereits über diese verfügen, fahren Sie mit [KI-Tool konfigurieren](#
 
 Jedes KI-Tool liest die MCP-Server-Konfiguration von einem anderen Speicherort aus. Suchen Sie unten Ihr Tool und führen Sie die Schritte zum Hinzufügen des [!DNL Marketo] MCP-Servers aus.
 
+>[!TIP]
+>
+>Um eine Verbindung zu mehreren [!DNL Marketo]-Instanzen herzustellen, fügen Sie separate Einträge in Ihrer MCP-Konfiguration mit eindeutigen Namen - z. B. `marketo-prod` und `marketo-staging` - mit den entsprechenden Anmeldeinformationen hinzu.
+
 ### Claude Desktop
 
 Die Konfigurationsdatei wird `claude_desktop_config.json`. Öffnen Sie sie von einem der folgenden Standorte aus:
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-- **Linux**: `~/.config/Claude/claude_desktop_config.json`
+* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 Wenn die Datei bereits andere MCP-Server enthält, fügen Sie den `marketo` Eintrag unter `mcpServers` hinzu. Im folgenden Beispiel wird der vollständige `mcpServers` dargestellt:
 
@@ -122,27 +157,23 @@ claude mcp add --transport http marketo \
 
 ### VS-Code mit GitHub Copilot
 
-Öffnen Sie Ihre VS-Code-`settings.json`, indem Sie **[!UICONTROL Strg+Umschalt+P]** oder **[!UICONTROL Befehl+Umschalt+P]** auf macOS drücken und dann **[!UICONTROL Voreinstellungen: Benutzereinstellungen öffnen (JSON) auswählen]**. Fügen Sie das folgende Beispiel hinzu:
+Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+Umschalt+P]** auf macOS), geben Sie **[!UICONTROL MCP: Benutzerkonfiguration öffnen ein]** und drücken Sie die Eingabetaste. Dadurch wird `mcp.json` geöffnet. Fügen Sie den `marketo` Eintrag innerhalb des `servers` hinzu:
 
 ```json
 {
-  "mcp": {
-    "servers": {
-      "marketo": {
-        "type": "http",
-        "url": "https://marketo-mcp.adobe.io/mcp",
-        "headers": {
-          "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
-          "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-          "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
-        }
+  "servers": {
+    "marketo": {
+      "type": "http",
+      "url": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
+        "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
+        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
       }
     }
   }
 }
 ```
-
-Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehl+Umschalt+P]** auf macOS), geben Sie **[!UICONTROL Fenster neu laden]** ein und drücken Sie die Eingabetaste.
 
 >[!NOTE]
 >
@@ -158,9 +189,9 @@ Formulare durchsuchen, erstellen, klonen und genehmigen. Hinzufügen oder Entfer
 
 Beispiel-Eingabeaufforderungen:
 
-- „Alle genehmigten Formulare anzeigen“
-- „Klonen Sie das Formular „Kontakt“ in den Ordner „Q2 Campaign“.
-- „Hinzufügen eines Firmenfelds zum Demo-Anfrageformular“
+* „Alle genehmigten Formulare anzeigen“
+* „Klonen Sie das Formular „Kontakt“ in den Ordner „Q2 Campaign“.
+* „Hinzufügen eines Firmenfelds zum Demo-Anfrageformular“
 
 ### Intelligente Kampagnen
 
@@ -168,9 +199,9 @@ Erstellen Sie intelligente Kampagnen, konfigurieren Sie Filter für intelligente
 
 Beispiel-Eingabeaufforderungen:
 
-- „Welche intelligenten Kampagnen sind derzeit aktiv?“
-- „Erstellen Sie im Ordner „Vorgänge“ eine neue intelligente Kampagne mit dem Namen Aktualisierung der Lead-Bewertung.“
-- „Flussschritte in der Willkommens-E-Mail-Kampagne anzeigen“
+* „Welche intelligenten Kampagnen sind derzeit aktiv?“
+* „Erstellen Sie im Ordner „Vorgänge“ eine neue intelligente Kampagne mit dem Namen Aktualisierung der Lead-Bewertung.“
+* „Flussschritte in der Willkommens-E-Mail-Kampagne anzeigen“
 
 ### Leads und Listen
 
@@ -178,9 +209,9 @@ Suchen nach Leads nach E-Mail-Adresse, Erstellen oder Aktualisieren von Lead-Dat
 
 Beispiel-Eingabeaufforderungen:
 
-- „Lead mit E-Mail jane@example.com suchen“
-- „Lead-ID 12345 zur MQL-Liste im 2. Quartal hinzufügen“
-- „Erstellen Sie eine neue statische Liste mit dem Namen Summer Event Attendees“
+* „Lead mit E-Mail jane@example.com suchen“
+* „Lead-ID 12345 zur MQL-Liste im 2. Quartal hinzufügen“
+* „Erstellen Sie eine neue statische Liste mit dem Namen Summer Event Attendees“
 
 ### Programme
 
@@ -188,9 +219,9 @@ Erstellen, Klonen und Taggen von Programmen. Programme nach Typ, Kanal oder Datu
 
 Beispiel-Eingabeaufforderungen:
 
-- „Klonen Sie das Webinar-Programm für das 4. Quartal in den Ereignisordner für 2026“
-- „Erstellen Sie im Ordner „Kampagnen“ ein neues E-Mail-Programm mit dem Namen „Sommerverkauf“.“
-- „Alle Programme anzeigen, die als Webinar getaggt sind“
+* „Klonen Sie das Webinar-Programm für das 4. Quartal in den Ereignisordner für 2026“
+* „Erstellen Sie im Ordner „Kampagnen“ ein neues E-Mail-Programm mit dem Namen „Sommerverkauf“.“
+* „Alle Programme anzeigen, die als Webinar getaggt sind“
 
 ### E-Mails und Snippets
 
@@ -198,9 +229,9 @@ E-Mails durchsuchen, E-Mails aus Vorlagen erstellen, Inhaltsabschnitte aktualisi
 
 Beispiel-Eingabeaufforderungen:
 
-- „Alle E-Mail-Entwürfe anzeigen“
-- „Aktualisieren des Kopfzeilenabschnitts der Begrüßungs-E-Mail“
-- „Welche Assets verwenden das Snippet „Holiday Promo“?“
+* „Alle E-Mail-Entwürfe anzeigen“
+* „Aktualisieren des Kopfzeilenabschnitts der Begrüßungs-E-Mail“
+* „Welche Assets verwenden das Snippet „Holiday Promo“?“
 
 ### Instanzstruktur
 
@@ -208,9 +239,9 @@ Durchsuchen Sie Ordner, Kanäle, Tag-Typen und Aktivitätstypen, um Ihre [!DNL M
 
 Beispiel-Eingabeaufforderungen:
 
-- „Alle Ordner in Marketo auflisten“
-- „Alle verfügbaren Kanäle anzeigen“
-- „Welche Tag-Typen sind konfiguriert?“
+* „Alle Ordner in Marketo auflisten“
+* „Alle verfügbaren Kanäle anzeigen“
+* „Welche Tag-Typen sind konfiguriert?“
 
 ### Massenvorgänge
 
@@ -218,8 +249,8 @@ Exportieren Sie Lead-Daten in Batches und überprüfen Sie den Import- oder Expo
 
 Beispiel-Eingabeaufforderungen:
 
-- „Erstellen eines Massenexports von Leads, die in den letzten 30 Tagen erstellt wurden“
-- „Status des Exportvorgangs xx überprüfen“
+* „Erstellen eines Massenexports von Leads, die in den letzten 30 Tagen erstellt wurden“
+* „Status des Exportvorgangs xx überprüfen“
 
 ## Fehlerbehebung
 
@@ -231,63 +262,14 @@ Beispiel-Eingabeaufforderungen:
 | Verbindungs-Timeout oder Zurückgewiesen | Der MCP-Server ist nicht über das Netzwerk erreichbar. | Bestätigen Sie, dass Sie die Server-URL aus Ihrer Umgebung erreichen können. Überprüfen Sie ggf. die VPN-Anforderungen. |
 | Tool-Aufrufe geben leere Ergebnisse zurück | Der API-Benutzer verfügt nicht über die erforderlichen Berechtigungen für den angeforderten Asset-Typ. | Bitten Sie Ihren [!DNL Marketo], die Rolle und die Berechtigungen des API-Benutzers zu überprüfen. |
 
-## Häufig gestellte Fragen
-
-+++Sind meine Daten sicher?
-
-Anmeldeinformationen werden bei jeder einzelnen Anfrage in HTTP-Headern übertragen. Der Server speichert oder speichert Anmeldeinformationen nicht zwischen Sitzungen und jede Anfrage ist vollständig isoliert.
-
-+++
-
-+++Können mehrere Personen das gleichzeitig benutzen?
-
-Ja. Der Server ist mehrmandantenfähig. Jeder Benutzer stellt eine Verbindung mit seinen eigenen Anmeldeinformationen her, und Anfragen werden voneinander isoliert.
-
-+++
-
-+++Was passiert, wenn mein Zugriffs-Token abläuft?
-
-Bei der Authentifizierung mit Client-ID und Client-Geheimnis verarbeitet der Server die Token-Aktualisierung automatisch. Sie müssen keinerlei Maßnahmen ergreifen.
-
-+++
-
-+++Muss ich etwas installieren oder ausführen?
-
-Nein. Der MCP-Server wird von Adobe gehostet. Sie müssen lediglich Ihr KI-Tool konfigurieren, um eine Verbindung herzustellen.
-
-+++
-
-+++Welche [!DNL Marketo] Berechtigungen benötigt mein API-Benutzer?
-
-Der API-Benutzer benötigt Zugriff auf die Asset-Typen, die Sie verwalten möchten. Weisen Sie mindestens eine schreibgeschützte Rolle für Browservorgänge und eine Lese-/Schreibrolle für das Erstellen oder Ändern von Assets zu. Wenden Sie sich an Ihren [!DNL Marketo], um die entsprechenden Berechtigungen zuzuweisen.
-
-+++
-
-+++Wie hoch sind die Limits?
-
-Der MCP-Server übernimmt die API-Ratenbeschränkungen der [!DNL Marketo]. Verwenden Sie einen dedizierten API-Benutzer, um die Kontingentnutzung zu verfolgen und zu verwalten.
-
-+++
-
-+++Welche KI-Tools werden unterstützt?
-
-Claude Desktop, Cursor, Claude Code (CLI) und VS-Code mit GitHub Copilot. Jedes KI-Tool, das das Model Context Protocol über HTTP unterstützt, sollte funktionieren.
-
-+++
-
-+++Kann ich eine Verbindung zu mehreren [!DNL Marketo]-Instanzen herstellen?
-
-Ja. Fügen Sie der MCP-Konfiguration Ihres KI-Tools mehrere Einträge mit jeweils einem eindeutigen Namen und den Anmeldeinformationen für die entsprechende Instanz hinzu. Sie können beispielsweise `marketo-prod` und `marketo-staging` als separate Server konfigurieren.
-
-+++
-
 ## Sicherheitsüberlegungen
 
 >[!IMPORTANT]
 >
 >Verwenden Sie einen dedizierten API-Benutzer in [!DNL Marketo], der nur über die für Ihre Arbeit erforderlichen Berechtigungen verfügt. Verwenden Sie keine Administratorberechtigungen für den API-Zugriff erneut.
 
-- **Anmeldeinformationen pro Anfrage.** Bei jeder Anfrage werden die Client-ID, das Client-Geheimnis, die Munchkin-ID und der REST-API-Endpunkt in HTTP-Headern übertragen. Der Server speichert oder speichert sie nicht im Cache.
-- **Isolierung mehrerer Mandanten.** Jede Anfrage verwendet einen eigenen Satz von Anmeldeinformationen. Ihre Daten überschneiden sich nicht mit der Sitzung eines anderen Benutzers.
-- **Munchkin ID-Zulassungsliste.** Der Server akzeptiert nur Anfragen für genehmigte [!DNL Marketo]. Anfragen, die eine nicht autorisierte Munchkin-ID verwenden, werden mit einem 403-Fehler zurückgewiesen.
-- **Halten Sie Anmeldeinformationen außerhalb der Versionskontrolle.** Verwenden Sie die Umgebungsvariableninterpolation (`${MARKETO_CLIENT_SECRET}`), wenn Ihr KI-Tool sie unterstützt, sodass Anmeldeinformationen nicht im Klartext in Dateien gespeichert werden, die in ein Repository übertragen werden.
+* **Anmeldeinformationen pro Anfrage.** Bei jeder Anfrage werden die Client-ID, das Client-Geheimnis, die Munchkin-ID und der REST-API-Endpunkt in HTTP-Headern übertragen. Der Server speichert oder speichert sie nicht im Cache.
+* **Isolierung mehrerer Mandanten.** Jede Anfrage verwendet einen eigenen Satz von Anmeldeinformationen. Ihre Daten überschneiden sich nicht mit der Sitzung eines anderen Benutzers.
+* **Munchkin ID-Zulassungsliste.** Der Server akzeptiert nur Anfragen für genehmigte [!DNL Marketo]. Anfragen, die eine nicht autorisierte Munchkin-ID verwenden, werden mit einem 403-Fehler zurückgewiesen.
+* **API-Ratenbeschränkungen.** Der MCP-Server übernimmt die API-Ratenbeschränkungen Ihrer [!DNL Marketo]. Verwenden Sie einen dedizierten API-Benutzer, um die Kontingentnutzung zu verfolgen und zu verwalten.
+* **Halten Sie Anmeldeinformationen außerhalb der Versionskontrolle.** Verwenden Sie die Umgebungsvariableninterpolation (`${MARKETO_CLIENT_SECRET}`), wenn Ihr KI-Tool sie unterstützt, sodass Anmeldeinformationen nicht im Klartext in Dateien gespeichert werden, die in ein Repository übertragen werden.
