@@ -3,9 +3,9 @@ title: Response Mappings
 feature: Webhooks
 description: Marketo Webhooks-Antwortzuordnungen für JSON und XML, Zuordnungsattribute zu Lead-Feldern mit SOAP-API-Namen, Punkt- und Array-Notation und Typkompatibilität.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d84b9d0f60734500f16bba237bdd95692d22abbb
 workflow-type: tm+mt
-source-wordcount: '481'
+source-wordcount: '485'
 ht-degree: 1%
 
 ---
@@ -28,11 +28,11 @@ Der Zugriff auf JSON-Eigenschaften erfolgt mit Punktnotation, Array-Notation und
 { "foo":"bar"}
 ```
 
-Um in einer Antwortzuordnung auf die `foo`-Eigenschaft zuzugreifen, verwenden Sie die `name` der Eigenschaft, da sie sich auf der ersten Ebene des JSON-Objekts befindet, `foo`. So sieht das in Marketo aus:
+Um in einer Antwortzuordnung auf die `foo`-Eigenschaft zuzugreifen, verwenden Sie die `name` der Eigenschaft, da sie sich auf der ersten Ebene des JSON-Objekts befindet, `foo`. Im Folgenden sehen Sie, wie das in Marketo aussieht:
 
 ![Antwort-Mapping](assets/json-resp.png)
 
-Hier ist ein komplizierteres Beispiel mit einem Array:
+Im Folgenden finden Sie ein komplizierteres Beispiel mit einem -Array:
 
 ```json
 {
@@ -58,7 +58,7 @@ Wir möchten vom ersten Element des order-Arrays aus auf das orderDate zugreifen
 
 ## XML-Zuordnungen
 
-Der Zugriff auf Werte ist über einzelne Elemente in XML-Dokumenten möglich. Diese verwendet Punktnotation ähnlich den JSON-Zuordnungen. Sehen wir uns dieses einfache Beispiel an:
+Der Zugriff auf Werte ist über einzelne Elemente in XML-Dokumenten möglich. Diese verwendet Punktnotation ähnlich den JSON-Zuordnungen. Betrachten wir dieses einfache Beispiel:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
