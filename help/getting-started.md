@@ -2,7 +2,7 @@
 title: Erste Schritte
 description: Erste Schritte mit Marketo Engage-APIs und Datenmodellen, einschließlich Leads, Aktivitäten, Programmen, Tags, Listen, REST-Anleitungen und Hinweisen zur Einstellung von SOAP.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: e3fd965eb0c1fe0968933577963bc6a935c0f26d
 workflow-type: tm+mt
 source-wordcount: '1510'
 ht-degree: 1%
@@ -101,3 +101,4 @@ Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Cus
 Kundendatensätze und Lead-Beziehungen können in Marketo verwaltet werden, wenn keine native CRM-Integration aktiviert ist. Diese Datensätze enthalten grundlegende Informationen über den Vertriebspersonal, wie Name, E-Mail und Tätigkeitsbezeichnung, die zum Filtern von und Token in Marketo verwendet werden können, wenn ein Lead einem Lead gehört. Die Beziehung zu einem Vertriebspersonal wird auf Lead-Ebene über das Feld „externalSalesPersonId“ verwaltet, das über die API [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) aktualisiert werden muss.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
+
