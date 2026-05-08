@@ -3,7 +3,7 @@ title: Marketo-Objekte
 feature: Email Programs
 description: Anleitung zur Verwendung von Marketo Velocity mit Leads, Opportunities und benutzerdefinierten Objekten, Ladefeldern, Zugriff auf die zehn wichtigsten Listen, SFDC-Beziehungen und $TriggerObject.
 exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+source-git-commit: a8bf6680a212dd665841896e4550a755dcdf745d
 workflow-type: tm+mt
 source-wordcount: '532'
 ht-degree: 0%
@@ -34,7 +34,7 @@ Um zur Verwendung verfügbar zu sein, darf ein benutzerdefiniertes SFDC-Objekt n
 
 ## Trigger-Objekte
 
-Wenn eine Kampagne über die Option Zu Opportunity hinzugefügt, Opportunity aktualisiert oder `<Custom Object Name>` Triggern hinzugefügt wird, wird eine spezielle Variable in den Skript-Token verfügbar, die im Kontext der Trigger-Kampagne ausgeführt werden: `$TriggerObject `(wird für `<Custom Object Name>` Trigger nicht unterstützt).  Wenn in einer Batch-Kampagne ein Token mit einer `$TriggerObject` verwendet wird, schlägt der E-Mail-Versand fehl, da dieses Objekt in Batch-Kampagnen aller Art nicht verfügbar ist.  Dies ist ein Verweis auf das Objekt, das die Kampagne ausgelöst hat. Das -Objekt enthält alle Daten, die der Datensatz enthält, wenn über einen anderen Variablennamen auf ihn zugegriffen wird.
+Wenn eine Kampagne über die Option Zu Opportunity hinzugefügt, Opportunity aktualisiert oder `<Custom Object Name>` Triggern hinzugefügt wird, wird eine spezielle Variable in den Skript-Token verfügbar, die im Kontext der Trigger-Kampagne ausgeführt werden: `$TriggerObject`(wird für `<Custom Object Name>` Trigger nicht unterstützt).  Wenn in einer Batch-Kampagne ein Token mit einer `$TriggerObject` verwendet wird, schlägt der E-Mail-Versand fehl, da dieses Objekt in Batch-Kampagnen aller Art nicht verfügbar ist.  Dies ist ein Verweis auf das Objekt, das die Kampagne ausgelöst hat. Das -Objekt enthält alle Daten, die der Datensatz enthält, wenn über einen anderen Variablennamen auf ihn zugegriffen wird.
 
 Wenn beispielsweise eine Kampagne über ein benutzerdefiniertes Objekt für eine Produktbestellung ausgelöst wurde, wird die Reihenfolge, zu der der Lead hinzugefügt wurde, in der `$TriggerObject`-Variablen angezeigt.
 
