@@ -3,9 +3,13 @@ title: Häufig gestellte Fragen zu SOAP
 feature: SOAP
 description: Erfahren Sie, wie Sie Programme mit getMObjects auflisten, getMultipleLeads optimieren, Opportunities erstellen und personalisierte E-Mails über die Marketo SOAP-API senden oder planen.
 exl-id: a2d8f144-cd5f-41bc-8231-29c42af935b8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/AWgJgPdDXmapXqvG-J93utvXGV8-zLnKO-DvWFzOYoI
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '353'
+source-wordcount: 360
 ht-degree: 0%
 
 ---
@@ -18,7 +22,7 @@ ht-degree: 0%
 
 **F:** Gibt es eine Möglichkeit, die Leistung von getMultipleLeads zu beschleunigen?
 
-**A:** Es gibt einige Optionen, um die Leistung des Aufrufs getMultipleLeads zu beschleunigen. Die erste besteht darin, die batchSize-Eigenschaft zu reduzieren, die Sie für jeden Aufruf anfordern. 200 ist die empfohlene Stapelgröße. Die zweite Option besteht darin, die Felder anzugeben, an denen Sie interessiert sind, indem Sie den Filter includeAttributes verwenden. Dadurch wird die Abfrage beschleunigt und die Payload der empfangenen Antwort wird reduziert. Der letzte Ansatz besteht darin, den LastUpdateAtSelector zu verwenden und die Werte oldestUpdatedAt und latestUpdatedAt anzugeben. Sie können verschiedene Datumsbereiche angeben und dann mehrere Anfragen gleichzeitig threaden. Wenn Sie den Thread-Ansatz verwenden, stellen Sie sicher, dass Ihr SOAP-/WSDL-Client ([&#x200B; Verbindungen) &#x200B;](https://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html).
+**A:** Es gibt einige Optionen, um die Leistung des Aufrufs getMultipleLeads zu beschleunigen. Die erste besteht darin, die batchSize-Eigenschaft zu reduzieren, die Sie für jeden Aufruf anfordern. 200 ist die empfohlene Stapelgröße. Die zweite Option besteht darin, die Felder anzugeben, an denen Sie interessiert sind, indem Sie den Filter includeAttributes verwenden. Dadurch wird die Abfrage beschleunigt und die Payload der empfangenen Antwort wird reduziert. Der letzte Ansatz besteht darin, den LastUpdateAtSelector zu verwenden und die Werte oldestUpdatedAt und latestUpdatedAt anzugeben. Sie können verschiedene Datumsbereiche angeben und dann mehrere Anfragen gleichzeitig threaden. Wenn Sie den Thread-Ansatz verwenden, stellen Sie sicher, dass Ihr SOAP-/WSDL-Client ([ Verbindungen) ](https://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html).
 
 **F:** Wie kann ich Opportunities über die SOAP-API erstellen, wenn sie nicht in ein CRM wie Salesforce oder Microsoft Dynamics integriert ist?
 

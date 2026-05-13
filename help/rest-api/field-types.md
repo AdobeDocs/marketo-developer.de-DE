@@ -3,16 +3,22 @@ title: Feldtypen
 feature: REST API
 description: Umfassende Liste der Marketo-Feldtypen mit Definitionen, Beispielen und Formaten, einschließlich ISO 8601-Datum/Uhrzeit, Textbereichsbeschränkungen, Währung und boolescher Wert.
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/Q-L1NCCS1caYip-niSrBAkp6k37ErzmsLCFvn7fRJW0
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2: id: ad89fb33-8541-4339-afe7-bb13d1633714
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '373'
+source-wordcount: 373
 ht-degree: 8%
 
 ---
 
 # Feldtypen
 
-Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Informationen zu Feldtypen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Weitere Informationen zu Feldtypbeschränkungen finden Sie [hier](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Informationen zu Feldtypen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Weitere Informationen zu Feldtypbeschränkungen finden Sie [hier](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Feldtyp | Beschreibung | Beispiel |
 | --- | --- | --- |
@@ -20,11 +26,11 @@ Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Inf
 | E-Mail | Ein Zeichenfolgenfeld, das E-Mail-Adressen akzeptiert | <example@example.com> |
 | Gleitkomma | Ein Zahlenfeld, das reelle Zahlen enthält und eine Dezimalstelle verwenden kann. | 10,4 |
 | Ganzzahl | Ganzzahlen | 10 |
-| Formel | Felder, deren Werte durch Bearbeiten von Daten aus anderen Feldern in einem Lead-Datensatz generiert werden. Sie werden nicht exportiert und können nicht in Smart-Kampagnen verwendet werden. | Siehe diesen [Artikel](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Formel | Felder, deren Werte durch Bearbeiten von Daten aus anderen Feldern in einem Lead-Datensatz generiert werden. Sie werden nicht exportiert und können nicht in Smart-Kampagnen verwendet werden. | Siehe diesen [Artikel](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Prozent | Ein als Ganzzahl ausgedrückter Prozentsatz | 30 |
 | URL | Ein Textfeld, das die Eingabe auf URLs einschränkt, einschließlich des Protokolls der URL. | <http://example.com/> |
 | Telefon | Telefonnummer | 111-111-1111 |
-| Textbereich | Längerer Text. | Unterstützt bis zu 30.000 Byte. Standard-ASCII-Zeichen verwenden 1 Byte pro Zeichen (bis zu 30.000 Zeichen). Unicode-Zeichen können bis zu 4 Byte pro Zeichen verbrauchen (wodurch der  Anzahl der Zeichen (maximal 30.000 Zeichen). |
+| Textbereich | Längerer Text. | Unterstützt bis zu 30.000 Byte. Standard-ASCII-Zeichen verwenden 1 Byte pro Zeichen (bis zu 30.000 Zeichen). Unicode-Zeichen können bis zu 4 Byte pro Zeichen verwenden (wodurch die zulässige Zeichenanzahl auf weniger als 30.000 Zeichen reduziert wird). |
 | String | Kürzerer Text | Text mit bis zu 255 Zeichen |
 | Ergebnis | Ein ganzzahliges Feld, das mit dem Schritt Score-Fluss ändern bearbeitet werden kann | 10 |
 | Boolesch (zuvor Checkbox) | Ermöglicht Benutzern die Auswahl eines Werts vom Typ True (aktiviert) oder False (deaktiviert). | True |

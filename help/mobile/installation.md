@@ -3,9 +3,14 @@ title: Installation
 feature: Mobile Marketing
 description: Anleitung zur Installation und Initialisierung von Marketo Mobile SDK auf iOS und Android mithilfe von CocoaPods, Swift Package Manager oder Gradle, um Push- und In-App-Nachrichten zu ermöglichen.
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/zYNoGPwJTQnqmP6CH0NDbmb-b8vAKRScMmms6vy0Sb4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e2290edd-b061-4880-9d79-dee306cf5aa9id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: 855
 ht-degree: 0%
 
 ---
@@ -18,7 +23,7 @@ Installationsanweisungen für Marketo Mobile SDK. Die folgenden Schritte sind er
 
 ### Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
 ### Installieren von Framework über CocoaPods
@@ -49,7 +54,7 @@ Installationsanweisungen für Marketo Mobile SDK. Die folgenden Schritte sind er
 
    ![Wählen Sie „Header-Datei“](assets/choose-header-file.png)
 
-1. Nennen Sie die Datei &quot;_Projektname_>-Bridging-Header“.
+1. Nennen Sie die Datei &quot;&lt;_ProjectName_>-Bridging-Header“.
 
 1. Gehen Sie zu Projekt > Target > Build-Phasen > Swift-Compiler > Codegenerierung. Fügen Sie den folgenden Pfad zur Kopfzeile „Objective-Bridging“ hinzu:
 
@@ -132,7 +137,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Push-Benachrichtigungen einrichten](push-notifications.md#android_setup_push) (optional)
 1. [Herunterladen von Marketo SDK für Android](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
@@ -206,9 +211,9 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
 
 ### Hinzufügen von FCM zu Ihrer Anwendung
 
-1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ &#x200B;](https://github.com/Marketo/android-sdk).
+1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ ](https://github.com/Marketo/android-sdk).
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole“ `Add Project` aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf `Add Firebase`.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm `Add Firebase to your Android App` aus.

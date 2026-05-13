@@ -3,9 +3,12 @@ title: Datenaufnahme
 feature: REST API, Dynamic Content
 description: Verwenden Sie die Marketo-Datenaufnahme-API für die Aufnahme von Personen, benutzerdefinierten Objekten, Unternehmen und Programmmitgliedern mit hohem Volumen und geringer Latenz.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1789'
+source-wordcount: 1789
 ht-degree: 17%
 
 ---
@@ -173,8 +176,8 @@ Endpunkt, der zur Aktualisierung von Personendatensätzen verwendet wird.
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 | --- | --- | --- | --- | --- |
-| `priority` | Zeichenfolge | Nein | Priorität der Anfrage: normal oder hoch | Normal |
-| `partitionName` | Zeichenfolge | Nein | Name der Personenpartition | Standard |
+| `priority` | String | Nein | Priorität der Anfrage: normal oder hoch | Normal |
+| `partitionName` | String | Nein | Name der Personenpartition | Standard |
 | `dedupeFields` | Objekt | Nein | Zu deduplizierende Attribute. Ein oder zwei Attributnamen sind zulässig. <br/> In einem AND-Vorgang werden zwei Attribute verwendet. Wenn beispielsweise sowohl `email` als auch `firstName` angegeben sind, werden sie beide verwendet, um eine Person mithilfe des AND-Vorgangs nachzuschlagen. <br/>Unterstützte Attribute sind: `id`, `email`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId` `sfdcLeadOwnerId`, benutzerdefinierte Attribute (nur vom Typ „string“ und „integer„) `email` |  |
 | `persons` | Array von Objekten | Ja | Liste der Name-Wert-Paare für das Attribut der Person | – |
 
@@ -242,8 +245,8 @@ Endpunkt zum Upsertieren benutzerdefinierter Objektdatensätze.
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 | --- | --- | --- | --- | --- |
-| `priority` | Zeichenfolge | Nein | Priorität der Anfrage: normal, hoch | Normal |
-| `dedupeBy` | Zeichenfolge | Nein | Zu deduplizierende Attribute für: dedupeFields, marketoGUID | deduplizierte Felder |
+| `priority` | String | Nein | Priorität der Anfrage: normal, hoch | Normal |
+| `dedupeBy` | String | Nein | Zu deduplizierende Attribute für: dedupeFields, marketoGUID | deduplizierte Felder |
 | `customObjects` | Array von Objekten | Ja | Liste der Name-Wert-Paare für das Attribut des Objekts. | – |
 
 Erforderliche Berechtigungen sind `Read-Write Custom Object`.
@@ -312,8 +315,8 @@ Endpunkt zum Synchronisieren von Firmendatensätzen. Unterstützt das Erstellen,
 
 | Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
 | --- | --- | --- | --- | --- |
-| `action` | Zeichenfolge | Nein | Synchronisierungsaktion: `createOnly`, `updateOnly` oder `createOrUpdate` | `createOrUpdate` |
-| `dedupeBy` | Zeichenfolge | Nein | Feld für Deduplizierung: `dedupeFields` oder `idField` (ohne Unterscheidung zwischen Groß- und Kleinschreibung). Für `createOnly` und `createOrUpdate` ist nur `dedupeFields` zulässig. Beides ist `updateOnly` zulässig. | `dedupeFields` |
+| `action` | String | Nein | Synchronisierungsaktion: `createOnly`, `updateOnly` oder `createOrUpdate` | `createOrUpdate` |
+| `dedupeBy` | String | Nein | Feld für Deduplizierung: `dedupeFields` oder `idField` (ohne Unterscheidung zwischen Groß- und Kleinschreibung). Für `createOnly` und `createOrUpdate` ist nur `dedupeFields` zulässig. Beides ist `updateOnly` zulässig. | `dedupeFields` |
 | `input` | Array von Objekten | Ja | Liste der Name-Wert-Paare für Firmenattribute. Akzeptiert JSON-`input` oder -`companies`. | – |
 
 Jedes Unternehmensobjekt im `input`-Array unterstützt die folgenden Felder:
@@ -322,7 +325,7 @@ Jedes Unternehmensobjekt im `input`-Array unterstützt die folgenden Felder:
 | --- | --- | --- | --- |
 | `externalCompanyId` | Zeichenfolge | bedingt | Externe Unternehmenskennung. Erforderlich, wenn `dedupeBy` `dedupeFields` ist. Nicht zulässig, wenn `dedupeBy` `idField` ist. |
 | `id` | Lang | bedingt | Interne Marketo-Unternehmens-ID. Erforderlich, wenn `dedupeBy` `idField` und `action` `updateOnly` ist. Nicht zulässig, wenn `dedupeBy` `dedupeFields` ist. |
-| `company` | Zeichenfolge | Nein | Firmenname. |
+| `company` | String | Nein | Firmenname. |
 | (beliebiges Feld) | Beliebig | Nein | Zusätzliche standardmäßige oder benutzerdefinierte Unternehmensfelder gemäß Definition in [Firmen beschreiben](companies.md). Bei Feldnamen wird nicht zwischen Groß- und Kleinschreibung unterschieden. |
 
 Erforderliche Berechtigungen sind `Read-Write Company`.

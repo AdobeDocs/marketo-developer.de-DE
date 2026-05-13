@@ -3,9 +3,12 @@ title: Statische Listen
 feature: REST API, Static Lists
 description: Verwenden Sie Marketo-REST-APIs zum Abfragen, Erstellen, Aktualisieren und Löschen von statischen Listen mit Endpunkten für ID, Name und Durchsuchen, Ordnerumfang, Paging und Datumsfilter.
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/DSV9h6d4F3ZrIUT-VtqlmFAnpdxOuTf05ajCqiGegqk
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '496'
+source-wordcount: 496
 ht-degree: 1%
 
 ---
@@ -82,7 +85,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### Durchsuchen
 
-Statische Listen können auch [in Stapeln abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). Mit dem Parameter `folder` können Sie den übergeordneten Ordner angeben, unter dem die Abfrage ausgeführt wird, und werden als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` können Sie Wasserzeichen für niedrige und hohe Datums-/Uhrzeitwerte festlegen, um statische Listen zurückzugeben, die innerhalb des angegebenen Bereichs erstellt oder aktualisiert wurden. Datetime-Werte müssen gültige ISO-8601-Zeichenfolgen sein und sollten keine Millisekunden enthalten.
+Statische Listen können auch [in Stapeln abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). Mit dem Parameter `folder` können Sie den übergeordneten Ordner angeben, unter dem die Abfrage ausgeführt wird, und werden als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` können Sie Wasserzeichen für niedrige und hohe Datums-/Uhrzeitwerte festlegen, um statische Listen zurückzugeben, die innerhalb des angegebenen Bereichs erstellt oder aktualisiert wurden. Datetime-Werte müssen gültige ISO-8601-Zeichenfolgen sein und sollten keine Millisekunden enthalten.
 
 ```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}

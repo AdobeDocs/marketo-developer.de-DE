@@ -3,9 +3,14 @@ title: Installation der [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Installieren Sie die Adobe Launch Marketo-Erweiterung für Mobilgeräte. Befolgen Sie die Schritte zur Einrichtung von iOS und Android, Testgeräte, Berechtigungen und FCM für Push- und In-App-Nachrichten.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '813'
+source-wordcount: 813
 ht-degree: 0%
 
 ---
@@ -16,7 +21,7 @@ Installationsanweisungen für [!DNL Adobe Launch] Marketo-Erweiterung. Die folge
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 1. [Konfigurieren Sie die Eigenschaft in [!DNL Adobe Launch] portal](https://experience.adobe.com/#/@amc/data-collection/home)
 1. Konfigurieren Sie den geheimen Anwendungsschlüssel und die Munchkin-ID für die Eigenschaft im [!DNL Adobe Launch]
 1. [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
@@ -27,7 +32,7 @@ Installationsanweisungen für [!DNL Adobe Launch] Marketo-Erweiterung. Die folge
 
 1. Gehen Sie zu [!UICONTROL Datei] > [!UICONTROL Neu] > [!UICONTROL Datei] und wählen Sie **[!UICONTROL Header-Datei]**.
 
-1. Nennen Sie die Datei &quot;_Projektname_>-Bridging-Header“.
+1. Nennen Sie die Datei &quot;&lt;_ProjectName_>-Bridging-Header“.
 
 1. Navigieren Sie [!UICONTROL Projekt] > [!UICONTROL Target] > [!UICONTROL Build-Einstellungen] > [!UICONTROL Swift-] > [!UICONTROL Code-Generierung]. Fügen Sie den folgenden Pfad zum „Objective-Bridging“-Header hinzu:
 
@@ -134,7 +139,7 @@ Wenn Sie ProGuard für Ihre App verwenden, fügen Sie die folgenden Zeilen in Ih
 -keep class com.marketo.**{ *; }
 ```
 
-## Android  Test  Geräte
+## Android-Testgeräte
 
 Fügen Sie „MarketoActivity“ zu `AndroidManifest.xml` im Anwendungs-Tag hinzu.
 
@@ -157,9 +162,9 @@ Entwickler von Android-Apps können jetzt Googles [Firebase Cloud Messaging](htt
 
 ### Hinzufügen von FCM zu Ihrer Anwendung
 
-1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ &#x200B;](https://github.com/Marketo/android-sdk).
+1. Integrieren Sie die neueste Marketo Android SDK in die Android-App.  Die Schritte sind unter [GitHub“ ](https://github.com/Marketo/android-sdk).
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm die Option **[!UICONTROL Firebase zu Ihrer Android-App hinzufügen]**.

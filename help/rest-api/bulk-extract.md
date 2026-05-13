@@ -3,9 +3,13 @@ title: Massenextrakt
 feature: REST API
 description: Erfahren Sie, wie Sie mit der Marketo Bulk Extract-REST-API Leads, Aktivitäten, Programmmitglieder und benutzerdefinierte Objekte mit OAuth, Auftragswarteschlangen und täglichen 500-MB-Beschränkungen exportieren können.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/ECSchsjqp8fyxXbUGl5DgXHUkXuN0sIUc3yJfVaIe1E
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1724'
+source-wordcount: 1724
 ht-degree: 1%
 
 ---
@@ -51,7 +55,7 @@ Die maximale Anzahl von Aufträgen in der Warteschlange ist 10. Wenn Sie versuch
 
 Die APIs für die Massenextraktion basieren auf der Größe der Daten, die über einen Massenextraktionsauftrag abgerufen werden. Die explizite Größe in Byte für einen Vorgang kann durch Lesen des `fileSize` Attributs aus der Antwort „Abgeschlossener Status“ eines Exportvorgangs bestimmt werden.
 
-Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
+Das tägliche Kontingent beträgt maximal 500 MB pro Tag, die von Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten gemeinsam genutzt werden. Wenn das Kontingent überschritten wird, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange stellen, bis das tägliche Kontingent um Mitternacht ([) zurückgesetzt ](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zu diesem Zeitpunkt wird der Fehler „1029, Export Daily Kontingent exceeded“ zurückgegeben. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
 Sobald ein Auftrag in die Warteschlange gestellt wurde oder verarbeitet wird, wird er bis zum Ende ausgeführt (sofern kein Fehler vorliegt oder der Auftrag nicht abgebrochen wurde). Wenn ein Auftrag aus irgendeinem Grund fehlschlägt, müssen Sie ihn neu erstellen. Dateien werden nur dann vollständig geschrieben, wenn ein Auftrag den Status Abgeschlossen erreicht (partielle Dateien werden nie geschrieben). Sie können überprüfen, ob eine Datei vollständig geschrieben wurde, indem Sie ihren SHA-256-Hash berechnen und ihn mit der Prüfsumme vergleichen, die von Auftragsstatus-Endpunkten zurückgegeben wird.
 
@@ -125,7 +129,7 @@ Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konf
 
 ## Abrufen von Aufträgen
 
-Manchmal müssen Sie möglicherweise Ihre aktuellen Aufträge abrufen. Dies ist mit den GET-Exportvorgängen für den entsprechenden Objekttyp einfach möglich. Jeder Endpunkt Abrufen von Exportvorgängen unterstützt ein `status` Filterfeld, eine  `batchSize`, um die Anzahl der zurückgegebenen Aufträge zu begrenzen, und `nextPageToken` für das Paging durch große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportvorgang: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen und Fehlgeschlagen. Die batchSize-Eigenschaft ist auf maximal 300 festgelegt. Rufen wir die Liste der Lead-Exportvorgänge ab:
+Manchmal müssen Sie möglicherweise Ihre aktuellen Aufträge abrufen. Dies ist mit den GET-Exportvorgängen für den entsprechenden Objekttyp einfach möglich. Jeder Endpunkt vom Typ „Exportaufträge abrufen“ unterstützt ein `status` Filterfeld, eine `batchSize` zum Begrenzen der Anzahl der zurückgegebenen Aufträge und `nextPageToken` für das Paging über große Ergebnismengen. Der Statusfilter unterstützt jeden gültigen Status für einen Exportvorgang: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen und Fehlgeschlagen. Die batchSize-Eigenschaft ist auf maximal 300 festgelegt. Rufen wir die Liste der Lead-Exportvorgänge ab:
 
 ```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed

@@ -3,9 +3,14 @@ title: Intelligente Listen
 feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs benutzerdefinierte Smart Lists abfragen, klonen und löschen können, einschließlich Endpunkten nach ID, Name, Kampagne und Programm mit Regeln.
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/wQ2PQFabw8E5XYP4zJ2RMPcurRkoxA7UecpA-YuQuBc
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '576'
+source-wordcount: 576
 ht-degree: 1%
 
 ---
@@ -16,7 +21,7 @@ ht-degree: 1%
 
 Marketo bietet eine Reihe von REST-APIs zum Ausführen von Vorgängen für Smart-Listen. Diese APIs folgen dem Standard-Schnittstellenmuster für Asset-APIs und bieten Optionen für Abfrage, Löschen und Klonen.
 
-Hinweis: Diese APIs werden nur für benutzerdefinierte Smart Lists unterstützt. Sie können nicht für [Integrierte/System-Smart-Listen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists) verwendet werden.
+Hinweis: Diese APIs werden nur für benutzerdefinierte Smart Lists unterstützt. Sie können nicht für [Integrierte/System-Smart-Listen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists) verwendet werden.
 
 ## Abfrage
 
@@ -161,7 +166,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### Nach Name
 
-[Abfrage nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET)) akzeptiert eine Smart-Listen-`name` als Parameter und gibt einen einzelnen Smart-Listen-Datensatz zurück.  Es wird eine exakte Zeichenfolgenübereinstimmung für alle Smart-Listennamen in der Instanz durchgeführt und ein Ergebnis für die Smart-Liste zurückgegeben, die mit diesem Namen übereinstimmt.
+[Abfrage nach ](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET)) akzeptiert eine Smart-Listen-`name` als Parameter und gibt einen einzelnen Smart-Listen-Datensatz zurück.  Es wird eine exakte Zeichenfolgenübereinstimmung für alle Smart-Listennamen in der Instanz durchgeführt und ein Ergebnis für die Smart-Liste zurückgegeben, die mit diesem Namen übereinstimmt.
 
 ```http
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -191,7 +196,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Durchsuchen
 
-Smart-Listen können auch [in Batches abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET). Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, unter dem die Abfrage ausgeführt wird. Sie ist als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Die optionalen `earliestUpdatedAt`- und `latestUpdatedAt` Datums-/Uhrzeitparameter können verwendet werden, um die Ergebnisse nach dem Datumsbereich UpdatedAt zu filtern.
+Smart-Listen können auch [in Batches abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET). Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, unter dem die Abfrage ausgeführt wird. Sie ist als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Die optionalen `earliestUpdatedAt`- und `latestUpdatedAt` Datums-/Uhrzeitparameter können verwendet werden, um die Ergebnisse nach dem Datumsbereich UpdatedAt zu filtern.
 
 ```http
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}

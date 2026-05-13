@@ -3,9 +3,13 @@ title: Transaktions-E-Mail
 feature: REST API
 description: Erfahren Sie, wie Sie Marketo für Transaktions-E-Mails konfigurieren und sie über REST-API-Anfragekampagne mit Einrichtungsschritten und Java-Code-Beispielen in Trigger setzen.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
+TQID: https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1092'
+source-wordcount: 1092
 ht-degree: 1%
 
 ---
@@ -18,7 +22,7 @@ Ein gängiges Anwendungsbeispiel für die Marketo-API ist der Trigger des Versan
 - In Ihrer Marketo-Instanz muss eine Transaktions-E-Mail erstellt und genehmigt sein.
 - Es muss eine aktive Kampagnenkampagne mit dem Trigger „Kampagne ist angefordert, 1. Source: Web Service API“, das zum Senden der E-Mail eingerichtet ist
 
-Zunächst [E-Mail erstellen und &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail wirklich eine Transaktion ist, müssen Sie sie wahrscheinlich auf „betriebsbereit“ setzen, aber sicherstellen, dass sie rechtlich als funktionsfähig eingestuft wird. Dies wird über den Bildschirm Bearbeiten unter E-Mail-Aktionen > E-Mail-Einstellungen konfiguriert:
+Zunächst [E-Mail erstellen und ](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail wirklich eine Transaktion ist, müssen Sie sie wahrscheinlich auf „betriebsbereit“ setzen, aber sicherstellen, dass sie rechtlich als funktionsfähig eingestuft wird. Dies wird über den Bildschirm Bearbeiten unter E-Mail-Aktionen > E-Mail-Einstellungen konfiguriert:
 
 ![request-campaign-email-settings](assets/request-campaign-email-settings.png)
 
@@ -28,7 +32,7 @@ Genehmigen Sie ihn, und wir sind bereit, unsere Kampagne zu erstellen:
 
 ![RequestCampaign-approve-draft](assets/request-campaign-approve-draft.png)
 
-Wenn Sie mit dem Erstellen von Kampagnen noch nicht vertraut sind, lesen Sie den Artikel [Erstellen einer neuen intelligenten Kampagne](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=de) . Nachdem Sie Ihre Kampagne erstellt haben, müssen wir diese Schritte durchlaufen. Konfigurieren Sie Ihre Smart-Liste mit dem Trigger Kampagne ist angefordert :
+Wenn Sie mit dem Erstellen von Kampagnen noch nicht vertraut sind, lesen Sie den Artikel [Erstellen einer neuen intelligenten Kampagne](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) . Nachdem Sie Ihre Kampagne erstellt haben, müssen wir diese Schritte durchlaufen. Konfigurieren Sie Ihre Smart-Liste mit dem Trigger Kampagne ist angefordert :
 
 ![request-campaign-smart-list](assets/request-campaign-smart-list.png)
 
@@ -182,7 +186,7 @@ Diese Klasse verfügt über einen Konstruktor, der eine Authentifizierung akzept
 
 ### E-Mail erstellen
 
-Um unseren Inhalt anzupassen, müssen wir zunächst ein [Programm](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=de) und eine [E-Mail](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de) in Marketo konfigurieren. Um unsere benutzerdefinierten Inhalte zu generieren, müssen wir Token innerhalb des Programms erstellen und sie dann in der E-Mail platzieren, die wir senden werden. Der Einfachheit halber verwenden wir in diesem Beispiel nur ein Token, aber Sie können eine beliebige Anzahl von Token in einer E-Mail ersetzen, in der Absender-E-Mail, im Absendernamen, in der Antwortadresse oder in einem beliebigen Inhalt in der E-Mail. Erstellen wir also ein Rich-Text-Token für die Ersetzung und nennen es „bodyReplacement“. Rich-Text ermöglicht es uns, alle Inhalte im Token durch beliebige HTML zu ersetzen, die wir eingeben möchten.
+Um unseren Inhalt anzupassen, müssen wir zunächst ein [Programm](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) und eine [E-Mail](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de) in Marketo konfigurieren. Um unsere benutzerdefinierten Inhalte zu generieren, müssen wir Token innerhalb des Programms erstellen und sie dann in der E-Mail platzieren, die wir senden werden. Der Einfachheit halber verwenden wir in diesem Beispiel nur ein Token, aber Sie können eine beliebige Anzahl von Token in einer E-Mail ersetzen, in der Absender-E-Mail, im Absendernamen, in der Antwortadresse oder in einem beliebigen Inhalt in der E-Mail. Erstellen wir also ein Rich-Text-Token für die Ersetzung und nennen es „bodyReplacement“. Rich-Text ermöglicht es uns, alle Inhalte im Token durch beliebige HTML zu ersetzen, die wir eingeben möchten.
 
 ![new-token](assets/New-Token.png)
 

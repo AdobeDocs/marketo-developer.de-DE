@@ -3,9 +3,14 @@ title: Konfiguration
 description: Konfigurieren von Marketo Munchkin mit der JavaScript-API. Erfahren Sie mehr über Munchkin.init-Einstellungen wie altIds, anonymizeIP, asyncOnly, Cookie Life, domainLevel, Beacon-API.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+TQID: https://experienceleague.adobe.com/ip2cCGgoa83v8m9GYLYXe132veYxS1C6UWX1iLB6X5Q
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '613'
+source-wordcount: 614
 ht-degree: 4%
 
 ---
@@ -36,11 +41,11 @@ Das Konfigurationseinstellungsobjekt kann eine beliebige Anzahl von Eigenschafte
 | cookieAnon | Boolesch | Wenn dieser Wert auf „false“ gesetzt ist, verhindert das Tracking und die Cookie-Erstellung neuer anonymer Leads. Leads verfügen über Cookies und werden verfolgt, nachdem ein Marketo-Formular ausgefüllt oder eine Marketo-E-Mail durchgeklickt wurde. Der Standardwert ist „true“. |
 | cookieLifeDays | Ganzzahl | Legt das Ablaufdatum aller neu erstellten Munchkin-Tracking-Cookies auf diese Anzahl von Tagen in der Zukunft fest. Der Standardwert ist 730 Tage (2 Jahre). |
 | customName | String | Name der benutzerdefinierten Seite. Nur Systembenutzung. |
-| <a name="domainlevel"></a>domainLevel | Ganzzahl | Legt die Anzahl der Teile aus der Domain der Seite fest, die beim Festlegen des Domänenattributs des Cookies verwendet werden sollen.Angenommen, die aktuelle Seitendomäne lautet &quot;www.example.com&quot;.domainLevel: 2 setzt das Cookie-Domänenattribut auf &quot;.example.com„domainLevel: 3 setzt das Cookie-Domänenattribut auf &quot;.www.example.com„Background:Munchkin verwaltet automatisch bestimmte Domains mit zwei Buchstaben auf oberster Ebene. Dies ist in normalen Fällen, in denen die Domain auf oberster Ebene aus drei Buchstaben besteht, standardmäßig zweiteilig. Zum Beispiel &quot;www.example.com&quot; werden die beiden ganz rechts liegenden Teile verwendet, um das Cookie &quot;.example.com“ festzulegen. Für zwei Buchstabenländercodes wie &quot;.jp“, &quot;.us“, &quot;.cn“ und &quot;.uk“ ist der Code standardmäßig dreiteilig. Beispiel: &quot;www.example.co.jp&quot; verwendet drei Teile der Domain, die sich ganz rechts befinden, &quot;.example.co.jp&quot;. Wenn das Domain-Muster ein anderes Verhalten erfordert, muss dies mit dem Parameter &quot;`domainLevel`&quot; angegeben werden. |
+| <a name="domainlevel"></a>domainLevel | Ganzzahl | Legt die Anzahl der Teile aus der Domain der Seite fest, die beim Festlegen des Domain-Attributs des Cookies verwendet werden sollen.Angenommen, die aktuelle Seiten-Domain lautet &quot;www.example.com&quot;.domainLevel: 2 setzt das Cookie-Domain-Attribut auf &quot;.example.com„domainLevel: 3 setzt das Cookie-Domain-Attribut auf &quot;.www.example.com„Background:Munchkin verwaltet automatisch bestimmte Domains mit zwei Buchstaben auf oberster Ebene. Dies ist in normalen Fällen, in denen die Domain auf oberster Ebene aus drei Buchstaben besteht, standardmäßig zweiteilig. Zum Beispiel &quot;www.example.com&quot; werden die beiden ganz rechts liegenden Teile verwendet, um das Cookie &quot;.example.com“ festzulegen. Für zwei Buchstabenländercodes wie &quot;.jp“, &quot;.us“, &quot;.cn“ und &quot;.uk“ ist der Code standardmäßig dreiteilig. Beispiel: &quot;www.example.co.jp&quot; verwendet drei Teile der Domain, die sich ganz rechts befinden, &quot;.example.co.jp&quot;. Wenn das Domain-Muster ein anderes Verhalten erfordert, muss dies mit dem Parameter &quot;`domainLevel`&quot; angegeben werden. |
 | domainSelectorV2 | Boolesch | Bei Festlegung auf „true“ wird eine verbesserte Methode verwendet, um zu bestimmen, wie das Cookie-Domain-Attribut festgelegt wird. |
 | httpsOnly | Boolesch | Die Standardeinstellung ist false. Wenn auf „true“ gesetzt, setzt Cookie auf die Verwendung der Einstellung „Sicher“, wenn die verfolgte Seite über HTTPS bereitgestellt wurde. |
 | useBeaconAPI | Boolesch | Die Standardeinstellung ist false. Bei Festlegung auf „true“ verwendet [Beacon-API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API) um nicht blockierende Anfragen anstelle von &quot;[XMLHttpRequest](https://developer.mozilla.org/de-DE/docs/Web/API/XMLHttpRequest) zu senden. Wenn der Browser diese API nicht unterstützt, greift der Munchkin auf die Verwendung von XMLHttpRequest zurück. |
-| wsInfo | String | Nimmt eine Zeichenfolge als Ziel für einen Arbeitsbereich. Diese Workspace-ID erhalten Sie, indem Sie die Workspace im Menü Admin > Integration > Munchkin auswählen. Diese Einstellung gilt nur für die anfängliche Erstellung eines anonymen Lead-Datensatzes. Sobald der Munchkin-Cookie-Wert für diesen Lead-Datensatz festgelegt wurde, kann der Parameter „wsInfo“ nicht mehr verwendet werden, um die Partition zu ändern. Da diese Einstellung nur anonyme Leads betrifft, ist sie nur für partitionsspezifische (anonyme [&#x200B; in Web-Berichten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports) relevant. |
+| wsInfo | String | Nimmt eine Zeichenfolge als Ziel für einen Arbeitsbereich. Diese Workspace-ID erhalten Sie, indem Sie die Workspace im Menü Admin > Integration > Munchkin auswählen. Diese Einstellung gilt nur für die anfängliche Erstellung eines anonymen Lead-Datensatzes. Sobald der Munchkin-Cookie-Wert für diesen Lead-Datensatz festgelegt wurde, kann der Parameter „wsInfo“ nicht mehr verwendet werden, um die Partition zu ändern. Da diese Einstellung nur anonyme Leads betrifft, ist sie nur für partitionsspezifische (anonyme [ in Web-Berichten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-activity/display-people-or-anonymous-visitors-in-web-reports) relevant. |
 
 ## Beispiele
 

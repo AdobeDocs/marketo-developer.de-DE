@@ -3,9 +3,14 @@ title: Intelligente Kampagnen
 feature: REST API, Smart Campaigns
 description: Erfahren Sie, wie Sie Marketo-REST-APIs für Smart-Kampagnen verwenden, einschließlich Abfragen nach ID oder Namen, Durchsuchen von Filtern, Erstellen und Löschen von Klonen und Planen oder Anfordern von Triggern
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/iysRjtqd9plkreyIMuNjAF3YVFHtDUIrc-GInB4V8mg
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2: id: ad89fb33-8541-4339-afe7-bb13d1633714id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1196'
+source-wordcount: 1196
 ht-degree: 1%
 
 ---
@@ -426,7 +431,7 @@ Verwenden Sie den [Kampagne anfragen](https://developer.adobe.com/marketo-apis/a
 
 Dieser Endpunkt erfordert einen Campaign-`id` als Pfadparameter und einen `leads` ganzzahligen Array-Parameter mit Lead-IDs . Pro Aufruf sind maximal 100 Leads zulässig.
 
-Optional kann der Parameter „Array `tokens`&quot; verwendet werden, um „Meine Token lokal“ für das übergeordnete Programm der Kampagne zu überschreiben. `tokens` akzeptiert maximal 100 Token. Jedes `tokens` Array-Element enthält ein Name/Wert-Paar. Der Name des Tokens muss als &quot;`{{my.name}}`&quot; formatiert sein. Wenn Sie den Ansatz [Hinzufügen eines System-Tokens als Link in einer E-Mail](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) verwenden, um das System-Token „viewAsWebpageLink“ hinzuzufügen, können Sie es nicht mit `tokens` überschreiben. Verwenden Sie stattdessen [&#x200B; Ansatz „Ansicht als Webseitenlink zu E-Mail hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) mit dem Sie „viewAsWebPageLink“ mit `tokens` überschreiben können.
+Optional kann der Parameter „Array `tokens`&quot; verwendet werden, um „Meine Token lokal“ für das übergeordnete Programm der Kampagne zu überschreiben. `tokens` akzeptiert maximal 100 Token. Jedes `tokens` Array-Element enthält ein Name/Wert-Paar. Der Name des Tokens muss als &quot;`{{my.name}}`&quot; formatiert sein. Wenn Sie den Ansatz [Hinzufügen eines System-Tokens als Link in einer E-Mail](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) verwenden, um das System-Token „viewAsWebpageLink“ hinzuzufügen, können Sie es nicht mit `tokens` überschreiben. Verwenden Sie stattdessen [ Ansatz „Ansicht als Webseitenlink zu E-Mail hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) mit dem Sie „viewAsWebPageLink“ mit `tokens` überschreiben können.
 
 Die Parameter `leads` und `tokens` werden im Anfragetext als application/json übergeben.
 

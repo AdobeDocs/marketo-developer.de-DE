@@ -3,9 +3,13 @@ title: Spezifische Kontolisten
 feature: REST API
 description: Erfahren Sie, wie Sie Marketo Named Account Lists mit der REST-API verwalten, einschließlich Berechtigungen, Feldern, Filtern und Endpunkten zum Abfragen, Erstellen, Aktualisieren und Löschen.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/18lMhheW21Gz1-3TMHwleHhmLTOqJsZSQ5aqkbbchhM
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '746'
+source-wordcount: 746
 ht-degree: 2%
 
 ---
@@ -14,7 +18,7 @@ ht-degree: 2%
 
 [Endpunkt-Referenz für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Spezifische Kontolisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
+[Spezifische Kontolisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
 `Content`
 
 ## Berechtigungen

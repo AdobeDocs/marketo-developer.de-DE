@@ -3,9 +3,14 @@ title: Marketo Mobile-Erweiterung für [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Installieren und konfigurieren Sie die Marketo Mobile SDK-Erweiterung in Adobe Launch für iOS und Android, einschließlich der Einrichtung für Push-Benachrichtigungen und In-App-Nachrichten.
 exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+TQID: https://experienceleague.adobe.com/Bk5GTnQjm6NDosl5Iw6TS-NRjH8owNRUKoE0mZ-H3pY
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: d095671a-1355-40aa-8b5f-06c33c68080b
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '305'
+source-wordcount: 305
 ht-degree: 0%
 
 ---
@@ -16,7 +21,7 @@ Installationsanweisungen für die Marketo Mobile SDK-Erweiterung in [!DNL Adobe 
 
 ## Voraussetzungen
 
-- [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
+- [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID)
 - Befolgen Sie bei der Installation die Anweisungen im [!DNL Adobe Launch] Portal
 - [Push-Benachrichtigungen einrichten](push-notifications.md) (optional)
 
@@ -25,7 +30,7 @@ Installationsanweisungen für die Marketo Mobile SDK-Erweiterung in [!DNL Adobe 
 ### Swift Bridging-Kopfzeile einrichten
 
 1. Gehen Sie zu Datei > Neu > Datei und wählen Sie „Header-Datei“.
-1. Nennen Sie die Datei &quot;_Projektname_>-Bridging-Header“.
+1. Nennen Sie die Datei &quot;&lt;_ProjectName_>-Bridging-Header“.
 1. Gehen Sie zu Projekt > Target > Build-Phasen > Swift-Compiler > Codegenerierung. Fügen Sie den folgenden Pfad zur Kopfzeile „Objective-Bridging“ hinzu:
 
    `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
@@ -75,4 +80,4 @@ Folgen Sie den Anweisungen [hier](installation.md#android_test_devices)
 
 Befolgen Sie [hier](installation.md#android_firebase_cloud_messaging_support) und verwenden Sie den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;
 
-Befolgen Sie beim Einrichten von Benutzerprofilen [&#x200B; Anweisungen &#x200B;](user-profiles.md)hier) und bei benutzerdefinierten Aktionen die Anweisungen [hier](custom-actions.md#android_custom_action). Verwenden Sie in den folgenden Anweisungen den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;
+Befolgen Sie beim Einrichten von Benutzerprofilen [ Anweisungen ](user-profiles.md)hier) und bei benutzerdefinierten Aktionen die Anweisungen [hier](custom-actions.md#android_custom_action). Verwenden Sie in den folgenden Anweisungen den Klassennamen „ALMarketo“ anstelle von &quot;Marketo&quot;

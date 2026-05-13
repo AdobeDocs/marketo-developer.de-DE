@@ -3,10 +3,14 @@ title: Aktivieren von Deep-Links
 feature: Mobile Marketing
 description: Erfahren Sie, wie Sie Deep-Links in Ihrer App für Marketo-Push-Nachrichten mithilfe von benutzerdefinierten URI-Schemata aktivieren, einschließlich Anleitungen zu iOS, Android und PhoneGap und Best Practices.
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/UswOvHXGlfTrTUqr4Gsf3j2Z7Xpv2FF2luXeygT4qE0
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '397'
-ht-degree: 0%
+source-wordcount: 420
+ht-degree: 4%
 
 ---
 
@@ -22,7 +26,7 @@ Der Prozess funktioniert wie folgt:
 
 Dazu müssen Sie eine benutzerdefinierte URI-Struktur für Ihre App definieren, das Schema im Manifest Ihrer App registrieren und dann Code hinzufügen, um Deep-Link-Ereignisse zu verarbeiten und zum richtigen Speicherort in Ihrer App zu routen.
 
-Informationen zu iOS finden Sie in der Apple-Dokumentation unter [&#x200B; eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+Informationen zu iOS finden Sie in der Apple-Dokumentation unter [ eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
 Informationen zu Android finden Sie in der Google-Dokumentation unter [Aktivieren von Deep-Links für App-Inhalte](https://developer.android.com/training/app-links/deep-linking).
 
@@ -30,7 +34,7 @@ Bei PhoneGap-Apps ist Deep-Linking nicht so einfach wie bei nativen iOS- oder An
 
 Wenn Sie Deep-Linking in Ihrer App aktiviert haben, geben Sie Ihre benutzerdefinierten URIs für Ihre Marketo-Benutzenden frei, damit diese sie in die Tipp-Aktion für Push-Nachrichten einfügen können.
 
-Marketo verwendet beim Einrichten von Testgeräten eine vordefinierte URI-Struktur. Weitere Informationen finden Sie im Abschnitt „Testgeräte[&#x200B; des &#x200B;](installation.md).
+Marketo verwendet beim Einrichten von Testgeräten eine vordefinierte URI-Struktur. Weitere Informationen finden Sie im Abschnitt „Testgeräte[ des ](installation.md).
 
 ## Best Practices für die Definition einer URI-Struktur
 

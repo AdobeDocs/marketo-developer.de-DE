@@ -3,9 +3,12 @@ title: Authentifizierung
 feature: REST API
 description: Authentifizieren Sie Marketo REST-APIs mit zwei OAuth 2.0-Legs, erstellen und verwenden Sie Zugriffstoken, wechseln Sie zum Autorisierungs-Header, verwalten Sie Ablauf, verarbeiten Sie 601- und 602-Fehler.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+TQID: https://experienceleague.adobe.com/cIeI0m61CyIWq4HEosZ-QAsxzZb0WcrQRpCud2qysfY
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '666'
+source-wordcount: 666
 ht-degree: 0%
 
 ---
@@ -55,7 +58,7 @@ Das Zugriffstoken muss als HTTP-Kopfzeile gesendet werden.
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Juli 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Juli 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
 
 ### Wechseln zur Autorisierungs-Kopfzeile
 
