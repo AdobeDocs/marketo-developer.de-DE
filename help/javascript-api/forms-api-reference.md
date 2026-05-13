@@ -3,9 +3,16 @@ title: Forms-API-Referenz
 description: Ausführliche Referenz für die Marketo Forms 2.0-API mit Details zu MktoForms2 und Formularmethoden, Parametern, Callbacks und Rückgaben zum Laden und Rendern von Formularen.
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+TQID: https://experienceleague.adobe.com/wLuN1H8tDFEihPqcAfoG-Y80d4Kw1BoSskVQu4Bgss0
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '1345'
+source-wordcount: 1352
 ht-degree: 2%
 
 ---
@@ -182,7 +189,7 @@ Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren
     </tr>
     <tr valign="top">
       <td>.submittable(canSubmit) <em>auch verfügbar als:</em> <em>.submitable(canSubmit)</em></td>
-      <td>Ruft ab oder legt fest, ob das Formular gesendet werden kann. Wird der Aufruf ohne Argumente durchgeführt, wird der Wert abgerufen. Wird er mit einem Argument aufgerufen, wird der Wert festgelegt. Damit kann verhindert werden, dass ein Formular gesendet wird, während andere Kriterien außerhalb des normalen Formulars erfüllt sein müssen.</td>
+      <td>Ruft ab oder legt fest, ob das Formular gesendet werden kann. Wenn aufgerufen wird, ohne dass Argumente vorliegen, wird der Wert abgerufen. Wird er mit einem Argument aufgerufen, wird der Wert festgelegt.Auf diese Weise können Sie verhindern, dass ein Formular übermittelt wird, während andere Kriterien außerhalb des normalen Formulars erfüllt sein müssen.</td>
       <td>canSubmit (optional) (Boolescher Wert) - Legt das Formular als übermittelbar oder nicht übermittelbar fest.</td>
       <td>Boolescher Wert oder Formularobjekt - Wenn aufgerufen, aber ohne Argumente, wird ein boolescher Wert zurückgegeben, der angibt, ob das Formular übermittelt werden kann. Wird dieses Formularobjekt mit einem Argument aufgerufen, wird es zu Verkettungszwecken zurückgegeben. </td>
     </tr>

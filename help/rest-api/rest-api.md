@@ -3,9 +3,18 @@ title: REST-API
 feature: REST API
 description: Erfahren Sie, wie Sie die Marketo-REST-API verwenden, API-Benutzer und LaunchPoint einrichten, Kontingente und Beschränkungen anzeigen, sich mit dem Autorisierungs-Header authentifizieren und Leads abrufen.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/GqhWI816wWX-2zf89wWj-GXpg9i615HRFVl2ljdYVj0
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '896'
+source-wordcount: 896
 ht-degree: 2%
 
 ---
@@ -28,7 +37,7 @@ Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[&#x200B; „L
 
 - **Tägliches Kontingent:**-Abonnements werden mit 50.000 API-Aufrufen pro Tag zugewiesen (die täglich um 12 Uhr :00AM zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
 - **Ratenlimit:** API-Zugriff pro Instanz ist auf 100 Aufrufe pro 20 Sekunden beschränkt.
-- **Parallelitätslimit:**  Maximal zehn gleichzeitige API-Aufrufe.
+- **Parallelitätslimit:** maximal zehn gleichzeitige API-Aufrufe.
 
 Die Größe von Standardaufrufen ist auf eine URI-Länge von 8 KB und eine Textkörpergröße von 1 MB beschränkt, obwohl der Textkörper für unsere Bulk-APIs 10 MB betragen kann. Wenn in bei Ihrem Aufruf ein Fehler auftritt, gibt die API normalerweise trotzdem den Status-Code 200 zurück, aber die JSON-Antwort enthält ein „success“-Element mit dem Wert `false` und ein Array von Fehlern im „errors“-Element. Weitere Informationen zu Fehlern [hier](error-codes.md).
 

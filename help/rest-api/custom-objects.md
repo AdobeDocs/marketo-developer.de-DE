@@ -3,9 +3,23 @@ title: Benutzerdefinierte Objekte
 feature: REST API, Custom Objects
 description: Erfahren Sie, wie Sie benutzerdefinierte Marketo-Objekte über die REST-API erstellen und verwalten, einschließlich Auflisten und Beschreiben von Endpunkten, Metadaten, Beziehungen, Feldern und Abfragen.
 exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/NWm9CjFVqQdVDJRrnE4nA299-Lg53-JR7xvY-82dUqY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2:
+  - id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '3346'
+source-wordcount: 3346
 ht-degree: 0%
 
 ---
@@ -395,7 +409,7 @@ Mit der Metadaten-API für benutzerdefinierte Objekte können Sie benutzerdefini
 
 ### Abfragetyp
 
-Es gibt zwei Möglichkeiten, Metadaten von benutzerdefinierten Objekttypen abzurufen: Beschreibung von benutzerdefinierten Objekttypen, die zurückgeben  Der Datensatz für einen einzelnen benutzerdefinierten Objekttyp ist filterbar nach Genehmigungsstatus und listet benutzerdefinierte Objekttypen auf. Dadurch wird eine Liste aller benutzerdefinierten Objekttypen im Abonnement zurückgegeben, die nach Name und Genehmigungsstatus gefiltert werden kann.
+Es gibt zwei Möglichkeiten, benutzerdefinierte Metadaten von Objekttypen abzurufen: „Benutzerdefinierten Objekttyp beschreiben“, der den Datensatz für einen einzelnen benutzerdefinierten Objekttyp zurückgibt und nach Genehmigungsstatus gefiltert werden kann, und „Benutzerdefinierte Objekttypen auflisten“, das eine Liste aller benutzerdefinierten Objekttypen im Abonnement zurückgibt und nach Name und Genehmigungsstatus gefiltert werden kann.
 
 ### Typ beschreiben
 
@@ -514,7 +528,7 @@ Hier können Sie die folgenden Attribute anzeigen:
 
 * Metadaten: Status, displayName, Beschreibung, apiName, idField, createdAt, updatedAt, dedupeFields, searchableFields, Beziehungen
 * Standardfelder: marketoGUID, createdAt, updatedAt
-* Benutzerdefinierte Felder: LeadId, Vin, Make,  Modell, Jahr
+* Benutzerdefinierte Felder: LeadId, Vin, Marke, Modell, Jahr
 
 ### Listentypen
 
@@ -701,7 +715,7 @@ Der [Endpunkt Benutzerdefinierter Objekttyp synchronisieren](https://developer.a
 
 Gehen Sie beim Benennen benutzerdefinierter Objekte mit Bedacht vor. Beim Erstellen eines neuen benutzerdefinierten Objekts wird empfohlen, dem Namen eine Zeichenfolge voranzustellen, die den Namen Ihres Unternehmens angibt (alphanumerisch oder Unterstrich zulässig). Dadurch lässt sich das benutzerdefinierte Objekt in der MLM-Benutzeroberfläche einfach durchsuchen, und es kann auch unsicher sein, ob der Name eindeutig ist.
 
-Im Folgenden finden Sie ein Beispiel für die Erstellung eines neuen benutzerdefinierten Objekttyps mit der -API  Name „Transaktion“.
+Im Folgenden finden Sie ein Beispiel für die Erstellung eines neuen benutzerdefinierten Objekttyps mit dem API-Namen „Transaktion“.
 
 ```http
 POST /rest/v1/customobjects/schema.json
@@ -883,7 +897,7 @@ Weitere Informationen zu benutzerdefinierten Objektfeldern finden Sie in der Pro
 
 ### Felder hinzufügen
 
-Mit [&#x200B; Endpunkt „Benutzerdefinierte Objekttypfelder hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST) können Sie ein oder mehrere Felder zu Ihrem benutzerdefinierten Objekt hinzufügen.  Der Anfragetext enthält ein `input`-Array mit einem oder mehreren Elementen.  Jedes Element ist ein JSON-Objekt mit Attributen, die ein Feld beschreiben. Das erforderliche `name`-Attribut ist der API-Name des Felds und muss für das benutzerdefinierte Objekt eindeutig sein.   Die Konvention besagt, dass Kleinbuchstaben oder Binnenmajuskeln verwendet werden, um zwischen anderen Textzeichenfolgen zu unterscheiden. Das erforderliche `displayName` ist der für Menschen lesbare Name des Felds und muss für das benutzerdefinierte Objekt eindeutig sein. Das erforderliche `dataType`-Attribut ist der Datentyp des Felds.  A  Eine Liste der zulässigen Datentypen kann durch Aufrufen des Endpunkts [Abrufen benutzerdefinierter Objekttypfelddatentypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) abgerufen werden.  Benutzerdefinierte Objekte können Felder mit dem Datentyp „link“ enthalten.  Verknüpfungsfelder werden verwendet, um Beziehungen zwischen benutzerdefinierten Objekten und anderen Objekttypen im System herzustellen, z. B. Lead, Firma.  Weitere Informationen zu Link-Feldern finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Das optionale `description` ist die Beschreibung des Felds. Das optionale boolesche Attribut `isDedupeField` gibt an, ob das Feld während Aktualisierungsvorgängen für benutzerdefinierte Objekte für die Deduplizierung verwendet wird.  Die Standardeinstellung ist false.  Bei Eins-zu-Viele-Beziehungen ist ein Deduplizierungsfeld erforderlich. Das optionale `relatedTo`-Objektattribut gibt ein Verknüpfungsfeld an.  Bei Eins-zu-Viele-Beziehungen enthält dieses Objekt ein `name`-Attribut, das das „Verknüpfungsobjekt“ oder übergeordnete Objekt ist, mit dem eine Verknüpfung hergestellt werden soll, und ein `field`-Attribut, das „Verknüpfungsfeld“ lautet.  oder das Feld innerhalb des übergeordneten Objekts, das als Schlüsselattribut verwendet werden soll.  Rufen Sie [&#x200B; Endpunkt „Benutzerdefinierte Objekte für verknüpfbare &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) abrufen“ auf, um eine Liste der zulässigen Link-Objekte abzurufen.  Weitere Informationen zu Verknüpfungsfeldern finden Sie in der Produktdokumentation [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Ein benutzerdefiniertes Objekt kann nicht mit einem anderen benutzerdefinierten Objekt verknüpft werden, das über ein vorhandenes Verknüpfungsfeld verfügt.
+Mit [&#x200B; Endpunkt „Benutzerdefinierte Objekttypfelder hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST) können Sie ein oder mehrere Felder zu Ihrem benutzerdefinierten Objekt hinzufügen.  Der Anfragetext enthält ein `input`-Array mit einem oder mehreren Elementen.  Jedes Element ist ein JSON-Objekt mit Attributen, die ein Feld beschreiben. Das erforderliche `name`-Attribut ist der API-Name des Felds und muss für das benutzerdefinierte Objekt eindeutig sein.   Die Konvention besagt, dass Kleinbuchstaben oder Binnenmajuskeln verwendet werden, um zwischen anderen Textzeichenfolgen zu unterscheiden. Das erforderliche `displayName` ist der für Menschen lesbare Name des Felds und muss für das benutzerdefinierte Objekt eindeutig sein. Das erforderliche `dataType`-Attribut ist der Datentyp des Felds.  Eine Liste der zulässigen Datentypen kann durch Aufrufen des Endpunkts [Abrufen benutzerdefinierter Objekttypfelddatentypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) abgerufen werden.  Benutzerdefinierte Objekte können Felder mit dem Datentyp „link“ enthalten.  Verknüpfungsfelder werden verwendet, um Beziehungen zwischen benutzerdefinierten Objekten und anderen Objekttypen im System herzustellen, z. B. Lead, Firma.  Weitere Informationen zu Link-Feldern finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Das optionale `description` ist die Beschreibung des Felds. Das optionale boolesche Attribut `isDedupeField` gibt an, ob das Feld während Aktualisierungsvorgängen für benutzerdefinierte Objekte für die Deduplizierung verwendet wird.  Die Standardeinstellung ist false.  Bei Eins-zu-Viele-Beziehungen ist ein Deduplizierungsfeld erforderlich. Das optionale `relatedTo`-Objektattribut gibt ein Verknüpfungsfeld an.  Bei Eins-zu-Viele-Beziehungen enthält dieses Objekt ein `name`-Attribut, das das „Verknüpfungsobjekt“ oder das übergeordnete Objekt ist, mit dem eine Verknüpfung hergestellt werden soll, und ein `field`-Attribut, das das „Verknüpfungsfeld“ ist, oder das Feld innerhalb des übergeordneten Objekts, das als Schlüsselattribut verwendet werden soll.  Rufen Sie [&#x200B; Endpunkt „Benutzerdefinierte Objekte für verknüpfbare &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) abrufen“ auf, um eine Liste der zulässigen Link-Objekte abzurufen.  Weitere Informationen zu Verknüpfungsfeldern finden Sie in der Produktdokumentation [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Ein benutzerdefiniertes Objekt kann nicht mit einem anderen benutzerdefinierten Objekt verknüpft werden, das über ein vorhandenes Verknüpfungsfeld verfügt.
 
 ### Eins-zu-viele-Beziehung
 
@@ -988,7 +1002,7 @@ POST /rest/v1/customobjects/schema/course/approve.json
 
 ### Viele-zu-viele-Beziehung
 
-Viele-zu-viele-Beziehungen werden mithilfe eines benutzerdefinierten „Brückenobjekts“, oder einer Zwischenstation, zwischen einem benutzerdefinierten Standardobjekt wie Lead oder Unternehmen und einem benutzerdefinierten „Edge“-Objekt dargestellt. Das Edge-Objekt ist die primäre Entität, die beschreibende Attribute (Felder) enthält. Das Bridge-Objekt enthält die Daten zur Auflösung der Objektbeziehungen mithilfe von zwei Verknüpfungsfeldern.  Ein Verknüpfungsfeld verweist genau wie in einem auf das übergeordnete Standardobjekt zurück  Eins-zu-viele-Beziehungskonfiguration.  Das Feld Andere Verknüpfung zeigt auf das Edge-Objekt, das ein benutzerdefiniertes Objekt ohne Verknüpfungen ist.  Das Bridge-Objekt kann auch beschreibende Attribute (Felder) enthalten. Unter Verwendung des Beispiels für die Registrierung für College-Kurse aus der Marketo-Produktdokumentation [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) erstellen wir ein benutzerdefiniertes Edge-Objekt, das kursbezogene Informationen enthält, und ein Registrierungsbrückenobjekt, das zum Verbinden von Kursen mit Leads verwendet wird. Im Folgenden werden die Schritte beschrieben:
+Viele-zu-viele-Beziehungen werden mithilfe eines benutzerdefinierten „Brückenobjekts“, oder einer Zwischenstation, zwischen einem benutzerdefinierten Standardobjekt wie Lead oder Unternehmen und einem benutzerdefinierten „Edge“-Objekt dargestellt. Das Edge-Objekt ist die primäre Entität, die beschreibende Attribute (Felder) enthält. Das Bridge-Objekt enthält die Daten zur Auflösung der Objektbeziehungen mithilfe von zwei Verknüpfungsfeldern.  Ein Verknüpfungsfeld verweist genau wie bei einer Eins-zu-Viele-Beziehung-Konfiguration auf das übergeordnete Standardobjekt.  Das Feld Andere Verknüpfung zeigt auf das Edge-Objekt, das ein benutzerdefiniertes Objekt ohne Verknüpfungen ist.  Das Bridge-Objekt kann auch beschreibende Attribute (Felder) enthalten. Unter Verwendung des Beispiels für die Registrierung für College-Kurse aus der Marketo-Produktdokumentation [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) erstellen wir ein benutzerdefiniertes Edge-Objekt, das kursbezogene Informationen enthält, und ein Registrierungsbrückenobjekt, das zum Verbinden von Kursen mit Leads verwendet wird. Im Folgenden werden die Schritte beschrieben:
 
 1. Erstellen eines **Kurs** Edge-Objekts
 1. Felder zu **Kurs:** Deduplizierung auf **Kurs-ID** hinzufügen

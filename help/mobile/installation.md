@@ -3,9 +3,20 @@ title: Installation
 feature: Mobile Marketing
 description: Anleitung zur Installation und Initialisierung von Marketo Mobile SDK auf iOS und Android mithilfe von CocoaPods, Swift Package Manager oder Gradle, um Push- und In-App-Nachrichten zu ermöglichen.
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/zYNoGPwJTQnqmP6CH0NDbmb-b8vAKRScMmms6vy0Sb4
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: 855
 ht-degree: 0%
 
 ---
@@ -49,7 +60,7 @@ Installationsanweisungen für Marketo Mobile SDK. Die folgenden Schritte sind er
 
    ![Wählen Sie „Header-Datei“](assets/choose-header-file.png)
 
-1. Nennen Sie die Datei &quot;_Projektname_>-Bridging-Header“.
+1. Nennen Sie die Datei &quot;&lt;_ProjectName_>-Bridging-Header“.
 
 1. Gehen Sie zu Projekt > Target > Build-Phasen > Swift-Compiler > Codegenerierung. Fügen Sie den folgenden Pfad zur Kopfzeile „Objective-Bridging“ hinzu:
 

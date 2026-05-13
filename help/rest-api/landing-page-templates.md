@@ -3,9 +3,18 @@ title: Landingpage-Vorlagen
 feature: REST API, Landing Pages
 description: Verwalten Sie Landingpage-Vorlagen von Marketo über REST-API-Endpunkte für Freiform und geführte Typen, fragen Sie nach ID oder Namen ab, erstellen, aktualisieren Sie HTML, klonen Sie Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+TQID: https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
-source-wordcount: '703'
+source-wordcount: 703
 ht-degree: 1%
 
 ---
@@ -118,7 +127,7 @@ Der Parameter `id` gibt die ID der zu klonenden Quell-Landingpage-Vorlage an.
 
 Mit dem Parameter `name` wird der Name der neuen Landingpage-Vorlage angegeben.
 
-Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, in dem sich die neue Landingpage-Vorlage befindet. Dies ist in Form eines eingebetteten JSON-Objekts mit  `id` und `type`.
+Mit dem Parameter `folder` wird der übergeordnete Ordner angegeben, in dem sich die neue Landingpage-Vorlage befindet. Dies erfolgt in Form eines eingebetteten JSON-Objekts, das `id` und `type` enthält.
 
 Der optionale Parameter `description` wird verwendet, um die neue Landingpage-Vorlage zu beschreiben.
 
