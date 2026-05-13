@@ -4,8 +4,10 @@ feature: REST API
 description: Steigern Sie die Leistung der Marketo REST-API mit HTTP-Komprimierung. Aktivieren Sie gzip, um die Bandbreite zu reduzieren. Bulk-APIs werden nicht unterstützt und unter 1024 Byte nicht komprimiert.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
 TQID: https://experienceleague.adobe.com/foJCTd890HZtL-UzWx2cjRXwTxqgW56A79sB7FPEWis
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 146
@@ -37,7 +39,7 @@ Die Marketo-REST-API komprimiert den Antworttext und enthält diese Kopfzeile:
 Content-Encoding: gzip
 ```
 
-Im Folgenden finden Sie ein Beispiel unter Verwendung von cURL zum Aufrufen [ Endpunkts „Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) um 5 Leads abzurufen:
+Im Folgenden finden Sie ein Beispiel unter Verwendung von cURL zum Aufrufen [&#x200B; Endpunkts „Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) um 5 Leads abzurufen:
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

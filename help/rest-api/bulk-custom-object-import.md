@@ -4,10 +4,14 @@ feature: Custom Objects
 description: Erfahren Sie, wie Sie benutzerdefinierte Marketo-Objekte mithilfe von CSV-, TSV- oder SSV-Dateien per Massenimport über REST importieren.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
 TQID: https://experienceleague.adobe.com/C1LKLZDEvv95XXH3AEoxIXsLK55tgKTrvyxvs4LnYWw
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 953
@@ -225,7 +229,7 @@ Diese Antwort zeigt einen abgeschlossenen Import an, aber die `status` kann eine
 
 ## Fehler
 
-Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an. Rufen Sie [ Endpunkt „Importieren von benutzerdefinierten Objektfehlern](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) auf, um eine Datei mit Fehlerdetails zu erhalten. Auch hier müssen Sie den benutzerdefinierten Objekt-API-Namen und die `batchId` im Pfad übergeben. Wenn keine Fehlerdatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
+Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an. Rufen Sie [&#x200B; Endpunkt „Importieren von benutzerdefinierten Objektfehlern](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) auf, um eine Datei mit Fehlerdetails zu erhalten. Auch hier müssen Sie den benutzerdefinierten Objekt-API-Namen und die `batchId` im Pfad übergeben. Wenn keine Fehlerdatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
 
 Um mit dem Beispiel fortzufahren, können wir einen Fehler erzwingen, indem wir die Kopfzeile ändern und „vin“ in „vin“ ändern (indem wir ein Leerzeichen zwischen dem Komma und „vin“ einfügen).
 
@@ -276,7 +280,7 @@ Und wir können sehen, dass uns unser Deduplizierungsfeld `vin` fehlt.
 
 ## Warnungen
 
-Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort „Benutzerdefinierter Objektstatus abrufen“ angezeigt. Wenn numOfRowsWithWarning größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an. Rufen Sie [ Endpunkt „Benutzerdefinierte Objektwarnungen importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) auf, um eine Datei mit Warndetails zu erhalten. Auch hier müssen Sie den benutzerdefinierten Objekt-API-Namen und die `batchId` im Pfad übergeben. Wenn keine Warndatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
+Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort „Benutzerdefinierter Objektstatus abrufen“ angezeigt. Wenn numOfRowsWithWarning größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an. Rufen Sie [&#x200B; Endpunkt „Benutzerdefinierte Objektwarnungen importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) auf, um eine Datei mit Warndetails zu erhalten. Auch hier müssen Sie den benutzerdefinierten Objekt-API-Namen und die `batchId` im Pfad übergeben. Wenn keine Warndatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

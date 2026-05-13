@@ -4,10 +4,14 @@ feature: REST API, Custom Objects
 description: Handbuch zu Marketo Bulk Custom Object Extract REST APIs zum Exportieren von Lead-verknüpften benutzerdefinierten Objekten mit UpdatedAt- und Listenfiltern, ausgewählten Feldern und…
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
 TQID: https://experienceleague.adobe.com/KAT-vab2uZq8FrRbZLy30PCJNfq01znDDuSSWuIu7WE
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1473
@@ -59,7 +63,7 @@ Der Endpunkt [Benutzerdefinierten Objektauftrag erstellen](https://developer.ado
 
 Die Parameter für den Auftrag werden vor dem Start des Exports mithilfe des Endpunkts [Benutzerdefinierten Objektauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) definiert.
 
-Der erforderliche `apiName`-Pfadparameter ist der benutzerdefinierte Objektname, der vom Endpunkt [Benutzerdefiniertes Objekt beschreiben“ zurückgegeben ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1). Dies gibt an, welches benutzerdefinierte Marketo-Objekt exportiert werden soll. Benutzerdefinierte CRM-Objekte sind nicht zulässig. Der erforderliche `filter` enthält die Liste der Leads, die mit dem benutzerdefinierten Objekt verknüpft sind. Dies kann auf eine statische Liste oder eine Smart-Liste verweisen. Der erforderliche `fields`-Parameter enthält die API-Namen der benutzerdefinierten Objektattribute, die in die Exportdatei aufgenommen werden sollen. Optional können wir den `format` der Datei und die `columnHeaderNames` definieren.
+Der erforderliche `apiName`-Pfadparameter ist der benutzerdefinierte Objektname, der vom Endpunkt [Benutzerdefiniertes Objekt beschreiben“ zurückgegeben &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1). Dies gibt an, welches benutzerdefinierte Marketo-Objekt exportiert werden soll. Benutzerdefinierte CRM-Objekte sind nicht zulässig. Der erforderliche `filter` enthält die Liste der Leads, die mit dem benutzerdefinierten Objekt verknüpft sind. Dies kann auf eine statische Liste oder eine Smart-Liste verweisen. Der erforderliche `fields`-Parameter enthält die API-Namen der benutzerdefinierten Objektattribute, die in die Exportdatei aufgenommen werden sollen. Optional können wir den `format` der Datei und die `columnHeaderNames` definieren.
 
 Nehmen wir als Beispiel an, dass wir ein benutzerdefiniertes Objekt namens „Auto“ mit den folgenden Feldern erstellt haben: Farbe, Marke, Modell, FIN. Das Verknüpfungsfeld ist die Lead-ID und das Deduplizierungsfeld ist die FIN.
 
@@ -343,7 +347,7 @@ Dies antwortet mit der anfänglichen `status` „In Warteschlange“, nach der a
 
 Der Status kann nur für Aufträge abgerufen werden, die vom selben API-Benutzer erstellt wurden.
 
-Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Abrufen des benutzerdefinierten Objektauftragsstatus ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Das Statusfeld kann mit einem der folgenden Elemente antworten: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen oder Fehlgeschlagen.
+Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Abrufen des benutzerdefinierten Objektauftragsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Das Statusfeld kann mit einem der folgenden Elemente antworten: Erstellt, In Warteschlange, Verarbeitung läuft, Abgebrochen, Abgeschlossen oder Fehlgeschlagen.
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json

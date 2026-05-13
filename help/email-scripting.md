@@ -4,10 +4,15 @@ feature: Email Programs
 description: Erfahren Sie, wie Sie dynamische Marketo-E-Mails mit Apache Velocity-Token, Variablen und Velocity-Tools skripten und mit Beispiel senden und E-Mail-Vorschau testen können.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
 TQID: https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1116
@@ -100,7 +105,7 @@ Nachdem Sie Ihr Skript in einem „Mein Programm-Token“ definiert haben, könn
 
 ![E-Mail-Skript](assets/email-script-marketo-email.png)
 
-Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet wird, müssen Sie einen vorhandenen Lead auswählen, der im Feld [!UICONTROL Lead] dargestellt werden soll. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger ] auswählen. Dieser Prozess verwendet die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject`.
+Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet wird, müssen Sie einen vorhandenen Lead auswählen, der im Feld [!UICONTROL Lead] dargestellt werden soll. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger &#x200B;] auswählen. Dieser Prozess verwendet die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject`.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 
@@ -118,7 +123,7 @@ Die Gesamtlänge aller E-Mail-Skript-Token in einer bestimmten E-Mail darf 100.0
 - Sie können auf benutzerdefinierte Objekte verweisen, die mit einem Lead, Kontakt oder Konto verbunden sind, jedoch nicht mit mehr als einem.
 - Benutzerdefinierte Objekte können nur über eine einzige Verbindung, einen Lead, einen Kontakt oder ein Konto referenziert werden
 - Aktivieren Sie das Kontrollkästchen im Skript-Editor für die Felder, die Sie verwenden oder nicht verarbeiten
-- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar und werden von der zuletzt aktualisierten Version (bei 0) zur ältesten aktualisierten Version (bei 9) sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [den Anweisungen) ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar und werden von der zuletzt aktualisierten Version (bei 0) zur ältesten aktualisierten Version (bei 9) sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [den Anweisungen) &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Wenn Sie mehr als ein E-Mail-Skript in eine E-Mail einbeziehen, werden diese von oben nach unten ausgeführt. Der Umfang der Variablen, die im ersten auszuführenden Skript definiert sind, ist in nachfolgenden Skripten verfügbar.
 - Tools-Referenz: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Ein Hinweis zu Token, die Zeilenumbruchzeichen &quot;\n“ oder &quot;\r\n“ enthalten. Wenn eine E-Mail über das Versandbeispiel oder eine Batch-Kampagne gesendet wird, werden Zeilenumbruchzeichen in Token durch Leerzeichen ersetzt. Wenn E-Mails über Trigger Campaign gesendet werden, bleiben Zeilenumbruchzeichen unberührt.

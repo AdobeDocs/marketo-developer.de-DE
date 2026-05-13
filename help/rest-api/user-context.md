@@ -4,11 +4,18 @@ feature: REST API
 description: Erfahren Sie, wie Sie die Marketo RTP User Context API aktivieren und verwenden, um benutzerdefinierte Variablen festzulegen, Benutzerdaten über Besuche hinweg zu lesen und angesehene und angeklickte Kampagnen zu verfolgen.
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
 TQID: https://experienceleague.adobe.com/Ph0Tw-C9jzWaR4bYyUIXyzzoa2yjHQk2gt6tNA8H2mA
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-subfeature_v2: id: a1d50dda-6d94-4e16-8c30-5eb7181c4650
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: e0eb8757-182f-49f3-94a4-1587d16f5094
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+subfeature_v2:
+  - id: a1d50dda-6d94-4e16-8c30-5eb7181c4650
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 296
@@ -18,9 +25,9 @@ ht-degree: 5%
 
 # Benutzerkontext
 
-User Context JavaScript-API stellt Daten auf Benutzer- und Besucherebene über mehrere Sitzungen hinweg bereit, um erweiterte Personalisierungsfunktionen unter Verwendung historischer Benutzerverhaltensdaten und -daten zu ermöglichen. Die API geht über das Lesen von Daten hinaus und stellt benutzerdefinierte Variablen bereit, mit denen Sie aussagekräftige Daten und Ereignisse für erweiterte Segmentierungs- und Personalisierungszwecke an das RTP-Backend übertragen können. Zusätzliche Funktionen: [Trigger ](../javascript-api/triggers.md), [Musterübereinstimmung](../javascript-api/pattern-match.md).
+User Context JavaScript-API stellt Daten auf Benutzer- und Besucherebene über mehrere Sitzungen hinweg bereit, um erweiterte Personalisierungsfunktionen unter Verwendung historischer Benutzerverhaltensdaten und -daten zu ermöglichen. Die API geht über das Lesen von Daten hinaus und stellt benutzerdefinierte Variablen bereit, mit denen Sie aussagekräftige Daten und Ereignisse für erweiterte Segmentierungs- und Personalisierungszwecke an das RTP-Backend übertragen können. Zusätzliche Funktionen: [Trigger &#x200B;](../javascript-api/triggers.md), [Musterübereinstimmung](../javascript-api/pattern-match.md).
 
-- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTP[Tag auf Ihrer Site bereitgestellt haben.
+- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [&#128279;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTPTag auf Ihrer Site bereitgestellt haben.
 - Die User Context-API ist eine Funktion, die vom Marketo-Support auf Anfrage aktiviert werden muss. Wenn die API aktiviert ist, wird ein userContext-Objekt unter dem globalen RTP-Objekt verfügbar gemacht.
 
 ## Benutzerkontexteigenschaften
