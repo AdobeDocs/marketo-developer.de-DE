@@ -28,7 +28,7 @@ Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, au
 1. Im Hauptteil der Seite
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
 
-Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 
