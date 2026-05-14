@@ -4,17 +4,13 @@ feature: REST API
 description: Verwenden Sie die Marketo Engage-Aktivitäts-REST-API, um Aktivitätstypen aufzulisten, Lead-Aktivitäten mit Paging-Token abzurufen und benutzerdefinierte Änderungen und Änderungen von Datenwerten zu verarbeiten.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
 TQID: https://experienceleague.adobe.com/62keaj4uNoxIPCzr9AQzKrIsfuHBvC25knYisZRUvF4
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
 workflow-type: tm+mt
-source-wordcount: 2218
+source-wordcount: 2226
 ht-degree: 0%
 
 ---
@@ -33,7 +29,7 @@ Die meisten Aktivitäten werden nach einiger Zeit bereinigt.
 
 Um eine Liste der verfügbaren Typen und ihrer Definitionen für eine Instanz abzurufen, können Sie den Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) verwenden.
 
-```http
+```
 GET /rest/v1/activities/types.json
 ```
 
@@ -84,15 +80,15 @@ Die Antworten der realen Welt umfassen weitaus mehr Definitionen. In diesem Beis
 
 ## Abfrage
 
-Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
+Um Aktivitäten aus Marketo abzurufen, rufen Sie den Endpunkt [Lead-Aktivitäten ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET)) auf. Sie müssen zunächst ein Paging-Token für die Datums-/Uhrzeitangabe abrufen, aus der Sie mit dem Abrufen von Aktivitäten beginnen möchten. Anschließend übergeben Sie das Paging-Token im `nextPageToken` Abfrageparameter . Darüber hinaus können Sie im `activityTypeIds` Abfrageparameter bis zu zehn Aktivitätstyp-IDs als kommagetrennte Liste übergeben.
 
 Sie können optional entweder einen `listId` Abfrageparameter einbeziehen, um Ihre Suche auf die Datensätze einzugrenzen, die in einer bestimmten statischen Liste enthalten sind, oder einen `leadIds` Abfrageparameter und nur nach Aktivitäten aus einem bestimmten Satz von Leads suchen. Sie können bis zu 30 `leadIds` als kommagetrennte Liste übergeben.
 
 >[!CAUTION]
 >
->Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden.
+>Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden. Siehe [Migrationshandbuch](migration.md).
 
-```http
+```
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -155,7 +151,7 @@ Für Aktivitäten mit Datenwertänderung wird eine spezielle Version der Aktivit
 
 >[!CAUTION]
 >
->Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden.
+>Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden. Siehe [Migrationshandbuch](migration.md).
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
