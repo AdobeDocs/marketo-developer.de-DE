@@ -26,7 +26,7 @@ Sie sollten dieses Dokument für die Personen oder das Team freigeben, die für 
 Je nach Anwendungsfall gibt es zwei grundlegende Optionen, um Ihre Anwendung zu migrieren:
 
 * Begrenzen Sie statische Listen, aus denen Sie Aktivitäten extrahieren, auf maximal 10.000 Mitglieder. Sie können jede Ihrer vorhandenen Listen in kleinere Listen aufteilen, um dieselbe Zielgruppe weiterhin für Aktivitäten abzurufen.
-* Extrahieren Sie Ihre Aktivitäten oder Datenwertänderungen mithilfe der Massenaktivität „Extrahieren“ oder „Datenströme“ und verbinden Sie diese Ergebnisse mit der statischen Listenmitgliedschaft mit [getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) oder [Massenlead-Extraktion](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)
+* Extrahieren Sie Ihre Aktivitäten oder Datenwertänderungen mithilfe der Massenaktivität „Extrahieren“ oder „Datenströme“ und verbinden Sie diese Ergebnisse mit der statischen Listenmitgliedschaft mit [getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) oder [Massenlead-Extraktion](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)
 
 ## Was passiert, wenn ich nichts tue?
 
