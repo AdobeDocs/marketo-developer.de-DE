@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
 workflow-type: tm+mt
-source-wordcount: 2218
+source-wordcount: 2226
 ht-degree: 0%
 
 ---
@@ -33,7 +33,7 @@ Die meisten Aktivitäten werden nach einiger Zeit bereinigt.
 
 Um eine Liste der verfügbaren Typen und ihrer Definitionen für eine Instanz abzurufen, können Sie den Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) verwenden.
 
-```http
+```
 GET /rest/v1/activities/types.json
 ```
 
@@ -90,9 +90,9 @@ Sie können optional entweder einen `listId` Abfrageparameter einbeziehen, um Ih
 
 >[!CAUTION]
 >
->Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden.
+>Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden. Siehe [Migrationshandbuch](migration.md).
 
-```http
+```
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -155,7 +155,7 @@ Für Aktivitäten mit Datenwertänderung wird eine spezielle Version der Aktivit
 
 >[!CAUTION]
 >
->Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden.
+>Ab dem 30.12.2026 schlagen Aufrufe an die `Get Lead Activities`- und `Get Lead Changes`-Endpunkte, die den `listId` enthalten, fehl (Fehlercode 1003), wenn die Target-Listen 10.000 oder mehr Leads enthalten. Um Service-Unterbrechungen zu vermeiden, stellen Sie sicher, dass -Aufrufe einen ordnungsgemäßen Umfang haben, um diese Beschränkung zu vermeiden. Siehe [Migrationshandbuch](migration.md).
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
