@@ -13,7 +13,7 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
 workflow-type: tm+mt
 source-wordcount: 1116
 ht-degree: 0%
@@ -22,7 +22,7 @@ ht-degree: 0%
 
 # E-Mail-Skripterstellung
 
-HINWEIS: Es wird dringend empfohlen, das [Velocity-Benutzerhandbuch](https://velocity.apache.org/engine/devel/user-guide.html) zu lesen, um eine ausführliche Erläuterung des Verhaltens der Velocity-Vorlagensprache zu erhalten.
+HINWEIS: Es wird dringend empfohlen, das [Velocity-Benutzerhandbuch](https://velocity.apadche.org/engine/devel/user-guide.html) zu lesen, um eine ausführliche Erläuterung des Verhaltens der Velocity-Vorlagensprache zu erhalten.
 
 [Apache Velocity](https://velocity.apache.org/) ist eine Sprache, die auf Java basiert und für die Erstellung von Vorlagen und Skripten für HTML-Inhalte entwickelt wurde. Marketo ermöglicht die Verwendung im Kontext von E-Mails mithilfe von Skript-Token. Diese Funktion ermöglicht den Zugriff auf Daten, die in Opportunities und benutzerdefinierten Objekten gespeichert sind, und die Erstellung dynamischer Inhalte in E-Mails. Velocity bietet standardmäßige Steuerungsabläufe auf hoher Ebene mit if/else, for und for each, um eine bedingte und iterative Manipulation der Inhalte zu ermöglichen.
 
@@ -44,7 +44,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-Es gibt auch eine ruhige Referenznotation, bei der nach der `$` ein `!` enthalten ist. Wenn die Geschwindigkeit auf eine undefinierte Referenz trifft, bleibt die Zeichenfolge, die die Referenz darstellt, normalerweise an Ort und Stelle. Bei leiser Referenznotation wird kein Wert ausgegeben, wenn ein undefinierter Verweis gefunden wird:
+Es gibt auch eine ruhige Referenznotation, bei der nach der `$` ein `!` enthalten ist. Wenn die Geschwindigkeit auf eine undefinierte Referenz trifft, bleibt die Zeichenfolge, die die Referenz darstellt, normalerweise an Ort und Stelle. Bei ruhiger Referenznotation wird kein Wert ausgegeben, wenn ein undefinierter Verweis gefunden wird:
 
 ```velocity
 ##Defined Reference

@@ -1,16 +1,16 @@
 ---
 title: Datenaufnahme
-feature: REST API, Dynamic Content
-description: Verwenden Sie die Marketo-Datenaufnahme-API für die Aufnahme von Personen, benutzerdefinierten Objekten, Unternehmen und Programmmitgliedern mit hohem Volumen und geringer Latenz.
+feature: REST API, Dynamic Content, Static Lists
+description: Verwenden Sie die Marketo-Datenaufnahme-API für die Aufnahme von Personen, benutzerdefinierten Objekten, Unternehmen, Programmmitgliedern und Listen mit hohem Volumen und geringer Latenz.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
 workflow-type: tm+mt
-source-wordcount: 1789
+source-wordcount: 2178
 ht-degree: 17%
 
 ---
@@ -21,7 +21,7 @@ Die Datenerfassungs-API ist ein Service mit hoher Datenmenge und geringer Latenz
 
 Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt werden. Der Anfragestatus kann abgerufen werden, indem Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) abonniert werden.
 
-Schnittstellen werden für vier Objekttypen angeboten: Personen, benutzerdefinierte Objekte, Unternehmen und Programmmitglieder. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“, mit Ausnahme von Programmmitgliedern, die auch das Löschen unterstützen.
+Schnittstellen werden für fünf Objekttypen angeboten: Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen (statische Listen). Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“, mit Ausnahme von Programmmitgliedern, die auch „Löschen“ unterstützen, und Listen, die „Hinzufügen“ und „Entfernen“ unterstützen.
 
 >[!NOTE]
 >
@@ -45,6 +45,7 @@ Die Datenaufnahme verwendet dasselbe Berechtigungsmodell wie die Marketo REST-AP
 | Benutzerdefinierte Objekte | Objekt mit Lese-/Schreibzugriff |
 | Firmen | Unternehmen mit Lese-/Schreibzugriff |
 | Programm-Mitglieder | Lead mit Lese-/Schreibzugriff |
+| Listen | Lead mit Lese-/Schreibzugriff |
 
 ## Unterstützte Objekttypen
 
@@ -54,6 +55,7 @@ Die Datenaufnahme verwendet dasselbe Berechtigungsmodell wie die Marketo REST-AP
 | Benutzerdefinierte Objekte | Upsert (einfügen oder aktualisieren) |
 | Firmen | Synchronisieren (`createOnly`, `updateOnly`, `createOrUpdate`) |
 | Programm-Mitglieder | Synchronisieren (Upsert-Status), Löschen (aus Programm entfernen) |
+| Listen | Zur Liste hinzufügen, aus Liste entfernen |
 
 ## Kopfzeilen
 
@@ -97,6 +99,10 @@ Beispiel-URL für Unternehmen:
 Beispiel-URL für Programmmitglieder:
 
 `https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/programmembers`
+
+Beispiel-URL für Listen:
+
+`https://mkto-ingestion-api.adobe.io/subscriptions/556-RJS-213/lists`
 
 ### Antworten
 
@@ -157,7 +163,7 @@ Wiederholungsintervalle:
 
 ## Endpunkte
 
-Aufnahme-Endpunkte sind für Personen, benutzerdefinierte Objekte, Unternehmen und Programmmitglieder verfügbar.
+Aufnahme-Endpunkte sind für Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen verfügbar.
 
 ### Personen
 
@@ -593,6 +599,159 @@ Erforderliche Berechtigungen sind `Read-Write Lead`.
 | leadId | Erforderlich für jedes Element im Eingabe-Array. |
 | Max. Leads pro Anfrage | Insgesamt 1.000 Mitglieder in allen Programmen. |
 
+### Listen (zu Liste hinzufügen)
+
+Endpunkt zum Hinzufügen von Leads zu einer statischen Liste. Leads werden anhand ihrer Marketo-Lead-ID identifiziert.
+
+| Methode | Pfad |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists` |
+
+#### Kopfzeilen
+
+| Schlüssel | Wert | Erforderlich |
+| --- | --- | --- |
+| `Content-Type` | application/json | Ja |
+| `X-Mkto-User-Token` | {accessToken} | Ja |
+| `X-Correlation-Id` | Beliebige Zeichenfolge (maximale Länge 255 Zeichen) | Nein |
+| `X-Request-Source` | Beliebige Zeichenfolge (maximale Länge 50 Zeichen) | Nein |
+
+#### Anfragetext
+
+| Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
+| --- | --- | --- | --- | --- |
+| `listId` | Lang | Ja | Die statische Marketo-Listen-ID. Muss eine positive Ganzzahl sein. | – |
+| `leads` | Array von Objekten | Ja | Liste der Lead-Verweise, die der Liste hinzugefügt werden sollen. Akzeptiert den JSON-Schlüssel `input` oder `leads`. | – |
+
+Jedes Objekt im Eingabe-Array enthält:
+
+| Schlüssel | Datentyp | Erforderlich | Beschreibung |
+| --- | --- | --- | --- |
+| `leadId` | Lang | Ja | Die Marketo Lead-ID. Akzeptiert den JSON-Schlüssel `leadId` oder `id`. |
+
+Erforderliche Berechtigungen sind `Read-Write Lead`.
+
+### Beispiel für Listen, die zu einer Liste hinzugefügt werden
+
+#### Anfrage
+
+`POST /subscriptions/{munchkinId}/lists`
+
+#### Kopfzeilen
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### Textkörper
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      },
+      {
+         "leadId": 10003
+      }
+   ]
+}
+```
+
+#### Antwort
+
+`HTTP/1.1 202`
+`X-Request-ID: WOUBf3fHJNU6sTmJqLL281lOmAEpMZFw`
+
+### Listen zu Validierungsregeln für Listen hinzufügen
+
+| Regel | Detail |
+| --- | --- |
+| listId | Erforderlich. Muss eine positive Ganzzahl sein (> 0). |
+| Leads | Erforderlich. Darf nicht null oder leer sein. |
+| leadId | Erforderlich für jeden Lead im Eingabe-Array. |
+| Max. Leads pro Anfrage | Insgesamt 1.000 Leads im Eingabe-Array. |
+
+### Listen (aus Liste entfernen)
+
+Endpunkt zum Entfernen von Leads aus einer statischen Liste. Leads werden anhand ihrer Marketo-Lead-ID identifiziert.
+
+>[!NOTE]
+>
+>Dieser Endpunkt verwendet POST anstelle von DELETE, da die Anfrage einen JSON-Hauptteil mit strukturierten Daten erfordert.
+
+| Methode | Pfad |
+| --- | --- |
+| POST | `/subscriptions/{munchkinId}/lists/remove` |
+
+#### Kopfzeilen
+
+| Schlüssel | Wert | Erforderlich |
+| --- | --- | --- |
+| `Content-Type` | application/json | Ja |
+| `X-Mkto-User-Token` | {accessToken} | Ja |
+| `X-Correlation-Id` | Beliebige Zeichenfolge (maximale Länge 255 Zeichen) | Nein |
+| `X-Request-Source` | Beliebige Zeichenfolge (maximale Länge 50 Zeichen) | Nein |
+
+#### Anfragetext
+
+| Schlüssel | Datentyp | Erforderlich | Wert | Standardwert |
+| --- | --- | --- | --- | --- |
+| `listId` | Lang | Ja | Die statische Marketo-Listen-ID. Muss eine positive Ganzzahl sein. | – |
+| `leads` | Array von Objekten | Ja | Liste der Lead-Referenzen, die aus der Liste entfernt werden sollen. Akzeptiert den JSON-Schlüssel `input` oder `leads`. | – |
+
+Jedes Objekt im Eingabe-Array enthält:
+
+| Schlüssel | Datentyp | Erforderlich | Beschreibung |
+| --- | --- | --- | --- |
+| `leadId` | Lang | Ja | Die Marketo Lead-ID. Akzeptiert den JSON-Schlüssel `leadId` oder `id`. |
+
+Erforderliche Berechtigungen sind `Read-Write Lead`.
+
+### Beispiel für das Entfernen von Listen aus einer Liste
+
+#### Anfrage
+
+`POST /subscriptions/{munchkinId}/lists/remove`
+
+#### Kopfzeilen
+
+`Content-Type: application/json`
+`X-Mkto-User-Token: {accessToken}`
+
+#### Textkörper
+
+```json
+{
+   "listId": 1001,
+   "leads": [
+      {
+         "leadId": 10001
+      },
+      {
+         "leadId": 10002
+      }
+   ]
+}
+```
+
+#### Antwort
+
+`HTTP/1.1 202`
+`X-Request-ID: e3d92152-0fb1-444a-8f8f-29d5a2338598`
+
+### Listen werden aus den Regeln für die Listenvalidierung entfernt
+
+| Regel | Detail |
+| --- | --- |
+| listId | Erforderlich. Muss eine positive Ganzzahl sein (> 0). |
+| Leads | Erforderlich. Darf nicht null oder leer sein. |
+| leadId | Erforderlich für jeden Lead im Eingabe-Array. |
+| Max. Leads pro Anfrage | Insgesamt 1.000 Leads im Eingabe-Array. |
+
 ## Beschränkungen
 
 Im Folgenden finden Sie eine aktualisierte Liste von Leitplanken:
@@ -602,7 +761,7 @@ Im Folgenden finden Sie eine aktualisierte Liste von Leitplanken:
 * Maximale Anzahl von Anfragen pro Sekunde und Client-ID: 5.000
 * Maximale Anzahl an Objekten pro Tag: 10.000.000
 
-Diese Beschränkungen gelten einheitlich für Personen, benutzerdefinierte Objekte, Unternehmen und Programmmitglieder. Für Programmteilnehmer ist „Objekte pro Anfrage“ die Gesamtzahl der Lead-Referenzen in allen Programmen in einer einzigen Anfrage.
+Diese Beschränkungen gelten einheitlich für Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen. Für Programmteilnehmer ist „Objekte pro Anfrage“ die Gesamtzahl der Lead-Referenzen in allen Programmen in einer einzigen Anfrage. Bei Listen ist „Objekte pro Anfrage“ die Anzahl der Lead-Referenzen im Eingabe-Array.
 
 ## Datenaufnahme-API und REST-API im Vergleich
 
