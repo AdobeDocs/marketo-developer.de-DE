@@ -1,10 +1,10 @@
 ---
 title: EXL-Vorschautest
 description: Beispiele für die Adobe EXL-Markdown-Syntax zum Testen der Erweiterungsvorschau.
-source-git-commit: 8f7ff2e1b6d0a4d8f63affb7bd1a2d0abbcc118c
+source-git-commit: 87d2584ed0ef2c1fa219f2a3ad120c91dc5491e0
 workflow-type: tm+mt
-source-wordcount: '343'
-ht-degree: 9%
+source-wordcount: '359'
+ht-degree: 13%
 
 ---
 
@@ -93,6 +93,14 @@ Verwenden Sie ausblendbare Abschnitte für optionale oder erweiterte Inhalte, di
 
 +++
 
+## Kontextuelle Hilfe
+
+Die kontextuelle Hilfe ist in der Vorschau ausgeblendet. Sehen Sie!
+>[!CONTEXTUALHELP]
+>id="models_insights_undefinedchannels"
+>title="Nicht definierte Kanäle"
+>abstract="Nicht definierte Kanäle sind enthalten, weisen jedoch keine zugewiesenen Konversionen auf."
+
 ## Eingebettetes Video
 
 >[!VIDEO](https://video.tv.adobe.com/v/3427028/?quality=12&learn=on)
@@ -173,5 +181,6 @@ function greet(name) {
 
 | Spalte 1 | Spalte 2 | Spalte 3 |
 | --- | --- | --- |
-| Zeile 1, Zelle 1 | Zeile 1, Zelle 2 | Zeile 1, Zelle 3 |
+| [!UICONTROL Zeile 1] Zelle 1 | Zeile 1, Zelle 2 | [!DNL Row 1, cell 3] |
 | Zeile 2, Zelle 1 | Zeile 2, Zelle 2 | Zeile 2, Zelle 3 |
+
