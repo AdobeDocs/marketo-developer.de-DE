@@ -4,10 +4,14 @@ feature: Mobile Marketing
 description: Schritt-für-Schritt-Anleitung zur Integration des Marketo Cordova-Plug-ins mit Ionic, zur Aktivierung von Push-Benachrichtigungen, zur Initialisierung von SDK, zur Verfolgung von Sitzungen und zur Zuordnung von Leads.
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
 TQID: https://experienceleague.adobe.com/UTNWd69NliR896RcO-XM2GG35liuLeNNhTXo9GRtB4o
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 663
@@ -126,7 +130,7 @@ marketo.initializeMarketoPush(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
 - Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
-- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in ](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) Entwicklerkonsole von Google gefunden wurde.[
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in [&#128279;](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) Entwicklerkonsole von Google gefunden wurde.
 
 Die Registrierung des Tokens kann auch beim Abmelden aufgehoben werden.
 

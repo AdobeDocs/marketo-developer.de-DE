@@ -4,10 +4,14 @@ feature: REST API, Database
 description: Handbuch zu Marketo-Lead-Datenbank-APIs mit Informationen zu Objekten, CRUD-Methoden und beschreibenden Methoden, Abfragemustern, Batch-Beschränkungen und CRM-Integrationsbeschränkungen.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
 TQID: https://experienceleague.adobe.com/7lGbhE92lvIE-XkMyUIaK9GrreZVRdM-WVZTpHARhxE
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1373
@@ -148,7 +152,7 @@ GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separat
 Für alle Objekte außer Leads können Sie Ihre {field to query} aus den durchsuchbaren Feldern des entsprechenden Describe-Aufrufs auswählen und eine kommagetrennte Liste mit bis zu 300 Werten erstellen. Es gibt auch diese optionalen Abfrageparameter:
 
 - `batchSize` : Eine ganzzahlige Anzahl der zurückzugebenden Ergebnisse. Standard und Maximum sind 300.
-- `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [ unter ](paging-tokens.md)Paging-Token“.
+- `nextPageToken` - Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [&#x200B; unter &#x200B;](paging-tokens.md)Paging-Token“.
 - `fields` : Eine kommagetrennte Liste von Feldnamen, die für jeden Datensatz zurückgegeben werden sollen. Eine Liste der gültigen Felder finden Sie in der entsprechenden Beschreibung. Wenn ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, ist der Wert impliziert null.
 - `_method` - Wird zum Senden von Abfragen mithilfe der POST-HTTP-Methode verwendet. Weitere Informationen zur Verwendung finden Sie im Abschnitt _method=GET unten.
 
@@ -187,7 +191,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 
 Der in diesem Aufruf angegebene `filterType` lautet „idField“ und nicht „marketoGUID“. Dies und „dedupeFields“ sind beides Sonderfälle, in denen das Feld, das dem idField, bzw. dedupeFields entspricht, auf diese Weise aliasiert werden kann. Die „marketoGUID“ ist weiterhin das resultierende Suchfeld im Aufruf, wird aber nicht explizit im Aufruf festgelegt. Die Felder und/oder Feldgruppen, die durch die `idField` und `dedupeFields` einer Objektbeschreibung angegeben werden, sind immer `filterTypes` für eine Abfrage gültig. Dieser Aufruf sucht nach Datensätzen, die mit den in filterValues enthaltenen GUIDs übereinstimmen, und gibt übereinstimmende Datensätze zurück. Wenn mit dieser Methode keine Datensätze gefunden werden, zeigt die Antwort weiterhin Erfolg an, aber das Ergebnis-Array ist leer, da die Suche erfolgreich ausgeführt wurde, aber es gab keine zurückzugebenden Datensätze.
 
-Wenn die Menge der Datensätze in der Abfrage 300 überschreitet oder die angegebene `batchSize` überschreitet, je nachdem, welcher Wert kleiner ist, verfügt die Antwort über einen `moreResult` mit dem Wert „true“ und einen `nextPageToken`, der in einen nachfolgenden Aufruf eingeschlossen werden kann, um einen größeren Teil der Menge abzurufen. Weitere Informationen finden [ unter ](paging-tokens.md)Paging-Token“.
+Wenn die Menge der Datensätze in der Abfrage 300 überschreitet oder die angegebene `batchSize` überschreitet, je nachdem, welcher Wert kleiner ist, verfügt die Antwort über einen `moreResult` mit dem Wert „true“ und einen `nextPageToken`, der in einen nachfolgenden Aufruf eingeschlossen werden kann, um einen größeren Teil der Menge abzurufen. Weitere Informationen finden [&#x200B; unter &#x200B;](paging-tokens.md)Paging-Token“.
 
 ### Lange URIs
 
