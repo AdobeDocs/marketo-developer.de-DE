@@ -241,7 +241,7 @@ Der optionale Abfrageparameter `fields` akzeptiert eine kommagetrennte Liste von
 
 Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können den `batchSize` Abfrageparameter verwenden, um diese Zahl zu reduzieren. Wenn das **moreResult**-Attribut wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind. Die von dieser API zurückgegebene `nextPageToken` sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
 
-Wenn die Gesamtlänge Ihrer GET-Anfrage 8 KB überschreitet, wird ein HTTP-Fehler zurückgegeben: „414, URI zu lang“. Als Problemumgehung können Sie Ihre GET in „POST“ ändern, `_method=GET` Parameter hinzufügen und die Abfragezeichenfolge im Anfragetext platzieren.
+Wenn die Gesamtlänge Ihrer GET-Anfrage 8 KB überschreitet, wird ein HTTP-Fehler zurückgegeben: „414, URI zu lang“. Als Problemumgehung können Sie Ihre GET-Anfrage in POST ändern, `_method=GET` Parameter hinzufügen und die Abfragezeichenfolge im Anfragetext platzieren.
 
 ```http
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced
