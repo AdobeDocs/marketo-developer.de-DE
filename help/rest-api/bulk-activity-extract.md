@@ -4,16 +4,10 @@ feature: REST API
 description: Marketo Bulk Activity Extract REST-API zum Exportieren von Aktivitätsdaten mit hohem Volumen unter Verwendung eines 31-tägigen Datumsbereichs, Aktivität und primären Attributfiltern für ETL und CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
 TQID: https://experienceleague.adobe.com/lIlXNjatN-F77Dv3xsVkQ3hAWwLZ4wlSW0zKNkFJFMA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1564
@@ -36,7 +30,7 @@ Die APIs zum Extrahieren von Massenaktivitäten erfordern, dass der API-Benutzer
 | Filtertyp | Datentyp | Erforderlich | Hinweise |
 | --- | --- | --- | --- |
 | `createdAt` | Datumsbereich | Ja | Akzeptiert ein JSON-Objekt mit den `startAt` und `endAt`. `startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. |
-| `activityTypeIds` | Array\[Ganzzahl\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `activityTypeIds`. Der Wert muss ein Array von Ganzzahlen sein, das den gewünschten Aktivitätstypen entspricht. Die Aktivität „Lead löschen“ wird nicht unterstützt (stattdessen den Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) verwenden). Rufen Sie Aktivitätstyp-IDs mithilfe des Endpunkts [Aktivitätstypen abrufen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
+| `activityTypeIds` | Array\[Ganzzahl\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `activityTypeIds`. Der Wert muss ein Array von Ganzzahlen sein, das den gewünschten Aktivitätstypen entspricht. Die Aktivität „Lead löschen“ wird nicht unterstützt (stattdessen den Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) verwenden). Rufen Sie Aktivitätstyp-IDs mithilfe des Endpunkts [Aktivitätstypen abrufen“ ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
 | [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Ganzzahl\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `primaryAttributeValueIds`. Der Wert ist ein Array von IDs, die die primären Attribute angeben, nach denen gefiltert werden soll. Es können maximal 50 IDs angegeben werden. Die IDs sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie den Formularnamen an den Endpunkt [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) um die Formular-ID abzurufen. Im Folgenden finden Sie eine Liste der Aktivitätstypen, bei denen die Filterung primärer Attribute unterstützt wird. |
 | [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | Nein | Akzeptiert ein JSON-Objekt mit einem Element, `primaryAttributeValues`. Der Wert ist ein Array von Namen, die die primären Attribute zum Filtern angeben. Es können maximal 50 Namen angegeben werden. Die Namen sind die eindeutige Kennung für ein Lead-Feld oder ein Asset und können durch Aufruf des entsprechenden REST-API-Endpunkts abgerufen werden. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie die Formular-ID an den Endpunkt [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) um den Formularnamen abzurufen. Im Folgenden finden Sie eine Liste der Aktivitätstypen, bei denen die Filterung primärer Attribute unterstützt wird. |
 
@@ -113,13 +107,13 @@ Bei Verwendung von `primaryAttributeValues` muss der `activityTypeIds` vorhanden
 | Parameter | Datentyp | Erforderlich | Hinweise |
 | --- | --- | --- | --- |
 | `filter` | Array\[Objekt\] | Ja | Akzeptiert ein Filterarray. Es muss genau ein `createdAt` Filter im Array enthalten sein. Ein optionaler `activityTypeIds` kann enthalten sein. Die Filter werden auf den barrierefreien Aktivitätssatz angewendet, und der resultierende Aktivitätssatz wird vom Exportvorgang zurückgegeben. |
-| `format` | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| `format` | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 | `columnHeaderNames` | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
 | `fields` | Array\[String\] | Nein | Optionales Zeichenfolgen-Array, das Feldwerte enthält. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Standardmäßig werden die folgenden Felder zurückgegeben: `marketoGUID`, `leadId`, `activityDate`, `activityTypeId`, `campaignId`, `primaryAttributeValueId`, `primaryAttributeValue` und `attributes`. Dieser Parameter kann verwendet werden, um die Anzahl der zurückgegebenen Felder zu reduzieren, indem eine Teilmenge aus der obigen Liste angegeben wird: `"fields": ["leadId", "activityDate", "activityTypeId"]`. Sie können ein zusätzliches `actionResult` angeben, um die Aktivitätsaktion einzuschließen: `("succeeded", "skipped", or "failed")`. |
 
 ## Erstellen von Aufträgen
 
-Um Datensätze zu exportieren, müssen Sie zunächst den Auftrag und die Menge der Datensätze definieren, die Sie abrufen möchten.  Erstellen Sie den Auftrag mit [&#x200B; Endpunkt „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  Beim Exportieren von Aktivitäten können zwei primäre Filter angewendet werden: `createdAt`, was immer erforderlich ist, und `activityTypeIds`, was optional ist.  Der `createdAt` Filter wird verwendet, um einen Datumsbereich zu definieren, in dem Aktivitäten erstellt wurden. Dabei werden die Parameter `startAt` und `endAt` verwendet, die beide Datums-/Uhrzeitfelder sind und das früheste zulässige Erstellungsdatum bzw. das späteste zulässige Erstellungsdatum darstellen.  Optional können Sie auch mit dem `activityTypeIds` Filter nur nach bestimmten Aktivitätstypen filtern.  Dies ist nützlich, um Ergebnisse zu entfernen, die für Ihren Anwendungsfall nicht relevant sind.
+Um Datensätze zu exportieren, müssen Sie zunächst den Auftrag und die Menge der Datensätze definieren, die Sie abrufen möchten.  Erstellen Sie den Auftrag mit [ Endpunkt „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  Beim Exportieren von Aktivitäten können zwei primäre Filter angewendet werden: `createdAt`, was immer erforderlich ist, und `activityTypeIds`, was optional ist.  Der `createdAt` Filter wird verwendet, um einen Datumsbereich zu definieren, in dem Aktivitäten erstellt wurden. Dabei werden die Parameter `startAt` und `endAt` verwendet, die beide Datums-/Uhrzeitfelder sind und das früheste zulässige Erstellungsdatum bzw. das späteste zulässige Erstellungsdatum darstellen.  Optional können Sie auch mit dem `activityTypeIds` Filter nur nach bestimmten Aktivitätstypen filtern.  Dies ist nützlich, um Ergebnisse zu entfernen, die für Ihren Anwendungsfall nicht relevant sind.
 
 ```http
 POST /bulk/v1/activities/export/create.json
