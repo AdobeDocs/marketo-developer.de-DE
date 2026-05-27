@@ -4,17 +4,10 @@ feature: REST API, Programs
 description: Marketo-Programmhandbuch für die Asset-REST-API, das Typen, Kanäle, Tags, Mitgliedschaftsstatus und Endpunkte abdeckt, um nach ID oder Namen zu erhalten, zu durchsuchen und nach Status zu filtern.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
 TQID: https://experienceleague.adobe.com/5ILyahSn3Pp-lF6YPogVnkXjXP-QLtEmyLm7iKMIgo0
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: ebde5b41-29c9-4f5e-9ef6-1197e85409e3
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: ebde5b41-29c9-4f5e-9ef6-1197e85409e3
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 979
@@ -44,7 +37,7 @@ Programme haben immer einen Kanal. Sie leiten die möglichen eingerichteten Prog
 
 ## Abfrage
 
-Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option, um nach Tag-Typ und Werten abzufragen. Verfügbare Tags und Werte können mit &quot;[&#x200B; Tag-Typen abrufen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags/operation/getTagTypesUsingGET).
+Programme folgen dem Standardmuster für Asset-Abfragen mit einer zusätzlichen Option, um nach Tag-Typ und Werten abzufragen. Verfügbare Tags und Werte können mit &quot;[ Tag-Typen abrufen“ ](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags/operation/getTagTypesUsingGET).
 
 ### Nach ID
 
@@ -138,7 +131,7 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Durchsuchen
 
-Mit [&#x200B; Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)Programme abrufen“ können Sie nach Programmen suchen.
+Mit [ Endpunkt ](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)Programme abrufen“ können Sie nach Programmen suchen.
 
 Mit dem optionalen `status` können Sie nach dem Programmstatus filtern. Dieser Parameter gilt nur für Interaktions- und E-Mail-Programme. Die möglichen Werte sind „on“ und „off“ für Interaktionsprogramme und „unlocked“ für E-Mail-Programme.
 

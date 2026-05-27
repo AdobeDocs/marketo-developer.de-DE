@@ -4,15 +4,10 @@ feature: REST API
 description: Erfahren Sie, wie Sie E-Mail-Vorlagen für die Marketo-REST-API erstellen und verwalten, einschließlich HTML-Anforderungen, Abfragen nach ID oder Namen und Durchsuchen von Ordnern
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
 TQID: https://experienceleague.adobe.com/jKQpibaRP7nAyIsDdjMf8VkNPi5AMFbe7I4Iiy3MGc0
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 725
@@ -24,7 +19,7 @@ ht-degree: 1%
 
 [Endpunktreferenz für E-Mail-Vorlage](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
-E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  Während E-Mails durch HTML-Ersatz von Vorlagen getrennt werden können, müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Einschränkungen hinsichtlich des Inhalts, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier [&#x200B; Anforderungen &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-Mail-Vorlagen bilden die Grundlage für jede neue E-Mail in Marketo.  Während E-Mails durch HTML-Ersatz von Vorlagen getrennt werden können, müssen E-Mails zunächst mit einer Vorlage als Grundlage erstellt werden.  Vorlagen werden in Marketo als reine HTML-Dokumente mit Metadaten wie Namen und Beschreibungen erstellt.  Es gibt nur wenige Einschränkungen hinsichtlich des Inhalts, aber die HTML der Vorlage muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der den hier [ Anforderungen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Abfrage
 

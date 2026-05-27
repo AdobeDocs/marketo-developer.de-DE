@@ -4,19 +4,11 @@ feature: REST API, Forms
 description: Marketo Forms REST-API-Handbuch zum Erstellen und Verwalten von Formularen, zum Abrufen nach ID oder Name, zum Durchsuchen mit Statusfiltern und zum Verwalten von Feldern, Feldsätzen und Regeln.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
 TQID: https://experienceleague.adobe.com/56tc1a14d8okxweS7TK7SzfGB8G03WAI2KBlFKQbSdM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-subfeature_v2:
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1823
@@ -348,7 +340,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Erstellen und aktualisieren
 
-Beim [Erstellen eines &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/createLpFormsUsingPOST) gibt es nur zwei erforderliche Felder: den übergeordneten Ordner des Formulars und den Namen des Formulars. Alle anderen Parameter sind optional und haben einen Standardwert. Wenn das Formular erstellt wird, enthält es drei Standardfelder: Vorname, Nachname, E-Mail.
+Beim [Erstellen eines ](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/createLpFormsUsingPOST) gibt es nur zwei erforderliche Felder: den übergeordneten Ordner des Formulars und den Namen des Formulars. Alle anderen Parameter sind optional und haben einen Standardwert. Wenn das Formular erstellt wird, enthält es drei Standardfelder: Vorname, Nachname, E-Mail.
 
 ```http
 POST /rest/asset/v1/forms.json
@@ -885,7 +877,7 @@ Content-Type: text/html
 
 Marketo Forms verfügen über eine optionale Komponente, die als Feldsätze bezeichnet wird. Feldsätze sind Gruppen von Feldern, die in der Feldliste der obersten Ebene für die Zwecke der Verschiebung und Behandlung durch Sichtbarkeitsregeln als ein einzelnes Feld behandelt werden. Wenn beispielsweise ein Feld für Kompatibilitätsanforderungen vorhanden ist und ein Client „Ja“ auswählt, kann ein Feldsatz angezeigt werden, der Felder für HIPAA- und PCI-Kompatibilitätsanforderungen enthält.
 
-Felder in Feldsätzen sind für das Formular als Ganzes eindeutig, sodass doppelte Felder möglicherweise nicht sowohl in der Liste der übergeordneten Felder des Formulars als auch in einer untergeordneten Feldgruppe enthalten sind. Feldsätze werden über den Endpunkt [Feldsatz zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzugefügt und erscheinen dann im Ergebnis von [Felder für Formular abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Felder werden einem Feldsatz hinzugefügt, indem sie über „Feldpositionen aktualisieren“ in die [&#x200B; des Feldsatzes verschoben &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Für diese Endpunkte werden Daten als POST x-www-form-urlencoded und nicht als JSON übergeben.
+Felder in Feldsätzen sind für das Formular als Ganzes eindeutig, sodass doppelte Felder möglicherweise nicht sowohl in der Liste der übergeordneten Felder des Formulars als auch in einer untergeordneten Feldgruppe enthalten sind. Feldsätze werden über den Endpunkt [Feldsatz zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzugefügt und erscheinen dann im Ergebnis von [Felder für Formular abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Felder werden einem Feldsatz hinzugefügt, indem sie über „Feldpositionen aktualisieren“ in die [ des Feldsatzes verschoben ](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Für diese Endpunkte werden Daten als POST x-www-form-urlencoded und nicht als JSON übergeben.
 
 ## Sichtbarkeitsregel
 
