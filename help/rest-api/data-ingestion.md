@@ -4,8 +4,10 @@ feature: REST API, Dynamic Content, Static Lists
 description: Verwenden Sie die Marketo-Datenaufnahme-API für die Aufnahme von Personen, benutzerdefinierten Objekten, Unternehmen, Programmmitgliedern und Listen mit hohem Volumen und geringer Latenz.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
 TQID: https://experienceleague.adobe.com/xby7hs-CSLrVzy-FXEBi1FeU1-ca7vI4kB85BYJ9snk
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 1a8345909b679b5651c94a68f8d29950ed47f6ed
 workflow-type: tm+mt
 source-wordcount: 2191
@@ -21,7 +23,7 @@ Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt we
 
 Schnittstellen werden für fünf Objekttypen angeboten: Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen (statische Listen). Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“, mit Ausnahme von Programmmitgliedern, die auch „Löschen“ unterstützen, und Listen, die „Hinzufügen“ und „Entfernen“ unterstützen.
 
-Lesen Sie [ Dokumentation zur Datenaufnahme-API](https://developer.adobe.com/marketo-apis/api/data-ingestion).
+Lesen Sie [&#x200B; Dokumentation zur Datenaufnahme-API](https://developer.adobe.com/marketo-apis/api/data-ingestion).
 
 >[!NOTE]
 >
