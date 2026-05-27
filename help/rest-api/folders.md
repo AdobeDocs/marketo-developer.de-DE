@@ -4,15 +4,9 @@ feature: REST API
 description: 'Marketo-REST-API-Handbuch für Ordner, in dem Folgendes behandelt wird: Erstellen, Aktualisieren, Löschen, Abfrage nach ID und Namen, Massendurchsuchen mit Stamm, Workspace, maxDepth und Paginierung.'
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 TQID: https://experienceleague.adobe.com/OxCNdy8qW6jwq8u57RF9mqVKPVvH99UmuiOBjFprHCM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1099
@@ -123,7 +117,7 @@ Bei der Suche nach Namen ist es wichtig zu beachten, dass sowohl Marketing-Aktiv
 
 ### Durchsuchen
 
-Ordner können auch [stapelweise abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
+Ordner können auch [stapelweise abgerufen) ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Mit dem Parameter „root“ kann der übergeordnete Ordner angegeben werden, unter dem die Abfrage ausgeführt wird, und er ist als JSON-Objekt formatiert, das als Wert für den Abfrageparameter eingebettet ist. Root hat zwei Mitglieder:
 
 1. id : Die ID des Ordners oder Programms.
 1. type - Entweder Ordner oder Programm, je nach dem Typ des Stammordners, der im Browser gespeichert werden soll.

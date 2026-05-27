@@ -4,14 +4,10 @@ feature: REST API, Landing Pages
 description: Verwalten Sie Landingpage-Vorlagen von Marketo über REST-API-Endpunkte für Freiform und geführte Typen, fragen Sie nach ID oder Namen ab, erstellen, aktualisieren Sie HTML, klonen Sie Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
 TQID: https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 703
@@ -27,7 +23,7 @@ Landingpage-Vorlagen sind eine übergeordnete Ressource und eine Abhängigkeit f
 
 ## Vorlagentypen
 
-Marketo verfügt über zwei Arten von Landingpage-Vorlagen: Freiform und Geführt. Freiform-Landingpage-Vorlagen bieten ein locker strukturiertes Bearbeitungserlebnis für die von ihnen abgeleiteten Seiten. Geführte Vorlagen bieten ein stark strukturiertes Erlebnis, in dem Elementtypen und Speicherorte auf Vorlagenebene eingeschränkt werden können. Weitere Informationen zu den Unterschieden finden Sie [diesem Dokument](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo verfügt über zwei Arten von Landingpage-Vorlagen: Freiform und Geführt. Freiform-Landingpage-Vorlagen bieten ein locker strukturiertes Bearbeitungserlebnis für die von ihnen abgeleiteten Seiten. Geführte Vorlagen bieten ein stark strukturiertes Erlebnis, in dem Elementtypen und Speicherorte auf Vorlagenebene eingeschränkt werden können. Weitere Informationen zu den Unterschieden finden Sie [diesem Dokument](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Abfrage
 
@@ -176,9 +172,9 @@ Landingpage-Vorlagen folgen dem standardmäßigen Entwurfsbestätigungsmodell, f
 
 Damit eine Vorlage genehmigt werden kann, muss sie den Regeln für ihren Typ entsprechen, entweder geführt von Freiform. Weitere Informationen zu den Anforderungen für das Erstellen und Genehmigen von Vorlagen der jeweiligen Typen finden Sie in den jeweiligen Erstellungsdokumenten:
 
-- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Löschen
 
