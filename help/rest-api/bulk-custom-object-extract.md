@@ -57,7 +57,7 @@ Der Endpunkt [Benutzerdefinierten Objektauftrag erstellen](https://developer.ado
 | --- | --- | --- | --- |
 | `fields` | array[string] | Ja | Array von Zeichenfolgen, das den Wert des benutzerdefinierten Objektattributnamens enthält, der vom Endpunkt „Describe Custom Object“ zurückgegeben wird. Die aufgelisteten Felder sind in der exportierten Datei enthalten. |
 | `columnHeaderNames` | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| `format` | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| `format` | Zeichenfolge | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
 
 ## Erstellen von Aufträgen
 

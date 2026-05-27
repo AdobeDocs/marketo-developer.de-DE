@@ -182,7 +182,7 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 
 ## Abfrage
 
-[Abfrage benutzerdefinierter Objekte](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET) unterscheidet sich geringfügig von anderen Lead-Datenbank-APIs und verwendet `apiName` Pfadparameter wie beschrieben.  Bei normalen filterType-Parametern handelt es sich bei der Abfrage um eine einfache GET wie Abfragen für andere Datensatztypen. Sie erfordert eine `filterType` und `filterValues`.  Optional werden `**fields**`-, `batchSize`- und `nextPageToken` akzeptiert.  Wenn beim Anfordern einer Liste von Feldern ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, ist der Wert impliziert null.
+[Abfrage benutzerdefinierter Objekte](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET) unterscheidet sich geringfügig von anderen Lead-Datenbank-APIs und verwendet `apiName` Pfadparameter wie beschrieben.  Bei normalen filterType-Parametern ist die Abfrage eine einfache GET-Abfrage wie Abfragen für andere Datensatztypen und erfordert eine `filterType` und `filterValues`.  Optional werden `**fields**`-, `batchSize`- und `nextPageToken` akzeptiert.  Wenn beim Anfordern einer Liste von Feldern ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, ist der Wert impliziert null.
 
 ```http
 GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa,dff23271-f996-47d7-984f-f2676861b5fb
@@ -211,7 +211,7 @@ GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff232
 }
 ```
 
-Alternativ verhält sich die API bei Abfragen mit zusammengesetzten Schlüsseln wie die Opportunity-Rollen-API und akzeptiert eine POST mit einem JSON-Hauptteil.  Der JSON-Text kann mit Ausnahme von `filterValues` dieselben Mitglieder wie eine GET-Abfrage haben.  Anstelle von Filterwerten gibt es ein `input`-Array, das Objekte aufnimmt, die ein Element namens für jede `dedupeFields` des Objekttyps enthalten.
+Alternativ verhält sich die API bei Abfragen mit zusammengesetzten Schlüsseln wie die Opportunity-Rollen-API und akzeptiert eine POST mit einem JSON-Hauptteil.  Der JSON-Text kann die gleichen Mitglieder wie eine GET-Abfrage haben, mit Ausnahme von `filterValues`.  Anstelle von Filterwerten gibt es ein `input`-Array, das Objekte aufnimmt, die ein Element namens für jede `dedupeFields` des Objekttyps enthalten.
 
 ```http
 POST /rest/v1/customobjects/{apiName}.json?_method=GET

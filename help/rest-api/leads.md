@@ -111,7 +111,7 @@ Das Abrufen von Leads nach Filtertyp gibt den gleichen Datensatztyp zurück, kan
 
 `filterValues` akzeptiert bis zu 300 Werte im kommagetrennten Format. Der Aufruf sucht nach Datensätzen, bei denen das Feld des Leads mit einem der enthaltenen `filterValues` übereinstimmt. Wenn die Anzahl der Leads, die mit dem Lead-Filter übereinstimmen, größer als 1.000 ist, wird ein Fehler zurückgegeben: „1003, Zu viele Ergebnisse stimmen mit dem Filter überein“.
 
-Wenn die Gesamtlänge Ihrer GET-Anfrage 8 KB überschreitet, wird ein HTTP-Fehler zurückgegeben: „414, URI zu lang“ (gemäß RFC 7231). Als Problemumgehung können Sie Ihre GET in POST ändern, den Parameter _method=GET hinzufügen und eine Abfragezeichenfolge im Anfragetext platzieren.
+Wenn die Gesamtlänge Ihrer GET-Anfrage 8 KB überschreitet, wird ein HTTP-Fehler zurückgegeben: „414, URI zu lang“ (gemäß RFC 7231). Als Problemumgehung können Sie GET in POST ändern, den Parameter _method=GET hinzufügen und eine Abfragezeichenfolge im Anfragetext platzieren.
 
 ### Anfrage
 
@@ -830,7 +830,7 @@ Mitgliedschaft
 Lead-Datensätze können auch basierend auf der Mitgliedschaft in einer statischen Liste oder einem Programm abgerufen werden. Darüber hinaus können Sie alle statischen Listen, Programme oder Smart-Kampagnen abrufen, bei denen ein Lead Mitglied ist.
 
 Die Antwortstruktur und die optionalen Parameter sind mit denen von Leads abrufen nach Filtertyp identisch, obwohl `filterType` und `filterValues` mit dieser API nicht verwendet werden können.
-Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
+Um über die Marketo-Benutzeroberfläche auf die Listen-ID zuzugreifen, navigieren Sie zur Liste. Die Liste `id` befindet sich in der URL der statischen Liste, `https://app-****.marketo.com/#ST1001A1`. In diesem Beispiel ist 1001 der `id` für die Liste.
 
 ## Abrufen von Programmen nach Lead-ID
 
