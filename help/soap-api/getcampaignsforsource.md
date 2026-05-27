@@ -4,12 +4,9 @@ feature: SOAP
 description: Marketo SOAP getCampaignForSource gibt geeignete Smart-Kampagnen nach Quelle für requestCampaign zurück. Erfordert, dass Campaign die Beispiele für angeforderten Trigger, XML und PHP ist.
 exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
 TQID: https://experienceleague.adobe.com/QKOB21gL-zcTvMkvG9fYTYnGtUJcxsjbuYbtDHc-I-Y
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 148
@@ -23,7 +20,7 @@ Diese Funktion gibt eine Liste der in Frage kommenden Marketo-Kampagnen zurück,
 
 Wichtig: Die Smart-Kampagne muss den Trigger „Kampagne ist angefordert“ aufweisen, um sich zu qualifizieren. Seine Quelle muss die Webservice-API enthalten.
 
-![campaign_is_requested_Trigger &#x200B;](assets/campaign-is-requested-trigger.png)
+![campaign_is_requested_Trigger ](assets/campaign-is-requested-trigger.png)
 
 ## Anfrage
 
