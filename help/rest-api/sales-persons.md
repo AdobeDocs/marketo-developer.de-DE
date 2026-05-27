@@ -4,12 +4,9 @@ feature: REST API
 description: Marketo-REST-API-Handbuch für Vertriebspersonendatensätze mit SFDC oder Dynamics Sync, unter Verwendung von externalSalesPersonId, um Leads zu verknüpfen und Abfragen, Upsert und Löschen durchzuführen.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
 TQID: https://experienceleague.adobe.com/JwLNgM0zgztyoYJotCiSdGxMixnzA0kvkFbvq8kEkzE
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 396
@@ -21,7 +18,7 @@ ht-degree: 0%
 
 [Endpunktreferenz für Vertriebspersonen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-Vertriebspersonen-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert sind. Verkaufspersonen sind eine Art von Personendatensätzen, die Verkaufseigentümer von Lead-Datensätzen sind. Sie sind durch das Feld externalSalesPersonId für jeden Lead-Datensatz mit Lead-Datensätzen verknüpft. Wenn ein Lead durch ein ausgefülltes externes Feld „SalesPersonId“ mit einer Verkaufsperson verknüpft ist, werden die entsprechenden Suchfelder für den Lead-Inhaber für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
+Vertriebspersonen-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert sind. Verkaufspersonen sind eine Art von Personendatensätzen, die Verkaufseigentümer von Lead-Datensätzen sind. Sie sind durch das Feld externalSalesPersonId für jeden Lead-Datensatz mit Lead-Datensätzen verknüpft. Wenn ein Lead durch ein ausgefülltes externes Feld „SalesPersonId“ mit einer Verkaufsperson verknüpft ist, werden die entsprechenden Suchfelder für den Lead-Inhaber für diesen Lead-Datensatz in Marketo ausgefüllt, sodass die entsprechenden Filter und Token verwendet werden können.
 
 Vertriebspersonen werden mit Lead-Datensätzen verknüpft, indem sie den Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) verwenden und das Attribut externalSalesPersonId übergeben.
 

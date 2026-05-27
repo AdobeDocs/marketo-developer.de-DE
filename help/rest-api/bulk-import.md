@@ -4,12 +4,9 @@ feature: REST API
 description: Massenimport von Marketo zum Laden von Leads, benutzerdefinierten Objekten und Programmmitgliedern über mehrteilige Uploads, Erstellen asynchroner Aufträge, Abfragestatus und die Verarbeitung von Fehlern.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
 TQID: https://experienceleague.adobe.com/lr9dyX-fY-oJ2LM5P0zE1m24HtFYKQYYbxMkVe--PkE
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 661
@@ -53,7 +50,7 @@ Der Massenimport ist ein Datensatzvorgang vom Typ „Einfügen oder Aktualisiere
 
 ## Erstellen von Aufträgen
 
-Die Massenimport-APIs von Marketo verwenden das Konzept eines Auftrags zum Ausführen des Datenimports. Im Folgenden wird das Erstellen eines einfachen Lead-Importvorgangs mit dem Endpunkt [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) beschrieben.  Beachten Sie, dass dieser Endpunkt [multipart/form-data als Inhaltstyp“ &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dies kann schwierig sein, sodass die Best Practice darin besteht, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden.  Wenn Sie nur nasse Füße bekommen, empfehlen wir, dass Sie [cURL](https://curl.se/) verwenden.
+Die Massenimport-APIs von Marketo verwenden das Konzept eines Auftrags zum Ausführen des Datenimports. Im Folgenden wird das Erstellen eines einfachen Lead-Importvorgangs mit dem Endpunkt [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) beschrieben.  Beachten Sie, dass dieser Endpunkt [multipart/form-data als Inhaltstyp“ ](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dies kann schwierig sein, sodass die Best Practice darin besteht, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden.  Wenn Sie nur nasse Füße bekommen, empfehlen wir, dass Sie [cURL](https://curl.se/) verwenden.
 
 ```http
 POST /bulk/v1/leads.json?format=csv

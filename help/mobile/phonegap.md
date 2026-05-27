@@ -4,15 +4,10 @@ feature: Mobile Marketing
 description: Richten Sie das Marketo PhoneGap-Plug-in mit Cordova ein, konfigurieren Sie Firebase Cloud Messaging, aktivieren Sie iOS- und Android-Push-Benachrichtigungen, verfolgen Sie Benachrichtigungen und initialisieren Sie die SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
 TQID: https://experienceleague.adobe.com/eFAwR7r5IE6vKigsEWrJdCmC3VrfB-nl0h8x7Vgt1VY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 862
@@ -26,7 +21,7 @@ Integration des Marketo PhoneGap-Plug-ins
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
+1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
 1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [Installieren von PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -76,7 +71,7 @@ Fügen Sie die Plattformen hinzu, die für die App ausgewählt werden sollen `$c
 1. Firebase Cloud Messaging-Unterstützung
 
 1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen/Hinzufügen eines Projekts in [](https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Willkommensbildschirm „Firebase zu Ihrer Android-App hinzufügen“ aus.
@@ -206,7 +201,7 @@ marketo.initializeMarketoPush(
 
 - Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
 - Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
-- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in [&#128279;](https://console.developers.google.com/) Entwicklerkonsole von Google gefunden wurde.
+- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in ](https://console.developers.google.com/) Entwicklerkonsole von Google gefunden wurde.[
 
 Die Registrierung des Tokens kann auch beim Abmelden aufgehoben werden.
 

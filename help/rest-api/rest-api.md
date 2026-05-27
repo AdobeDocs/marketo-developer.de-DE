@@ -4,14 +4,9 @@ feature: REST API
 description: Erfahren Sie, wie Sie die Marketo-REST-API verwenden, API-Benutzer und LaunchPoint einrichten, Kontingente und Beschränkungen anzeigen, sich mit dem Autorisierungs-Header authentifizieren und Leads abrufen.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
 TQID: https://experienceleague.adobe.com/GqhWI816wWX-2zf89wWj-GXpg9i615HRFVl2ljdYVj0
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 896
@@ -23,7 +18,7 @@ ht-degree: 2%
 
 Marketo stellt eine REST-API bereit, die die Remote-Ausführung vieler Systemfunktionen ermöglicht. Von der Erstellung von Programmen bis zum Massenimport von Leads gibt es viele Optionen, die eine feinkörnige Steuerung einer Marketo-Instanz ermöglichen.
 
-Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[&#x200B; „Lead-](https://developer.adobe.com/marketo-apis/api/mapi)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
+Diese APIs lassen sich im Allgemeinen in zwei Kategorien einteilen[ „Lead-](https://developer.adobe.com/marketo-apis/api/mapi)&quot; und [Asset](https://developer.adobe.com/marketo-apis/api/asset). Lead-Datenbank-APIs ermöglichen das Abrufen und Interagieren von Marketo-Personendatensätzen und zugehörigen Objekttypen wie Opportunities und Unternehmen. Asset-APIs ermöglichen die Interaktion mit Marketing-Material und Workflow-bezogenen Datensätzen.
 
 >[!NOTE]
 >
