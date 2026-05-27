@@ -4,15 +4,10 @@ feature: REST API, Landing Pages
 description: Verwenden Sie die Marketo-REST-API, um Metadaten und Inhalte abzufragen, Landingpages, einschließlich geführter und Freiformtypen, zu erstellen, zu aktualisieren, zu genehmigen, zu löschen und zu klonen.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
 TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
 workflow-type: tm+mt
 source-wordcount: 1221
@@ -28,7 +23,7 @@ Landingpages sind von Marketo gehostete Web-Seiten.
 
 ## Abfrage
 
-Wie die meisten anderen Assets können Landingpages [nach Namen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET) &quot;[nach ID“ &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) &quot;[&quot; &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET) werden. Diese Abfragen geben nur Metadaten zurück. Die Liste der Inhaltsabschnitte für eine Landingpage muss separat nach der ID der Landingpage abgefragt werden.
+Wie die meisten anderen Assets können Landingpages [nach Namen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET) &quot;[nach ID“ ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) &quot;[&quot; ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET) werden. Diese Abfragen geben nur Metadaten zurück. Die Liste der Inhaltsabschnitte für eine Landingpage muss separat nach der ID der Landingpage abgefragt werden.
 
 Wenn Sie den Inhalt der Landingpage abfragen, wird eine Liste der Inhaltsabschnitte zurückgegeben, die in der Landingpage verfügbar sind. Ein Abschnitt muss in der Inhaltsliste einer Seite vorhanden sein, um den Inhalt zu aktualisieren:
 
@@ -115,7 +110,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
 
 ## Genehmigung
 
@@ -284,7 +279,7 @@ Variablen werden als Meta-Tags innerhalb `<head>` Elements einer Landingpage-Vor
 </head>
 ```
 
-Weitere Informationen finden Sie im Abschnitt „Bearbeitbare Variable“ in der Dokumentation [Erstellen einer geführten Landingpage](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Weitere Informationen finden Sie im Abschnitt „Bearbeitbare Variable“ in der Dokumentation [Erstellen einer geführten Landingpage](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Abfrage
 
