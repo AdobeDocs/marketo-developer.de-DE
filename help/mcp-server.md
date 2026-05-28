@@ -1,22 +1,20 @@
 ---
-title: MCP-Server
-description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
-badgeBeta: label="Beta" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer geschlossenen Beta-Version"
+title: Marketo Engage MCP-Server
+description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des Marketo Engage MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
+badgeBeta: label="Eingeschränkte Verfügbarkeit" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer eingeschränkten Beta-Version"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-hidefromtoc: true
-hide: true
-source-git-commit: a8bf6680a212dd665841896e4550a755dcdf745d
+source-git-commit: d481dc061cbb59139edf971915b13bd0c8e861d3
 workflow-type: tm+mt
-source-wordcount: '1478'
+source-wordcount: '1419'
 ht-degree: 1%
 
 ---
 
-# [!DNL Marketo] MCP-Server
+# [!DNL Marketo Engage] MCP-Server
 
->[!NOTE]
+>[!AVAILABILITY]
 >
->Der MCP-Server befindet sich derzeit in einer geschlossenen Beta-Version. Sie steht derzeit nicht allen Benutzern zur Verfügung.
+> Diese Funktion ist nur eingeschränkt verfügbar. Um den Zugriff anzufordern, füllen Sie [dieses Formular](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"} aus. Stellen Sie sicher, dass Sie die Munchkin ID Ihres Abonnements bereit haben.
 
 Das Model Context Protocol (MCP) ist ein offener Standard, der es KI-Tools ermöglicht, mit externen Services zu kommunizieren. Der [!DNL Marketo] MCP-Server fungiert als Brücke zwischen Ihrem KI-Assistenten und [!DNL Marketo]. Es stellt mehr als 100 Vorgänge in Formularen, Programmen, intelligenten Kampagnen, Leads, E-Mails, Snippets, Listen und Ordnern bereit.
 
@@ -26,7 +24,7 @@ Wenn Ihr KI-Tool den MCP-Server aufruft, führt der Server den entsprechenden RE
 >
 >Das Model Context Protocol (MCP) ist ein aufstrebender Open-Source-Standard, der Sicherheits- oder Zuverlässigkeitsrisiken mit sich bringen kann. Adobe MCP-Server-Integrationen und die zugehörige Dokumentation werden ohne Mängelgewähr und ohne Gewährleistung jeglicher Art bereitgestellt.
 >Die Verbindung von MCP-Clients oder -Servern mit Adobe-Produkten ist eine vom Kunden gewählte Konfiguration, und die Kunden sind dafür verantwortlich, die Sicherheit und Eignung jeder MCP-Integration zu bewerten. Adobe übernimmt keine Verantwortung für Probleme, die sich aus einer Fehlkonfiguration, einer fehlerhaften Verwendung des MCP, Sicherheitslücken in Drittanbieterimplementierungen oder unbeabsichtigten Aktionen ergeben, die über MCP-fähige Workflows ausgeführt werden.
->Um Risiken zu reduzieren, empfiehlt Adobe, Integrationen vor der produktiven Verwendung in einer Sandbox-Umgebung zu testen und alle MCP-initiierten Aktionen und Antworten sorgfältig zu überprüfen und zu validieren, bevor sie bestätigt oder sich auf sie verlassen.
+>Um Risiken zu reduzieren, empfiehlt Adobe, Integrationen vor der produktiven Verwendung in einer Sandbox-Umgebung zu testen und alle MCP-initiierten Aktionen und Antworten sorgfältig zu überprüfen und zu validieren, bevor sie bestätigt oder sich darauf verlassen.
 
 ## MCP-Grundlagen
 
@@ -40,7 +38,7 @@ MCP ermöglicht einem KI-Tool, gleichzeitig eine Verbindung zu mehreren externen
 
 MCP ist ein Kommunikationsprotokoll - ein offener Standard, den jede Anwendung implementieren kann, um ihre Daten und Aktionen KI-Tools zur Verfügung zu stellen.
 
-## Was [!DNL Marketo] MCP tut und was nicht
+## Was [!DNL Marketo Engage] MCP tut und was nicht
 
 Wenn Sie den Umfang von MCP verstehen, können Sie Erwartungen definieren, bevor Sie Ihr KI-Tool verbinden.
 
@@ -59,6 +57,8 @@ Wenn Sie den Umfang von MCP verstehen, können Sie Erwartungen definieren, bevor
 * Prognosen, Empfehlungen oder Entscheidungen generieren - die Entscheidungsfindung liegt in der Verantwortung des nachgelagerten KI-Tools oder -Benutzers
 * Speichern oder Speichern von Anmeldeinformationen, Anfragedaten oder Sitzungsstatus zwischen Anfragen
 * Installation, Bereitstellung und Verwaltung von Server-seitiger Software erforderlich
+
+Je nach API-Nutzung kann MCP Daten übertragen, einschließlich potenziell sensibler Felder, aber B2B-Daten umfassen Kundengeschäftsdaten und keine personenbezogenen Daten.
 
 ## Voraussetzungen
 
