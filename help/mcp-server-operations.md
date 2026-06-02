@@ -1,5 +1,5 @@
 ---
-title: Unterstützte MCP-Vorgänge
+title: Marketo Engage MCP-Vorgänge
 description: Erfahren Sie, welche Marketo Engage-MCP-Vorgänge für die Verwendung mit KI-Assistenten verfügbar sind.
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
@@ -12,21 +12,21 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: bef569a714bfb797bcf8bb82a406ca6df26facb0
+source-git-commit: 08abe412b9750585f0b75364f20488bea767dcc2
 workflow-type: tm+mt
-source-wordcount: 234
+source-wordcount: 231
 ht-degree: 5%
 
 ---
 
 
-# Unterstützte [!DNL Marketo Engage] MCP-Vorgänge
+# [!DNL Marketo Engage] MCP-Vorgänge
 
 Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügbar. Im Allgemeinen sind schreibgeschützte oder zerstörungsfreie Endpunkte verfügbar. `Delete` oder andere destruktive Vorgänge stehen dem KI-System nicht zur Verfügung.
 
 >[!NOTE]
 >
->Diese Liste ist noch nicht endgültig und wird durch das Hinzufügen von Tools weiter erweitert.
+>Diese Liste wird durch das Hinzufügen zusätzlicher Tools weiter anwachsen.
 
 ## Massenexport
 
