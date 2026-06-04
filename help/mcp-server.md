@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: bef569a714bfb797bcf8bb82a406ca6df26facb0
+source-git-commit: 72329b0ee08402c02604d2b6868fdef88c532548
 workflow-type: tm+mt
-source-wordcount: 1433
+source-wordcount: 1440
 ht-degree: 1%
 
 ---
@@ -37,6 +37,7 @@ ht-degree: 1%
 Das Model Context Protocol (MCP) ist ein offener Standard, der es KI-Tools ermöglicht, mit externen Services zu kommunizieren. Der [!DNL Marketo] MCP-Server fungiert als Brücke zwischen Ihrem KI-Assistenten und [!DNL Marketo]. Es stellt mehr als 100 Vorgänge in Formularen, Programmen, intelligenten Kampagnen, Leads, E-Mails, Snippets, Listen und Ordnern bereit.
 
 Wenn Ihr KI-Tool den MCP-Server aufruft, führt der Server den entsprechenden REST-API-Aufruf in Ihrem Namen aus. Dabei werden die Anmeldeinformationen verwendet, die Sie in jeder Anfrage angeben. Sie müssen keine Server-seitige Software installieren, bereitstellen oder ausführen.
+
 
 >[!IMPORTANT]
 >
@@ -116,30 +117,37 @@ Jedes KI-Tool liest die MCP-Server-Konfiguration von einem anderen Speicherort a
 
 ### Claude Desktop
 
-Die Konfigurationsdatei wird `claude_desktop_config.json`. Öffnen Sie sie von einem der folgenden Standorte aus:
+Um eine Verbindung zu Claude Desktop herzustellen, laden Sie [marketo-mcp-bridge.zip](assets/marketo-mcp-bridge.zip) herunter und entpacken Sie sie. Legen Sie `marketo-mcp-bridge.mjs` an einem bekannten Speicherort ab, damit Sie im nächsten Schritt darauf verweisen können.
 
-* **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-* **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+Sie benötigen außerdem:
 
-Wenn die Datei bereits andere MCP-Server enthält, fügen Sie den `marketo` Eintrag unter `mcpServers` hinzu. Im folgenden Beispiel wird der vollständige `mcpServers` dargestellt:
+* Node.js v18+
+* npm
+
+1. Claude Desktop öffnen
+1. Navigieren Sie zu **Einstellungen > Entwickler > Konfiguration bearbeiten**
+1. Fügen Sie Folgendes zu `claude_desktop_config.json` hinzu:
 
 ```json
 {
+  "preferences": {
+    ...
+  },
   "mcpServers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "X-Marketo-Client-Id": "YOUR-CLIENT-ID",
-        "X-Marketo-Client-Secret": "YOUR-CLIENT-SECRET",
-        "X-Marketo-Munchkin-Id": "YOUR-MUNCHKIN-ID"
+    "marketo-mcp": {
+      "command": "node",
+      "args": ["/path/to/marketo-bridge/bridge.mjs"],
+      "env": {
+        "MARKETO_MCP_PROD_CLIENT_ID": "<your-client-id>",
+        "MARKETO_MCP_PROD_CLIENT_SECRET": "<your-client-secret>",
+        "MARKETO_MCP_PROD_MUNCHKIN_ID": "<your-munchkin-id>"
       }
     }
   }
 }
 ```
 
-Speichern Sie die Datei, beenden Sie Claude Desktop und öffnen Sie sie erneut.
+1. Claude Desktop neu starten
 
 ### Cursor
 
