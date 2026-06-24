@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: ccb8e413ee758584c082a272901d2e76b6b1d193
+source-git-commit: 6ec3c35ba988834f3a66b45acaa42af7a92cce20
 workflow-type: tm+mt
-source-wordcount: 1718
+source-wordcount: 1765
 ht-degree: 1%
 
 ---
@@ -116,6 +116,7 @@ Jedes KI-Tool hat ein etwas anderes Setup. Verbindungsbeispiele werden für gän
 * [Claude Code CLI](#claude-code)
 * [OpenAI-Code](#codex)
 * [VSCode mit GitHub Copilot](#vscode)
+* [sammeln](#glean)
 * [Weitere Tools](#other-tools)
 
 >[!TIP]
@@ -299,6 +300,16 @@ Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+U
 >[!NOTE]
 >
 >Verwenden Sie aus Sicherheitsgründen die Interpolation von Umgebungsvariablen in Konfigurationsdateien, anstatt Anmeldeinformationen direkt einzufügen. Sie können Variablen mithilfe von Syntax wie `${MARKETO_CLIENT_SECRET}` referenzieren und sie in Ihrer Umgebung festlegen. Dadurch wird verhindert, dass Anmeldeinformationen in versionsgesteuerten Dateien im Nur-Text-Format gespeichert werden.
+
+### sammeln {#glean}
+
+Um Glean mit dem Marketo Engage MCP Server zu verbinden, müssen die folgenden benutzerdefinierten Header vom [Glean Supportteam“ konfiguriert &#x200B;](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features).
+
+| Header | Wert |
+| ------ | ----- |
+| `X-Marketo-Client-Id` | Ihre Client-ID |
+| `X-Marketo-Client-Secret` | Ihr Client-Geheimnis |
+| `X-Marketo-Munchkin-Id` | Ihre Munchkin-Konto-ID |
 
 ### Weitere Tools {#other-tools}
 
