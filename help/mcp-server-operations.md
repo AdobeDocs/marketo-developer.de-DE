@@ -12,10 +12,10 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 08abe412b9750585f0b75364f20488bea767dcc2
+source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
 workflow-type: tm+mt
-source-wordcount: 231
-ht-degree: 5%
+source-wordcount: 264
+ht-degree: 4%
 
 ---
 
@@ -27,6 +27,8 @@ Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügb
 >[!NOTE]
 >
 >Diese Liste wird durch das Hinzufügen zusätzlicher Tools weiter anwachsen.
+
+Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Massenexport
 
