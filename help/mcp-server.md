@@ -5,25 +5,13 @@ badgeBeta: label="Eingeschränkte Verfügbarkeit" type="informative" tooltip="Di
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: c2dbad80-0f5c-4d96-a798-2a65f93b8721id: dca84292-69e9-4116-a575-667d31fa060did: e2290edd-b061-4880-9d79-dee306cf5aa9id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: b28708e92f44082eb247d9053d6ebf2306739b38
 workflow-type: tm+mt
-source-wordcount: 1956
+source-wordcount: 2199
 ht-degree: 1%
 
 ---
@@ -38,7 +26,7 @@ Das Model Context Protocol (MCP) ist ein offener Standard, der es KI-Tools ermö
 
 Wenn Ihr KI-Tool den MCP-Server aufruft, führt der Server den entsprechenden REST-API-Aufruf in Ihrem Namen aus. Dabei werden die Anmeldeinformationen verwendet, die Sie in jeder Anfrage angeben. Sie müssen keine Server-seitige Software installieren, bereitstellen oder ausführen.
 
-Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
+Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
@@ -297,11 +285,11 @@ Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+U
 
 >[!NOTE]
 >
->Verwenden Sie aus Sicherheitsgründen die Interpolation von Umgebungsvariablen in Konfigurationsdateien, anstatt Anmeldeinformationen direkt einzufügen. Sie können Variablen mithilfe von Syntax wie `${MARKETO_CLIENT_SECRET}` referenzieren und sie in Ihrer Umgebung festlegen. Dadurch wird verhindert, dass Anmeldeinformationen in versionsgesteuerten Dateien im Nur-Text-Format gespeichert werden.
+>Verwenden Sie aus Sicherheitsgründen die Interpolation von Umgebungsvariablen in Konfigurationsdateien, anstatt Anmeldeinformationen direkt einzufügen. Sie können Variablen mithilfe von Syntax wie `${MARKETO_CLIENT_SECRET}` referenzieren und sie in Ihrer Umgebung festlegen. Dadurch wird verhindert, dass Anmeldeinformationen im Klartext in Dateien gespeichert werden, die der Versionskontrolle unterliegen.
 
 ### sammeln {#glean}
 
-Um Glean mit dem Marketo Engage MCP Server zu verbinden, müssen die folgenden benutzerdefinierten Header vom [Glean Supportteam“ konfiguriert &#x200B;](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features).
+Um Glean mit dem Marketo Engage MCP Server zu verbinden, [ das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
 
 | Header | Wert |
 | ------ | ----- |
@@ -311,7 +299,7 @@ Um Glean mit dem Marketo Engage MCP Server zu verbinden, müssen die folgenden b
 
 ### Weitere Tools {#other-tools}
 
-Der [!DNL Marketo] MCP-Server wird von Adobe gehostet und unter einer öffentlichen URL bereitgestellt. Jeder MCP-Client, der Remote-Server über einen HTTP-Transport unterstützt, kann eine Verbindung mit ihm herstellen.Sie benötigen keine tool-spezifische Bridge oder lokal installierte Software. Wenn Ihr Tool oben nicht aufgeführt ist, verwenden Sie die Verbindungsdetails unten, um es manuell zu konfigurieren.
+Adobe hostet den [!DNL Marketo] MCP-Server und stellt ihn unter einer öffentlichen URL bereit. Jeder MCP-Client, der Remote-Server über einen HTTP-Transport unterstützt, kann eine Verbindung mit ihm herstellen.Sie benötigen keine tool-spezifische Bridge oder lokal installierte Software. Wenn Ihr Tool oben nicht aufgeführt ist, verwenden Sie die Verbindungsdetails unten, um es manuell zu konfigurieren.
 
 **Verbindungsdetails:**
 
@@ -440,3 +428,28 @@ Beispiel-Eingabeaufforderungen:
 * **Munchkin ID-Zulassungsliste.** Der Server akzeptiert nur Anfragen für genehmigte [!DNL Marketo]. Anfragen, die eine nicht autorisierte Munchkin-ID verwenden, werden mit einem 403-Fehler zurückgewiesen.
 * **API-Ratenbeschränkungen.** Der MCP-Server übernimmt die API-Ratenbeschränkungen Ihrer [!DNL Marketo]. Verwenden Sie einen dedizierten API-Benutzer, um die Kontingentnutzung zu verfolgen und zu verwalten.
 * **Halten Sie Anmeldeinformationen außerhalb der Versionskontrolle.** Verwenden Sie die Umgebungsvariableninterpolation (`${MARKETO_CLIENT_SECRET}`), wenn Ihr KI-Tool sie unterstützt, sodass Anmeldeinformationen nicht im Klartext in Repository-Dateien gespeichert werden.
+
+## Governance und Datenaufbewahrung
+
+### Umgang mit Anmeldeinformationen
+
+* Die Kundenanmeldeinformationen werden nicht Server-seitig gespeichert, sondern vom Client pro Anfrage bereitgestellt, wodurch die Offenlegung von Anmeldeinformationen innerhalb des Services eingeschränkt wird.
+
+### API-Interaktionsmodell
+
+* Agent-Nutzung: Agenten können den MCP-Server verwenden, um unterstützte Marketo-APIs aufzurufen.
+* Ausrichtung des Authentifizierungsmodells: Der Service verwendet dasselbe externe API-Authentifizierungsmodell, das auch für Marketo-APIs dokumentiert ist.
+
+### Authentifizierung und Autorisierung
+
+* Geringste Rechte: Effektive Berechtigungen werden von dem Marketo-API-basierten Benutzer übernommen, der dem LaunchPoint-Service des Kunden zugewiesen ist, wodurch die Verwaltung der geringsten Rechte innerhalb der Marketo-Konfiguration des Kunden ermöglicht wird.
+* Keine Server-seitige Token-Persistenz: Der Service vermeidet weiterhin die Server-seitige Speicherung von Kunden-Anmeldeinformationen oder Token.  
+
+### Protokollierung und Überwachung
+
+* Sicherheitsprotokollierung: Strukturierte JSON-Protokolle werden über die Flüssig-Bit-API an Splunk weitergeleitet, wobei Masken für vertrauliche Daten sowie zusätzliche Filter zur Unterstützung der Compliance-Anforderungen bereitgestellt werden.
+* Audit-Unterstützung: Diese Kontrollen unterstützen die laufende Überwachung der Service-Verfügbarkeit, sicherheitsrelevanter Ereignisse und der Betriebsqualität.
+* Kein Server-seitiger geheimer Speicher: Kundenanmeldeinformationen werden von der MCP-Bereitstellung nicht gespeichert und müssen von Clients pro Anfrage bereitgestellt werden.
+* Token-Verarbeitung: Zugriffstoken sind kurzlebig, Token-Antworten sind als nicht gespeichert gekennzeichnet, und Token werden über standardmäßige Autorisierungsmechanismen und nicht über die Übertragung von Abfragezeichenfolgen akzeptiert.
+* Rollenbasierter betrieblicher Zugriff: Der Zugriff auf die administrative Bereitstellung wird über Adobe-Infrastrukturrollen und gruppenbasierte Steuerelemente gesteuert, während die Berechtigungen für die Datenebene von der Marketo-API-Benutzerkonfiguration des Kunden übernommen werden.
+* Audit und Beobachtbarkeit: Die Sicherheitsprotokollierung, -maskierung, -überwachung und -warnungen werden aktiviert, um Ermittlungen, die Verfolgung des Service-Status und Betriebsaufsichten zu unterstützen.
