@@ -26,7 +26,7 @@ ht-degree: 4%
 
 Verwenden Sie diese Methode, um Besucheridentifikationsdaten in Echtzeit zu erhalten.
 
-- Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+- Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 Wenn ein Fehler auftritt, enthält die JSON-Antwort eine Fehlermeldung. Wenn die API einen 500-Code zurückgibt, wenden Sie sich an den Support und geben Sie die Anfrage an, die den Fehler verursacht hat.

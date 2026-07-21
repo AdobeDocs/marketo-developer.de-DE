@@ -26,7 +26,7 @@ Installieren Sie die [!DNL Adobe Launch] Marketo-Erweiterung, um Push-Benachrich
 
 ## Voraussetzungen
 
-1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
+1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
 1. [Konfigurieren Sie die Eigenschaft im  [!DNL Adobe Launch] Portal](https://experience.adobe.com/#/@amc/data-collection/home).
 1. Konfigurieren Sie den Geheimschlüssel der Anwendung und die Munchkin-ID für die Eigenschaft im [!DNL Adobe Launch].
 1. Optional: [Einrichten von Push-Benachrichtigungen](push-notifications.md).

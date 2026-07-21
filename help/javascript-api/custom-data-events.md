@@ -27,7 +27,7 @@ Verwenden Sie diese Methode, um benutzerdefinierte Ereignisse zum Tracking und z
 
 Jedes benutzerspezifische Datenereignis wird während der Sitzung eines Besuchers einmal gezählt.
 
-Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |

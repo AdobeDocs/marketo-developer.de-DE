@@ -25,7 +25,7 @@ ht-degree: 5%
 
 RTP stellt eine Dienstprogrammfunktion bereit, die prüft, ob ein Muster mit einer Zeichenfolge übereinstimmt. Das Dienstprogramm gibt ein Übereinstimmungsergebnis synchron zurück und kann nicht asynchron verwendet werden.
 
-Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 
 ## Nutzung
 

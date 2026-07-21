@@ -21,7 +21,7 @@ ht-degree: 3%
 
 [Endpunkt-Referenz für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Spezifische Kontenlisten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) sind Sammlungen von spezifischen Konten in Marketo. Verwenden Sie sie für die Kategorisierung, Datenanreicherung und intelligente Kampagnenfilterung.
+[Spezifische Kontenlisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) sind Sammlungen von spezifischen Konten in Marketo. Verwenden Sie sie für die Kategorisierung, Datenanreicherung und intelligente Kampagnenfilterung.
 
 Mit den APIs für die Liste benannter Konten können Sie Listen-Assets und ihre Abonnements remote verwalten.
 `Content`

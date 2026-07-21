@@ -25,7 +25,7 @@ Installieren Sie die Marketo Mobile SDK-Erweiterung in [!DNL Adobe Launch], um P
 
 ## Voraussetzungen
 
-- [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
+- [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
 - Folgen Sie den Installationsanweisungen im [!DNL Adobe Launch].
 - Optional: [Einrichten von Push-Benachrichtigungen](push-notifications.md).
 

@@ -27,7 +27,7 @@ ht-degree: 2%
 
 Verwenden Sie die E-Mail-REST-Endpunkte, um E-Mail-Assets abzufragen und zu verwalten.
 
-Wenn eine E-Mail [Marketo Predictive Content](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) enthält, schlagen die folgenden Endpunkte mit Fehlercode 709 und einer entsprechenden Fehlermeldung fehl:
+Wenn eine E-Mail [Marketo Predictive Content](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) enthält, schlagen die folgenden Endpunkte mit Fehlercode 709 und einer entsprechenden Fehlermeldung fehl:
 
 - [E-Mail-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailContentByIdUsingGET)
 - [Abschnitt zum Aktualisieren des E-Mail-Inhalts](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST)
@@ -37,7 +37,7 @@ Wenn eine E-Mail [Marketo Predictive Content](https://experienceleague.adobe.com
 
 E-Mails unterstützen dieselben Abfragemuster wie Vorlagen: [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET) und durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailUsingGET). Die Endpunkte „By-Name“ und „Durchsuchen“ unterstützen auch die Ordnerfilterung.
 
-Wenn eine E-Mail zu einem E-Mail-Programm gehört, das [A/B-Tests](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) verwendet, geben die folgenden Endpunkte diese E-Mail nicht zurück:
+Wenn eine E-Mail zu einem E-Mail-Programm gehört, das [A/B-Tests](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) verwendet, geben die folgenden Endpunkte diese E-Mail nicht zurück:
 
 - [E-Mail nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByIdUsingGET)
 - [E-Mail nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/getEmailByNameUsingGET)
@@ -535,7 +535,7 @@ Wenn die automatische Textkopie für ein eingebettetes Snippet deaktiviert ist, 
 
 ## Module
 
-Im E-Mail-Editor 1.0 ist ein Modul ein E-Mail-Abschnitt, der in der Vorlage definiert ist. Module können Elemente, Variablen und andere HTML-Inhalte enthalten, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) beschrieben.
+Im E-Mail-Editor 1.0 ist ein Modul ein E-Mail-Abschnitt, der in der Vorlage definiert ist. Module können Elemente, Variablen und andere HTML-Inhalte enthalten, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) beschrieben.
 
 Verwenden Sie die Modul-APIs, um Module innerhalb einer E-Mail zu verwalten. Formatieren Sie den Anfragetext für Modulendpunkte, die HTTP-POST verwenden, als `application/x-www-form-urlencoded` und nicht als JSON.
 
@@ -909,7 +909,7 @@ name=MarketoVideo
 
 ## Variablen
 
-Im E-Mail-Editor 1.0 speichern Variablen Werte für E-Mail-Elemente. Definieren Sie jede Variable, indem Sie der HTML eine Marketo-spezifische Syntax hinzufügen, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables) beschrieben. Verwenden Sie die Variablen-APIs, um Variablen innerhalb einer E-Mail zu verwalten.
+Im E-Mail-Editor 1.0 speichern Variablen Werte für E-Mail-Elemente. Definieren Sie jede Variable, indem Sie der HTML eine Marketo-spezifische Syntax hinzufügen, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables) beschrieben. Verwenden Sie die Variablen-APIs, um Variablen innerhalb einer E-Mail zu verwalten.
 
 ### Abfrage
 

@@ -29,7 +29,7 @@ Landingpage-Vorlagen sind übergeordnete Ressourcen für Marketo-Landingpages. J
 
 Marketo bietet Freiform- und geführte Landingpage-Vorlagen. Freiformvorlagen bieten ein locker strukturiertes Bearbeitungserlebnis. Geführte Vorlagen können Elementtypen und Speicherorte auf Vorlagenebene einschränken.
 
-Einen detaillierten Vergleich finden Sie [Grundlegendes zu Freiform und geführten Landingpages](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Einen detaillierten Vergleich finden Sie [Grundlegendes zu Freiform und geführten Landingpages](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Abfrage
 
@@ -180,9 +180,9 @@ Landingpage-Vorlagen verwenden das Standardmodell Entwurf und Genehmigt . Aktual
 
 Vor der Genehmigung muss eine Vorlage die Anforderungen für ihren geführten oder Freiformtyp erfüllen. Diese Ressourcen anzeigen:
 
-- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Löschen
 

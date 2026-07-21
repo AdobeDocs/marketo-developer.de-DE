@@ -28,7 +28,7 @@ Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügb
 >
 >Diese Liste wird durch das Hinzufügen zusätzlicher Tools weiter anwachsen.
 
-Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
+Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Massenexport
 

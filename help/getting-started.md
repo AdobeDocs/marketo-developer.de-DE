@@ -59,7 +59,7 @@ Leads können mit Ihrem Unternehmen auf verschiedene Weise interagieren, z. B. i
 
 Aktivitäten sind immer mit Leads nach Lead-ID verbunden.
 
-Sie können auch benutzerdefinierte Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie Instanzen davon über die Marketo-API hinzufügen. Weitere Informationen finden Sie unter [Grundlagen zu benutzerdefinierten Aktivitäten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+Sie können auch benutzerdefinierte Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie Instanzen davon über die Marketo-API hinzufügen. Weitere Informationen finden Sie unter [Grundlagen zu benutzerdefinierten Aktivitäten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -79,7 +79,7 @@ Tags gruppieren und kategorisieren Programmdaten für das Reporting. Verwenden S
 
 Als Marketo-Administrator können Sie erforderliche und optionale Tag-Typen erstellen, die Benutzende beim Erstellen eines Programms auswählen. Sie definieren die möglichen Werte für jeden Tag-Typ auf der Grundlage der Berichtsanforderungen Ihres Unternehmens.
 
-Erstellen Sie beispielsweise einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie Nordost und Südost, um zu analysieren, welche Region die meisten Leads generiert. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen (wie Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [&#x200B; von Tags](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Erstellen Sie beispielsweise einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie Nordost und Südost, um zu analysieren, welche Region die meisten Leads generiert. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen (wie Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [&#x200B; von Tags](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
@@ -128,7 +128,7 @@ Auf der Programm- oder Ordnerebene definierte Token werden in Marketo als „Mei
 - Vererbt: Wird auf der Kampagnenordnerebene erstellt und steht allen Programmen in diesem Ordner zur Verfügung.
 - Überschrieben: Mit einem benutzerdefinierten Wert auf Programmebene geändert, ohne den Wert des übergeordneten My Token auf Programmebene zu ändern.
 
-Meine Token verwenden die Namenskonvention `{{my.My Token}}`, wobei das Wort „my“ am Anfang des Token-Namens steht. Ein Date-Typ mit dem Namen My Token hat beispielsweise den Token-Namen `{{my.EventDate}}`. Weitere Informationen finden Sie unter [Verstehen meiner Token in einem Programm](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Meine Token verwenden die Namenskonvention `{{my.My Token}}`, wobei das Wort „my“ am Anfang des Token-Namens steht. Ein Date-Typ mit dem Namen My Token hat beispielsweise den Token-Namen `{{my.EventDate}}`. Weitere Informationen finden Sie unter [Verstehen meiner Token in einem Programm](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 

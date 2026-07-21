@@ -28,7 +28,7 @@ Um eine Rich-Media-Empfehlungsvorlage anzuzeigen, fügen Sie der Seite die erfor
 1. Im Hauptteil der Seite:
    1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an die Stelle, an der die Vorlage angezeigt werden soll.
 
-Weitere Informationen finden Sie unter [Aktivieren prädiktiver Inhalte für Web-Rich-Media](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie unter [Aktivieren prädiktiver Inhalte für Web-Rich-Media](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 

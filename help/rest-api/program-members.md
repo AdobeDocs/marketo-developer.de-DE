@@ -29,7 +29,7 @@ ht-degree: 2%
 
 Marketo bietet APIs zum Lesen, Erstellen, Aktualisieren und Löschen von Programmmitgliedsdatensätzen. Das Feld Lead-ID verknüpft Programmmitglieder-Datensätze mit Lead-Datensätzen.
 
-Jeder Datensatz enthält Standardfelder und kann bis zu 20 benutzerdefinierte Felder enthalten. In diesen Feldern werden programmspezifische Elementdaten zur Verwendung in Formularen, Filtern, Triggern und Flussaktionen gespeichert. Sie können diese Daten auf der Registerkarte [Mitglieder“ des Programms in &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Benutzeroberfläche von Marketo Engage einsehen.
+Jeder Datensatz enthält Standardfelder und kann bis zu 20 benutzerdefinierte Felder enthalten. In diesen Feldern werden programmspezifische Elementdaten zur Verwendung in Formularen, Filtern, Triggern und Flussaktionen gespeichert. Sie können diese Daten auf der Registerkarte [Mitglieder“ des Programms in &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Benutzeroberfläche von Marketo Engage einsehen.
 
 ## beschreiben
 
@@ -635,9 +635,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Erstellen von Feldern
 
-Der Endpunkt [Create Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) erstellt benutzerdefinierte Felder auf dem Programmmitgliedsobjekt. Sie bietet Funktionen, die mit denen der [Marketo Engage-Benutzeroberfläche vergleichbar &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Sie können mit diesem Endpunkt bis zu 20 benutzerdefinierte Felder erstellen.
+Der Endpunkt [Create Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) erstellt benutzerdefinierte Felder auf dem Programmmitgliedsobjekt. Sie bietet Funktionen, die mit denen der [Marketo Engage-Benutzeroberfläche vergleichbar &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Sie können mit diesem Endpunkt bis zu 20 benutzerdefinierte Felder erstellen.
 
-Berücksichtigen Sie jedes Feld sorgfältig, bevor Sie es in einer Marketo Engage-Produktionsinstanz erstellen. Nachdem Sie ein Feld erstellt haben, können Sie es nicht löschen ([&#x200B; können es nur ausblenden](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Nicht verwendete Felder sorgen für Unordnung in der Instanz.
+Berücksichtigen Sie jedes Feld sorgfältig, bevor Sie es in einer Marketo Engage-Produktionsinstanz erstellen. Nachdem Sie ein Feld erstellt haben, können Sie es nicht löschen ([&#x200B; können es nur ausblenden](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Nicht verwendete Felder sorgen für Unordnung in der Instanz.
 
 Der erforderliche `input` ist ein Array von Feldobjekten für Programmmitglieder. Jedes Objekt enthält ein oder mehrere Attribute.
 

@@ -25,7 +25,7 @@ ht-degree: 8%
 
 # Feldtypen
 
-In der folgenden Tabelle werden die in Marketo verfügbaren Feldtypen beschrieben. Weitere Informationen finden Sie unter [Glossar für benutzerdefinierte Feldtypen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) und [Marketo-Feldbeschränkungen nach Feldtyp](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+In der folgenden Tabelle werden die in Marketo verfügbaren Feldtypen beschrieben. Weitere Informationen finden Sie unter [Glossar für benutzerdefinierte Feldtypen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) und [Marketo-Feldbeschränkungen nach Feldtyp](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Feldtyp | Beschreibung | Beispiel |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ In der folgenden Tabelle werden die in Marketo verfügbaren Feldtypen beschriebe
 | E-Mail | Ein Zeichenfolgenfeld, das E-Mail-Adressen akzeptiert | <example@example.com> |
 | Gleitkomma | Ein Zahlenfeld, das reelle Zahlen enthält und eine Dezimalstelle verwenden kann. | 10,4 |
 | Ganzzahl | Ganzzahlen | 10 |
-| Formel | Felder, deren Werte durch Bearbeiten von Daten aus anderen Feldern in einem Lead-Datensatz generiert werden. Sie werden nicht exportiert und können nicht in Smart-Kampagnen verwendet werden. | Siehe diesen [Artikel](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Formel | Felder, deren Werte durch Bearbeiten von Daten aus anderen Feldern in einem Lead-Datensatz generiert werden. Sie werden nicht exportiert und können nicht in Smart-Kampagnen verwendet werden. | Siehe diesen [Artikel](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Prozent | Ein als Ganzzahl ausgedrückter Prozentsatz | 30 |
 | URL | Ein Textfeld, das die Eingabe auf URLs einschränkt, einschließlich des Protokolls der URL. | <http://example.com/> |
 | Telefon | Telefonnummer | 111-111-1111 |
