@@ -4,29 +4,22 @@ description: Implementieren Sie die RTP-Redirect-API, um segmentierte Besucher m
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
 TQID: https://experienceleague.adobe.com/frvGjN7DBJ1RJ3QFvWxo1qGiTNFmvyxi3H6FeynJHLU
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-  - id: cdd65e7e-8839-44a2-bc21-0e03623b5dd1
-  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: cdd65e7e-8839-44a2-bc21-0e03623b5dd1id: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 502
-ht-degree: 7%
+source-wordcount: 473
+ht-degree: 8%
 
 ---
 
 # Umleiten
 
-Mit der RTP Redirect-API können Sie segmentierte Zielgruppen an eine Ziel-URL umleiten.
+Verwenden Sie die RTP Redirect-API, um segmentierte Zielgruppen an eine Ziel-URL zu senden.
 
-- Sie müssen Web Personalization-Kunde werden und das [RTP-Tag &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+- Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Nutzung
@@ -42,7 +35,7 @@ Mit der RTP Redirect-API können Sie segmentierte Zielgruppen an eine Ziel-URL u
 | redirect_url | Erforderlich | String | Ziel-URL für die Umleitung von Besuchern, die der Bedingung entsprachen. |
 | redirect_matches_visitors | Optional | Boolesch | Wenn „true“, werden Besucher, die mit der Bedingung übereinstimmen, umgeleitet. Wenn die Bedingung „false“ ist, werden nicht übereinstimmende Besucher umgeleitet. Standard: true. |
 
-Organisation, Branche, ABM-Listen, Standort, ISP, passende Segmente
+Umleitungsbedingungen können Organisation, Branche, ABM-Listen, Standort, ISP oder übereinstimmende Segmente verwenden.
 
 | Bedingung | Datenhierarchie | Beispiel |
 | --- | --- | --- |
@@ -59,10 +52,10 @@ Organisation, Branche, ABM-Listen, Standort, ISP, passende Segmente
 
 ## Hinweise
 
-- Wenn die Umleitungsregel/-bedingung auf Firmografiken (Firma, Branche, Standort) basiert, können Sie den Umleitungscode vor dem rtp(&#39;Senden&#39;, &#39;Anzeigen&#39;) und dem rtp(&#39;GET&#39;,&#39;Kampagne&#39;) einfügen, um die Latenz zu reduzieren.
-- Die Umleitung über JavaScript ist eine browserseitige Umleitung und hängt vom Laden und der Optimierung der Website ab, um maximale Geschwindigkeit zu erreichen.
-- Es empfiehlt sich, den Umleitungs-Code direkt nach dem rtp-Tag festzulegen und in der Kopfzeile zu platzieren.
-- Stellen Sie sicher, dass Sie keine Selbstumleitung ausführen (es gibt ein Sicherheitsnetz in RTP, um zyklische Umleitungsaufrufe zu blockieren).
+- Um die Latenz für eine Weiterleitung auf der Grundlage von Firmografien wie Unternehmen, Branche oder Standort zu reduzieren, fügen Sie den Weiterleitungs-Code vor rtp(&#39;Senden&#39;, &#39;Anzeigen&#39;) und rtp(&#39;GET&#39;, &#39;Kampagne&#39;) ein.
+- Platzieren Sie den Umleitungs-Code unmittelbar nach dem rtp-Tag in der Kopfzeile der Seite.
+- Optimieren Sie das Laden von Websites, um die Browser-seitige JavaScript-Umleitung zu beschleunigen.
+- Vermeiden Sie Selbstumleitungen. RTP umfasst einen Sicherheitsmechanismus, der zyklische Umleitungsaufrufe blockiert.
 
 ```html
 <!DOCTYPE html>
@@ -98,15 +91,15 @@ rtp('get','campaign');
 
 ## Weiterleiten getrackter Besucher
 
-1. Hängen Sie einen -Parameter an das Ende der Ziel-URL an, nämlich &lt;www.marketo.com?rtp=redirect>
-1. Erstellen Sie ein Segment mit dem Namen „Weitergeleitet von RTP“.
-1. Verwenden Sie den Parameter „Bestimmte Seiten“, um Besuchende anzusprechen, die eine beliebige Seite mit dem unten gezeigten Parameter ansehen.
+1. Hängen Sie den Parameter an die Ziel-URL an, z. B. &lt;www.marketo.com?rtp=redirect>.
+1. Erstellen Sie ein Segment mit dem Namen „Redirect by RTP“.
+1. Verwenden Sie den Parameter „Spezifische Seiten“, um Besuchende anzusprechen, die eine Seite mit dem Parameter aufrufen.
 
 ![tracking-redirected-Visitors](assets/tracking-redirected-vistors.png)
 
 ## Definieren von mehr als einer Bedingung mit verschiedenen Ziel-URLs
 
-Der Umleitungsaufruf unterstützt mehrere Aufrufe. Dies ermöglicht eine Umleitung mit mehreren Feldern und die Erstellung komplexer Bedingungen mit unterschiedlichen URLs und Werten.
+Der Umleitungsaufruf unterstützt mehrere Aufrufe. Verwenden Sie mehrere Aufrufe, um Felder zu kombinieren und Bedingungen mit unterschiedlichen URLs und Werten zu erstellen.
 
 ### Nutzung
 

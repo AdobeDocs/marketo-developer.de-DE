@@ -2,32 +2,34 @@
 title: Lead-API-Aktualisierungen abrufen
 feature: REST API
 description: Erfahren Sie mehr über Änderungen an den Beschränkungen für die Endpunkte „Lead-Aktivitäten abrufen“ und „Lead-Änderungen abrufen“.
-source-git-commit: e71bcf289229867bc969345d79c8f014761aaaf9
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '356'
+source-wordcount: '311'
 ht-degree: 0%
 
 ---
 
 # Lead-API-Aktualisierungen abrufen
 
-Ab dem 30. September 2026 schlagen Aufrufe der Endpunkte [Lead-Aktivitäten abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET) oder [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET) fehl, die den `listId`-Parameter enthalten, wenn die Ziellisten 10.000 oder mehr Leads enthalten, wobei der Fehler-Code 1003 angibt, dass die statische Zielliste zu viele Datensätze enthält. Vor Kurzem wurden ein oder mehrere API-Aufrufe durchgeführt, die von dieser Änderung betroffen wären. Um Service-Unterbrechungen zu vermeiden, müssen Sie die Art und Weise, wie Ihre Programme mit Marketo integriert werden, möglicherweise bis zum 30. September 2026 aktualisieren.
+Ab dem 30. September 2026 schlagen Aufrufe der Endpunkte [Lead-Aktivitäten abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET) oder [Lead-Änderungen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET) mit dem `listId`-Parameter fehl, wenn die Ziellisten 10.000 oder mehr Leads enthalten. Die Endpunkte geben einen 1003-Fehler-Code zurück, der angibt, dass die statische Zielliste zu viele Datensätze enthält.
 
-Diese Abfragetypen erstellen häufig Suchvorgänge, die entweder keine potenziellen Ergebnisse aufweisen oder eine Zeitüberschreitung aufweisen, bevor Ergebnisse gefunden werden. Durch die Begrenzung der Größe des Datensatzes wird die Reaktionsfähigkeit dieser Abfragetypen verbessert und sichergestellt, dass eine Suche nach dem Datensatz zeitnah abgeschlossen werden kann.
+Diese Änderung würde sich auf einen oder mehrere aktuelle API-Aufrufe auswirken. Um Service-Unterbrechungen zu vermeiden, müssen Sie die Integration Ihrer Programme mit Marketo möglicherweise bis zum 30. September 2026 aktualisieren.
+
+Diese Abfragen erstellen oft Suchvorgänge, die keine potenziellen Ergebnisse aufweisen, oder eine Zeitüberschreitung, bevor Ergebnisse gefunden werden. Durch die Begrenzung der eingestellten Größe wird die Reaktionsfähigkeit der Abfrage verbessert und Suchvorgänge können zeitnah abgeschlossen werden.
 
 ## Wie kann ich feststellen, ob ich betroffen bin?
 
-Diese Änderung betrifft nur eine geringe Anzahl von Marketo Engage-Instanzen. Administratoren der betroffenen Abonnements werden innerhalb der Anwendung benachrichtigt, bevor die Änderung angewendet wird.
+Diese Änderung betrifft nur eine geringe Anzahl von Marketo Engage-Instanzen. Administratoren betroffener Abonnements erhalten eine Benachrichtigung im Programm, bevor die Änderung angewendet wird.
 
 ## Was muss ich tun?
 
-Sie sollten dieses Dokument für die Personen oder das Team freigeben, die für Ihre Marketo Engage-Integrationen verantwortlich sind.
+Geben Sie dieses Dokument für die Personen oder das Team frei, die für Ihre Marketo Engage-Integrationen verantwortlich sind.
 
-Je nach Anwendungsfall gibt es zwei grundlegende Optionen, um Ihre Anwendung zu migrieren:
+Verwenden Sie je nach Anwendungsfall eine der folgenden Migrationsoptionen:
 
-* Begrenzen Sie statische Listen, aus denen Sie Aktivitäten extrahieren, auf maximal 10.000 Mitglieder. Sie können jede Ihrer vorhandenen Listen in kleinere Listen aufteilen, um dieselbe Zielgruppe weiterhin für Aktivitäten abzurufen.
-* Extrahieren Sie Ihre Aktivitäten oder Datenwertänderungen mithilfe der Massenaktivität „Extrahieren“ oder „Datenströme“ und verbinden Sie diese Ergebnisse mit der statischen Listenmitgliedschaft mit [getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) oder [Massenlead-Extraktion](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract)
+* Begrenzen Sie statische Listen, die für die Aktivitätsextraktion verwendet werden, auf 10.000 Mitglieder. Teilen Sie bestehende Listen in kleinere Listen auf, um dieselbe Zielgruppe weiterhin für Aktivitäten abzurufen.
+* Extrahieren von Aktivitäten oder Datenwertänderungen mithilfe von Massenaktivitäten oder Extrahieren von Datenströmen. Verbinden Sie die Ergebnisse mit der statischen Listenmitgliedschaft mit [getLeadByListId](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET_1) oder [Bulk Lead Extract](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-lead-extract).
 
 ## Was passiert, wenn ich nichts tue?
 
-Bei der Abfrage nach Aktivitäten aus statischen Listen mit einer großen Anzahl von Mitgliedern kann es aufgrund nicht behandelter Fehler zu Funktionsstörungen Ihrer API-Integrationen kommen.
+Ihre API-Integrationen werden möglicherweise durch nicht behandelte Fehler unterbrochen, wenn Aktivitäten aus statischen Listen mit einer großen Anzahl von Mitgliedern abgefragt werden.

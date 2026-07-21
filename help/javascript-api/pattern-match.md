@@ -4,28 +4,22 @@ description: Verwenden Sie das Dienstprogramm RTP.checkPattern, um Zeichenfolgen
 feature: Javascript
 exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
 TQID: https://experienceleague.adobe.com/-HopUg6-2EchL9kJrPDbz62mRlrqYaXYdufILjkvP1Y
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 171
+source-wordcount: 188
 ht-degree: 5%
 
 ---
 
 # Musterübereinstimmung
 
-RTP stellt eine Dienstprogramm-Funktion zur Verfügung, um zu überprüfen, ob das Muster mit bestimmten Zeichenfolgen übereinstimmt. Das Dienstprogramm kann nicht asynchron verwendet werden, da es eine Angabe zurückgibt, ob eine Übereinstimmung vorliegt oder nicht.
+RTP stellt eine Dienstprogrammfunktion bereit, die prüft, ob ein Muster mit einer Zeichenfolge übereinstimmt. Das Dienstprogramm gibt ein Übereinstimmungsergebnis synchron zurück und kann nicht asynchron verwendet werden.
 
-Sie müssen Web Personalization-Kunde werden und das [RTP-Tag &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
+Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 
 ## Nutzung
 
@@ -33,12 +27,12 @@ Sie müssen Web Personalization-Kunde werden und das [RTP-Tag &#x200B;](https://
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
-| check_against | Erforderlich | String | Zeichenfolge, mit der das Muster abgeglichen wird. Beispiel: aktuelle Seiten-URL, Produktname. |
-| pattern | Erforderlich | String | % für Platzhalter hinzufügen. Das Muster kann sein:start wobei Ende mit vollständige Übereinstimmung enthält. |
+| check_against | Erforderlich | String | Zeichenfolge, mit der das Muster abgeglichen wird, z. B. die URL der aktuellen Seite oder ein Produktname. |
+| pattern | Erforderlich | String | Übereinstimmendes Muster. Fügen Sie `%` als Platzhalter hinzu, um sie an den Start, das Ende oder den Inhalt einer Zeichenfolge anzupassen. `%` für vollständige Übereinstimmung auslassen. |
 
 ## Beispiele
 
-Benutzerdefinierte Variable in Index 1 festlegen, wenn die URL der aktuellen Seite mit „productA“ endet.
+In diesem Beispiel wird eine benutzerdefinierte Variable auf Index 1 festgelegt, wenn die aktuelle Seiten-URL mit „productA“ endet.
 
 ```javascript
 if (rtp.checkPattern(window.location.href, '%productA')) {
@@ -46,7 +40,7 @@ if (rtp.checkPattern(window.location.href, '%productA')) {
 }
 ```
 
-Der aktuelle URL-Pfad lautet &quot;/products/productB“. In diesem Beispiel wird überprüft, ob der Pfad „Produkte“ enthält, und die benutzerdefinierte Variable wird festgelegt.
+Im folgenden Beispiel ist der aktuelle URL-Pfad &quot;/products/productB“. Im Beispiel wird geprüft, ob der Pfad „Produkte“ enthält, und dann eine benutzerdefinierte Variable festgelegt.
 
 ```javascript
 var currentURLPath = '/products/productB';

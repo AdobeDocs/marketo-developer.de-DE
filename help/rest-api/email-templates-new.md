@@ -3,9 +3,9 @@ title: E-Mail-Vorlagen
 feature: REST API
 description: Verwenden Sie die Marketo Asset REST-API, um Abhängigkeiten für E-Mail-Vorlagen abzufragen, zu erstellen, zu aktualisieren, zu klonen, zu löschen, zu genehmigen und zu überprüfen.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '292'
+source-wordcount: '307'
 ht-degree: 9%
 
 ---
@@ -63,9 +63,18 @@ GET /rest/asset/v2/emailtemplate/{id}
 
 ### Filter
 
-Der Filterendpunkt unterstützt die Suche innerhalb eines Arbeitsbereichs und die Eingrenzung der Ergebnisse mit zusätzlichen Abfrageparametern. `workspaceId` ist erforderlich.
+Der Filterendpunkt sucht in einem Arbeitsbereich. Der `workspaceId` ist erforderlich.
 
-Zu den unterstützten Filtern gehören `folderId`, wiederholte `folderIds`, wiederholte `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `sortKey`, `sortOrder`, `isCreatedByMe`,, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable` und `includeArchived`.
+Verwenden Sie diese optionalen Parameter, um die Ergebnisse einzugrenzen oder zu organisieren:
+
+- Ordner: `folderId` oder wiederholte `folderIds`
+- Status: wiederholte `status`
+- Paginierung: `pageIndex` und `pageSize`
+- Erstellung: `createdBy`, `createdAtStart`, `createdAtEnd` und `isCreatedByMe`
+- Änderung: `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd` und `isModifiedByMe`
+- Vorlageneigenschaften: `name`, `scriptEngine` und `isValueNonNullable`
+- Sortierung: `sortKey` und `sortOrder`
+- Archivierter Inhalt: `includeArchived`
 
 #### Anfrage
 

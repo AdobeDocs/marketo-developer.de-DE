@@ -4,18 +4,14 @@ feature: REST API
 description: Erstellen und überwachen Sie asynchrone Massenimporte von Leads in Marketo mit CSV TSV oder SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
 TQID: https://experienceleague.adobe.com/UamXYWis5J1ERqnp5lAnfUf3pFcgfSOLfKRXRB-Yg4I
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 825
-ht-degree: 0%
+source-wordcount: 623
+ht-degree: 1%
 
 ---
 
@@ -23,30 +19,38 @@ ht-degree: 0%
 
 [Referenz zum Massenimport von Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-Bei großen Mengen an Lead-Datensätzen können Leads asynchron mit der [Bulk-API“ importiert &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Auf diese Weise können Sie eine Liste von Datensätzen mithilfe einer flachen Datei mit den Trennzeichen (Komma, Tabulator oder Semikolon) in Marketo importieren. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern die Datei weniger als 10 MB groß ist. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
+Verwenden Sie die [Bulk-API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) um eine große Anzahl von Lead-Datensätzen asynchron zu importieren. Stellen Sie die Datensätze in einer flachen Datei mit Komma, Tabulatoren oder Semikolons bereit, die kleiner als 10 MB ist.
+
+Der Massenimport von Leads unterstützt nur den Datensatzvorgang „Einfügen oder aktualisieren“.
 
 ## Verarbeitungsbeschränkungen
 
-Es ist zulässig, mehr als eine Massenimportanfrage zu senden, mit Einschränkungen. Jede Anfrage wird als Auftrag zu einer zu verarbeitenden FIFO-Warteschlange hinzugefügt. Es werden maximal zwei Aufträge gleichzeitig verarbeitet. Es sind maximal 10 Aufträge gleichzeitig in der Warteschlange zulässig (einschließlich der beiden derzeit verarbeiteten). Wenn Sie den Maximalwert von zehn Aufträgen überschreiten, wird ein `1016, Too many imports` zurückgegeben.
+Jede Massenimportanfrage wird als Auftrag zu einer FIFO-Warteschlange (First-In, First-Out) hinzugefügt. Es gelten die folgenden Grenzwerte:
+
+- Es können maximal zwei Aufträge gleichzeitig verarbeitet werden.
+- Es können maximal 10 Aufträge in der Warteschlange sein, einschließlich der beiden verarbeiteten Aufträge.
+
+Wenn Sie das Maximum von 10 Aufträgen überschreiten, gibt die API einen `1016, Too many imports` Fehler zurück.
 
 ## Datei importieren
 
-Die erste Zeile der Datei muss eine Kopfzeile sein, die die entsprechenden REST-API-Felder auflistet, denen die Werte jeder Zeile zugeordnet werden sollen. Eine typische Datei würde diesem grundlegenden Muster folgen:
+Die erste Zeile der Datei muss eine Kopfzeile sein, die die REST-API-Felder auflistet, denen die Werte in jeder Zeile zugeordnet sind. Eine typische Datei folgt diesem Muster:
 
 ```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-Das `externalCompanyId` Feld kann verwendet werden, um den Lead-Datensatz mit einem Firmendatensatz zu verknüpfen. Das `externalSalesPersonId` Feld kann verwendet werden, um den Lead-Datensatz mit einem Verkaufspersonendatensatz zu verknüpfen.
+Verwenden Sie `externalCompanyId`, um einen Lead-Datensatz mit einem Firmendatensatz zu verknüpfen. Verwenden Sie `externalSalesPersonId`, um einen Lead-Datensatz mit einem Verkaufspersonendatensatz zu verknüpfen.
 
-Der Aufruf selbst erfolgt über den Inhaltstyp `multipart/form-data`.
-
-Dieser Anfragetyp kann schwierig zu implementieren sein. Daher wird dringend empfohlen, eine vorhandene Bibliotheksimplementierung zu verwenden.
+Senden Sie die Anfrage mit dem `multipart/form-data` Inhaltstyp. Verwenden Sie eine vorhandene Bibliotheksimplementierung, um die mehrteilige Anfrage zu erstellen.
 
 ## Erstellen von Aufträgen
 
-Um eine Massenimportanfrage zu stellen, müssen Sie Ihre Kopfzeile für den Inhaltstyp auf `multipart/form-data` festlegen und mindestens einen `file` Parameter in Ihren Dateiinhalt und einen `format` mit dem Wert `csv`, `tsv` oder `ssv` einschließen, der Ihr Dateiformat bezeichnet.
+Um einen Massenimportvorgang zu erstellen, setzen Sie den Inhaltstyp auf `multipart/form-data` und schließen Sie die folgenden Parameter ein:
+
+- `file`: Der Inhalt der Importdatei.
+- `format`: Das Dateiformat. Gültige Werte sind `csv`, `tsv` und `ssv`.
 
 ```http
 POST /bulk/v1/leads.json?format=csv
@@ -84,13 +88,13 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Dieser Endpunkt verwendet [multipart/form-data als Inhaltstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Es empfiehlt sich, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden, um eine korrekte Verwendung sicherzustellen. Das folgende Beispiel zeigt eine einfache Möglichkeit, dies mit cURL über die Befehlszeile zu tun:
+Dieser Endpunkt verwendet [multipart/form-data als Inhaltstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Verwenden Sie eine HTTP-Support-Bibliothek für Ihre bevorzugte Sprache, um die Anfrage korrekt zu erstellen. Im folgenden Beispiel wird cURL über die Befehlszeile verwendet:
 
 ```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-Wenn die Importdatei `lead_data.csv` Folgendes enthält:
+In diesem Beispiel enthält die `lead_data.csv` Importdatei die folgenden Daten:
 
 ```text
 firstName,lastName,email,company
@@ -99,13 +103,19 @@ Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
 ```
 
-Optional können Sie auch die Parameter `lookupField`, `listId` und `partitionName` in Ihre Anfrage einbeziehen. `lookupField` können Sie ein bestimmtes Feld auswählen, in dem eine Deduplizierung durchgeführt werden soll, genau wie Leads synchronisieren, und standardmäßig auf E-Mail setzen. Sie können `id` als `lookupField` angeben, um einen „nur aktualisieren“-Vorgang anzugeben. Mit `listId` können Sie eine statische Liste auswählen, in die Sie die Liste der Leads importieren möchten. Dadurch werden die Leads in der Liste zu Mitgliedern dieser statischen Liste, zusätzlich zu allen durch den Import verursachten Erstellungen oder Aktualisierungen. `partitionName` wählt eine bestimmte Partition zum Importieren aus. Weitere Informationen finden Sie im Abschnitt Arbeitsbereiche und Partitionen .
+Sie können auch die folgenden optionalen Parameter einbeziehen:
 
-Beachten Sie in der Antwort auf unseren Aufruf, dass es keine Liste von Erfolgen oder Fehlern wie bei Synchronisierungs-Leads gibt, sondern eine batchId und ein Statusfeld für den Datensatz im Ergebnis-Array. Dies liegt daran, dass diese API asynchron ist und den Status „In Warteschlange“, „Importieren“ oder „Fehlgeschlagen“ zurückgeben kann. Sie müssen die batchId beibehalten, um den Status des Importvorgangs abzurufen und Fehler und/oder Warnungen nach Abschluss des Vorgangs abzurufen. Die batchId bleibt sieben Tage gültig.
+- `lookupField`: Wählt das Deduplizierungsfeld aus und `email` standardmäßig aus. Geben Sie an, `id` ein „nur aktualisieren“-Vorgang ausgeführt werden soll.
+- `listId`: Wählt eine statische Liste aus. Importierte Leads werden zusätzlich zu den vom Import erstellten oder aktualisierten Datensätzen Mitglieder dieser Liste.
+- `partitionName`: Wählt die Partition aus, in die importiert werden soll. Weitere Informationen finden Sie im Abschnitt Arbeitsbereiche und Partitionen .
+
+Da die API asynchron ist, enthält die Antwort `batchId` und `status` Felder anstelle von einzelnen Erfolgen und Fehlern. Der Status kann `Queued`, `Importing` oder `Failed` sein.
+
+Behalten Sie die `batchId` bei, um den Auftragsstatus zu überprüfen und Fehler oder Warnungen nach Abschluss abzurufen. Die `batchId` bleibt sieben Tage gültig.
 
 ## Status des Abrufauftrags
 
-Es empfiehlt sich, den Auftrag je nach erforderlicher Latenz und den API-Aufrufbeschränkungen alle 5 bis 30 Sekunden abzufragen, um den Status des Importvorgangs anzuzeigen. Dies können Sie mit der API Lead-Status abrufen tun.
+Verwenden Sie die API Lead-Status abrufen , um den Auftrag je nach Latenzanforderungen und API-Aufrufbeschränkungen alle 5 bis 30 Sekunden abzufragen.
 
 ```http
 GET /bulk/v1/leads/batch/{id}.json
@@ -128,35 +138,35 @@ GET /bulk/v1/leads/batch/{id}.json
 }
 ```
 
-Diese Antwort zeigt einen abgeschlossenen Import an, aber der Status kann einer der folgenden sein:
+Diese Antwort zeigt einen abgeschlossenen Import an. Der Status kann einer der folgenden Werte sein:
 
 - Abgeschlossen
 - In Warteschl. versch
 - Wird importiert
 - Fehlgeschlagen
 
-Wenn der Auftrag abgeschlossen ist, wird eine Liste der verarbeiteten Zeilen angezeigt, d. h. der Zeilen, die fehlgeschlagen sind, d. h. der Zeilen mit Warnhinweisen. Der Nachrichtenparameter kann auch die Fehlermeldung ausgeben, wenn der Status Fehlgeschlagen ist.
+Wenn der Auftrag abgeschlossen ist, listet die Antwort die Anzahl der verarbeiteten Zeilen auf, die fehlgeschlagen sind und mit Warnungen verarbeitet wurden. Der `message` kann auch eine Fehlermeldung bereitstellen, wenn der Status `Failed` ist.
 
 ## Fehler
 
-Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort zum Abrufen des Lead-Importstatus angezeigt. Wenn `numOfRowsFailed` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an.
+Das Attribut `numOfRowsFailed` in der Antwort Lead-Status abrufen gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
 
-Um die Datensätze und Ursachen fehlgeschlagener Zeilen abzurufen, müssen Sie die Fehlerdatei abrufen:
+Um die fehlgeschlagenen Datensätze und ihre Ursachen abzurufen, fordern Sie die Fehlerdatei an:
 
 ```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-Die API antwortet mit einer Datei, die angibt, welche Zeilen fehlgeschlagen sind, sowie mit einer Meldung, die angibt, warum der Datensatz fehlgeschlagen ist. Das Format der Datei entspricht dem Format, das `format` Parameter bei der Auftragserstellung angegeben wurde. An jeden Datensatz wird ein zusätzliches Feld mit einer Beschreibung des Fehlers angehängt.
+Die API gibt eine Datei zurück, die jede fehlgeschlagene Zeile identifiziert und erklärt, warum der Datensatz fehlgeschlagen ist. Die Datei verwendet das Format, das durch den Parameter &quot;`format`&quot; bei der Auftragserstellung angegeben wird. Ein zusätzliches Feld in jedem Datensatz beschreibt den Fehler.
 
 ## Warnungen
 
-Warnungen werden durch das Attribut `numOfRowsWithWarning` in einer Antwort zum Abrufen des Lead-Importstatus angezeigt. Wenn `numOfRowsWithWarning` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an.
+Das Attribut `numOfRowsWithWarning` in der Antwort Lead-Status abrufen gibt die Anzahl der Zeilen mit Warnungen an. Ein Wert größer als null bedeutet, dass Warnungen aufgetreten sind.
 
-Um die Datensätze und Ursachen von Warnzeilen abzurufen, rufen Sie die Warndatei ab:
+Um die betroffenen Datensätze und ihre Ursachen abzurufen, fordern Sie die Warndatei an:
 
 ```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-Die API antwortet mit einer Datei, die angibt, welche Zeilen Warnungen erzeugt haben, zusammen mit einer Meldung, die angibt, warum der Datensatz fehlgeschlagen ist. Das Format der Datei entspricht dem Format, das `format` Parameter bei der Auftragserstellung angegeben wurde. An jeden Datensatz wird ein zusätzliches Feld mit einer Beschreibung der Warnung angehängt.
+Die API gibt eine Datei zurück, die jede Zeile mit einer Warnung identifiziert und erläutert, warum die Warnung aufgetreten ist. Die Datei verwendet das Format, das durch den Parameter &quot;`format`&quot; bei der Auftragserstellung angegeben wird. Ein zusätzliches Feld in jedem Datensatz beschreibt die Warnung.

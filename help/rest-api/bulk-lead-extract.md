@@ -4,13 +4,11 @@ feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs für die Massenextraktion von Leads Leads Datums-, Listen- und Smart-Listen-Filtern, benutzerdefinierten Feldern und CSV/TSV-Formaten exportieren können.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
 TQID: https://experienceleague.adobe.com/4eMJR87fHDdccrVid3wHtspvBVQmrBGHYMlIwFCSdEI
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1273
+source-wordcount: 1037
 ht-degree: 2%
 
 ---
@@ -19,40 +17,44 @@ ht-degree: 2%
 
 [Referenz zum Massenextraktionsendpunkt von Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads)
 
-Der Satz von REST-APIs für die Lead-Massenextraktion bietet eine programmgesteuerte Schnittstelle zum Abrufen großer Mengen von Lead/Personen-Datensätzen aus Marketo. Sie kann auch verwendet werden, um Leads inkrementell basierend auf dem Erstellungsdatum des Datensatzes, der letzten Aktualisierung, der statischen Listenmitgliedschaft oder der Smart-Listen-Mitgliedschaft abzurufen. Die empfohlene Benutzeroberfläche für Anwendungsfälle, für die ein kontinuierlicher Datenaustausch zwischen Marketo und einem oder mehreren externen Systemen für ETL-, Data Warehousing- und Archivierungszwecke erforderlich ist.
+Die REST-APIs für die Lead-Extraktion in Batches rufen große Mengen von Lead-/Personen-Datensätzen aus Marketo ab. Sie können Leads auch inkrementell basierend auf dem Erstellungsdatum des Datensatzes, der letzten Aktualisierung, der statischen Mitgliedschaft in der Liste oder der Smart-Listen-Mitgliedschaft abrufen.
+
+Verwenden Sie Lead-Massenextraktion für den kontinuierlichen Datenaustausch zwischen Marketo und externen Systemen, einschließlich ETL, Data Warehousing und Archivierungs-Workflows.
 
 ## Berechtigungen
 
-Die APIs zum Massen-Lead-Extrahieren erfordern, dass der besitzende API-Benutzer über eine Rolle mit einer oder beiden der Berechtigungen Schreibgeschützter Lead oder Lese-/Schreib-Lead verfügt.
+Der API-Benutzer, dem der Auftrag gehört, muss über eine Rolle mit der Berechtigung „Schreibgeschützter Lead“, der Berechtigung „Lese-/Schreib-Lead“ oder beiden verfügen.
 
 ## Filter
 
-Leads unterstützen verschiedene Filteroptionen. Bestimmte Filter, einschließlich `updatedAt`, `smartListName` und `smartListId`, erfordern zusätzliche Infrastrukturkomponenten, die noch nicht für alle Abonnements bereitgestellt wurden. Pro Exportvorgang kann nur ein Filtertyp angegeben werden.
+Lead-Exportvorgänge unterstützen mehrere Filtertypen. Jeder Exportvorgang kann nur einen Filtertyp verwenden.
+
+Die `updatedAt`-, `smartListName`- und `smartListId` erfordern eine Infrastruktur, die nicht in allen Abonnements verfügbar ist.
 
 | Filtertyp | Datentyp | Hinweise |
 | --- | --- | --- |
-| createdAt | Datumsbereich | Akzeptiert ein JSON-Objekt mit den `startAt` und `endAt`. `startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. |
-| updatedAt* | Datumsbereich | Akzeptiert ein JSON-Objekt mit den `startAt` und `endAt`. `startAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Niedrigwasserzeichen darstellt, und `endAt` akzeptiert eine Uhrzeit-/Datumsangabe, die das Hochwasserzeichen darstellt. Der Bereich muss 31 Tage oder weniger betragen. Datetimes sollten im ISO-8601-Format sein, ohne Millisekunden. Hinweis: Dieser Filter filtert nicht nach dem sichtbaren Feld „updatedAt“, sondern nur Aktualisierungen an Standardfeldern. Es filtert danach, wann die letzte Aktualisierung des Felds an einen Lead-Datensatz vorgenommen wurde. Vorgänge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zuletzt im Datumsbereich aktualisiert wurden. |
-| staticListName | Zeichenfolge | Akzeptiert den Namen einer statischen Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der statischen Liste sind, zu dem der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listennamen mithilfe des Endpunkts „Listen abrufen“ ab. |
-| staticListId | Ganzzahl | Akzeptiert die ID einer statischen Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der statischen Liste sind, zu dem der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listen-IDs mithilfe des GET-Listen-Endpunkts ab. |
-| smartListName* | String | Akzeptiert den Namen einer Smart-Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der Smart-Listen sind, zu dem der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listennamen mithilfe des Endpunkts „Smart-Listen abrufen“. |
-| smartListId* | Ganzzahl | Akzeptiert die ID einer Smart-Liste. Aufträge mit diesem Filtertyp geben alle Datensätze zurück, auf die zugegriffen werden kann und die zu dem Zeitpunkt Mitglieder der Smart-Listen sind, zu dem der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listen-IDs mit dem Endpunkt Smart-Listen abrufen . |
+| createdAt | Datumsbereich | Ein JSON-Objekt mit `startAt` und `endAt`. `startAt` ist die Datetime mit niedrigem Wasserzeichen und `endAt` die Datetime mit hohem Wasserzeichen. Verwenden Sie ISO-8601-Datums- und Zeitwerte ohne Millisekunden. Der Bereich muss 31 Tage oder weniger betragen. Der Auftrag gibt alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. |
+| updatedAt* | Datumsbereich | Ein JSON-Objekt mit `startAt` und `endAt`. `startAt` ist die Datetime mit niedrigem Wasserzeichen und `endAt` die Datetime mit hohem Wasserzeichen. Verwenden Sie ISO-8601-Datums- und Zeitwerte ohne Millisekunden. Der Bereich muss 31 Tage oder weniger betragen. Dieser Filter verwendet nicht das sichtbare `updatedAt` Feld, das nur Aktualisierungen an Standardfeldern widerspiegelt. Stattdessen wird die Zeit der letzten Feldaktualisierung für einen Lead-Datensatz verwendet. Der Auftrag gibt alle Datensätze zurück, auf die im Datumsbereich zugegriffen werden kann und die zuletzt aktualisiert wurden. |
+| staticListName | Zeichenfolge | Der Name einer statischen Liste. Der Auftrag gibt alle Datensätze zurück, auf die zugegriffen werden kann und die Mitglieder der statischen Liste sind, wenn der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listennamen mithilfe des Endpunkts „Listen abrufen“ ab. |
+| staticListId | Ganzzahl | Die ID einer statischen Liste. Der Auftrag gibt alle Datensätze zurück, auf die zugegriffen werden kann und die Mitglieder der statischen Liste sind, wenn der Auftrag mit der Verarbeitung beginnt. Rufen Sie statische Listen-IDs mithilfe des GET-Listen-Endpunkts ab. |
+| smartListName* | String | Der Name einer Smart-Liste. Der Auftrag gibt alle Datensätze zurück, auf die zugegriffen werden kann und die Mitglieder der Smart-Liste sind, wenn der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listennamen mithilfe des Endpunkts „Smart-Listen abrufen“. |
+| smartListId* | Ganzzahl | Die ID einer Smart-Liste. Der Auftrag gibt alle Datensätze zurück, auf die zugegriffen werden kann und die Mitglieder der Smart-Liste sind, wenn der Auftrag mit der Verarbeitung beginnt. Abrufen von Smart-Listen-IDs mithilfe des Endpunkts „Smart-Listen abrufen“. |
 
-Filtertyp ist für einige Abonnements nicht verfügbar. Wenn für Ihr Abonnement nicht verfügbar ist, erhalten Sie eine Fehlermeldung beim Aufruf des Endpunkts „Exportleitungs-Auftrag erstellen“ („1035, Nicht unterstützter Filtertyp für Zielabonnement„). Kunden können sich an den Marketo-Support wenden, um diese Funktion in ihrem Abonnement aktivieren zu lassen.
+Die mit einem Sternchen gekennzeichneten Filtertypen sind für einige Abonnements nicht verfügbar. Wenn für Ihr Abonnement kein Filtertyp verfügbar ist, gibt der Endpunkt Exportleitungs-Auftrag erstellen den Fehler „1035, Nicht unterstützter Filtertyp für Zielabonnement“ zurück. Wenden Sie sich an den Marketo-Support, um diese Funktion für Ihr Abonnement zu aktivieren.
 
 ## Optionen
 
-Der Endpunkt Exportvorgang erstellen bietet mehrere Formatierungsoptionen, die es Benutzenden ermöglichen, bestimmte Felder in die exportierte Datei einzuschließen, Spaltenüberschriften dieser Felder umzubenennen und das Format der exportierten Datei anzugeben.
+Der Endpunkt Exportvorgang erstellen bietet Optionen zum Auswählen exportierter Felder, Umbenennen von Spaltenüberschriften und Festlegen des Dateiformats.
 
 | Parameter | Datentyp | Erforderlich | Hinweise |
 | --- | --- | --- | --- |
-| Felder | array[string] | Ja | Der Feldparameter akzeptiert ein JSON-Zeichenfolgen-Array. Jede Zeichenfolge muss der REST-API-Name eines Marketo-Lead-Felds sein. Die aufgelisteten Felder sind in der exportierten Datei enthalten. Die Spaltenüberschrift für jedes Feld ist der REST-API-Name jedes Felds, sofern er nicht mit columnHeader überschrieben wird. Hinweis: Wenn die [!DNL Adobe Experience Cloud Audience Sharing]-Funktion aktiviert ist, findet ein Cookie-Synchronisierungsvorgang statt, der [!DNL Adobe Experience Cloud] ID (ECID) mit Marketo-Leads verknüpft. Sie können das Feld „ecids“ angeben, um ECIDs in die Exportdatei aufzunehmen. |
-| columnHeaderNames | Objekt | Nein | Ein JSON-Objekt, das Schlüssel-Wert-Paare von Feld- und Spaltenkopfzeilennamen enthält. Der Schlüssel muss der Name eines Felds sein, das im Exportvorgang enthalten ist. Dies ist der API-Name des Felds, das durch Aufruf von Describe Lead abgerufen werden kann. Der Wert ist der Name der exportierten Spaltenüberschrift für dieses Feld. |
-| Format | String | Nein | Akzeptiert eine der folgenden Optionen: CSV, TSV, SSV. Die exportierte Datei wird als kommagetrennte Werte, tabulatorgetrennte Werte oder durch Leerzeichen getrennte Wertedatei gerendert, sofern festgelegt. Die Standardeinstellung ist CSV, wenn nicht festgelegt. |
+| Felder | array[string] | Ja | Ein JSON-Array von Zeichenfolgen. Jede Zeichenfolge muss der REST-API-Name eines Marketo-Lead-Felds sein. Der Export umfasst jedes aufgelistete Feld und verwendet den zugehörigen REST-API-Namen als Spaltenüberschrift, es sei denn, `columnHeaderNames` überschreibt es. Wenn die [!DNL Adobe Experience Cloud Audience Sharing]-Funktion aktiviert ist, verknüpft ein Cookie-Synchronisierungsprozess die [!DNL Adobe Experience Cloud]-ID (ECID) mit Marketo-Leads. Geben Sie das `ecids` an, um ECIDs in die Exportdatei aufzunehmen. |
+| columnHeaderNames | Objekt | Nein | Ein JSON-Objekt mit Schlüssel-Wert-Paaren für Felder und Spaltenüberschriften. Jeder Schlüssel muss der API-Name eines Felds sein, das im Exportvorgang enthalten ist. Rufen Sie den API-Namen ab, indem Sie „Lead beschreiben“ aufrufen. Jeder Wert ist die exportierte Spaltenüberschrift für dieses Feld. |
+| Format | String | Nein | Das Exportdateiformat: CSV für kommagetrennte Werte, TSV für tabulatorgetrennte Werte oder SSV für Leerzeichen getrennte Werte. Der Standardwert ist CSV. |
 
 ## Erstellen von Aufträgen
 
-Die Parameter für den Auftrag werden vor dem Start des Exports mithilfe des Endpunkts [Exportvorgang erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) definiert. Wir müssen die für den Export erforderlichen `fields`, den Parametertyp des `filter`, den `format` der Datei und gegebenenfalls die Namen der Spaltenüberschriften definieren.
+Verwenden Sie den Endpunkt [Exportvorgang erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) um einen Exportvorgang zu definieren. Geben Sie die zu exportierende `fields`, einen `filter` und dessen Parameter, den `format` und alle benutzerdefinierten Spaltenkopfzeilennamen an.
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -76,13 +78,13 @@ POST /bulk/v1/leads/export/create.json
    "filter": {
       "createdAt": {
          "startAt": "2017-01-01T00:00:00Z",
-         "`endAt`": "2017-01-31T00:00:00Z"
+         "endAt": "2017-01-31T00:00:00Z"
       }
    }
 }
 ```
 
-Diese Anfrage beginnt mit dem Export eines Lead-Satzes, der zwischen dem 1. Januar 2017 und dem 31. Januar 2017 erstellt wurde, einschließlich der Werte aus den entsprechenden `firstName`-, `lastName`-, `id`- und `email`.
+Diese Anfrage erstellt einen Exportvorgang für Leads, die zwischen dem 1. Januar 2017 und dem 31. Januar 2017 erstellt wurden. Der Export enthält Werte aus den Feldern `firstName`, `lastName`, `id` und `email`.
 
 ```json
 {
@@ -100,7 +102,7 @@ Diese Anfrage beginnt mit dem Export eines Lead-Satzes, der zwischen dem 1. Janu
 }
 ```
 
-Dadurch wird eine Statusantwort zurückgegeben, die angibt, dass der Auftrag erstellt wurde. Der Auftrag wurde definiert und erstellt, aber noch nicht gestartet. Dazu muss der Endpunkt [Exportauftrag in die Warteschlange einreihen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) mit der exportId aus der Erstellungsstatusantwort aufgerufen werden:
+Die Antwort bestätigt, dass der Auftrag erstellt, aber nicht gestartet wurde. Um den Auftrag zu starten, rufen Sie den Endpunkt [Exportvorgang in Warteschlange stellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) mit dem `exportId` aus der Erstellungsantwort auf.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -122,13 +124,15 @@ POST /bulk/v1/leads/export/{exportId}/enqueue.json
 }
 ```
 
-Daraufhin wird mit der `status` „In Warteschlange“ geantwortet, die auf „Wird verarbeitet“ gesetzt wird, wenn ein Exportsteckplatz verfügbar ist.
+Die Enqueue-Antwort weist den `status` „In Warteschlange“ auf. Sobald ein Exportsteckplatz verfügbar ist, wechselt der Status zu „Verarbeitung läuft“.
 
 ## Status des Abrufauftrags
 
-`Note:` Status kann nur für Aufträge abgerufen werden, die vom selben API-Benutzer erstellt wurden.
+Sie können den Status nur für Aufträge abrufen, die von demselben API-Benutzer erstellt wurden.
 
-Da es sich um einen asynchronen Endpunkt handelt, müssen wir nach der Erstellung des Auftrags dessen Status abfragen, um den Fortschritt zu ermitteln. Abfrage mit dem Endpunkt [Status des Exportvorgangs abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Der Status wird nur einmal alle 60 Sekunden aktualisiert, sodass eine niedrigere Abfrageintervall nicht empfohlen wird und in fast allen Fällen immer noch zu hoch ist. Werfen wir einen kurzen Blick auf die Umfragen.
+Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [ Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
+
+Der Status wird nur einmal alle 60 Sekunden aktualisiert. Führen Sie keine häufigeren Befragungen durch; in fast allen Fällen ist dieses Intervall immer noch zu lang.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -150,9 +154,9 @@ GET /bulk/v1/leads/export/{exportId}/status.json
 }
 ```
 
-Der Status-Endpunkt antwortet und gibt an, dass der Auftrag noch verarbeitet wird, sodass die Datei noch nicht zum Abrufen verfügbar ist. Sobald sich der Auftragsstatus in „Abgeschlossen“ ändert, wird er zum Download vorbereitet.
+Diese Antwort zeigt an, dass der Auftrag noch verarbeitet wird, sodass die Datei nicht verfügbar ist. Wenn sich der Auftragsstatus in „Abgeschlossen“ ändert, kann die Datei heruntergeladen werden.
 
-Das Statusfeld kann mit einem der folgenden Elemente antworten:
+Das `status` kann einen der folgenden Werte zurückgeben:
 
 - Erstellt
 - In Warteschl. versch
@@ -163,26 +167,26 @@ Das Statusfeld kann mit einem der folgenden Elemente antworten:
 
 ## Daten abrufen
 
-Um die Datei eines abgeschlossenen Lead-Exports abzurufen, rufen Sie einfach den Endpunkt [Lead-Exportdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) mit Ihrem `exportId` auf.
+Um einen abgeschlossenen Lead-Export abzurufen, rufen Sie den Endpunkt [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) abrufen) mit dem `exportId` auf.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
-Die Antwort enthält eine -Datei, die so formatiert ist, wie der Auftrag konfiguriert wurde. Der Endpunkt antwortet mit dem Inhalt der -Datei.
+Der Antworttext enthält die Datei im für den Auftrag konfigurierten Format.
 
-Wenn ein angefordertes Lead-Feld leer ist (keine Daten enthält), wird `null` in der Exportdatei im entsprechenden Feld platziert. Im folgenden Beispiel ist das E-Mail-Feld für den zurückgegebenen Lead leer.
+Wenn ein angefordertes Lead-Feld keine Daten enthält, enthält das entsprechende Feld in der Exportdatei `null`. Im folgenden Beispiel hat der zurückgegebene Lead ein leeres E-Mail-Feld.
 
 ```csv
 firstName,lastName,email,cookies
 Russell,Wilson,null,_mch-localhost-1536605780000-12105
 ```
 
-Um das partielle und fortsetzungsfreundliche Abrufen extrahierter Daten zu unterstützen, unterstützt der Datei-Endpunkt optional den HTTP-Header-Bereich vom Typ Byte. Wenn die Kopfzeile nicht festgelegt ist, wird der gesamte Inhalt zurückgegeben. Erfahren Sie mehr über die Verwendung des Bereichs-Headers mit Marketo [Massenextraktion](bulk-extract.md).
+Für den teilweisen oder wiederholbaren Abruf unterstützt der Dateiendpunkt den optionalen HTTP-`Range`-Header mit dem `bytes`. Wenn Sie die -Kopfzeile nicht festlegen, gibt der Endpunkt den gesamten Inhalt zurück. Erfahren Sie mehr über die Verwendung des `Range`-Headers mit Marketo [Massenextraktion](bulk-extract.md).
 
 ## Abbrechen von Aufträgen
 
-Wenn ein Auftrag falsch konfiguriert wurde oder unnötig wird, kann er einfach mit dem Endpunkt [Exportvorgang abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) abgebrochen werden:
+Um einen falsch konfigurierten oder unnötigen Auftrag abzubrechen, rufen Sie den Endpunkt [Exportleadauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) auf.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
@@ -203,4 +207,4 @@ POST /bulk/v1/leads/export/{exportId}/cancel.json
 }
 ```
 
-Daraufhin wird ein Status angezeigt, der angibt, dass der Vorgang abgebrochen wurde.
+Die Antwort bestätigt, dass der Vorgang abgebrochen wurde.

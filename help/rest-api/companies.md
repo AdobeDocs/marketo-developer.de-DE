@@ -4,17 +4,13 @@ feature: REST API
 description: Verwenden Sie die Marketo Companies REST-API, um Firmendatensätze zu beschreiben, abzufragen und zu synchronisieren, Felder und Deduplizierungen nach externalCompanyId zu verwalten und CRM-Synchronisierung schreibgeschützt zu notieren.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
 TQID: https://experienceleague.adobe.com/LdJYN4lx9JfcE-02zTz8ktfYXm4EdPtxMYOx9gGR0sg
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 676
+source-wordcount: 582
 ht-degree: 1%
 
 ---
@@ -23,13 +19,15 @@ ht-degree: 1%
 
 [Companies Endpoint-Referenz](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies)
 
-Firmen stellen die Organisation dar, zu der Lead-Datensätze gehören. Leads werden zu einem Unternehmen hinzugefügt, indem das entsprechende `externalCompanyId` mithilfe der Endpunkte [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) oder [Massenimport von Leads](bulk-lead-import.md) ausgefüllt wird. Nachdem ein Lead zu einer Firma hinzugefügt wurde, können Sie den Lead nicht mehr aus dieser Firma löschen (es sei denn, Sie fügen den Lead einer anderen Firma hinzu). Mit einem Unternehmensdatensatz verknüpfte Leads erben die Werte direkt von einem Unternehmensdatensatz, als ob die Werte im eigenen Datensatz des Leads vorhanden wären.
+Firmen stellen die Organisationen dar, denen Lead-Datensätze angehören. Um einen Lead zu einem Unternehmen hinzuzufügen, füllen Sie sein `externalCompanyId` mithilfe der Endpunkte [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) oder [Massenimport von Leads](bulk-lead-import.md) aus.
 
-Unternehmens-APIs sind schreibgeschützt für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert sind.
+Sie können einen Lead nur dann aus einer Firma entfernen, wenn Sie den Lead einer anderen Firma hinzufügen. Leads, die mit einem Firmendatensatz verknüpft sind, übernehmen Werte aus diesem Datensatz, als ob die Werte im Lead-Datensatz vorhanden wären.
+
+Unternehmens-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert ist.
 
 ## beschreiben
 
-Durch die Beschreibung des Firmenobjekts erhalten Sie alle Informationen, die Sie für die Interaktion mit ihnen benötigen.
+Beschreiben Sie das Unternehmensobjekt, um die Informationen abzurufen, die für die Interaktion mit Firmendatensätzen erforderlich sind.
 
 ```http
 GET /rest/v1/companies/describe.json
@@ -107,11 +105,16 @@ GET /rest/v1/companies/describe.json
 
 ## Abfrage
 
-Das Muster für [Unternehmen abfragen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET) folgt dem Muster der Leads-API mit der zusätzlichen Einschränkung, dass der `filterType` die Felder akzeptiert, die im durchsuchbaren Fields-Array des Aufrufs „Describe Companies“ oder „dedupeFields“ aufgeführt sind.
+Das Muster für [Abfrage von Unternehmen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompaniesUsingGET) folgt eng der Leads -API. Der `filterType` akzeptiert jedoch nur Felder, die im Array „searchableFields“ der Antwort „Describe Companies“ oder „dedupeFields“ aufgeführt sind.
 
-`filterType` und `filterValues` sind erforderliche Abfrageparameter.  `fields`, `nextPageToken` und `batchSize` sind optionale Parameter.  Die Parameter funktionieren genau wie die entsprechenden Parameter in den Leads- und Opportunities-APIs. Wenn beim Anfordern einer Liste von `fields` ein bestimmtes Feld angefordert, aber nicht zurückgegeben wird, ist der Wert impliziert null.
+Die Abfrageparameter sind:
 
-Wenn der Feldparameter weggelassen wird, wird standardmäßig folgender Satz von Feldern zurückgegeben:
+- `filterType` und `filterValues`: Erforderliche Parameter.
+- `fields`, `nextPageToken` und `batchSize`: Optionale Parameter, die wie die entsprechenden Parameter in den Leads- und Opportunities-APIs funktionieren.
+
+Wenn Sie eine Liste von `fields` anfordern, hat ein angefordertes Feld, das nicht zurückgegeben wird, einen impliziten Wert von null.
+
+Wenn Sie den Feldparameter auslassen, gibt die Antwort diese Felder standardmäßig zurück:
 
 - id
 - deduplizierte Felder
@@ -145,7 +148,11 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 ## Erstellen und aktualisieren
 
-Der Endpunkt [Unternehmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) akzeptiert den erforderlichen `input`, der ein Array von Unternehmensobjekten enthält. Genau wie Opportunities gibt es drei Modi zum Erstellen und Aktualisieren von Unternehmen: createOnly, updateOnly und createOrUpdate.  Modi werden im `action` der Anfrage angegeben. Sowohl der Parameter `dedupeBy` als auch der Parameter `action` sind optional und standardmäßig auf die Modi dedupeFields und createOrUpdate festgelegt.
+Der [Synchronisierungsunternehmen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)-Endpunkt akzeptiert einen erforderlichen `input`, der ein Array von Unternehmensobjekten enthält.
+
+Wie bei Opportunitys unterstützt der Endpunkt drei Erstellungs- und Aktualisierungsmodi: createOnly, updateOnly und createOrUpdate. Geben Sie den Modus im `action` der Anfrage an.
+
+Die Parameter `dedupeBy` und `action` sind optional. Die Standardeinstellung ist deduplizierte Felder bzw. createOrUpdate.
 
 ```http
 POST /rest/v1/companies.json
@@ -193,17 +200,19 @@ Content-Type: application/json
 
 ### Felder
 
-Das Unternehmensobjekt enthält einen Satz von Feldern. Jede Felddefinition besteht aus einem Satz von Attributen, die das Feld beschreiben. Beispiele für Attribute sind Anzeigename, API-Name und Datentyp. Diese Attribute werden zusammen als Metadaten bezeichnet.
+Das Unternehmensobjekt enthält Felder, die durch Attribute wie Anzeigename, API-Name und Datentyp definiert sind. Zusammen werden diese Attribute als Metadaten bezeichnet.
 
-Mit den folgenden Endpunkten können Sie Felder im Unternehmensobjekt abfragen. Diese APIs erfordern, dass der besitzende API-Benutzer über eine Rolle mit einer oder beiden der `Read-Write Schema Standard Field` oder `Read-Write Schema Custom Field` Berechtigungen verfügt.
+Die folgenden Endpunkte geben Abfragefelder für das Unternehmensobjekt an. Der API-Benutzer muss über eine Rolle mit der Berechtigung `Read-Write Schema Standard Field`, der Berechtigung `Read-Write Schema Custom Field` oder beidem verfügen.
 
 ### Abfragefelder
 
-Die Abfrage von Unternehmensfeldern ist unkompliziert. Sie können ein einzelnes Unternehmensfeld nach API-Namen abfragen oder den Satz aller Unternehmensfelder abfragen.
+Abfragen eines Unternehmensfelds nach API-Namen oder Abrufen aller Unternehmensfelder.
 
 #### Nach Name
 
-Der Endpunkt [Unternehmensfeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET) ruft Metadaten für ein einzelnes Feld im Firmenobjekt ab. Der erforderliche `fieldApiName`-Pfadparameter gibt den API-Namen des Felds an. Die Antwort ähnelt dem Endpunkt „Firma beschreiben“, enthält jedoch zusätzliche Metadaten wie das `isCustom`, das angibt, ob das Feld ein benutzerdefiniertes Feld ist.
+Der Endpunkt [Unternehmensfeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldByNameUsingGET) ruft Metadaten für ein Feld im Firmenobjekt ab. Der erforderliche `fieldApiName`-Pfadparameter gibt den API-Namen des Felds an.
+
+Die Antwort ähnelt der Antwort von Describe Company, enthält jedoch zusätzliche Metadaten. Beispielsweise gibt das `isCustom`-Attribut an, ob das Feld benutzerdefiniert ist.
 
 ```http
 GET /rest/v1/companies/schema/fields/industry.json
@@ -232,7 +241,9 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 #### Durchsuchen
 
-Der [Endpunkt Firmenfelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET) ruft Metadaten für alle Felder im Firmenobjekt ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Sie können den `batchSize` Abfrageparameter verwenden, um diese Zahl zu reduzieren. Wenn das Attribut `moreResult` wahr ist, bedeutet dies, dass mehr Ergebnisse verfügbar sind. Rufen Sie diesen Endpunkt so lange auf, bis das Attribut moreResult „false“ zurückgibt. Dies bedeutet, dass keine Ergebnisse verfügbar sind. Die von dieser API zurückgegebene `nextPageToken` sollte immer für die nächste Iteration dieses Aufrufs wiederverwendet werden.
+Der [Endpunkt Firmenfelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/getCompanyFieldsUsingGET) ruft Metadaten für alle Felder im Firmenobjekt ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den `batchSize` Abfrageparameter, um diese Zahl zu reduzieren.
+
+Wenn das `moreResult` „true“ ist, sind weitere Ergebnisse verfügbar. Rufen Sie den Endpunkt mit dem zurückgegebenen `nextPageToken` weiter auf, bis `moreResult` auf „false“ gesetzt ist.
 
 ```http
 GET /rest/v1/companies/schema/fields.json?batchSize=5
@@ -310,7 +321,9 @@ GET /rest/v1/companies/schema/fields.json?batchSize=5
 
 ### Löschen
 
-Die Löschkriterien werden im `input`-Array angegeben, das eine Liste der Suchwerte enthält.  Die Löschmethode wird im Parameter `deleteBy` angegeben.  Zulässige Werte sind: dedupeFields, idField.  Der Standardwert ist deduplizierte Felder.
+Geben Sie Löschkriterien als Liste von Suchwerten im `input`-Array an. Geben Sie die Löschmethode im `deleteBy` an.
+
+Die zulässigen Werte sind deduplizierte Felder und idField. Der Standardwert ist deduplizierte Felder.
 
 ```text
 Content-Type: application/json
@@ -368,6 +381,6 @@ POST /rest/v1/companies/delete.json
 
 ## Zeitüberschreitungen
 
-- Für Unternehmens-Endpunkte gilt eine Zeitüberschreitung von 30 Sekunden, sofern unten nicht anders angegeben
-   - Synchronisierungsunternehmen: 60er
-   - Firmen löschen: 60er
+- Für Unternehmens-Endpunkte gilt eine Zeitüberschreitung von 30 s, sofern nicht anders angegeben.
+- Bei Synchronisierungsunternehmen beträgt die Zeitüberschreitung 60 Sekunden.
+- Firmen löschen hat eine Zeitüberschreitung von 60 Jahren.

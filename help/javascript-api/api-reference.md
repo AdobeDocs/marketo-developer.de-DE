@@ -4,26 +4,27 @@ description: Verwenden Sie die Munchkin-JavaScript-API, um Seitenbesuche, Link-K
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
 TQID: https://experienceleague.adobe.com/s97x6wVZijnnxZwS7HMIkQAKlxXkcfPXuSZG4KjXGoc
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 426
+source-wordcount: 414
 ht-degree: 9%
 
 ---
 
 # Munchkin-API-Referenz
 
-Munchkin bietet mehrere Funktionen, die manuell über JavaScript aufgerufen werden können. Diese können eine benutzerdefinierte Nachverfolgung von Browser-Ereignissen wie Videowiedergaben oder Klicks auf Nicht-Links ermöglichen.
+Munchkin bietet JavaScript-Funktionen zum benutzerdefinierten Tracking von Browser-Ereignissen. Sie können beispielsweise Videowiedergaben oder Klicks auf Elemente verfolgen, die keine Links sind.
 
 ## Funktionen
 
-Die Munchkin-API besteht aus den folgenden Funktionen: `init`, `createTrackingCookie`, `munchkinFunction`.
+Die Munchkin-API umfasst die folgenden Funktionen:
+
+- `init`
+- `createTrackingCookie`
+- `munchkinFunction`
 
 <a name="munchkin_init"></a>
 
@@ -42,7 +43,9 @@ Munchkin.init('299-BYM-827');
 
 ### Munchkin.createTrackingCookie()
 
-Beim Aufruf von wird überprüft, ob ein `_mkto_trk`-Cookie im Browser vorhanden ist. Andernfalls wird ein Cookie erstellt. Dies ist nützlich, um Benutzende während bestimmter Aktionen wie der Registrierung oder dem Herunterladen eines Assets zu verfolgen, wenn `cookieAnon` auf „false“ gesetzt ist.
+`Munchkin.createTrackingCookie()` prüft, ob ein `_mkto_trk` Cookie im Browser vorhanden ist. Wenn das Cookie nicht vorhanden ist, erstellt die Funktion ein Cookie.
+
+Wenn `cookieAnon` auf „false“ gesetzt ist, können Sie mit dieser Funktion Benutzer während bestimmter Aktionen verfolgen, z. B. beim Registrieren oder Herunterladen eines Assets.
 
 | Parametername | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
@@ -54,7 +57,7 @@ Munchkin.createTrackingCookie(true);
 
 ### Munchkin.munchkinFunction()
 
-Wird zum Generieren benutzerdefinierter Tracking-Verhaltensweisen verwendet, z. B. Wiedergaben und Pausen von Video-Playern oder Seitenbesuche für nicht standardmäßige Navigation, z. B. Hash-Codes.
+Verwenden Sie `Munchkin.munchkinFunction()`, um benutzerdefinierte Tracking-Verhaltensweisen zu erstellen. Beispielsweise können Sie die Aktivität des Video-Players oder Seitenbesuche über nicht standardmäßige Navigation wie Hash-Änderungen verfolgen.
 
 | Parametername | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
@@ -63,7 +66,7 @@ Wird zum Generieren benutzerdefinierter Tracking-Verhaltensweisen verwendet, z. 
 
 #### visitWebPage
 
-Der Aufruf von `munchkinFunction()` mit `visitWebPage` sendet eine Aktivität des Typs „Besuch“ für den aktuellen Benutzer an Marketo. Sie können die URL und `querystring` anpassen, die mit dem Datenobjekt im zweiten Argument gesendet werden.
+Der Aufruf von `munchkinFunction()` mit `visitWebPage` sendet eine Aktivität des Typs „Besuch“ für den aktuellen Benutzer an Marketo. Verwenden Sie das Datenobjekt im zweiten Argument, um die URL und die `querystring` anzupassen.
 
 | Name der Dateneigenschaft | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
@@ -82,7 +85,7 @@ Munchkin.munchkinFunction('visitWebPage', {
 
 #### clickLink
 
-Der Aufruf von `munchkinFunction()` mit `clickLink` sendet eine Klick-Aktivität für den aktuellen Benutzer an Marketo. Sie können die Klick-URL mit der Eigenschaft `href` im Datenobjekt anpassen.
+Der Aufruf von `munchkinFunction()` mit `clickLink` sendet eine Klick-Aktivität für den aktuellen Benutzer an Marketo. Verwenden Sie die `href`-Eigenschaft im Datenobjekt, um die Klick-URL anzupassen.
 
 | Name der Dateneigenschaft | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |

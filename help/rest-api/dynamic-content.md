@@ -4,22 +4,19 @@ feature: REST API, Dynamic Content
 description: Konfigurieren Sie dynamische Marketo-Inhalte auf Abschnittsebene über REST-APIs mithilfe von Segmentierungen, um E-Mails, Landingpages und Snippets mit Endpunkten und Beispielen zu personalisieren
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
 TQID: https://experienceleague.adobe.com/MwfPxu74qk0bPZMr6yuxQi--e3gMvP1tXQZ5iMil02o
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 463
-ht-degree: 2%
+source-wordcount: 329
+ht-degree: 3%
 
 ---
 
 # Dynamische Inhalte
 
-Marketo erleichtert die Verwendung dynamischer Inhalte durch Lead-Segmentierung für mehrere Asset-Typen:
+Verwenden Sie Lead-Segmentierungen, um dynamische Inhalte in diesen Asset-Typen bereitzustellen:
 
 - E-Mails
 - Landingpages
@@ -27,13 +24,17 @@ Marketo erleichtert die Verwendung dynamischer Inhalte durch Lead-Segmentierung 
 
 ## Überblick
 
-Dynamische Inhalte werden auf Abschnittsebene implementiert, indem bestimmte Varianten eines Abschnitts, der einem Lead bereitgestellt werden soll, basierend auf ihrer Qualifizierung in einem Segment innerhalb einer ausgewählten Segmentierung bestimmt werden. Wenn ein Inhaltselement so konfiguriert ist, dass es dynamische Inhalte basierend auf einer bestimmten Segmentierung bereitstellt, wird einem Lead, der diesen Inhalt sieht, die Inhaltsvariante bereitgestellt, die dem Segment entspricht, dem sie angehören, oder der Standardinhalt, wenn sie nicht für ein Segment qualifiziert sind.
+Dynamische Inhalte werden auf Abschnittsebene ausgeführt. Jeder Abschnitt kann Varianten für Segmente in einer ausgewählten Segmentierung bereitstellen.
+
+Wenn ein Lead das Asset anzeigt, zeigt Marketo die Variante für das Segment des Leads an. Wenn sich der Lead nicht für ein Segment qualifiziert, zeigt Marketo den Standardinhalt an.
 
 ## Beispiel
 
-Zur Veranschaulichung sehen wir uns ein E-Mail-Beispiel an, in dem wir eine Segmentierung nach Region (USA) haben und eine Ereignisaktion nur für Leads anzeigen möchten, die zum Segment „Südwest“ gehören, das Kalifornien, Nevada, Utah, Colorado, Arizona und New Mexico umfasst. Dazu wird ein bearbeitbarer Abschnitt in unserer E-Mail mit der ID „Q1-Promotion-Banner“ in einen DynamicContent-Abschnitt umgewandelt. Dazu müssen wir den Endpunkt [Abschnitt E-Mail-Inhalt aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) für unsere E-Mail verwenden. Mit dem Parameter `value` wird die ID der Segmentierung angegeben.
+In diesem Beispiel wird eine Segmentierung der Region (US) verwendet, um eine Ereignisweiterleitung für Leads im Südwestsegment anzuzeigen. Das Segment umfasst Leads aus Kalifornien, Nevada, Utah, Colorado, Arizona und New Mexico.
 
-Hinweis: Sowohl E-Mails als auch Landingpages folgen diesem Muster. Snippets weisen ein anderes Muster auf, das in der Dokumentation zur Snippets-API beschrieben wird.
+Verwenden Sie den Endpunkt [Abschnitt „E-Mail-](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailComponentContentUsingPOST) aktualisieren“, um den bearbeitbaren Abschnitt mit der ID `Q1-promotion-banner` in einen `DynamicContent` Abschnitt zu ändern. Der `value` gibt die Segmentierungs-ID an.
+
+E-Mails und Landingpages folgen diesem Muster. Snippets verwenden das andere Muster, das in der Snippets-API-Dokumentation beschrieben wird.
 
 Im folgenden Beispiel wird der Abschnitt als Abschnitt mit dynamischem Inhalt festgelegt, der nach Segmentierung 1001 segmentiert ist.
 
@@ -59,9 +60,9 @@ type=DynamicContent&value=1001
 }
 ```
 
-Um Inhalte für einzelne Segmente hinzuzufügen, müssen wir den Endpunkt [Abschnitt zum Aktualisieren dynamischer E-Mail-Inhalte](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST) für den jeweiligen Abschnitt aufrufen.
+Rufen Sie den Endpunkt [Abschnitt zum Aktualisieren von E-Mail](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails/operation/updateEmailDynamicContentUsingPOST)Dynamischem Inhalt auf, um Inhalte für ein Segment in einem bestimmten Abschnitt hinzuzufügen.
 
-Im folgenden Beispiel wird der Abschnitt so eingestellt, dass unser spezielles Bannerbild für Leads im Segment Südwest anstelle des Standardbilds angezeigt wird. Wenn wir mehr Varianten für weitere Segmente erstellen möchten, rufen wir diesen Endpunkt für jedes Segment und jeden Abschnitt erneut auf.
+Die folgende Anfrage zeigt ein spezielles Banner anstelle des Standardinhalts für Leads im Südwestsegment an. Um weitere Varianten zu erstellen, rufen Sie den Endpunkt für jedes Segment und jeden Abschnitt auf.
 
 ```http
 POST /rest/asset/v1/email/{id}/dynamicContent/{dynamicContentId}.json
@@ -87,11 +88,13 @@ segment=Southwest&type=HTML&value=<img src='//www.example.com/SuperSpecialBanner
 
 ## Segmentierung
 
-Die Segmentierung ist der Kern von Marketo Dynamic Content. Eine Segmentierung ist eine benutzerdefinierte Liste einzelner Regelsätze, die von oben nach unten mit der gesamten Lead-Datenbank ausgewertet werden. Ein Lead darf in jeder Segmentierung nur Mitglied eines Segments sein und ist Mitglied des ersten Segments, für das er in jeder Segmentierung qualifiziert ist. Wenn es sich nicht für ein Segment qualifiziert, ist es Mitglied des Standardsegments und erhält den Standardinhalt für jedes beliebige dynamische Inhaltselement, das diese Segmentierung verwendet.
+Eine Segmentierung ist eine benutzerdefinierte Liste von Regelsätzen, die von Marketo von oben nach unten mit der Lead-Datenbank ausgewertet werden. Ein Lead kann in jeder Segmentierung nur zu einem Segment gehören. Der Lead tritt dem ersten Segment bei, für das er qualifiziert ist.
+
+Wenn der Lead sich nicht für ein anderes Segment qualifiziert, tritt er in das Standardsegment ein und erhält den Standardinhalt der Segmentierung.
 
 ### Liste
 
-Segmentierungen haben einen Listenendpunkt, der eine Antwort mit einer Liste der verfügbaren Segmentierungen zurückgibt.
+Verwenden Sie den Listenendpunkt, um verfügbare Segmentierungen abzurufen.
 
 ```http
 GET /rest/asset/v1/segmentation.json
@@ -138,7 +141,7 @@ GET /rest/asset/v1/segmentation.json
 }
 ```
 
-Segmentierungen haben auch einen Endpunkt, der eine Antwort mit einer Liste von Segmenten aus einer übergeordneten Segmentierung zurückgibt.
+Verwenden Sie den Segmentendpunkt , um die Segmente in einer übergeordneten Segmentierung abzurufen.
 
 ```http
 GET /rest/asset/v1/segmentation/1001/segments.json

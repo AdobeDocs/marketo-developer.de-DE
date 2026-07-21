@@ -4,57 +4,55 @@ feature: REST API
 description: Erfahren Sie, wie Sie Marketo für Transaktions-E-Mails konfigurieren und sie über REST-API-Anfragekampagne mit Einrichtungsschritten und Java-Code-Beispielen in Trigger setzen.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
 TQID: https://experienceleague.adobe.com/eUw2THnwDdIuEO3MsuG4cSaoPnKVvdZ0ZTV-gxP-pJQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1092
+source-wordcount: 897
 ht-degree: 1%
 
 ---
 
 # Transaktions-E-Mail
 
-Ein gängiges Anwendungsbeispiel für die Marketo-API ist der Trigger des Versands von Transaktions-E-Mails an bestimmte Datensätze über den API-Aufruf [Kampagne anfragen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST). Es gibt einige Konfigurationsanforderungen in Marketo, um den erforderlichen Aufruf mit der Marketo REST-API auszuführen.
+Verwenden Sie die [Kampagne anfragen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST)-API zum Senden von Transaktions-E-Mails an bestimmte Marketo-Datensätze. Konfigurieren Sie die E-Mail- und Trigger-Kampagne, bevor Sie die Anfrage stellen.
 
-- Die Empfängerin bzw. der Empfänger muss einen Datensatz in Marketo haben
-- In Ihrer Marketo-Instanz muss eine Transaktions-E-Mail erstellt und genehmigt sein.
-- Es muss eine aktive Kampagnenkampagne mit dem Trigger „Kampagne ist angefordert, 1. Source: Web Service API“, das zum Senden der E-Mail eingerichtet ist
+- Stellen Sie sicher, dass der Empfänger über einen Marketo-Eintrag verfügt.
+- Erstellen und genehmigen Sie eine Transaktions-E-Mail in der Marketo-Instanz.
+- Trigger-Kampagne aktivieren, die „Kampagne ist angefordert, 1. Source: Web Service API“ und sendet die E-Mail.
 
-Zunächst [E-Mail erstellen und &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail wirklich eine Transaktion ist, müssen Sie sie wahrscheinlich auf „betriebsbereit“ setzen, aber sicherstellen, dass sie rechtlich als funktionsfähig eingestuft wird. Dies wird über den Bildschirm Bearbeiten unter E-Mail-Aktionen > E-Mail-Einstellungen konfiguriert:
+Erstellen [ genehmigen Sie zunächst die E-](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail gesetzlich als funktionsfähig eingestuft wird, konfigurieren Sie sie unter E-Mail-Aktionen > E-Mail-Einstellungen als funktionsfähig:
 
 ![request-campaign-email-settings](assets/request-campaign-email-settings.png)
 
 ![request-campaign-operations](assets/request-campaign-operational.png)
 
-Genehmigen Sie ihn, und wir sind bereit, unsere Kampagne zu erstellen:
+E-Mail vor Erstellung der Kampagne validieren:
 
 ![RequestCampaign-approve-draft](assets/request-campaign-approve-draft.png)
 
-Wenn Sie mit dem Erstellen von Kampagnen noch nicht vertraut sind, lesen Sie den Artikel [Erstellen einer neuen intelligenten Kampagne](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=de) . Nachdem Sie Ihre Kampagne erstellt haben, müssen wir diese Schritte durchlaufen. Konfigurieren Sie Ihre Smart-Liste mit dem Trigger Kampagne ist angefordert :
+Siehe bei Bedarf [Erstellen einer neuen intelligenten Kampagne](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html). Konfigurieren der Smart List der Kampagne mit dem Trigger Kampagne ist angefordert :
 
 ![request-campaign-smart-list](assets/request-campaign-smart-list.png)
 
-Jetzt müssen wir den Fluss so konfigurieren, dass er auf den Schritt „E-Mail senden“ zu unserer E-Mail verweist:
+Konfigurieren Sie einen E-Mail senden -Flussschritt, der auf die Transaktions-E-Mail verweist:
 
 ![request-campaign-flow](assets/request-campaign-flow.png)
 
-Vor der Aktivierung müssen Sie einige Einstellungen auf der Registerkarte Zeitplan festlegen. Wenn diese E-Mail nur einmal an einen bestimmten Datensatz gesendet werden soll, lassen Sie die Qualifizierungseinstellungen unverändert. Wenn sie die E-Mail jedoch mehrmals erhalten müssen, können Sie dies entweder auf jedes Mal oder auf eine der verfügbaren Kadenzen anpassen:
+Konfigurieren Sie vor der Aktivierung die Qualifizierungseinstellungen auf der Registerkarte Zeitplan . Behalten Sie die Standardeinstellung bei, wenn jeder Datensatz die E-Mail nur einmal erhalten soll. Andernfalls können Empfängerinnen und Empfänger jedes Mal oder in einer verfügbaren Kadenz qualifiziert werden.
 
-Jetzt können Sie Folgendes aktivieren:
+Aktivieren der Kampagne:
 
 ![request-campaign-schedule](assets/request-campaign-schedule.png)
 
 ## API-Aufrufe senden
 
-**Hinweis:** In den unten stehenden Java-Beispielen verwenden wir das Paket [minimal-json](https://github.com/ralfstx/minimal-json), um JSON-Darstellungen in unserem Code zu verarbeiten.
+Die Java-Beispiele verwenden das [minimal-json-Paket](https://github.com/ralfstx/minimal-json) um JSON-Darstellungen zu verarbeiten.
 
-Beim Senden einer Transaktions-E-Mail über die API müssen Sie zunächst sicherstellen, dass in Ihrer Marketo-Instanz ein Datensatz mit der entsprechenden E-Mail-Adresse vorhanden ist und wir Zugriff auf die Lead-ID haben. Für diesen Beitrag gehen wir davon aus, dass sich die E-Mail-Adressen bereits in Marketo befinden und wir nur die ID des Datensatzes abrufen müssen. Dazu verwenden wir den Aufruf [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET). Sehen wir uns die Hauptmethode für die Anfrage der Kampagne an:
+Bevor Sie die E-Mail senden, bestätigen Sie, dass für die E-Mail-Adresse ein Marketo-Eintrag vorhanden ist, und rufen Sie die Lead-ID ab. In diesem Beispiel wird davon ausgegangen, dass die E-Mail-Adresse bereits vorhanden ist.
+
+Verwenden [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) um die ID abzurufen. Die folgende Hauptmethode fordert dann die Kampagne an:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -88,14 +86,14 @@ public class App
 }
 ```
 
-Um diese Ergebnisse aus der JsonObject-Antwort von leadRequest zu erhalten, müssen wir Code schreiben. Um das erste Ergebnis im Array abzurufen, müssen wir das Array aus dem JsonObject extrahieren und das -Objekt bei 0 indizieren lassen:
+Extrahieren Sie das Ergebnis-Array aus der `JsonObject`-Antwort und rufen Sie das -Objekt bei Index 0 ab:
 
 ```java
 JsonArray leadsResult = leadsRequest.getData().get("result").asArray();
 int leadId = leadsResult.get(0).asObject().get("id").asInt();
 ```
 
-Ab hier müssen wir nur noch den Aufruf Kampagne anfragen ausführen. Zu diesem Zweck sind die erforderlichen Parameter die ID in der URL der Anfrage und ein Array von JSON-Objekten, die ein Element „id“ enthalten. Sehen wir uns den Code dafür an:
+Rufen Sie die Anfragekampagne mit der Kampagnen-ID in der Anfrage-URL auf. Der Anfragetext enthält ein Array von JSON-Objekten mit einem `id`:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -190,7 +188,7 @@ Diese Klasse verfügt über einen Konstruktor, der eine Authentifizierung akzept
 
 ### E-Mail erstellen
 
-Um unseren Inhalt anzupassen, müssen wir zunächst ein [Programm](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=de) und eine [E-Mail](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de) in Marketo konfigurieren. Um unsere benutzerdefinierten Inhalte zu generieren, müssen wir Token innerhalb des Programms erstellen und sie dann in der E-Mail platzieren, die wir senden werden. Der Einfachheit halber verwenden wir in diesem Beispiel nur ein Token, aber Sie können eine beliebige Anzahl von Token in einer E-Mail ersetzen, in der Absender-E-Mail, im Absendernamen, in der Antwortadresse oder in einem beliebigen Inhalt in der E-Mail. Erstellen wir also ein Rich-Text-Token für die Ersetzung und nennen es „bodyReplacement“. Rich-Text ermöglicht es uns, alle Inhalte im Token durch beliebige HTML zu ersetzen, die wir eingeben möchten.
+Um unseren Inhalt anzupassen, müssen wir zunächst ein [Programm](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) und eine [E-Mail](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de) in Marketo konfigurieren. Um unsere benutzerdefinierten Inhalte zu generieren, müssen wir Token innerhalb des Programms erstellen und sie dann in der E-Mail platzieren, die wir senden werden. Der Einfachheit halber verwenden wir in diesem Beispiel nur ein Token, aber Sie können eine beliebige Anzahl von Token in einer E-Mail ersetzen, in der Absender-E-Mail, im Absendernamen, in der Antwortadresse oder in einem beliebigen Inhalt in der E-Mail. Erstellen wir also ein Rich-Text-Token für die Ersetzung und nennen es „bodyReplacement“. Rich-Text ermöglicht es uns, alle Inhalte im Token durch beliebige HTML zu ersetzen, die wir eingeben möchten.
 
 ![new-token](assets/New-Token.png)
 

@@ -4,17 +4,13 @@ feature: Custom Objects
 description: Erfahren Sie, wie Sie benutzerdefinierte Marketo-Objekte mithilfe von CSV-, TSV- oder SSV-Dateien per Massenimport über REST importieren.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
 TQID: https://experienceleague.adobe.com/C1LKLZDEvv95XXH3AEoxIXsLK55tgKTrvyxvs4LnYWw
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 953
+source-wordcount: 736
 ht-degree: 0%
 
 ---
@@ -23,15 +19,26 @@ ht-degree: 0%
 
 [Referenz zum Massenimport benutzerdefinierter Objekte mit Endpunkt](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects)
 
-Wenn Sie viele benutzerdefinierte Objektdatensätze importieren möchten, empfiehlt es sich, diese asynchron mithilfe der Bulk-API zu importieren. Importieren Sie dazu eine einfache Datei, die durch Kommas, Tabulatoren oder Semikolons getrennte Datensätze enthält. Die Datei kann eine beliebige Anzahl von Datensätzen enthalten, sofern ihre Größe weniger als 10 MB beträgt (andernfalls wird ein HTTP-413-Status-Code zurückgegeben). Der Inhalt der Datei hängt von Ihrer benutzerdefinierten Objektdefinition ab. Die erste Zeile enthält immer eine Kopfzeile, in der die Felder aufgelistet sind, denen Werte jeder Zeile zugeordnet werden sollen. Alle Feldnamen in der Kopfzeile müssen mit einem API-Namen übereinstimmen (wie unten beschrieben). Die übrigen Zeilen enthalten die zu importierenden Daten, d. h. ein Datensatz pro Zeile. Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“.
+Verwenden Sie die Bulk-API, um eine große Anzahl von benutzerdefinierten Objektdatensätzen asynchron zu importieren. Stellen Sie die Datensätze in einer flachen Datei mit Komma, Tabulatoren oder Semikolons bereit, die kleiner als 10 MB ist. Wenn die Datei größer ist, gibt die API einen HTTP-413-Status-Code zurück.
+
+Der Dateiinhalt hängt von der benutzerdefinierten Objektdefinition ab. Die erste Zeile muss eine Kopfzeile sein, und jedes Kopfzeilenfeld muss mit einem API-Namen übereinstimmen. Jede verbleibende Zeile enthält einen Datensatz.
+
+Der Massenimport benutzerdefinierter Objekte unterstützt nur den Datensatzvorgang „Einfügen oder Aktualisieren“.
 
 ## Verarbeitungsbeschränkungen
 
-Es ist zulässig, innerhalb von Beschränkungen mehr als eine Massenimportanfrage zu senden. Jede Anfrage wird als Auftrag zu einer zu verarbeitenden FIFO-Warteschlange hinzugefügt. Es werden maximal zwei Aufträge gleichzeitig verarbeitet. Es sind maximal zehn Aufträge gleichzeitig in der Warteschlange zulässig (einschließlich der zwei derzeit verarbeiteten). Wenn Sie den Maximalwert von zehn Aufträgen überschreiten, wird der Fehler „1016, Zu viele Importe“ zurückgegeben.
+Jede Massenimportanfrage wird als Auftrag zu einer FIFO-Warteschlange (First-In, First-Out) hinzugefügt. Es gelten die folgenden Grenzwerte:
+
+- Es können maximal zwei Aufträge gleichzeitig verarbeitet werden.
+- Es können maximal 10 Aufträge in der Warteschlange sein, einschließlich der beiden verarbeiteten Aufträge.
+
+Wenn Sie das Maximum von 10 Aufträgen überschreiten, gibt die API einen `1016, Too many imports` Fehler zurück.
 
 ## Beispiel für ein benutzerdefiniertes Objekt
 
-Vor der Verwendung der Bulk-API müssen Sie zunächst die Admin-Benutzeroberfläche von Marketo verwenden, um [Ihr benutzerdefiniertes Objekt zu erstellen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Angenommen, wir haben ein benutzerdefiniertes „Auto“-Objekt mit den Feldern „Farbe“, „Marke“, „Modell“ und „FIN“ erstellt. Im Folgenden finden Sie Bildschirme der Admin-Benutzeroberfläche mit dem benutzerdefinierten Objekt. Sie können sehen, dass wir das FIN-Feld für die Deduplizierung verwendet haben. Die API-Namen sind hervorgehoben, da sie beim Aufrufen von API-bezogenen Massenendpunkten verwendet werden müssen.
+Bevor Sie die Bulk-API verwenden, verwenden Sie die Admin-Benutzeroberfläche von Marketo, um [Ihr benutzerdefiniertes Objekt zu erstellen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects).
+
+In diesem Beispiel wird ein `Car` benutzerdefiniertes Objekt mit `Color`-, `Make`-, `Model`- und `VIN` verwendet. Das FIN-Feld wird für die Deduplizierung verwendet. Die Bildschirme der Admin-Benutzeroberfläche markieren die API-Namen, die für Massen-API-Endpunkte erforderlich sind.
 
 ![Benutzerdefiniertes Objekt einfügen](assets/bulk-insert-co-car-1.png)
 
@@ -41,7 +48,7 @@ Im Folgenden finden Sie die benutzerdefinierten Objektfelder, die in der Admin-B
 
 ### API-Namen
 
-Sie können API-Namen programmgesteuert abrufen, indem Sie den benutzerdefinierten Objekt-API-Namen an den Endpunkt [Describe Custom Object](#describe) übergeben.
+Um API-Namen programmgesteuert abzurufen, übergeben Sie den benutzerdefinierten Objekt-API-Namen an den Endpunkt [Benutzerdefiniertes Objekt beschreiben](#describe).
 
 ```text
 /rest/v1/customobjects/{apiName}/describe.json
@@ -126,7 +133,7 @@ Sie können API-Namen programmgesteuert abrufen, indem Sie den benutzerdefiniert
 
 ### Datei importieren
 
-Angenommen, Sie möchten drei benutzerdefinierte Objektdatensätze vom Typ „Car“ importieren. Durch Kommas getrennte Formatierung (CSV) könnte die Datei wie folgt aussehen:
+Die folgende CSV-Datei enthält drei `Car` benutzerdefinierte Objektdatensätze:
 
 ```text
 color,make,model,vin
@@ -135,11 +142,14 @@ yellow,bmw,320i,WBA4R7C30HK896061
 blue,bmw,325i,WBS3U9C52HP970604
 ```
 
-Zeile 1 ist die Kopfzeile und Zeilen 2-4 sind die Datensätze der benutzerdefinierten Objektdaten.
+Die erste Zeile ist die Kopfzeile. Die Zeilen 2-4 enthalten die Datensätze für benutzerdefinierte Objekte.
 
 ## Erstellen von Aufträgen
 
-Um die Massenimportanfrage zu stellen, müssen Sie den API-Namen des benutzerdefinierten Objekts in den Pfad zum Endpunkt [Benutzerdefinierte Objekte importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST) einschließen. Sie müssen außerdem einen Parameter „file“ angeben, der auf den Namen der Importdatei verweist, und einen Parameter „format“, der angibt, wie die Importdatei abgegrenzt wird („csv“, „tsv“ oder „ssv„).
+Um den Massenimportauftrag zu erstellen, fügen Sie den benutzerdefinierten Objekt-API-Namen in den Pfad zum Endpunkt [Benutzerdefinierte Objekte importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST) ein. Schließen Sie diese Parameter ein:
+
+- `file`: Der Name der Importdatei.
+- `format`: Das Dateitrennzeichenformat (`csv`, `tsv` oder `ssv`).
 
 ```http
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
@@ -178,17 +188,19 @@ blue,bmw,325i,WBS3U9C52HP970604
 }
 ```
 
-In diesem Beispiel haben wir das CSV-Format angegeben und unsere Importdatei „custom_object_import.csv“ genannt.
+In diesem Beispiel werden das `csv` Format und die Namen der Importdatei `custom_object_import.csv`.
 
-Beachten Sie in der Antwort auf unseren Aufruf, dass es keine Liste von Erfolgen oder Fehlern gibt, wie Sie sie vom Endpunkt „Benutzerdefinierte Objekte synchronisieren“ erhalten würden. Stattdessen erhalten Sie eine `batchId`. Dies liegt daran, dass der Aufruf asynchron ist und einen `status` von „In Warteschlange“, „Import“ oder „Fehlgeschlagen“ zurückgeben kann. Sie sollten die batchId beibehalten, damit Sie den Status des Importvorgangs abrufen oder Fehler und/oder Warnungen nach Abschluss des Vorgangs abrufen können. Die batchId bleibt sieben Tage gültig.
+Da der Aufruf asynchron erfolgt, enthält die Antwort eine `batchId` anstelle der einzelnen Erfolge und Fehler, die vom Endpunkt „Benutzerdefinierte Objekte synchronisieren“ zurückgegeben werden. Die `status` kann `Queued`, `Importing` oder `Failed` sein.
 
-Eine einfache Möglichkeit, die Massenimportanfrage zu replizieren, ist die Verwendung von curl über die Befehlszeile:
+Behalten Sie die `batchId` bei, um den Importstatus zu überprüfen und Fehler oder Warnungen nach Abschluss abzurufen. Die `batchId` bleibt sieben Tage gültig.
+
+Mit der folgenden Befehlszeilen-cURL-Anfrage wird der Beispielvorgang gesendet:
 
 ```bash
 curl -X POST -i -F format='csv' -F file='@custom_object_import.csv' -F access_token='<Access Token>' <REST API Endpoint URL>/bulk/v1/customobjects/car_c/import.json
 ```
 
-Die Importdatei „custom_object_import.csv“ enthält Folgendes:
+In diesem Beispiel enthält die `custom_object_import.csv`-Datei die folgenden Daten:
 
 ```text
 color,make,model,vin
@@ -199,7 +211,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## Status des Abrufauftrags
 
-Nachdem der Importvorgang erstellt wurde, müssen Sie seinen Status abfragen. Es empfiehlt sich, den Importauftrag alle 5 bis 30 Sekunden abzufragen. Übergeben Sie dazu den API-Namen des benutzerdefinierten Objekts und die `batchId` im Pfad an den Endpunkt [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET).
+Nachdem Sie den Importauftrag erstellt haben, fragen Sie ihn alle 5-30 Sekunden ab. Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad an den Endpunkt [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET).
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -225,19 +237,23 @@ GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 }
 ```
 
-Diese Antwort zeigt einen abgeschlossenen Import an, aber die `status` kann eine der folgenden sein: Abgeschlossen, In Warteschlange, Importieren, Fehlgeschlagen. Wenn der Vorgang abgeschlossen ist, wird eine Liste der verarbeiteten Zeilen mit Fehlern und Warnungen angezeigt. Das Attribut message ist auch ein guter Ort, um nach zusätzlichen Auftragsinformationen zu suchen.
+Diese Antwort zeigt einen abgeschlossenen Import an. Die `status` kann `Complete`, `Queued`, `Importing` oder `Failed` sein.
+
+Wenn der Auftrag abgeschlossen ist, listet die Antwort die Anzahl der verarbeiteten Zeilen auf, die fehlgeschlagen sind und mit Warnungen verarbeitet wurden. Das Attribut `message` kann zusätzliche Auftragsinformationen bereitstellen.
 
 ## Fehler
 
-Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) angezeigt. Wenn numOfRowsFailed größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an. Rufen Sie [&#x200B; Endpunkt „Importieren von benutzerdefinierten Objektfehlern](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) auf, um eine Datei mit Fehlerdetails zu erhalten. Auch hier müssen Sie den benutzerdefinierten Objekt-API-Namen und die `batchId` im Pfad übergeben. Wenn keine Fehlerdatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
+Das Attribut `numOfRowsFailed` in der Antwort [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
 
-Um mit dem Beispiel fortzufahren, können wir einen Fehler erzwingen, indem wir die Kopfzeile ändern und „vin“ in „vin“ ändern (indem wir ein Leerzeichen zwischen dem Komma und „vin“ einfügen).
+Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad zum Endpunkt [Abrufen von Fehlern bei benutzerdefinierten Objekten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET). Der Endpunkt gibt eine Datei mit Fehlerdetails zurück. Wenn keine Fehlerdatei vorhanden ist, wird ein HTTP-404-Status-Code zurückgegeben.
+
+Um einen Fehler zu demonstrieren, ändern Sie die Kopfzeile, indem Sie `vin` in ` vin` ändern und ein Leerzeichen zwischen dem Komma und dem `vin` einfügen.
 
 ```text
 color,make,model, vin
 ```
 
-Wenn wir den Status erneut importieren und überprüfen, sehen wir diese Antwort mit `numRowsFailed`: 3. Dies zeigt drei Fehler an.
+Nach dem erneuten Importieren der Datei zeigt die Statusantwort `numRowsFailed`: 3 an, was auf drei Fehler hinweist.
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
@@ -263,7 +279,7 @@ GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
 }
 ```
 
-Jetzt führen wir den Endpunktaufruf Benutzerdefinierte Objektfehler importieren durch, um zusätzliche Fehlerdetails zu erhalten:
+Rufen Sie den Endpunkt für benutzerdefinierte Objektfehler beim Import abrufen auf, um weitere Informationen zu erhalten:
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/failures.json
@@ -276,11 +292,13 @@ yellow,bmw,320i,WBA4R7C30HK896061,missing.dedupe.fields
 blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 ```
 
-Und wir können sehen, dass uns unser Deduplizierungsfeld `vin` fehlt.
+Die Antwort zeigt an, dass das Deduplizierungsfeld `vin` fehlt.
 
 ## Warnungen
 
-Warnungen werden durch das Attribut `numOfRowsWithWarning` in der Antwort „Benutzerdefinierter Objektstatus abrufen“ angezeigt. Wenn numOfRowsWithWarning größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Warnungen an. Rufen Sie [&#x200B; Endpunkt „Benutzerdefinierte Objektwarnungen importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) auf, um eine Datei mit Warndetails zu erhalten. Auch hier müssen Sie den benutzerdefinierten Objekt-API-Namen und die `batchId` im Pfad übergeben. Wenn keine Warndatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
+Das Attribut `numOfRowsWithWarning` in der Antwort Benutzerdefinierter Objektstatus abrufen gibt die Anzahl der Zeilen mit Warnungen an. Ein Wert größer als null bedeutet, dass Warnungen aufgetreten sind.
+
+Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad zum Endpunkt [Warnungen für benutzerdefinierte Objekte abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET). Der Endpunkt gibt eine -Datei mit Warndetails zurück. Wenn keine Warndatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

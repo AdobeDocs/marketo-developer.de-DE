@@ -4,51 +4,48 @@ feature: REST API
 description: Best Practices für Marketo-API-Integrationen, einschließlich Kontingenten, Rate- und Gleichzeitigkeitsbeschränkungen, Batching, Massenimport und -export, Caching und Latenzplanung.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
 TQID: https://experienceleague.adobe.com/Ld-rmFCwKSx-0W2-ceYICu0FQHK8BKAC1QgqtiOWDn4
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1013
+source-wordcount: 882
 ht-degree: 0%
 
 ---
 
 # Best Practices für die Marketo-Integration
 
+Entwerfen Sie Integrationen um die freigegebenen API-Beschränkungen für Ihre Marketo-Instanz. Verwenden Sie Batch-Verarbeitung, Caching und konservative Anfrageraten, um den Durchsatz und die Zuverlässigkeit zu verbessern.
+
 ## API-Beschränkungen
 
-- **Tägliches Kontingent:** Die meisten Abonnements erhalten 50.000 API-Aufrufe pro Tag (die täglich um 12 % :00AM zurückgesetzt werden). Sie können Ihr tägliches Kontingent über Ihren Account Manager erhöhen.
-- **Ratenlimit:** API-Zugriff pro Instanz beschränkt auf 100 Aufrufe pro 20 Sekunden.
-- **Parallelitätslimit:** maximal zehn gleichzeitige API-Aufrufe.
-- **Batch-Größe:** Lead-DB - 300 Datensätze; Asset-Abfrage - 200 Datensätze
-- **REST-API-Payload-Größe:** 1 MB
-- **Größe der Massenimportdatei:** 10 MB
-- Maximale Batch-Größe von **SOAP:** 300 Datensätze
-- **Massenextraktionsaufträge:** 2 werden ausgeführt; 10 in die Warteschlange gestellt (einschließlich)
+- **Tägliches Kontingent:** Die meisten Abonnements erhalten 50.000 API-Aufrufe pro Tag. Das Kontingent wird täglich um 0:00 Uhr CST zurückgesetzt. Wenden Sie sich an Ihren Account Manager, um das tägliche Kontingent zu erhöhen.
+- **Ratenlimit:** Jede Instanz ist auf 100 API-Aufrufe pro 20 Sekunden beschränkt.
+- **Parallelitätslimit:** Jede Instanz ermöglicht maximal zehn gleichzeitige API-Aufrufe.
+- **Batch-Größe:** Lead-Datenbank unterstützt 300 Datensätze; Asset-Abfrage unterstützt 200 Datensätze.
+- **REST API Payload-Größe:** 1 MB.
+- **Größe der Massenimportdatei:** 10 MB.
+- Maximale Batch-Größe von **SOAP:** 300 Datensätze.
+- **Massenextraktionsaufträge:** Zwei werden ausgeführt und zehn in die Warteschlange gestellt, einschließlich.
 
 ## Schnelltipps
 
-- Nehmen wir an, dass Ihre Anwendung um Kontingent-, Rate- und Parallelitätsressourcen mit anderen Anwendungen konkurriert und konservative Nutzungsbeschränkungen festlegt.
-- Verwenden Sie die Bulk- und Batch-Methoden von Marketo, sofern verfügbar und angemessen. Verwenden Sie nur einzelne Datensätze oder einzelne Ergebnisaufrufe, wenn erforderlich.
+- Legen Sie konservative Nutzungsbeschränkungen fest, da Ihre Anwendung Kontingent-, Rate- und Parallelitätsressourcen mit anderen Anwendungen teilt.
+- Verwenden Sie Massen- und Batch-Methoden von Marketo, sofern verfügbar. Verwenden Sie Aufrufe mit einem Datensatz oder mit einem Ergebnis nur bei Bedarf.
 - Verwenden Sie [exponentielles Backoff](https://en.wikipedia.org/wiki/Exponential_backoff), um API-Aufrufe erneut auszuführen, die aufgrund von Ratenbeschränkungen oder Parallelitätsbeschränkungen fehlschlagen.
-- Vermeiden Sie gleichzeitige API-Aufrufe, wenn Ihr Anwendungsfall davon nicht profitiert.
+- Vermeiden Sie gleichzeitige API-Aufrufe, es sei denn, sie kommen Ihrem Anwendungsfall zugute.
 
 ## Batching
 
-Um eine optimale Leistung Ihrer Integrationen bei der Durchführung von Einfügungen oder Aktualisierungen sicherzustellen, sollten Datensätze in so wenig Transaktionen wie möglich gruppiert werden. Beim Abrufen von Datensätzen aus einem Datenspeicher zur Übermittlung sollten die Datensätze immer vor der Übermittlung aggregiert werden, anstatt für jede einzelne Änderung eine Anfrage zu senden.
+Um Datensätze einzufügen und zu aktualisieren, gruppieren Sie sie in so wenig Transaktionen wie möglich. Wenn Sie Datensätze aus einem Datenspeicher abrufen, aggregieren Sie sie vor der Übermittlung, anstatt für jede Änderung eine Anfrage zu senden.
 
 ## Akzeptable Latenz
 
-Die Bestimmung Ihrer Latenztoleranzen oder der maximalen Zeit, die vor dem Senden eines API-Aufrufs vergehen kann, wird viele, wenn nicht die meisten Entscheidungen beeinflussen, die Sie beim Entwerfen Ihrer Integration in Marketo treffen. Marketo bietet viele verschiedene Methoden und Konfigurationsoptionen, die für verschiedene Anwendungsfälle und verschiedene Latenzklassen geeignet sind. Beispielsweise kann eine Echtzeit-Integration, die einen Vertriebsmitarbeiter über einen Benutzer benachrichtigt, der sich für eine Testversion anmeldet, Batches nur dann senden, wenn eine sofortige Nachverfolgung erforderlich ist. In den meisten Fällen ist dies jedoch nicht erforderlich und kann zusätzliche Latenzen vertragen. Außerdem lässt sich dies durch Warteschlangen- und Batch-Aufrufe effizienter verwalten.
+Definieren Sie beim Entwerfen einer Integration die akzeptable Latenz (die maximale Zeit vor dem Senden eines API-Aufrufs). Diese Auswahl bestimmt, welche Marketo-Methoden und Konfigurationsoptionen für den Anwendungsfall geeignet sind.
+
+Eine Echtzeit-Integration, die einen Verkäufer benachrichtigt, wenn ein Benutzer eine Testversion startet, kann beispielsweise Batches einer Testversion senden, wenn eine sofortige Nachverfolgung erforderlich ist. Die meisten Anwendungsfälle tolerieren mehr Latenz und arbeiten effizienter, indem sie Warteschlangen- und Batch-Aufrufe verarbeiten.
 
 | Akzeptable Latenz | Bevorzugte Methoden | Hinweise |
 | --- | --- | --- |
@@ -58,9 +55,11 @@ Die Bestimmung Ihrer Latenztoleranzen oder der maximalen Zeit, die vor dem Sende
 
 ## Tägliche Beschränkungen
 
-Jede API-fähige Instanz von Marketo verfügt über eine tägliche Zuordnung von mindestens 10.000 REST-API-Aufrufen pro Tag, aber häufiger 50.000 oder mehr, und 500 MB oder mehr der Massenextraktionskapazität. Während zusätzliche tägliche Kapazität im Rahmen eines Marketo-Abonnements erworben werden kann, sollte Ihr Anwendungsdesign die allgemeinen Beschränkungen von Marketo-Abonnements berücksichtigen.
+Jede API-fähige Marketo-Instanz verfügt über eine tägliche Zuordnung von mindestens 10.000 REST-API-Aufrufen, obwohl 50.000 oder mehr häufig sind. Jede Instanz verfügt außerdem über eine Massenextraktionskapazität von mindestens 500 MB. Im Rahmen eines Marketo-Abonnements können zusätzliche tägliche Kapazitäten erworben werden. Bei der Entwicklung von Anwendungen sollten jedoch die üblichen Abonnementbeschränkungen berücksichtigt werden.
 
-Da die Kapazität von allen API-Services und Benutzern in einer Instanz gemeinsam genutzt wird, empfiehlt es sich, redundante Aufrufe zu eliminieren und Datensätze in so wenige Aufrufe wie möglich zu stapeln. Die aufrufeffizienteste Möglichkeit zum Importieren von Datensätzen besteht in der Verwendung der Massenimport-APIs von Marketo, die für [Leads/Personen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) und [benutzerdefinierte Objekte](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST) verfügbar sind. Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
+Die Kapazität wird von allen API-Services und Benutzern in einer Instanz gemeinsam genutzt. Beseitigen Sie redundante Aufrufe und Batch-Datensätze in so wenig Aufrufe wie möglich.
+
+Die aufrufeffizienteste Importmethode ist die Marketo-Massenimport-API, die für „Leads[/Personen“ ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) &quot;[ Objekte“ ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
 
 ### Caching
 
@@ -70,18 +69,24 @@ Die Ergebnisse aus den folgenden Vorgängen können in der Regel einen Tag oder 
 - [Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
 - [Partitionen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
-Das Zwischenspeichern bestimmter Asset-Typen wie Programme, E-Mails und Ordner ist auch für bestimmte Anwendungsfälle geeignet, z. B. die Anreicherung von Daten für Lead- oder Aktivitätsdatensätze.
+Für Anwendungsfälle wie die Anreicherung von Lead- oder Aktivitätsdaten können Sie auch Asset-Typen wie Programme, E-Mails und Ordner zwischenspeichern.
 
 ## Ratenlimit
 
-Jede Marketo-Instanz ist auf 100 Aufrufe pro 20 Sekunden beschränkt, die von allen Drittanbieter-API-Services gemeinsam genutzt werden. Wenn diese Grenze überschritten wird, antwortet die API mit einem 606-Fehler-Code, der angibt, dass die Ratengrenze überschritten wurde. Im Allgemeinen sollten Drittanbieterintegrationen ihre Nutzung auf 50 Aufrufe pro 20 Sekunden oder weniger beschränken, um eine faire Nutzung der Ratenbeschränkungen durch mehrere API-Integrationen und Benutzer zu ermöglichen. Obwohl es in bestimmten Fällen möglicherweise angebracht ist, diese Grenze zu überlasten, sind Anwendungen, die Batch-Verarbeitung verwenden und ihren Durchsatz auf einen Wert unterhalb dieser Grenze ausrichten, im Allgemeinen reaktionsschneller und konsistenter in ihrem Betrieb, was geringe Kosten für eine erhöhte Latenz mit sich bringt.
+Jede Marketo-Instanz verfügt über ein Limit für die freigegebene Rate von 100 Aufrufen pro 20 Sekunden für alle Drittanbieter-API-Services. Wenn -Aufrufe dieses Limit überschreiten, gibt die API einen 606-Fehler-Code zurück.
+
+Beschränken Sie im Allgemeinen jede Drittanbieterintegration auf 50 Aufrufe pro 20 Sekunden oder weniger, damit mehrere API-Integrationen und Benutzer die verfügbare Kapazität gemeinsam nutzen können. Einige Anwendungsfälle benötigen möglicherweise das volle Limit. Anwendungen, die Batch verwenden und einen niedrigeren Durchsatz anstreben, sind jedoch im Allgemeinen reaktionsschneller und konsistenter und weisen einen geringen Latenzanstieg auf.
 
 ## Parallelitätslimit
 
-Jede Marketo-Instanz verfügt über ein gemeinsames Limit von zehn gleichzeitigen REST-API-Aufrufen. Wie die täglichen Kontingent- und Quotenbegrenzungen wird es freigegeben, sodass Sie nicht davon ausgehen sollten, dass Ihre Anwendung der exklusive Verbraucher dieses Limits sein wird. Marketo zählt die Anzahl der gleichzeitigen Aufrufe als solche, die verarbeitet werden und noch nicht zurückgegeben wurden. Wenn ein Aufruf also zurückgegeben wird, wird er nicht mehr auf das Limit für gleichzeitige Aufrufe angerechnet.
+Jede Marketo-Instanz verfügt über ein gemeinsames Limit von zehn gleichzeitigen REST-API-Aufrufen. Gehen Sie nicht davon aus, dass Ihre Anwendung der einzige Benutzer dieses Limits ist.
 
-Die meisten Anwendungsfälle für die Integration profitieren nicht von gleichzeitigen Aufrufen. Daher sollten Sie überlegen, ob Ihre Anwendung davon profitiert, bevor Sie sich entscheiden, gleichzeitige Anfragen an Marketo zu senden. Wenn Sie gleichzeitige Anwendungen implementieren möchten, sollten Sie die Anzahl der gleichzeitigen Anfragen in Ihrem ursprünglichen Design auf fünf oder weniger begrenzen und diese Anzahl nur erhöhen, nachdem Sie festgestellt haben, dass für Ihre Anwendung mehr erforderlich ist.
+Marketo zählt Aufrufe, die verarbeitet werden und noch nicht zurückgegeben wurden. Wenn ein Aufruf zurückgegeben wird, wird er nicht mehr für das Limit für gleichzeitige Aufrufe gezählt.
+
+Die meisten Integrationen profitieren nicht von gleichzeitigen Aufrufen. Wenn Sie parallele Verarbeitung implementieren, beschränken Sie die Anwendung zunächst auf fünf oder weniger gleichzeitige Anfragen. Erhöhen Sie das Limit erst, nachdem Sie festgestellt haben, dass die Anwendung mehr erfordert.
 
 ## Fehler
 
-Mit Ausnahme einiger seltener Fälle geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben ebenfalls eine 200 zurück, enthalten jedoch detaillierte Informationen im Hauptteil der Antwort. Eine ausführliche Erläuterung finden [&#x200B; unter &#x200B;](error-codes.md)Fehlercodes“. Die HTTP-Ursachenphrase sollte nicht ausgewertet werden, da sie optional ist und sich ändern kann.
+Außer in seltenen Fällen geben API-Anfragen den HTTP-Status-Code 200 zurück. Business-Logikfehler geben auch 200 zurück, enthalten jedoch Details im Antworttext. Siehe [Fehlercodes](error-codes.md) für weitere Informationen.
+
+Bewerten Sie die HTTP-Ursachenphrase nicht, da sie optional ist und sich ändern kann.

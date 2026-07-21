@@ -4,30 +4,21 @@ feature: REST API
 description: Umfassende Liste der Marketo REST-API-Endpunkte mit Methoden, URIs und erforderlichen Berechtigungen für Aktivitäten, Massenexport, Identität, Leads, Assets und Benutzer.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
 TQID: https://experienceleague.adobe.com/6A-gCvxkWibX5fi3zZw-nbdVRtszX2qoJtDTBSdxFzQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-subfeature_v2:
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: f82558ea-6af5-44eb-a424-5b3389abb0a3
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 4793
+source-wordcount: 4807
 ht-degree: 29%
 
 ---
 
 # Endpunktverweis
 
-Im Folgenden finden Sie Links zu den Referenzen zur Marketo REST-API.
+Verwenden Sie die folgenden Verweise, um Anfrageparameter, Antwortschemas und Beispiele für jede Marketo REST-API-Gruppe zu finden:
 
 - [Asset](https://developer.adobe.com/marketo-apis/api/asset)
 - [Identität](https://developer.adobe.com/marketo-apis/api/identity/)
@@ -36,7 +27,7 @@ Im Folgenden finden Sie Links zu den Referenzen zur Marketo REST-API.
 
 ## Endpunktliste {#endpoint_list}
 
-Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
+In der folgenden Tabelle sind die REST-API-Endpunkte, HTTP-Methoden, URIs und erforderlichen Berechtigungen aufgeführt.
 
 | Name | Gruppe | Methode | URI | Erforderliche Berechtigung |
 | --- | --- | --- | --- | --- |
@@ -103,8 +94,8 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Firmen beschreiben | Firmen | GET | /rest/v1/companies/describe.json | Schreibgeschütztes Unternehmen |
 | Firmen abrufen | Firmen | GET | /rest/v1/companies.json | Schreibgeschütztes Unternehmen |
 | Firmen synchronisieren | Firmen | POST | /rest/v1/companies.json | Unternehmen mit Lese-/Schreibzugriff |
-| Unternehmensfeld nach Namen abrufen | Firmen | GET | /rest/v1/companies/schema/fields/{fieldApiName}.json | Lese-Schreib-Schema – Benutzerdefiniertes Feld |
-| Firmenfelder abrufen | Firmen | GET | /rest/v1/companies/schema/fields.json | Lese-Schreib-Schema – Benutzerdefiniertes Feld |
+| Unternehmensfeld nach Namen abrufen | Firmen | GET | /rest/v1/companies/schema/fields/{fieldApiName}.json | Schema mit Lese-/Schreibzugriff – Benutzerdefiniertes Feld |
+| Firmenfelder abrufen | Firmen | GET | /rest/v1/companies/schema/fields.json | Schema mit Lese-/Schreibzugriff – Benutzerdefiniertes Feld |
 | Hinzufügen benutzerdefinierter Objekttypfelder | Benutzerdefinierte Objekte | POST | /rest/v1/customobjects/schema/{apiName}/addField.json | Benutzerdefinierter Objekttyp mit Lese-/Schreibzugriff |
 | Benutzerdefinierten Objekttyp genehmigen | Benutzerdefinierte Objekte | POST | /rest/v1/customobjects/schema/{apiName}/approve.json | Benutzerdefinierter Objekttyp mit Lese-/Schreibzugriff |
 | Benutzerdefinierte Objekte löschen | Benutzerdefinierte Objekte | POST | /rest/v1/customobjects/{name}/delete.json | Objekt mit Lese-/Schreibzugriff |
@@ -204,15 +195,15 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Abschnitt zum Aktualisieren des Landingpage-Inhalts | Inhalt der Landingpage | POST | /rest/asset/v1/landingPage/{id}/content/{contentId}.json | Asset mit Lese- und Schreibzugriff |
 | Abschnitt zu dynamischen Inhalten für Landingpages aktualisieren | Inhalt der Landingpage | POST | /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json | Asset mit Lese- und Schreibzugriff |
 | Entwurf der Landingpage-Vorlage genehmigen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page-Vorlage klonen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
-| Landing Page-Vorlage erstellen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate.json | Asset mit Lese- und Schreibzugriff |
+| Klonen der Landingpage-Vorlage | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/clone.json | Asset mit Lese- und Schreibzugriff |
+| Erstellen der Landingpage-Vorlage | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate.json | Asset mit Lese- und Schreibzugriff |
 | Landing Page-Vorlage löschen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/delete.json | Asset mit Lese- und Schreibzugriff |
 | Entwurf der Landingpage-Vorlage verwerfen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/discardDraft.json | Asset mit Lese- und Schreibzugriff |
 | Landingpage-Vorlage nach ID abrufen | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplate/{id}.json | Schreibgeschütztes Asset |
 | Landingpage-Vorlage nach Namen abrufen | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplates/byName.json | Schreibgeschütztes Asset |
 | Abrufen des Inhalts einer Landingpage-Vorlage | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplate/{id}/content.json | Schreibgeschütztes Asset |
 | Abrufen von Landingpage-Vorlagen | Landingpage-Vorlagen | GET | /rest/asset/v1/landingPageTemplates.json | Schreibgeschütztes Asset |
-| Genehmigung für Landing Page-Vorlage entziehen | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
+| Ablehnen der Landingpage-Vorlage | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/unapprove.json | Asset mit Lese- und Schreibzugriff |
 | Inhalt der Landingpage-Vorlage aktualisieren | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}/content.json | Asset mit Lese- und Schreibzugriff |
 | Aktualisieren der Metadaten der Landingpage-Vorlage | Landingpage-Vorlagen | POST | /rest/asset/v1/landingPageTemplate/{id}.json | Asset mit Lese- und Schreibzugriff |
 | Landingpage-Entwurf genehmigen | Landingpages | POST | /rest/asset/v1/landingPage/{id}/approveDraft.json | Asset mit Lese- und Schreibzugriff |
@@ -358,8 +349,8 @@ Im Folgenden finden Sie eine umfassende Liste von REST-API-Endpunkten.
 | Eingeladenen Benutzer nach ID abrufen | Benutzerverwaltung | GET | /userservice/management/v1/users/{userid}/invite.json | Auf Benutzer-Management-Api zugreifen |
 | Rollen abrufen | Benutzerverwaltung | GET | /userservice/management/v1/users/roles.json | Auf Benutzer-Management-Api zugreifen |
 | Abrufen von Rollen und Arbeitsbereichen nach ID | Benutzerverwaltung | GET | /userservice/management/v1/users/{userid}/roles.json | Auf Benutzer-Management-Api zugreifen |
-| Abrufen von Benutzern | Benutzerverwaltung | GET | /userservice/management/v1/users/allusers.json | Auf Benutzer-Management-Api zugreifen |
-| Benutzer nach ID abrufen | Benutzerverwaltung | GET | /userservice/management/v1/users/{userid}/user.json | Auf Benutzer-Management-Api zugreifen |
-| Arbeitsbereiche abrufen | Benutzerverwaltung | GET | /userservice/management/v1/users/workspaces.json | Auf Benutzer-Management-Api zugreifen |
-| Benutzer einladen | Benutzerverwaltung | POST | /userservice/management/v1/users/invite.json | Auf Benutzer-Management-Api zugreifen |
-| Benutzerattribute aktualisieren | Benutzerverwaltung | POST | /userservice/management/v1/users/{userId}/update.json | Auf Benutzer-Management-Api zugreifen |
+| Abrufen von Benutzern | Benutzerverwaltung | GET | /userservice/management/v1/users/allusers.json | Zugriff auf die Benutzerverwaltungs-API |
+| Benutzer nach ID abrufen | Benutzerverwaltung | GET | /userservice/management/v1/users/{userid}/user.json | Zugriff auf die Benutzerverwaltungs-API |
+| Arbeitsbereiche abrufen | Benutzerverwaltung | GET | /userservice/management/v1/users/workspaces.json | Zugriff auf die Benutzerverwaltungs-API |
+| Benutzer einladen | Benutzerverwaltung | POST | /userservice/management/v1/users/invite.json | Zugriff auf die Benutzerverwaltungs-API |
+| Benutzerattribute aktualisieren | Benutzerverwaltung | POST | /userservice/management/v1/users/{userId}/update.json | Zugriff auf die Benutzerverwaltungs-API |

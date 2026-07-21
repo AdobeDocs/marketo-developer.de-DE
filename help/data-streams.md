@@ -3,16 +3,13 @@ title: Datenströme
 description: Übersicht über Marketo Engage-Datenströme, die nahezu in Echtzeit Lead-Aktivitäten und Benutzerüberwachungsereignisse ermöglichen und so die API-Beschränkungen für Kunden der Leistungsstufe verringern
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
 TQID: https://experienceleague.adobe.com/JnhN70HexjmNueZa9MAVrxjEhZ5yJatWqZiowl22quA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: e1e0219c-f879-479f-8427-888ed2a6e9c2
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: e1e0219c-f879-479f-8427-888ed2a6e9c2
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1721
-ht-degree: 3%
+source-wordcount: 1347
+ht-degree: 4%
 
 ---
 
@@ -23,31 +20,33 @@ ht-degree: 3%
 >Aktuelle Informationen zu Datenströmen finden Sie jetzt unter [Verwenden von Datenströmen](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
-Die Marketing-Organisationen unserer Kunden verlassen sich auf rechtzeitige und fokussierte Marketing-Kampagnen, um über ihr Geschäft auf dem Laufenden zu bleiben und wettbewerbsfähig zu sein. Um schnelle Entscheidungen zu unterstützen und strategische Änderungen schnell zu ermöglichen, ist es wichtig, über Daten zu verfügen, die die wichtigen Entscheidungen unterstützen und vorantreiben, die zielgerichtete und zielgerichtete Kampagnen liefern. Es gibt auch einige Kundinnen und Kunden, die Marketing-Maßnahmen auf der Ebene ihrer Kundensegmente sowohl innerhalb als auch außerhalb von Marketo Engage durchführen. Um diese verschiedenen Bemühungen zu unterstützen, hat Marketo die Möglichkeit geschaffen, große Datenmengen nahezu in Echtzeit über Datenströme zu erfassen.
+Datenströme liefern große Mengen an Marketo Engage-Daten nahezu in Echtzeit an externe Systeme. Verwenden Sie gestreamte Daten, um zeitnahe Entscheidungen, zielgerichtete Kampagnen, externe Marketing-Prozesse und Auditing zu unterstützen.
 
-Neben den Vorteilen von nahezu Echtzeitdaten gibt es produktbezogene Vorteile:
+Datenströme bieten die folgenden Vorteile:
 
-- Beseitigt den Engpass bei API-Beschränkungen, da stattdessen Streaming verwendet wird.
-- Verringert das Szenario von API-Beschränkungen und erzeugt weniger Warnmeldungen.
-- Aufgrund der Data Streaming-Funktion muss keine Massenexporte durchführen, um Daten zu extrahieren.
+- Verringern Sie die Abhängigkeit von API-Anfragen mit begrenzter Rate.
+- Warnhinweise für API-Beschränkungen reduzieren
+- Bereitstellen von Daten ohne Massenexporte.
 
-Datenströme stehen denjenigen zur Verfügung, die ein [Marketo Engage-Leistungspaket erworben &#x200B;](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Datenströme stehen denjenigen zur Verfügung, die ein [Marketo Engage-Leistungspaket erworben ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Übersicht über den Lead-Aktivitäts-Datenstrom
 
-Lead Activity Data Stream bietet nahezu in Echtzeit Streaming von Audit-Tracking-Lead-Aktivitäten, bei denen große Mengen an Lead-Aktivitäten an das externe System eines Kunden gesendet werden können. Streams ermöglichen es Kundinnen und Kunden, Lead-bezogene Ereignisse und Nutzungsmuster effektiv zu prüfen, Ansichten zu Lead-Änderungen sowie Trigger-Prozesse und -Workflows bereitzustellen, die auf den verschiedenen Arten von Lead-Ereignissen basieren. Es gibt über 144 Aktivitätstypen, die über den Stream abonniert und gesendet werden können.
+Lead Activity Data Stream sendet große Mengen an Lead-Aktivitätsdaten nahezu in Echtzeit an ein externes System. Verwenden Sie den Stream, um Lead-Ereignisse und Nutzungsmuster zu prüfen, Lead-Änderungen anzuzeigen und Trigger-Workflows aus Lead-Ereignissen zu erstellen.
 
-Typen von gestreamten Lead-Daten:
+Sie können mehr als 144 Aktivitätstypen abonnieren.
 
-1. Lead-Änderungen - alle Änderungen in allen Feldern und neuen Leads
-1. Lead-Aktivitäten : Alle im Dokument beschriebenen Lead-Aktivitätstypen
-1. Gelöschte Leads
-1. Alle benutzerdefinierten Objekte auf dem Lead (falls angefordert). Es ist alles oder nichts zu dieser Zeit.
+Der Stream kann Folgendes enthalten:
 
-Durch die Bereitstellung von Ansichten zu Lead-Änderungen können Kundinnen und Kunden so schneller Entscheidungen über ihre gesamten Marketing-Strategien treffen und zielgerichtetere Kampagnen erstellen. Einige gängige Anwendungsfälle wären:
+1. Änderungen an allen Lead-Feldern und neu erstellten Leads.
+1. Alle dokumentierten Lead-Aktivitätstypen
+1. Leads gelöscht.
+1. Alle benutzerdefinierten Lead-Objekte, wenn angefordert. Sie können keine einzelnen benutzerdefinierten Objekte auswählen.
 
-- Benutzerdefinierte Warnhinweise: Wenn bestimmte Leads mit inkonsistenten Bedingungen gefunden werden, können sie zur Liste hinzugefügt werden. Aktivitäts-Streams können diese aufnehmen und die Aktivität „Zu Liste hinzufügen“ für Kunden per Push an jede Folgeaktion senden.
-- Unterstützung von ML-Modellen: Einige Kunden planen, Scoring-Modelle zu erstellen, die Aktivitätserkenntnisse verwenden und sie zurück an Marketo leiten oder nach Bedarf in ihren eigenen internen Scoring-Modellen verwenden. Durch die Bewertung eines Leads können Kunden dann Marketo darüber informieren, Kunden zu Kampagnen des Typs „Pflege“ hinzuzufügen, um ihr Scoring zu erhöhen.
+Häufige Anwendungsfälle sind:
+
+- Benutzerdefinierte Warnhinweise: Hinzufügen von Leads mit inkonsistenten Bedingungen zu einer Liste. Der Stream sendet die Aktivität Zu Liste hinzufügen an einen Folgeprozess.
+- Modelle für maschinelles Lernen: Verwenden Sie Aktivitätserkenntnisse in externen Bewertungsmodellen und senden Sie dann Bewertungen an Marketo, um Kampagnen oder andere Prozesse zu beeinflussen.
 
 Liste der gestreamten Aktivitäten:
 
@@ -74,15 +73,17 @@ Liste der gestreamten Aktivitäten:
 | ClickEmail | OpenSalesEmail | StimmeInPoll |
 | ClickLink | PushLeadToMarketo | WinSweepstakes |
 
-Wenn benutzerdefinierte Objekte gestreamt werden sollen, müssen alle Lead-bezogenen benutzerdefinierten Objekte sein. Es gibt derzeit keine Möglichkeit, die gewünschten auszuwählen.
+Schließen Sie beim Streaming von benutzerdefinierten Objekten alle Lead-bezogenen benutzerdefinierten Objekte ein. Sie können keine einzelnen benutzerdefinierten Objekte auswählen.
 
 ## Übersicht über den Benutzer-Audit-Datenstrom
 
-User Audit Data Stream bietet nahezu in Echtzeit das Tracking von Asset-Änderungen durch Benutzer&#x200B;. Auf diese Weise kann ein Kunde Asset-Ereignisse effektiv prüfen, einen Überblick über Benutzeränderungen geben und Trigger-Prozesse oder -Workflows basierend auf verschiedenen Arten von Audit-Ereignissen erstellen. Asset-Änderungen werden nahezu in Echtzeit über Adobe I/O-Ereignisse an einen konfigurierbaren Endpunkt gesendet. Audit-Ereignisse werden nach Asset-Typ aufgeschlüsselt und können für sie wichtige Audit-Ereignisse abonnieren.
+User Audit Data Stream verfolgt Benutzeränderungen an Assets nahezu in Echtzeit. Verwenden Sie ihn, um Asset-Ereignisse zu prüfen, Benutzeränderungen anzuzeigen und Trigger-Prozesse aus Audit-Ereignissen zu ermitteln.
 
-Ein guter Anwendungsfall für das Abonnieren dieses Streams wäre:
+Adobe I/O Events sendet die Änderungen an einen konfigurierbaren Endpunkt. Abonnieren Sie die für jeden Asset-Typ erforderlichen Ereignistypen.
 
-- Tracking von Änderungen bei der Verwendung mehrerer Marketing-Systeme: Es gibt einige Kunden, die auch einige Marketing-Aktivitäten in einem anderen System wie einem CRM-System wie Salesforce durchführen und dann den Lead an Marketo weiterleiten. Der Lead wird gelegentlich aktualisiert und hin und her synchronisiert, sodass es wichtig ist zu verfolgen, welches System die letzten Änderungen vorgenommen hat.
+Ein Anwendungsfall ist:
+
+- Tracking von Änderungen in Marketing-Systemen: Wenn ein CRM-System oder ein anderes System Leads mit Marketo austauscht, verwenden Sie Audit-Ereignisse, um zu ermitteln, welches System die letzte Änderung vorgenommen hat.
 
 Liste der gestreamten Benutzerüberwachungsereignisse:
 
@@ -142,7 +143,7 @@ Beispiel eines Benutzerüberwachungsereignisses:
 
 Der Benachrichtigungsdatenstrom ist als Teil der Leistungsstufenangebote von Marketo Engage verfügbar.
 
-Derzeit kann das Benachrichtigungszentrum in Marketo so konfiguriert werden, dass Benachrichtigungen an eine E-Mail-Adresse gesendet werden. Benachrichtigungsdatenstrom ermöglicht das direkte Senden der Benachrichtigungen über Adobe I/O-Ereignisse an einen konfigurierbaren Endpunkt. Benachrichtigungen werden heute über die Benutzeroberfläche bereitgestellt und können durch die orangefarbene Glocke oben rechts im Bildschirm referenziert werden. Dieser Stream nimmt diese Benachrichtigungen und sendet sie über einen Stream.
+Das Marketo-Benachrichtigungszentrum kann Benachrichtigungen an eine E-Mail-Adresse senden. Der Benachrichtigungsdatenstrom sendet diese Benachrichtigungen auch über Adobe I/O Events an einen konfigurierbaren Endpunkt. Hierbei handelt es sich um dieselben Benachrichtigungen, die auch über das Glockensymbol in der Marketo-Benutzeroberfläche verfügbar sind.
 
 Liste der Benachrichtigungsereignisse:
 
@@ -178,18 +179,18 @@ Beispiel für ein Benachrichtigungsereignis:
 
 ## Technische Details
 
-Dieser Abschnitt enthält Richtlinien dazu, was erforderlich ist und wie Streaming-Daten für die einzelnen Streams verbunden und empfangen werden. Es ist jeweils ein gewisses Maß an Codierung und Einrichtung erforderlich.
+In den folgenden Abschnitten wird die Konfiguration beschrieben, die zum Empfangen von Daten aus jedem Stream erforderlich ist. Jeder Stream erfordert die Einrichtung von Endpunkten und Integrations-Code.
 
 ### Lead-Aktivitätsdatenstrom
 
-Der Lead-Aktivitäts-Stream bietet nahezu in Echtzeit Streaming von Marketo-Lead-Aktivitätsereignissen und sendet abonnierte Aktivitätstypänderungen mit konfigurierbaren Attributen:
+Lead-Aktivitäts-Stream sendet abonnierte Lead-Aktivitätsereignisse mit den folgenden Service-Merkmalen:
 
-- Die Häufigkeit der Datenübertragungen beträgt standardmäßig alle 2 Sekunden.
-- Batches von 100 bis 500 pro Abonnement.
-- Die maximale Wartezeit für den Kunden-REST-Service beträgt 20 Sekunden, wobei alle 3 Minuten drei erneute Versuche erfolgen und bei Erfolg automatisch aktiviert werden. Andernfalls werden sie danach angehalten. Nach der Pause versucht der Service alle 3 Minuten erneut, die Bereitstellung erneut zu aktivieren, es sei denn, die Bereitstellung wird manuell aufgehoben.
-- Datenspeicherung in einer Warteschlange für bis zu 7 Tage.
+- Standardmäßig werden die Daten alle zwei Sekunden übertragen.
+- Jedes Abonnement verwendet Batches mit 100-500 Datensätzen.
+- Der REST-Service für Kunden verfügt über eine Zeitüberschreitung von 20 Sekunden und drei erneute Versuche in Intervallen von drei Minuten. Ein erfolgreicher erneuter Versuch aktiviert den Service automatisch. Nach drei Fehlern pausiert der Service und versucht es alle drei Minuten erneut, es sei denn, die Bereitstellung wird manuell aufgehoben.
+- Daten in der Warteschlange werden bis zu sieben Tage lang aufbewahrt.
 
-Um den Lead-Aktivitäts-Datenstrom zu implementieren, führen Kunden folgende Schritte aus:
+Implementieren des Lead-Aktivitätsdatenstroms:
 
 1. Zeigen Sie einen HTTP-Endpunkt an, der POST-Anfragen mit einem JSON-Text aus dem öffentlichen Internet empfangen kann. Der Aktivitäts-Push-Datenstrom sendet Anfragen an:
 1. Geben Sie Adobe Folgendes:
@@ -200,7 +201,7 @@ Um den Lead-Aktivitäts-Datenstrom zu implementieren, führen Kunden folgende Sc
       1. Eine Identitätsanbieter-URL, Client-ID und ein Client-Geheimnis für die OAuth-Authentifizierung [Client-Anmeldeinformationen](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
       1. Ein API-Token, das in Anfragen enthalten sein kann, die vom Lead-Aktivitätsdatenstrom in einer Autorisierungs-HTTP-Kopfzeile gesendet werden
 
-Adobe aktiviert dann den Daten-Stream, sodass Kunden ab diesem Zeitpunkt Daten empfangen können.
+Adobe aktiviert den Datenstrom, nachdem es die erforderlichen Informationen erhalten hat. Der Endpunkt beginnt dann mit dem Empfang von Daten.
 
 UML-Diagramm eines typischen Lead Activity-Datenstrom-Aufrufs:
 
@@ -251,26 +252,26 @@ app.listen(port,()=>{
 })
 ```
 
-Ein Codebeispiel für eine Anwendung, die den Marketo-Lead-Aktivitäts-Datenstrom verwendet, finden Sie [hier](https://github.com/ihgrant/activity-stream-consumer-example).
+Siehe [Beispiel für einen Lead Activity Data Stream Consumer](https://github.com/ihgrant/activity-stream-consumer-example) für Beispiel-Anwendungs-Code.
 
 ### Benutzer-Audit-Datenstrom und Benachrichtigungsdatenstrom
 
-Benutzerüberwachungsereignisse werden an Adobe I/O gesendet und können durch Anmeldung mit einer Adobe ID genutzt werden. Die folgenden Schritte sind zu befolgen:
+Benutzerüberwachungsereignisse werden über Adobe I/O gesendet. So verwenden Sie sie mit einer Adobe ID:
 
-1. Kunden bieten Adobe Folgendes:
+1. Geben Sie Adobe die folgenden Informationen:
    1. Adobe ID
    1. Marketo Munchkin-ID für ihr Abonnement
-1. Der Kunde stellt einen REST-Endpunkt bereit, um Ereignisse zu nutzen, die normalerweise in Form eines Webhooks auftreten.
-1. Sobald dies bereitgestellt ist, aktiviert Adobe den Stream für das Abonnement des Kunden.
-1. Der Kunde richtet dann den Stream in Adobe IO ein (Anweisungen bereitzustellen)
+1. Anzeigen eines REST-Endpunkts, normalerweise eines Webhooks, zur Verwendung von Ereignissen
+1. Nachdem Adobe die Endpunktinformationen erhalten hat, aktiviert es den Stream für das Abonnement.
+1. Konfigurieren des Streams in Adobe I/O.
    1. Dieser Schritt erfordert eine Adobe-Organisation
    1. Erfordert, dass der Adobe-Organisationsbenutzer die Rolle „Entwickler“ oder „Systemadministrator“ hat
 
-Informationen zum Einrichten von Adobe IO finden [&#x200B; unter „Einrichten von Marketo User Audit Data Streams mit Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#) im Abschnitt zur öffentlichen Dokumentation.
+Informationen zum Konfigurieren von Adobe I/O finden [ unter „Einrichten von Marketo User Audit-Datenströmen mit Adobe I/O](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#).
 
 ### Einrichten des User Audit-Datenstroms in Marketo
 
-Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [&#x200B; „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
+Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
 
 ### Einrichten von Adobe I/O
 

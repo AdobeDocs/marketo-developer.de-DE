@@ -4,14 +4,12 @@ feature: REST API
 description: Erfahren Sie, wie Sie Marketo-Kanäle über die Asset-REST-API abfragen, mit Paginierung suchen oder nach Namen abrufen, Fortschrittsstatus anzeigen und Programmtypregeln verstehen.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
 TQID: https://experienceleague.adobe.com/e9TnbxgJCT5X2r5MjTdC49uVz4wvxDy2jhdQP5JOFTI
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 151
-ht-degree: 2%
+source-wordcount: 117
+ht-degree: 3%
 
 ---
 
@@ -19,11 +17,13 @@ ht-degree: 2%
 
 [Endpunktreferenz für Kanäle](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels)
 
-Kanäle sind ein Standardfeld und ein Pflichtfeld für alle Programmtypen. Jeder Kanaltyp kann nur mit dem angegebenen `applicableProgramType` verwendet werden und liefert die Liste der verfügbaren Programmstatus, die für Programmmitglieder in jedem Programm gültig sind. Wenn die Programmstatus eines Kanals geändert werden, nachdem ein Programm erstellt wurde, entspricht die Liste der Programmstatus, zu der ein Lead geändert werden kann, der Liste, die der Kanal zu diesem Zeitpunkt gegeben hat. Sie ändert jedoch nicht rückwirkend den Programmstatus für vorhandene Programmmitgliedsdatensätze.
+Kanäle sind ein Pflichtfeld für jeden Programmtyp. Ein Kanal kann nur mit der angegebenen `applicableProgramType` verwendet werden. Der Kanal definiert auch die Programmstatus, die Programmmitgliedern zur Verfügung stehen.
+
+Wenn Sie den Status eines Kanals nach der Erstellung eines Programms ändern, verwendet das Programm die aktualisierte Liste für zukünftige Statusänderungen. Vorhandene Programmmitgliedschaftsdatensätze behalten ihren aktuellen Status.
 
 ## Abfrage
 
-Kanäle können als Standard-Assets abgefragt werden, haben jedoch keinen Endpunkt, an den ein Kanal anhand der ID abgerufen werden kann.
+Abfragekanäle als Standard-Assets. Die -API stellt keinen Endpunkt zum Abrufen eines Kanals nach ID bereit.
 
 ### Durchsuchen
 

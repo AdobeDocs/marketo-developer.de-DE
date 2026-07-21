@@ -3,32 +3,26 @@ title: Marketo Engage MCP-Vorgänge
 description: Erfahren Sie, welche Marketo Engage-MCP-Vorgänge für die Verwendung mit KI-Assistenten verfügbar sind.
 autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: dca84292-69e9-4116-a575-667d31fa060d
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-topic_v2:
-  - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 1a8728ec05e15bef1271274248ce9fc25b14c768
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: dca84292-69e9-4116-a575-667d31fa060did: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+topic_v2: id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 264
-ht-degree: 4%
+source-wordcount: 260
+ht-degree: 5%
 
 ---
 
 
 # [!DNL Marketo Engage] MCP-Vorgänge
 
-Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügbar. Im Allgemeinen sind schreibgeschützte oder zerstörungsfreie Endpunkte verfügbar. `Delete` oder andere destruktive Vorgänge stehen dem KI-System nicht zur Verfügung.
+Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügbar. Der -Server stellt im Allgemeinen schreibgeschützte oder zerstörungsfreie Endpunkte bereit. Das KI-System kann keine `Delete` oder andere zerstörerische Vorgänge verwenden.
 
 >[!NOTE]
 >
 >Diese Liste wird durch das Hinzufügen zusätzlicher Tools weiter anwachsen.
 
-Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
+Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Massenexport
 

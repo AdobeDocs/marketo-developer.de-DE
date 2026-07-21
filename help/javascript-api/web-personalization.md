@@ -4,35 +4,30 @@ description: Handbuch für die Web Personalization JavaScript-API und das RTP-Ta
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
 TQID: https://experienceleague.adobe.com/yplunKmgjOJ7gJTA2TDc9cfJXyXbrVWuM-NdVbDMN4A
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: e2290edd-b061-4880-9d79-dee306cf5aa9
-  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-subfeature_v2:
-  - id: cdd4e0f6-e87e-453f-88ee-2ee54a7de272
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: e2290edd-b061-4880-9d79-dee306cf5aa9id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+subfeature_v2: id: cdd4e0f6-e87e-453f-88ee-2ee54a7de272
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87cid: e0eb8757-182f-49f3-94a4-1587d16f5094
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 452
+source-wordcount: 435
 ht-degree: 6%
 
 ---
 
 # Web-Personalisierung
 
-Die Web Personalization JavaScript-API erweitert die automatisierte Personalisierungsfunktion der Plattform. Sie ermöglicht die Ereignisverfolgung und dynamische Anpassung einer Web-Seite. Zusätzliche Funktionen: [Benutzerdefinierte Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md), [Tag für bestimmte Bots ausschließen](#exclude_tag_for_specific_bots).
+Die Web Personalization JavaScript-API verfolgt Ereignisse und passt Web-Seiten dynamisch an. Dies erweitert die automatisierten Personalisierungsfunktionen der Plattform.
 
-- Bevor Sie die User Context-API verwenden können, müssen Sie Web Personalization-Kunde [&#128279;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) und das RTPTag auf Ihrer Site bereitgestellt haben.
+Zu den zugehörigen Funktionen gehören [Benutzerdefinierte Datenereignisse](custom-data-events.md), [Dynamischer Inhalt](web-personalization.md), [Besucherdaten abrufen](get-visitor-data.md) und [Tag ausschließen für bestimmte Bots](#exclude_tag_for_specific_bots).
+
+- Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 - RTP unterstützt keine Listen mit Account-basierten Marketing-Konten. ABM-Listen und Code beziehen sich nur auf die hochgeladenen Kontolisten (CSV-Dateien), die in RTP verwaltet werden.
 
 ## Tag-Setup
 
-Das RTP-Tag sollte in die Kopfzeile der personalisierten Seite eingefügt werden.
+Fügen Sie das RTP-Tag in die Kopfzeile jeder personalisierten Seite ein.
 
 ```javascript
 <!-- RTP tag -->
@@ -47,7 +42,7 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 
 ## Konto-Setup
 
-Diese Methode wird automatisch auf Tag-Ebene aufgerufen, um die entsprechende Konto-ID festzulegen. Sie können die Konto-ID festlegen, wenn Sie eine Aufteilung auf verschiedene Domains wünschen.
+Das Tag ruft diese Methode automatisch auf, um die entsprechende Konto-ID festzulegen. Legen Sie die Konto-ID explizit fest, wenn Sie verschiedene Konten für verschiedene Domains verwenden möchten.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
@@ -61,9 +56,9 @@ rtp('setAccount', accountId);
 
 ## Funktionen zum Senden von Ereignissen
 
-Diese Methode sendet ein Ansichtsereignis, das für die Seitenverfolgung verwendet wird. Im folgenden Beispiel wird die aktuelle Seiten-URL als Besucherseitenansicht verfolgt.
+Diese Methode sendet ein Ansichtsereignis für das Seiten-Tracking. Beim ersten Aufruf im folgenden Beispiel wird die aktuelle Seiten-URL als Besucherseitenansicht verfolgt.
 
-Durch Übergeben des optionalen Parameters „page“ in dieser Methode kann die aktuelle Seite überschrieben werden.
+Übergeben Sie den optionalen Parameter „page“, um die aktuelle Seite zu überschreiben, wie im zweiten Aufruf gezeigt.
 
 | Parameter | Optional/Erforderlich | Typ | Beschreibung |
 | --- | --- | --- | --- |
@@ -82,9 +77,9 @@ rtp('send', 'view', page);
 
 ## Tag für bestimmte Bots ausschließen (Benutzeragenten)
 
-Um bestimmte Browser vom Senden von Daten an die Web-Personalization-Plattform auszuschließen (im Falle identifizierter Bots), fügen Sie die folgende IF-Anweisung zum Tag-Skript hinzu.
+Um zu verhindern, dass identifizierte Bots Daten an die Web-Personalization-Plattform senden, fügen Sie dem Tag-Skript die folgende `if`-Anweisung hinzu.
 
-Im folgenden Code-Beispiel wird „googlebot|msnbot“ als Bot-Beispiel verwendet, um aus Web-Personalization-Aktivitäten auszuschließen.
+In diesem Beispiel werden die Benutzeragenten von „googlebot|msnbot“ aus den Aktivitäten von Web Personalization ausgeschlossen.
 
 ```javascript
 <!-- RTP tag -->
@@ -104,7 +99,7 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 
 ## JavaScript-Aufrufe - Erklärung
 
-Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personalization und prädiktiven Inhalten hinzugefügt wird.
+In den folgenden Tabellen wird die JavaScript beschrieben, die zu einer Website hinzugefügt wurde, die Web-Personalization und prädiktiven Inhalt verwendet.
 
 ### Core/Dependent JavaScript
 
@@ -115,7 +110,7 @@ Beschreibung von JavaScript, die einer Website bei Verwendung von Web-Personaliz
 | jquery-custom-ui-min.js | v1.9.2 | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
 | query-ui-1.8.17-dialog.js | v1.9.2* | Kann deaktiviert werden, indem man sich an den Marketo-Support wendet |
 
-*Wird nur verwendet, wenn das Dialogfeld in der jQuery-Benutzeroberfläche fehlt.
+*Wird nur verwendet, wenn das jQuery UI-Dialogfeld fehlt.
 
 ### JavaScript On Demand
 
