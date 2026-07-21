@@ -4,10 +4,15 @@ feature: Email Programs
 description: Erfahren Sie, wie Sie dynamische Marketo-E-Mails mit Apache Velocity-Token, Variablen und Velocity-Tools skripten und mit Beispiel senden und E-Mail-Vorschau testen können.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
 TQID: https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 932
@@ -17,7 +22,7 @@ ht-degree: 1%
 
 # E-Mail-Skripterstellung
 
-Eine ausführliche Erläuterung [ Verhaltens der Velocity](https://velocity.apache.org/engine/devel/user-guide.html)Vorlagensprache finden Sie im Velocity-Benutzerhandbuch .
+Eine ausführliche Erläuterung [&#x200B; Verhaltens der Velocity](https://velocity.apache.org/engine/devel/user-guide.html)Vorlagensprache finden Sie im Velocity-Benutzerhandbuch .
 
 [Apache Velocity](https://velocity.apache.org/) ist eine Java-basierte Sprache für die Vorlage und Skripterstellung von HTML-Inhalten. Verwenden Sie Velocity in E-Mail-Skript-Token von Marketo, um auf Daten zuzugreifen, die in Opportunities und benutzerdefinierten Objekten gespeichert sind, und um dynamische E-Mail-Inhalte zu erstellen.
 
@@ -106,7 +111,7 @@ Nachdem Sie das Skript in einem „Mein Token“-Programm definiert haben, verwe
 
 Testen Sie das Skript mit der Aktion [!UICONTROL Beispiel-E-Mail senden] im E-Mail-Designer von Marketo. Wählen Sie einen vorhandenen Lead im Feld [!UICONTROL Lead] aus, damit das Skript ordnungsgemäß verarbeitet wird.
 
-Wählen Sie beim Testen von `$TriggerObject` das auslösende Objekt mit dem Parameter [!UICONTROL Trigger ] aus. Marketo verwendet das zuletzt aktualisierte Objekt dieses Typs als `$TriggerObject`.
+Wählen Sie beim Testen von `$TriggerObject` das auslösende Objekt mit dem Parameter [!UICONTROL Trigger &#x200B;] aus. Marketo verwendet das zuletzt aktualisierte Objekt dieses Typs als `$TriggerObject`.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 

@@ -4,10 +4,16 @@ feature: REST API
 description: Handbuch zu Marketo User Management-APIs für CRUD zu Benutzenden, kopfzeilenbasierter Authentifizierung, Rollen und Arbeitsbereichen, Status-Code-Verarbeitung, Datums-/Zeitformat und Abfrage-Endpunkten.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
 TQID: https://experienceleague.adobe.com/V1NzpIl-peHBi9rqy8YwdJDh3O-dViIdF0cBsDSI-w8
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: d65b4a73-87a3-4d56-b638-74e74d9939ce
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1440
@@ -310,7 +316,7 @@ Bei [Adobe IMS-integrierten Abonnements](https://experienceleague.adobe.com/de/d
 
 Der Endpunkt [Benutzer einladen](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) sendet eine E-Mail-Einladung „Willkommen bei Marketo&quot; an einen neuen Benutzer. Die E-Mail enthält den Link „Bei Marketo anmelden“. Der Empfänger wählt den Link aus, erstellt ein Kennwort und erhält Zugriff auf Marketo.
 
-Solange der Empfänger die Einladung nicht annimmt, ist der Status „Ausstehend“ und der Benutzerdatensatz kann nicht bearbeitet werden. Eine ausstehende Einladung läuft sieben Tage nach ihrem Versand ab. Weitere Informationen finden Sie in der Dokumentation zur Benutzerverwaltung ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) [Marketo.
+Solange der Empfänger die Einladung nicht annimmt, ist der Status „Ausstehend“ und der Benutzerdatensatz kann nicht bearbeitet werden. Eine ausstehende Einladung läuft sieben Tage nach ihrem Versand ab. Weitere Informationen finden Sie in der Dokumentation zur Benutzerverwaltung [&#128279;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) Marketo.
 
 Übergeben Sie Parameter im Anfragetext im `application/json`.
 
@@ -318,7 +324,7 @@ Die erforderlichen Parameter sind `emailAddress`, `firstName`, `lastName` und `u
 
 Der `userid` ist die eindeutige Benutzerkennung, die für die Anmeldung verwendet wird, und muss als E-Mail-Adresse formatiert sein. Wenn in der Anfrage `userid` ausgelassen wird, wird standardmäßig der Wert von `emailAddress` verwendet.
 
-Der boolesche `apiOnly` gibt an, ob es sich bei dem Benutzer um einen [API-only-Benutzer) ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Der `expiresAt` gibt an, wann die Benutzeranmeldung abläuft, und verwendet das W3C ISO-8601-Format ohne Millisekunden. Wenn die Anfrage keine `expiresAt` enthält, läuft die Benutzerin bzw. der Benutzer nie ab. Der Parameter `reason` beschreibt den Grund für die Einladung.
+Der boolesche `apiOnly` gibt an, ob es sich bei dem Benutzer um einen [API-only-Benutzer) &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Der `expiresAt` gibt an, wann die Benutzeranmeldung abläuft, und verwendet das W3C ISO-8601-Format ohne Millisekunden. Wenn die Anfrage keine `expiresAt` enthält, läuft die Benutzerin bzw. der Benutzer nie ab. Der Parameter `reason` beschreibt den Grund für die Einladung.
 
 Der Endpunkt gibt „true“ zurück, wenn die Einladung erfolgreich ist. Andernfalls wird eine Fehlermeldung zurückgegeben.
 
@@ -350,7 +356,7 @@ Content-Type: application/json
 true
 ```
 
-Die folgende Abbildung zeigt die E-Mail „Willkommen bei Marketo&quot;, die an den neuen Benutzer gesendet wurde. Das Thema lautet &quot;Marketo-Anmeldeinformationen“. Der Absender ist die E-Mail-Adresse des Benutzers, der nur über eine API verfügt und mit dem [REST API Custom Service) verknüpft ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api). Die Parameter firstName, lastName und emailAddress geben den Empfänger an.
+Die folgende Abbildung zeigt die E-Mail „Willkommen bei Marketo&quot;, die an den neuen Benutzer gesendet wurde. Das Thema lautet &quot;Marketo-Anmeldeinformationen“. Der Absender ist die E-Mail-Adresse des Benutzers, der nur über eine API verfügt und mit dem [REST API Custom Service) verknüpft &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api). Die Parameter firstName, lastName und emailAddress geben den Empfänger an.
 
 ![E-Mail zur Benutzereinladung](assets/invite-user-email.png)
 

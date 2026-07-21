@@ -3,9 +3,12 @@ title: Datenströme
 description: Übersicht über Marketo Engage-Datenströme, die nahezu in Echtzeit Lead-Aktivitäten und Benutzerüberwachungsereignisse ermöglichen und so die API-Beschränkungen für Kunden der Leistungsstufe verringern
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
 TQID: https://experienceleague.adobe.com/JnhN70HexjmNueZa9MAVrxjEhZ5yJatWqZiowl22quA
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: e1e0219c-f879-479f-8427-888ed2a6e9c2
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: e1e0219c-f879-479f-8427-888ed2a6e9c2
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1347
@@ -28,7 +31,7 @@ Datenströme bieten die folgenden Vorteile:
 - Warnhinweise für API-Beschränkungen reduzieren
 - Bereitstellen von Daten ohne Massenexporte.
 
-Datenströme stehen denjenigen zur Verfügung, die ein [Marketo Engage-Leistungspaket erworben ](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Datenströme stehen denjenigen zur Verfügung, die ein [Marketo Engage-Leistungspaket erworben &#x200B;](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Übersicht über den Lead-Aktivitäts-Datenstrom
 
@@ -267,11 +270,11 @@ Benutzerüberwachungsereignisse werden über Adobe I/O gesendet. So verwenden Si
    1. Dieser Schritt erfordert eine Adobe-Organisation
    1. Erfordert, dass der Adobe-Organisationsbenutzer die Rolle „Entwickler“ oder „Systemadministrator“ hat
 
-Informationen zum Konfigurieren von Adobe I/O finden [ unter „Einrichten von Marketo User Audit-Datenströmen mit Adobe I/O](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#).
+Informationen zum Konfigurieren von Adobe I/O finden [&#x200B; unter „Einrichten von Marketo User Audit-Datenströmen mit Adobe I/O](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#).
 
 ### Einrichten des User Audit-Datenstroms in Marketo
 
-Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [ „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
+Der User Audit-Datenstrom ist derzeit als Teil der Leistungspakete zusammen mit den anderen drei Datenströmen verfügbar. Weitere Informationen zu den Packages finden Sie auf der [&#x200B; „Produktbeschreibungsseite](https://helpx.adobe.com/de/legal/product-descriptions/adobe-marketo-engage---product-description.html) für Produktbeschränkungen und Funktionen.
 
 ### Einrichten von Adobe I/O
 

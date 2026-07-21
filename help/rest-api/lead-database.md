@@ -4,10 +4,14 @@ feature: REST API, Database
 description: Handbuch zu Marketo-Lead-Datenbank-APIs mit Informationen zu Objekten, CRUD-Methoden und beschreibenden Methoden, Abfragemustern, Batch-Beschränkungen und CRM-Integrationsbeschränkungen.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
 TQID: https://experienceleague.adobe.com/7lGbhE92lvIE-XkMyUIaK9GrreZVRdM-WVZTpHARhxE
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1058
@@ -165,7 +169,7 @@ Wählen Sie für alle Objekte außer Leads `{field to query}` aus `searchableFie
 Sie können auch die folgenden optionalen Abfrageparameter einbeziehen:
 
 - `batchSize`: Eine Ganzzahl, die die Anzahl der zurückzugebenden Ergebnisse angibt. Der Standard- und Höchstwert ist 300.
-- `nextPageToken`: Ein Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [ unter ](paging-tokens.md) von Paging-Token .
+- `nextPageToken`: Ein Token, das von einem vorherigen Paging-Aufruf zurückgegeben wurde. Weitere Informationen finden [&#x200B; unter &#x200B;](paging-tokens.md) von Paging-Token .
 - `fields`: Eine kommagetrennte Liste von Feldnamen, die für jeden Datensatz zurückgegeben werden sollen. Gültige Felder finden Sie in der entsprechenden Beschreibung. Wenn Sie ein Feld anfordern, das nicht zurückgegeben wird, ist sein Wert impliziert null.
 - `_method`: Sendet Abfragen mithilfe der POST-HTTP-Methode. Weitere Informationen zur Verwendung finden Sie im Abschnitt _method=GET .
 
@@ -206,7 +210,7 @@ Der `filterType` in diesem Aufruf ist „idField“, nicht „marketoGUID“. So
 
 Die Felder oder Feldsätze, die durch `idField` und `dedupeFields` in einer Objektbeschreibung identifiziert werden, sind immer gültige `filterTypes` für eine Abfrage. Dieser Aufruf gibt Datensätze zurück, die den GUIDs in filterValues entsprechen. Wenn keine Datensätze übereinstimmen, zeigt die Antwort Erfolg an und gibt ein leeres Ergebnis-Array zurück.
 
-Wenn der übereinstimmende Datensatzsatz 300 oder den angegebenen `batchSize` überschreitet (je nachdem, welcher Wert kleiner ist), enthält die Antwort `moreResult` mit dem Wert „true“ und einem `nextPageToken`. Schließen Sie das Token in einen nachfolgenden Aufruf ein, um weitere Datensätze abzurufen. Weitere Informationen finden [ unter ](paging-tokens.md) von Paging-Token .
+Wenn der übereinstimmende Datensatzsatz 300 oder den angegebenen `batchSize` überschreitet (je nachdem, welcher Wert kleiner ist), enthält die Antwort `moreResult` mit dem Wert „true“ und einem `nextPageToken`. Schließen Sie das Token in einen nachfolgenden Aufruf ein, um weitere Datensätze abzurufen. Weitere Informationen finden [&#x200B; unter &#x200B;](paging-tokens.md) von Paging-Token .
 
 ### Lange URIs
 

@@ -102,7 +102,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## Leads nach Listen-ID abrufen
 
-Verwenden [ Endpunkts „Leads nach Listen-ID abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) um Mitglieder einer Liste abzurufen. Übergeben Sie den erforderlichen `listId`. Sie können auch optionale Abfrageparameter übergeben, um Filterkriterien anzugeben.
+Verwenden [&#x200B; Endpunkts „Leads nach Listen-ID abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) um Mitglieder einer Liste abzurufen. Übergeben Sie den erforderlichen `listId`. Sie können auch optionale Abfrageparameter übergeben, um Filterkriterien anzugeben.
 
 Die optionalen Abfrageparameter sind:
 

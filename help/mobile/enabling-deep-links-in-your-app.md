@@ -4,9 +4,12 @@ feature: Mobile Marketing
 description: Erfahren Sie, wie Sie Deep-Links in Ihrer App für Marketo-Push-Nachrichten mithilfe von benutzerdefinierten URI-Schemata aktivieren, einschließlich Anleitungen zu iOS, Android und PhoneGap und Best Practices.
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
 TQID: https://experienceleague.adobe.com/UswOvHXGlfTrTUqr4Gsf3j2Z7Xpv2FF2luXeygT4qE0
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 363
@@ -30,7 +33,7 @@ So aktivieren Sie diesen Prozess:
 1. Registrieren Sie das Schema in Ihrem App-Manifest.
 1. Fügen Sie Code hinzu, der Deep-Link-Ereignisse verarbeitet und Personen zum entsprechenden Inhalt weiterleitet.
 
-Informationen zu iOS finden Sie in der Apple-Dokumentation unter [ eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+Informationen zu iOS finden Sie in der Apple-Dokumentation unter [&#x200B; eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
 Informationen zu Android finden Sie in der Google-Dokumentation unter [Aktivieren von Deep-Links für App-Inhalte](https://developer.android.com/training/app-links/deep-linking).
 

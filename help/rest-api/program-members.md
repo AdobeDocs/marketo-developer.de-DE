@@ -4,10 +4,18 @@ feature: REST API
 description: Verwenden Sie die Marketo-REST-API zum Lesen, Erstellen, Aktualisieren und Löschen von Programmmitgliedern, Verwalten von Standard- und benutzerdefinierten Feldern und Abfragen mithilfe von durchsuchbaren Feldern.
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
 TQID: https://experienceleague.adobe.com/scEHyXYq9C7cCS1kIX810wG7ahT9fsa448NwIfBmzQM
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1670
@@ -21,7 +29,7 @@ ht-degree: 2%
 
 Marketo bietet APIs zum Lesen, Erstellen, Aktualisieren und Löschen von Programmmitgliedsdatensätzen. Das Feld Lead-ID verknüpft Programmmitglieder-Datensätze mit Lead-Datensätzen.
 
-Jeder Datensatz enthält Standardfelder und kann bis zu 20 benutzerdefinierte Felder enthalten. In diesen Feldern werden programmspezifische Elementdaten zur Verwendung in Formularen, Filtern, Triggern und Flussaktionen gespeichert. Sie können diese Daten auf der Registerkarte [Mitglieder“ des Programms in ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Benutzeroberfläche von Marketo Engage einsehen.
+Jeder Datensatz enthält Standardfelder und kann bis zu 20 benutzerdefinierte Felder enthalten. In diesen Feldern werden programmspezifische Elementdaten zur Verwendung in Formularen, Filtern, Triggern und Flussaktionen gespeichert. Sie können diese Daten auf der Registerkarte [Mitglieder“ des Programms in &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) Benutzeroberfläche von Marketo Engage einsehen.
 
 ## beschreiben
 
@@ -223,7 +231,7 @@ Verwenden Sie den [Get Program Members](https://developer.adobe.com/marketo-apis
 
 `programId` gibt das zu durchsuchende Programm an.
 
-`filterType` gibt das als Suchfilter zu verwendende Feld an. Sie akzeptiert alle Felder in der Liste „searchableFields“, die vom Endpunkt [Programmmitglied beschreiben“ zurückgegeben ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2). Für ein benutzerdefiniertes Feld muss der Datentyp entweder „Zeichenfolge“ oder „Ganzzahl“ sein.
+`filterType` gibt das als Suchfilter zu verwendende Feld an. Sie akzeptiert alle Felder in der Liste „searchableFields“, die vom Endpunkt [Programmmitglied beschreiben“ zurückgegeben &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2). Für ein benutzerdefiniertes Feld muss der Datentyp entweder „Zeichenfolge“ oder „Ganzzahl“ sein.
 
 Wenn „filterType“ nicht „leadId“ ist, kann die Anfrage maximal 100.000 Programmmember-Einträge verarbeiten. Je nach Konfiguration Ihrer Marketo-Instanz erhalten Sie einen der folgenden Fehler:
 
@@ -365,7 +373,7 @@ Jeder Endpunkt kann bis zu 300 Programmmitglieder-Datensätze pro Aufruf ändern
 
 ### Status des Programmmitglieds
 
-Verwenden Sie den Endpunkt [Programmmitgliedsstatus ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST), um den Programmstatus für ein oder mehrere Mitglieder zu erstellen oder zu aktualisieren.
+Verwenden Sie den Endpunkt [Programmmitgliedsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST), um den Programmstatus für ein oder mehrere Mitglieder zu erstellen oder zu aktualisieren.
 
 Die erforderlichen Parameter sind:
 
@@ -435,7 +443,7 @@ Content-Type: application/json
 
 ### Daten der Programmteilnehmer
 
-Verwenden Sie den Endpunkt [Programmteilnehmerdaten synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberDataUsingPOST), um die Felddaten für Programmteilnehmer für ein oder mehrere Mitglieder zu aktualisieren. Sie können jedes benutzerdefinierte Feld oder jedes Standardfeld ändern, das vom Endpunkt [Programmteilnehmer beschreiben“ als ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) gekennzeichnet wird.
+Verwenden Sie den Endpunkt [Programmteilnehmerdaten synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberDataUsingPOST), um die Felddaten für Programmteilnehmer für ein oder mehrere Mitglieder zu aktualisieren. Sie können jedes benutzerdefinierte Feld oder jedes Standardfeld ändern, das vom Endpunkt [Programmteilnehmer beschreiben“ als &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) gekennzeichnet wird.
 
 Die erforderlichen Parameter sind:
 
@@ -549,7 +557,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 #### Durchsuchen
 
-Der Endpunkt [Abrufen von ](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldsUsingGET)-Feldern“ ruft Metadaten für alle Felder im Programmmitgliedsobjekt ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den `batchSize` Abfrageparameter, um diese Zahl zu reduzieren.
+Der Endpunkt [Abrufen von &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldsUsingGET)-Feldern“ ruft Metadaten für alle Felder im Programmmitgliedsobjekt ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den `batchSize` Abfrageparameter, um diese Zahl zu reduzieren.
 
 Wenn das `moreResult` „true“ ist, sind weitere Ergebnisse verfügbar. Fahren Sie mit dem Aufruf des Endpunkts mit dem zurückgegebenen `nextPageToken` fort, bis moreResult den Wert „false“ hat.
 
@@ -627,9 +635,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Erstellen von Feldern
 
-Der Endpunkt [Create Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) erstellt benutzerdefinierte Felder auf dem Programmmitgliedsobjekt. Sie bietet Funktionen, die mit denen der [Marketo Engage-Benutzeroberfläche vergleichbar ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Sie können mit diesem Endpunkt bis zu 20 benutzerdefinierte Felder erstellen.
+Der Endpunkt [Create Program Member Fields](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) erstellt benutzerdefinierte Felder auf dem Programmmitgliedsobjekt. Sie bietet Funktionen, die mit denen der [Marketo Engage-Benutzeroberfläche vergleichbar &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Sie können mit diesem Endpunkt bis zu 20 benutzerdefinierte Felder erstellen.
 
-Berücksichtigen Sie jedes Feld sorgfältig, bevor Sie es in einer Marketo Engage-Produktionsinstanz erstellen. Nachdem Sie ein Feld erstellt haben, können Sie es nicht löschen ([ können es nur ausblenden](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Nicht verwendete Felder sorgen für Unordnung in der Instanz.
+Berücksichtigen Sie jedes Feld sorgfältig, bevor Sie es in einer Marketo Engage-Produktionsinstanz erstellen. Nachdem Sie ein Feld erstellt haben, können Sie es nicht löschen ([&#x200B; können es nur ausblenden](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo). Nicht verwendete Felder sorgen für Unordnung in der Instanz.
 
 Der erforderliche `input` ist ein Array von Feldobjekten für Programmmitglieder. Jedes Objekt enthält ein oder mehrere Attribute.
 

@@ -4,10 +4,15 @@ feature: Mobile Marketing
 description: Installieren Sie die Adobe Launch Marketo-Erweiterung für Mobilgeräte. Befolgen Sie die Schritte zur Einrichtung von iOS und Android, Testgeräte, Berechtigungen und FCM für Push- und In-App-Nachrichten.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
 TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: e0eb8757-182f-49f3-94a4-1587d16f5094
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+  - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: e0eb8757-182f-49f3-94a4-1587d16f5094
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 753
@@ -163,7 +168,7 @@ Die MME SDK für Android unterstützt die direkte Verwendung von Google [Firebas
 
 1. Integrieren Sie die neueste Marketo Android SDK in die Android-App. Weitere Informationen finden Sie in den Schritten [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurieren Sie die Firebase-App in der Firebase Console.
-   1. Erstellen oder Hinzufügen eines Projekts in der [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen oder Hinzufügen eines Projekts in der [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm die Option **[!UICONTROL Firebase zu Ihrer Android-App hinzufügen]**.
@@ -221,7 +226,7 @@ Die MME SDK für Android unterstützt die direkte Verwendung von Google [Firebas
 
 Diese Fragen betreffen die Unterstützung von Firebase Cloud Messaging.
 
-**F: Wo finde ich Anleitungen, um auf die neueste Version des MME SDK zu aktualisieren?** Weitere Informationen finden [ in den ](installation.md) auf der Marketo Developer-Site.
+**F: Wo finde ich Anleitungen, um auf die neueste Version des MME SDK zu aktualisieren?** Weitere Informationen finden [&#x200B; in den &#x200B;](installation.md) auf der Marketo Developer-Site.
 
 **F: Ist es bei der Aktualisierung auf die neueste Version von SDK erforderlich, dass ich eine aktualisierte Version meiner Android-Anwendung für meine bestehenden Anwender veröffentliche?** Nein.
 

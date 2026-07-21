@@ -4,8 +4,10 @@ feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs für die Massenextraktion von Leads Leads Datums-, Listen- und Smart-Listen-Filtern, benutzerdefinierten Feldern und CSV/TSV-Formaten exportieren können.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
 TQID: https://experienceleague.adobe.com/4eMJR87fHDdccrVid3wHtspvBVQmrBGHYMlIwFCSdEI
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 1037
@@ -130,7 +132,7 @@ Die Enqueue-Antwort weist den `status` „In Warteschlange“ auf. Sobald ein Ex
 
 Sie können den Status nur für Aufträge abrufen, die von demselben API-Benutzer erstellt wurden.
 
-Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [ Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
+Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [&#x200B; Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
 
 Der Status wird nur einmal alle 60 Sekunden aktualisiert. Führen Sie keine häufigeren Befragungen durch; in fast allen Fällen ist dieses Intervall immer noch zu lang.
 

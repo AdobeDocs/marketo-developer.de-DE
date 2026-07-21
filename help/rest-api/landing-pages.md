@@ -4,10 +4,15 @@ feature: REST API, Landing Pages
 description: Verwenden Sie die Marketo-REST-API, um Metadaten und Inhalte abzufragen, Landingpages, einschließlich geführter und Freiformtypen, zu erstellen, zu aktualisieren, zu genehmigen, zu löschen und zu klonen.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
 TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
-product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+product_v2:
+  - id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2:
+  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
 source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
 source-wordcount: 917
@@ -23,7 +28,7 @@ Landingpages sind von Marketo gehostete Web-Seiten. Verwenden Sie die REST-APIs 
 
 ## Abfrage
 
-Abfragen von Landingpages [nach ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) oder durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Diese Abfragen geben nur Metadaten zurück. Fragen Sie die Inhaltsabschnitte einer Landingpage separat nach Seiten-ID ab.
+Abfragen von Landingpages [nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) oder durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Diese Abfragen geben nur Metadaten zurück. Fragen Sie die Inhaltsabschnitte einer Landingpage separat nach Seiten-ID ab.
 
 Die Abfrage von Landingpage-Inhalten gibt die verfügbaren Inhaltsabschnitte zurück. Ein Abschnitt muss in der Liste angezeigt werden, bevor Sie ihn aktualisieren können.
 
@@ -112,7 +117,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert ](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
 
 ## Genehmigung
 
@@ -204,7 +209,7 @@ Geführte Seiten können vordefinierte Elemente enthalten, die von [Landingpage-
 
 ### Dynamische Inhalte
 
-Um einen Abschnitt dynamisch zu gestalten, stellen Sie zunächst sicher, dass er in der Inhaltsliste der Landingpage angezeigt wird. Verwenden Sie dann [ Abschnitt „Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST), um den Typ auf `DynamicContent` festzulegen.
+Um einen Abschnitt dynamisch zu gestalten, stellen Sie zunächst sicher, dass er in der Inhaltsliste der Landingpage angezeigt wird. Verwenden Sie dann [&#x200B; Abschnitt „Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST), um den Typ auf `DynamicContent` festzulegen.
 
 Marketo erstellt zugrunde liegende dynamische Abschnitte, die den Basistyp und den Inhalt des konvertierten Elements erben.
 
