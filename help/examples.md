@@ -10,20 +10,20 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 67
+source-wordcount: 69
 ht-degree: 7%
 
 ---
 
 # Beispiele
 
-Nachfolgend finden Sie eine Reihe von Beispielen für E-Mail-Scripting.
+Die folgenden Beispiele zeigen gängige E-Mail-Skriptmuster.
 
 ## Ereignisliste
 
-In diesem Beispiel wird ein benutzerdefiniertes hypothetisches Ereignisobjekt verwendet.
+In diesem Beispiel wird ein benutzerdefiniertes hypothetisches Ereignisobjekt verwendet, um die Sortierung und Filterung zu demonstrieren.
 
 ```html
 ##declare an $EventsThisYear variable

@@ -3,9 +3,9 @@ title: Fragmente
 feature: REST API
 description: Verwenden Sie die Marketo Asset REST-API, um Abhängigkeiten für Fragmente abzufragen, zu erstellen, zu aktualisieren, zu klonen, zu löschen, zu genehmigen und zu überprüfen.
 exl-id: 9dd532d1-1dd7-4581-86dd-1943fab66cbb
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '272'
+source-wordcount: '282'
 ht-degree: 9%
 
 ---
@@ -61,10 +61,18 @@ GET /rest/asset/v2/fragment/{id}
 
 ### Filter
 
-Der Filterendpunkt unterstützt die Suche innerhalb eines Arbeitsbereichs und die Eingrenzung der Ergebnisse mit zusätzlichen Abfrageparametern. `workspaceId` ist erforderlich.
+Der Filterendpunkt sucht in einem Arbeitsbereich. Der `workspaceId` ist erforderlich.
 
-TODO: Aus dieser Tabelle eine Tabelle machen
-Unterstützte Filter sind `folderId`, wiederholte `folderIds`, wiederholte `status`, `pageIndex`, `pageSize`, `createdBy`, `createdAtStart`, `createdAtEnd`, `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd`, `name`, `fragmentType`, `sortKey`, `sortOrder`,, `isCreatedByMe`, `isModifiedByMe`, `scriptEngine`, `isValueNonNullable` und `includeArchived`.
+Verwenden Sie diese optionalen Parameter, um die Ergebnisse einzugrenzen oder zu organisieren:
+
+* Ordner: `folderId` oder wiederholte `folderIds`
+* Status: wiederholte `status`
+* Paginierung: `pageIndex` und `pageSize`
+* Erstellung: `createdBy`, `createdAtStart`, `createdAtEnd` und `isCreatedByMe`
+* Änderung: `modifiedBy`, `modifiedAtStart`, `modifiedAtEnd` und `isModifiedByMe`
+* Fragmenteigenschaften: `name`, `fragmentType`, `scriptEngine` und `isValueNonNullable`
+* Sortierung: `sortKey` und `sortOrder`
+* Archivierter Inhalt: `includeArchived`
 
 #### Anfrage
 

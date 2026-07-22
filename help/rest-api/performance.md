@@ -8,20 +8,20 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 146
+source-wordcount: 131
 ht-degree: 1%
 
 ---
 
 # Leistung
 
-Diese Seite enthält eine Liste leistungsbezogener Themen, mit denen Sie die Leistung Ihrer Integration steigern können.
+Verwenden Sie die Leistungsoptionen auf dieser Seite, um die Effizienz Ihrer Integration zu verbessern.
 
 ## HTTP-Komprimierung
 
-Die Marketo REST-API unterstützt die HTTP-Komprimierung von Antworttexten mithilfe von Standards, die in der HTTP 1.1-Spezifikation definiert sind. Die Aktivierung der Komprimierung wird empfohlen, da sie die Bandbreitennutzung und die Zeit zum Abrufen von Daten reduziert.
+Die Marketo-REST-API unterstützt die HTTP-Antworttextkomprimierung, wie in der HTTP 1.1-Spezifikation definiert. Aktivieren Sie Komprimierung, um die Bandbreitennutzung und die Zeit zum Datenabruf zu reduzieren.
 
 >[!NOTE]
 >
@@ -33,13 +33,13 @@ Um die Komprimierung zu aktivieren, fügen Sie die folgende HTTP-Kopfzeile in di
 Accept-Encoding: gzip
 ```
 
-Die Marketo-REST-API komprimiert den Antworttext und enthält diese Kopfzeile:
+Die Marketo-REST-API komprimiert den Antworttext und enthält die folgende Kopfzeile:
 
 ```html
 Content-Encoding: gzip
 ```
 
-Im Folgenden finden Sie ein Beispiel unter Verwendung von cURL zum Aufrufen [&#x200B; Endpunkts „Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) um 5 Leads abzurufen:
+Im folgenden cURL-Beispiel wird der Endpunkt [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) aufgerufen, um fünf Leads abzurufen:
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

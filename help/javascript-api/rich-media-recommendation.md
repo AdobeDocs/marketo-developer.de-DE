@@ -1,6 +1,6 @@
 ---
 title: Rich-Media-Empfehlung
-description: Rich-Media-Empfehlung mit Marketo Predictive Content RTP-Tag einrichten, template1 template2 template3-divs, GET zum Ausfüllen, SET zum Konfigurieren von Kategorien.
+description: Rich-Media-Empfehlung mit Marketo Predictive Content RTP-Tag einrichten, template1 template2 template3 divs, GET zum Ausfüllen, SET zum Konfigurieren von Kategorien.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
 TQID: https://experienceleague.adobe.com/ygm5h1FJZZW4mC318-fRR3VAcO6j1sitcAeqIUjDTbI
@@ -10,54 +10,54 @@ feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 854
-ht-degree: 4%
+source-wordcount: 814
+ht-degree: 5%
 
 ---
 
 # Rich-Media-Empfehlung
 
-Die folgenden Tags und API-Aufrufe müssen auf der Seite eingerichtet werden, auf der Sie die Rich-Media-Empfehlungsvorlage anzeigen möchten.
+Um eine Rich-Media-Empfehlungsvorlage anzuzeigen, fügen Sie der Seite die erforderlichen Tags und API-Aufrufe hinzu.
 
-1. Im Seitenkopf
-   1. Installieren Sie das RTP-Tag
-   1. Fügen Sie den GET-Aufruf der Seite hinzu, um die Empfehlungen auszufüllen
-   1. Fügen Sie den SET-Aufruf hinzu, um die Vorlage zu konfigurieren
-1. Im Hauptteil der Seite
-   1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an der Stelle, an der die Vorlage angezeigt werden soll
+1. Im Seitenkopf:
+   1. Installieren Sie das RTP-Tag.
+   1. Fügen Sie den GET-Aufruf hinzu, mit dem die Empfehlungen ausgefüllt werden.
+   1. Fügen Sie den SET-Aufruf hinzu, mit dem die Vorlage konfiguriert wird.
+1. Im Hauptteil der Seite:
+   1. Platzieren Sie das Vorlagen-Tag (div-Klasse) an die Stelle, an der die Vorlage angezeigt werden soll.
 
-Weitere Informationen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Weitere Informationen finden Sie unter [Aktivieren prädiktiver Inhalte für Web-Rich-Media](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Vorlagen-Tag
 
 | Attribut | Optional/Erforderlich | Beschreibung |
 | --- | --- | --- |
-| klasse | Erforderlich | Geben Sie an, dass dieses div-HTML-Element RTP-Empfehlungs-div ist. |
-| data-rtp-template-id | Erforderlich | Die Vorlagen-ID. Dies bestimmt die Ausrichtung Ihrer Empfehlung. Verwenden Sie „template1“ für die horizontale Ausrichtung, „template2“ für die vertikale Ausrichtung oder „template3“ für die vertikale Ausrichtung, die nur Titel und Beschreibung enthält. Das Skript fügt die übereinstimmende Vorlage in diese `div.Permissible` ein: template1, template2, template3. |
+| klasse | Erforderlich | Identifiziert das div-HTML-Element als RTP-Recommendations-div. |
+| data-rtp-template-id | Erforderlich | Bestimmt die Ausrichtung der Empfehlung. Verwenden Sie „template1“ für die horizontale Ausrichtung, „template2“ für die vertikale Ausrichtung oder „template3“ für die vertikale Ausrichtung mit nur einem Titel und einer Beschreibung. Das Skript fügt die entsprechende Vorlage in dieses `div` ein. Zulässige Werte: template1, template2, template3. |
 
 ### Beispiele
 
-Verwenden Sie „template1“, um Ihre Empfehlungen horizontal auszurichten.
+Verwenden Sie „template1“, um Empfehlungen horizontal anzuzeigen.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template1"></div>
 ```
 
-Um Ihre Empfehlungen vertikal auszurichten, verwenden Sie „template2“.
+Verwenden Sie „template2“, um Empfehlungen vertikal anzuzeigen.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template2"></div>
 ```
 
-Um Ihre Empfehlungen vertikal ausgerichtet nur mit Titel und Beschreibung anzuzeigen, verwenden Sie „template3“.
+Verwenden Sie „template3“, um Empfehlungen vertikal nur mit einem Titel und einer Beschreibung anzuzeigen.
 
 ```html
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Screenshots von Vorlagenausrichtungen finden Sie [hier](#example_of_rich_media_recommendation_template_1).
+Siehe [Beispiele für die Vorlagenausrichtung](#example_of_rich_media_recommendation_template_1).
 
 ## Empfehlung befüllen
 
@@ -75,9 +75,9 @@ Diese Methode füllt alle Rich-Media-`<divs>` auf der Seite mit Empfehlungen.
 
 ## Vorlagenkonfiguration ändern
 
-Diese Methode ändert die Standardkonfiguration für die Vorlage.
+Diese Methode ändert die Standardvorlagenkonfiguration.
 
-Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&#39;,&#39;rcmd&#39;, &#39;richmedia&#39;) aufgerufen werden;
+Rufen Sie diese Methode vor dem Aufruf von rtp(&#39;get&#39;,&#39;rcmd&#39;, &#39;richmedia&#39;);
 
 ### Nutzung
 
@@ -93,7 +93,7 @@ Hinweis: Bei Verwendung dieser Methode muss sie vor dem Aufruf von rtp(&#39;get&
 
 ### Beispiele
 
-Dieser Codeausschnitt ändert den Titeltext für eine Vorlage.
+In diesem Beispiel wird der Titeltext für eine Vorlage geändert.
 
 ```javascript
 rtp("set", "rcmd", "richmedia","template1",
@@ -103,7 +103,7 @@ rtp("set", "rcmd", "richmedia","template1",
 );
 ```
 
-Dieser Code-Ausschnitt zeigt das Festlegen von Kategorien mit mehreren Konfigurationen für eine Vorlage.
+In diesem Beispiel werden Kategorien und mehrere Konfigurationseigenschaften für eine Vorlage festgelegt.
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -124,9 +124,11 @@ rtp("set", "rcmd", "richmedia",
 );
 ```
 
-HINWEIS: Verwenden Sie „Kategorie“, um Inhalte zu filtern, die im Ergebnis von prädiktiven Inhaltsempfehlungen angezeigt werden. Wenn Sie prädiktiven Inhalt auf alle aktivierten Inhaltselemente anwenden möchten, lassen Sie die Kategorie leer. Wenn Sie nur bestimmte Inhalte für die Ausgabe in der Rich-Media-Vorlage empfehlen möchten, fügen Sie eine Kategorie für den Inhalt auf der Seite Inhalt festlegen hinzu und verknüpfen Sie diese Kategorie innerhalb des Code der Empfehlungsvorlage. Kategorisieren relevanter Inhalte nach Abschnitten Ihrer Website (Produkte oder Lösungen).
+Verwenden Sie „Kategorie“, um den in prädiktiven Inhaltsempfehlungen angezeigten Inhalt zu filtern. Um prädiktive Inhalte für alle aktivierten Inhalte zu verwenden, lassen Sie „Kategorie“ leer.
 
-Dieser Code-Ausschnitt zeigt, wie mehrere Vorlagenkonfigurationen für eine Vorlage festgelegt werden.
+Um nur bestimmte Inhalte in der Rich-Media-Vorlage zu empfehlen, fügen Sie eine Kategorie für den Inhalt auf der Seite Inhalt festlegen hinzu. Verknüpfen Sie dann diese Kategorie mit dem Code der Empfehlungsvorlage. Kategorisieren Sie beispielsweise relevante Inhalte anhand der Produkt- oder Lösungsabschnitte Ihrer Website.
+
+In diesem Beispiel werden mehrere Konfigurationseigenschaften für eine Vorlage festgelegt.
 
 ```javascript
 rtp("set", "rcmd", "richmedia",
@@ -156,11 +158,11 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.text | „rcmd.cta.text“ : „Push“ | Ändert den Schaltflächentext. Der Text ist für alle Schaltflächen identisch. |
 | Kategorie | „category“ : [ „one category“] | Ändert die Empfehlungskategorie, die diese Vorlage unterstützt. Die Vorlage zeigt nur Empfehlungen mit einer der von dieser Konfiguration festgelegten Kategorien an. |
 
-Hinweis: Die Konfigurationsunterstützung kann sich pro Vorlage ändern.
+Die Konfigurationsunterstützung kann je nach Vorlage variieren.
 
 #### Einfaches Beispiel
 
-Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Kopieren Sie dieses Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
+In diesem Beispiel werden drei Empfehlungen in einer Vorlage angezeigt. Kopieren Sie das Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
 
 ```html
 <!DOCTYPE>
@@ -192,7 +194,7 @@ rtp('get','rcmd', 'richmedia');
 
 #### Erweitertes Beispiel
 
-Dieses Beispiel enthält eine Vorlage mit drei Empfehlungen. Der Vorlagentitel lautet „RECOMMENDED CONTENT“ und der Schaltflächentext lautet „Read More“. Kopieren Sie dieses Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
+In diesem Beispiel werden drei Empfehlungen in einer Vorlage angezeigt. Der Vorlagentitel lautet „RECOMMENDED CONTENT“ und der Schaltflächentext lautet „Read More“. Kopieren Sie das Beispiel in eine HTML-Seite und ersetzen Sie dann das RTP-Tag durch Ihr -Tag.
 
 ```html
 <!DOCTYPE>
@@ -236,16 +238,24 @@ rtp('get','rcmd', 'richmedia');
 
 #### Beispiel für #1 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template1 **Description**: Horizontaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Schaltfläche &quot;call to action&quot;.
+**Name**: template1
+
+**Beschreibung**: Horizontaler Inhalt, der ein Bild, einen Titel, eine Beschreibung und eine call-to-action-Schaltfläche enthält.
 
 ![Rich-Media-Vorlage](assets/rich-media-template1.png)
 
 #### Beispiel für #2 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template2 **Beschreibung**: Vertikaler Inhalt einschließlich Bild, Titel und Beschreibung sowie Schaltfläche call to action.
+**Name**: template2
+
+**Beschreibung**: Vertikaler Inhalt, der ein Bild, einen Titel, eine Beschreibung und eine call-to-action-Schaltfläche enthält.
 
 ![Rich-Media-Vorlage](assets/rich-media-template2.png)
 
 #### Beispiel für #3 der Rich-Media-Empfehlungsvorlage
 
-**Name**: template3 **Beschreibung**: Vertikaler Inhalt, der nur Titel und Beschreibung enthält. Beim Bewegen des Mauszeigers ändert sich die Farbe der Kopfzeile und sie wird mit der Inhalts-URL verknüpft. Die Beschreibung enthält auch Links zu Inhalten ohne Farbänderung. ![Rich-Media-Vorlage](assets/rich-media-template3.png)
+**Name**: template3
+
+**Beschreibung**: Vertikaler Inhalt, der nur einen Titel und eine Beschreibung enthält. Beim Bewegen des Mauszeigers ändert sich die Farbe der Kopfzeile und die Links zur Inhalts-URL. Die Beschreibung verweist auch auf den Inhalt, ohne die Farbe zu ändern.
+
+![Rich-Media-Vorlage](assets/rich-media-template3.png)

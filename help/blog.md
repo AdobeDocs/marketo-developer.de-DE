@@ -2,9 +2,9 @@
 title: Blog-Archiv
 description: Marketo Developer Blog Archive 2014-2023 mit historischen Beiträgen zu Forms 2.0, Zapier, API-Updates, Einstellung von SOAP und Migration zu REST.
 exl-id: d7ae88dd-9938-4957-9798-db43090dab4e
-source-git-commit: 9c6aa420e451d529f3a1618fafe70b59392a4670
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '65019'
+source-wordcount: '59469'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. Juli 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Für neue Entwicklungen sollte ausschließlich der Autorisierungs-Header verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. August 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Für neue Entwicklungen sollte ausschließlich der Autorisierungs-Header verwendet werden.
 >
 
 ## Willkommen beim Marketo Developer Blog
@@ -575,7 +575,7 @@ $(function(){
 Dieser Artikel enthält Code zum Implementieren benutzerdefinierter Integrationen. Aufgrund seiner Anpassung kann das technische Supportteam von Marketo keine Fehlerbehebung bei benutzerdefinierten Arbeiten durchführen. Bitte versuchen Sie nicht, das folgende Codebeispiel ohne entsprechende technische Erfahrung oder Zugang zu einem erfahrenen Entwickler zu implementieren.
 
 Bei Seiten mit Multimedia-Inhalten können Sie beispielsweise ein benutzerdefiniertes Tracking durchführen. Ein gängiges Beispiel ist das Hinzufügen von Munchkin-Trackingcode zur Seite sowie die Verwendung der Munchkin-API , um Ereignisse in Ihrer Marketo-Instanz für Aktivitäten wie die Wiedergabe eines Videos oder das Hören eines Audioclips zu generieren. Es wird empfohlen, Munchkin-Trackingcode auf den meisten oder allen Web-Seiten zu platzieren. Munchkin-Trackingcode wird automatisch in die Landingpages eingefügt, die Sie mit Marketo erstellen. Verwenden Sie diesen Aufruf, um aufzuzeichnen, dass der Benutzer etwas getan hat, z. B. eine Seite in Ajax, Flash oder einer anderen RIA-Umgebung besucht hat. Die URL darf weder &quot;&quot; noch eine Domain enthalten, kann aber auf eine beliebige Seite verweisen - sogar auf Seiten, die nicht vorhanden sind. Wenn Sie URL-Parameter hinzufügen möchten, verwenden Sie das Argument params .
-Das Ereignis wird als Web-Seiten-Besuchsereignis im Aktivitätsprotokoll des Benutzers unter der Domain der aufrufenden Web-Seite angezeigt. Beachten Sie: Beim ersten Aufruf von `mktoMunchkin()` wird immer ein Besuchs-Web-Seiten-Ereignis für die aktuelle Seite erstellt. Sie müssen `visitWebPage` nur dann aufrufen, wenn Sie einen zusätzlichen Web-Seitenbesuch verfolgen möchten. `mktoMunchkinFunction('visitWebPage', { url: '/MyFlashMovie/Story1', params: 'x=y&2=3' });`  Hinweis: Stellen Sie sicher, dass Sie Zugriff auf einen erfahrenen JavaScript-Entwickler haben. Der technische Support von Marketo unterstützt nicht bei der Fehlerbehebung bei benutzerdefiniertem JavaScript. Mit der Munchkin JavaScript-API können Sie ein Web-System von Drittanbietern in Ihr Marketo-Konto integrieren. Bei einigen Web-Entwicklungen können Sie neue Leads erfassen oder aktuelle Leads mit vorhandenen Programmen auf Ihrer Website aktualisieren. Angenommen, Sie verfügen über eine Web-Anwendung für die Kundenregistrierung, in der neue Kundeninformationen erfasst werden. Mit nur wenig Programmierung können Sie auch Lead-Informationen für die in Marketo erfassten Benutzer sowie ein Marketo-Cookie für das zukünftige Webtracking bereitstellen.
+Das Ereignis wird als Web-Seiten-Besuchsereignis im Aktivitätsprotokoll des Benutzers unter der Domain der aufrufenden Web-Seite angezeigt. Beachten Sie: Beim ersten Aufruf von `mktoMunchkin()` wird immer ein Besuchs-Web-Seiten-Ereignis für die aktuelle Seite erstellt. Sie müssen `visitWebPage` nur dann aufrufen, wenn Sie einen zusätzlichen Web-Seitenbesuch verfolgen möchten. `mktoMunchkinFunction('visitWebPage', { url: '/MyFlashMovie/Story1', params: 'x=y&2=3' });` Hinweis Bitte stellen Sie sicher, dass Sie Zugriff auf einen erfahrenen JavaScript-Entwickler haben. Der technische Support von Marketo unterstützt nicht bei der Fehlerbehebung bei benutzerdefiniertem JavaScript. Mit der Munchkin JavaScript-API können Sie ein Web-System von Drittanbietern in Ihr Marketo-Konto integrieren. Bei einigen Web-Entwicklungen können Sie neue Leads erfassen oder aktuelle Leads mit vorhandenen Programmen auf Ihrer Website aktualisieren. Angenommen, Sie verfügen über eine Web-Anwendung für die Kundenregistrierung, in der neue Kundeninformationen erfasst werden. Mit nur wenig Programmierung können Sie auch Lead-Informationen für die in Marketo erfassten Benutzer sowie ein Marketo-Cookie für das zukünftige Webtracking bereitstellen.
 
 Darüber hinaus können Web-Entwickler mit einer anderen Funktion Web-Aktivitätsinformationen aus komplexen Web-Umgebungen wie Flash oder Ajax erfassen und verfolgen. Hinweis: Wenn Sie über die entsprechenden Entwicklungsressourcen verfügen, sollten Sie anstatt dieser API unsere SOAP-API für die Integration verwenden. Die SOAP-API ist robuster und verfügt über mehr Funktionen als die Munchkin-API. Marketo SOAP-API-Anforderungen Sie müssen den Munchkin-JavaScript-Code auf Ihrer Web-Seite einfügen, damit dies funktioniert. Die erforderlichen Skript-Tags finden Sie im Munchkin-Tutorial. Aktivieren Sie auch die Munchkin-API , die ebenfalls im Tutorial beschrieben wird.
 Unter der Haube wird der Benutzer nach einem Munchkin-API-Aufruf automatisch Cookies erhalten, wenn er kein Cookie hat. In Marketo wird das Ereignis (Klick auf einen Link, Besuch einer Web-Seite oder neuer Lead) im Aktivitätsprotokoll der Person protokolliert. Wenn Sie den Klick-Link verwenden oder einen Web-Seiten-Aufruf besuchen, wird das Ereignis zum Aktivitätsprotokoll dieses Leads hinzugefügt (bekannt oder anonym). Wenn es sich um einen neuen Lead handelt und Sie den Lead-Aufruf „Verknüpfen“ verwenden, wird dieser Lead zu einem bekannten Lead und der Aktivitätsverlauf wird beibehalten. Wenn es sich um einen bestehenden Lead handelt (basierend auf der Übereinstimmung der E-Mail-Adressen), werden alle geänderten oder neuen Werte im Datensatz dieses Leads aktualisiert.
@@ -1012,7 +1012,7 @@ response = client.call(:sync_lead, message: request)
 puts response
 ```
 
-**Über ein benutzerdefiniertes Feld in einem Formular** Sie in Marketo ein benutzerdefiniertes Feld für die „neue E-Mail-Adresse“ erstellen. Bitten Sie dann den Benutzer, ein Formular auszufüllen, das dieses neue Feld enthält. Erstellen Sie dann in Marketo ein Programm, das den Datenwert des Systemfelds E-Mail-Adresse mit dem Token `{{lead.newEmailAddress}}` ändert, wenn es eine Änderung im neuen benutzerdefinierten Feld „Neue E-Mail-Adresse“ gibt. **Über die Marketo-** können Sie die E-Mail-Adresse eines Leads über die Marketo-Benutzeroberfläche manuell aktualisieren. Im Folgenden finden Sie einen [Hilfeartikel](https://nation.marketo.com/) in dem beschrieben wird, wie Sie dies tun können (Anmeldung bei Marketo erforderlich, um den Artikel zu sehen). **Durch Importieren einer Liste** Sie die E-Mail-Adresse eines Leads mithilfe der hier beschriebenen Methode zum Importieren einer Liste in [Marketo) aktualisieren &#x200B;](https://nation.marketo.com/)Marketo-Anmeldung erforderlich, um den Artikel zu sehen).  
+**Über ein benutzerdefiniertes Feld in einem Formular** Sie in Marketo ein benutzerdefiniertes Feld für die „neue E-Mail-Adresse“ erstellen. Bitten Sie dann den Benutzer, ein Formular auszufüllen, das dieses neue Feld enthält. Erstellen Sie dann in Marketo ein Programm, das den Datenwert des Systemfelds E-Mail-Adresse mit dem Token `{{lead.newEmailAddress}}` ändert, wenn das neue benutzerdefinierte Feld „Neue E-Mail-Adresse“ geändert wird. **Über die Marketo-** können Sie die E-Mail-Adresse eines Leads manuell über die Marketo-Benutzeroberfläche aktualisieren. Im Folgenden finden Sie einen [Hilfeartikel](https://nation.marketo.com/) in dem beschrieben wird, wie Sie dies tun können (Anmeldung bei Marketo erforderlich, um den Artikel zu sehen). **Durch Importieren einer Liste** Sie die E-Mail-Adresse eines Leads mithilfe der hier beschriebenen Methode zum Importieren einer Liste in [Marketo) aktualisieren &#x200B;](https://nation.marketo.com/)Marketo-Anmeldung erforderlich, um den Artikel zu sehen).  
 
 Dieser Artikel enthält Code zum Implementieren benutzerdefinierter Integrationen. Aufgrund seiner Anpassung kann das technische Supportteam von Marketo keine Fehlerbehebung bei benutzerdefinierten Arbeiten durchführen. Bitte versuchen Sie nicht, das folgende Codebeispiel ohne entsprechende technische Erfahrung oder Zugang zu einem erfahrenen Entwickler zu implementieren.
 
@@ -1092,7 +1092,7 @@ Veröffentlicht am _2014-08-19_ von _Murta_
 **Teil 1: Marketo-Trackingcode zu Unbounce hinzufügen** Das Hinzufügen des Munchkin-Trackingskripts von Marketo zu Unbounce-Seiten ist sowohl für Analytics als auch für die Formularintegration erforderlich, um zu funktionieren. Führen Sie die folgenden Schritte aus: Kopieren Sie Ihren Munchkin-Code aus Marketo: Navigieren Sie zu Admin > Munchkin und kopieren Sie die „einfache“ Version von JavaScript. Öffnen Sie die Landingpage Unbounce und klicken Sie auf JavaScript > Neue JavaScript hinzufügen .  Klicken Sie auf „Hinzufügen“, rufen Sie das Skript &quot;Munchkin&quot; auf, wählen Sie „Vor dem Body-End-Tag“ aus und fügen Sie dann den Munchkin-Code ein. Klicken Sie auf die Schaltfläche Fertig . Für zukünftige Unbounce-Seiten gehen Sie zu JavaScript und aktivieren Sie das von uns erstellte Munchkin-Skript. Sie muss nicht neu erstellt werden.
 **Teil 2: Konvertieren Sie das Unbounce-Formular in ein Marketo-Formular** Jetzt müssen wir das Unbounce-Formular ändern, indem wir einige neue ausgeblendete Felder und JavaScript hinzufügen, damit Ihre Unbounce-Landingpages Lead-Informationen direkt an Marketo senden können. Zunächst erstellen wir ein Marketo-Platzhalterformular. Erstellen Sie in Marketo ein leeres Formular und genehmigen Sie es.
 
-Dies ist das Proxy-Formular in Marketo, das das Formular „Unbounce“ darstellt. Fügen Sie dem Unbounce-Formular ausgeblendete Felder hinzu. Diese ausgeblendeten Felder sind von Marketo erforderlich, um zu bestimmen, für welche Marketo-Instanz, welches Formular und welche Benutzersitzung diese Formularübermittlung gelten soll. Öffnen Sie das Formular unter Unbounce per Doppelklick. Fügen Sie ein ausgeblendetes Feld namens `_mkt_trk` hinzu. Fügen Sie ein zweites ausgeblendetes Feld mit dem Namen `formid` hinzu. 233 muss durch die ID Ihres Formulars ersetzt werden, die Sie im Einbettungs-Code des Marketo-Formulars in Marketo finden. Öffnen Sie in Marketo Ihr Formular und wählen Sie Formularaktionen > Einbettungs-Code aus. Fügen Sie ein ausgeblendetes Feld namens `returnurl` hinzu. `https://hooshmarketing.com.au/thank-you` muss durch eine Follow-up-URL ersetzt werden. Dies ist die URL, zu der Benutzer nach dem Absenden des Formulars weitergeleitet werden sollen. Dies könnte beispielsweise Ihre Dankeseite sein.
+Dies ist das Proxy-Formular in Marketo, das das Formular „Unbounce“ darstellt. Fügen Sie dem Unbounce-Formular ausgeblendete Felder hinzu. Diese ausgeblendeten Felder sind von Marketo erforderlich, um zu bestimmen, für welche Marketo-Instanz, welches Formular und welche Benutzersitzung diese Formularübermittlung gelten soll. Öffnen Sie das Formular unter Unbounce per Doppelklick. Fügen Sie ein ausgeblendetes Feld namens `_mkt_trk` hinzu. Fügen Sie ein zweites ausgeblendetes Feld mit dem Namen `formid` hinzu. 233 muss durch die ID Ihres Formulars ersetzt werden, die Sie im Einbettungs-Code des Marketo-Formulars in Marketo finden. Öffnen Sie in Marketo Ihr Formular und wählen Sie Formularaktionen > Einbettungs-Code aus. Fügen Sie ein ausgeblendetes Feld mit dem Namen `returnurl` hinzu. `https://hooshmarketing.com.au/thank-you` muss durch eine Folgenachricht-URL ersetzt werden: Dies ist die URL, zu der Benutzer nach dem Absenden des Formulars weitergeleitet werden sollen. Dies könnte beispielsweise Ihre Dankeseite sein.
 **Teil 3: Direktes Unbounce-Formular an Marketo** Die Folge-URL ist die Seite, auf die Ihr Lead weitergeleitet wird, nachdem sein Lead an Marketo gesendet wurde. Führen Sie im Abschnitt Unbounce die folgenden Schritte aus: Klicken Sie auf Ihr Formular. Ändern Sie den Abschnitt Formularbestätigung . Ändern Sie die Bestätigung so, dass Formulardaten an eine URL gesendet werden. Legen Sie die URL auf die gewünschte Folgeseite fest. `fpmarkets` muss durch Ihre Marketo-Kontozeichenfolge ersetzt werden, die in Marketo unter „Admin->Landingpages“ zu finden ist.
 **Teil 4: JavaScript zur Unbounce-Seite hinzufügen** Diese JavaScript konvertiert das Formular, damit es mit Marketo kompatibel ist, und sendet es an Marketo. Führen Sie bei Unbounce die folgenden Schritte aus: Öffnen Sie die Landingpage Unbounce und klicken Sie auf JavaScript > Neue JavaScript hinzufügen . Klicken Sie auf „Hinzufügen“, rufen Sie das Skript &quot;Marketo Form Convert“ auf und wählen Sie „Vor dem Body-End-Tag“ aus. Fügen Sie den folgenden JavaScript-Code ein:
 
@@ -1176,7 +1176,7 @@ UNBOUNCE_MARKETO_FIELD_MAP['first_name'] = 'FirstName';
 UNBOUNCE_MARKETO_FIELD_MAP['email'] = 'Email';
 ```
 
-_comments sind der Name des Felds in Unbounce. _Comments_c_ ist der Name des Felds in Marketo. Für zukünftige Unbounce-Seiten gehen Sie einfach zu JavaScript und aktivieren Sie das von uns erstellte Munchkin-Skript. Sie muss nicht neu erstellt werden.
+_comments sind der Name des Felds in Unbounce._Comments_c_ ist der Name des Felds in Marketo. Für zukünftige Unbounce-Seiten gehen Sie einfach zu JavaScript und aktivieren Sie das von uns erstellte Munchkin-Skript. Sie muss nicht neu erstellt werden.
 **Teil 5: Testen** Der letzte Schritt besteht darin, zu testen, ob diese Formularintegration funktioniert. Erstellen Sie einen Trigger in Marketo, der beim Ausfüllen des Marketo-Formulars aktiviert wird, und stellen Sie sicher, dass Leads korrekt in Marketo eingefügt werden. Sobald das Formular übermittelt wurde, sollte die Seite Sie zur Folge-URL weiterleiten.
 
 Veröffentlicht am _2014-08-04_ von _
@@ -1359,7 +1359,7 @@ Veröffentlicht am _1970-01-01_ von _Murta_
 1. Suchen und kopieren Sie Ihr Optimizely-Code-Fragment.** Gehen Sie zu Ihrem Dashboard in Optimizely und klicken Sie auf den Link „Projekt-Code“. Kopieren Sie die Codezeile, die im Popup-Fenster angezeigt wird.
 1. Melden Sie sich bei Marketo an und wählen Sie Ihre Landingpage-Vorlage aus. Klicken Sie dann auf „Entwurf bearbeiten“**
 1. Klicken Sie auf Landingpage-Aktionen. Klicken Sie dann auf Seite bearbeiten Meta Tags**
-1. Fügen Sie Ihr Optimizely-Codefragment in den Abschnitt Benutzerdefiniertes HEAD HTML ein und klicken Sie auf Speichern .
+1. Fügen Sie Ihr Optimizely-Codefragment in den Abschnitt Custom HEAD HTML ein und klicken Sie auf Speichern .
 1. Testen Sie die Landingpage, um zu bestätigen, dass das Snippet Optimizely funktioniert
 
 Veröffentlicht am _2014-09-18_ von _Murta_
@@ -2478,7 +2478,7 @@ Veröffentlicht am _2014-12-_) von _Murta_
 ## Lead-Tracking und mehrere Domains
 
 Mit dem Munchkin-Trackingcode von Marketo können Sie Besuche auf Ihrer Website verfolgen. Es empfiehlt sich wahrscheinlich, den Munchkin-Trackingcode zu verwenden, um anonyme Leads für die meisten oder alle Seiten Ihrer Website zu Cookies zu senden. Lassen Sie uns die Funktionsweise von Munchkin erläutern. Besuche auf der Seite werden für bestehende Leads aufgezeichnet, und ein Besuch auf der Seite durch einen nicht-Cookie-Besucher führt dazu, dass ein neues Cookie erstellt und gespeichert wird und ein neuer anonymer Lead in Ihrer Marketo-Datenbank erstellt wird. Der Munchkin-Tracker Cookies automatisch, wenn noch kein Cookie für die aktuelle Domain vorhanden ist. In Marketo wird das Ereignis (Klick auf einen Link, Besuch einer Web-Seite oder eines neuen Leads) im Aktivitätsprotokoll des Leads protokolliert. Der im Cookie gespeicherte Wert ist für einen bestimmten Besucher eindeutig. Der Wert ist eine Kombination aus der eindeutigen Munchkin-Konto-Tracking-ID, dem Domain-Namen, dem Zeitstempel und einer zufälligen Ganzzahl.
-**Was passiert, wenn ich mehrere Domains habe?** Angenommen, Sie verfügen über zwei Websites, die Sie verfolgen möchten: `<www.apples.com>` und `<www.bananas.com>`. Sie können den Trackingcode auf beiden Sites platzieren. Beachten Sie jedoch Folgendes. Marketo-Cookies sind „Erstanbieter-Cookies“ und daher domänenspezifisch. Das bedeutet, dass ein Besucher von Site 1 als anonymer Lead in Marketo erstellt wird. Wenn derselbe Lead dann zu Site 2 wechselt, wird ein zweiter separater anonymer Lead in Marketo erstellt. Wenn der Lead ein Formular auf Site 1 ausfüllt, wird dieser Datensatz bekannt. Der anonyme Datensatz für Site 2 bleibt bestehen und sammelt weiterhin nachfolgende Besuche auf dieser Site. Wenn der Lead dann ein Formular auf Site 2 mit derselben E-Mail-Adresse ausfüllt, die auch auf Site 1 verwendet wird, werden beide bekannten Leads automatisch zusammengeführt und das gesamte vergangene und zukünftige Verhalten wird in Marketo in einem einzigen Datensatz erfasst. Beide Cookie-IDs sind an denselben Lead gebunden und alle Web-Aktivitäten (aus beiden Domains) befinden sich in diesem Lead.
+**Was passiert, wenn ich mehrere Domains habe?** Angenommen, Sie haben zwei Sites, die Sie verfolgen möchten: `<www.apples.com>` und `<www.bananas.com>`. Sie können den Trackingcode auf beiden Sites platzieren. Beachten Sie jedoch Folgendes. Marketo-Cookies sind „Erstanbieter-Cookies“ und daher domänenspezifisch. Das bedeutet, dass ein Besucher von Site 1 als anonymer Lead in Marketo erstellt wird. Wenn derselbe Lead dann zu Site 2 wechselt, wird ein zweiter separater anonymer Lead in Marketo erstellt. Wenn der Lead ein Formular auf Site 1 ausfüllt, wird dieser Datensatz bekannt. Der anonyme Datensatz für Site 2 bleibt bestehen und sammelt weiterhin nachfolgende Besuche auf dieser Site. Wenn der Lead dann ein Formular auf Site 2 mit derselben E-Mail-Adresse ausfüllt, die auch auf Site 1 verwendet wird, werden beide bekannten Leads automatisch zusammengeführt und das gesamte vergangene und zukünftige Verhalten wird in Marketo in einem einzigen Datensatz erfasst. Beide Cookie-IDs sind an denselben Lead gebunden und alle Web-Aktivitäten (aus beiden Domains) befinden sich in diesem Lead.
 **Was ist mit mehreren Subdomains?** Subdomains sind kein Problem. Nehmen wir als Beispiel Marketo.com . Es verfügt über mehrere Subdomains für verschiedene Sprachen, z. B. fr.marketo.com und de.marketo.com. Bei Subdomains wird jede Aktivität für denselben Lead-Datensatz/Cookie aufgezeichnet.
 
 Veröffentlicht am _2015-01-13_ von _David_
@@ -2523,7 +2523,7 @@ Angenommen, Sie möchten die Farbe des Hinweistextes (auch als Platzhaltertext b
 </style>
 ```
 
-**Option 3: Wenn Sie ein Marketo-Formular auf einer Marketo-Landingpage verwenden, können Sie dieses benutzerdefinierte CSS über die Marketo-Benutzeroberfläche hinzufügen.** Suchen Sie die Landingpage im Navigationsbaum von Marketo. Klicken Sie dann auf Entwurf bearbeiten . Klicken Sie auf Seite bearbeiten Meta Tags. Fügen Sie das unten stehende CSS zum Abschnitt Benutzerdefinierte HEAD HTML hinzu. Die `<style></style>` Tags sollten enthalten sein.
+**Option 3: Wenn Sie ein Marketo-Formular auf einer Marketo-Landingpage verwenden, können Sie dieses benutzerdefinierte CSS über die Marketo-Benutzeroberfläche hinzufügen.** Suchen Sie die Landingpage im Navigationsbaum von Marketo. Klicken Sie dann auf Entwurf bearbeiten . Klicken Sie auf Seite bearbeiten Meta Tags. Fügen Sie das unten stehende CSS zum Abschnitt Custom HEAD HTML hinzu. Die `<style></style>` Tags sollten enthalten sein.
 
 ```css
 <style>
@@ -2748,7 +2748,7 @@ Eigenschaften definieren: Bevor wir mit dem Aufruf von REST beginnen, müssen Si
 * Ordner - Ausgehend: Der Pfad zum ausgehenden Ordner auf dem SFTP-Server. Ich verwende in diesem Beispiel &quot;/data/outgoing“. Damit können wir den SFTP-Vorgang parametrisieren, um ihn generisch zu machen.
 
 Das Authentifizierungs-Token: Wie bereits erwähnt, platzieren wir einen Connector auf der Arbeitsfläche, nachdem wir den Prozess mit der Startform „Keine Daten“ erstellt haben (dies ist nur eine persönliche Wahl, ich mag alle meine Connectoren, die wie britische Stecker aussehen).
-Der Connector sollte wie folgt konfiguriert werden: - Connector ist ein HTTP-GET-Client - Verbindung verwendet URL: `https://123-ABC-456.mktorest.com` (beachten Sie am Ende /rest, damit wir diese für REST-Aufrufe sowie zum Abrufen des Identitäts-Zugriffstokens verwenden können. und ändern Sie 123-ABC-456 in das richtige für Ihre Marketo-Instanz) - Vorgang ist „OAuth Token abrufen“ (neu!) - Anforderungsprofil = Keine - Antwortprofil = JSON - Neues Profil namens „Authentifizierungs-Token-Antwort“ - Inhaltstyp: Einfach - HTTP-Methode: GET - Ressourcenpfad (4 ohne Anführungszeichen hinzufügen): „identity/oAuth/token?grant_type=client_credentials&amp;client_id=&quot;; „ClientID (Ersatzvariable)“; &quot;&amp;client_secret=&quot;; „ClientSecret (Ersatzvariable)“ - Parameter unter „Konfigurieren“ festlegen —> Parameter festlegen —>(+): ClientID = Process Property Client ID festlegen; ClientSecret = Process Property Client Secret = Process Secret anschließend das Erfolgs-Token in den Prozesseigenschaften speichern „AccessToken“-Variable, wie dargestellt, und extrahiert sie aus der JSON-Antwort.
+Der Connector sollte wie folgt konfiguriert werden: - Connector ist ein HTTP-GET-Client - Verbindung verwendet URL: `https://123-ABC-456.mktorest.com` (beachten Sie: Kein /rest am Ende, damit wir dies für REST-Aufrufe sowie zum Abrufen des Identitätszugriffs-Tokens verwenden können. und ändern Sie 123-ABC-456 in das richtige für Ihre Marketo-Instanz) - Vorgang ist „OAuth-Token abrufen“ (neu!) - Anforderungsprofil = Keine - Antwortprofil = JSON - Neues Profil namens „Authentifizierungs-Token-Antwort“ - Inhaltstyp: Einfach - HTTP-Methode: GET - Ressourcenpfad (fügen Sie 4 ohne Anführungszeichen hinzu): „identity/oAuth/token?grant_type=client_credentials&amp;client_id=&quot;; „ClientID (Ersatzvariable)“; &quot;&amp;client_secret=&quot;; „ClientSecret (Ersatzvariable)“ - Parameter unter „Konfigurieren“ —> Parameter festlegen —>(+): ClientID = Prozesseigenschaft Client ID festlegen; ClientSecret = Prozesseigenschaft Client Secret festlegen danach das Erfolgs-Token in der Prozesseigenschafts-„AccessToken“-Variablen wie dargestellt speichern und aus der JSON-Antwort extrahieren.
 Das Muster für diesen Schritt wird für die nächsten Schritte wiederholt, jedoch unter Verwendung neuer Vorgänge mit anderen JSON-Rückgabeprofilen. In der Tat werden viele der REST-Aufrufe auf die gleiche Weise mit geringfügigen Änderungen behandelt! Im nächsten Teil werden wir dies erweitern und mithilfe von REST eine Liste der Leads aus einer statischen Liste abrufen! Führen Sie zunächst den Prozess aus, setzen Sie jedoch eine Stoppform nach „Eigenschaften festlegen“ und führen Sie dann in Debug aus, um sicherzustellen, dass Sie dasselbe Token sehen, das Sie in Marketo sehen. Sie sollten perfekt zusammenpassen!
 
 Veröffentlicht am _2015-01-26_ von _John_
@@ -2756,7 +2756,7 @@ Veröffentlicht am _2015-01-26_ von _John_
 ## Verwenden einer Google Font-API, um einer Marketo-Landingpage eine benutzerdefinierte Schriftart hinzuzufügen
 
 **Hinweis: Dies ist ein Blogpost von [Murtza Manzur](https://www.linkedin.com/in/murtzam). Murtza ist ein Marketo Developer Evangelist aus der San Francisco Bay Area.**
-Angenommen, Sie erstellen eine Landingpage in Marketo und möchten eine benutzerdefinierte Schriftart verwenden. Dies ist mit der Google Font-API möglich.  Fügen Sie Ihrer CSS-Datei eine Importmethode hinzu, die auf Google Fonts verweist:
+Angenommen, Sie erstellen eine Landingpage in Marketo und möchten eine benutzerdefinierte Schriftart verwenden. Dies ist mit der Google Font-API möglich. Fügen Sie Ihrer CSS-Datei eine Importmethode hinzu, die auf Google Fonts verweist:
 
 `@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);`
 
@@ -4176,7 +4176,7 @@ In diesem Hauptmethodenbeispiel erstellen wir eine Instanz von Auth und übergeb
 Token ist leer oder abgelaufen. Neue Authentifizierung wird versucht
 Authentifizierung mit wird versucht `https://299-BYM-827.mktorest.com/identity/oauth/token?grant_type=client_credentials&client_id=b417d98f-9289-47d1-a61f-db141bf0267f&client_secret=0DipOvz4h2wP1ANeVjlfwMvECJpo0ZYc`
 Antwort zur Authentifizierung empfangen: {„access_token“:„ec0f02c0-28ac-4d6c-b7d7-00e47ae85ff1:st&quot;,„token_type“:„bearer“,„expires_in“:538,„scope“:“<apiuser@mktosupport.com>&quot;}
-{„requestId“:„14fb6#14e6a7a9ad6“,„result“:[{„id“:1026322,„updatedAt“:„2015-07-07T21:43:25Z“,„lastName“:„Lead“,„email“:“<testlead@marketo.com>&quot;,„createdAt“:„2015-07-07T21:43:25Z“,„firstName“:„Test“},{„id“:1026323,„updated at“:„2015-07-07T21:43:43Z“,„lastName“:„Lead2“,„email“:“<testlead@marketo.com>&quot;,„createdAt“:„2015-07-07T21:43:43Z“,„firstName“:„Test“}],„success“:true}
+{„requestId“:„14fb6#14e6a7a9ad6“,„result“:[{„id“:1026322,„updatedAt“:„2015-07-07T21:43:25Z“,„lastName“:„Lead“,„email“:“<testlead@marketo.com>&quot;,„createdAt“:„2015-07-07T21:43:25Z“,„firstName“:„Test“},{„id“:1026323, updatedAt“:„2015-07-07T21:43:43Z“,„lastName“:„Lead2“,„email“:“<testlead@marketo.com>&quot;,„createdAt“:„2015-07-07T21:43:43Z“,„firstName“:„Test“}],„success“:true}
 
 Jetzt haben wir Lead-Daten, die wir verarbeiten können, auf welche Weise auch immer wir benötigen. Vielen Dank für die Lektüre, und hinterlassen Sie bitte jedes Feedback, das Sie in den Kommentaren haben.
 
@@ -5615,10 +5615,10 @@ Als Marketo-API-Kunde sind dies nützliche Informationen, die Sie im Auge behalt
 
 * Lesen Sie Marketo-Kontoinformationen (Munchkin-ID und Client-Anmeldedaten) aus einer externen Quelle. Hinweis: Diese Quelle muss sicher sein, damit andere nicht auf Kontodaten zugreifen können.
 * Iterieren Sie durch jedes Konto und…
-   * Aufruf „Get Daily Usage“, um Nutzungsdaten für einen Tag abzurufen
-   * Hängen Sie tägliche Nutzungsdaten an eine monatliche Nutzungsdatei an
-   * Rufen Sie Tägliche Fehler abrufen auf, um Fehlerdaten für einen Tag abzurufen
-   * Hängen Sie tägliche Fehlerdaten an eine monatliche Fehlerdatei an
+  * Aufruf „Get Daily Usage“, um Nutzungsdaten für einen Tag abzurufen
+  * Hängen Sie tägliche Nutzungsdaten an eine monatliche Nutzungsdatei an
+  * Rufen Sie Tägliche Fehler abrufen auf, um Fehlerdaten für einen Tag abzurufen
+  * Hängen Sie tägliche Fehlerdaten an eine monatliche Fehlerdatei an
 
 Ausgabedateiformat Das Format für die Ausgabedateien ist JSON, das mit dem von den jeweiligen API-Aufrufen zurückgegebenen „Ergebnis“-Array übereinstimmt (Nutzung und Fehler). Jedes Element des Arrays „result“ ist ein JSON-Objekt, das Daten für einen Tag enthält. Benennung der Ausgabedatei Die Ausgabedateien erhalten folgende Namen:
 
@@ -6894,7 +6894,7 @@ Veröffentlicht am _2014-04-03_ von _Murta_
 
 Angenommen, Sie möchten Benutzer tracken, die einen bestimmten Beitrag auf Ihrem Unternehmensblog besuchen. Nehmen wir an, dass Sie anhand der Gesamtzahl der Benutzer, die einen Beitrag besuchen, nur diejenigen verfolgen möchten, die ihr Interesse signalisieren, indem Sie mindestens 5 Sekunden damit verbringen und die Seite nach unten scrollen. Für anonyme Benutzer möchten Sie mit diesem Ereignis einen neuen Lead in Marketo erstellen. Für bekannte Benutzer möchten Sie ihre Lead-Aktivität mit diesem Ereignis aktualisieren. Verwenden Sie dazu den [Munchkin-Trackingcode](/help/javascript-api/lead-tracking.md) auf Ihrer Website. Wenn ein nicht-Cookie-Benutzer auf eine Seite mit dem Munchkin-Trackingcode wechselt, wird ein neues Cookie im Browser des Benutzers erstellt und in Marketo wird ein neuer anonymer Lead erstellt. Wenn der Benutzer bereits Cookies hat und er bereits ein Lead in Marketo ist, wird der Besuch der Seite im Aktivitätsprotokoll des Benutzers in Marketo aufgezeichnet. Wir zeigen Ihnen zunächst, wie Sie Munchkin-Trackingcode in Marketo generieren, zweitens, wie Sie Ihren Munchkin-Beispielcode so ändern, dass er nur dann auf Trigger verweist, wenn bestimmte Bedingungen erfüllt sind, und drittens, wie Sie überprüfen können, ob ein Seitenbesuch eines anonymen Benutzers in Marketo aufgezeichnet wurde.
 
-**Generieren von Munchkin-Trackingcode** Mit dem Munchkin-Trackingcode können Sie Besuche auf Ihrer Website verfolgen. Im Folgenden werden drei Typen von Munchkin-Code beschrieben. In diesem Beispiel verwenden wir jedoch den asynchronen Munchkin-Trackingcode. A) Einfach: Verfügt über die wenigsten Codezeilen, wird aber nicht für die Ladezeit der Web-Seite optimiert. Dieser Code lädt die jQuery-Bibliothek jedes Mal, wenn eine Web-Seite geladen wird. B) Asynchron: Verringert die Ladezeit der Web-Seite. Dieser Code prüft, ob die jQuery-Bibliothek bereits vorhanden ist, lädt sie, falls sie fehlt, und verwendet sie für die Ausführung von Trackingcode, sobald der Rest der Web-Seite geladen wurde. C) Asynchrone jQuery: verringert die Ladezeit der Web-Seite und verbessert auch die Systemleistung. In diesem Code wird davon ausgegangen, dass Sie bereits über jQuery verfügen, und es wird nicht geprüft, ob es geladen wird. 1. Klicken Sie oben rechts in der App auf Admin .  1. Klicken Sie in der Baumstruktur links auf Munchkin .  1. Wählen Sie Asynchron für den Trackingcode-Typ aus. 1. Klicken Sie auf den Trackingcode von JavaScript und kopieren Sie ihn auf Ihre Website.
+**Generieren von Munchkin-Trackingcode** Mit dem Munchkin-Trackingcode können Sie Besuche auf Ihrer Website verfolgen. Im Folgenden werden drei Typen von Munchkin-Code beschrieben. In diesem Beispiel verwenden wir jedoch den asynchronen Munchkin-Trackingcode. A) Einfach: Verfügt über die wenigsten Codezeilen, wird aber nicht für die Ladezeit der Web-Seite optimiert. Dieser Code lädt die jQuery-Bibliothek jedes Mal, wenn eine Web-Seite geladen wird. B) Asynchron: Verringert die Ladezeit der Web-Seite. Dieser Code prüft, ob die jQuery-Bibliothek bereits vorhanden ist, lädt sie, falls sie fehlt, und verwendet sie für die Ausführung von Trackingcode, sobald der Rest der Web-Seite geladen wurde. C) Asynchrone jQuery: verringert die Ladezeit der Web-Seite und verbessert auch die Systemleistung. In diesem Code wird davon ausgegangen, dass Sie bereits über jQuery verfügen, und es wird nicht geprüft, ob es geladen wird. 1. Klicken Sie oben rechts in der App auf Admin .  1. Klicken Sie in der Baumstruktur links auf Munchkin .  1. Wählen Sie Asynchron für den Trackingcode-Typ aus. 1. Klicken Sie auf und kopieren Sie den JavaScript-Trackingcode, den Sie auf Ihrer Website einfügen möchten.
 **Code-Beispiel für Cookie-Benutzer und Tracking-**: Platzieren Sie den Tracking-Code auf Ihren Web-Seiten direkt vor dem `</body>`-Tag. In Marketo erstellte Landingpages enthalten automatisch Trackingcode, sodass Sie diesen Code nicht auf sie anwenden müssen. Dieses Codebeispiel ruft die Munchkin-API auf, nachdem das Skript geladen wurde:
 
 ```javascript
@@ -7085,8 +7085,8 @@ Veröffentlicht am _2016-02-02_ von _Yanir_
 ### Benutzerdefinierte Objekte
 
 * [Benutzerdefinierte Objekte: :N Beziehungen werden jetzt unterstützt](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)
-   * Lead- oder Konto-Datensätze können jetzt über benutzerdefinierte Objekte über die Definition von Zwischenobjekten Viele-zu-Viele-Beziehungen aufweisen. Nach dem Erstellen eines eigenständigen benutzerdefinierten Objekttyps können ein Zwischenobjekttyp mit Verknüpfungsfeldern sowohl zum eigenständigen Objekt als auch zu Leads oder Konten erstellt werden.
-   * Es gibt keine neuen API-Aufrufe für diese Funktion, aber die Objektdefinitionen müssen korrekt konfiguriert sein, um diese Beziehungen über die API nutzen zu können.
+  * Lead- oder Konto-Datensätze können jetzt über benutzerdefinierte Objekte über die Definition von Zwischenobjekten Viele-zu-Viele-Beziehungen aufweisen. Nach dem Erstellen eines eigenständigen benutzerdefinierten Objekttyps können ein Zwischenobjekttyp mit Verknüpfungsfeldern sowohl zum eigenständigen Objekt als auch zu Leads oder Konten erstellt werden.
+  * Es gibt keine neuen API-Aufrufe für diese Funktion, aber die Objektdefinitionen müssen korrekt konfiguriert sein, um diese Beziehungen über die API nutzen zu können.
 * `getLeadActivities` und `getLeadChanges` geben keine Aktivitäten von anonymen Leads mehr zurück. Weitere Informationen finden Sie in den [Häufig gestellte Fragen zum Munchkin](https://experienceleague.adobe.com/de/docs/marketo/using/home)Tracking der nächsten Generation)
 
 Veröffentlicht am _2016-02-05_ von _Kenny_
@@ -7234,9 +7234,8 @@ In diesem Artikel wird detailliert erläutert, wie Sie Marketo mithilfe von Zapi
 
 **Zugriff auf eine Marketo-Instanz als Administrator oder mit einem bereitgestellten API-Benutzerkonto** Unser Zapier-Connector verwendet die Marketo-REST-API, um Lead-Daten an Marketo zu senden. Um diese API verwenden zu können, benötigen Sie einen API-Benutzer und einen benutzerdefinierten Service, den Sie selbst erstellen können, wenn Sie Administrator Ihrer Marketo-Instanz sind. Ist dies nicht der Fall, muss ein Administrator Ihnen diese bereitstellen. Es gibt auch einen zu erstellenden Webhook, der nur für Marketo-Admins zugänglich ist. Eine schrittweise Erklärung zum Erstellen des Marketo-API-Benutzers und des benutzerdefinierten Service finden Sie hier. Sobald Sie fertig sind, sollten Sie über die folgenden Anmeldeinformationen verfügen, um die Marketo-REST-API aufzurufen: Client-ID, Client-Geheimnis, Munchkin-Konto-ID, Munchkin-Konto-ID
 
-Sie können die Munchkin-Konto-ID über die Munchkin- oder Web-Services-Admin-Bildschirme abrufen. Das Muster sieht so aus: `000-XXX-000`.  Es muss kein Zugriffs-Token abgerufen werden, da es nur eine einzige Stunde lang gültig wäre. Der Connector generiert automatisch Token für Sie.
-**Mit der kostenlosen Anmeldung bei Google Docs, Sheets und Slides können Sie verschiedene Arten von Online-Dokumenten erstellen, mit anderen Personen in Echtzeit bearbeiten und online in Ihrem Google Drive speichern. Unser Anwendungsfall erfordert ein Google-Blatt. Verschiedene Funktionen von Google Docs und die Erstellung eines Kontos bei Google finden Sie [hier](https://workspace.google.com/products/docs/).
-**Registrieren Sie sich für ein kostenloses Konto bei FullContact** FullContact sorgt dafür, dass Sie mit den wichtigsten Personen in Verbindung bleiben, indem Sie alle Ihre Kontakte abrufen und sie kontinuierlich mit Änderungen an Social-Media-Profilen, Fotos, E-Mail-Signaturen, Unternehmensinformationen und mehr synchronisieren. Sie bieten einen mobilen Visitenkartenleser, der Karten in über 250 Web-Apps scannen kann, darunter Zapier. Hier können Sie sich für ein kostenloses Konto anmelden. Sie können auch ein kostenpflichtiges Premium-Konto mit mehr Funktionen und Kapazität abonnieren. Die Mobile App kann aus dem Apple AppStore oder aus Google Play heruntergeladen werden. Die FullContact Zaps sind in den [FullContact Zapier-Integrationen“ &#x200B;](https://zapier.com/apps/contacts-plus/integrations).
+Sie können die Munchkin-Konto-ID über die Munchkin- oder Web-Services-Admin-Bildschirme abrufen. Das Muster sieht wie folgt aus: `000-XXX-000`. Es ist kein Zugriffs-Token erforderlich, da es nur eine Stunde lang gültig wäre. Der Connector generiert automatisch Token für Sie.
+**Mit der kostenlosen Anmeldung bei Google Docs, Sheets und Slides können Sie verschiedene Arten von Online-Dokumenten erstellen, mit anderen Personen in Echtzeit bearbeiten und online in Ihrem Google Drive speichern. Unser Anwendungsfall erfordert ein Google-Blatt. Verschiedene Funktionen von Google Docs und die Erstellung eines Kontos bei Google finden Sie [hier](https://workspace.google.com/products/docs/).** Registrieren Sie sich für ein kostenloses Konto bei FullContact** FullContact sorgt dafür, dass Sie mit den wichtigsten Personen in Verbindung bleiben, indem Sie alle Ihre Kontakte abrufen und sie kontinuierlich mit Änderungen an Social-Media-Profilen, Fotos, E-Mail-Signaturen, Unternehmensinformationen und mehr synchronisieren. Sie bieten einen mobilen Visitenkartenleser, der Karten in über 250 Web-Apps scannen kann, darunter Zapier. Hier können Sie sich für ein kostenloses Konto anmelden. Sie können auch ein kostenpflichtiges Premium-Konto mit mehr Funktionen und Kapazität abonnieren. Die Mobile App kann aus dem Apple AppStore oder aus Google Play heruntergeladen werden. Die FullContact Zaps sind in den [FullContact Zapier-Integrationen“ &#x200B;](https://zapier.com/apps/contacts-plus/integrations).
 
 ### Implementierung des Marketo Connectors für Zapier
 
@@ -7532,52 +7531,52 @@ Veröffentlicht am _2016-04-17_ von _David_
 **REST-API**
 
 * Asset-API - Web-Seiten
-   * **Landingpages** werden jetzt über fünfzehn neue Endpunkte verfügbar gemacht, was das Erstellen, Aktualisieren, Löschen, Klonen und Entwurfsmanagement für Landingpages ermöglicht. Für Landingpage-Vorlagen werden jetzt auch Entwurfs-Management-Endpunkte bereitgestellt
-      * Landingpages abrufen
-      * Landingpage nach ID abrufen
-      * Landingpage nach Namen abrufen
-      * Landing Page erstellen
-      * Aktualisieren von Landingpage-Metadaten
-      * Abrufen von Landingpage-Inhalten
-      * Abschnitt zum Hinzufügen von Landingpage-Inhalten
-      * Abschnitt zum Aktualisieren des Landingpage-Inhalts
-      * Abschnitt zum Löschen des Landingpage-Inhalts
-      * Abschnitt „Dynamischen Inhalt abrufen“
-      * Abschnitt „Dynamischen Inhalt aktualisieren“
-      * Entwurf der Landingpage verwerfen
-      * Landing Page genehmigen
-      * Genehmigung des Landingpage-Entwurfs aufheben
-      * Landingpage löschen
-   * **Landingpage-Vorlagen**
-      * Entwurf der Landingpage-Vorlage verwerfen
-      * Landing Page-Vorlage genehmigen
-      * Genehmigung der Landingpage-Vorlage aufheben
-      * Landing Page-Vorlage löschen
-   * **Forms** hat 21 neue Endpunkte veröffentlicht, die vollständige Erstellungs-, Bearbeitungs- und Verwaltungsfunktionen über die API bieten. Die APIs unterstützen keine Änderungen an Forms 1.0-Formularen.
-      * Forms abrufen
-      * Formular nach ID abrufen
-      * Formular nach Namen abrufen
-      * Formularfeldliste abrufen
-      * Formularfeldliste aktualisieren
-      * Formular erstellen
-      * Abruf der Dankeseite
-      * Aktualisierungsformular - Dankesseite
-      * Formular aktualisieren
-      * Formularentwurf verwerfen
-      * Formular genehmigen
-      * Genehmigung für Formular aufheben
-      * Formular klonen
-      * Formular löschen
-      * Formularfeld aktualisieren
-      * Formularfeld entfernen
-      * Aktualisieren der Sichtbarkeitsregeln für Formularfelder
-      * Rich-Text-Formularfeld hinzufügen
-      * Feldsatz hinzufügen
-      * Feld aus Feldgruppe entfernen
-      * Verfügbare Formularfelder abrufen
-      * Ändern der Formularfeldpositionen
-      * Schaltfläche „Senden aktualisieren“
-   * Bei Verwendung von **Programme abrufen oder durchsuchen** wird die SFDC-Kampagnen-ID für Programme zurückgegeben, die mit einer SFDC-Kampagne verknüpft sind
+  * **Landingpages** werden jetzt über fünfzehn neue Endpunkte verfügbar gemacht, was das Erstellen, Aktualisieren, Löschen, Klonen und Entwurfsmanagement für Landingpages ermöglicht. Für Landingpage-Vorlagen werden jetzt auch Entwurfs-Management-Endpunkte bereitgestellt
+    * Landingpages abrufen
+    * Landingpage nach ID abrufen
+    * Landingpage nach Namen abrufen
+    * Landing Page erstellen
+    * Aktualisieren von Landingpage-Metadaten
+    * Abrufen von Landingpage-Inhalten
+    * Abschnitt zum Hinzufügen von Landingpage-Inhalten
+    * Abschnitt zum Aktualisieren des Landingpage-Inhalts
+    * Abschnitt zum Löschen des Landingpage-Inhalts
+    * Abschnitt „Dynamischen Inhalt abrufen“
+    * Abschnitt „Dynamischen Inhalt aktualisieren“
+    * Entwurf der Landingpage verwerfen
+    * Landing Page genehmigen
+    * Genehmigung des Landingpage-Entwurfs aufheben
+    * Landingpage löschen
+  * **Landingpage-Vorlagen**
+    * Entwurf der Landingpage-Vorlage verwerfen
+    * Genehmigen der Landingpage-Vorlage
+    * Genehmigung der Landingpage-Vorlage aufheben
+    * Löschen der Landingpage-Vorlage
+  * **Forms** hat 21 neue Endpunkte veröffentlicht, die vollständige Erstellungs-, Bearbeitungs- und Verwaltungsfunktionen über die API bieten. Die APIs unterstützen keine Änderungen an Forms 1.0-Formularen.
+    * Forms abrufen
+    * Formular nach ID abrufen
+    * Formular nach Namen abrufen
+    * Formularfeldliste abrufen
+    * Formularfeldliste aktualisieren
+    * Formular erstellen
+    * Abruf der Dankeseite
+    * Aktualisierungsformular - Dankesseite
+    * Formular aktualisieren
+    * Formularentwurf verwerfen
+    * Formular genehmigen
+    * Genehmigung für Formular aufheben
+    * Formular klonen
+    * Formular löschen
+    * Formularfeld aktualisieren
+    * Formularfeld entfernen
+    * Aktualisieren der Sichtbarkeitsregeln für Formularfelder
+    * Rich-Text-Formularfeld hinzufügen
+    * Feldsatz hinzufügen
+    * Feld aus Feldgruppe entfernen
+    * Verfügbare Formularfelder abrufen
+    * Ändern der Formularfeldpositionen
+    * Schaltfläche „Senden aktualisieren“
+  * Bei Verwendung von **Programme abrufen oder durchsuchen** wird die SFDC-Kampagnen-ID für Programme zurückgegeben, die mit einer SFDC-Kampagne verknüpft sind
 
 **Benutzerdefinierte Objekte** Benutzerdefinierte Objekte unterstützen jetzt Textbereich-Datentypen, sodass in benutzerdefinierten Objektfeldern dieses Typs Zeichenfolgenfelder mit bis zu 2.000 Zeichen gespeichert werden können. **IP-Adressen-Whitelisting** Admin-Benutzer können jetzt eine Whitelist von IP-Adressen verwalten, um den unbefugten Zugriff über die APIs zu verhindern. [Weitere Informationen zu dieser Funktion finden Sie hier](https://experienceleague.adobe.com/de/docs/marketo/using/home). **Benutzeroberfläche für benutzerdefinierte Aktivitäten** Admin-Benutzer können jetzt benutzerdefinierte Aktivitätstypen in ihrem Admin-Menü definieren und über die API [Benutzerdefinierte Aktivitäten hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#operation/addCustomActivityUsingPOST) Datensätze zu Leads hinzufügen. [&#x200B; Informationen zur Definition benutzerdefinierter Aktivitätstypen finden Sie hier](https://experienceleague.adobe.com/de/docs/marketo/using/home).
 
@@ -7708,7 +7707,7 @@ Beginnen wir mit einer neuen Excel-Arbeitsmappe. Wir erstellen ein spezifisches 
 
 Tabelle &#39;**REST_API_Authentication**&#39; mit den Spalten: **URL**: Ihr Marketo REST-API-Endpunkt. **Client-ID**: von Ihren Marketo REST API OAuth2.0-Anmeldeinformationen. **Client-Geheimnis**: von Ihren Marketo REST API OAuth2.0-Anmeldeinformationen.
 Tabelle &#39;**Scoping**&#39; mit den Spalten: **Paging-Token SinceDatetime**: ein Datum, das der ISO 8601-Standarddatumsnotation folgt (z. B. sind „2016-10-06T13:22:17-08:00“, „2016-10-06“ ein gültiges Datum/eine gültige Uhrzeit), die verwendet wird, um Marketo-Aktivitäten seit einem bestimmten Zeitraum mithilfe eines anfänglichen &#39;datumsbasierten&#39; Paging-Tokens abzurufen. Dieses Datum wird hauptsächlich verwendet, um die Datenmenge zu begrenzen, die in die Arbeitsmappe importiert werden soll. **Listen-ID**: die ID einer statischen Liste in Marketo, die auf alle Leads/Kontakte verweist, mit denen wir es zu tun haben. Diese statische Liste kann in Marketo frei verwaltet werden (z. B. kann eine Smart-Kampagne sie regelmäßig oder in Echtzeit mit Leads und Kontakten füttern).
-Um die ID einer statischen Liste abzurufen, öffnen Sie sie in Marketo und rufen Sie die numerische ID aus der URL ab, z. B. `<https://myorg.marketo.com/#ST3517A1LA1>`, Listen-ID=3511. **Max Records Pages**: Dies wird für unsere pseudo-rekursiven Algorithmen verwendet, die die Marketo-Ausgabedaten mithilfe von „positionsbasierten“ Paging-Token mit einer Kapazität von maximal 300 Datensätzen pro Seite durchlaufen. Da es in unserem Interesse ist, so viele Datensätze pro Seite wie möglich zu erhalten, bleiben wir bei 300. Wenn also die maximale Anzahl an Datensätzen auf 33,333 festgelegt ist, bedeutet dies in der Regel eine Kapazität von 33,333 x 300 = 9,9999 Millionen Datensätze; in Bezug auf Ihr Marketo API-Limit für tägliche Anfragen bedeutet dies jedoch auch 33,333 KB. Die Algorithmen stoppen trotzdem, sobald alle Daten aus den Abfragen abgerufen werden, sodass dieser Parameter nur eine Sicherheitsgrenze für eine Schleife ist.
+Um die ID einer statischen Liste abzurufen, öffnen Sie sie in Marketo und rufen Sie die numerische ID aus der URL ab, z. B. `<https://myorg.marketo.com/#ST3517A1LA1>`, List ID=3511. **Max Records Pages**: Dies wird für unsere pseudorekursiven Algorithmen verwendet, die die Marketo-Ausgabedaten mithilfe von „positionsbasierten“ Paging-Token mit einer Kapazität von maximal 300 Datensätzen pro Seite durchlaufen. Da es in unserem Interesse ist, so viele Datensätze pro Seite wie möglich zu erhalten, bleiben wir bei 300. Wenn also die maximale Anzahl an Datensätzen auf 33,333 festgelegt ist, bedeutet dies in der Regel eine Kapazität von 33,333 x 300 = 9,9999 Millionen Datensätze; in Bezug auf Ihr Marketo API-Limit für tägliche Anfragen bedeutet dies jedoch auch 33,333 KB. Die Algorithmen stoppen trotzdem, sobald alle Daten aus den Abfragen abgerufen werden, sodass dieser Parameter nur eine Sicherheitsgrenze für eine Schleife ist.
 
 Tabelle `Leads` mit der Spalte: **Lead-Felder**: Kommagetrennte Lead-Felder, die bei der Abfrage der Leads und Kontakte aus Marketo gesammelt werden sollen. Eine Tabelle in Excel zu deklarieren ist einfach. Geben Sie zwei Zeilen in der Tabelle mit den Spaltennamen und -werten ein, markieren Sie mit der Maus den Umfang der Tabelle, wählen Sie das Symbol Tabelle im Menü „Einfügen“ aus und geben Sie ihr dann einen Namen. Die Namen der Tabellen und ihrer Spalten sind wichtig, da sie direkt von unseren Skripten aufgerufen werden.
 
@@ -8060,18 +8059,18 @@ In der Version vom Herbst 2016 fügen wir CRUD-Unterstützung für E-Mail-v2-Var
 ### Lead-Datenbank-APIs
 
 * [**Benannte Konten**](/help/rest-api/named-accounts.md)
-   * Neue Endpunkte zum Lesen, Aktualisieren und Löschen benannter Konten
-   * Bekannte Probleme:
-      * Ab der Version vom Herbst 2016 können Leads nicht mehr über die API mit benannten Konten verknüpft werden
+  * Neue Endpunkte zum Lesen, Aktualisieren und Löschen benannter Konten
+  * Bekannte Probleme:
+    * Ab der Version vom Herbst 2016 können Leads nicht mehr über die API mit benannten Konten verknüpft werden
 
 ### Asset-APIs
 
 * [**E-Mail**](https://developer.adobe.com/marketo-apis/api/asset#operation/describeUsingGET_5)
-   * Neue Endpunkte zum Bearbeiten von E-Mail v2-Variablen
-   * Neue Endpunkte zum Bearbeiten von E-Mail v2-Modulen
-   * Bekannte Probleme:
-      * Abfragen und Aktualisierungen für Abschnitte, die prädiktive Token enthalten, geben einen Fehler zurück
-      * E-Mails mit Inhaltsabschnitten, die prädiktive Token enthalten, werden möglicherweise nicht mit der API genehmigt
+  * Neue Endpunkte zum Bearbeiten von E-Mail v2-Variablen
+  * Neue Endpunkte zum Bearbeiten von E-Mail v2-Modulen
+  * Bekannte Probleme:
+    * Abfragen und Aktualisierungen für Abschnitte, die prädiktive Token enthalten, geben einen Fehler zurück
+    * E-Mails mit Inhaltsabschnitten, die prädiktive Token enthalten, werden möglicherweise nicht mit der API genehmigt
 
 Veröffentlicht am _2016-12-07_ von _Kenny_
 
@@ -8120,9 +8119,9 @@ Füllen Sie alle erforderlichen Informationen aus dem Marketo-Konfigurationsarbe
 * **Marketo REST-API-Authentifizierung:** erforderlich
 * **Umfang:** Sie das Paging-Token SinceDateTime und die ID Ihrer statischen Marketo-Liste ein, die alle Leads enthält, die Sie analysieren möchten
 * **Leads:** Für künftige Berichte müssen Sie mindestens die folgenden Lead-Felder angeben: `id`, `firstName`, `lastName`, `email`, `edAt`, `updatedAt`, `title`, `company`, `industry`, `inferredCountry`, `inferredCity`
-   * Wenn die Stadtinformationen in einem Ihrer benutzerdefinierten Felder genauer sind, können Sie stattdessen Ihr eigenes Feld verwenden
+  * Wenn die Stadtinformationen in einem Ihrer benutzerdefinierten Felder genauer sind, können Sie stattdessen Ihr eigenes Feld verwenden
 * **Aktivitäten:** Aktivitätstypen, die aus der Marketo-Datenbank abgerufen werden sollen, sind hier für jeden Aktivitätssatz angegeben. Dies muss jetzt nicht geändert werden.
-   * Beachten Sie, dass wir für die Arbeitsmappe eine Dienstprogrammabfrage bereitgestellt haben, die direkt in der Excel-Arbeitsmappe alle vorhandenen Aktivitätstypen auflistet, wenn Sie diese Informationen später anpassen möchten
+  * Beachten Sie, dass wir für die Arbeitsmappe eine Dienstprogrammabfrage bereitgestellt haben, die direkt in der Excel-Arbeitsmappe alle vorhandenen Aktivitätstypen auflistet, wenn Sie diese Informationen später anpassen möchten
 
 Beachten Sie, dass möglicherweise einige sicherheitsbezogene Popup-Fenster angezeigt werden. Externen Verbindungen vertrauen und auf „Öffentlich“ setzen. Wenn das unten angezeigte Popup angezeigt wird, behalten Sie den Inhalt des Web-Zugriffs „Anonym“ bei. Die Authentifizierung bei Marketo wird direkt von unseren benutzerdefinierten Abfragen verwaltet, sodass Sie keinen anderen Zugriff aktivieren müssen.
 
@@ -8328,11 +8327,11 @@ Das Internet der Dinge (IoT) ist die Vernetzung von verbundenen Geräten, Gerät
 * Jedes Mal, wenn ein Deal gewonnen wird, wird das Vertriebsteam durch die automatische Zündung einer Glocke aufgeheizt, die an einen angeschlossenen Netzstecker angeschlossen ist
 * Automatisch Meilensteine für den Marketing-Erfolg in sozialen Netzwerken wie LinkedIn, Facebook, Slack usw. posten …
 * Automatisches Starten einer Marketing-Kampagne basierend auf:
-   * Wenn ein Wetteralarm auftritt (Wind, Temperatur, Regen usw.)
-   * wenn ein neuer Artikel von einer Zeitung wie der New York Times veröffentlicht wird, die bestimmte Kriterien erfüllt
-   * wenn der US-Senat oder das Repräsentantenhaus abstimmen
-   * wenn die Internationale Weltraumstation über einen bestimmten Standort führt
-   * etc. …
+  * Wenn ein Wetteralarm auftritt (Wind, Temperatur, Regen usw.)
+  * wenn ein neuer Artikel von einer Zeitung wie der New York Times veröffentlicht wird, die bestimmte Kriterien erfüllt
+  * wenn der US-Senat oder das Repräsentantenhaus abstimmen
+  * wenn die Internationale Weltraumstation über einen bestimmten Standort führt
+  * etc. …
 
 Sie mögen diese Szenarien zwar lustig, aber nutzlos finden, aber sie sind hier, um einen neuen konzeptionellen Weg zu demonstrieren, Marketing nicht nur mit Menschen, sondern auch mit Dingen in unserer vernetzten Welt zu tun. Ein weiterer interessanter Punkt, der in diesem Artikel behandelt wird, ist die Nutzung einer offenen Web-Integrationsplattform wie Zapier als „Serving Hatch“ zwischen einem Drittanbietersystem und Marketo, um z. B. die Authentifizierung zu verwalten.
 
@@ -8393,7 +8392,7 @@ Es ist nicht erforderlich, ein Antwort-Mapping zu definieren.
 
 ### IFTTT-Applet
 
-Wählen Sie im IFTTT-Webportal im Hauptmenü „Meine Applets“ aus.  Klicken Sie auf die Schaltfläche „Neues Applet“ und klicken Sie auf den Bereich **+this**.  Suchen Sie nach dem Maker-Service.  Erstellen Sie den Trigger , der jedes Mal ausgelöst wird, wenn der Maker-Service eine Web-Anfrage erhält, um ihn über ein Ereignis zu informieren. Verwenden Sie denselben Ereignisnamen wie in der URL Ihres Marketo-Webhooks, z. B. „MarketoProgramSuccess“, und klicken Sie auf die Schaltfläche &quot;Trigger erstellen“.  Jetzt ist es an der Zeit, den Aktionsdienst anzugeben, indem Sie auf den Abschnitt **+that** klicken.  Wir beginnen mit einem einfachen Aktionsdienst, den jeder testen kann, ohne in IoT-Geräte investieren zu müssen: den Benachrichtigungsdienst. Suchen Sie nach dem Benachrichtigungsdienst und wählen Sie ihn aus.
+Wählen Sie im IFTTT-Webportal im Hauptmenü „Meine Applets“ aus.  Klicken Sie auf die Schaltfläche „Neues Applet“ und klicken Sie auf den Bereich **+**.  Erstellen Sie den Trigger , der jedes Mal ausgelöst wird, wenn der Maker-Service eine Web-Anfrage erhält, um ihn über ein Ereignis zu informieren. Verwenden Sie denselben Ereignisnamen wie in der URL Ihres Marketo-Webhooks, z. B. „MarketoProgramSuccess“, und klicken Sie auf die Schaltfläche &quot;Trigger erstellen“.  Jetzt ist es an der Zeit, den Aktionsdienst anzugeben, indem Sie auf den Abschnitt **+that** klicken. Wir beginnen mit einem einfachen Aktionsdienst, den jeder testen könnte, ohne in IoT-Geräte investieren zu müssen, dem Benachrichtigungsdienst. Suchen Sie nach dem Benachrichtigungsdienst und wählen Sie ihn aus.
 Wählen Sie die Aktion „Benachrichtigung senden“, die eine Benachrichtigung an Ihre Geräte sendet.  Sie können die drei von Marketo gesendeten Werte nutzen, indem Sie sie als Inhaltsstoffe hinzufügen, um eine aussagekräftige Benachrichtigung an die Benutzenden zu senden, wie im folgenden Beispiel … und dann auf die Schaltfläche „Aktion erstellen“ klicken. Überprüfen und beenden Sie das IFTTT-Applet. Stellen Sie sicher, dass sie aktiviert ist.
 
 ### Testen des IFTTT-Applets
@@ -8427,9 +8426,9 @@ Wir müssen einen benutzerdefinierten Zapier-Connector erstellen, der sich bei d
 * Voraussetzungen
 * Implementierung des Marketo Connectors für Zapier
 * Anderen Titel verwenden, z. B. &quot;Marketo Campaign“
-   * Führen Sie den Schritt „Authentifizierung“ aus
-   * Führen Sie den Schritt &quot;Trigger&quot; aus (erforderlich für den Zapier-Testzweck).
-   * Führen Sie den folgenden spezifischen Schritt „Aktionen“ aus, der für den Start einer Marketo-Kampagne verantwortlich ist:
+  * Führen Sie den Schritt „Authentifizierung“ aus
+  * Führen Sie den Schritt &quot;Trigger&quot; aus (erforderlich für den Zapier-Testzweck).
+  * Führen Sie den folgenden spezifischen Schritt „Aktionen“ aus, der für den Start einer Marketo-Kampagne verantwortlich ist:
 
 Senden der Endpunkt-URL für die Datenaktion :
 
@@ -8768,10 +8767,10 @@ Die Version Sommer 2018 ist in erster Linie eine Wartungsversion, die kleinere V
 ### REST-API
 
 * Es wurde Unterstützung für E-Mail-Dispositionsfelder hinzugefügt, die ursprünglich unnötig ausgelassen wurden. Diese Felder stehen nun je nach Bedarf zum Lesen und Schreiben über REST zur Verfügung.
-   * Auf der schwarzen Liste
-   * Marketing eingestellt
-   * E-Mail angehalten
-   * Relative Dringlichkeit
+  * Auf der schwarzen Liste
+  * Marketing eingestellt
+  * E-Mail angehalten
+  * Relative Dringlichkeit
 * Der Endpunkt Leads nach Filtertyp abrufen unterstützt jetzt leadPartId als filterType.
 
 ### Fehlerbehebungen
@@ -9172,7 +9171,7 @@ Dieser Endpunkt gibt eine vollständige Liste zurück, die sowohl standardmäßi
 
 ### Datumsbereiche des Exportvorgangs: jeweils 31 Tage
 
-Jeder Exportvorgang kann bis zu 31 Tage dauern. Die Demo-Instanz, die ich verwende, wurde im August 2016 erstellt. Daher muss ich heute etwas mehr als 40 Jobs erstellen. Die Anzahl der Tage seit dem ersten Erstellungsdatum dividiert durch 31 aufgerundet. Die -API ermöglicht es, dass zwei Exportvorgänge gleichzeitig verarbeitet werden, sodass Sie mit zwei parallel ausgeführten Vorgängen extrahieren können. Massenextraktionsaufträge sind eine Ressource, die mit jeder anderen Integration geteilt wird, also werde ich nett sein. Ich lasse den anderen Auftrag für andere Integrationen verfügbar und werde das Ausführen einzelner Aufträge nacheinander demonstrieren. Die für den Filter **createdAt** verwendeten Datumsangaben werden anhand der [ISO 8601-](https://www.w3.org/TR/NOTE-datetime) formatiert. Sie befinden sich immer in GMT (Z+0000), sodass die Zeitzone einfach als „Z“ oder &quot;+00“ dargestellt :00. Der 1. August 2016 ist **2016-08-01T00:00:00+00:00** und 31 Tage später ist der 1. September 2016, der **2016-09-01T00:00:00+00:00.** Sowohl Start- als auch Endzeiten sind inklusiv, also ziehe ich 1 Sekunde von dieser Endzeit ab: **2016-09-01T00:00:00+00:00** wird **2016-08-31T23:59:59+00:00**. Durch Subtrahieren einer Sekunde werden überlappende Zeiten vermieden. Da GMT der Standardwert ist, können Sie auch **Z** oder **+00:00**.
+Jeder Exportvorgang kann bis zu 31 Tage dauern. Die Demo-Instanz, die ich verwende, wurde im August 2016 erstellt. Daher muss ich heute etwas mehr als 40 Jobs erstellen. Die Anzahl der Tage seit dem ersten Erstellungsdatum dividiert durch 31 aufgerundet. Die -API ermöglicht es, dass zwei Exportvorgänge gleichzeitig verarbeitet werden, sodass Sie mit zwei parallel ausgeführten Vorgängen extrahieren können. Massenextraktionsaufträge sind eine Ressource, die mit jeder anderen Integration geteilt wird, also werde ich nett sein. Ich lasse den anderen Auftrag für andere Integrationen verfügbar und werde das Ausführen einzelner Aufträge nacheinander demonstrieren. Die für den Filter **createdAt** verwendeten Datumsangaben werden anhand der [ISO 8601-](https://www.w3.org/TR/NOTE-datetime) formatiert. Sie befinden sich immer in GMT (Z+0000), sodass die Zeitzone einfach als „Z“ oder &quot;+00:00“ dargestellt wird. Der 1. August 2016 ist **2016-08-01T00:00:00+00:00** und 31 Tage später ist der 1. September 2016, der **2016-09-01T00:00:00+00:00.** ist Sowohl Start- als auch Endzeit sind inklusiv, also ziehe ich 1 Sekunde von dieser Endzeit ab: **2016-09-01T00:00:00+00:00** wird **2016-08-31T23:59:59+00:00**. Durch Subtrahieren einer Sekunde werden überlappende Zeiten vermieden. Da GMT der Standardwert ist, können Sie auch **Z** oder **+00:00**.
 
 ### Deduplizierung
 
@@ -9690,7 +9689,7 @@ Im Mai 2021 veröffentlichen wir neue REST-APIs, erweitern bestehende REST-APIs 
 
 * Es wurden Programmteilnehmer-APIs hinzugefügt, mit denen Sie Programmmitgliedschaftseinträge abrufen, aktualisieren und löschen können. Weitere Informationen finden Sie [REST API > Lead-Datenbank > Programmmitglieder](/help/rest-api/program-members.md).
 * Es wurden APIs zum Extrahieren benutzerdefinierter Massenobjekte hinzugefügt, mit denen Sie benutzerdefinierte Marketo-Objektdatensätze der ersten Ebene exportieren können, die mit Leads in einer Eins-zu-viele-Beziehung verknüpft sind. Weitere Informationen finden Sie unter [REST API > Bulk Extract > Bulk Custom Object Extract](/help/rest-api/bulk-custom-object-extract.md).
-* Wir haben sowohl die [Lead-API](/help/rest-api/leads.md) als auch die [Bulk-Lead-Extract-](/help/rest-api/bulk-lead-extract.md)) verbessert, um Benutzerinnen und Benutzern das Abrufen der Adobe Experience Cloud-ID (ECID) zu ermöglichen. Auf diese Weise können Benutzende, die [Zielgruppen aus Adobe Experience Cloud synchronisieren](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html?lang=de) Leads identifizieren, die verknüpfte ECIDs haben. Dies eröffnet [Integrationsmöglichkeiten](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) mit anderen Adobe Experience Cloud-Produkten.
+* Wir haben sowohl die [Lead-API](/help/rest-api/leads.md) als auch die [Bulk-Lead-Extract-](/help/rest-api/bulk-lead-extract.md)) verbessert, um Benutzern das Abrufen der Adobe Experience Cloud-ID (ECID) zu ermöglichen. Auf diese Weise können Benutzer, die [Zielgruppen aus Adobe Experience Cloud synchronisieren](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/miscellaneous/set-up-adobe-experience-cloud-audience-sharing.html?lang=de) Leads identifizieren, die mit ECIDs verknüpft sind. Dadurch ergeben sich [&#x200B; Integrationsmöglichkeiten &#x200B;](https://adobeexchangeec.zendesk.com/hc/en-us/articles/360024277392-Adobe-Experience-Cloud-Using-the-ECID-for-integration) andere Adobe Experience Cloud-Produkte.
 * Wir haben die API [Massenimport von Leads“ verbessert](/help/rest-api/bulk-lead-import.md) um das Hinzufügen von Leads zu Unternehmensdatensätzen während des Importvorgangs zu unterstützen. Dazu fügen Sie das Feld **externalCompanyId** in die Importdatei ein.
 * Wir haben mehrere Programm-Endpunkte erweitert, um die Parität mit den in der Marketo Engage-Benutzeroberfläche verfügbaren Funktionen zu gewährleisten. Die Endpunkte [Programme erstellen](/help/rest-api/assets.md) und [Programme klonen](https://developer.adobe.com/marketo-apis/api/asset) wurden verbessert, um Vorgänge zum Erstellen, Klonen oder Verschieben von Ereignisprogrammen zu ermöglichen. Dies ist für Benutzende gedacht, die Veranstaltungsprogramme organisieren, indem sie unter anderen Programmtypen „verschachtelt“ werden. Wir haben auch den Endpunkt [Programm löschen](https://developer.adobe.com/marketo-apis/api/asset) verbessert, um das Löschen von Programmen zu ermöglichen, die die folgenden Assets enthalten: Push-Benachrichtigungen, In-App-Nachrichten, Berichte, Landingpages mit eingebettetem Social Assets.
 * Als Marketo-Administrator können Sie [ein bestimmtes Feld als „sensibel“ markieren](https://experienceleague.adobe.com/de/docs/marketo/using/home) sodass seine Werte [nie in Formularen vorausgefüllt werden](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/forms/form-fields/disable-pre-fill-for-a-form-field) und so die sensiblen Daten der Benutzenden geschützt werden. Wir haben mehrere Formularfeld-Endpunkte erweitert, um für Parität mit dieser Funktion zu sorgen, die in der Marketo Engage-Benutzeroberfläche zu finden ist.

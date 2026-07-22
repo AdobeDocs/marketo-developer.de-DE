@@ -10,28 +10,30 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 661
-ht-degree: 2%
+source-wordcount: 538
+ht-degree: 3%
 
 ---
 
 # Massenimport
 
-Marketo bietet Schnittstellen zum Einfügen großer Mengen an personenbezogenen Daten, den so genannten Massenimport. Derzeit werden Schnittstellen für drei Objekttypen angeboten:
+Der Massenimport bietet Schnittstellen zum Einfügen großer Mengen von Personen- und personenbezogenen Daten. Sie können drei Objekttypen importieren:
 
 - Leads (Personen)
 - Benutzerdefinierte Objekte
 - Programm-Mitglieder
 
-Der Massenimport wird ausgeführt, indem ein Auftrag erstellt wird und dann darauf gewartet wird, dass der Auftrag das Lesen einer Datei abschließt. Diese Aufträge werden asynchron ausgeführt und können abgerufen werden, um den Status des Imports abzurufen. Dateien werden mit HTTP Multipart/form-data per RFC 2399 hochgeladen.
+Um einen Massenimport durchzuführen, erstellen Sie einen Auftrag, der eine hochgeladene Datei liest. Der Auftrag wird asynchron ausgeführt. Fragen Sie ihn daher ab, um den Importstatus abzurufen.
 
-Bulk-API-Endpunkte haben nicht das Präfix &quot;/rest“ wie andere Endpunkte.
+Hochladen von Dateien mit HTTP-`multipart/form-data` gemäß RFC 2399.
+
+Im Gegensatz zu anderen Endpunkten sind Bulk-API-Endpunkte nicht mit dem Präfix `/rest` versehen.
 
 ## Authentifizierung
 
-Die Massenimport-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo-REST-APIs.  Dies erfordert ein gültiges Zugriffstoken, das als HTTP-Header-`Authorization: Bearer {_AccessToken_}` gesendet wird.
+Die Massenimport-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie andere Marketo-REST-APIs. Senden Sie ein gültiges Zugriffstoken im `Authorization: Bearer {_AccessToken_}` HTTP-Header.
 
 >[!IMPORTANT]
 >
@@ -39,21 +41,25 @@ Die Massenimport-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethode wie
 
 ## Beschränkungen
 
-- Max. gleichzeitige Importvorgänge: 2
-- Max. Anzahl an Importvorgängen in der Warteschlange (einschließlich aktuell importierender Vorgänge): 10
+- Maximale Anzahl gleichzeitiger Importvorgänge: 2
+- Maximale Anzahl an Importvorgängen in der Warteschlange, einschließlich aktuell importierender Vorgänge: 10
 - Maximale Größe der Importdatei: 10 MB
 
 ## Berechtigungen
 
-Der Massenimport verwendet dasselbe Berechtigungsmodell wie die Marketo-REST-API und erfordert keine zusätzlichen speziellen Berechtigungen, um verwenden zu können, obwohl spezifische Berechtigungen für jeden Satz von Endpunkten erforderlich sind.
+Der Massenimport verwendet dasselbe Berechtigungsmodell wie die Marketo-REST-API. Es sind keine zusätzlichen Berechtigungen erforderlich, aber für jeden Endpunktsatz sind spezifische Berechtigungen erforderlich.
 
 ## Datensatzvorgänge
 
-Der Massenimport ist ein Datensatzvorgang vom Typ „Einfügen oder Aktualisieren“. Wenn ein übereinstimmender Datensatz in der Datenbank gefunden wird, wird er aktualisiert. Andernfalls wird ein neuer Datensatz erstellt. Die Antwort zum Massenimport gibt nicht an, ob ein bestimmter Datensatz aktualisiert oder eingefügt wurde.
+Der Massenimport ist ein Datensatzvorgang vom Typ „Einfügen oder Aktualisieren“. Wenn die Datenbank einen übereinstimmenden Datensatz enthält, wird er durch den Vorgang aktualisiert. Andernfalls wird ein Datensatz erstellt.
+
+Die Massenimportantwort gibt nicht an, ob ein einzelner Datensatz aktualisiert oder eingefügt wurde.
 
 ## Erstellen von Aufträgen
 
-Die Massenimport-APIs von Marketo verwenden das Konzept eines Auftrags zum Ausführen des Datenimports. Im Folgenden wird das Erstellen eines einfachen Lead-Importvorgangs mit dem Endpunkt [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) beschrieben.  Beachten Sie, dass dieser Endpunkt [multipart/form-data als Inhaltstyp“ &#x200B;](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Dies kann schwierig sein, sodass die Best Practice darin besteht, eine HTTP-Support-Bibliothek für die Sprache Ihrer Wahl zu verwenden.  Wenn Sie nur nasse Füße bekommen, empfehlen wir, dass Sie [cURL](https://curl.se/) verwenden.
+Erstellen Sie einen Lead-Importvorgang durch Aufruf des Endpunkts [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Dieser Endpunkt verwendet [multipart/form-data als Inhaltstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
+
+Verwenden Sie eine HTTP-Support-Bibliothek für Ihre bevorzugte Sprache, um die mehrteilige Anfrage zu erstellen. Sie können auch [curl](https://curl.se/) verwenden, um zu beginnen.
 
 ```http
 POST /bulk/v1/leads.json?format=csv
@@ -77,7 +83,7 @@ Easy,Fox,easyfox@marketo.com
 ------WebKitFormBoundaryBQACkJZyaiIAXogC--
 ```
 
-Mit dieser Anfrage wird ein Vorgang erstellt, der in der CSV-Datei enthaltene Werte namens „lead.csv“ mit den Spaltenüberschriften „FirstName“, „LastName“, „Email“, „Company“ importiert.
+Diese Anfrage erstellt einen Auftrag, der Werte aus der CSV-Datei mit dem Namen `leads.csv` importiert.
 
 ```json
 {
@@ -93,11 +99,11 @@ Mit dieser Anfrage wird ein Vorgang erstellt, der in der CSV-Datei enthaltene We
 }
 ```
 
-Wenn wir den Auftrag übermitteln, wird eine batchId zurückgegeben, mit der wir dann den Status überprüfen können.
+Die Antwort gibt ein -`batchId` zurück. Verwenden Sie diesen Wert, um den Auftragsstatus zu überprüfen.
 
 ### Allgemeine Parameter
 
-Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konfigurieren des Dateiformats, der Feldnamen und des Filters eines Massenextraktionsauftrags.  Jeder Subtyp des Extraktionsvorgangs kann über zusätzliche Parameter verfügen:
+Jeder Vorgangserstellungsendpunkt verwendet die gleichen Parameter zur Konfiguration der Importdatei. Ein Importuntertyp kann auch zusätzliche Parameter unterstützen.
 
 | Parameter | Datentyp | Hinweise |
 | --- | --- | --- |
@@ -106,7 +112,7 @@ Jeder Auftragserstellungsendpunkt verwendet einige allgemeine Parameter zum Konf
 
 ## Status des Abrufauftrags
 
-Die Bestimmung des Status des Auftrags ist einfach mithilfe des Endpunkts [Lead-Status abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
+Übergeben Sie die `batchId` an den Endpunkt [Lead-Status abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) um den Auftragsstatus abzurufen.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -130,16 +136,18 @@ GET /bulk/v1/leads/batch/{batchId}.json
 }
 ```
 
-Das innere `status` gibt den Fortschritt des Auftrags an und kann einen der folgenden Werte aufweisen: „In Warteschlange“, „Importieren“, „Abgeschlossen“ oder „Fehlgeschlagen“. In diesem Fall ist unser Vorgang abgeschlossen, sodass wir den Abruf stoppen können.
+Das `status` gibt den Fortschritt des Vorgangs an. Sein Wert kann `Queued`, `Importing`, `Complete` oder `Failed` sein.
+
+In diesem Beispiel ist der Vorgang abgeschlossen, sodass das Abrufen beendet werden kann.
 
 ## Fehler
 
-Fehler werden durch das Attribut `numOfRowsFailed` in der Antwort zum Abrufen des Lead-Importstatus angezeigt. Wenn `numOfRowsFailed` größer als null ist, gibt dieser Wert die Anzahl der aufgetretenen Fehler an.
+Das Attribut `numOfRowsFailed` in der Antwort Lead-Status abrufen gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
 
-Um die Datensätze und Ursachen fehlgeschlagener Zeilen abzurufen, müssen Sie die Fehlerdatei mit dem Endpunkt [Abrufen von Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET)) abrufen.
+Um die fehlgeschlagenen Datensätze und ihre Ursachen abzurufen, verwenden Sie den Endpunkt [Abrufen von Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET)).
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json
 ```
 
-Die Datei gibt an, welche Zeilen fehlgeschlagen sind, zusammen mit einer Meldung, die angibt, warum der Datensatz fehlgeschlagen ist.
+Die Fehlerdatei identifiziert jede fehlgeschlagene Zeile und erklärt, warum der Datensatz fehlgeschlagen ist.

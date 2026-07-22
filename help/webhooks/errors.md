@@ -8,20 +8,20 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 255
-ht-degree: 2%
+source-wordcount: 213
+ht-degree: 3%
 
 ---
 
 # Fehler
 
-Auf dieser Seite werden Fehlerantwortcodes für Webhooks in Marketo aufgelistet.
+Auf dieser Seite werden Fehlerantwort-Codes für Marketo-Webhooks beschrieben und der Umgang mit Webhook-Fehlern erläutert.
 
-1000 und 1001 werden von Marketo generiert, und 2xx bis 5xx sind Fehler, die vom System zurückgegeben werden, das der Marketo-Webhook aufruft.
+Marketo generiert die Fehlercodes 1000 und 1001. Das vom Marketo-Webhook aufgerufene System gibt Antwort-Codes von 2xx bis 5xx zurück.
 
-Damit Marketo Werte wieder einem Feld zuordnen kann, muss der Webhook-Antwort-Code von der Variante 2xx sein. Wenn der Webhook die Werte im Marketo-Lead-Datensatz über die Antwort ändern soll, muss der aufgerufene Web-Service 2xx zurückgeben, sodass alle anderen Antwort-Codes dazu führen, dass der Webhook zum Zwecke der Aktualisierung von Lead-Datensatzwerten ignoriert wird.
+Marketo ordnet einem Feld nur dann Antwortwerte zu, wenn der Webservice einen 2xx-Antwort-Code zurückgibt. Wenn mit einer Webhook-Antwort Werte in einem Marketo-Lead-Datensatz geändert werden sollen, veranlassen alle anderen Antwort-Codes Marketo, die Antwort für Feldaktualisierungen zu ignorieren.
 
 | Antwortcode | Beschreibung |
 | --- | --- |
@@ -30,11 +30,11 @@ Damit Marketo Werte wieder einem Feld zuordnen kann, muss der Webhook-Antwort-Co
 
 ## Webhook-Fehler abfangen
 
-Fehler aus Webhooks können vom Trigger **[!UICONTROL Webhook wird aufgerufen) erfasst]** verarbeitet werden:
+Verwenden Sie den **[!UICONTROL Webhook wird aufgerufen]**-Trigger, um Webhook-Fehler zu erfassen und zu behandeln:
 
 ![Webhook wird aufgerufen](assets/webhook-called.png)
 
-* **Antwort** - Antwort ist die wörtliche Antwort-Payload, die von der Anfrage empfangen wurde.
-* **Fehlertyp** - Dies entspricht der Reason-Phrase der HTTP-Statusmeldung.
+* **Response** - Die literale Antwort-Payload, die von der Anfrage empfangen wurde.
+* **Fehlertyp** - Die Reason-Phrase der HTTP-Statusmeldung.
 
-Diese können verwendet werden, um vorhersehbare Fehler und Ausnahmen zu verarbeiten und darauf zu reagieren. Je nachdem, mit welchem Service Sie integrieren, kann es möglich sein, bestimmte Fehlerklassen automatisch wiederherzustellen, während Warnhinweise erstellt werden können, um Benutzer über unerwartete Fehler zu informieren.
+Verwenden Sie diese Werte, um auf vorhersehbare Fehler und Ausnahmen zu reagieren. Je nach integriertem Service können Sie automatisch einige Fehlerklassen wiederherstellen und Warnungen für unerwartete Fehler erstellen.

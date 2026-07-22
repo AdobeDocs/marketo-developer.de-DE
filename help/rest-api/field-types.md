@@ -16,16 +16,16 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 373
+source-wordcount: 371
 ht-degree: 8%
 
 ---
 
 # Feldtypen
 
-Im Folgenden finden Sie eine Beschreibung der Feldtypen in Marketo. Weitere Informationen zu Feldtypen finden Sie [hier](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Weitere Informationen zu Feldtypbeschränkungen finden Sie [hier](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+In der folgenden Tabelle werden die in Marketo verfügbaren Feldtypen beschrieben. Weitere Informationen finden Sie unter [Glossar für benutzerdefinierte Feldtypen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary) und [Marketo-Feldbeschränkungen nach Feldtyp](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Feldtyp | Beschreibung | Beispiel |
 | --- | --- | --- |

@@ -3,9 +3,9 @@ title: E-Mails
 feature: REST API
 description: Verwenden Sie die Marketo Asset REST-API, um Abhängigkeiten für E-Mail-Assets abzufragen, zu erstellen, zu aktualisieren, zu klonen, zu löschen, zu genehmigen und zu überprüfen.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: '497'
+source-wordcount: '492'
 ht-degree: 5%
 
 ---
@@ -32,7 +32,7 @@ x-app-type: <app-type>
 
 ## Abfrage
 
-Sie können E-Mail-Metadaten nach Asset-`id` oder mit dem Filter-Endpunkt abrufen.
+Abrufen von E-Mail-Metadaten nach Asset-`id` oder mit dem Filter-Endpunkt.
 
 ### Nach ID
 
@@ -63,7 +63,7 @@ GET /rest/asset/v2/email/{id}
 
 ### Filter
 
-Der Filterendpunkt unterstützt die Suche innerhalb eines Arbeitsbereichs und die Eingrenzung der Ergebnisse mit zusätzlichen Abfrageparametern.
+Der Filterendpunkt sucht innerhalb eines Arbeitsbereichs und unterstützt zusätzliche Abfrageparameter.
 
 `workspaceId` ist erforderlich.
 

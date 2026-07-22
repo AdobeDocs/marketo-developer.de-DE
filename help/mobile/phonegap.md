@@ -13,36 +13,36 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 862
+source-wordcount: 775
 ht-degree: 2%
 
 ---
 
 # Telefonlücke
 
-Integration des Marketo PhoneGap-Plug-ins
+Integrieren des Marketo PhoneGap-Plug-ins in eine Cordova-App.
 
 ## Voraussetzungen
 
-1. [Anwendung in Marketo Admin hinzufügen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (Abrufen des geheimen Anwendungsschlüssels und der Munchkin-ID).
-1. Push-Benachrichtigungen einrichten ([iOS](push-notifications.md) | [Android](push-notifications.md)).
+1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
+1. Push-Benachrichtigungen für [iOS](push-notifications.md) oder [Android einrichten](push-notifications.md).
 1. [Installieren von PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanweisungen
 
-1. Einrichten des Marketo PhoneGap-Plug-ins
+1. Richten Sie das Marketo PhoneGap-Plug-in ein.
 
-   Wenn die Cordova-CLI installiert ist, wechseln Sie zu Ihrem PhoneGap-Anwendungsverzeichnis und führen Sie den folgenden Befehl aus, um das Marketo-Plug-in zu Ihrer Anwendung hinzuzufügen:
+   Gehen Sie zum PhoneGap-Anwendungsverzeichnis und führen Sie den folgenden Befehl aus, um das Marketo-Plug-in hinzuzufügen:
 
    `$ cordova plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
-1. FCM-Plug-in installieren
+1. Installieren Sie das FCM-Plug-in.
 
    `$ cordova plugin add cordova-plugin-fcm`
 
-   Um zu bestätigen, dass das Plug-in zur Anwendung hinzugefügt wurde, führen Sie den folgenden Befehl aus und überprüfen Sie
+   Führen Sie den folgenden Befehl aus, um zu bestätigen, dass das Plug-in hinzugefügt wurde:
 
    `$ cordova plugin ls com.marketo.plugin 0.X.0 "MarketoPlugin" cordova-plugin-fcm 2.1.2 "FCMPlugin"`
 
@@ -58,7 +58,7 @@ Um das Plug-in erneut hinzuzufügen, führen Sie den folgenden Befehl aus:
 
 **Cordova Version 8.0.0 (Cordova@Android7.0.0) und höher**
 
-Öffnen Sie nach der Erstellung der Cordova Android-Plattform die App mit Android Studio und aktualisieren Sie den `dirs` der `Marketo.gradle` im `com.marketo.plugin`.
+Öffnen Sie nach dem Erstellen der Cordova Android-Plattform die App in Android Studio. Aktualisieren Sie den `dirs` in der `Marketo.gradle` im `com.marketo.plugin`.
 
 ```groovy
 repositories{
@@ -69,22 +69,22 @@ repositories{
 }
 ```
 
-Fügen Sie die Plattformen hinzu, die für die App ausgewählt werden sollen `$cordova platform add android` `$ cordova platform add ios`
+Zielplattformen für die App hinzufügen: `$cordova platform add android` `$ cordova platform add ios`
 
-Überprüfen der Liste der `$cordova platform ls` hinzugefügten Plattformen
+Überprüfen Sie die hinzugefügten Plattformen: `$cordova platform ls`
 
 1. Firebase Cloud Messaging-Unterstützung
 
-1. Konfigurieren der Firebase App in der Firebase Console.
-   1. Erstellen/Hinzufügen eines Projekts in [&#128279;](https://console.firebase.google.com/)Firebase Console.
+1. Konfigurieren Sie die Firebase-App in der Firebase Console.
+   1. Erstellen oder Hinzufügen eines Projekts in der [&#128279;](https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Willkommensbildschirm „Firebase zu Ihrer Android-App hinzufügen“ aus.
       1. Geben Sie Ihren Paketnamen und SHA-1 an und wählen Sie **[!UICONTROL App hinzufügen]** aus. Eine neue `google-services.json` für Ihre Firebase-App wird heruntergeladen.
-   1. Navigieren Sie **[!UICONTROL Projekteinstellungen]** in [!UICONTROL Projektübersicht]
-      1. Klicken Sie auf **[!UICONTROL Registerkarte]** Allgemein“. Laden Sie die Datei „google-services.json“ herunter.
-      1. Klicken Sie auf **[!UICONTROL Registerkarte]** Cloud Messaging“. Kopieren [!UICONTROL Server-Schlüssel] und [!UICONTROL Absender-ID]. Stellen Sie diese [!UICONTROL Serverschlüssel] und [!UICONTROL Absender-ID] für Marketo bereit.
-   1. Konfigurieren von FCM-Änderungen in der PhoneGap-App
+   1. Navigieren Sie **[!UICONTROL Projekteinstellungen]** in [!UICONTROL Projektübersicht].
+      1. Wählen Sie die **[!UICONTROL Allgemein]** und laden Sie die Datei „google-services.json“ herunter.
+      1. Wählen Sie die Registerkarte **[!UICONTROL Cloud Messaging]**. Kopieren Sie [!UICONTROL Serverschlüssel] und [!UICONTROL Absender-ID] und stellen Sie sie Marketo zur Verfügung.
+   1. Konfigurieren von FCM in der PhoneGap-App.
       1. Verschieben Sie die heruntergeladene Datei „google-services.json“ in das Stammverzeichnis des PhoneGap-App-Moduls.
       1. Datei &#39;MyFirebaseInstanceIDService&#39; aus Speicherort `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (veraltet) entfernen
       1. Ändern Sie die Datei „MyFirebaseMessagingService“ am Speicherort `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` wie folgt:
@@ -125,7 +125,7 @@ Fügen Sie die Plattformen hinzu, die für die App ausgewählt werden sollen `$c
 
 ### &#x200B;3. Aktivieren von Push-Benachrichtigungen in xCode
 
-Aktivieren der Push-Benachrichtigungsfunktion in einem xCode-Projekt.
+Aktivieren der Push-Benachrichtigungsfunktion im xCode-Projekt.
 
 ### &#x200B;4. Push-Benachrichtigungen tracken
 
@@ -135,7 +135,7 @@ Fügen Sie den folgenden Code in die `application:didFinishLaunchingWithOptions:
 
 >[!TAB Ziel C]
 
-Aktualisieren Sie die `applicationDidBecomeActive` wie unten beschrieben
+Aktualisieren Sie die `applicationDidBecomeActive` wie folgt.
 
 ```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -145,7 +145,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB Swift]
 
-Aktualisieren Sie die `applicationDidBecomeActive` wie unten beschrieben
+Aktualisieren Sie die `applicationDidBecomeActive` wie folgt.
 
 ```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
@@ -157,9 +157,9 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### &#x200B;5. Marketo-Framework initialisieren
 
-Um sicherzustellen, dass das Marketo-Framework beim Start des Programms initiiert wird, fügen Sie den folgenden Code unter der `onDeviceReady` in Ihrer JavaScript-Hauptdatei hinzu.
+Um das Marketo-Framework beim Start der App zu initialisieren, fügen Sie den folgenden Code unter der `onDeviceReady` in der JavaScript-Hauptdatei hinzu.
 
-Beachten Sie, dass wir `phonegap` als Framework-Typ für PhoneGap-Apps übergeben müssen.
+Übergeben Sie `phonegap` als Framework-Typ für PhoneGap-Apps.
 
 ### Syntax
 
@@ -182,14 +182,14 @@ marketo.onStart(
 
 ### Parameter
 
-- Success Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework erfolgreich initialisiert wurde.
-- Fehlgeschlagener Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework nicht initialisiert werden kann.
-- MUNCHKIN-ID : Munchkin-ID, die zum Zeitpunkt der Registrierung von Marketo erhalten wurde.
-- GEHEIMSCHLÜSSEL : Geheimer Schlüssel, der zum Zeitpunkt der Registrierung von Marketo empfangen wurde.
+- Success Callback: Funktion, die ausgeführt wird, wenn das Marketo-Framework erfolgreich initialisiert wurde.
+- Failure Callback: Funktion, die ausgeführt wird, wenn das Marketo-Framework nicht initialisiert werden kann.
+- MUNCHKIN-ID: Munchkin-ID, die während der Registrierung von Marketo empfangen wurde.
+- SECRET KEY: Geheimer Schlüssel, der von Marketo während der Registrierung empfangen wurde.
 
 ### &#x200B;6. Marketo-Push-Benachrichtigung initialisieren
 
-Um sicherzustellen, dass die Marketo-Push-Benachrichtigung gestartet wird, fügen Sie der Hauptdatei von JavaScript nach der Initialisierungsfunktion den folgenden Code hinzu.
+Um Marketo-Push-Benachrichtigungen zu initialisieren, fügen Sie in der JavaScript-Hauptdatei nach der Initialisierungsfunktion den folgenden Code hinzu.
 
 ### Syntax
 
@@ -204,11 +204,11 @@ marketo.initializeMarketoPush(
 
 ### Parameter
 
-- Success Callback : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
-- Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
-- GCM_PROJECT_ID : GCM-Projekt-ID, die nach dem Erstellen der App in [&#128279;](https://console.developers.google.com/) Entwicklerkonsole von Google gefunden wurde.
+- Success Callback: Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung erfolgreich initialisiert wurde.
+- Fehlgeschlagener Rückruf: Funktion, die ausgeführt wird, wenn die Marketo-Push-Benachrichtigung nicht initialisiert werden kann.
+- GCM_PROJECT_ID: GCM-Projekt-ID in [Google Developers Console](https://console.developers.google.com/) nach dem Erstellen der App.
 
-Die Registrierung des Tokens kann auch beim Abmelden aufgehoben werden.
+Sie können die Registrierung des Tokens auch bei der Abmeldung aufheben.
 
 ```javascript
 marketo. uninitializeMarketoPush(
@@ -219,7 +219,7 @@ marketo. uninitializeMarketoPush(
 
 ## Lead verknüpfen
 
-Sie können einen Marketo-Lead erstellen, indem Sie die Funktion AssociateLead aufrufen.
+Rufen Sie die Funktion AssociateLead auf, um einen Marketo-Lead zu erstellen.
 
 ### Syntax
 
@@ -233,9 +233,9 @@ marketo.associateLead(
 
 ### Parameter
 
-- Success Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework den Lead erfolgreich verknüpft.
-- Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn das Marketo-Framework den Lead nicht verknüpfen kann.
-- Lead-Daten : Lead-Daten im JSON-Zeichenfolgenformat.
+- Success Callback: Funktion, die ausgeführt wird, wenn das Marketo-Framework den Lead erfolgreich verknüpft.
+- Failure Callback: Funktion, die ausgeführt wird, wenn das Marketo-Framework den Lead nicht verknüpfen kann.
+- Lead-Daten: Lead-Daten im JSON-Zeichenfolgenformat.
 
 ### Beispiel
 
@@ -264,7 +264,7 @@ marketo.associateLead(
 
 ## Berichtsaktion
 
-Sie können jede vom Benutzer durchgeführte Aktion melden, indem Sie die `reportaction`-Funktion aufrufen.
+Rufen Sie die Funktion `reportaction` auf, um eine Benutzeraktion zu melden.
 
 ### Syntax
 
@@ -279,10 +279,10 @@ marketo.reportaction(
 
 ### Parameter
 
-- Erfolgs-Callback : Funktion, die ausgeführt wird, wenn das Marketo-Framework eine Aktion erfolgreich meldet.
-- Fehlgeschlagener Rückruf : Funktion, die ausgeführt wird, wenn das Marketo-Framework keine Berichtsaktion ausgibt.
-- Aktionsname : Aktionsname.
-- Aktionsdaten : Aktionsdaten im JSON-Zeichenfolgenformat.
+- Erfolgreicher Rückruf: Funktion, die ausgeführt wird, wenn das Marketo-Framework die Aktion erfolgreich meldet.
+- Fehlgeschlagener Rückruf: Funktion, die ausgeführt wird, wenn das Marketo-Framework die Aktion nicht meldet.
+- Aktionsname: Aktionsname.
+- Aktionsdaten: Aktionsdaten im JSON-Zeichenfolgenformat.
 
 ### Beispiel
 
@@ -305,7 +305,7 @@ marketo.reportaction(
 
 ## Sitzungsberichte
 
-Binden Sie die Ereignistypen „Anhalten“ und „Fortsetzen“ wie unten gezeigt, um Start- und Stopp-Ereignisse zu melden.  Damit wird die in der Mobile App verbrachte Zeit verfolgt. Hinweis: Dies ist in Android erforderlich.
+Binden Sie die Ereignistypen „Anhalten“ und „Fortsetzen“ an die Start- und Stopp-Ereignisse eines Berichts. Diese Ereignisse verfolgen die in der Mobile App verbrachte Zeit und sind in Android erforderlich.
 
 ```javascript
 //Add the following code in your www/js/index.js
@@ -336,6 +336,9 @@ Es gibt drei Möglichkeiten, Leads aus einer Hybrid-App zu erstellen:
 1. Marketo REST-API
 1. Formular senden
 
-Je nach verwendeter Methode wird ein neu erstellter Lead von verschiedenen Triggern und Filtern erkannt. Leads, die mit der MME SDK- oder REST-API erstellt wurden, werden in den Triggern und Filtern „Lead erstellt“ angezeigt. Durch Formularübermittlungen erstellte Leads werden in den Triggern und Filtern des „ausgefüllten Formulars“ angezeigt.
+Die Trigger und Filter, die einen neuen Lead erkennen, hängen von der Erstellungsmethode ab:
 
-Es empfiehlt sich, bei der Erstellung von Leads die Konsistenz mit der von der Web-Anwendung verwendeten Methode zu wahren. Wenn Sie bereits über eine Web-Anwendung verfügen, die die Formularübermittlung als Mechanismus zum Erstellen von Leads verwendet, verwenden Sie denselben Mechanismus beim Erstellen von Leads in Ihrer Hybrid-Anwendung. Wenn Sie bereits über eine Web-Anwendung verfügen, die unsere REST-API als Mechanismus zum Erstellen von Leads verwendet, verwenden Sie denselben Mechanismus beim Erstellen von Leads in Ihrer Hybrid-App. Wenn Sie weder die Formularübermittlung noch die REST-API als Mechanismus zum Erstellen von Leads in Ihrer Web-Anwendung verwenden, können Sie erwägen, die MME-SDK zum Erstellen von Leads in Marketo zu verwenden.
+- Leads, die mit der MME SDK- oder REST-API erstellt wurden, werden in den Triggern und Filtern „Lead erstellt“ angezeigt.
+- Durch Formularübermittlung erstellte Leads werden in den Triggern und Filtern des „ausgefüllten Formulars“ angezeigt.
+
+Verwenden Sie dieselbe Methode zur Lead-Erstellung in der Hybrid-App und der Web-App. Wenn die Web-Anwendung die Formularübermittlung oder die REST-API verwendet, verwenden Sie diese Methode in der Hybrid-App. Wenn die Web-Anwendung keine dieser Methoden verwendet, sollten Sie die Verwendung der MME-SDK zum Erstellen von Leads in Marketo erwägen.

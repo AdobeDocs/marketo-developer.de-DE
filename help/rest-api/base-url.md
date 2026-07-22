@@ -8,30 +8,32 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 157
-ht-degree: 2%
+source-wordcount: 146
+ht-degree: 3%
 
 ---
 
 # Basis-URL
 
-Die [Endpunktreferenz](endpoint-reference.md) Dokumentation für jeden API-Aufruf zeigt die REST-Methode, den Pfad, die Ressource und die Parameter, die zur Erstellung einer Anfrage an die Basis-URL angehängt werden müssen.
+Jeder API-Aufruf in der [Endpunktreferenz](endpoint-reference.md) gibt die REST-Methode, den Pfad, die Ressource und die Parameter an. Hängen Sie diese Komponenten an die Basis-URL an, um eine Anfrage zu erstellen.
 
 Im Folgenden finden Sie ein Beispiel für eine gut geformte REST-URL:
 
 `https://284-RPR-133.mktorest.com/rest/v1/lead/318581.json?fields=email,firstName,lastName`
 
-das sich aus folgenden Teilen zusammensetzt:
+Das Beispiel enthält die folgenden Komponenten:
 
-- Basis-URL: `https://284-RPR-133.mktorest.com/rest`
-- Pfad: `/v1/lead/`
-- Ressource: `318582.json`
-- Abfrageparameter: `fields=email,firstName,lastName`
+- **Basis-URL:** `https://284-RPR-133.mktorest.com/rest`
+- **path:** `/v1/lead/`
+- **Ressource:** `318582.json`
+- **Abfrageparameter:** `fields=email,firstName,lastName`
 
-Die Basis-URL enthält die Konto-ID (auch als Munchkin-ID bezeichnet) und ist daher für jedes Marketo-Abonnement eindeutig. Ihre Basis-URL finden Sie, indem Sie sich bei Marketo anmelden und zum Menü **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]** navigieren. Sie ist unter dem Abschnitt „REST-API“ als „Endpunkt:“ gekennzeichnet, wie in den folgenden Screenshots gezeigt.
+Die Basis-URL enthält die Konto-ID, auch als Munchkin-ID bezeichnet, und ist für jedes Marketo-Abonnement eindeutig.
+
+Um die Basis-URL zu finden, melden Sie sich bei Marketo an und gehen Sie zu **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web-Services]**. Die Basis-URL ist im Abschnitt „REST-API“ mit „Endpunkt:“ beschriftet, wie in der folgenden Abbildung dargestellt.
 
 ![Web-Services-Basis-URL-Endpunkt](assets/rest-api-base-url-web-services.png)
 
-Nachdem Sie die Basis-URL gefunden haben, kopieren Sie sie und fügen Sie sie in URLs ein, die Sie beim Aufruf einer der REST-APIs verwenden.
+Kopieren Sie die Basis-URL und fügen Sie sie für jeden REST-API-Aufruf in die URL ein.

@@ -17,39 +17,40 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: cc72dcf1-72e1-48cc-b434-e7c27d62d67c
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 2475
-ht-degree: 3%
+source-wordcount: 2255
+ht-degree: 4%
 
 ---
 
 # Fehler-Codes
 
-Im Folgenden finden Sie eine Liste der REST-API-Fehler-Codes und eine Erläuterung, wie Fehler an Programme zurückgegeben werden.
+Marketo-REST-APIs geben Fehler auf HTTP-, Antwort- oder Datensatzebene zurück. Auf dieser Seite werden die einzelnen Fehlertypen erläutert und die zugehörigen Fehler-Codes aufgelistet.
 
 ## Behandeln und Protokollieren von Ausnahmen
 
-Bei der Entwicklung für Marketo ist es wichtig, dass Anfragen und Antworten protokolliert werden, wenn eine unerwartete Ausnahme auftritt. Während bestimmte Arten von Ausnahmen, z. B. abgelaufene Authentifizierungen, sicher durch erneute Authentifizierung verarbeitet werden können, erfordern andere möglicherweise Support-Interaktionen, und Anfragen und Antworten werden immer in diesem Szenario angefordert.
+Anfragen und Antworten protokollieren, wenn bei Ihrer Integration eine unerwartete Ausnahme auftritt. Einige Ausnahmen, z. B. abgelaufene Authentifizierungen, können durch eine erneute Authentifizierung behandelt werden. Für andere Ausnahmen ist möglicherweise die Unterstützung des Supports erforderlich, der die zugehörigen Anfrage- und Antwortdetails anfordert.
 
 ## Fehlertypen
 
-Die Marketo-REST-API kann im Normalbetrieb drei verschiedene Fehlertypen zurückgeben:
+Die Marketo-REST-API kann während des normalen Betriebs drei Fehlertypen zurückgeben:
 
-* HTTP-Ebene: Auf diese Fehler wird durch einen `4xx` Code hingewiesen.
-* Antwortebene: Diese Fehler sind im Array „Fehler“ der JSON-Antwort enthalten.
-* Datensatzebene: Diese Fehler sind im Array „Ergebnis“ der JSON-Antwort enthalten und werden auf individueller Datensatzbasis mit dem Feld „Status“ und dem Array „Gründe“ angezeigt.
+- **HTTP-Ebene:** Wird durch einen `4xx`-Code angezeigt.
+- **Response-Level:** im Array „errors“ der JSON-Antwort enthalten.
+- **Record-Level:** Im Array „result“ der JSON-Antwort enthalten und für jeden Datensatz durch das Feld „status“ und das Array „reason“ angezeigt.
 
-Bei Fehlertypen auf Antwort- und Datensatz-Ebene wird ein HTTP-Status-Code von 200 zurückgegeben. Für alle Fehlertypen sollte die HTTP-Ursachenphrase nicht ausgewertet werden, da sie optional ist und sich ändern kann.
+Fehler auf Antwort- und Datensatzebene geben den HTTP-Status-Code 200 zurück. Bewerten Sie die HTTP-Ursachenphrase nicht für alle Fehlertypen, da sie optional ist und sich ändern kann.
 
 ### Fehler auf HTTP-Ebene
 
-Unter normalen Betriebsbedingungen sollte Marketo nur zwei HTTP-Status-Code-Fehler, `413 Request Entity Too Large` und `414 Request URI Too Long`, zurückgeben. Beide können durch Abrufen des Fehlers, Ändern der Anfrage und erneutes Versuchen wiederhergestellt werden. Mit intelligenten Kodierungsverfahren sollten Sie jedoch nie auf diese stoßen.
+Während des normalen Betriebs gibt Marketo zwei HTTP-Status-Code-Fehler zurück: `413 Request Entity Too Large` und `414 Request URI Too Long`. Um einen der Fehler zu beheben, ändern Sie die Anfrage und versuchen Sie es erneut. Sie können diese Fehler verhindern, indem Sie die Anfragengrößen vor der Übermittlung überprüfen.
 
-Marketo gibt 413 zurück, wenn die Payload der Anfrage 1 MB überschreitet, oder 10 MB im Fall des Leadimports. In den meisten Szenarien ist es unwahrscheinlich, dass diese Beschränkungen erreicht werden. Durch Hinzufügen einer Prüfung der Größe der Anfrage und Verschieben von Datensätzen, die dazu führen, dass das Limit überschritten wird, zu einer neuen Anfrage sollten jedoch alle Umstände verhindert werden, die zu diesem Fehler bei Endpunkten führen.
+Marketo gibt 413 zurück, wenn die Anfrage-Payload 1 MB oder 10 MB für den Import-Lead überschreitet. Überprüfen Sie die Anfragengröße vor der Übermittlung. Wenn die Anfrage aufgrund von Datensätzen das Limit überschreitet, verschieben Sie diese Datensätze in eine andere Anfrage.
 
-414 wird zurückgegeben, wenn der URI einer GET-Anfrage 8 KB überschreitet. Um dies zu vermeiden, überprüfen Sie die Länge Ihrer Abfragezeichenfolge, um festzustellen, ob sie diesen Grenzwert überschreitet. Wenn Ihre Anfrage jedoch in eine POST-Methode geändert wird, geben Sie Ihre Abfragezeichenfolge als Anfragetext mit dem zusätzlichen Parameter `_method=GET` ein. Dadurch wird die Einschränkung für URIs aufgegeben. Diese Grenze wird in den meisten Fällen nur selten erreicht, ist jedoch beim Abrufen großer Batches von Datensätzen mit langen individuellen Filterwerten wie einer GUID üblich.
-Der [Identity](https://developer.adobe.com/marketo-apis/api/identity/)-Endpunkt kann einen 401-Fehler „Nicht autorisiert“ zurückgeben. Dies ist normalerweise auf eine ungültige Client-ID oder ein ungültiges Client-Geheimnis zurückzuführen. Fehlercodes auf HTTP-Ebene
+Marketo gibt 414 zurück, wenn der URI einer GET-Anfrage 8 KB überschreitet. Überprüfen Sie die Länge der Abfragezeichenfolge vor der Übermittlung. Wenn es das Limit überschreitet, ändern Sie die Anfragemethode in POST, fügen Sie die Abfragezeichenfolge in den Anfragetext ein und fügen Sie den `_method=GET` Parameter hinzu. Lange URIs sind am häufigsten beim Abrufen großer Datensatz-Batches mit langen Filterwerten, wie z. B. einer GUID.
+
+Der [Identity](https://developer.adobe.com/marketo-apis/api/identity/)-Endpunkt kann einen 401-Fehler „Nicht autorisiert“ zurückgeben, in der Regel weil die Client-ID oder das Client-Geheimnis ungültig ist. Die folgende Tabelle listet Fehler-Codes auf HTTP-Ebene auf.
 
 <table>
   <thead>
@@ -68,14 +69,14 @@ Der [Identity](https://developer.adobe.com/marketo-apis/api/identity/)-Endpunkt 
     <tr>
       <td><a name="414"></a>414</td>
       <td>Anfrage-URI zu lang</td>
-      <td>Der URI der Anfrage überschritt 8k. Die Anfrage sollte als POST-Anfrage mit dem Parameter „_method=GET" in der URL wiederholt werden und der Rest der Abfragezeichenfolge im Hauptteil der Anfrage.</td>
+      <td>Der URI der Anfrage überschritt 8k. Die Anfrage sollte als POST-Anfrage mit dem Parameter „_method=GET“ in der URL wiederholt werden und der Rest der Abfragezeichenfolge im Hauptteil der Anfrage.</td>
     </tr>
   </tbody>
 </table>
 
 #### Fehler auf Antwortebene
 
-Fehler auf Antwortebene sind vorhanden, wenn der `success` der Antwort auf „false“ gesetzt ist. Sie sind wie folgt strukturiert:
+Fehler auf Antwortebene treten auf, wenn in der Antwort der `success` auf „false“ gesetzt wird. Sie verwenden die folgende Struktur:
 
 ```json
 {
@@ -90,7 +91,14 @@ Fehler auf Antwortebene sind vorhanden, wenn der `success` der Antwort auf „fa
 }
 ```
 
-Jedes Objekt im Array „errors“ hat zwei Mitglieder, `code`, was einer angegebenen Ganzzahl von 601 bis 799 entspricht, und einen `message`, der den Klartext-Grund für den Fehler angibt. 6xx-Codes zeigen immer an, dass eine Anfrage vollständig fehlgeschlagen ist und nicht ausgeführt wurde. Ein Beispiel ist ein 601-Zugriffstoken „Ungültig“, das durch erneute Authentifizierung und Übergabe des neuen Zugriffstokens mit der Anfrage wiederhergestellt werden kann. 7xx-Fehler zeigen an, dass die Anfrage fehlgeschlagen ist, entweder weil keine Daten zurückgegeben wurden oder weil die Anfrage falsch parametrisiert wurde, z. B. weil ein ungültiges Datum enthalten war oder ein erforderlicher Parameter fehlte.
+Jedes Objekt im Array „errors“ enthält zwei Elemente:
+
+- `code`: Eine angegebene Ganzzahl von 601 bis 799.
+- `message`: Der Klartext-Grund für den Fehler.
+
+Ein 6xx-Code gibt an, dass die gesamte Anfrage fehlgeschlagen ist und nicht ausgeführt wurde. Stellen Sie beispielsweise einen 601-Fehler „Ungültiges Zugriffstoken“ wieder her, indem Sie sich erneut authentifizieren und das neue Zugriffstoken mit der Anfrage übergeben.
+
+Ein 7xx-Code gibt an, dass die Anfrage fehlgeschlagen ist, da keine Daten zurückgegeben wurden oder die Anfrageparameter ungültig waren. Zu den Ursachen gehören ein ungültiges Datum oder ein fehlender erforderlicher Parameter.
 
 #### Fehlercodes auf Antwortebene
 
@@ -271,7 +279,7 @@ Jedes Objekt im Array „errors“ hat zwei Mitglieder, `code`, was einer angege
 
 ### auf Rekordebene {#record_level_errors}
 
-Fehler auf Datensatzebene zeigen an, dass ein Vorgang für einen einzelnen Datensatz nicht abgeschlossen werden konnte, die Anfrage selbst jedoch gültig war. Eine Antwort mit Fehlern auf Datensatzebene folgt diesem Muster:
+Fehler auf Datensatzebene zeigen an, dass die Anfrage gültig war, der Vorgang für einen einzelnen Datensatz jedoch nicht abgeschlossen werden konnte. Eine Antwort mit Fehlern auf Datensatzebene folgt diesem Muster:
 
 #### Antwort
 
@@ -301,8 +309,11 @@ Fehler auf Datensatzebene zeigen an, dass ein Vorgang für einen einzelnen Daten
 }
 ```
 
-Datensätze, die im Ergebnis-Array von Aufrufen enthalten sind, werden auf die gleiche Weise sortiert wie das Eingabe-Array einer Anfrage.
-Jeder Datensatz in einer erfolgreichen Anfrage kann auf individueller Basis erfolgreich sein oder fehlschlagen. Dies wird durch das Statusfeld jedes Datensatzes angezeigt, der im Ergebnis-Array einer Antwort enthalten ist. Das Feld „Status“ dieser Datensätze wird „übersprungen“ und ein Array „Gründe“ ist vorhanden. Jeder Grund enthält ein Element des Typs „Code“ und ein Element des Typs „Nachricht“. Der Code ist immer 1xxx. Die Meldung gibt an, warum der Datensatz übersprungen wurde. Ein Beispiel wäre, wenn bei einer Anfrage zum Synchronisieren von Leads „Aktion“ auf „createOnly“ gesetzt ist, aber für einen der Schlüssel in den gesendeten Datensätzen bereits ein Lead vorhanden ist. In diesem Fall wird der Code 1005 zurückgegeben und die Meldung „Lead existiert bereits“ wird wie oben angezeigt angezeigt.
+Die Datensätze im Ergebnis-Array werden in der gleichen Reihenfolge wie die Datensätze im Anforderungseingabe-Array angezeigt. Jeder Datensatz kann unabhängig erfolgreich sein oder fehlschlagen, wie durch sein Statusfeld angegeben.
+
+Bei einem fehlgeschlagenen Datensatz wird das Feld „Status“ „übersprungen“ und der Datensatz enthält ein Array „Gründe“. Jeder Grund enthält ein Element des Typs „Code“ und ein Element des Typs „Nachricht“. Der Code ist immer 1xxx. In der Meldung wird erläutert, warum der Datensatz übersprungen wurde.
+
+Wenn beispielsweise eine Anfrage zur Lead-Synchronisierung „Aktion“ auf „createOnly“ setzt und bereits ein Lead für einen der gesendeten Schlüssel vorhanden ist, gibt die Antwort den Code 1005 und die Nachricht „Lead existiert bereits“ zurück, wie oben gezeigt.
 
 #### Fehlercodes auf Datensatzebene
 

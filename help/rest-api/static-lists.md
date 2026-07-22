@@ -8,9 +8,9 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 496
+source-wordcount: 360
 ht-degree: 1%
 
 ---
@@ -19,17 +19,17 @@ ht-degree: 1%
 
 [Endpunktreferenz für statische Listen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists)
 
-Marketo bietet eine Reihe von REST-APIs zum Ausführen von CRUD-Vorgängen für statische Listen. Diese APIs folgen dem Standard-Schnittstellenmuster für Asset-APIs und bieten Optionen zum Abfragen, Erstellen, Aktualisieren und Löschen.
+Verwenden Sie die REST-APIs für statische Listen, um statische Listen abzufragen, zu erstellen, zu aktualisieren und zu löschen.
 
 Informationen zu Lead-Datenbankvorgängen für Listenmitglieder finden Sie unter [Mitgliedschaft auflisten](list-membership.md).
 
 ## Abfrage
 
-Die Abfrage statischer Listen folgt den Standardabfragetypen für Assets von [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) und [Durchsuchen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET).
+Statische Listen abfragen [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET).
 
 ### Nach ID
 
-[Abfrage nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) verwendet eine einzelne statische `id` als Pfadparameter und gibt einen einzelnen statischen Listensatz zurück.
+[Abfrage nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) verwendet einen statischen `id`-Pfadparameter und gibt den entsprechenden Datensatz zurück.
 
 ```http
 GET /rest/asset/v1/staticList/{id}.json
@@ -58,7 +58,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### Nach Name
 
-[Abfrage nach Namen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) akzeptiert eine statische `name` als Parameter und gibt einen einzelnen statischen Listensatz zurück. Es wird eine exakte Zeichenfolgenübereinstimmung für alle statischen Listennamen in der Instanz durchgeführt und ein Ergebnis für die statische Liste zurückgegeben, die mit diesem Namen übereinstimmt.
+[Abfrage nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) verwendet einen `name`-Parameter der statischen Liste. Der Endpunkt führt eine exakte Übereinstimmung mit Namen statischer Listen durch und gibt den übereinstimmenden Datensatz zurück.
 
 ```http
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -87,7 +87,9 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### Durchsuchen
 
-Statische Listen können auch [in Stapeln abgerufen) &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). Mit dem Parameter `folder` können Sie den übergeordneten Ordner angeben, unter dem die Abfrage ausgeführt wird, und werden als JSON-Objekt formatiert, das `id` und `type` enthält. Wie andere Endpunkte für den Massenabruf von Assets sind `offset` und `maxReturn` optionale Parameter, die für das Paging verwendet werden können. Mit den Parametern `earliestUpdatedAt` und `latestUpdatedAt` können Sie Wasserzeichen für niedrige und hohe Datums-/Uhrzeitwerte festlegen, um statische Listen zurückzugeben, die innerhalb des angegebenen Bereichs erstellt oder aktualisiert wurden. Datetime-Werte müssen gültige ISO-8601-Zeichenfolgen sein und sollten keine Millisekunden enthalten.
+Verwenden Sie den Durchsuchen-Endpunkt, um [statische Listen in Batches abzurufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListsUsingGET). Der optionale Parameter `folder` erfasst die Abfrage für einen übergeordneten Ordner. Übergeben Sie den Ordner als JSON-Objekt, das `id` und `type` enthält.
+
+Verwenden Sie `offset` und `maxReturn` für die Paginierung. Verwenden Sie `earliestUpdatedAt` und `latestUpdatedAt` als niedrige und hohe Datums-/Uhrzeitgrenzen. Diese Parameter geben Listen zurück, die innerhalb des Bereichs erstellt oder aktualisiert wurden. ISO-8601-Werte ohne Millisekunden verwenden.
 
 ```http
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -138,7 +140,9 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Erstellen und aktualisieren
 
-[Erstellen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST) wird mit einem `application/x-www-form-urlencoded` POST mit zwei erforderlichen Parametern ausgeführt. Der Parameter `folder` wird verwendet, um den übergeordneten Ordner anzugeben, unter dem die statische Liste erstellt wird, und ist als JSON-Objekt mit `id` und `type` formatiert. Der Parameter `name` wird zum Benennen der statischen Liste verwendet und muss eindeutig sein. Optional kann der `description` Parameter zur Beschreibung der statischen Liste verwendet werden.
+Senden einer `application/x-www-form-urlencoded` POST-Anfrage an [Erstellen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/createStaticListUsingPOST). Die Parameter `folder` und `name` sind erforderlich.
+
+Übergeben Sie `folder` als JSON-Objekt, das `id` und `type` enthält. Der `name` muss eindeutig sein. Der optionale `description`-Parameter beschreibt die Liste.
 
 ```http
 POST /rest/asset/v1/staticLists.json
@@ -173,7 +177,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[Eine statische Liste wird aktualisiert](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST) erfolgt über einen separaten Endpunkt mit zwei optionalen Parametern. Der Parameter `description` kann verwendet werden, um die statische Listenbeschreibung zu aktualisieren. Der Parameter `name` kann verwendet werden, um den statischen Listennamen zu aktualisieren, und muss eindeutig sein.
+Verwenden Sie den Update-Endpunkt, um [eine statische Liste zu ändern](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/updateStaticListUsingPOST). Der optionale `description` ändert die Beschreibung. Der optionale `name` ändert den Namen und muss eindeutig sein.
 
 ```http
 POST /rest/asset/v1/staticList/{id}.json
@@ -211,7 +215,7 @@ description=This is a static list used for testing
 
 ## Löschen
 
-[Löschen einer statischen Liste](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) verwendet eine einzelne statische Liste `id` als Pfadparameter. Statische Listen, die von einem Import- oder Exportvorgang verwendet werden oder die von anderen Assets verwendet werden, können nicht gelöscht werden.
+Um [statische Liste zu löschen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) übergeben Sie ihren `id` als Pfadparameter. Eine von einem Import, Export oder einem anderen Asset verwendete Liste kann nicht gelöscht werden.
 
 ```http
 POST /rest/asset/v1/staticList/{id}/delete.json

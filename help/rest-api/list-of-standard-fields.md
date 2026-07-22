@@ -11,18 +11,18 @@ feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 742
-ht-degree: 25%
+source-wordcount: 745
+ht-degree: 24%
 
 ---
 
 # Standardfelder
 
-Im Folgenden finden Sie eine Liste der in Marketo verfügbaren Standardfelder, auf die über die API zugegriffen werden kann.
+In der folgenden Tabelle sind die über die API verfügbaren Marketo-Standardfelder aufgeführt. Sie enthält den REST-API-Namen, den SOAP-API-Namen, die Bezeichnung und die Beschreibung jedes Felds.
 
-Sie können die Liste aller unterstützten Feldnamen in Ihren Lead-Datensätzen abrufen, indem Sie den REST-Endpunkt [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi) verwenden.
+Verwenden Sie den REST-Endpunkt [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi) um alle Feldnamen abzurufen, die von Ihren Lead-Datensätzen unterstützt werden.
 
 | REST-API-Name | SOAP-API-Name | Angezeigte Bezeichnung | Beschreibung |
 | --- | --- | --- | --- |

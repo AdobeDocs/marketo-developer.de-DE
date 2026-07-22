@@ -10,10 +10,10 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 746
-ht-degree: 2%
+source-wordcount: 686
+ht-degree: 3%
 
 ---
 
@@ -21,16 +21,23 @@ ht-degree: 2%
 
 [Endpunkt-Referenz für benannte Kontolisten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Spezifische Kontolisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) in Marketo stellen Sammlungen benannter Konten dar. Sie können für eine Vielzahl von Fällen verwendet werden, einschließlich Kategorisierung, Datenanreicherung und intelligenter Kampagnenfilterung. Die APIs für die Liste benannter Konten ermöglichen die Remote-Verwaltung dieser Listen-Assets und ihrer Mitgliedschaft.
+[Spezifische Kontenlisten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/target-account-management/target/account-lists) sind Sammlungen von spezifischen Konten in Marketo. Verwenden Sie sie für die Kategorisierung, Datenanreicherung und intelligente Kampagnenfilterung.
+
+Mit den APIs für die Liste benannter Konten können Sie Listen-Assets und ihre Abonnements remote verwalten.
 `Content`
 
 ## Berechtigungen
 
-Zum Abfragen von Listen benannter Konten ist die Berechtigung Schreibgeschützter benannter Konten oder die Berechtigung zum Lesen/Schreiben der Liste benannter Konten erforderlich. Zum Erstellen, Aktualisieren oder Löschen von Listen ist die Berechtigung zum Lesen/Schreiben von Listen mit benannten Konten erforderlich. Für die Abfrage der Listenmitgliedschaft sind die Berechtigungen Schreibgeschütztes benanntes Konto oder Schreibgeschütztes benanntes Konto erforderlich, während für die Verwaltung der Mitgliedschaft die Berechtigungen Schreibzugriff mit benanntem Konto erforderlich sind.
+Die erforderliche Berechtigung hängt vom Vorgang ab:
+
+- Abfrage von Listen benannter Konten: Nur-Lese-Liste benannter Konten oder Lese-/Schreibzugriff benannter Konten.
+- Erstellen, Aktualisieren oder Löschen von Listen: Liste mit Lese- und Schreibzugriff für benannte Konten.
+- Abfragelistenmitgliedschaft: Schreibgeschütztes benanntes Konto oder Lese-/Schreib-benanntes Konto.
+- Verwalten der Listenmitgliedschaft: Benanntes Konto mit Lese-/Schreibzugriff.
 
 ## Modell
 
-Benannte Kontolisten verfügen über eine begrenzte Anzahl von Standardfeldern und sind nicht mit benutzerdefinierten Feldern erweiterbar.
+Benannte Kontolisten verfügen über einen begrenzten Satz von Standardfeldern und unterstützen keine benutzerdefinierten Felder.
 `Named Account List Field`
 
 | Name | Datentyp | Aktualisierbar | Hinweise |
@@ -43,7 +50,9 @@ Benannte Kontolisten verfügen über eine begrenzte Anzahl von Standardfeldern u
 
 ## Abfrage
 
-Die Abfrage von Kontolisten ist einfach und unkompliziert. Derzeit gibt es nur zwei gültige Filtertypen für die Abfrage benannter Kontolisten: „dedupeFields“ und „idField“. Das Feld, nach dem gefiltert werden soll, wird im `filterType`-Parameter der Abfrage festgelegt, und die Werte werden in `filterValues as` kommagetrennten Liste festgelegt. Die `nextPageToken`- und `batchSize` sind ebenfalls optionale Parameter.
+Abfragen von benannten Kontolisten unterstützen zwei Filtertypen: „dedupeFields“ und „idField“. Legen Sie das Feld im `filterType` Abfrageparameter fest und geben Sie die Werte in `filterValues as` kommagetrennten Liste an.
+
+Die Filter `nextPageToken` und `batchSize` sind optional.
 
 ```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
@@ -78,11 +87,13 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 ## Erstellen und aktualisieren
 
-Das Erstellen und Aktualisieren von Datensätzen mit benannten Kontolisten folgt den etablierten Mustern für andere Vorgänge zum Erstellen und Aktualisieren von Lead-Datenbanken. Beachten Sie, dass die Listen für benannte Konten nur ein aktualisierbares Feld `name` haben.
+Einträge in benannten Kontolisten mithilfe des standardmäßigen Lead-Datenbankmusters erstellen und aktualisieren. Benannte Kontolisten haben nur ein aktualisierbares Feld: `name`.
 
-Der Endpunkt lässt die beiden Standardaktionstypen zu: „createOnly“ und „updateOnly“.  Die `action defaults` zu „createOnly“.
+Der Endpunkt unterstützt zwei Standardaktionstypen: „createOnly“ und „updateOnly“. Die `action defaults` zu „createOnly“.
 
-Die optionale `dedupeBy parameter` kann angegeben werden, wenn die Aktion `updateOnly` ist.  Zulässige Werte sind „dedupeFields“ (entspricht „name„) oder „idField“ (entspricht „marketoGUID„).  In `createOnly` Modi ist nur „name“ als `dedupeBy` zulässig. Sie können bis zu 300 Datensätze gleichzeitig senden.
+Sie können die optionale `dedupeBy parameter` angeben, wenn die Aktion `updateOnly` wird. Die zulässigen Werte sind „dedupeFields“, was „name“ entspricht, und „idField“, was „marketoGUID“ entspricht.
+
+In `createOnly` Modi ist nur „name“ als `dedupeBy` zulässig. Sie können bis zu 300 Datensätze gleichzeitig senden.
 
 ```http
 POST /rest/v1/namedAccountLists.json
@@ -124,7 +135,9 @@ POST /rest/v1/namedAccountLists.json
 
 ## Löschen
 
-Das Löschen von Listen benannter Konten ist einfach und kann entweder auf der Grundlage der `name` oder der `marketoGUID` der Liste erfolgen. Um den Schlüssel auszuwählen, den Sie verwenden möchten, übergeben Sie entweder „dedupeFields“ für den Namen oder „idField“ für marketoGUID im `deleteB` Ihrer Anfrage. Wenn nicht festgelegt, werden standardmäßig deduplizierte Felder verwendet. Sie können bis zu 300 Datensätze gleichzeitig löschen.
+Löschen Sie Listen benannter Konten entweder mithilfe der `name` oder `marketoGUID` der Liste. Um den Schlüssel auszuwählen, übergeben Sie „dedupeFields“ für den Namen oder „idField“ für marketoGUID im`deleteB`Mitglied der Anfrage.
+
+Wenn nicht festgelegt, ist der Wert standardmäßig deduplizierte Felder. Sie können bis zu 300 Datensätze gleichzeitig löschen.
 
 ```http
 POST /rest/v1/namedAccountLists/delete.json
@@ -176,13 +189,13 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-Falls für einen bestimmten Schlüssel kein Datensatz gefunden werden kann, weist das entsprechende Ergebniselement den `status` „übersprungen“ und einen Grund mit einem Code und einer Meldung auf, die den Fehler beschreiben, wie im obigen Beispiel gezeigt.
+Wenn für einen Schlüssel kein Datensatz gefunden werden kann, weist das entsprechende Ergebniselement den `status` „übersprungen“ auf. Sie enthält auch einen Grund mit einem Code und einer Meldung, die den Fehler beschreiben.
 
 ## Verwalten der Mitgliedschaft
 
 ### Abfrage-Zugehörigkeit
 
-Die Abfrage der Mitgliedschaft in einer benannten Kontoliste ist einfach und erfordert nur die `i` der Kontoliste. Optionale Parameter sind:
+Fragen Sie die Mitgliedschaft in der benannten Kontoliste ab, indem Sie die`i` der Kontoliste angeben. Die optionalen Parameter sind:
 
 -`field`: Eine kommagetrennte Liste von Feldern, die in die Antwortdatensätze aufgenommen werden sollen
 -`nextPageToke` - für das Paging durch den Ergebnissatz
@@ -219,7 +232,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Mitglieder hinzufügen
 
-Benannte Konten können einfach zu einer Liste benannter Konten hinzugefügt werden. Konten können nur mit ihrer marketoGUID hinzugefügt werden. Sie können bis zu 300 Datensätze gleichzeitig hinzufügen.
+Hinzufügen von benannten Konten zu einer Liste benannter Konten mithilfe ihrer marketoGUID. Sie können bis zu 300 Datensätze gleichzeitig hinzufügen.
 
 ```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
@@ -259,7 +272,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Mitglieder entfernen
 
-Das Entfernen von Datensätzen aus einer Kontenliste hat einen anderen Pfad, aber dieselbe Benutzeroberfläche, sodass für jeden Datensatz, den Sie löschen möchten, `marketoGUI` erforderlich ist. Sie können bis zu 300 Datensätze gleichzeitig entfernen.
+Beim Entfernen von Datensätzen aus einer Kontoliste wird ein anderer Pfad, aber dieselbe Schnittstelle verwendet. Geben Sie für `marketoGUI` zu entfernenden Datensatz ein. Sie können bis zu 300 Datensätze gleichzeitig entfernen.
 
 ```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
@@ -299,10 +312,10 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 
 ## Zeitüberschreitungen
 
-- Die maximale Wartezeit für Endpunkte benannter Kontolisten beträgt 30 Sekunden, es sei denn, dies wird unten angegeben
-   - Spezifische Kontenlisten synchronisieren: 60er
-   - Spezifische Kontenlisten löschen: 60er
-   - Benannte Kontenlisten abrufen: 60er
-   - Mitglieder der benannten Kontoliste hinzufügen: 60s
-   - Mitglieder der benannten Kontoliste entfernen: 60s
-   - Mitglieder der benannten Kontoliste abrufen: 60er
+- Die maximale Wartezeit für Endpunkte benannter Kontolisten beträgt 30 Sekunden, sofern nicht anders angegeben.
+- Die maximale Wartezeit für die Synchronisierung von benannten Kontolisten beträgt 60 Sekunden.
+- Die maximale Wartezeit für das Löschen von benannten Kontolisten beträgt 60 Sekunden.
+- Die maximale Wartezeit von benannten Kontolisten für GET beträgt 60.
+- Mitglieder der Liste benannter Konten hinzufügen haben eine Zeitüberschreitung von 60 Jahren.
+- Die maximale Wartezeit von benannten Mitgliedern der Kontoliste beträgt 60 Sekunden.
+- Die maximale Wartezeit von Mitgliedern der Liste benanntes Konto abrufen beträgt 60 Sekunden.

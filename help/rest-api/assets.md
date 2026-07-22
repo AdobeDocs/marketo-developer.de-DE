@@ -16,16 +16,16 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 899
-ht-degree: 2%
+source-wordcount: 631
+ht-degree: 3%
 
 ---
 
 # Assets
 
-Marketo bietet APIs für die Interaktion mit den meisten Marketing- und Organisations-Assets in Marketo.
+Verwenden Sie die Marketo Asset REST-APIs, um Marketing- und Organisations-Assets abzufragen und zu verwalten.
 
 ## Assets
 
@@ -49,9 +49,11 @@ Eine vollständige Liste der Asset-API-Endpunkte, einschließlich Parameter und 
 
 ## Abfrage
 
-Assets verfügt in der Regel über drei Muster, nach denen sie abgerufen werden können: nach ID, nach Name und durch Browsen.  Mit der ID und dem Namen rufen beide ein einzelnes Asset für einen bestimmten Parameter ab, während das Durchsuchen zurückgibt und das Paging durch die gesamte Liste von Assets dieses Typs ermöglicht.  Einzelne Asset-Typen verfügen über unterschiedliche Parameter, nach denen sie gefiltert werden können. Stellen Sie daher sicher, dass Sie sich die jeweiligen Dokumente für Details ansehen.
+Asset-APIs unterstützen in der Regel drei Abrufmuster: nach ID, nach Name und nach Browser. Abfragen nach ID oder Name rufen ein Asset für den angegebenen Parameter ab. Durchsuchen-Endpunkte geben eine paginierte Liste von Assets dieses Typs zurück.
 
-In bestimmten Fällen gibt der Durchsuchen-Endpunkt für einige Asset-Typen keine untergeordneten Assets zurück, z. B. die zulässigen Werte für ein Tag, und sie müssen einzeln mit dem Endpunkt Nach Name oder Nach ID abgerufen werden, um den vollständigen Satz an Metadaten zurückzugeben.  Andere verfügen möglicherweise über separate Endpunkte, die vollständig zum Abrufen abhängiger Objekte wie Formularfelder verwendet werden.
+Filterparameter variieren je nach Asset-Typ. In der Dokumentation zu den einzelnen Asset-Typen finden Sie die unterstützten Filter.
+
+Einige Durchsuchen-Endpunkte geben keine untergeordneten Assets zurück, z. B. die zulässigen Werte für ein -Tag. Rufen Sie diese Assets einzeln nach Name oder ID ab, um ihre vollständigen Metadaten zu erhalten. Andere Asset-Typen bieten separate Endpunkte für abhängige Objekte, z. B. Formularfelder.
 
 ### Nach ID
 
@@ -94,7 +96,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 ### Nach Name
 
-Aus technischen Gründen können die Asset-APIs nicht nach Asset-Namen suchen, die Kommas (,) enthalten.  Es wird empfohlen, dass Ihre Namenskonvention Kommas für alle Asset-Typen ausschließt.
+Asset-APIs können nicht nach Asset-Namen suchen, die Kommas enthalten. Schließen Sie Kommas aus Asset-Namen aus.
 
 ```http
 GET /rest/asset/v1/file/byName.json?name=My File
@@ -127,10 +129,10 @@ GET /rest/asset/v1/file/byName.json?name=My File
 
 ### Durchsuchen
 
-Beim Durchsuchen von Assets sind immer zwei Abfrageparameter zulässig:
+Asset-Browser-Endpunkte unterstützen diese Abfrageparameter:
 
-- offset - Ein ganzzahliger Offset, aus dem Ergebnisse zurückgegeben werden sollen.
-- maxReturn - Begrenzt die Anzahl der zurückgegebenen Datensätze.  Die Standardeinstellung ist 20, wenn nicht festgelegt, und hat einen Maximalwert von 200.
+- `offset` - Ein ganzzahliger Versatz, bei dem mit der Rückgabe von Ergebnissen begonnen werden soll.
+- `maxReturn` : Die maximale Anzahl an zurückzugebenden Datensätzen. Der Standardwert ist 20, der Maximalwert 200.
 
 ```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
@@ -188,9 +190,9 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## Erstellen und aktualisieren
 
-Bei einfachen Asset-Typen wie Ordnern, Token und Dateien gibt es normalerweise nur einen einzigen Endpunkt für die Erstellung und dann einen zusätzlichen Endpunkt für die Aktualisierung von Datensätzen nach ID.  Assets werden mit einem Namen erstellt, der immer erforderlich ist, und dann werden alle Metadaten und IDs von der Antwort zum Erstellen oder Aktualisieren zurückgegeben.
+Einfache Asset-Typen wie Ordner, Token und Dateien stellen normalerweise einen Endpunkt für die Erstellung und einen anderen für Aktualisierungen nach ID bereit. Beim Erstellen eines Assets ist ein Name erforderlich. Die Antwort zum Erstellen oder Aktualisieren gibt die Asset-Metadaten und die ID zurück.
 
-So erstellen Sie beispielsweise ein Token:
+Die folgende Anfrage erstellt ein Token:
 
 ```http
 POST /rest/asset/v1/folder/{id}/tokens.json
@@ -229,7 +231,7 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 }
 ```
 
-Gehen Sie wie folgt vor, um einen Ordner zu aktualisieren:
+Die folgende Anfrage aktualisiert einen Ordner:
 
 ```http
 POST /rest/asset/v1/folder/{id}.json
@@ -276,13 +278,13 @@ type=Folder&description=This is a test (update 01)
 }
 ```
 
-Andere Assets haben komplexere Strukturen und erfordern Aktualisierungen zusätzlicher Unterabschnitte oder untergeordneter Objekte. Anschließend müssen sie genehmigt werden, bevor sie verwendet werden können.  Zu diesen Asset-Typen gehören Forms, E-Mails, E-Mail-Vorlagen, Landingpages und Landingpage-Vorlagen.  Diese verfügen jeweils über einen einzigen Endpunkt zum Erstellen eines Datensatzes und zusätzliche Endpunkte zum Aktualisieren der Metadaten-, Inhalts- und Inhaltsabschnitte.
+Forms, E-Mails, E-Mail-Vorlagen, Landingpages und Landingpage-Vorlagen weisen komplexere Strukturen auf. Jeder Typ bietet einen Endpunkt zum Erstellen des Assets und zusätzliche Endpunkte zum Aktualisieren der Metadaten-, Inhalts- und Inhaltsabschnitte.
 
-Um beispielsweise eine Landingpage zu erstellen, müssen Sie deren create-Endpunkt mit einer Vorlagen-ID aufrufen und dann die Inhaltsabschnitte abrufen und jeden einzelnen Inhaltsabschnitt einzeln aktualisieren, um Inhalte hinzuzufügen, bevor Sie ihn genehmigen, damit er live bereitgestellt werden kann.
+Diese Assets müssen vor der Verwendung genehmigt werden. Erstellen Sie beispielsweise eine Landingpage mit einer Vorlagen-ID, rufen Sie deren Inhaltsabschnitte ab, aktualisieren Sie jeden erforderlichen Abschnitt und genehmigen Sie dann die Seite für die Bereitstellung.
 
 ### Komplexes Erstellen
 
-Für Landingpages muss zunächst ein Landingpage-Asset mithilfe einer übergeordneten Vorlage erstellt werden.  Dadurch wird eine neue Landingpage erstellt, die den Standardinhalt der Vorlage für jeden Inhaltsabschnitt enthält.
+Erstellen Sie eine Landingpage aus einer übergeordneten Vorlage. Die neue Landingpage enthält den Standardinhalt der Vorlage für jeden Abschnitt.
 
 ```http
 POST rest/asset/v1/landingPages.json
@@ -331,7 +333,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 #### Abschnitte abrufen
 
-Um den Inhalt für eine Landingpage zu füllen, müssen Sie die Liste der Inhaltsabschnitte abrufen und dann einzelne Aktualisierungen für jeden Abschnitt durchführen, der von der Vorlage abweicht.
+Rufen Sie die Inhaltsabschnitte der Landingpage ab. Aktualisieren Sie jeden Abschnitt, der sich von der Vorlage unterscheiden muss.
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/content.json
@@ -385,7 +387,9 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 ## Genehmigung
 
-Viele Asset-Typen verfügen über ein zugehöriges Entwurfs- und Genehmigungssystem, einschließlich E-Mails, Landingpages, Snippets, Forms und die zugehörigen Vorlagen.  Beim Versuch, ein Asset zu genehmigen, wird es anhand eines bestimmten Satzes von Validierungsregeln geprüft und dann entweder in einen genehmigten Status versetzt oder eine Fehlerursache zurückgegeben.  Bei diesen Asset-Typen werden bei jeder Aktualisierung des Inhalts eines bestimmten Assets Änderungen an einem Entwurf des Assets vorgenommen, die sich nicht auf die genehmigte Version auswirken.  Dadurch können Änderungen am Inhalt sicher vorgenommen werden, ohne dass Live-Versionen des Assets betroffen sind.  Die Änderungen können dann mithilfe des Genehmigungsendpunkts auf die Live-Version angewendet werden.  Dadurch wird auch der Entwurfsstatus des Assets gelöscht, bis zusätzliche Aktualisierungen angewendet werden.
+E-Mails, Landingpages, Snippets, Formulare und ihre Vorlagen verwenden ein Entwurfs- und Genehmigungssystem. Inhaltsaktualisierungen ändern den Entwurf, ohne die genehmigte Live-Version zu beeinflussen.
+
+Der Genehmigungsendpunkt validiert den Entwurf. Wenn die Validierung erfolgreich ist, ersetzt der Entwurf die Live-Version und der Entwurfsstatus wird gelöscht. Wenn die Validierung fehlschlägt, gibt der Endpunkt den Grund zurück.
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
@@ -417,7 +421,9 @@ POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 
 Die erfolgreiche Genehmigung ersetzt die vorherige Live-Version durch die aktualisierte Version.
 
-Entwürfe verwerfen ist auch über einen Endpunkt für jeden gültigen Asset-Typ verfügbar.  Wenn Sie dies für ein Asset verwenden, das den Status Genehmigt mit Entwurf aufweist, werden der aktuelle Entwurf und alle ausstehenden Änderungen verworfen.  Die Verwendung dieser Option für ein Asset, das derzeit keine genehmigte Version hat, führt zu nichts und gibt einen Fehler zurück.  Assets, die nur auf Entwurf basieren, können gelöscht, aber nicht verworfen werden.
+Jeder unterstützte Asset-Typ bietet einen Endpunkt zum Verwerfen von Entwürfen. Bei bestätigten Assets mit einem Entwurf verwirft dieser Endpunkt den Entwurf und die ausstehenden Änderungen.
+
+Der Endpunkt gibt einen Fehler zurück, wenn das Asset keine genehmigte Version hat. Sie können ein Asset, das nur Entwurf enthält, löschen, seinen Entwurf jedoch nicht verwerfen.
 
 ```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
@@ -447,7 +453,9 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-Die Genehmigung von Assets kann auch aufgehoben werden, wenn sich diese in einem schreibgeschützten Status befinden.  Dadurch werden alle Live-Versionen des Assets entfernt und das Asset wird in einen reinen Entwurfsstatus zurückgesetzt, während gleichzeitig alle zugehörigen Entwürfe verworfen werden.  Diese Aktion kann für die meisten Assets nur ausgeführt werden, wenn sie nirgendwo in Marketo verwendet wird, z. B. wenn in einem Schritt „E-Mail senden“ auf eine E-Mail verwiesen wird oder wenn ein Code-Ausschnitt in eine E-Mail eingebettet ist.
+Die Genehmigung für ein Asset mit dem Status „Nur genehmigt“ kann aufgehoben werden. Bei der Aufhebung der Genehmigung wird die Live-Version entfernt, das Asset in einen Nur-Entwurf-Status zurückgesetzt und alle zugehörigen Entwürfe werden verworfen.
+
+Bei den meisten Asset-Typen darf das Asset nicht verwendet werden. Sie können beispielsweise die Genehmigung für eine E-Mail, auf die im Schritt E-Mail senden verwiesen wird, oder für einen in eine E-Mail eingebetteten Ausschnitt nicht aufheben.
 
 ```http
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -469,7 +477,9 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## Löschen
 
-Assets mit dem Status Genehmigung und Entwurf , mit Ausnahme von Formularen, darf nicht gelöscht werden, während es genehmigt wurde, und muss vor dem Löschen genehmigt werden.  Löschungen können im Allgemeinen nur durchgeführt werden, wenn ein Asset nicht genehmigt und nicht mehr verwendet wird und im Fall von Ordnern keine Assets enthält.  Eine wichtige Ausnahme bilden Programme, die zusammen mit allen untergeordneten Inhalten gelöscht werden können, solange das Programm und seine Inhalte nicht außerhalb des Programmbereichs verwendet werden.
+Mit Ausnahme von Formularen müssen Assets mit dem Status Genehmigung und Entwurf vor dem Löschen nicht genehmigt werden. Ein Asset muss im Allgemeinen ebenfalls nicht verwendet werden. Ein Ordner muss leer sein.
+
+Programme bilden eine Ausnahme. Sie können ein Programm und seinen untergeordneten Inhalt löschen, wenn weder das Programm noch sein Inhalt außerhalb des Programms verwendet wird.
 
 ```http
 POST /rest/asset/v1/program/{id}/delete.json
@@ -491,4 +501,4 @@ POST /rest/asset/v1/program/{id}/delete.json
 
 ## Zeitüberschreitungen
 
-Bei Asset-APIs beträgt die Zeitüberschreitung 300 Sekunden
+Bei Asset-APIs beträgt die Zeitüberschreitung 300 Sekunden.

@@ -8,23 +8,23 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 103
+source-wordcount: 116
 ht-degree: 1%
 
 ---
 
 # Benutzerprofile
 
-Erstellen von Benutzerprofilen
+Erstellen oder aktualisieren Sie Benutzerprofile mit der Marketo Mobile SDK für iOS oder Android:
 
 1. [Erstellen von Benutzerprofilen in iOS](#ios_user_profiles)
 1. [Erstellen von Benutzerprofilen in Android](#android_user_profiles)
 
 ## Erstellen von Benutzerprofilen in iOS {#ios_user_profiles}
 
-Sie können umfangreiche Profile erstellen, indem Sie die Benutzerfelder wie unten dargestellt senden.
+Erstellen Sie ein Profil und füllen Sie dessen Benutzerfelder aus.
 
 ```objectivec
 MarketoLead *profile = [[MarketoLead alloc] init];
@@ -94,7 +94,7 @@ profile.setFieldName("phone", withValue:"123.456.7890");
 
 >[!ENDTABS]
 
-Benutzerprofil melden.
+Melden Sie das Benutzerprofil, um es zu erstellen oder zu aktualisieren.
 
 >[!BEGINTABS]
 
@@ -122,7 +122,7 @@ marketo.associateLead(profile)
 
 1. Erstellen Sie ein Benutzerprofil.
 
-   Sie können umfangreiche Profile erstellen, indem Sie Benutzerfelder senden, wie unten dargestellt.
+   Erstellen Sie ein Profil und füllen Sie dessen Benutzerfelder aus.
 
    ```java
    MarketoLead profile = new MarketoLead();
@@ -157,7 +157,7 @@ marketo.associateLead(profile)
    profile.setCustomField("linkedInDisplayName", "Android");
    ```
 
-1. Benutzerprofil melden.
+1. Melden Sie das Benutzerprofil, um es zu erstellen oder zu aktualisieren.
 
    ```java
    MarketoLead profile = new MarketoLead();

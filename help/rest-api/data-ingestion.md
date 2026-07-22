@@ -8,20 +8,24 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 1a8345909b679b5651c94a68f8d29950ed47f6ed
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 2191
+source-wordcount: 2151
 ht-degree: 17%
 
 ---
 
 # Datenaufnahme-API
 
-Die Datenerfassungs-API ist ein Service mit hoher Datenmenge und geringer Latenz, der mit hoher Verfügbarkeit entwickelt wurde, um die Aufnahme großer Mengen von Personen- und personenbezogenen Daten effizient und mit minimalen Verzögerungen zu handhaben.
+Die Datenaufnahme-API ist ein Service mit hohem Volumen und geringer Latenz, der sehr stark verfügbar ist. Verwenden Sie sie, um große Mengen an Personen- und personenbezogenen Daten mit minimaler Verzögerung aufzunehmen.
 
-Daten werden durch Senden von Anfragen aufgenommen, die asynchron ausgeführt werden. Der Anfragestatus kann abgerufen werden, indem Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup) abonniert werden.
+Datenaufnahmeanfragen werden asynchron ausgeführt. Um den Anfragestatus abzurufen, abonnieren Sie Ereignisse aus dem [Marketo Observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
 
-Schnittstellen werden für fünf Objekttypen angeboten: Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen (statische Listen). Der Datensatzvorgang ist nur „Einfügen oder Aktualisieren“, mit Ausnahme von Programmmitgliedern, die auch „Löschen“ unterstützen, und Listen, die „Hinzufügen“ und „Entfernen“ unterstützen.
+Die -API stellt Schnittstellen für fünf Objekttypen bereit:
+
+- Personen, benutzerdefinierte Objekte und Unternehmen unterstützen Vorgänge zum „Einfügen oder Aktualisieren“.
+- Programmteilnehmer unterstützen „Einfüge- oder Aktualisierungs“- und Löschvorgänge.
+- Listen (statische Listen) unterstützen das Hinzufügen und Entfernen von Vorgängen.
 
 Lesen Sie [&#x200B; Dokumentation zur Datenaufnahme-API](https://developer.adobe.com/marketo-apis/api/data-ingestion).
 
@@ -31,15 +35,15 @@ Lesen Sie [&#x200B; Dokumentation zur Datenaufnahme-API](https://developer.adobe
 
 ## Authentifizierung
 
-Die Datenaufnahme-API verwendet dieselbe OAuth 2.0-Authentifizierungsmethode wie die Marketo REST-API zum Generieren eines Zugriffstokens, das Zugriffstoken muss jedoch über die HTTP-Kopfzeile `X-Mkto-User-Token` übergeben werden. Das Zugriffstoken kann nicht über einen Abfrageparameter übergeben werden.
+Die Datenaufnahme-API verwendet dieselbe OAuth 2.0-Authentifizierungsmethode wie die Marketo REST-API, um ein Zugriffstoken zu generieren. Übergeben Sie das Zugriffstoken in der `X-Mkto-User-Token` HTTP-Kopfzeile. Sie können sie nicht als Abfrageparameter übergeben.
 
-Beispiel eines Zugriffs-Tokens über den Header:
+Im folgenden Beispiel wird ein Zugriffs-Token in der -Kopfzeile übergeben:
 
 `X-Mkto-User-Token: 11606815-aa7a-405a-80a1-f9683efa528b:ab`
 
 ## Berechtigungen
 
-Die Datenaufnahme verwendet dasselbe Berechtigungsmodell wie die Marketo REST-API und erfordert keine zusätzlichen speziellen Berechtigungen zur Verwendung, obwohl für jeden Endpunkt spezifische Berechtigungen erforderlich sind.
+Die Datenaufnahme verwendet das Marketo REST-API-Berechtigungsmodell und erfordert keine zusätzlichen Berechtigungen. Für jeden Endpunkt ist eine bestimmte vorhandene Berechtigung erforderlich, wie in der folgenden Tabelle dargestellt.
 
 | Endpunkt | Berechtigung |
 | --- | --- |
@@ -61,7 +65,7 @@ Die Datenaufnahme verwendet dasselbe Berechtigungsmodell wie die Marketo REST-AP
 
 ## Kopfzeilen
 
-Die Datenaufnahme nutzt die folgenden benutzerdefinierten HTTP-Kopfzeilen.
+Die Datenaufnahme unterstützt die folgenden benutzerdefinierten HTTP-Kopfzeilen.
 
 ### Anfrage
 
@@ -78,13 +82,13 @@ Die Datenaufnahme nutzt die folgenden benutzerdefinierten HTTP-Kopfzeilen.
 
 ## Anfragen
 
-Verwenden Sie die HTTP-POST-Methode, um Daten an den Server zu senden.
+Senden von Daten an den Server mit der HTTP-POST-Methode.
 
-Die Datendarstellung ist im Anfragetext als application/json enthalten.
+Schließen Sie die Daten als application/json in den Anfragetext ein.
 
-Der Domain-Name lautet: `mkto-ingestion-api.adobe.io`
+Verwenden Sie den Domain-`mkto-ingestion-api.adobe.io`.
 
-Der Pfad beginnt mit `/subscriptions/MunchkinId`, wobei MunchkinId spezifisch für Ihre Marketo-Instanz ist. Ihre Munchkin-ID finden Sie in der Marketo Engage-Benutzeroberfläche unter **Admin** > **Mein** > **Support-Informationen**.  Der Rest des Pfads wird verwendet, um die gewünschte Ressource anzugeben.
+Der Pfad beginnt mit `/subscriptions/MunchkinId`, wobei MunchkinId spezifisch für Ihre Marketo-Instanz ist. Suchen Sie Ihre Munchkin ID in der Marketo Engage-Benutzeroberfläche unter **Admin** > **Mein Konto** > **Support-Informationen**. Der Rest des Pfads gibt die Ressource an.
 
 Beispiel-URL für Personen:
 
@@ -108,7 +112,7 @@ Beispiel-URL für Listen:
 
 ### Antworten
 
-Alle Antworten geben über den `X-Request-Id`-Header eine eindeutige Anfrage-ID zurück.
+Jede Antwort gibt eine eindeutige Anfrage-ID im `X-Request-Id` zurück.
 
 Beispiel einer Anfrage-ID über den Header:
 
@@ -116,7 +120,7 @@ Beispiel einer Anfrage-ID über den Header:
 
 ### Erfolgreich
 
-Wenn ein Aufruf erfolgreich war, wird der Status 202 zurückgegeben.  Es wird kein Antworttext zurückgegeben.
+Ein erfolgreicher Aufruf gibt den Status 202 und keinen Antworttext zurück.
 
 Beispiel für eine erfolgreiche Antwort:
 
@@ -129,9 +133,9 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Fehler
 
-Wenn ein Aufruf einen Fehler erzeugt, wird ein Nicht-202-Status zusammen mit einem Antworttext mit zusätzlichen Fehlerdetails zurückgegeben. Der Antworttext ist `application/json` und enthält ein einzelnes -Objekt mit `error_code` und `message`.
+Wenn ein Aufruf fehlschlägt, wird ein Nicht-202-Status und ein Antworttext mit Fehlerdetails zurückgegeben. Der `application/json` Antworttext enthält ein -Objekt mit `error_code` und `message`.
 
-Im Folgenden finden Sie wiederverwendete Fehler-Codes vom Adobe Developer-Gateway.
+Die folgenden Fehler-Codes werden vom Adobe Developer-Gateway wiederverwendet.
 
 | HTTP-Status-Code | error_code | Nachricht |
 | --- | --- | --- |
@@ -140,7 +144,7 @@ Im Folgenden finden Sie wiederverwendete Fehler-Codes vom Adobe Developer-Gatewa
 | 404 | 404040 | Ressource nicht gefunden |
 | 429 | 429001 | Service-Nutzungsbeschränkung erreicht |
 
-Im Folgenden finden Sie Fehlercodes, die für die Datenaufnahme-API eindeutig sind und aus drei Segmenten bestehen.  Die ersten drei Ziffern geben den Status an (von Adobe Developer Gateway zurückgegeben), gefolgt von einer Null „0“, gefolgt von drei Ziffern.
+Datenaufnahme-API-spezifische Fehler-Codes enthalten drei Segmente: den dreistelligen Status, der vom Adobe Developer-Gateway zurückgegeben wird, eine Null „0“ und drei zusätzliche Ziffern.
 
 | HTTP-Status-Code | error_code | Nachricht |
 | --- | --- | --- |
@@ -152,24 +156,24 @@ Im Folgenden finden Sie Fehlercodes, die für die Datenaufnahme-API eindeutig si
 
 ## Weitere Zustellversuche
 
-Wenn ein vorübergehender Fehler erkannt wird, versucht der Service den Vorgang erneut. Weitere Zustellversuche erfolgen aus verschiedenen Gründen, in erster Linie, wenn ein abhängiger Service eine Zeitüberschreitung aufweist oder vorübergehend nicht verfügbar ist.
+Wenn der Service einen vorübergehenden Fehler erkennt, versucht er den Vorgang erneut. Ein erneuter Versuch erfolgt in erster Linie, wenn für einen abhängigen Dienst eine Zeitüberschreitung eintritt oder er vorübergehend nicht verfügbar ist.
 
-Wiederholungsintervalle:
+Der Service verwendet die folgenden Wiederholungsintervalle:
 
-* Anfänglicher Vorgang und erster erneuter Versuch : 5 Minuten
-* &#x200B;1. und 2. : 15 Min
-* &#x200B;2. und 3. : 20 Min
-* &#x200B;3. und 4. : 20 Min
-* &#x200B;4. und 5. : 2 Stunden
-* Nach 5. Wiederholung -> 3 Stunden
+- Anfänglicher Vorgang zum ersten erneuten Versuch: 5 Minuten
+- Erster Versuch zum zweiten Versuch: 15 Minuten
+- Zweiter Versuch zum dritten Versuch: 20 Minuten
+- Dritter Versuch zum vierten Versuch: 20 Minuten
+- Vierter Versuch bis fünfter Versuch: 2 Stunden
+- Nach dem fünften erneuten Versuch: 3 Stunden
 
 ## Endpunkte
 
-Aufnahme-Endpunkte sind für Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen verfügbar.
+Aufnahme-Endpunkte sind für Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen verfügbar. Jeder Endpunktabschnitt definiert die Anfrage und bietet ein Beispiel.
 
 ### Personen
 
-Endpunkt, der zur Aktualisierung von Personendatensätzen verwendet wird.
+Verwenden Sie diesen Endpunkt, um Personendatensätze zu upsertieren.
 
 | Methode | Pfad |
 | --- | --- |
@@ -238,7 +242,7 @@ Erforderliche Berechtigungen sind `Read-Write Lead`.
 
 ### Benutzerdefinierte Objekte
 
-Endpunkt zum Upsertieren benutzerdefinierter Objektdatensätze.
+Verwenden Sie diesen Endpunkt, um benutzerdefinierte Objektdatensätze zu upsertieren.
 
 | Methode | Pfad |
 | --- | --- |
@@ -306,7 +310,7 @@ Wenn in der Anfrage ein Verknüpfungsfeld zu einer Person angegeben ist und dies
 
 ### Firmen
 
-Endpunkt zum Synchronisieren von Firmendatensätzen. Unterstützt das Erstellen, Aktualisieren und Aktualisieren von Vorgängen mit Deduplizierung nach externer Unternehmens-ID oder interner Marketo-ID.
+Verwenden Sie diesen Endpunkt, um Firmendatensätze zu synchronisieren. Es unterstützt Vorgänge zum Erstellen, Aktualisieren und Aktualisieren mit Deduplizierung nach externer Unternehmens-ID oder interner Marketo-ID.
 
 | Methode | Pfad |
 | --- | --- |
@@ -756,23 +760,23 @@ Erforderliche Berechtigungen sind `Read-Write Lead`.
 
 ## Beschränkungen
 
-Im Folgenden finden Sie eine aktualisierte Liste von Leitplanken:
+Die Datenaufnahme-API hat die folgenden Leitplanken:
 
-* Maximale Größe der Anfrage: 1 MB
-* Maximale Anzahl von Objekten pro Anfrage pro Objekttyp: 1.000
-* Maximale Anzahl von Anfragen pro Sekunde und Client-ID: 5.000
-* Maximale Anzahl an Objekten pro Tag: 10.000.000
+- Maximale Anfragengröße: 1 MB
+- Maximale Anzahl von Objekten pro Anfrage für jeden Objekttyp: 1.000
+- Maximale Anforderungen pro Sekunde für jede Client-ID: 5.000
+- Maximale Anzahl an Objekten pro Tag: 10.000.000
 
 Diese Beschränkungen gelten einheitlich für Personen, benutzerdefinierte Objekte, Unternehmen, Programmmitglieder und Listen. Für Programmteilnehmer ist „Objekte pro Anfrage“ die Gesamtzahl der Lead-Referenzen in allen Programmen in einer einzigen Anfrage. Bei Listen ist „Objekte pro Anfrage“ die Anzahl der Lead-Referenzen im Eingabe-Array.
 
 ## Datenaufnahme-API und REST-API im Vergleich
 
-Im Folgenden finden Sie eine Liste der Unterschiede zwischen der Datenaufnahme-API und anderen Marketo-REST-APIs:
+Die Datenaufnahme-API unterscheidet sich von anderen Marketo-REST-APIs wie folgt:
 
-* Zur Authentifizierung müssen Sie das Zugriffstoken mithilfe der `X-Mkto-User-Token`-Kopfzeile übergeben
-* Der URL-Domain-Name lautet `mkto-ingestion-api.adobe.io`
-* Der URL-Pfad beginnt mit `/subscriptions/MunchkinId`
-* Es gibt keine Abfrageparameter
-* Wenn der Aufruf erfolgreich ist, wird der Status 202 zurückgegeben und der Antworttext ist leer
-* Wenn ein Aufruf fehlschlägt, wird ein Nicht-202-Status zurückgegeben und der Antworttext enthält `{ "error_code" : "Error Code", "message" : "Message" }`
-* Die Anfrage-ID wird über `X-Request-Id` -Header zurückgegeben
+- Übergeben Sie das Zugriffstoken in der `X-Mkto-User-Token`.
+- Verwenden Sie die `mkto-ingestion-api.adobe.io`.
+- Beginnen Sie den URL-Pfad mit `/subscriptions/MunchkinId`.
+- Verwenden Sie keine Abfrageparameter.
+- Ein erfolgreicher Aufruf gibt den Status 202 und einen leeren Antworttext zurück.
+- Ein fehlgeschlagener Aufruf gibt einen Nicht-202-Status und einen Antworttext zurück, der `{ "error_code" : "Error Code", "message" : "Message" }` enthält.
+- Der `X-Request-Id`-Header gibt die Anfrage-ID zurück.

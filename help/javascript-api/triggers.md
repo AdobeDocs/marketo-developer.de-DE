@@ -14,16 +14,16 @@ role_v2:
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 116
+source-wordcount: 117
 ht-degree: 8%
 
 ---
 
 # Trigger
 
-Fügt Trigger-Funktionen die Funktion für bestimmte Zustände des globalen RTP-Objekts hinzu.
+Trigger führen Funktionen aus, wenn das globale `rtp` einen angegebenen Status erreicht.
 
 Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) auf Ihrer Site bereitstellen lassen, bevor Sie die User Context-API verwenden.
 
@@ -38,7 +38,7 @@ Sie müssen Web Personalization-Kunde sein und das [RTP-Tag](https://experiencel
 
 ### Benutzerkontextbereiter Trigger
 
-Legt eine benutzerdefinierte Variable basierend auf dem Speicherort des Benutzers fest. Diese Funktion wird aufgerufen, wenn das globale Objekt „rtpUserContext“ bereit ist.
+Der `userContextReady` Trigger ruft eine Funktion auf, wenn das globale `rtpUserContext` fertig ist. Im folgenden Beispiel wird eine benutzerdefinierte Variable basierend auf dem Speicherort des Benutzers festgelegt.
 
 ```javascript
 rtp('userContextReady', function() {

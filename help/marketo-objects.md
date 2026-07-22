@@ -13,42 +13,56 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 532
-ht-degree: 0%
+source-wordcount: 452
+ht-degree: 1%
 
 ---
 
 # Marketo-Objekte
 
-Die Velocity-Implementierung von Marketo kann Daten aus verschiedenen Quellen in Marketo nutzen: Leads, Opportunities, benutzerdefinierte Objekte, Mobile App, Mobile-App-Installation.
+Die Velocity-Implementierung von Marketo kann Daten aus diesen Marketo-Quellen verwenden:
+
+- Leads
+- Opportunitys
+- Benutzerdefinierte Objekte
+- App
+- Mobile-App-Installation
 
 ## Felder werden geladen
 
-Um ein Feld zur Verwendung in einem Skript zu laden, muss dieses Feld unter der entsprechenden Liste im Skript-Token-Editor aktiviert werden.
+Um ein Feld in einem Skript zu verwenden, wählen Sie das Feld unter der entsprechenden Liste im Skript-Token-Editor aus.
 
-Wenn Sie ein Feld nicht laden und es im Skript referenziert wird, schlägt die Skriptausführung zur Laufzeit fehl. Sie können Felder aus dem Menü Feld per Drag-and-Drop in das Skript ziehen. Dadurch können sie geladen werden, und es wird ein Verweis auf das Feld am Cursor hinzugefügt.
+Wenn ein Skript auf ein Feld verweist, das nicht geladen wird, schlägt das Skript zur Laufzeit fehl. Ziehen Sie ein Feld aus dem Menü Feld in das Skript, um es zu laden, und fügen Sie einen Verweis am Cursor hinzu.
 
 ## Opportunity- und benutzerdefinierte Objektlisten
 
-Beim Abrufen von Opportunities oder benutzerdefinierten Objekten werden nur die 10 zuletzt aktualisierten Objekte eines Typs geladen. Die Anzahl der verfügbaren benutzerdefinierten Objekte kann durch Befolgen der hier beschriebenen Schritte erhöht werden. Diese werden als Liste mit dem Namen `<objectName>List` angegeben und sind aus dem zuletzt aktualisierten Datensatz sortiert. Um auf das Feld Betrag in der Opportunity zuzugreifen, die zuletzt aktualisiert wurde, würden Sie also Folgendes verwenden:
+Für Opportunities und benutzerdefinierte Objekte lädt Marketo nur die 10 zuletzt aktualisierten Objekte jedes Typs. Sie können die Anzahl der verfügbaren benutzerdefinierten Objekte erhöhen, indem Sie die hier beschriebenen Schritte ausführen.
+
+Marketo stellt die Objekte in einer Liste mit dem Namen `<objectName>List` bereit, sortiert vom zuletzt aktualisierten Datensatz zum zuletzt aktualisierten Datensatz. Um auf das Feld Betrag der zuletzt aktualisierten Opportunity zuzugreifen, verwenden Sie:
 
 `${OpportunityList.get(0).Amount}`
 
-In diesem Beispiel verweisen Sie auf das OpportunityList-Objekt, verwenden die get-Methode, um auf den mit 0 indizierten Datensatz zuzugreifen, und rufen dann die Amount-Eigenschaft aus dem zurückgegebenen Objekt ab. Wenn Sie ein Feld aus einer Opportunity oder einem benutzerdefinierten Objekt in den Editor ziehen, wird das Feld automatisch aus dem mit 0 indizierten Datensatz abgerufen.
+Dieses Beispiel verweist auf das OpportunityList-Objekt, verwendet die get-Methode, um auf den Datensatz mit Index 0 zuzugreifen, und ruft die Amount-Eigenschaft aus diesem Datensatz ab.
+
+Wenn Sie eine Opportunity oder ein benutzerdefiniertes Objektfeld in den Editor ziehen, ruft Marketo das Feld automatisch aus dem Datensatz bei Index 0 ab.
 
 ## Benutzerdefinierte SFDC-Objektbeziehungen
 
-Um zur Verwendung verfügbar zu sein, darf ein benutzerdefiniertes SFDC-Objekt nur eine einzige Beziehung zum Marketo-Lead haben. Objekte sind häufig sowohl über den Kontakt als auch das Konto verknüpft. Daher ist es wichtig, nur Objekte mit Marketo zu synchronisieren, für die die Lead/Kontakt-Beziehung aktiviert ist.
+Um ein benutzerdefiniertes SFDC-Objekt zu verwenden, darf das Objekt nur eine einzige Beziehung zum Marketo-Lead haben. Objekte werden oft sowohl über den Kontakt als auch über das Konto verknüpft. Nur Objekte synchronisieren, bei denen die Lead/Kontakt-Beziehung aktiviert ist.
 
 ## Trigger-Objekte
 
-Wenn eine Kampagne über die Option Zu Opportunity hinzugefügt, Opportunity aktualisiert oder `<Custom Object Name>` Triggern hinzugefügt wird, wird eine spezielle Variable in den Skript-Token verfügbar, die im Kontext der Trigger-Kampagne ausgeführt werden: `$TriggerObject`(wird für `<Custom Object Name>` Trigger nicht unterstützt).  Wenn in einer Batch-Kampagne ein Token mit einer `$TriggerObject` verwendet wird, schlägt der E-Mail-Versand fehl, da dieses Objekt in Batch-Kampagnen aller Art nicht verfügbar ist.  Dies ist ein Verweis auf das Objekt, das die Kampagne ausgelöst hat. Das -Objekt enthält alle Daten, die der Datensatz enthält, wenn über einen anderen Variablennamen auf ihn zugegriffen wird.
+Wenn eine Kampagne die Variable Zu Opportunity hinzugefügt, Opportunity aktualisiert oder `<Custom Object Name>` Trigger hinzugefügt verwendet, steht die Variable `$TriggerObject` für Skript-Token zur Verfügung, die in der Trigger-Kampagne ausgeführt werden. Diese Variable wird für den Trigger `<Custom Object Name>` ist aktualisiert nicht unterstützt.
 
-Wenn beispielsweise eine Kampagne über ein benutzerdefiniertes Objekt für eine Produktbestellung ausgelöst wurde, wird die Reihenfolge, zu der der Lead hinzugefügt wurde, in der `$TriggerObject`-Variablen angezeigt.
+Diese Variable verweist auf das Objekt, das die Kampagne ausgelöst hat. Es enthält dieselben Datensatzdaten, die verfügbar sind, wenn Sie über einen anderen Variablennamen auf das Objekt zugreifen.
 
-Hier ist ein Beispielskript für eine E-Mail zur Nachverfolgung von Bestellungen:
+Verwenden Sie in einer Batch-Kampagne kein Token, das auf `$TriggerObject` verweist. Das -Objekt ist in Batch-Kampagnen nicht verfügbar und der E-Mail-Versand schlägt fehl.
+
+Wenn beispielsweise ein benutzerdefiniertes Objekt für eine Produktbestellung eine Kampagne Trigger, gibt die `$TriggerObject` die Reihenfolge an, zu der der Lead hinzugefügt wurde.
+
+Das folgende Beispiel zeigt ein Skript für eine E-Mail zur Nachverfolgung von Bestellungen:
 
 ```html
 <div>
@@ -65,8 +79,8 @@ Hier ist ein Beispielskript für eine E-Mail zur Nachverfolgung von Bestellungen
 </div>
 ```
 
-Der Vorteil der Verwendung der `$TriggerObject`-Variablen besteht darin, dass Sie keinen Code dedizieren müssen, um zu bestimmen, aus welchem der verfügbaren Objekte Sie Ihre lokalen Daten abrufen möchten.  Das Objekt wird durch die Auslöseaktion bestimmt. Dies ist die explizitste Methode zur Auswahl eines Objekts, auf das verwiesen werden soll, und sollte verwendet werden, wann immer verfügbar und angemessen.
+Die auslösende Aktion bestimmt das Objekt. Sie benötigen keinen zusätzlichen Code, um zu bestimmen, welches verfügbare Objekt die lokalen Daten enthält. Verwenden Sie `$TriggerObject`, wenn es verfügbar und angemessen ist, da es das zu referenzierende Objekt explizit identifiziert.
 
-Hinweis: Bei Verwendung der `$TriggerObject` müssen Felder im Bearbeitungsbereich markiert werden, damit das Objekt dem Skript zur Verfügung gestellt werden kann.
+Hinweis: Wenn Sie `$TriggerObject` verwenden, wählen Sie die Felder des -Objekts im Bearbeitungsbereich aus, um sie für das Skript verfügbar zu machen.
 
-Hinweis 2: Die `$TriggerObject` funktioniert nur für „hinzugefügte“ Trigger und nicht für „aktualisierte“ Trigger.
+Hinweis 2: `$TriggerObject` funktioniert nur für „Hinzugefügte“ Trigger, nicht für „Aktualisierte“ Trigger.

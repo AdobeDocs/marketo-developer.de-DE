@@ -10,22 +10,31 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 322
-ht-degree: 0%
+source-wordcount: 217
+ht-degree: 1%
 
 ---
 
 # Erweiterter Sicherheitszugriffsmodus
 
-Marketo SDK stellt Methoden zum Festlegen und Entfernen der Sicherheitssignatur bereit. Es gibt auch eine Dienstprogrammmethode zum Abrufen der Geräte-ID. Bei der Anmeldung sollte die Geräte-ID zusammen mit der E-Mail an den Kundenserver zur Verwendung bei der Berechnung der Sicherheitssignatur übergeben werden. Die SDK sollte auf den neuen Endpunkt zugreifen, der auf den oben aufgeführten Algorithmus verweist, um die erforderlichen Felder zum Instanziieren des Signaturobjekts abzurufen. Das Festlegen dieser Signatur in der SDK ist ein notwendiger Schritt, wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert wurde.
+Der erweiterte Sicherheitszugriffsmodus erfordert, dass Marketo SDK eine Sicherheitssignatur abruft und festlegt. SDK bietet Methoden zum Festlegen und Entfernen der Signatur und eine Dienstprogrammmethode zum Abrufen der Geräte-ID.
+
+Senden Sie bei der Anmeldung die Geräte-ID und die E-Mail-Adresse an den Kundenserver, um die Sicherheitssignatur zu berechnen. Die SDK ruft dann den Kunden-Endpunkt auf, um die Felder abzurufen, die zum Instanziieren des Signaturobjekts erforderlich sind. Wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert ist, müssen Sie diese Signatur in der SDK festlegen.
 
 ## Einrichtung des abgesicherten Zugriffsmodus
 
-Diese Einrichtung muss implementiert werden, bevor der Modus für sicheren Zugriff über die Seite Marketo Admin > Mobile Apps und Geräte aktiviert werden kann. Die folgenden weiteren Schritte beschreiben den Prozess, der zum Abschließen des Sicherheitsvalidierungsprozesses erforderlich ist:
+Implementieren Sie diese Einrichtung, bevor Sie den abgesicherten Zugriffsmodus auf der Seite &quot;Marketo Admin“ > „Mobile Apps und Geräte“ aktivieren.
 
-Der Modus für sicheren Zugriff erfordert die Implementierung des Signaturalgorithmus auf der Server-Seite des Kunden, der einen Endpunkt zum Abrufen des Zugriffsschlüssels, der berechneten Signatur, des Ablaufzeitstempels und der E-Mail bereitstellt. Dieser Algorithmus erfordert für die Berechnung den Benutzerzugriffsschlüssel, das Zugriffsgeheimnis, die E-Mail-Adresse, den Zeitstempel und die Geräte-ID. Der Kunde ist für die Einrichtung des Endpunkts, die Implementierung des Algorithmus zur Durchführung von Signaturberechnungen und die Aktualisierung des Ablaufzeitstempels verantwortlich.
+Der Modus für sicheren Zugriff erfordert einen Server-seitigen Signaturalgorithmus und einen Kundenendpunkt. Der Endpunkt gibt die folgenden Werte zurück:
+
+- Zugriffsschlüssel
+- Berechnete Signatur
+- Zeitstempel der Gültigkeit
+- E-Mail-Adresse
+
+Der Algorithmus verwendet den Benutzerzugriffsschlüssel, das Zugriffsgeheimnis, die E-Mail-Adresse, den Zeitstempel und die Geräte-ID. Der Kunde muss den Endpunkt einrichten, die Signaturberechnung implementieren und den Ablaufzeitstempel auf dem neuesten Stand halten.
 
 ```python
 import argparse
@@ -68,7 +77,7 @@ if __name__ == '__main__':
     print 'HMAC is ', hmac_string
 ```
 
-Marketo SDK stellt neue Methoden zum Festlegen und Entfernen der Sicherheitssignatur bereit. Es gibt auch eine Dienstprogrammmethode zum Abrufen der Geräte-ID. Bei der Anmeldung sollte die Geräte-ID zusammen mit der E-Mail an den Kundenserver zur Verwendung bei der Berechnung der Sicherheitssignatur übergeben werden. Die SDK sollte auf den neuen Endpunkt zugreifen, der auf den oben aufgeführten Algorithmus verweist, um die erforderlichen Felder zum Instanziieren des Signaturobjekts abzurufen. Das Festlegen dieser Signatur in der SDK ist ein notwendiger Schritt, wenn der Sicherheitszugriffsmodus in Marketo Mobile Admin aktiviert wurde.
+Verwenden Sie die plattformspezifischen Methoden, um die Sicherheitssignatur festzulegen oder zu entfernen und die Geräte-ID abzurufen.
 
 ### iOS
 

@@ -10,16 +10,18 @@ feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1352
+source-wordcount: 1337
 ht-degree: 2%
 
 ---
 
 # Forms-API-Referenz
 
-Es gibt zwei Hauptobjekte, mit denen Sie mithilfe der Forms 2.0-API interagieren werden. Das `MktoForms2` und das `Form`. Das `MktoForms2`-Objekt ist der öffentlich sichtbare Namespace der obersten Ebene für Forms2-Funktionen und enthält Funktionen zum Erstellen, Laden und Abrufen von Formularobjekten.
+Die Forms 2.0-API bietet zwei Hauptobjekte: `MktoForms2` und `Form`.
+
+`MktoForms2` ist der öffentliche Namespace der obersten Ebene für die Forms2-Funktionen. Es enthält Funktionen zum Erstellen, Laden und Abrufen `Form` Objekte.
 
 ## MktoForms2-Methoden
 

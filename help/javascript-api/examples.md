@@ -10,20 +10,20 @@ feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 228
+source-wordcount: 234
 ht-degree: 0%
 
 ---
 
 # Beispiele
 
-Nachstehend finden Sie eine Reihe von Beispielen für Webformulare zu Forms 2.0.
+Diese Beispiele zeigen gängige Workflows für Web-Formulare in Forms 2.0.
 
 ## Formular nach erfolgreicher Übermittlung ausblenden
 
-In diesem Beispiel wird der Besucher nicht zur Folgeseite weitergeleitet und die aktuelle Seite wird nicht neu geladen.
+In diesem Beispiel wird der Besucher nach erfolgreicher Übermittlung auf der aktuellen Seite belassen. Die Folgeseite wird nicht geöffnet und die aktuelle Seite wird nicht neu geladen.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -39,7 +39,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Besucher zur benutzerdefinierten URL führen
 
-In diesem Beispiel wird der Besucher nach erfolgreicher Übermittlung zu einer von JavaScript bestimmten URL weitergeleitet und nicht zur konfigurierten Dankeseite.
+In diesem Beispiel wird der Besucher nach erfolgreicher Übermittlung an eine in JavaScript definierte URL gesendet. Die JavaScript-URL ersetzt die konfigurierte Dankeseite.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -66,7 +66,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Lesen von Formularfeldwerten beim Senden eines Formulars
 
-In diesem Beispiel werden Formularfelder beim Senden des Formulars gelesen.
+In diesem Beispiel werden die Formularfeldwerte gelesen, wenn das Formular übermittelt wird.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form) {
@@ -84,7 +84,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function(form
 
 ## Senden eines Formulars bei einem Nicht-Formular-Klickereignis
 
-In diesem Beispiel wird ein Formular basierend auf einem Klickereignis für ein anderes Element oder Ereignis gesendet, das nicht Teil des Formulars ist.
+In diesem Beispiel wird ein Formular gesendet, wenn der Besucher ein Element außerhalb des Formulars auswählt.
 
 ```javascript
 // Load the form normally
@@ -102,7 +102,7 @@ btn.onclick = function() {
 
 ## Verhindern, dass ein Benutzer ein Formular sendet
 
-Für dieses Beispiel müssen Sie mindestens dreimal auf die Schaltfläche Zähler klicken, bevor die Schaltfläche Senden im Formular funktioniert.
+In diesem Beispiel muss der Besucher die Schaltfläche zum Zählen der Klicks mindestens dreimal auswählen, bevor die Senden-Schaltfläche des Formulars funktioniert.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
@@ -144,7 +144,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Formular in Lightbox anzeigen
 
-Dieses Beispiel zeigt das Formular in einem Dialogfeld im Lightbox-Stil, wenn die URL einen `lightboxForm=true` enthält.
+In diesem Beispiel wird das Formular in einem Dialogfeld im Lightbox-Stil angezeigt, wenn die URL den `lightboxForm=true` enthält.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {
@@ -156,7 +156,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Benutzerdefinierte Fehlermeldung anzeigen
 
-Dieses Beispiel zeigt eine benutzerdefinierte Fehlermeldung beim Senden, die auf benutzerdefinierter Geschäftslogik basiert.
+Dieses Beispiel wendet während der Übermittlung eine benutzerdefinierte Geschäftslogik an und zeigt eine benutzerdefinierte Fehlermeldung an, wenn die Werte die erforderliche Bedingung nicht erfüllen.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) {

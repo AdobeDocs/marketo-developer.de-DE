@@ -10,36 +10,43 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 485
+source-wordcount: 374
 ht-degree: 1%
 
 ---
 
 # Response Mappings
 
-Marketo kann Daten, die von einem Webhook empfangen werden, aus zwei Inhaltstypen übersetzen und diese Werte an ein Lead-Feld zurückgeben: JSON und XML. Der Marketo-Feldparameter verwendet immer den [SOAP-API-Namen](../rest-api/fields.md) des Felds. Jeder Webhook kann über eine unbegrenzte Anzahl von Antwortzuordnungen verfügen, die hinzugefügt und bearbeitet werden, indem Sie auf die Schaltfläche [!UICONTROL Bearbeiten] im Bereich „Antwortzuordnungen“ Ihres Webhooks klicken:
+Marketo kann Webhook-Daten aus JSON oder XML übersetzen und die Werte in Lead-Felder schreiben. Der Marketo-Feldparameter verwendet immer den [SOAP-API-Namen des Felds](../rest-api/fields.md).
+
+Jeder Webhook kann über eine unbegrenzte Anzahl von Antwortzuordnungen verfügen. Um Zuordnungen hinzuzufügen oder zu bearbeiten, wählen [!UICONTROL Bearbeiten] im Bereich Antwortzuordnungen des Webhooks aus:
 
 ![Antwort-Mapping](assets/response-mapping.png)
 
-Antwort-Mappings werden über eine Paarung aus einem „Antwort-Attribut“, dem Pfad zur gewünschten Eigenschaft im XML- oder JSON-Dokument und dem &quot;Marketo-Feld“ erstellt, das das Lead-Feld angibt, in das der Wert aus dem Antwort-Attribut geschrieben wurde.
+Eine Antwort-Zuordnung paart diese Werte:
 
-Schlüssel für -Eigenschaften müssen aus alphanumerischen Zeichen, Bindestrichen (-), Unterstrichen (_), Doppelpunkt (:) und Leerzeichen bestehen, damit der Zugriff über Marketo-Antwortzuordnungen erfolgt.
+- „Antwort-Attribut“: Der Pfad zur gewünschten Eigenschaft im XML- oder JSON-Dokument.
+- &quot;Marketo-Feld“: Das Lead-Feld, in das Marketo den Wert des Antwortattributs schreibt.
+
+Um über Marketo-Antwortzuordnungen auf eine Eigenschaft zuzugreifen, darf ihr Schlüssel nur alphanumerische Zeichen, Bindestriche (-), Unterstriche (_), Doppelpunkte (:) und Leerzeichen enthalten.
 
 ## JSON-Zuordnungen
 
-Der Zugriff auf JSON-Eigenschaften erfolgt mit Punktnotation, Array-Notation und -Notation. Die Array-Notation in Marketo akzeptiert keine Zeichenfolgen als Eingabe und nur Ganzzahlen. Um Daten aus einem JSON-Dokument abzurufen, muss der Antworttyp auf JSON festgelegt sein:
+Greifen Sie auf JSON-Eigenschaften mit Punktnotation und Array-Notation zu. Die Marketo-Array-Notation akzeptiert nur Ganzzahlen, keine Zeichenfolgen.
+
+Um Daten aus einem JSON-Dokument abzurufen, setzen Sie den Antworttyp auf JSON:
 
 ```json
 { "foo":"bar"}
 ```
 
-Um in einer Antwortzuordnung auf die `foo`-Eigenschaft zuzugreifen, verwenden Sie die `name` der Eigenschaft, da sie sich auf der ersten Ebene des JSON-Objekts befindet, `foo`. Im Folgenden sehen Sie, wie das in Marketo aussieht:
+Die `foo` befindet sich auf der ersten Ebene des JSON-Objekts. Verwenden Sie `foo` seine `name` im Antwort-Mapping:
 
 ![Antwort-Mapping](assets/json-resp.png)
 
-Im Folgenden finden Sie ein komplizierteres Beispiel mit einem -Array:
+Das folgende Beispiel enthält ein -Array:
 
 ```json
 {
@@ -61,11 +68,11 @@ Im Folgenden finden Sie ein komplizierteres Beispiel mit einem -Array:
 }
 ```
 
-Wir möchten vom ersten Element des order-Arrays aus auf das orderDate zugreifen. Um auf diese Eigenschaft zuzugreifen, verwenden Sie Folgendes: `orders[0].orderDate`
+Um vom ersten Element des order-Arrays aus auf orderDate zuzugreifen, verwenden Sie `orders[0].orderDate`.
 
 ## XML-Zuordnungen
 
-Der Zugriff auf Werte ist über einzelne Elemente in XML-Dokumenten möglich. Diese verwendet Punktnotation ähnlich den JSON-Zuordnungen. Betrachten wir dieses einfache Beispiel:
+Greifen Sie mithilfe der Punktnotation auf Werte aus einzelnen XML-Elementen zu, ähnlich wie bei JSON-Zuordnungen. Sehen Sie sich dieses Beispiel an:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -74,9 +81,11 @@ Der Zugriff auf Werte ist über einzelne Elemente in XML-Dokumenten möglich. Di
 </example>
 ```
 
-Um hier auf die foo-Eigenschaft zuzugreifen, verwenden Sie Folgendes: `example.foo`
+Um auf die foo-Eigenschaft zuzugreifen, verwenden Sie `example.foo`.
 
-Das Beispielelement muss vor dem Zugriff auf `foo` referenziert werden. Um auf eine Eigenschaft zuzugreifen, müssen alle Elemente in der Hierarchie in der Zuordnung referenziert werden. XML-Dokumente mit Arrays sind etwas komplizierter. Im folgenden Beispiel:
+Verweisen Sie auf das Beispielelement, bevor Sie auf `foo` zugreifen. Eine Zuordnung muss auf jedes Element in der Eigenschaftshierarchie verweisen.
+
+Betrachten Sie das folgende Beispiel für ein XML-Dokument mit einem -Array:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -93,8 +102,12 @@ Das Beispielelement muss vor dem Zugriff auf `foo` referenziert werden. Um auf e
 </elementList>
 ```
 
-Das Dokument besteht aus dem übergeordneten Array `elementList` mit untergeordneten Elementen, das eine Eigenschaft enthält: `foo`. Für Marketo-Antwortzuordnungen wird auf das -Array als `elementList.element` verwiesen, sodass der Zugriff auf die untergeordneten Elemente von elementList über `elementList.element[i]` erfolgt. Um den Wert „foo“ aus dem ersten untergeordneten Element von elementList abzurufen, verwenden wir das folgende Antwortattribut: `elementList.element[0].foo` Dadurch wird der Wert „baz“ an das angegebene Feld zurückgegeben. Der Versuch, auf Eigenschaften in Elementen zuzugreifen, die sowohl eindeutige als auch nicht eindeutige Elementnamen enthalten, führt zu undefiniertem Verhalten. Jedes Element muss eine einzelne Eigenschaft oder ein Array sein. Die Typen können nicht vermischt werden.
+Das übergeordnete Array ist `elementList`. Jedes untergeordnete Element enthält die `foo`. Marketo-Antwortzuordnungen verweisen auf das -Array als `elementList.element` und greifen über `elementList.element[i]` auf seine untergeordneten Elemente zu.
+
+Um den Wert von „foo“ aus dem ersten untergeordneten Element von „elementList“ abzurufen, verwenden Sie das Antwortattribut `elementList.element[0].foo`. Diese Zuordnung gibt den Wert „base“ an das angegebene Feld zurück.
+
+Der Zugriff auf Eigenschaften in Elementen, die sowohl eindeutige als auch nicht eindeutige Elementnamen enthalten, führt zu undefiniertem Verhalten. Jedes Element muss entweder eine einzelne Eigenschaft oder ein Array sein. Die Typen nicht mischen.
 
 ## Typen
 
-Beim Zuordnen von Attributen zu Feldern müssen Sie sicherstellen, dass der Typ in Ihrer Webhook-Antwort mit dem Zielfeld kompatibel ist. Wenn der Wert in der Antwort beispielsweise eine Zeichenfolge ist und das ausgewählte Feld vom Typ Ganzzahl ist, wird der Wert nicht geschrieben. Informationen zu [Feldtypen](../rest-api/field-types.md).
+Stellen Sie beim Zuordnen von Attributen zu Feldern sicher, dass der Webhook-Antworttyp mit dem Zielfeld kompatibel ist. Marketo schreibt beispielsweise keinen Zeichenfolgenantwortwert in ein Feld vom Typ Ganzzahl. Weitere Informationen finden Sie unter [Feldtypen](../rest-api/field-types.md).

@@ -13,28 +13,30 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 4fbd04f9942f903ab8b44e9740a806b74a4ffaf4
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 1116
-ht-degree: 0%
+source-wordcount: 932
+ht-degree: 1%
 
 ---
 
 # E-Mail-Skripterstellung
 
-HINWEIS: Es wird dringend empfohlen, das [Velocity-Benutzerhandbuch](https://velocity.apadche.org/engine/devel/user-guide.html) zu lesen, um eine ausführliche Erläuterung des Verhaltens der Velocity-Vorlagensprache zu erhalten.
+Eine ausführliche Erläuterung [&#x200B; Verhaltens der Velocity](https://velocity.apache.org/engine/devel/user-guide.html)Vorlagensprache finden Sie im Velocity-Benutzerhandbuch .
 
-[Apache Velocity](https://velocity.apache.org/) ist eine Sprache, die auf Java basiert und für die Erstellung von Vorlagen und Skripten für HTML-Inhalte entwickelt wurde. Marketo ermöglicht die Verwendung im Kontext von E-Mails mithilfe von Skript-Token. Diese Funktion ermöglicht den Zugriff auf Daten, die in Opportunities und benutzerdefinierten Objekten gespeichert sind, und die Erstellung dynamischer Inhalte in E-Mails. Velocity bietet standardmäßige Steuerungsabläufe auf hoher Ebene mit if/else, for und for each, um eine bedingte und iterative Manipulation der Inhalte zu ermöglichen.
+[Apache Velocity](https://velocity.apache.org/) ist eine Java-basierte Sprache für die Vorlage und Skripterstellung von HTML-Inhalten. Verwenden Sie Velocity in E-Mail-Skript-Token von Marketo, um auf Daten zuzugreifen, die in Opportunities und benutzerdefinierten Objekten gespeichert sind, und um dynamische E-Mail-Inhalte zu erstellen.
+
+Velocity bietet `if`/`else`, `for` und `foreach` Steuerungsfluss für bedingte und iterative Inhalte.
 
 ## Variablen
 
-Variablen sind immer mit dem Präfix &quot;$&quot; versehen und werden mithilfe von #set festgelegt und aktualisiert:
+Variablen mit dem Präfix `$`. Erstellen oder aktualisieren Sie sie mit `#set`:
 
 ```velocity
 #set($variable = "value")
 ```
 
-Ihre Werte können dann über mehrere verschiedene Verweistypen mit unterschiedlichen Verhaltensweisen abgerufen werden:
+Abrufen von Variablenwerten mit Verweistypen, die unterschiedliche Verhaltensweisen aufweisen:
 
 ```text
 $variable ##outputs 'value'
@@ -44,7 +46,7 @@ ${variable}name ##outputs 'valuename'
 
 
 
-Es gibt auch eine ruhige Referenznotation, bei der nach der `$` ein `!` enthalten ist. Wenn die Geschwindigkeit auf eine undefinierte Referenz trifft, bleibt die Zeichenfolge, die die Referenz darstellt, normalerweise an Ort und Stelle. Bei ruhiger Referenznotation wird kein Wert ausgegeben, wenn ein undefinierter Verweis gefunden wird:
+Die Notation für stille Verweise enthält `!` nach der `$`. Standardmäßig lässt Velocity die Referenzzeichenfolge an Ort und Stelle, wenn eine Referenz nicht definiert ist. Eine stille Referenz gibt keinen Wert aus, wenn sie nicht definiert ist:
 
 ```velocity
 ##Defined Reference
@@ -65,7 +67,7 @@ Weitere Informationen zum Referenzieren von Variablen finden Sie im [Apache-Benu
 
 ## Velocity-Tools
 
-Das Apache Velocity Project stellt Funktionen über die Verwendung von [Velocity-Tools](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html) zur Verfügung. Diese Tools sind lediglich Wrapper für Java-Objekte und stellen ihre Methoden durch globale Variablen zur Verfügung, die für alle Skripte verfügbar gemacht werden.
+Das Apache Velocity-Projekt stellt [Velocity-Tools](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html) bereit. Diese Wrapper stellen Java-Objektmethoden über globale Variablen zur Verfügung, die für alle Skripte verfügbar sind.
 
 - [Drehstromlichtmaschine](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
 - [ComparisonDateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
@@ -87,29 +89,33 @@ $date.whenIs($birthday).days ##outputs 1
 
 ## Erstellen eines Skript-Tokens
 
-Das Geschwindigkeitsskript wird mithilfe von E-Mail-Skript-Token in E-Mails eingeschlossen. Erstellen Sie diese in Marketing-Aktivitäten innerhalb eines Marketing-Ordners oder Programms. Damit ein Token in einer E-Mail verwendet werden kann, muss die E-Mail einem Programm untergeordnet sein, das entweder Eigentümer des Tokens ist oder das Token von einem Marketing-Ordner erbt. Um ein Token zu erstellen, navigieren Sie zu einem Ordner oder Programm und wählen Sie die Registerkarte [!UICONTROL Meine Token] aus. Ziehen Sie aus dem Menü rechts die Option „E-Mail-Script“ in die Token-Liste
+Hinzufügen von Velocity-Skripten zu E-Mails mit E-Mail-Skript-Token. Erstellen Sie ein Token in Marketing-Aktivitäten in einem Marketing-Ordner oder -Programm.
+
+Um ein Token verwenden zu können, muss die E-Mail ein untergeordnetes Element des Programms sein, dem das Token gehört, oder von einem Marketing-Ordner erben. Wechseln Sie zu einem Ordner oder Programm und wählen Sie die Registerkarte [!UICONTROL Meine Token] aus. Ziehen Sie die Option E-Mail-Skript aus dem rechten Menü in die Token-Liste.
 
 ![Skript-Token](assets/script-token.png)
 
-Von hier aus können Sie den Namen des Tokens bearbeiten und den Editor über die Option [!UICONTROL Zum Bearbeiten klicken] öffnen:
+Bearbeiten Sie den Token-Namen und wählen Sie dann [!UICONTROL Zum Bearbeiten klicken] aus, um den Editor zu öffnen:
 
 ![Skript bearbeiten](assets/script-edit.png)
 
-Sobald Sie sich im Editor befinden, können Sie ein Skript mit Zugriff auf alle Variablen in Objekten erstellen, auf die über ein Skript zugegriffen werden kann. Um einen Feldverweis aus einem Objekt zu erhalten, ziehen Sie ihn aus der rechten Struktur in Ihr Skript:
+Erstellen Sie im Editor ein Skript, das auf Variablen in Objekten zugreift, auf die über ein Skript zugegriffen werden kann. Um einen Objektfeldverweis hinzuzufügen, ziehen Sie ihn aus der rechten Struktur in das Skript:
 
 ![Skript-Token bearbeiten](assets/edit-script-token.png)
 
 ## Einbetten und Testen von Skripten
 
-Nachdem Sie Ihr Skript in einem „Mein Programm-Token“ definiert haben, können Sie es in einer bestimmten E-Mail mit dem Marketo-E-Mail-Editor referenzieren.
+Nachdem Sie das Skript in einem „Mein Token“-Programm definiert haben, verweisen Sie im E-Mail-Editor von Marketo darauf aus einer E-Mail.
 
 ![E-Mail-Skript](assets/email-script-marketo-email.png)
 
-Sie können Ihr Skript mit der E-Mail-Aktion [!UICONTROL Beispiel senden] im E-Mail-Designer von Marketo testen. Damit das Skript ordnungsgemäß verarbeitet wird, müssen Sie einen vorhandenen Lead auswählen, der im Feld [!UICONTROL Lead] dargestellt werden soll. Wenn Sie mit `$TriggerObject` testen, können Sie das auslösende Objekt über den Parameter [!UICONTROL Trigger &#x200B;] auswählen. Dieser Prozess verwendet die Daten aus dem zuletzt aktualisierten Objekt dieses Typs als `$TriggerObject`.
+Testen Sie das Skript mit der Aktion [!UICONTROL Beispiel-E-Mail senden] im E-Mail-Designer von Marketo. Wählen Sie einen vorhandenen Lead im Feld [!UICONTROL Lead] aus, damit das Skript ordnungsgemäß verarbeitet wird.
+
+Wählen Sie beim Testen von `$TriggerObject` das auslösende Objekt mit dem Parameter [!UICONTROL Trigger &#x200B;] aus. Marketo verwendet das zuletzt aktualisierte Objekt dieses Typs als `$TriggerObject`.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 
-Sie können auch die E[!UICONTROL Mail-Vorschau verwenden] um Ihr Skript zu testen. Wählen Sie dazu **[!UICONTROL Anzeigen als: Lead-Detail]** und wählen Sie einen Lead aus einer verfügbaren statischen Liste aus. Dieser Ansatz bietet außerdem den Vorteil, dass alle Ausnahmen ausgegeben werden, die während der Skriptausführung aufgetreten sind:
+Sie können auch mit [!UICONTROL E-Mail-Vorschau] testen. Wählen **[!UICONTROL Anzeigen als: Lead-Detail]** und wählen Sie dann einen Lead aus einer statischen Liste aus. Die Vorschau zeigt auch Ausnahmen von der Skriptausführung an:
 
 ![E-Mail anzeigen als](assets/view-as.png)
 
@@ -123,11 +129,11 @@ Die Gesamtlänge aller E-Mail-Skript-Token in einer bestimmten E-Mail darf 100.0
 - Sie können auf benutzerdefinierte Objekte verweisen, die mit einem Lead, Kontakt oder Konto verbunden sind, jedoch nicht mit mehr als einem.
 - Benutzerdefinierte Objekte können nur über eine einzige Verbindung, einen Lead, einen Kontakt oder ein Konto referenziert werden
 - Aktivieren Sie das Kontrollkästchen im Skript-Editor für die Felder, die Sie verwenden oder nicht verarbeiten
-- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar und werden von der zuletzt aktualisierten Version (bei 0) zur ältesten aktualisierten Version (bei 9) sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [den Anweisungen) &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar. Die Datensätze werden vom zuletzt aktualisierten Index bei Index 0 zum ältesten bei Index 9 sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [Anweisungen befolgen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Wenn Sie mehr als ein E-Mail-Skript in eine E-Mail einbeziehen, werden diese von oben nach unten ausgeführt. Der Umfang der Variablen, die im ersten auszuführenden Skript definiert sind, ist in nachfolgenden Skripten verfügbar.
 - Tools-Referenz: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Ein Hinweis zu Token, die Zeilenumbruchzeichen &quot;\n“ oder &quot;\r\n“ enthalten. Wenn eine E-Mail über das Versandbeispiel oder eine Batch-Kampagne gesendet wird, werden Zeilenumbruchzeichen in Token durch Leerzeichen ersetzt. Wenn E-Mails über Trigger Campaign gesendet werden, bleiben Zeilenumbruchzeichen unberührt.
-- Um ein korrektes Parsen von URLs sicherzustellen, sollte der gesamte Pfad als Variable festgelegt und dann gedruckt werden. Außerdem sollte die Variable nicht in URL-Verweisen gedruckt werden. Das Protokoll (http:// oder https://) muss eingeschlossen und vom Rest der URL getrennt sein. Die URL muss auch Teil eines vollständig geformten Anker-Tags (<a>) sein. Das Skript muss ein vollständig geformtes Anker-Tag ausgeben, damit Links verfolgt werden können. Links werden nicht verfolgt, wenn sie innerhalb einer for- oder foreach-Schleife ausgegeben werden.
+- Um ein korrektes URL-Parsing sicherzustellen, legen Sie den vollständigen Pfad als Variable fest und drucken Sie ihn dann. Drucken Sie keine Variablen innerhalb von URL-Verweisen. Schließen Sie das Protokoll (`http://` oder `https://`) getrennt vom Rest der URL ein. Geben Sie ein vollständiges Anker-Tag (`<a>`) aus, damit Links verfolgt werden können. Links, die von einer `for`- oder `foreach`-Schleife ausgegeben werden, werden nicht verfolgt.
 
 ```html
 <!-- Correct -->

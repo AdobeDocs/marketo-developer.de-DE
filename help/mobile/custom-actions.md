@@ -14,22 +14,22 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: c1579802-ddd4-4214-8a91-97b2066abe11
   - id: d095671a-1355-40aa-8b5f-06c33c68080b
-source-git-commit: 00118a89f25a23b931fac671130932bb0e0e4e4e
+source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
 workflow-type: tm+mt
-source-wordcount: 336
-ht-degree: 1%
+source-wordcount: 259
+ht-degree: 2%
 
 ---
 
 # Benutzerdefinierte Aktionen
 
-Sie können Benutzerinteraktionen verfolgen, indem Sie benutzerdefinierte Aktionen senden. Wenn Ihre Mobile App zum Senden einer benutzerdefinierten Aktion in Marketo SDK aufruft, wird die benutzerdefinierte Aktion zunächst auf dem Gerät gespeichert. Marketo SDK prüft dann, ob eine ausreichende Internetverbindung besteht, bevor die benutzerdefinierte Aktion gesendet wird. Daher kann es zu einer Verzögerung zwischen dem Zeitpunkt kommen, zu dem die benutzerdefinierte Aktion gesendet wird, und dem Zeitpunkt, zu dem sie von Marketo empfangen wird.
+Benutzerdefinierte Aktionen verfolgen Benutzerinteraktionen in Ihrer Mobile App. Wenn die App die Marketo SDK aufruft, um eine benutzerdefinierte Aktion zu senden, speichert die SDK die Aktion zuerst auf dem Gerät. Der SDK sendet die Aktion, nachdem er eine ausreichende Internetverbindung erkannt hat, sodass Marketo die Aktion möglicherweise verzögert erhält.
 
 Benutzerdefinierte Aktionen können als Trigger und Filter in Smart-Kampagnen verwendet werden. Weitere Informationen finden Sie unter [Aktivität von Mobile Apps](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Senden benutzerdefinierter Aktionen auf iOS
 
-Benutzerdefinierte Aktion senden.
+Eine benutzerdefinierte Aktion senden.
 
 >[!BEGINTABS]
 
@@ -78,7 +78,7 @@ sharedInstance.reportAction("Bought Shirt", withMetaData:meta);
 
 >[!ENDTABS]
 
-Alle Aktionen sofort melden (alle gespeicherten Aktionen senden).
+Alle gespeicherten Aktionen sofort melden.
 
 >[!BEGINTABS]
 
@@ -98,7 +98,7 @@ sharedInstance.reportAll();
 
 ## Senden benutzerdefinierter Aktionen auf Android
 
-1. Benutzerdefinierte Aktion senden.
+1. Eine benutzerdefinierte Aktion senden.
 
    ```
    Marketo.reportAction("Login", null);
@@ -116,7 +116,7 @@ sharedInstance.reportAll();
    Marketo.reportAction("Bought Shirt", meta);
    ```
 
-1. Alle benutzerdefinierten Aktionen sofort melden (alle gespeicherten Aktionen senden).
+1. Alle gespeicherten benutzerdefinierten Aktionen sofort melden.
 
    ```
    Marketo.reportAll();
@@ -124,6 +124,8 @@ sharedInstance.reportAll();
 
 ## Fehlerbehebung bei benutzerdefinierten Aktionen
 
-Das Einrichten benutzerdefinierter Aktionen für Mobilgeräte ist einfach, aber es gibt Einschränkungen hinsichtlich der Anzahl der Zeichen, die Sie von der mobilen SDK an Marketo senden können. Stellen Sie sicher, dass alle benutzerdefinierten Aktionen, die über Mobile SDK an Marketo zurückgemeldet werden, weniger als 20 Zeichen lang sind.
+Benutzerdefinierte Aktionsnamen, die von der mobilen SDK an Marketo gesendet werden, müssen weniger als 20 Zeichen lang sein.
 
-**Hinweis zu Anwendungsfällen für mehrere Benutzende auf einem gemeinsam genutzten Gerät:** Wenn sich ein(e) Benutzende(r) bei einer in Marketo SDK integrierten App anmeldet, erfolgt der erste Aufruf, um den Lead mit der App-Installation zu verknüpfen. Nach erfolgreichem Abschluss dieses Aufrufs können weitere Benutzeraktivitäten in der App im Aktivitätsprotokoll des Leads eingesehen werden. Hinweis: Da es sich um einen asynchronen Aufruf handelt, werden benutzerdefinierte Aktionen, die unmittelbar nach der Anmeldung protokolliert werden, möglicherweise mit dem Benutzer verknüpft, der zuvor angemeldet war, bis der zugehörige Aufruf erfolgreich ist.
+**Anwendungsfälle mit mehreren Benutzern auf einem gemeinsam genutzten Gerät:** Wenn sich ein Benutzer bei einer Mobile App anmeldet, die die Marketo SDK verwendet, wird der Lead beim ersten Aufruf mit der App-Installation verknüpft. Nachdem der Aufruf erfolgreich war, werden nachfolgende Benutzeraktivitäten im Aktivitätsprotokoll des Leads angezeigt.
+
+Der Verknüpfungsaufruf ist asynchron. Benutzerdefinierte Aktionen, die unmittelbar nach der Anmeldung protokolliert werden, werden möglicherweise mit dem zuvor angemeldeten Benutzer verknüpft, bis der Aufruf erfolgreich ist.
