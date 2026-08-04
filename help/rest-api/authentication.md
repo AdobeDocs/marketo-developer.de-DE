@@ -4,13 +4,11 @@ feature: REST API
 description: Authentifizieren Sie Marketo REST-APIs mit zwei OAuth 2.0-Legs, erstellen und verwenden Sie Zugriffstoken, wechseln Sie zum Autorisierungs-Header, verwalten Sie Ablauf, verarbeiten Sie 601- und 602-Fehler.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
 TQID: https://experienceleague.adobe.com/cIeI0m61CyIWq4HEosZ-QAsxzZb0WcrQRpCud2qysfY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: 6d9408d07557d4b7426ad72d2a886220d622fb78
 workflow-type: tm+mt
-source-wordcount: 528
+source-wordcount: 526
 ht-degree: 0%
 
 ---
@@ -61,7 +59,7 @@ Jeder REST-API-Aufruf muss ein Zugriffstoken in einer HTTP-Kopfzeile enthalten.
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. August 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wird am 31. August 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um den [Autorisierungs](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token)Header zu verwenden. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
 
 ### Wechseln zur Autorisierungs-Kopfzeile
 
@@ -83,7 +81,7 @@ curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/
 
 Speichern Sie das Zugriffstoken und den Gültigkeitszeitraum aus der Identitätsantwort. Die Verwaltung des Token-Ablaufs hilft, unerwartete Authentifizierungsfehler während des normalen Vorgangs zu vermeiden.
 
-Bevor Sie einen REST-Aufruf ausführen, überprüfen Sie die verbleibende Lebensdauer des Tokens. Wenn das Token abgelaufen ist, verlängern Sie es, indem Sie den Endpunkt [Identität](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) aufrufen. Die proaktive Verlängerung verhindert Fehler, die durch abgelaufene Token verursacht werden, und macht die REST-Aufruflatenz vorhersehbarer, was für Anwendungen, die auf Endbenutzer ausgerichtet sind, wichtig ist.
+Bevor Sie einen REST-Aufruf ausführen, überprüfen Sie die verbleibende Lebensdauer des Tokens. Wenn das Token abgelaufen ist, verlängern Sie es, indem Sie den Endpunkt [Identität](https://developer.adobe.com/marketo-apis/api/identity#tag/Identity) aufrufen. Die proaktive Verlängerung verhindert Fehler, die durch abgelaufene Token verursacht werden, und macht die REST-Aufruflatenz vorhersehbarer, was für Anwendungen, die auf Endbenutzer ausgerichtet sind, wichtig ist.
 
 Authentifizierungsfehler geben die folgenden Codes zurück:
 
