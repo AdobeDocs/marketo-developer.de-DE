@@ -3,22 +3,13 @@ title: Erste Schritte
 description: Erste Schritte mit Marketo Engage-APIs und Datenmodellen, einschließlich Leads, Aktivitäten, Programmen, Tags, Listen, REST-Anleitungen und Hinweisen zur Einstellung von SOAP.
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
 TQID: https://experienceleague.adobe.com/0lfzor5EQJ0VqIh4fqlK29OiPmRCy6fnEtncJ38r-OM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c954475c-8548-4e33-a0b8-6b550d956115
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c954475c-8548-4e33-a0b8-6b550d956115id: d1d0a9cd-295d-4976-8c39-ddae266f240eid: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550ccid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1228
+source-wordcount: 1201
 ht-degree: 2%
 
 ---
@@ -31,8 +22,7 @@ Auf dieser Seite werden die wichtigsten Marketo Engage-Entitäten und ihre Bezie
 
 >[!NOTE]
 >
->Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Juli 2026 nicht mehr verfügbar. Verwenden Sie die Marketo [REST-API](./rest-api/rest-api.md) für alle neuen Entwicklungen. Migrieren Sie bestehende Services bis zu diesem Datum, um Service-Unterbrechungen zu vermeiden. Wenn ein Service die SOAP-API verwendet, lesen Sie den Abschnitt zur SOAP[API (Migrationshandbuch](./soap-api/migration.md).
->
+>Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Verwenden Sie die Marketo [REST-API](./rest-api/rest-api.md) für alle neuen Entwicklungen.
 
 Wenn entweder die native SFDC- oder MS Dynamics CRM-Verbindung in einer Marketo Engage-Instanz aktiviert ist, sind diese Objekte schreibgeschützt:
 
@@ -59,7 +49,7 @@ Leads können mit Ihrem Unternehmen auf verschiedene Weise interagieren, z. B. i
 
 Aktivitäten sind immer mit Leads nach Lead-ID verbunden.
 
-Sie können auch benutzerdefinierte Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie Instanzen davon über die Marketo-API hinzufügen. Weitere Informationen finden Sie unter [Grundlagen zu benutzerdefinierten Aktivitäten](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
+Sie können auch benutzerdefinierte Aktivitäten definieren. Nachdem Sie eine benutzerdefinierte Aktivität erstellt und veröffentlicht haben, können Sie Instanzen davon über die Marketo-API hinzufügen. Weitere Informationen finden Sie unter [Grundlagen zu benutzerdefinierten Aktivitäten](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
@@ -79,7 +69,7 @@ Tags gruppieren und kategorisieren Programmdaten für das Reporting. Verwenden S
 
 Als Marketo-Administrator können Sie erforderliche und optionale Tag-Typen erstellen, die Benutzende beim Erstellen eines Programms auswählen. Sie definieren die möglichen Werte für jeden Tag-Typ auf der Grundlage der Berichtsanforderungen Ihres Unternehmens.
 
-Erstellen Sie beispielsweise einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie Nordost und Südost, um zu analysieren, welche Region die meisten Leads generiert. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen (wie Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [&#x200B; von Tags](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Erstellen Sie beispielsweise einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie Nordost und Südost, um zu analysieren, welche Region die meisten Leads generiert. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen (wie Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [ von Tags](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
@@ -128,7 +118,7 @@ Auf der Programm- oder Ordnerebene definierte Token werden in Marketo als „Mei
 - Vererbt: Wird auf der Kampagnenordnerebene erstellt und steht allen Programmen in diesem Ordner zur Verfügung.
 - Überschrieben: Mit einem benutzerdefinierten Wert auf Programmebene geändert, ohne den Wert des übergeordneten My Token auf Programmebene zu ändern.
 
-Meine Token verwenden die Namenskonvention `{{my.My Token}}`, wobei das Wort „my“ am Anfang des Token-Namens steht. Ein Date-Typ mit dem Namen My Token hat beispielsweise den Token-Namen `{{my.EventDate}}`. Weitere Informationen finden Sie unter [Verstehen meiner Token in einem Programm](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Meine Token verwenden die Namenskonvention `{{my.My Token}}`, wobei das Wort „my“ am Anfang des Token-Namens steht. Ein Date-Typ mit dem Namen My Token hat beispielsweise den Token-Namen `{{my.EventDate}}`. Weitere Informationen finden Sie unter [Verstehen meiner Token in einem Programm](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens)
 
@@ -144,6 +134,6 @@ Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Cus
 
 Sie können die Datensätze von Vertriebspersonen und deren Lead-Beziehungen in Marketo verwalten, wenn keine native CRM-Integration aktiviert ist. Diese Datensätze enthalten Informationen wie Name, E-Mail und Tätigkeitsbezeichnung. Wenn ein Vertriebsmitarbeiter im Besitz eines Leads ist, können Sie diese Informationen zum Filtern von - und -Token verwenden.
 
-Verwalten Sie die Beziehung zu einer Verkaufsperson auf Lead-Ebene über das Feld „externalSalesPersonId“. Aktualisieren Sie dieses Feld über die [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)-API.
+Verwalten Sie die Beziehung zu einer Verkaufsperson auf Lead-Ebene über das Feld „externalSalesPersonId“. Aktualisieren Sie dieses Feld über die [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST)-API.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)

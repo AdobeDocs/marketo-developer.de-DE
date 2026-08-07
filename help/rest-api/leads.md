@@ -4,20 +4,13 @@ feature: REST API
 description: Erkunden Sie die Funktionen der Marketo Leads-REST-API, einschließlich Beschreiben, Abfragen nach ID oder Filter, Standardfeldern, Beschränkungen und Abrufen von ECIDs.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
 TQID: https://experienceleague.adobe.com/jZ-ecWTmHwq9gvp4fMaeuuGba6cgwYx0QCCyfkrEDHQ
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2728
+source-wordcount: 2733
 ht-degree: 3%
 
 ---
@@ -72,7 +65,7 @@ GET /rest/v1/leads/describe.json
 
 Tatsächliche Antworten enthalten mehr Felder im Ergebnis-Array. Jedes Element stellt ein für den Lead-Datensatz verfügbares Feld dar und enthält mindestens eine ID, einen displayName und einen Datentyp.
 
-Die untergeordneten REST- und SOAP-Objekte werden nur angezeigt, wenn das Feld für die entsprechende API gültig ist. Die `readOnly`-Eigenschaft gibt an, ob die entsprechende API das Feld aktualisieren kann. Wenn vorhanden, gibt die Length-Eigenschaft die maximale Feldlänge an, und die DataType-Eigenschaft gibt den Datentyp des Felds an.
+Die untergeordneten REST-Objekte werden nur angezeigt, wenn das Feld für die entsprechende API gültig ist. Die `readOnly`-Eigenschaft gibt an, ob die entsprechende API das Feld aktualisieren kann. Wenn vorhanden, gibt die Length-Eigenschaft die maximale Feldlänge an, und die DataType-Eigenschaft gibt den Datentyp des Felds an.
 
 ## Abfrage
 
@@ -177,7 +170,7 @@ Die Lead-API kann Lead-Datensätze erstellen, aktualisieren und löschen. Vorgä
 
 >[!NOTE]
 >
-> Die Aktualisierung von Unternehmensfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden [&#x200B; stattdessen den Endpunkt &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST)Unternehmen synchronisieren“.
+> Die Aktualisierung von Unternehmensfeldern mit dem Endpunkt [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST) wird nicht unterstützt. Verwenden [ stattdessen den Endpunkt ](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST)Unternehmen synchronisieren“.
 
 >[!NOTE]
 >
@@ -629,7 +622,7 @@ POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 }
 ```
 
-## Lead zu Marketo pushen
+## Pushen eines Leads an Marketo
 
 Lead per Push übertragen ist eine Alternative zur Lead-Synchronisierung und bietet mehr Auslöseoptionen, ähnlich wie bei einem Marketo-Formular. Zusätzlich zur Synchronisierung von Lead-Feldern kann der Endpunkt einen Lead basierend auf einem Cookie-Wert verknüpfen. Übergeben Sie den `mkt_tok`, der durch einen Klick aus einer Marketo-E-Mail generiert wurde, oder übergeben Sie einen Programmnamen im Aufruf.
 

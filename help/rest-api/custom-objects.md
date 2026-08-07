@@ -4,22 +4,14 @@ feature: REST API, Custom Objects
 description: Erfahren Sie, wie Sie benutzerdefinierte Marketo-Objekte über die REST-API erstellen und verwalten, einschließlich Auflisten und Beschreiben von Endpunkten, Metadaten, Beziehungen, Feldern und Abfragen.
 exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
 TQID: https://experienceleague.adobe.com/NWm9CjFVqQdVDJRrnE4nA299-Lg53-JR7xvY-82dUqY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
-subfeature_v2:
-  - id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+subfeature_v2: id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2938
+source-wordcount: 2844
 ht-degree: 0%
 
 ---
@@ -28,13 +20,13 @@ ht-degree: 0%
 
 [**Benutzerdefinierter Objekt-Endpunktverweis**](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects)
 
-Benutzerdefinierte Marketo-Objekte können sich auf Marketo-Standardobjekte wie Leads und Unternehmen oder auf andere benutzerdefinierte Marketo-Objekte beziehen. Erstellen Sie benutzerdefinierte Marketo-Objekte in der [Marketo](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)Benutzeroberfläche oder mithilfe der in diesem Dokument beschriebenen API für benutzerdefinierte Objektmetadaten.
+Benutzerdefinierte Marketo-Objekte können sich auf Marketo-Standardobjekte wie Leads und Unternehmen oder auf andere benutzerdefinierte Marketo-Objekte beziehen. Erstellen Sie benutzerdefinierte Marketo-Objekte in der [Marketo](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects)Benutzeroberfläche oder mithilfe der in diesem Dokument beschriebenen API für benutzerdefinierte Objektmetadaten.
 
 Für den Zugriff auf die Metadaten-API für benutzerdefinierte Objekte ist ein geeigneter Marketo-Abonnementtyp erforderlich. Weitere Informationen erhalten Sie von Ihrem CSM.
 
 ## Liste
 
-Zusätzlich zu den standardmäßigen Aufrufen zum Beschreiben, Abfragen, Aktualisieren und Löschen für Lead-Datenbankobjekte bieten benutzerdefinierte Objekte einen [Listenaufruf](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET). Der Endpunkt gibt die benutzerdefinierten Objekte zurück, die in der Zielinstanz verfügbar sind, sowie Metadaten zu den einzelnen Objekten.
+Zusätzlich zu den standardmäßigen Aufrufen zum Beschreiben, Abfragen, Aktualisieren und Löschen für Lead-Datenbankobjekte bieten benutzerdefinierte Objekte einen [Listenaufruf](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET). Der Endpunkt gibt die benutzerdefinierten Objekte zurück, die in der Zielinstanz verfügbar sind, sowie Metadaten zu den einzelnen Objekten.
 
 ```http
 GET /rest/v1/customobjects.json
@@ -81,7 +73,7 @@ Die Antwort listet die Beziehungen für jedes Objekt auf. Jede Beziehung enthäl
 
 ## beschreiben
 
-Der [Describe call](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) für benutzerdefinierte Objekte folgt demselben Muster wie Opportunities und Unternehmen und erhält zwei Ergänzungen:
+Der [Describe call](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) für benutzerdefinierte Objekte folgt demselben Muster wie Opportunities und Unternehmen und erhält zwei Ergänzungen:
 
 - Der `apiName` Pfadparameter gibt den API-Namen des benutzerdefinierten Objekttyps an, der beschrieben werden soll.
 - Die Antwort enthält ein `relationships`-Array, das die für den benutzerdefinierten Objekttyp verfügbaren Beziehungen auflistet.
@@ -191,7 +183,7 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 
 ## Abfrage
 
-[Abfrage benutzerdefinierter Objekte](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET) unterscheidet sich geringfügig von der Abfrage anderer Lead-Datenbankobjekte. Wie im Beispiel von Describe nimmt die Anfrage einen `apiName` Pfadparameter an.
+[Abfrage benutzerdefinierter Objekte](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectsUsingGET) unterscheidet sich geringfügig von der Abfrage anderer Lead-Datenbankobjekte. Wie im Beispiel von Describe nimmt die Anfrage einen `apiName` Pfadparameter an.
 
 Senden Sie für einen normalen filterType eine GET-Anfrage mit den erforderlichen `filterType`- und `filterValues`. Sie können auch die optionalen Parameter `**fields**`, `batchSize` und `nextPageToken` einbeziehen.
 
@@ -292,9 +284,9 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 ## Erstellen und aktualisieren
 
-Verwenden Sie den Endpunkt [Benutzerdefinierte Objekte synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) um benutzerdefinierte Objekte zu erstellen oder zu aktualisieren. Geben Sie den Vorgang mit dem Parameter `action` an. Jeder Aufruf kann bis zu 300 Datensätze erstellen oder aktualisieren.
+Verwenden Sie den Endpunkt [Benutzerdefinierte Objekte synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST) um benutzerdefinierte Objekte zu erstellen oder zu aktualisieren. Geben Sie den Vorgang mit dem Parameter `action` an. Jeder Aufruf kann bis zu 300 Datensätze erstellen oder aktualisieren.
 
-Stützen Sie die Werte im `input`-Array auf die vom Endpunkt [Describe Custom Objects](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/rest/endpoint-reference#!/Custom_Objects/describeUsingGET_1) zurückgegebenen Informationen. Im Beispiel-Car-Objekt ist das einzige Deduplizierungsfeld `vin`. Wenn Sie den dedupeFields-Modus verwenden, um Datensätze zu erstellen oder zu aktualisieren, schließen Sie mindestens ein `vin` Feld in jedes Objekt im Eingabe-Array ein.
+Stützen Sie die Werte im `input`-Array auf die vom Endpunkt [Describe Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) zurückgegebenen Informationen. Im Beispiel-Car-Objekt ist das einzige Deduplizierungsfeld `vin`. Wenn Sie den dedupeFields-Modus verwenden, um Datensätze zu erstellen oder zu aktualisieren, schließen Sie mindestens ein `vin` Feld in jedes Objekt im Eingabe-Array ein.
 
 ```http
 POST /rest/v1/customobjects/{apiName}.json
@@ -365,7 +357,7 @@ Da dieses Feld vom System verwaltet wird, ist `idField` nur für den Aktionstyp 
 
 ## Löschen
 
-Um [Datensätze zu löschen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST) wählen Sie einen `deleteBy` entweder `idField` oder `dedupeFields` aus. Schließen Sie die entsprechenden Felder in jeden Datensatz im `input`-Array ein. Jeder Aufruf erlaubt maximal 300 Datensätze.
+Um [Datensätze zu löschen](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST) wählen Sie einen `deleteBy` entweder `idField` oder `dedupeFields` aus. Schließen Sie die entsprechenden Felder in jeden Datensatz im `input`-Array ein. Jeder Aufruf erlaubt maximal 300 Datensätze.
 
 ```http
 POST /rest/v1/customobjects/{apiName}/delete.json
@@ -437,7 +429,7 @@ Sie können benutzerdefinierte Metadaten des Objekttyps auf eine der folgenden A
 
 ### Typ beschreiben
 
-Der Endpunkt [Describe Custom Object Type](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) gibt Metadaten für einen benutzerdefinierten Objekttyp zurück. Der erforderliche `apiName`-Pfadparameter gibt den API-Namen des zu beschreibenden Typs an.
+Der Endpunkt [Describe Custom Object Type](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) gibt Metadaten für einen benutzerdefinierten Objekttyp zurück. Der erforderliche `apiName`-Pfadparameter gibt den API-Namen des zu beschreibenden Typs an.
 
 Wenn eine genehmigte Version vorhanden ist, gibt der Endpunkt sie zurück. Andernfalls wird die Entwurfsversion zurückgegeben. Verwenden Sie den optionalen `state`, um `draft`, `approved` oder `approvedWithDraft` anzufordern.
 
@@ -558,7 +550,7 @@ Die Antwort enthält:
 
 ### Listentypen
 
-Der Endpunkt [Benutzerdefinierte Objekttypen auflisten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) gibt Metadaten für alle benutzerdefinierten Objekttypen zurück, die in der Zielinstanz verfügbar sind. Sie ähnelt &quot;[&#x200B; benutzerdefinierte Objekte auflisten](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=de), enthält jedoch zusätzliche Metadaten wie Status, Beziehungen und Felder.
+Der Endpunkt [Benutzerdefinierte Objekttypen auflisten](https://developer.adobe.com/marketo-apis/api/mapi#operation/listCustomObjectTypesUsingGET) gibt Metadaten für alle benutzerdefinierten Objekttypen zurück, die in der Zielinstanz verfügbar sind.
 
 Wenn eine genehmigte Version vorhanden ist, gibt der Endpunkt sie zurück. Andernfalls wird die Entwurfsversion zurückgegeben.
 
@@ -744,7 +736,7 @@ GET /rest/v1/customobjects/schema.json?names=purchaseHistory
 
 #### Typ erstellen
 
-Verwenden Sie den Endpunkt [Benutzerdefinierter Objekttyp synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST), um einen benutzerdefinierten Objekttyp zu erstellen oder zu aktualisieren.
+Verwenden Sie den Endpunkt [Benutzerdefinierter Objekttyp synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectsUsingPOST), um einen benutzerdefinierten Objekttyp zu erstellen oder zu aktualisieren.
 
 Die Attribute sind:
 
@@ -865,11 +857,11 @@ POST /rest/v1/customobjects/schema.json
 
 ## Genehmigung des Typs
 
-Validieren Sie benutzerdefinierte Objekttypen, bevor Sie sie verwenden. Wenn Sie einen Typ mit dem Endpunkt [Benutzerdefinierter Objekttyp synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectTypeUsingPOST) erstellt Marketo eine Entwurfsversion. Nachdem Sie benutzerdefinierte Felder hinzugefügt haben, genehmigen Sie den Entwurf. Genehmigung erstellt eine genehmigte Version und löscht den Entwurf.
+Validieren Sie benutzerdefinierte Objekttypen, bevor Sie sie verwenden. Wenn Sie einen Typ mit dem Endpunkt [Benutzerdefinierter Objekttyp synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCustomObjectTypeUsingPOST) erstellt Marketo eine Entwurfsversion. Nachdem Sie benutzerdefinierte Felder hinzugefügt haben, genehmigen Sie den Entwurf. Genehmigung erstellt eine genehmigte Version und löscht den Entwurf.
 
 Wenn Sie einen vorhandenen Typ mit dem Endpunkt Benutzerdefinierter Objekttyp synchronisieren oder Benutzerdefinierter Objekttyp hinzufügen/aktualisieren/löschen ändern, erstellt Marketo einen Entwurf. Änderungen am Typ oder den zugehörigen Feldern wirken sich nur auf die Entwurfsversion aus. Nachdem Sie Änderungen vorgenommen haben, genehmigen Sie den Entwurf. Genehmigung ersetzt die genehmigte Version durch den Entwurf und löscht den Entwurf.
 
-Weitere Informationen finden Sie in der [Dokumentation zur benutzerdefinierten Objektgenehmigung](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
+Weitere Informationen finden Sie in der [Dokumentation zur benutzerdefinierten Objektgenehmigung](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
 
 Nachdem ein benutzerdefinierter Objekttyp genehmigt wurde, können Sie nicht mehr:
 
@@ -881,9 +873,9 @@ Planen Sie das Schema und die Namenskonvention sorgfältig, bevor Sie den Typ ge
 
 ### Typ genehmigen
 
-Verwenden Sie den Endpunkt [Benutzerdefinierten Objekttyp genehmigen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/approveCustomObjectTypeUsingPOST), um einen Entwurf als neue genehmigte Version zu veröffentlichen. Der einzige erforderliche Parameter ist der Pfadparameter **apiName**.
+Verwenden Sie den Endpunkt [Benutzerdefinierten Objekttyp genehmigen](https://developer.adobe.com/marketo-apis/api/mapi#operation/approveCustomObjectTypeUsingPOST), um einen Entwurf als neue genehmigte Version zu veröffentlichen. Der einzige erforderliche Parameter ist der Pfadparameter **apiName**.
 
-Sie können einen Typ nur genehmigen, wenn er sich im Entwurfsstatus befindet und die dokumentierten [Validierungsregeln) &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
+Sie können einen Typ nur genehmigen, wenn er sich im Entwurfsstatus befindet und die dokumentierten [Validierungsregeln) ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
 
 ```http
 POST /rest/v1/customobjects/schema/{apiName}/approve.json
@@ -899,7 +891,7 @@ POST /rest/v1/customobjects/schema/{apiName}/approve.json
 
 ### Verwerfungstyp
 
-Verwenden Sie den Endpunkt [Benutzerdefinierten Objekttyp Entwurf verwerfen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/discardCustomObjectTypeUsingPOST) zum Löschen einer Entwurfsversion. Der einzige erforderliche Parameter ist der `apiName`.
+Verwenden Sie den Endpunkt [Benutzerdefinierten Objekttyp Entwurf verwerfen](https://developer.adobe.com/marketo-apis/api/mapi#operation/discardCustomObjectTypeUsingPOST) zum Löschen einer Entwurfsversion. Der einzige erforderliche Parameter ist der `apiName`.
 
 Sie können nur einen Typ im Entwurfsstatus verwerfen. Ein genehmigter Typ kann nicht verworfen werden.
 
@@ -917,7 +909,7 @@ POST /rest/v1/customobjects/schema/{apiName}/discardDraft.json
 
 ### Typ löschen
 
-Verwenden Sie den Endpunkt [Benutzerdefinierten Objekttyp löschen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST), um eine genehmigte Version zu löschen. Der einzige erforderliche Parameter ist der `apiName`.
+Verwenden Sie den Endpunkt [Benutzerdefinierten Objekttyp löschen](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectsUsingPOST), um eine genehmigte Version zu löschen. Der einzige erforderliche Parameter ist der `apiName`.
 
 Dieser Vorgang ist zerstörerisch und kann nicht rückgängig gemacht werden. Bevor Sie einen Typ löschen, entfernen Sie seine Verwendung aus Assets wie Triggern und Filtern. Verwenden Sie den Endpunkt Benutzerdefinierte objektabhängige Assets abrufen , um die abhängigen Assets für einen Typ abzurufen.
 
@@ -946,31 +938,31 @@ Verwenden Sie die folgenden Endpunkte, um benutzerdefinierte Felder hinzuzufüge
 - Mindestens ein Deduplizierungsfeld ist erforderlich. Es sind maximal drei Deduplizierungsfelder zulässig.
 - Feld-API-Namen und Anzeigenamen können alphanumerische Zeichen und den Unterstrich „_“ enthalten.
 
-Weitere Informationen finden Sie in der [Dokumentation zu benutzerdefinierten Objektfeldern](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
+Weitere Informationen finden Sie in der [Dokumentation zu benutzerdefinierten Objektfeldern](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
 
 ### Felder hinzufügen
 
-Verwenden Sie den [Endpunkt Benutzerdefinierte Objekttypfelder hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST), um ein oder mehrere Felder zu einem benutzerdefinierten Objekt hinzuzufügen. Der Anfragetext enthält ein `input`-Array mit einem oder mehreren Elementen. Jedes Element ist ein JSON-Objekt mit Attributen, die ein Feld beschreiben.
+Verwenden Sie den [Endpunkt Benutzerdefinierte Objekttypfelder hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#operation/addCustomObjectTypeFieldsUsingPOST), um ein oder mehrere Felder zu einem benutzerdefinierten Objekt hinzuzufügen. Der Anfragetext enthält ein `input`-Array mit einem oder mehreren Elementen. Jedes Element ist ein JSON-Objekt mit Attributen, die ein Feld beschreiben.
 
 Die Feldattribute sind:
 
 - `name`: Erforderlich. Der API-Name des Felds, der für das benutzerdefinierte Objekt eindeutig sein muss. Verwenden Sie Kleinbuchstaben oder Binnenmajuskeln, um den Namen von anderen Textzeichenfolgen zu unterscheiden.
 - `displayName`: Erforderlich. Der für Menschen lesbare Feldname, der für das benutzerdefinierte Objekt eindeutig sein muss.
-- `dataType`: Erforderlich. Der Datentyp des Felds. Verwenden Sie den [Endpunkt Benutzerdefinierte Objekttyp-Felddatentypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) um die zulässigen Datentypen abzurufen.
+- `dataType`: Erforderlich. Der Datentyp des Felds. Verwenden Sie den [Endpunkt Benutzerdefinierte Objekttyp-Felddatentypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeFieldDataTypesUsingGET) um die zulässigen Datentypen abzurufen.
 - `description`: Optional. Die Feldbeschreibung.
 - `isDedupeField`: Optionaler boolescher Wert, der angibt, ob das Feld während Aktualisierungsvorgängen für benutzerdefinierte Objekte für die Deduplizierung verwendet wird. Der Standardwert lautet „false“. Für 1-zu-viele-Beziehungen ist ein Deduplizierungsfeld erforderlich.
 - `relatedTo`: Optionales Objekt, das ein Verknüpfungsfeld angibt. Bei einer Eins-zu-Viele-Beziehung identifiziert `name` das „Verknüpfungsobjekt“ oder das übergeordnete Objekt und `field` das „Verknüpfungsfeld“ oder Schlüsselfeld im übergeordneten Objekt.
 
-Benutzerdefinierte Objekte können Felder mit dem Datentyp „link“ enthalten. Verknüpfungsfelder stellen Beziehungen zwischen benutzerdefinierten Objekten und anderen Objekttypen wie Lead und Unternehmen her. Einzelheiten zu [&#x200B; finden Sie in der &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields) zu benutzerdefinierten Objektfeldern . Verwenden Sie den Endpunkt [Benutzerdefinierte Objekte verknüpfbar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET), um die zulässigen Link-Objekte abzurufen.
+Benutzerdefinierte Objekte können Felder mit dem Datentyp „link“ enthalten. Verknüpfungsfelder stellen Beziehungen zwischen benutzerdefinierten Objekten und anderen Objekttypen wie Lead und Unternehmen her. Einzelheiten zu [ finden Sie in der ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields) zu benutzerdefinierten Objektfeldern . Verwenden Sie den Endpunkt [Benutzerdefinierte Objekte verknüpfbar](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET), um die zulässigen Link-Objekte abzurufen.
 
-Ein benutzerdefiniertes Objekt kann nicht mit einem anderen benutzerdefinierten Objekt verknüpft werden, das über ein vorhandenes Verknüpfungsfeld verfügt. Weitere Informationen finden Sie in der [Dokumentation zu Verknüpfungsfeldern](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
+Ein benutzerdefiniertes Objekt kann nicht mit einem anderen benutzerdefinierten Objekt verknüpft werden, das über ein vorhandenes Verknüpfungsfeld verfügt. Weitere Informationen finden Sie in der [Dokumentation zu Verknüpfungsfeldern](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
 
 ### Eins-zu-viele-Beziehung
 
-Bei einer Eins-zu-viele-Objektstruktur können Sie ein Verknüpfungsfeld verwenden, um ein benutzerdefiniertes Objekt mit einem standardmäßigen Lead- oder Firmenobjekt zu verbinden. Der folgende Workflow verwendet das [Beispiel für Fahrzeugbesitzer](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) um ein benutzerdefiniertes Objekt zu erstellen, das Autoinformationen speichert und eine Verbindung zu Leads herstellt.
+Bei einer Eins-zu-viele-Objektstruktur können Sie ein Verknüpfungsfeld verwenden, um ein benutzerdefiniertes Objekt mit einem standardmäßigen Lead- oder Firmenobjekt zu verbinden. Der folgende Workflow verwendet das [Beispiel für Fahrzeugbesitzer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) um ein benutzerdefiniertes Objekt zu erstellen, das Autoinformationen speichert und eine Verbindung zu Leads herstellt.
 
 1. Erstellen Sie ein **Car**-Objekt.
-1. Fügen Sie Felder zum **Car**-Objekt hinzu: dedupe on **VIN** und link to **Lead**&#x200B;**/Lead ID**.
+1. Fügen Sie Felder zum **Car**-Objekt hinzu: dedupe on **VIN** und link to **Lead****/Lead ID**.
 1. Genehmigen Sie das **Car**-Objekt.
 
 Erstellen Sie zunächst den benutzerdefinierten Objekttyp, der autospezifische Informationen enthält.
@@ -1074,13 +1066,13 @@ Bei einer Viele-zu-viele-Beziehung wird ein benutzerdefiniertes Objekt „Brück
 
 Das Bridge-Objekt löst die Beziehung mit zwei Verknüpfungsfeldern auf. Ein Feld verweist auf das übergeordnete Standardobjekt, wie in einer Eins-zu-Viele-Beziehung. Der andere zeigt auf das Edge-Objekt, das ein benutzerdefiniertes Objekt ohne Verknüpfungen ist. Das Bridge-Objekt kann auch beschreibende Felder enthalten.
 
-Der folgende Workflow verwendet das [Beispiel für eine Registrierung für einen College-Kurs](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure). Es werden ein Kurs-Edge-Objekt und ein Registrierungsbrücken-Objekt erstellt, das Kurse mit Leads verbindet.
+Der folgende Workflow verwendet das [Beispiel für eine Registrierung für einen College-Kurs](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure). Es werden ein Kurs-Edge-Objekt und ein Registrierungsbrücken-Objekt erstellt, das Kurse mit Leads verbindet.
 
 1. Erstellen Sie **Edge** Objekt „Kurs“.
 1. Fügen Sie Felder zu **Kurs:** Deduplizierung auf **Kurs-ID)**.
 1. Approve **COURSE**.
 1. Erstellen Sie ein **Enrollment**-Brückenobjekt.
-1. Fügen Sie Felder zu **Registrierung:** Deduplizierung für **Registrierungs-ID**, einen Link zum **Kurs**&#x200B;**/Kurs-ID**-Feld und einen Link zu **Lead**&#x200B;**/Lead-ID** hinzu.
+1. Fügen Sie Felder zu **Registrierung:** Deduplizierung für **Registrierungs-ID**, einen Link zum **Kurs****/Kurs-ID**-Feld und einen Link zu **Lead****/Lead-ID** hinzu.
 1. Genehmigen **Registrierung**.
 
 Erstellen Sie zunächst den Edge-Objekttyp, der kursspezifische Informationen enthält:
@@ -1259,11 +1251,11 @@ POST /rest/v1/customobjects/schema/enrollment/approve.json
 }
 ```
 
-Programmgesteuertes Füllen von benutzerdefinierten Objektdatensätzen mithilfe von [Benutzerdefiniertes Objekt synchronisieren](#create_and_update) oder [Massenimport benutzerdefinierter Objekte](https://experienceleague.adobe.com/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import.html?lang=de). Alternativ können Sie [Benutzerdefinierte Objektdaten importieren](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/import-custom-object-data) in der Marketo-Benutzeroberfläche verwenden.
+Programmgesteuertes Füllen von benutzerdefinierten Objektdatensätzen mithilfe von [Benutzerdefiniertes Objekt synchronisieren](#create_and_update) oder [Massenimport benutzerdefinierter Objekte](https://experienceleague.adobe.com/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import.html?lang=en). Alternativ können Sie [Benutzerdefinierte Objektdaten importieren](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/import-custom-object-data) in der Marketo-Benutzeroberfläche verwenden.
 
 ## Feld aktualisieren
 
-Verwenden Sie den [Endpunkt Benutzerdefiniertes Objekttyp-Feld aktualisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/updateCustomObjectTypeFieldUsingPOST), um ein Feld in einem benutzerdefinierten Entwurfsobjekt zu aktualisieren.
+Verwenden Sie den [Endpunkt Benutzerdefiniertes Objekttyp-Feld aktualisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/updateCustomObjectTypeFieldUsingPOST), um ein Feld in einem benutzerdefinierten Entwurfsobjekt zu aktualisieren.
 
 Die erforderlichen Pfadparameter sind:
 
@@ -1293,7 +1285,7 @@ POST /rest/v1/customobjects/schema/{apiName}/{fieldApiName}/updateField.json
 
 ## Felder löschen
 
-Verwenden Sie den Endpunkt [Benutzerdefinierte Objekttypfelder löschen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectTypeFieldsUsingPOST), um ein oder mehrere Felder aus einem benutzerdefinierten Objekt zu löschen. Der erforderliche `apiName`-Pfadparameter gibt den API-Namen des benutzerdefinierten Objekttyps an.
+Verwenden Sie den Endpunkt [Benutzerdefinierte Objekttypfelder löschen](https://developer.adobe.com/marketo-apis/api/mapi#operation/deleteCustomObjectTypeFieldsUsingPOST), um ein oder mehrere Felder aus einem benutzerdefinierten Objekt zu löschen. Der erforderliche `apiName`-Pfadparameter gibt den API-Namen des benutzerdefinierten Objekttyps an.
 
 Der Anfragetext enthält ein JSON-Objekt mit einem `input` Array aus einem oder mehreren Elementen. Jedes Element ist ein JSON-Objekt, dessen `name` den API-Namen eines zu löschenden Felds angibt.
 
@@ -1325,7 +1317,7 @@ POST /rest/v1/customobjects/schema/{apiName}/deleteField.json
 
 ## Auflisten von Felddatentypen
 
-Der Endpunkt [Abrufen benutzerdefinierter Objekttyp-Felddatentypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET) gibt alle zulässigen Felddatentypen zurück. Verwenden Sie diesen Endpunkt, um die benutzerdefinierten Felddatentypen zu identifizieren, die beim Modellieren eines benutzerdefinierten Objekttyps verfügbar sind.
+Der Endpunkt [Abrufen benutzerdefinierter Objekttyp-Felddatentypen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeFieldDataTypesUsingGET) gibt alle zulässigen Felddatentypen zurück. Verwenden Sie diesen Endpunkt, um die benutzerdefinierten Felddatentypen zu identifizieren, die beim Modellieren eines benutzerdefinierten Objekttyps verfügbar sind.
 
 ```http
 GET /rest/v1/customobjects/schema/fieldDataTypes.json
@@ -1353,7 +1345,7 @@ GET /rest/v1/customobjects/schema/fieldDataTypes.json
 
 ## Auflisten verknüpfbarer benutzerdefinierter Objekte
 
-Der Endpunkt [Benutzerdefinierte Objekte verknüpfbar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) gibt alle zulässigen Link-Objekte und deren Verknüpfungsfelder zurück. Die Antwort enthält Standardobjekte wie Lead und Unternehmen sowie alle in der Instanz erstellten benutzerdefinierten Objekte.
+Der Endpunkt [Benutzerdefinierte Objekte verknüpfbar](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeLinkableObjectsUsingGET) gibt alle zulässigen Link-Objekte und deren Verknüpfungsfelder zurück. Die Antwort enthält Standardobjekte wie Lead und Unternehmen sowie alle in der Instanz erstellten benutzerdefinierten Objekte.
 
 ```http
 GET /rest/v1/customobjects/schema/linkableObjects.json
@@ -1543,7 +1535,7 @@ GET /rest/v1/customobjects/schema/linkableObjects.json
 
 ## Abrufen benutzerdefinierter objektabhängiger Assets
 
-Der Endpunkt [Benutzerdefiniertes objektabhängiges Assets abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectTypeDependentAssetsUsingGET) gibt die abhängigen Assets eines benutzerdefinierten Objekttyps und ihre Speicherorte in der -Instanz zurück. Verwenden Sie ihn beim Entfernen einer Integration, um überall dort zu identifizieren, wo ein benutzerdefinierter Objekttyp verwendet wird.
+Der Endpunkt [Benutzerdefiniertes objektabhängiges Assets abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getCustomObjectTypeDependentAssetsUsingGET) gibt die abhängigen Assets eines benutzerdefinierten Objekttyps und ihre Speicherorte in der -Instanz zurück. Verwenden Sie ihn beim Entfernen einer Integration, um überall dort zu identifizieren, wo ein benutzerdefinierter Objekttyp verwendet wird.
 
 ```http
 GET /rest/v1/customobjects/schema/{apiName}/dependentAssets.json

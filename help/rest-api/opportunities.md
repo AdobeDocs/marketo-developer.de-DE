@@ -4,17 +4,13 @@ feature: REST API
 description: Marketo-REST-API zum Beschreiben, Abfragen, Erstellen und Aktualisieren von Opportunities, Deduplizierung und durchsuchbaren Feldern, Einschränkungen und schreibgeschütztem Verhalten bei der SFDC- oder Dynamics-Synchronisierung.
 exl-id: 46451285-4125-4857-890a-575069a68288
 TQID: https://experienceleague.adobe.com/rBDJcXWQrN5qyKRWHyzVC-sc9BH2mQFLm7fKUk-NUn8
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 708
+source-wordcount: 702
 ht-degree: 0%
 
 ---
@@ -27,7 +23,7 @@ Marketo bietet APIs zum Lesen, Schreiben, Erstellen und Aktualisieren von Opport
 
 Die -API macht beide Objekttypen verfügbar. Wie die meisten Lead-Datenbank-Objekttypen verfügt jeder über einen entsprechenden Describe-Aufruf, der Objektmetadaten zurückgibt.
 
-Opportunity-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert ist.
+Opportunity-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert ist.
 
 ## beschreiben
 
@@ -100,7 +96,7 @@ Die wichtigsten Antwortfelder sind:
 
 ## Abfrage
 
-Das Muster für [Abfrage von Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) folgt der Leads-API. Der `filterType` akzeptiert jedoch nur Felder, die im `searchableFields`-Array der entsprechenden Describe-Antwort oder dedupeFields aufgeführt sind.
+Das Muster für [Abfrage von Opportunities](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunitiesUsingGET) folgt der Leads-API. Der `filterType` akzeptiert jedoch nur Felder, die im `searchableFields`-Array der entsprechenden Describe-Antwort oder dedupeFields aufgeführt sind.
 
 Bei benutzerdefinierten Opportunity-Feldern werden nur Felder des Typs „String“ oder „Integer“ im Array „searchableFields“ angezeigt.
 
@@ -221,7 +217,7 @@ Abfragen eines Unternehmensfelds nach API-Namen oder Abrufen aller Unternehmensf
 
 #### Nach Name
 
-Der Endpunkt [Feld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) ruft Metadaten für ein Feld im Firmenobjekt ab. Der erforderliche `fieldApiName`-Pfadparameter gibt den API-Namen des Felds an.
+Der Endpunkt [Feld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldByNameUsingGET) ruft Metadaten für ein Feld im Firmenobjekt ab. Der erforderliche `fieldApiName`-Pfadparameter gibt den API-Namen des Felds an.
 
 Die Antwort ähnelt der Antwort von „Opportunity beschreiben“, enthält jedoch zusätzliche Metadaten. Beispielsweise gibt das `isCustom`-Attribut an, ob das Feld benutzerdefiniert ist.
 
@@ -252,7 +248,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Durchsuchen
 
-Der Endpunkt [Chancen-Felder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) ruft Metadaten für alle Felder im Unternehmensobjekt ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den `batchSize` Abfrageparameter, um diese Zahl zu reduzieren.
+Der Endpunkt [Chancen-Felder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getOpportunityFieldsUsingGET) ruft Metadaten für alle Felder im Unternehmensobjekt ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den `batchSize` Abfrageparameter, um diese Zahl zu reduzieren.
 
 Wenn das `moreResult` „true“ ist, sind weitere Ergebnisse verfügbar. Fahren Sie mit dem Aufruf des Endpunkts mit dem zurückgegebenen `nextPageToken` fort, bis moreResult den Wert „false“ hat.
 

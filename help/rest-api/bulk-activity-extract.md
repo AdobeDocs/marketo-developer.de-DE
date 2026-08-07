@@ -4,19 +4,13 @@ feature: REST API
 description: Marketo Bulk Activity Extract REST-API zum Exportieren von Aktivitätsdaten mit hohem Volumen unter Verwendung eines 31-tägigen Datumsbereichs, Aktivität und primären Attributfiltern für ETL und CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
 TQID: https://experienceleague.adobe.com/lIlXNjatN-F77Dv3xsVkQ3hAWwLZ4wlSW0zKNkFJFMA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-  - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: e64968b2-4ee5-47f9-8cae-0588f184b9ebid: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1268
+source-wordcount: 1212
 ht-degree: 7%
 
 ---
@@ -36,20 +30,20 @@ Der API-Benutzer muss über die Berechtigung „Schreibgeschützte Aktivität“
 | Filtertyp | Datentyp | Erforderlich | Hinweise |
 | --- | --- | --- | --- |
 | `createdAt` | Datumsbereich | Ja | Ein JSON-Objekt, das `startAt` und `endAt` enthält. `startAt` ist die Datetime mit niedrigem Wasserzeichen und `endAt` die Datetime mit hohem Wasserzeichen. Der Bereich muss 31 Tage oder weniger betragen. Der Auftrag gibt alle Datensätze zurück, auf die innerhalb des Datumsbereichs zugegriffen werden kann. Verwenden Sie ISO-8601-Datetime-Werte ohne Millisekunden. |
-| `activityTypeIds` | Array\[Ganzzahl\] | Nein | Ein Array von Ganzzahlen für die angeforderten Aktivitätstypen. „Lead löschen“ wird nicht unterstützt. Verwenden Sie stattdessen den Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET). Rufen Sie Aktivitätstyp-IDs mit dem Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) ab. |
-| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Ganzzahl\] | Nein | Ein Array, das maximal 50 IDs für primäre Attribute akzeptiert. Jede ID identifiziert ein Lead-Feld oder Asset eindeutig. Rufen Sie IDs durch Aufrufen des entsprechenden REST-API-Endpunkts ab. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie den Formularnamen an den Endpunkt [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) um die Formular-ID abzurufen. Siehe [primaryAttributeValueIds-Optionen](#primaryattributevalueids-options) für unterstützte Aktivitätstypen. |
-| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | Nein | Ein Array, das maximal 50 Namen für primäre Attribute akzeptiert. Jeder Name identifiziert ein Lead-Feld oder Asset eindeutig. Rufen Sie Namen ab, indem Sie den entsprechenden REST-API-Endpunkt aufrufen. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie die Formular-ID an den Endpunkt [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) um den Formularnamen abzurufen. Siehe [primaryAttributeValues](#primaryattributevalues-options) für unterstützte Aktivitätstypen. |
+| `activityTypeIds` | Array\[Ganzzahl\] | Nein | Ein Array von Ganzzahlen für die angeforderten Aktivitätstypen. „Lead löschen“ wird nicht unterstützt. Verwenden Sie stattdessen den Endpunkt [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET). Rufen Sie Aktivitätstyp-IDs mit dem Endpunkt [Aktivitätstypen abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET) ab. |
+| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[Ganzzahl\] | Nein | Ein Array, das maximal 50 IDs für primäre Attribute akzeptiert. Jede ID identifiziert ein Lead-Feld oder Asset eindeutig. Rufen Sie IDs durch Aufrufen des entsprechenden REST-API-Endpunkts ab. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie den Formularnamen an den Endpunkt [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET) um die Formular-ID abzurufen. Siehe [primaryAttributeValueIds-Optionen](#primaryattributevalueids-options) für unterstützte Aktivitätstypen. |
+| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | Nein | Ein Array, das maximal 50 Namen für primäre Attribute akzeptiert. Jeder Name identifiziert ein Lead-Feld oder Asset eindeutig. Rufen Sie Namen ab, indem Sie den entsprechenden REST-API-Endpunkt aufrufen. Um beispielsweise nach einem bestimmten Formular für die Aktivität „Formular ausfüllen“ zu filtern, übergeben Sie die Formular-ID an den Endpunkt [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET) um den Formularnamen abzurufen. Siehe [primaryAttributeValues](#primaryattributevalues-options) für unterstützte Aktivitätstypen. |
 
 ### primaryAttributeValueIds-Optionen {#primaryattributevalueids-options}
 
 | Aktivitätstyp | Primäre Attributwert-ID | Retrieval-Endpunkt | Asset-Gruppe |
 | --- | --- | --- | --- |
-| Datenwert ändern | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributname |
-| Ändern von Bewertung | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributname |
-| Status in Entwicklung ändern | Programm-ID | [Programm nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET) | Marketingprogramm |
-| Hinzufügen zur Liste | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
-| Entfernen aus Liste | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statische Liste |
-| Formular ausfüllen | Formular-ID | [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) | Webformular |
+| Datenwert ändern | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attributname |
+| Ändern von Bewertung | Lead-Feld-ID | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attributname |
+| Status in Entwicklung ändern | Programm-ID | [Programm nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByNameUsingGET) | Marketingprogramm |
+| Hinzufügen zur Liste | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByNameUsingGET) | Statische Liste |
+| Entfernen aus Liste | Statische Listen-ID | [Statische Liste nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByNameUsingGET) | Statische Liste |
+| Formular ausfüllen | Formular-ID | [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET) | Webformular |
 
 Wenn Sie `primaryAttributeValueIds` verwenden, müssen Sie auch den `activityTypeIds` Filter einbeziehen. Dieser Filter kann nur Aktivitäts-IDs enthalten, die der entsprechenden Asset-Gruppe entsprechen. Wenn Sie beispielsweise Web-Formular-Assets filtern, können `activityTypeIds` nur die Aktivitätstyp-ID „Formular ausfüllen“ enthalten.
 
@@ -78,12 +72,12 @@ Die folgende Anfrage enthält den `primaryAttributeValueIds`:
 
 | Aktivitätstyp | Primärer Attributwert | Retrieval-Endpunkt | Asset-Gruppe |
 | --- | --- | --- | --- |
-| Datenwert ändern | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributname |
-| Ändern von Bewertung | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributname |
-| Status in Entwicklung ändern | Programmname | [Programm nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) | Marketingprogramm |
-| Hinzufügen zur Liste | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
-| Entfernen aus Liste | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statische Liste |
-| Formular ausfüllen | Formularname | [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET) | Webformular |
+| Datenwert ändern | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attributname |
+| Ändern von Bewertung | Lead-Feld displayName | [Lead beschreiben](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_2) | Attributname |
+| Status in Entwicklung ändern | Programmname | [Programm nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getProgramByIdUsingGET) | Marketingprogramm |
+| Hinzufügen zur Liste | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByIdUsingGET) | Statische Liste |
+| Entfernen aus Liste | Name der statischen Liste | [Statische Liste nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getStaticListByIdUsingGET) | Statische Liste |
+| Formular ausfüllen | Formularname | [Formular nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET) | Webformular |
 
 Verwenden Sie `&lt;program&gt;.&lt;asset&gt;` Notation, um Namen für die Asset-Gruppen des Marketing-Programms, der statischen Liste und des Web-Formulars anzugeben. Geben Sie beispielsweise das Formular „MPS Outbound“ im Programm „GL_OP_ALL_2021“ als „GL_OP_ALL_2021.MPS Outbound“ an.
 
@@ -121,7 +115,7 @@ Wenn Sie `primaryAttributeValues` verwenden, müssen Sie auch den `activityTypeI
 
 ## Erstellen von Aufträgen
 
-Erstellen Sie einen Exportvorgang, um die abzurufenden Datensätze zu definieren. Verwenden [&#x200B; Endpunkts „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).
+Erstellen Sie einen Exportvorgang, um die abzurufenden Datensätze zu definieren. Verwenden [ Endpunkts „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST).
 
 Für jeden Auftrag ist ein `createdAt` erforderlich. Die Parameter `startAt` und `endAt` Datum/Uhrzeit definieren die frühesten und letzten zulässigen Erstellungsdaten für Aktivitäten. Um nicht relevante Aktivitätstypen auszuschließen, schließen Sie auch den optionalen `activityTypeIds` ein.
 
@@ -166,7 +160,7 @@ POST /bulk/v1/activities/export/create.json
 
 Die Antwort gibt einen `exportId` und den Status „Erstellt“ zurück. Ein erstellter Auftrag befindet sich noch nicht in der Verarbeitungswarteschlange.
 
-Um den Auftrag zur Warteschlange hinzuzufügen, rufen Sie den Endpunkt [Exportaktivitätsauftrag in die Warteschlange einreihen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) mit dem `exportId` aus der Erstellungsantwort auf.
+Um den Auftrag zur Warteschlange hinzuzufügen, rufen Sie den Endpunkt [Exportaktivitätsauftrag in die Warteschlange einreihen](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportActivitiesUsingPOST) mit dem `exportId` aus der Erstellungsantwort auf.
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -194,7 +188,7 @@ Der Antwortstatus ist jetzt „In Warteschlange“. Wenn ein Worker verfügbar i
 
 Der Auftragsstatus kann nur für Aufträge abgerufen werden, die vom selben API-Benutzer erstellt wurden.
 
-Bulk Activity Extract verarbeitet Aufträge asynchron. Abfrage des Endpunkts [Exportaktivitätsstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) um festzustellen, wann ein Auftrag abgeschlossen ist:
+Bulk Activity Extract verarbeitet Aufträge asynchron. Abfrage des Endpunkts [Exportaktivitätsstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportActivitiesStatusUsingGET) um festzustellen, wann ein Auftrag abgeschlossen ist:
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -232,7 +226,7 @@ Das Feld `status` gibt einen der folgenden Werte zurück:
 
 ## Daten abrufen
 
-Wenn der Auftragsstatus „Abgeschlossen“ ist, rufen Sie die exportierten Daten mit dem Endpunkt [Exportaktivitätsdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET) ab:
+Wenn der Auftragsstatus „Abgeschlossen“ ist, rufen Sie die exportierten Daten mit dem Endpunkt [Exportaktivitätsdatei abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportActivitiesFileUsingGET) ab:
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -254,7 +248,7 @@ Beim teilweisen oder wiederaufnehmbaren Abrufen unterstützt der Datei-Endpunkt 
 
 ## Abbrechen von Aufträgen
 
-Um einen falsch konfigurierten oder unnötigen Auftrag zu stoppen, rufen Sie den Endpunkt [Exportaktivitätsauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) auf:
+Um einen falsch konfigurierten oder unnötigen Auftrag zu stoppen, rufen Sie den Endpunkt [Exportaktivitätsauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportActivitiesUsingPOST) auf:
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json

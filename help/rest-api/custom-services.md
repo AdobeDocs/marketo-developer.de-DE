@@ -4,24 +4,20 @@ feature: REST API
 description: Erstellen Sie benutzerdefinierte Marketo-Services, legen Sie Rollen und Berechtigungen nur für APIs fest, rufen Sie die Client-ID und das Client-Geheimnis in LaunchPoint ab und erhalten Sie Zugriffstoken.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
 TQID: https://experienceleague.adobe.com/lvT-8bYucf-K5LYxb5jQ7BHc137W71SvsGg7cWJlxEs
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 894
+source-wordcount: 890
 ht-degree: 9%
 
 ---
 
 # Benutzerdefinierte Services
 
-Ein benutzerdefinierter Dienst stellt die Anmeldeinformationen bereit, die zur Authentifizierung bei Marketo und zum Abrufen eines Zugriffstokens vom Marketo ([&#x200B; Service) verwendet &#x200B;](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzigen Benutzer (nur API) beschränkt und leitet seine Berechtigungen von diesem Benutzer ab.
+Ein benutzerdefinierter Dienst stellt die Anmeldeinformationen bereit, die zur Authentifizierung bei Marketo und zum Abrufen eines Zugriffstokens vom Marketo ([ Service) verwendet ](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzigen Benutzer (nur API) beschränkt und leitet seine Berechtigungen von diesem Benutzer ab.
 
 ## Rollen
 
@@ -79,7 +75,7 @@ Geben Sie dem Dienst einen beschreibenden Namen. Wählen Sie in der Liste „Ser
 
 Der Service wird in der Liste der LaunchPoint-Services mit der Option „Details anzeigen“ angezeigt. Wählen Sie „Details anzeigen“ aus, um auf die Optionen „Client-ID“, „Client-Geheimnis“, „Eigentümer des Benutzers“ und „Token abrufen“ zuzugreifen.
 
-Verwenden Sie das Token „get“ für kurzfristige Tests. Das Token hat dieselbe Lebensdauer wie Token, die vom [Identity Service](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET) abgerufen wurden, und ist nach der Erstellung 3.600 Sekunden lang gültig.
+Verwenden Sie das Token „get“ für kurzfristige Tests. Das Token hat dieselbe Lebensdauer wie Token, die vom [Identity Service](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET) abgerufen wurden, und ist nach der Erstellung 3.600 Sekunden lang gültig.
 
 ![Token abrufen](assets/get-token.png)
 

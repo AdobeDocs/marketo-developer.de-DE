@@ -4,15 +4,12 @@ feature: REST API
 description: Handbuch zu Marketo REST-API-Dateien, Abfrage nach ID oder Namen, Durchsuchen von Ordner und Versatz, Erstellen oder Aktualisieren über mehrteiligen Upload, insertOnly, MIME-Typen, kein Streaming
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
 TQID: https://experienceleague.adobe.com/qH8zFwjJkTWHlCj1VHNiTiLK3mNOJFS83cnjEj2qjpA
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 274
+source-wordcount: 263
 ht-degree: 1%
 
 ---
@@ -27,7 +24,7 @@ Der Marketo-Dateispeicher ist nicht für bandbreitenintensive Anwendungen optimi
 
 ## Abfrage
 
-Abfragedateien [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFileByNameUsingGET) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/getFilesUsingGET).
+Abfragedateien [nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFileByNameUsingGET) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getFilesUsingGET).
 
 ### Nach ID
 
@@ -164,7 +161,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Erstellen und aktualisieren
 
-Verwenden Sie eine `multipart/form-data` Anfrage, um [eine Datei zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Files/operation/createFileUsingPOST). Die Parameter `name`, `folder` und `file` sind erforderlich. Die Parameter `description` und `insertOnly` sind optional. Wenn „true“, verhindert `insertOnly`, dass die Anfrage eine vorhandene Datei mit demselben Namen aktualisiert.
+Verwenden Sie eine `multipart/form-data` Anfrage, um [eine Datei zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createFileUsingPOST). Die Parameter `name`, `folder` und `file` sind erforderlich. Die Parameter `description` und `insertOnly` sind optional. Wenn „true“, verhindert `insertOnly`, dass die Anfrage eine vorhandene Datei mit demselben Namen aktualisiert.
 
 Fügen Sie als `file`-Parameter einen `filename` in die `Content-Disposition` ein. Schließen Sie auch die `Content-Type`-Kopfzeile der Datei ein. Marketo verwendet diesen MIME-Typ beim Bereitstellen der Datei.
 
@@ -219,7 +216,7 @@ This is a test file
 }
 ```
 
-Um [Datei zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/File-Contents/operation/updateContentUsingPOST) geben Sie die Kennung an. Der `file`-Parameter hat dieselben Anforderungen wie die Dateierstellung.
+Um [Datei zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateContentUsingPOST) geben Sie die Kennung an. Der `file`-Parameter hat dieselben Anforderungen wie die Dateierstellung.
 
 ```http
 POST /rest/asset/v1/file/{id}/content.json

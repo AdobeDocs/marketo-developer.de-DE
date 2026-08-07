@@ -4,18 +4,13 @@ feature: REST API, Snippets
 description: Marketo Asset REST-API für Snippets, die die Abfrage nach ID und das Durchsuchen mit dem Status, das Abrufen von Inhalten, das Erstellen und Aktualisieren von HTML-, Text- und dynamischen Inhalten behandelt.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
 TQID: https://experienceleague.adobe.com/1UpwX-ZzXTzkTRheu8exBDIoIvAGgoZgpA851PuL8sI
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-  - id: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dcid: bce87dde-a4ab-44c9-8a18-ad66e4ddb377
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 386
+source-wordcount: 376
 ht-degree: 3%
 
 ---
@@ -28,7 +23,7 @@ Snippets sind wiederverwendbare HTML-Komponenten, die in E-Mails und Landingpage
 
 ## Abfrage
 
-Abfrage-Snippets [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) oder durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET). Die -API stellt keine Methode zur Abfrage nach Namen bereit. Beide Endpunkte akzeptieren das Feld `status` , um eine genehmigte Version oder einen Entwurf abzurufen.
+Abfrage-Snippets [nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetByIdUsingGET) oder durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getSnippetUsingGET). Die -API stellt keine Methode zur Abfrage nach Namen bereit. Beide Endpunkte akzeptieren das Feld `status` , um eine genehmigte Version oder einen Entwurf abzurufen.
 
 ### Nach ID
 
@@ -153,7 +148,7 @@ Die Antwort enthält Abschnitte vom Typ `HTML` oder `DynamicContent`. Sie kann a
 
 ## Erstellen und aktualisieren
 
-Erstellen Sie das Snippet-Asset und seinen Inhalt separat. Rufen Sie zunächst den Endpunkt [Ausschnitt erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST) auf. Die Beschreibung ist optional. Übergeben Sie Daten als `x-www-form-urlencoded`, nicht als JSON.
+Erstellen Sie das Snippet-Asset und seinen Inhalt separat. Rufen Sie zunächst den Endpunkt [Ausschnitt erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createSnippetUsingPOST) auf. Die Beschreibung ist optional. Übergeben Sie Daten als `x-www-form-urlencoded`, nicht als JSON.
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -225,7 +220,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-Um [Metadaten zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST) geben Sie die Snippet-ID an. Sie können nur den Namen und die Beschreibung aktualisieren.
+Um [Metadaten zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateSnippetUsingPOST) geben Sie die Snippet-ID an. Sie können nur den Namen und die Beschreibung aktualisieren.
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -416,7 +411,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Klonen
 
-Um [einen Ausschnitt zu klonen](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST) geben Sie einen Namen, die Quell-Ausschnitt-ID und einen Ordner an. Die Beschreibung ist optional. Wenn die Quelle keine genehmigte Version hat, klont der Endpunkt ihren Entwurf.
+Um [einen Ausschnitt zu klonen](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSnippetUsingPOST) geben Sie einen Namen, die Quell-Ausschnitt-ID und einen Ordner an. Die Beschreibung ist optional. Wenn die Quelle keine genehmigte Version hat, klont der Endpunkt ihren Entwurf.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json

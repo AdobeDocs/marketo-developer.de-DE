@@ -4,13 +4,11 @@ feature: REST API, Tokens
 description: Meine Marketo-Token mit der Asset-REST-API verwalten Siehe Unterstützte Datentypen, Nach Ordner oder Programm abrufen, Erstellen oder Aktualisieren über einen formularkodierten POST und Löschen nach Namen.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
 TQID: https://experienceleague.adobe.com/uqOpu2vDuiQiZhILKuxZJQGadd0K14zwIaAdmNfK1-I
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 290
+source-wordcount: 284
 ht-degree: 4%
 
 ---
@@ -40,7 +38,7 @@ Die API unterstützt beim Erstellen eines Tokens nur diese Datentypen.
 
 ## Abfrage
 
-[Token nach Ordner-ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/getTokensByFolderIdUsingGET) nimmt die ID eines Programms oder Ordners als Pfadparameter. Geben Sie den Typ mithilfe des `folderType`-Parameters an.
+[Token nach Ordner-ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getTokensByFolderIdUsingGET) nimmt die ID eines Programms oder Ordners als Pfadparameter. Geben Sie den Typ mithilfe des `folderType`-Parameters an.
 
 ```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
@@ -73,7 +71,7 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 ## Erstellen und aktualisieren
 
-Der Endpunkt [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/addTokenTOFolderUsingPOST) erstellt ein Token oder aktualisiert ein vorhandenes Token mit den gesendeten Werten. Token gehören zu einem Ordner oder Programm.
+Der Endpunkt [Token erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/addTokenTOFolderUsingPOST) erstellt ein Token oder aktualisiert ein vorhandenes Token mit den gesendeten Werten. Token gehören zu einem Ordner oder Programm.
 
 Der `id` Pfadparameter identifiziert den übergeordneten Ordner. Die Parameter `name`, `type`, `value` und `folderType` sind erforderlich. Übergeben Sie die Daten als POST-`x-www-form-urlencoded`, nicht als JSON. Der Token-`name` darf nicht länger als 50 Zeichen sein.
 
@@ -116,7 +114,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Löschen
 
-[Token nach Namen löschen](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens/operation/deleteTokenByNameUsingPOST) nimmt die ID eines Programms oder Ordners als Pfadparameter. Geben Sie den Typ mithilfe von `folderType` an.
+[Token nach Namen löschen](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteTokenByNameUsingPOST) nimmt die ID eines Programms oder Ordners als Pfadparameter. Geben Sie den Typ mithilfe von `folderType` an.
 
 Der übergeordnete Ordner, die Token-`name` und die Token-`type` sind erforderlich. Übergeben Sie die Daten als POST-`x-www-form-urlencoded`, nicht als JSON.
 

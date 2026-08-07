@@ -4,18 +4,12 @@ feature: REST API
 description: 'Marketo-REST-API-Handbuch für Ordner, in dem Folgendes behandelt wird: Erstellen, Aktualisieren, Löschen, Abfrage nach ID und Namen, Massendurchsuchen mit Stamm, Workspace, maxDepth und Paginierung.'
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
 TQID: https://experienceleague.adobe.com/OxCNdy8qW6jwq8u57RF9mqVKPVvH99UmuiOBjFprHCM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: b0bb9048-d951-48d8-8232-45cf248a7e27id: c5f60233-d5ea-4453-a799-0ad258b4d399id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 806
+source-wordcount: 792
 ht-degree: 1%
 
 ---
@@ -30,7 +24,7 @@ Verwenden Sie die Ordner-API, um Ordner zu erstellen, abzufragen, zu aktualisier
 
 ## Abfrage
 
-Ordner unterstützen die standardmäßigen Asset-Abfragemuster: [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) und durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
+Ordner unterstützen die standardmäßigen Asset-Abfragemuster: [nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) und durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET).
 
 ### Nach ID
 
@@ -86,7 +80,7 @@ Zu den Ordnertypen gehören:
 
 ### Nach Name
 
-Der Endpunkt [Abfrage nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) erfordert `name`, der eine exakte Übereinstimmung mit Ordnernamen durchführt und jeden übereinstimmenden Ordner zurückgibt.
+Der Endpunkt [Abfrage nach Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) erfordert `name`, der eine exakte Übereinstimmung mit Ordnernamen durchführt und jeden übereinstimmenden Ordner zurückgibt.
 
 Der Endpunkt akzeptiert auch diese optionalen Parameter:
 
@@ -135,12 +129,12 @@ Marketing-Aktivitäten und Design Studio sind Stammordner. Rufen Sie einen der S
 
 ### Durchsuchen
 
-Sie können auch [Ordner stapelweise abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Verwenden Sie den `root`, um den übergeordneten Ordner anzugeben, unter dem eine Abfrage durchgeführt werden soll. Übergeben Sie `root` als eingebettetes JSON-Objekt mit zwei Elementen:
+Sie können auch [Ordner stapelweise abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderUsingGET). Verwenden Sie den `root`, um den übergeordneten Ordner anzugeben, unter dem eine Abfrage durchgeführt werden soll. Übergeben Sie `root` als eingebettetes JSON-Objekt mit zwei Elementen:
 
 1. `id`: Die ID des Ordners oder Programms.
 1. `type`: Entweder `Folder` oder `Program`, je nach Stammordnertyp.
 
-Wenn Sie den Stammordner nicht kennen oder alle Ordner in einem Bereich abrufen möchten, verwenden Sie die Stammordner Marketing-Aktivitäten, Design Studio oder Lead-Datenbank. Rufen Sie die Stamm-ID ab, indem Sie den Bereichsnamen an die API [Ordner nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) übergeben.
+Wenn Sie den Stammordner nicht kennen oder alle Ordner in einem Bereich abrufen möchten, verwenden Sie die Stammordner Marketing-Aktivitäten, Design Studio oder Lead-Datenbank. Rufen Sie die Stamm-ID ab, indem Sie den Bereichsnamen an die API [Ordner nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getFolderByNameUsingGET) übergeben.
 
 Verwenden Sie wie bei anderen Endpunkten zum Massenabruf von Assets die optionalen `offset`- und `maxReturn` für die Paginierung. Weitere optionale Parameter sind:
 
@@ -237,7 +231,7 @@ Das Feld `url` enthält die Asset-URL für die angegebene Instanz. Dies ist kein
 
 ## Erstellen und aktualisieren
 
-Um [Ordner zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) senden Sie eine `application/x-www-form-urlencoded` POST-Anfrage mit den folgenden Parametern:
+Um [Ordner zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createFolderUsingPOST) senden Sie eine `application/x-www-form-urlencoded` POST-Anfrage mit den folgenden Parametern:
 
 - `name`: Erforderlicher String mit dem Ordnernamen.
 - `parent`: Erforderliches eingebettetes JSON-Objekt, das `id` und `type` enthält. Der Typ ist `Folder` oder `Program`, je nach übergeordnetem Element.

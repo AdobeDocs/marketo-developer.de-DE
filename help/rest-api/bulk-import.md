@@ -4,15 +4,12 @@ feature: REST API
 description: Massenimport von Marketo zum Laden von Leads, benutzerdefinierten Objekten und Programmmitgliedern über mehrteilige Uploads, Erstellen asynchroner Aufträge, Abfragestatus und die Verarbeitung von Fehlern.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
 TQID: https://experienceleague.adobe.com/lr9dyX-fY-oJ2LM5P0zE1m24HtFYKQYYbxMkVe--PkE
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 538
+source-wordcount: 526
 ht-degree: 3%
 
 ---
@@ -57,7 +54,7 @@ Die Massenimportantwort gibt nicht an, ob ein einzelner Datensatz aktualisiert o
 
 ## Erstellen von Aufträgen
 
-Erstellen Sie einen Lead-Importvorgang durch Aufruf des Endpunkts [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Dieser Endpunkt verwendet [multipart/form-data als Inhaltstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
+Erstellen Sie einen Lead-Importvorgang durch Aufruf des Endpunkts [Leads importieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST). Dieser Endpunkt verwendet [multipart/form-data als Inhaltstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html).
 
 Verwenden Sie eine HTTP-Support-Bibliothek für Ihre bevorzugte Sprache, um die mehrteilige Anfrage zu erstellen. Sie können auch [curl](https://curl.se/) verwenden, um zu beginnen.
 
@@ -112,7 +109,7 @@ Jeder Vorgangserstellungsendpunkt verwendet die gleichen Parameter zur Konfigura
 
 ## Status des Abrufauftrags
 
-Übergeben Sie die `batchId` an den Endpunkt [Lead-Status abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET) um den Auftragsstatus abzurufen.
+Übergeben Sie die `batchId` an den Endpunkt [Lead-Status abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadStatusUsingGET) um den Auftragsstatus abzurufen.
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -144,7 +141,7 @@ In diesem Beispiel ist der Vorgang abgeschlossen, sodass das Abrufen beendet wer
 
 Das Attribut `numOfRowsFailed` in der Antwort Lead-Status abrufen gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
 
-Um die fehlgeschlagenen Datensätze und ihre Ursachen abzurufen, verwenden Sie den Endpunkt [Abrufen von Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET)).
+Um die fehlgeschlagenen Datensätze und ihre Ursachen abzurufen, verwenden Sie den Endpunkt [Abrufen von Lead-](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportLeadFailuresUsingGET)).
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json

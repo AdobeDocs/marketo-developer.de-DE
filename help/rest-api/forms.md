@@ -4,22 +4,14 @@ feature: REST API, Forms
 description: Marketo Forms REST-API-Handbuch zum Erstellen und Verwalten von Formularen, zum Abrufen nach ID oder Name, zum Durchsuchen mit Statusfiltern und zum Verwalten von Feldern, Feldsätzen und Regeln.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
 TQID: https://experienceleague.adobe.com/56tc1a14d8okxweS7TK7SzfGB8G03WAI2KBlFKQbSdM
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: a7170d27-32ab-462b-a333-269abc654483
-  - id: b0bb9048-d951-48d8-8232-45cf248a7e27
-  - id: d65b4a73-87a3-4d56-b638-74e74d9939ce
-  - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
-subfeature_v2:
-  - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: a7170d27-32ab-462b-a333-269abc654483id: b0bb9048-d951-48d8-8232-45cf248a7e27id: d65b4a73-87a3-4d56-b638-74e74d9939ceid: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+subfeature_v2: id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1494
+source-wordcount: 1447
 ht-degree: 3%
 
 ---
@@ -40,11 +32,11 @@ Verwenden Sie die Formular-Endpunkte, um Formulare von Remote-Systemen zu verwal
 
 ## Abfrage
 
-Forms unterstützt die standardmäßigen Asset-Abrufmethoden: [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) und durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET). Eine Formularantwort enthält alle Formulareigenschaften mit Ausnahme der Feldliste.
+Forms unterstützt die standardmäßigen Asset-Abrufmethoden: [nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET) und durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/browseForms2UsingGET). Eine Formularantwort enthält alle Formulareigenschaften mit Ausnahme der Feldliste.
 
 ### Nach ID
 
-Übergeben Sie eine `id` als Pfadparameter an [Formular abrufen nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByIdUsingGET). Der Endpunkt gibt den entsprechenden Formulardatensatz zurück.
+Übergeben Sie eine `id` als Pfadparameter an [Formular abrufen nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByIdUsingGET). Der Endpunkt gibt den entsprechenden Formulardatensatz zurück.
 
 ```http
 GET /rest/asset/v1/form/{id}.json
@@ -98,7 +90,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### Nach Name
 
-Übergeben Sie einen `name` an [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET). Der Endpunkt gibt den entsprechenden Formulardatensatz zurück.
+Übergeben Sie einen `name` an [Formular nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLpFormByNameUsingGET). Der Endpunkt gibt den entsprechenden Formulardatensatz zurück.
 
 ```http
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -152,7 +144,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### Durchsuchen
 
-[Forms abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/browseForms2UsingGET) folgt dem standardmäßigen Asset-API-Durchsuchungsmuster. Es unterstützt die folgenden optionalen Filter:
+[Forms abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/browseForms2UsingGET) folgt dem standardmäßigen Asset-API-Durchsuchungsmuster. Es unterstützt die folgenden optionalen Filter:
 
 - `status`: Filtert nach `approved`, `approved with draft` oder `draft`.
 - `maxReturn`: Begrenzt die Anzahl der zurückgegebenen Datensätze.
@@ -332,7 +324,7 @@ Bevor Sie Felder aktualisieren oder löschen oder ihr Verhalten ändern, rufen S
 
 ### Abhängigkeiten
 
-Übergeben Sie eine `id` als Pfadparameter an [Formular abrufen von](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getFormUsedByUsingGET). Der Endpunkt gibt Assets zurück, die vom Formular abhängen.
+Übergeben Sie eine `id` als Pfadparameter an [Formular abrufen von](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormUsedByUsingGET). Der Endpunkt gibt Assets zurück, die vom Formular abhängen.
 
 Die folgenden Asset-Typen können Formulare verwenden:
 
@@ -366,7 +358,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Erstellen und aktualisieren
 
-Um [Formular zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/createLpFormsUsingPOST) geben Sie zwei erforderliche Felder an:
+Um [Formular zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createLpFormsUsingPOST) geben Sie zwei erforderliche Felder an:
 
 - Der übergeordnete Ordner des Formulars.
 - Der Formularname.
@@ -431,7 +423,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 }
 ```
 
-Um [Formular zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormsUsingPOST) übergeben Sie seine ID. Während der Erstellung oder Aktualisierung können Sie die grundlegenden Stilparameter festlegen, die steuern, wie das Formular dem Benutzer angezeigt wird.
+Um [Formular zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFormsUsingPOST) übergeben Sie seine ID. Während der Erstellung oder Aktualisierung können Sie die grundlegenden Stilparameter festlegen, die steuern, wie das Formular dem Benutzer angezeigt wird.
 
 ```http
 POST /rest/asset/v1/form/736.json
@@ -496,7 +488,7 @@ Die Formularendpunkte „Erstellen“ und „Aktualisieren“ ändern weder das 
 
 Rufen Sie vor dem Hinzufügen oder Bearbeiten von Formularfeldern die gültigen Felder für die Zielinstanz ab. Feldvorgänge verwenden die für jedes Feld zurückgegebene `id`-Eigenschaft.
 
-Verwenden Sie für Lead-Felder den [Verfügbare Formularfelder abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllFieldsUsingGET)-Endpunkt. Die Antwort enthält den Datentyp der einzelnen Felder und die Standardmetadaten, die angewendet werden, wenn das Feld einem Formular hinzugefügt wird.
+Verwenden Sie für Lead-Felder den [Verfügbare Formularfelder abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllFieldsUsingGET)-Endpunkt. Die Antwort enthält den Datentyp der einzelnen Felder und die Standardmetadaten, die angewendet werden, wenn das Feld einem Formular hinzugefügt wird.
 
 ```http
 GET /rest/asset/v1/form/fields.json
@@ -628,7 +620,7 @@ GET /rest/asset/v1/form/fields.json
 }
 ```
 
-Rufen Sie für benutzerdefinierte Felder von Programmmitgliedern den Endpunkt [Verfügbare Formular-Programmmitgliedsfelder abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET) auf. Die Antwort enthält die benutzerdefinierten Felddatentypen des Programmmitglieds und die Standard-Metadaten.
+Rufen Sie für benutzerdefinierte Felder von Programmmitgliedern den Endpunkt [Verfügbare Formular-Programmmitgliedsfelder abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getAllProgramMemberFieldsUsingGET) auf. Die Antwort enthält die benutzerdefinierten Felddatentypen des Programmmitglieds und die Standard-Metadaten.
 
 Um diese Felder verwenden zu können, muss sich das Formular in einem Programm und nicht in Design Studio befinden. Eine Landingpage, die ein Formular mit diesen Feldern enthält, muss sich auch unter einem Programm befinden. Es kann nicht in Design Studio gespeichert oder in dieses geklont werden.
 
@@ -669,7 +661,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Jedes Formular verfügt über eine bearbeitbare Liste von Feldern, die den Benutzenden beim Laden des Formulars angezeigt wird. Verwenden Sie den entsprechenden Endpunkt, um jeweils ein Feld hinzuzufügen, zu aktualisieren oder zu löschen.
 
-Um [Feld hinzuzufügen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldToAFormUsingPOST) geben Sie die ID des übergeordneten Formulars und die `fieldId` an. Alle anderen Eigenschaften sind leer oder verwenden Standardwerte, die auf dem Datentyp und den Metadaten des Felds basieren.
+Um [Feld hinzuzufügen](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldToAFormUsingPOST) geben Sie die ID des übergeordneten Formulars und die `fieldId` an. Alle anderen Eigenschaften sind leer oder verwenden Standardwerte, die auf dem Datentyp und den Metadaten des Felds basieren.
 
 Senden Sie die Daten als POST-Anfrage mit `application/x-www-form-urlencoded` und nicht als JSON.
 
@@ -835,7 +827,7 @@ Verwenden Sie die Antwort Feld zum Formular hinzufügen , um zu bestimmen, wie e
 
 ### Feld wird neu angeordnet
 
-Verwenden Sie den Endpunkt [Formularfeldpositionen ändern](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST), um alle Formularfelder als eine Einheit neu anzuordnen. Der Endpunkt erfordert `positions`, ein JSON-Array von Objekten mit drei Elementen:
+Verwenden Sie den Endpunkt [Formularfeldpositionen ändern](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST), um alle Formularfelder als eine Einheit neu anzuordnen. Der Endpunkt erfordert `positions`, ein JSON-Array von Objekten mit drei Elementen:
 
 - `columnNumber`
 - `rowNumber`
@@ -875,7 +867,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### RTF
 
-Verwenden Sie einen [separaten Endpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addRichTextFieldUsingPOST), um Rich-Text-Felder hinzuzufügen. Übergeben Sie den Inhalt als HTML in einer `multipart/form-data`. Die HTML darf keine Skripte, Meta-Tags oder Link-Tags enthalten.
+Verwenden Sie einen [separaten Endpunkt](https://developer.adobe.com/marketo-apis/api/asset#operation/addRichTextFieldUsingPOST), um Rich-Text-Felder hinzuzufügen. Übergeben Sie den Inhalt als HTML in einer `multipart/form-data`. Die HTML darf keine Skripte, Meta-Tags oder Link-Tags enthalten.
 
 ```http
 POST /rest/asset/v1/form/{id}/richText.json
@@ -918,7 +910,7 @@ Eine Feldgruppe ist eine optionale Feldergruppe. Die Feldliste der obersten Eben
 
 Ein Feld muss im Formular eindeutig sein. Dasselbe Feld kann nicht sowohl in der übergeordneten Feldliste des Formulars als auch in einer untergeordneten Feldgruppe angezeigt werden.
 
-Fügen Sie eine Feldgruppe mit dem Endpunkt [Feldgruppe zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFieldSetUsingPOST) hinzu. Die Feldgruppe wird dann in der Antwort [Felder für Formular &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Um Felder zum Feldset hinzuzufügen, verwenden Sie [Feldpositionen aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/updateFieldPositionsUsingPOST), um sie in seine `fieldList` zu verschieben.
+Fügen Sie eine Feldgruppe mit dem Endpunkt [Feldgruppe zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST) hinzu. Die Feldgruppe wird dann in der Antwort [Felder für Formular ](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET). Um Felder zum Feldset hinzuzufügen, verwenden Sie [Feldpositionen aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST), um sie in seine `fieldList` zu verschieben.
 
 Senden Sie für diese Endpunkte die Daten als POST mit `application/x-www-form-urlencoded` und nicht als JSON.
 
@@ -965,7 +957,7 @@ visibilityRule={"ruleType":"show", "rules":[{"subjectField": "LastName", "operat
 }
 ```
 
-Eine vollständige Liste der Operatoren finden Sie unter [Hinzufügen von Sichtbarkeitsregeln für Formularfelder](https://developer.adobe.com/marketo-apis/api/asset#tag/Form-Fields/operation/addFormFieldVisibilityRuleUsingPOST).
+Eine vollständige Liste der Operatoren finden Sie unter [Hinzufügen von Sichtbarkeitsregeln für Formularfelder](https://developer.adobe.com/marketo-apis/api/asset#operation/addFormFieldVisibilityRuleUsingPOST).
 
 ## Nachbereitung
 
@@ -977,7 +969,7 @@ Der `followupType` kann `lp` oder `url` sein. Der `lp` gibt an, dass `followupVa
 
 ## Senden-Schaltfläche
 
-Verwenden Sie den Endpunkt [Senden-Schaltfläche aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/updateFormSubmitButtonUsingPOST), um die Formatierung der Senden-Schaltfläche zu ändern. Sie können `buttonPosition`, `buttonStyle`, `label` und `waitingLabel` aktualisieren. Die `waitingLabel` wird angezeigt, während die Übermittlung aussteht.
+Verwenden Sie den Endpunkt [Senden-Schaltfläche aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFormSubmitButtonUsingPOST), um die Formatierung der Senden-Schaltfläche zu ändern. Sie können `buttonPosition`, `buttonStyle`, `label` und `waitingLabel` aktualisieren. Die `waitingLabel` wird angezeigt, während die Übermittlung aussteht.
 
 Dies ist ein destruktives Update.
 

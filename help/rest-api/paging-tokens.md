@@ -4,15 +4,12 @@ feature: REST API
 description: Verwenden Sie Paging-Token der Marketo REST-API, um Aktivitäten und Leads abzurufen. Sie umfassen datums- und positionsbasierte Token, ISO 8601 SinceDatetime und 414-Fehler.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
 TQID: https://experienceleague.adobe.com/Ut05n-Y-qPJnvcNRs9liwE3NVBMbJlvaGyv-nExRsek
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-feature_v2:
-  - id: c5f60233-d5ea-4453-a799-0ad258b4d399
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+feature_v2: id: c5f60233-d5ea-4453-a799-0ad258b4d399
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 387
+source-wordcount: 377
 ht-degree: 2%
 
 ---
@@ -21,9 +18,9 @@ ht-degree: 2%
 
 Marketo stellt Paging-Token bereit, mit denen Ergebnisse durchsucht oder Daten abgerufen werden können, die zu einem bestimmten Datum aktualisiert wurden.
 
-Einige Antworten geben lange Paging-Token-Zeichenfolgen zurück, was zu einem HTTP 414-Fehler führen kann. Siehe Informationen zum Umgang mit diesen [&#x200B; (](error-codes.md)).
+Einige Antworten geben lange Paging-Token-Zeichenfolgen zurück, was zu einem HTTP 414-Fehler führen kann. Siehe Informationen zum Umgang mit diesen [ (](error-codes.md)).
 
-Weitere Informationen finden Sie in [&#x200B; Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET)Token-API .
+Weitere Informationen finden Sie in [ Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET)Token-API .
 
 ## Tokentypen
 
@@ -36,7 +33,7 @@ Marketo bietet zwei miteinander verknüpfte, aber unterschiedliche Typen von Pag
 
 Ein datumsbasiertes Paging-Token stellt eine Datums-/Uhrzeitangabe dar. Verwenden Sie sie, um Aktivitäten, Datenwertänderungen und gelöschte Leads abzurufen, die nach diesem Datum/dieser Uhrzeit auftreten.
 
-Generieren Sie ein datumsbasiertes Token, indem Sie den Endpunkt [Paging-Token abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) mit einem Datum/Uhrzeit-Wert aufrufen:
+Generieren Sie ein datumsbasiertes Token, indem Sie den Endpunkt [Paging-Token abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET) mit einem Datum/Uhrzeit-Wert aufrufen:
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -68,7 +65,7 @@ Beispiel:
 
 Da `sinceDateTime` ein Abfrageparameter ist, kodieren Sie seinen Wert mit einer URL.
 
-Übergeben Sie die zurückgegebene `nextPageToken`-Zeichenfolge an einen Aufruf [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET) abrufen, [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) abrufen oder [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET). Der Aufruf ruft Datensätze ab, die nach dem Datum/der Uhrzeit liegen, das/die der Get Paging Token-API angegeben wurde.
+Übergeben Sie die zurückgegebene `nextPageToken`-Zeichenfolge an einen Aufruf [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadActivitiesUsingGET) abrufen, [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadChangesUsingGET) abrufen oder [Gelöschte Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getDeletedLeadsUsingGET). Der Aufruf ruft Datensätze ab, die nach dem Datum/der Uhrzeit liegen, das/die der Get Paging Token-API angegeben wurde.
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12
