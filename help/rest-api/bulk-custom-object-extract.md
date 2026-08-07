@@ -27,7 +27,7 @@ Die REST-APIs zur Massenextraktion benutzerdefinierter Objekte rufen große Meng
 
 Die API exportiert benutzerdefinierte Marketo-Objektdatensätze der ersten Ebene, die direkt mit Leads verknüpft sind. Geben Sie den benutzerdefinierten Objektnamen und eine Liste verknüpfter Leads an. Für jeden Lead schreibt die API übereinstimmende verknüpfte benutzerdefinierte Objektdatensätze als Zeilen in die Exportdatei.
 
-Sie können benutzerdefinierte Objektdaten auf der Registerkarte [Benutzerdefiniertes Objekt“ der Detailseite des Leads in der Marketo-Benutzeroberfläche anzeigen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Sie können benutzerdefinierte Objektdaten auf der Registerkarte [Benutzerdefiniertes Objekt“ der Detailseite des Leads in der Marketo-Benutzeroberfläche anzeigen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Berechtigungen
 

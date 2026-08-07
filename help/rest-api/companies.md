@@ -27,7 +27,7 @@ Firmen stellen die Organisationen dar, denen Lead-Datensätze angehören. Um ein
 
 Sie können einen Lead nur dann aus einer Firma entfernen, wenn Sie den Lead einer anderen Firma hinzufügen. Leads, die mit einem Firmendatensatz verknüpft sind, übernehmen Werte aus diesem Datensatz, als ob die Werte im Lead-Datensatz vorhanden wären.
 
-Unternehmens-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert ist.
+Unternehmens-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert ist.
 
 ## beschreiben
 

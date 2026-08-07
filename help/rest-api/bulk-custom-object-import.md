@@ -40,7 +40,7 @@ Wenn Sie das Maximum von 10 Aufträgen überschreiten, gibt die API einen `1016,
 
 ## Beispiel für ein benutzerdefiniertes Objekt
 
-Bevor Sie die Bulk-API verwenden, verwenden Sie die Admin-Benutzeroberfläche von Marketo, um [Ihr benutzerdefiniertes Objekt zu erstellen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects).
+Bevor Sie die Bulk-API verwenden, verwenden Sie die Admin-Benutzeroberfläche von Marketo, um [Ihr benutzerdefiniertes Objekt zu erstellen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects).
 
 In diesem Beispiel wird ein `Car` benutzerdefiniertes Objekt mit `Color`-, `Make`-, `Model`- und `VIN` verwendet. Das FIN-Feld wird für die Deduplizierung verwendet. Die Bildschirme der Admin-Benutzeroberfläche markieren die API-Namen, die für Massen-API-Endpunkte erforderlich sind.
 

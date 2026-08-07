@@ -26,7 +26,7 @@ ht-degree: 1%
 
 Verwenden Sie die REST-APIs für Smart Lists, um Smart Lists abzufragen, zu klonen und zu löschen.
 
-Diese APIs unterstützen nur vom Benutzer erstellte Smart-Listen. Sie unterstützen keine [integrierten oder System-Smart-Listen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Diese APIs unterstützen nur vom Benutzer erstellte Smart-Listen. Sie unterstützen keine [integrierten oder System-Smart-Listen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Abfrage
 

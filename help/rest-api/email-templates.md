@@ -26,7 +26,7 @@ ht-degree: 2%
 
 Jede neue E-Mail in Marketo basiert zunächst auf einer E-Mail-Vorlage. Obwohl Sie später die Verknüpfung einer E-Mail mit ihrer Vorlage aufheben können, indem Sie die HTML ersetzen, müssen Sie beim Erstellen der E-Mail eine Vorlage auswählen.
 
-Vorlagen sind HTML-Dokumente mit Metadaten wie einem Namen und einer Beschreibung. Die Vorlagen-HTML muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der die [bearbeitbaren Abschnittsanforderungen“ &#x200B;](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Vorlagen sind HTML-Dokumente mit Metadaten wie einem Namen und einer Beschreibung. Die Vorlagen-HTML muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der die [bearbeitbaren Abschnittsanforderungen“ &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Abfrage
 
