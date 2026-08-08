@@ -18,9 +18,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: bcf56d2102f2f60eac5ad3318d348fd020391e6b
 workflow-type: tm+mt
-source-wordcount: 614
+source-wordcount: 613
 ht-degree: 4%
 
 ---
@@ -39,7 +39,7 @@ Konfigurieren Sie jeden Webhook mit den folgenden Eigenschaften:
 
 - **[!UICONTROL URL]** - Die URL, an die Sie die Webdienstanfrage senden.
 - **[!UICONTROL Request Type]** - die HTTP-Methode.
-- **[!UICONTROL Payload-Vorlage]** - Die Vorlage für Informationen, die im POST-Textkörper gesendet werden. Verwenden Sie ein beliebiges Datenformat, das HTTP-POST unterstützt, einschließlich XML, JSON oder SOAP. Das Serialisierungsformat muss doppelte Anführungszeichen um Zeichenfolgen zulassen. Um ein Token einzufügen, wählen Sie **[!UICONTROL Token einfügen]**. Marketo schließt Token vom Typ Zeichenfolge automatisch in doppelte Anführungszeichen ein.
+- **[!UICONTROL Payload-Vorlage]** - Die Vorlage für Informationen, die im POST-Textkörper gesendet werden. Verwenden Sie ein beliebiges Datenformat, das HTTP POST unterstützt, einschließlich XML und JSON. Das Serialisierungsformat muss doppelte Anführungszeichen um Zeichenfolgen zulassen. Um ein Token einzufügen, wählen Sie **[!UICONTROL Token einfügen]**. Marketo schließt Token vom Typ Zeichenfolge automatisch in doppelte Anführungszeichen ein.
 - **[!UICONTROL Request Token Encoding]** - Das Anfrageformat, JSON oder Formular/URL, das zum Codieren von Token-Werten verwendet wird, die Sonderzeichen wie ein kaufmännisches Und-Zeichen, &#39;&amp;&#39; enthalten. Wählen Sie die richtige Textcodierung aus, damit der Webhook korrekt mit dem Webservice kommuniziert.
 - **[!UICONTROL Antworttyp]** - Das Antwortformat, JSON oder XML. Wählen Sie den richtigen Typ aus, um die Antworteigenschaften Lead-Feldern in Marketo zuzuordnen.
 - **[!UICONTROL Benutzerdefinierte Kopfzeilen]** - Schlüssel-Wert-Paare, die als HTTP-Kopfzeilen über **[!UICONTROL Webhooks-Aktionen]** > **[!UICONTROL Benutzerdefinierte Kopfzeile festlegen]** hinzugefügt werden. Sie können eine beliebige Anzahl benutzerdefinierter Kopfzeilen hinzufügen.

@@ -1,5 +1,5 @@
 ---
-title: Zielseiten-Umleitungsregeln
+title: Landingpage-Umleitungsregeln
 feature: REST API, Landing Pages
 description: Verwenden Sie Marketo Asset REST-APIs zum Erstellen, Abfragen, Aktualisieren und Löschen von Umleitungsregeln für Landingpages mit Filtern, Paginierung, Host-Namen-Optionen und Nicht-Marketo-Zielen.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
@@ -10,14 +10,14 @@ feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 626
-ht-degree: 4%
+source-wordcount: 596
+ht-degree: 5%
 
 ---
 
-# Zielseiten-Umleitungsregeln
+# Landingpage-Umleitungsregeln
 
 [Endpunkt-Referenz für Umleitungsregeln für Landingpages](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules)
 
@@ -31,7 +31,7 @@ Regeln für die Umleitung von Landingpages [nach ID](#by_id) oder [Browsen](#bro
 
 ### Nach ID
 
-Der Endpunkt [Regeln für die Umleitung von Landingpages nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) nimmt einen `id` für die Umleitungsregel und gibt den entsprechenden Datensatz zurück.
+Der Endpunkt [Regeln für die Umleitung von Landingpages nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRuleByIdUsingGET) nimmt einen `id` für die Umleitungsregel und gibt den entsprechenden Datensatz zurück.
 
 ```http
 GET /rest/asset/v1/redirectRule/{id}.json
@@ -66,7 +66,7 @@ GET /rest/asset/v1/redirectRule/{id}.json
 
 ### Durchsuchen
 
-Der Endpunkt [Regeln für Landingpage-Umleitung abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRulesUsingGET) gibt Datensätze für Umleitungsregeln für Landingpages zurück.
+Der Endpunkt [Regeln für Landingpage-Umleitung abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageRedirectRulesUsingGET) gibt Datensätze für Umleitungsregeln für Landingpages zurück.
 
 Verwenden Sie optionale Abfrageparameter, um die Ergebnisse zu filtern.
 
@@ -143,7 +143,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Erstellen
 
-Rufen Sie [&#x200B; Endpunkt „Umleitungsregel für Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) mit einer `application/x-www-form-urlencoded` POST-Anfrage auf. Die Anfrage verfügt über drei erforderliche Parameter.
+Rufen Sie [&#x200B; Endpunkt „Umleitungsregel für Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageRedirectRuleUsingPOST) mit einer `application/x-www-form-urlencoded` POST-Anfrage auf. Die Anfrage verfügt über drei erforderliche Parameter.
 
 Der `hostname` gibt den Host-Namen der Landingpage an. Sie muss zu einer Branding-Domain oder einem Alias gehören und darf 255 Zeichen nicht überschreiten.
 
@@ -205,7 +205,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Aktualisierung
 
-Der Endpunkt [Aktualisierung der Umleitungsregeln für &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ benötigt einen `id`. Senden Sie die Aktualisierung als `application/x-www-form-urlencoded` POST-Anfrage.
+Der Endpunkt [Aktualisierung der Umleitungsregeln für &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ benötigt einen `id`. Senden Sie die Aktualisierung als `application/x-www-form-urlencoded` POST-Anfrage.
 
 Übergeben Sie einen oder mehrere dieser Parameter, um die zu aktualisierenden Attribute auszuwählen: `hostname`, `redirectFrom` oder `redirectTo`.
 
@@ -252,7 +252,7 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## Löschen
 
-Der Endpunkt [Umleitungsregel der Landingpage nach ID löschen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) benötigt einen `id` für die Umleitungsregel.
+Der Endpunkt [Umleitungsregel der Landingpage nach ID löschen](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageRedirectRuleUsingPOST) benötigt einen `id` für die Umleitungsregel.
 
 ```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
@@ -274,7 +274,7 @@ POST /rest/asset/v1/redirectRule/{id}/delete.json
 
 ## Durchsuchen von Landingpage-Domains
 
-Der Endpunkt [Landingpage-Domains abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Redirect-Rules/operation/getLandingPageDomainsUsingGET) gibt Domäneneinträge der Landingpage zurück.
+Der Endpunkt [Landingpage-Domains abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageDomainsUsingGET) gibt Domäneneinträge der Landingpage zurück.
 
 Verwenden Sie zwei optionale Abfrageparameter zum Filtern der Ergebnisse.
 

@@ -12,10 +12,10 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 803
-ht-degree: 2%
+source-wordcount: 764
+ht-degree: 3%
 
 ---
 
@@ -30,7 +30,7 @@ Die REST-APIs lassen sich in zwei Kategorien einteilen:
 
 >[!NOTE]
 >
->Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Juli 2026 nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo [REST-API](./rest-api.md) durchgeführt werden, und bestehende Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen im Service zu vermeiden. Wenn Sie über einen Service verfügen, der die SOAP-API verwendet, finden Sie im SOAP-API[Migrationshandbuch](../soap-api/migration.md) Informationen zur Migration.
+>Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo-REST[API &#x200B;](./rest-api.md) werden.
 >
 
 >[!IMPORTANT]
@@ -100,7 +100,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 >
 >Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
 
-Öffnen Sie eine neue Browser-Registerkarte und geben Sie die folgende URL ein. Ersetzen Sie die Platzhalter durch den Endpunkt und die E-Mail-Adresse für Ihre Instanz, um „Leads [&#x200B; Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) aufzurufen.
+Öffnen Sie eine neue Browser-Registerkarte und geben Sie die folgende URL ein. Ersetzen Sie die Platzhalter durch den Endpunkt und die E-Mail-Adresse für Ihre Instanz, um „Leads [&#x200B; Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) aufzurufen.
 
 ```text
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>

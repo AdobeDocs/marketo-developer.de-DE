@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 227
+source-wordcount: 221
 ht-degree: 2%
 
 ---
@@ -86,7 +86,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Update
 
-Verwenden Sie den Endpunkt [Programm-Tag aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST), um den Wert für einen Tag-Typ zu aktualisieren. Alle Parameter sind erforderlich:
+Verwenden Sie den Endpunkt [Programm-Tag aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST), um den Wert für einen Tag-Typ zu aktualisieren. Alle Parameter sind erforderlich:
 
 - Der `id` Pfadparameter gibt die Programm-ID an.
 - Der Parameter &quot;`tagType` path“ gibt den zu aktualisierenden Tag-Typ an.
@@ -110,11 +110,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Um mehrere Tags zu aktualisieren, verwenden Sie den Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST). Siehe dazu das Beispiel im [Abschnitt Programmaktualisierung](programs.md#update).
+Um mehrere Tags zu aktualisieren, verwenden Sie den Endpunkt [Programmmetadaten aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST). Siehe dazu das Beispiel im [Abschnitt Programmaktualisierung](programs.md#update).
 
 ## Löschen
 
-Verwenden Sie den Endpunkt [Programm-Tag löschen](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/deleteProgramUsingPOST), um einen nicht erforderlichen Tag-Typ zu löschen. Der Parameter &quot;`id` path“ gibt die Programm-ID und der Parameter &quot;`tagType` path“ den Tag-Typ an, der gelöscht werden soll.
+Verwenden Sie den Endpunkt [Programm-Tag löschen](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteProgramUsingPOST), um einen nicht erforderlichen Tag-Typ zu löschen. Der Parameter &quot;`id` path“ gibt die Programm-ID und der Parameter &quot;`tagType` path“ den Tag-Typ an, der gelöscht werden soll.
 
 ```http
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

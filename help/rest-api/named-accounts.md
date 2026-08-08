@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 590
+source-wordcount: 584
 ht-degree: 1%
 
 ---
@@ -243,7 +243,7 @@ Fragen Sie ein benanntes Kontofeld nach API-Namen ab oder rufen Sie alle Unterne
 
 #### Nach Name
 
-Der Endpunkt [Benanntes Kontofeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für ein Feld des benannten Kontoobjekts ab. Der erforderliche Pfadparameter fieldApiName gibt den API-Namen des Felds an.
+Der Endpunkt [Benanntes Kontofeld nach Name abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für ein Feld des benannten Kontoobjekts ab. Der erforderliche Pfadparameter fieldApiName gibt den API-Namen des Felds an.
 
 Die Antwort ähnelt der Antwort von Describe Named Account, enthält jedoch zusätzliche Metadaten. Beispielsweise gibt das Attribut isCustom an, ob es sich um ein benutzerdefiniertes Feld handelt.
 
@@ -273,7 +273,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Durchsuchen
 
-Der Endpunkt [Benannte Kontofelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für alle Felder des benannten Kontoobjekts ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den Abfrageparameter „batchSize“, um diese Anzahl zu reduzieren.
+Der Endpunkt [Benannte Kontofelder abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getNamedAccountFieldByNameUsingGET) ruft Metadaten für alle Felder des benannten Kontoobjekts ab. Standardmäßig werden maximal 300 Datensätze zurückgegeben. Verwenden Sie den Abfrageparameter „batchSize“, um diese Anzahl zu reduzieren.
 
 Wenn das Attribut moreResult den Wert true hat, sind weitere Ergebnisse verfügbar. Rufen Sie den Endpunkt mit dem zurückgegebenen nextPageToken weiter auf, bis moreResult false ist.
 

@@ -16,9 +16,9 @@ role_v2:
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1228
+source-wordcount: 1201
 ht-degree: 2%
 
 ---
@@ -31,8 +31,7 @@ Auf dieser Seite werden die wichtigsten Marketo Engage-Entitäten und ihre Bezie
 
 >[!NOTE]
 >
->Die SOAP-API wird nicht mehr unterstützt und ist nach dem 31. Juli 2026 nicht mehr verfügbar. Verwenden Sie die Marketo [REST-API](./rest-api/rest-api.md) für alle neuen Entwicklungen. Migrieren Sie bestehende Services bis zu diesem Datum, um Service-Unterbrechungen zu vermeiden. Wenn ein Service die SOAP-API verwendet, lesen Sie den Abschnitt zur SOAP[API (Migrationshandbuch](./soap-api/migration.md).
->
+>Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Verwenden Sie die Marketo [REST-API](./rest-api/rest-api.md) für alle neuen Entwicklungen.
 
 Wenn entweder die native SFDC- oder MS Dynamics CRM-Verbindung in einer Marketo Engage-Instanz aktiviert ist, sind diese Objekte schreibgeschützt:
 
@@ -144,6 +143,6 @@ Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Cus
 
 Sie können die Datensätze von Vertriebspersonen und deren Lead-Beziehungen in Marketo verwalten, wenn keine native CRM-Integration aktiviert ist. Diese Datensätze enthalten Informationen wie Name, E-Mail und Tätigkeitsbezeichnung. Wenn ein Vertriebsmitarbeiter im Besitz eines Leads ist, können Sie diese Informationen zum Filtern von - und -Token verwenden.
 
-Verwalten Sie die Beziehung zu einer Verkaufsperson auf Lead-Ebene über das Feld „externalSalesPersonId“. Aktualisieren Sie dieses Feld über die [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST)-API.
+Verwalten Sie die Beziehung zu einer Verkaufsperson auf Lead-Ebene über das Feld „externalSalesPersonId“. Aktualisieren Sie dieses Feld über die [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST)-API.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)

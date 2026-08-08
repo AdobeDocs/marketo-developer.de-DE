@@ -3,9 +3,9 @@ title: Mitgliedschaft in der Liste (statische Listen)
 feature: REST API, Static Lists
 description: Verwenden Sie die Marketo Lead-Datenbank-REST-APIs, um Leads zu statischen Listen hinzuzufügen, Leads zu entfernen, Listenmitglieder abzurufen und die Mitgliedschaft in der Checkliste zu überprüfen.
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: '427'
+source-wordcount: '415'
 ht-degree: 6%
 
 ---
@@ -32,7 +32,7 @@ Die APIs für die Listenmitgliedschaft stellen Endpunkte für Lead-Datenbanken z
 
 ## Hinzufügen zur Liste
 
-Verwenden Sie den [Zu Liste hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST)-Endpunkt, um ein oder mehrere Mitglieder zu einer Liste hinzuzufügen. Übergeben Sie den erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält. Die maximale Anzahl von Lead-IDs ist 300.
+Verwenden Sie den [Zu Liste hinzufügen](https://developer.adobe.com/marketo-apis/api/mapi#operation/addLeadsToListUsingPOST)-Endpunkt, um ein oder mehrere Mitglieder zu einer Liste hinzuzufügen. Übergeben Sie den erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält. Die maximale Anzahl von Lead-IDs ist 300.
 
 Die Antwort enthält ein `result`-Array mit dem Status jeder Lead-ID in der Anfrage.
 
@@ -65,7 +65,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## Entfernen aus Liste
 
-Verwenden Sie den Endpunkt [Aus Liste entfernen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE), um ein oder mehrere Mitglieder aus einer Liste zu entfernen. Übergeben Sie den erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält. Die maximale Anzahl von Lead-IDs ist 300.
+Verwenden Sie den Endpunkt [Aus Liste entfernen](https://developer.adobe.com/marketo-apis/api/mapi#operation/removeLeadsFromListUsingDELETE), um ein oder mehrere Mitglieder aus einer Liste zu entfernen. Übergeben Sie den erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält. Die maximale Anzahl von Lead-IDs ist 300.
 
 Die Antwort enthält ein `result`-Array mit dem Status jeder Lead-ID in der Anfrage.
 
@@ -102,7 +102,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## Leads nach Listen-ID abrufen
 
-Verwenden [&#x200B; Endpunkts „Leads nach Listen-ID abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) um Mitglieder einer Liste abzurufen. Übergeben Sie den erforderlichen `listId`. Sie können auch optionale Abfrageparameter übergeben, um Filterkriterien anzugeben.
+Verwenden [&#x200B; Endpunkts „Leads nach Listen-ID abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByListIdUsingGET) um Mitglieder einer Liste abzurufen. Übergeben Sie den erforderlichen `listId`. Sie können auch optionale Abfrageparameter übergeben, um Filterkriterien anzugeben.
 
 Die optionalen Abfrageparameter sind:
 
@@ -152,7 +152,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## Listenmitglied
 
-Verwenden Sie den [Member of List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)-Endpunkt, um festzustellen, ob ein oder mehrere Leads Mitglieder einer Liste sind. Übergeben Sie den erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält. Die maximale Anzahl von Lead-IDs ist 300.
+Verwenden Sie den [Member of List](https://developer.adobe.com/marketo-apis/api/mapi#operation/areLeadsMemberOfListUsingGET)-Endpunkt, um festzustellen, ob ein oder mehrere Leads Mitglieder einer Liste sind. Übergeben Sie den erforderlichen `listId`-Pfadparameter und mindestens einen `id` Abfrageparameter, der Lead-IDs enthält. Die maximale Anzahl von Lead-IDs ist 300.
 
 Die Antwort enthält ein `result`-Array mit dem Status jeder Lead-ID in der Anfrage.
 

@@ -8,10 +8,10 @@ product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 1037
-ht-degree: 2%
+source-wordcount: 1017
+ht-degree: 3%
 
 ---
 
@@ -56,7 +56,7 @@ Der Endpunkt Exportvorgang erstellen bietet Optionen zum Auswählen exportierter
 
 ## Erstellen von Aufträgen
 
-Verwenden Sie den Endpunkt [Exportvorgang erstellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) um einen Exportvorgang zu definieren. Geben Sie die zu exportierende `fields`, einen `filter` und dessen Parameter, den `format` und alle benutzerdefinierten Spaltenkopfzeilennamen an.
+Verwenden Sie den Endpunkt [Exportvorgang erstellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportLeadsUsingPOST) um einen Exportvorgang zu definieren. Geben Sie die zu exportierende `fields`, einen `filter` und dessen Parameter, den `format` und alle benutzerdefinierten Spaltenkopfzeilennamen an.
 
 ```http
 POST /bulk/v1/leads/export/create.json
@@ -104,7 +104,7 @@ Diese Anfrage erstellt einen Exportvorgang für Leads, die zwischen dem 1. Janua
 }
 ```
 
-Die Antwort bestätigt, dass der Auftrag erstellt, aber nicht gestartet wurde. Um den Auftrag zu starten, rufen Sie den Endpunkt [Exportvorgang in Warteschlange stellen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) mit dem `exportId` aus der Erstellungsantwort auf.
+Die Antwort bestätigt, dass der Auftrag erstellt, aber nicht gestartet wurde. Um den Auftrag zu starten, rufen Sie den Endpunkt [Exportvorgang in Warteschlange stellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/enqueueExportLeadsUsingPOST) mit dem `exportId` aus der Erstellungsantwort auf.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -132,7 +132,7 @@ Die Enqueue-Antwort weist den `status` „In Warteschlange“ auf. Sobald ein Ex
 
 Sie können den Status nur für Aufträge abrufen, die von demselben API-Benutzer erstellt wurden.
 
-Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [&#x200B; Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
+Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [&#x200B; Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
 
 Der Status wird nur einmal alle 60 Sekunden aktualisiert. Führen Sie keine häufigeren Befragungen durch; in fast allen Fällen ist dieses Intervall immer noch zu lang.
 
@@ -169,7 +169,7 @@ Das `status` kann einen der folgenden Werte zurückgeben:
 
 ## Daten abrufen
 
-Um einen abgeschlossenen Lead-Export abzurufen, rufen Sie den Endpunkt [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) abrufen) mit dem `exportId` auf.
+Um einen abgeschlossenen Lead-Export abzurufen, rufen Sie den Endpunkt [Lead-](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsFileUsingGET) abrufen) mit dem `exportId` auf.
 
 ```http
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -188,7 +188,7 @@ Für den teilweisen oder wiederholbaren Abruf unterstützt der Dateiendpunkt den
 
 ## Abbrechen von Aufträgen
 
-Um einen falsch konfigurierten oder unnötigen Auftrag abzubrechen, rufen Sie den Endpunkt [Exportleadauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) auf.
+Um einen falsch konfigurierten oder unnötigen Auftrag abzubrechen, rufen Sie den Endpunkt [Exportleadauftrag abbrechen](https://developer.adobe.com/marketo-apis/api/mapi#operation/cancelExportLeadsUsingPOST) auf.
 
 ```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json

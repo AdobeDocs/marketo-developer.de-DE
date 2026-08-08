@@ -17,9 +17,9 @@ topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
   - id: cc72dcf1-72e1-48cc-b434-e7c27d62d67c
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 2255
+source-wordcount: 2332
 ht-degree: 4%
 
 ---
@@ -384,8 +384,8 @@ Wenn beispielsweise eine Anfrage zur Lead-Synchronisierung „Aktion“ auf „c
 >    <tr>
 >      <td><a name="1012"></a>1012</td>
 >      <td>Ungültiger Cookie-Wert "%s“</td>
->      <td>Kann auftreten, wenn der Aufruf <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Parameter „cookie“ erfolgt.
->        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit „filterType=cookies“ und einem ungültigen Wert für den Parameter „filterValues“ aufgerufen wird.</td>
+>      <td>Kann auftreten, wenn der Aufruf <a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/associateLeadUsingPOST">Lead verknüpfen</a> mit einem ungültigen Wert für den Parameter „cookie“ erfolgt.
+>        Dies tritt auch auf, wenn <a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET">Leads nach Filtertyp abrufen</a> mit „filterType=cookies“ und einem ungültigen Wert für den Parameter „filterValues“ aufgerufen wird.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1013"></a>1013</td>
@@ -503,24 +503,24 @@ Wenn beispielsweise eine Anfrage zur Lead-Synchronisierung „Aktion“ auf „c
 >    </tr>
 >    <tr>
 >      <td><a name="1076"></a>1076</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a> Aufruf mit mergeInCRM-Flag ist 4.</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Leads zusammenführen</a> Aufruf mit mergeInCRM-Flag ist 4.</td>
 >      <td>Es wird ein doppelter Eintrag erstellt. Es wird empfohlen, stattdessen einen vorhandenen Datensatz zu verwenden.
 >        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1077"></a>1077</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf aufgrund der Länge des "SFDC-Felds“ fehlgeschlagen</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf aufgrund der Länge des "SFDC-Felds“ fehlgeschlagen</td>
 >      <td>Ein Aufruf zum Zusammenführen von Leads, bei dem mergeInCRM auf „true“ festgelegt ist, ist fehlgeschlagen, da das "SFDC-Feld“ die zulässige Zeichenbeschränkung überschreitet. Um dies zu korrigieren, reduzieren Sie die Länge von "SFDC Field“ oder setzen Sie mergeInCRM auf „false“.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1078"></a>1078</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf fehlgeschlagen, da die gelöschte Entität, kein Lead/Kontakt oder die Feldfilterkriterien nicht übereinstimmen.</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Leads zusammenführen</a>-Aufruf fehlgeschlagen, da die gelöschte Entität, kein Lead/Kontakt oder die Feldfilterkriterien nicht übereinstimmen.</td>
 >      <td>Zusammenführungsfehler, Zusammenführungsvorgang kann im nativ synchronisierten CRM nicht durchgeführt werden
 >        Dies ist die Fehlermeldung, die Marketo beim Zusammenführen in Salesforce erhält.</td>
 >    </tr>
 >    <tr>
 >      <td><a name="1079"></a>1079</td>
->      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/mergeLeadsUsingPOST">Lead zusammenführen</a>-Aufruf aufgrund eines personalisierten URL-Konflikts in doppelten Einträgen fehlgeschlagen</td>
+>      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi#operation/mergeLeadsUsingPOST">Lead zusammenführen</a>-Aufruf aufgrund eines personalisierten URL-Konflikts in doppelten Einträgen fehlgeschlagen</td>
 >      <td>Bei einem Aufruf zum Zusammenführen von Leads wurden viele Leads mit derselben personalisierten URL angegeben. Verwenden Sie zum Auflösen die Marketo Engage-Benutzeroberfläche, um diese Datensätze zusammenzuführen.</td>
 >    </tr>
 >  </tbody>

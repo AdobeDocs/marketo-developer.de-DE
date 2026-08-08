@@ -10,9 +10,9 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 369
+source-wordcount: 363
 ht-degree: 0%
 
 ---
@@ -27,9 +27,9 @@ Vertriebspersonen sind Personendatensätze, die die Vertriebsinhaber von Lead-Da
 
 Verknüpfen Sie Vertriebspersonen mit anderen Datensätzen, indem Sie das Attribut externalSalesPersonId an den entsprechenden Endpunkt übergeben:
 
-- Lead-Datensätze: [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST).
-- Opportunity-Datensätze: [Opportunities synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/syncOpportunitiesUsingPOST).
-- Firmendatensätze: [Firmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST).
+- Lead-Datensätze: [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST).
+- Opportunity-Datensätze: [Opportunities synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncOpportunitiesUsingPOST).
+- Firmendatensätze: [Firmen synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncCompaniesUsingPOST).
 
 Die Datensätze von Vertriebspersonen können nur über die API bearbeitet werden.
 

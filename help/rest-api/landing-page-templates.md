@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 519
+source-wordcount: 499
 ht-degree: 2%
 
 ---
@@ -33,7 +33,7 @@ Einen detaillierten Vergleich finden Sie [Grundlegendes zu Freiform und geführt
 
 ## Abfrage
 
-Abfragen von Landingpage[Vorlagen (nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Diese Endpunkte geben Vorlagenmetadaten zurück. Rufen Sie für jede Vorlage nach ID separaten HTML-Inhalt ab.
+Abfragen von Landingpage[Vorlagen (nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplateByNameUsingGET) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageTemplatesUsingGET). Diese Endpunkte geben Vorlagenmetadaten zurück. Rufen Sie für jede Vorlage nach ID separaten HTML-Inhalt ab.
 
 ## Erstellen und aktualisieren
 
@@ -79,11 +79,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Fügen Sie Vorlageninhalte separat mit dem Endpunkt [Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) hinzu.
+Fügen Sie Vorlageninhalte separat mit dem Endpunkt [Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageTemplateContentUsingPOST) hinzu.
 
 ### Aktualisieren von Metadaten
 
-Verwenden Sie den Endpunkt [Aktualisieren von Landingpage-Vorlagen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST), um den Namen, die Beschreibung oder die `enableMunchkin` zu ändern.
+Verwenden Sie den Endpunkt [Aktualisieren von Landingpage-Vorlagen](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLpTemplateUsingPOST), um den Namen, die Beschreibung oder die `enableMunchkin` zu ändern.
 
 ### Inhalt aktualisieren
 

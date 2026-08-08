@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: b5ce8718-c3af-4fdb-a1a9-fca32f83a87c
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 623
+source-wordcount: 619
 ht-degree: 1%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 1%
 
 [Referenz zum Massenimport von Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-Verwenden Sie die [Bulk-API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) um eine große Anzahl von Lead-Datensätzen asynchron zu importieren. Stellen Sie die Datensätze in einer flachen Datei mit Komma, Tabulatoren oder Semikolons bereit, die kleiner als 10 MB ist.
+Verwenden Sie die [Bulk-API](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) um eine große Anzahl von Lead-Datensätzen asynchron zu importieren. Stellen Sie die Datensätze in einer flachen Datei mit Komma, Tabulatoren oder Semikolons bereit, die kleiner als 10 MB ist.
 
 Der Massenimport von Leads unterstützt nur den Datensatzvorgang „Einfügen oder aktualisieren“.
 

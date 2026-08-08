@@ -13,9 +13,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 917
+source-wordcount: 864
 ht-degree: 2%
 
 ---
@@ -28,7 +28,7 @@ Landingpages sind von Marketo gehostete Web-Seiten. Verwenden Sie die REST-APIs 
 
 ## Abfrage
 
-Abfragen von Landingpages [nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [nach ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) oder durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Diese Abfragen geben nur Metadaten zurück. Fragen Sie die Inhaltsabschnitte einer Landingpage separat nach Seiten-ID ab.
+Abfragen von Landingpages [nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByNameUsingGET), [nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageByIdUsingGET) oder durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/browseLandingPagesUsingGET). Diese Abfragen geben nur Metadaten zurück. Fragen Sie die Inhaltsabschnitte einer Landingpage separat nach Seiten-ID ab.
 
 Die Abfrage von Landingpage-Inhalten gibt die verfügbaren Inhaltsabschnitte zurück. Ein Abschnitt muss in der Liste angezeigt werden, bevor Sie ihn aktualisieren können.
 
@@ -68,7 +68,7 @@ Das Format des `content`-Attributs hängt vom `type`-Attribut ab und davon, ob d
 
 ## Erstellen und aktualisieren
 
-[Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/createLandingPageUsingPOST) aus einer Vorlage. Der Seitenname, die Vorlagen-ID und der Zielordner sind erforderlich. Optionale Metadaten finden Sie in der Endpunkt-Referenz .
+[Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageUsingPOST) aus einer Vorlage. Der Seitenname, die Vorlagen-ID und der Zielordner sind erforderlich. Optionale Metadaten finden Sie in der Endpunkt-Referenz .
 
 Die Endpunkte [Landingpage-](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content)) unterstützen die folgenden Inhaltstypen: `richText`, `HTML`, `Form`, `Image`, `Rectangle` und `Snippet`.
 
@@ -117,7 +117,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Die Metadaten der Landingpage können mit dem Endpunkt [Metadaten der Landingpage aktualisieren“ aktualisiert &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageUsingPOST).
 
 ## Genehmigung
 
@@ -125,7 +125,7 @@ Landingpages verwenden das Standardmodell „Entwurf und genehmigt“. Aktualisi
 
 ## Löschen
 
-Bevor Sie eine Landingpage löschen, stellen Sie sicher, dass sie nicht genehmigt ist und kein anderes Marketo-Asset darauf verweist. Löschen Sie Seiten einzeln mit dem Endpunkt [Landingpage löschen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST). Sie können diese API nicht verwenden, um Seiten mit eingebetteten Social-Media-Schaltflächen zu löschen.
+Bevor Sie eine Landingpage löschen, stellen Sie sicher, dass sie nicht genehmigt ist und kein anderes Marketo-Asset darauf verweist. Löschen Sie Seiten einzeln mit dem Endpunkt [Landingpage löschen](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageByIdUsingPOST). Sie können diese API nicht verwenden, um Seiten mit eingebetteten Social-Media-Schaltflächen zu löschen.
 
 ## Klonen
 
@@ -185,7 +185,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Abschnitt „Inhalt verwalten“
 
-Inhaltsabschnitte werden nach ihrer `index`-Eigenschaft sortiert und gemäß den CSS-Regeln des Kunden angezeigt. Verwenden Sie die [Hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) und [Löschen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST), um Abschnitte zu verwalten. Verwenden Sie [Landingpage-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) um diese abzufragen.
+Inhaltsabschnitte werden nach ihrer `index`-Eigenschaft sortiert und gemäß den CSS-Regeln des Kunden angezeigt. Verwenden Sie die [Hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#operation/addLandingPageContentUsingPOST), [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST) und [Löschen](https://developer.adobe.com/marketo-apis/api/asset#operation/removeLandingPageContentUsingPOST), um Abschnitte zu verwalten. Verwenden Sie [Landingpage-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageContentUsingGET) um diese abzufragen.
 
 Jeder Abschnitt verfügt über `type` und `value` Parameter. Die `type` bestimmt die erwartete `value`. Übergeben Sie Daten an diese Endpunkte als POST-`x-www-form-urlencoded`, nicht als JSON.
 
@@ -205,11 +205,11 @@ Jeder Abschnitt verfügt über `type` und `value` Parameter. Die `type` bestimmt
 
 Fügen Sie für Freiformseiten jeden erforderlichen Inhaltsabschnitt hinzu. Marketo bettet sie in das `div` mit der ID `mktoContent` ein.
 
-Geführte Seiten können vordefinierte Elemente enthalten, die von [Landingpage-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET) zurückgegeben werden. Verwenden Sie die entsprechenden Endpunkte, um Elemente hinzuzufügen oder [ihren Inhalt zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST).
+Geführte Seiten können vordefinierte Elemente enthalten, die von [Landingpage-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageContentUsingGET) zurückgegeben werden. Verwenden Sie die entsprechenden Endpunkte, um Elemente hinzuzufügen oder [ihren Inhalt zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST).
 
 ### Dynamische Inhalte
 
-Um einen Abschnitt dynamisch zu gestalten, stellen Sie zunächst sicher, dass er in der Inhaltsliste der Landingpage angezeigt wird. Verwenden Sie dann [&#x200B; Abschnitt „Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST), um den Typ auf `DynamicContent` festzulegen.
+Um einen Abschnitt dynamisch zu gestalten, stellen Sie zunächst sicher, dass er in der Inhaltsliste der Landingpage angezeigt wird. Verwenden Sie dann [&#x200B; Abschnitt „Inhalt der Landingpage aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageContentUsingPOST), um den Typ auf `DynamicContent` festzulegen.
 
 Marketo erstellt zugrunde liegende dynamische Abschnitte, die den Basistyp und den Inhalt des konvertierten Elements erben.
 
@@ -247,7 +247,7 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 }
 ```
 
-[Inhalt wird aktualisiert](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) erfolgt für jedes einzelne Segment basierend auf der Segment-ID.
+[Inhalt wird aktualisiert](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageDynamicContentUsingPOST) erfolgt für jedes einzelne Segment basierend auf der Segment-ID.
 
 ```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
@@ -356,7 +356,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 
 ## Vorschau der Landingpage
 
-Verwenden Sie [Landingpage-vollständigen Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) um eine im Browser gerenderte Vorschau abzurufen. Der Landingpage-`id` ist erforderlich. Der Endpunkt akzeptiert außerdem zwei optionale Abfrageparameter:
+Verwenden Sie [Landingpage-vollständigen Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getLandingPageFullContentUsingGET) um eine im Browser gerenderte Vorschau abzurufen. Der Landingpage-`id` ist erforderlich. Der Endpunkt akzeptiert außerdem zwei optionale Abfrageparameter:
 
 - `segmentation`: Ein Array von JSON-Objekten, die `segmentationId` und `segmentId` enthalten. Die Vorschau stellt einen Lead dar, der diesen Segmenten entspricht.
 - `leadId`: Eine ganzzahlige Lead-ID. Die Vorschau stellt den angegebenen Lead dar.

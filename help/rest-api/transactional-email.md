@@ -11,16 +11,16 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 897
+source-wordcount: 891
 ht-degree: 1%
 
 ---
 
 # Transaktions-E-Mail
 
-Verwenden Sie die [Kampagne anfragen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST)-API zum Senden von Transaktions-E-Mails an bestimmte Marketo-Datensätze. Konfigurieren Sie die E-Mail- und Trigger-Kampagne, bevor Sie die Anfrage stellen.
+Verwenden Sie die [Kampagne anfragen](https://developer.adobe.com/marketo-apis/api/mapi#operation/triggerCampaignUsingPOST)-API zum Senden von Transaktions-E-Mails an bestimmte Marketo-Datensätze. Konfigurieren Sie die E-Mail- und Trigger-Kampagne, bevor Sie die Anfrage stellen.
 
 - Stellen Sie sicher, dass der Empfänger über einen Marketo-Eintrag verfügt.
 - Erstellen und genehmigen Sie eine Transaktions-E-Mail in der Marketo-Instanz.
@@ -56,7 +56,7 @@ Die Java-Beispiele verwenden das [minimal-json-Paket](https://github.com/ralfstx
 
 Bevor Sie die E-Mail senden, bestätigen Sie, dass für die E-Mail-Adresse ein Marketo-Eintrag vorhanden ist, und rufen Sie die Lead-ID ab. In diesem Beispiel wird davon ausgegangen, dass die E-Mail-Adresse bereits vorhanden ist.
 
-Verwenden [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) um die ID abzurufen. Die folgende Hauptmethode fordert dann die Kampagne an:
+Verwenden [Leads nach Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) um die ID abzurufen. Die folgende Hauptmethode fordert dann die Kampagne an:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -274,4 +274,4 @@ Result:
 
 ## Verpackung
 
-Diese Methode ist auf eine Vielzahl von Arten erweiterbar, indem der Inhalt in E-Mails innerhalb einzelner Layout-Abschnitte oder außerhalb von E-Mails geändert wird, sodass benutzerdefinierte Werte an Aufgaben oder interessante Momente weitergegeben werden können. Überall dort, wo ein Token innerhalb eines Programms verwendet werden kann, kann mit dieser Methode angepasst werden. Ähnliche Funktionen sind auch beim Aufruf [Kampagne planen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) verfügbar, mit dem Sie Token für eine gesamte Batch-Kampagne verarbeiten können. Diese können nicht pro Lead angepasst werden, sind jedoch für die Anpassung von Inhalten für eine Vielzahl von Leads nützlich.
+Diese Methode ist auf eine Vielzahl von Arten erweiterbar, indem der Inhalt in E-Mails innerhalb einzelner Layout-Abschnitte oder außerhalb von E-Mails geändert wird, sodass benutzerdefinierte Werte an Aufgaben oder interessante Momente weitergegeben werden können. Überall dort, wo ein Token innerhalb eines Programms verwendet werden kann, kann mit dieser Methode angepasst werden. Ähnliche Funktionen sind auch beim Aufruf [Kampagne planen](https://developer.adobe.com/marketo-apis/api/mapi#operation/scheduleCampaignUsingPOST) verfügbar, mit dem Sie Token für eine gesamte Batch-Kampagne verarbeiten können. Diese können nicht pro Lead angepasst werden, sind jedoch für die Anpassung von Inhalten für eine Vielzahl von Leads nützlich.

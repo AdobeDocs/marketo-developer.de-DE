@@ -12,27 +12,27 @@ feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 260
-ht-degree: 5%
+source-wordcount: 280
+ht-degree: 4%
 
 ---
 
 
 # [!DNL Marketo Engage] MCP-Vorgänge
 
-Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügbar. Der -Server stellt im Allgemeinen schreibgeschützte oder zerstörungsfreie Endpunkte bereit. Das KI-System kann keine `Delete` oder andere zerstörerische Vorgänge verwenden.
+Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügbar. Der -Server stellt schreibgeschützte oder zerstörungsfreie Endpunkte bereit. Das KI-System kann keine `Delete` oder andere zerstörerische Vorgänge verwenden.
 
 >[!NOTE]
 >
->Diese Liste wird durch das Hinzufügen zusätzlicher Tools weiter anwachsen.
+>Das MCP Server-Team arbeitet daran, die Smart List- und Smart Campaign Asset-APIs für die Zusammenarbeit mit dem MCP Server zu aktivieren. Diese Arbeiten, einschließlich der Zulassungsauflistung von Elementen, werden voraussichtlich im 3. Quartal 2026 abgeschlossen sein.
 
 Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Massenexport
 
-[API-Referenz für Massenexport](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export){target="_blank"}
+[API-Referenz für Massenexport](https://developer.adobe.com/marketo-apis/api/mapi){target="_blank"}
 
 - `bulk_export_create`
 - `bulk_export_enqueue`
@@ -42,7 +42,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Kanäle und Tags
 
-[Channels API-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels){target="_blank"} | [Tags-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags){target="_blank"}
+[Channels API-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels){target="_blank"} | [Tags-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags){target="_blank"}
 
 - `browse_channels`
 - `browse_tag_types`
@@ -51,7 +51,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## E-Mails
 
-[E-Mail-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails){target="_blank"}
+[E-Mail-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails){target="_blank"}
 
 - `approve_email`
 - `browse_emails`
@@ -63,7 +63,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Ordner
 
-[API-Referenz für Ordner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders){target="_blank"}
+[API-Referenz für Ordner](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders){target="_blank"}
 
 - `browse_folders`
 - `create_folder`
@@ -75,7 +75,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Formulare
 
-[Forms-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms){target="_blank"}
+[Forms-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms){target="_blank"}
 
 - `add_field_set`
 - `add_field_to_form`
@@ -103,7 +103,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Leads
 
-[Leads-API-Referenz](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads){target="_blank"}
+[Leads-API-Referenz](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads){target="_blank"}
 
 - `add_leads_to_list`
 - `describe_lead`
@@ -115,7 +115,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Programme
 
-[API-Referenz für Programme](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs){target="_blank"}
+[API-Referenz für Programme](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs){target="_blank"}
 
 - `approve_program`
 - `browse_email_batch_programs`
@@ -138,7 +138,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Intelligente Kampagnen
 
-[API-Referenz für Smart-Kampagnen](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns){target="_blank"}
+[API-Referenz für Smart-Kampagnen](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns){target="_blank"}
 
 - `activate_smart_campaign`
 - `add_flow_step`
@@ -164,7 +164,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Intelligente Listen
 
-[API-Referenz für Smart Lists](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists){target="_blank"}
+[API-Referenz für Smart Lists](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists){target="_blank"}
 
 - `add_smart_list_rule`
 - `browse_smart_lists`
@@ -184,7 +184,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Ausschnitte
 
-[Snippets-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets){target="_blank"}
+[Snippets-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets){target="_blank"}
 
 - `approve_snippet`
 - `browse_snippets`
@@ -203,7 +203,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Statische Listen
 
-[API-Referenz für statische Listen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists){target="_blank"}
+[API-Referenz für statische Listen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists){target="_blank"}
 
 - `browse_lists`
 - `create_list`
@@ -215,7 +215,7 @@ Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Ser
 
 ## Token
 
-[Token-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens){target="_blank"}
+[Token-API-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Tokens){target="_blank"}
 
 - `create_calendar_token`
 - `create_token`

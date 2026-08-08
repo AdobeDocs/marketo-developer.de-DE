@@ -12,9 +12,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 736
+source-wordcount: 714
 ht-degree: 0%
 
 ---
@@ -150,7 +150,7 @@ Die erste Zeile ist die Kopfzeile. Die Zeilen 2-4 enthalten die Datensätze für
 
 ## Erstellen von Aufträgen
 
-Um den Massenimportauftrag zu erstellen, fügen Sie den benutzerdefinierten Objekt-API-Namen in den Pfad zum Endpunkt [Benutzerdefinierte Objekte importieren](https://developer.adobe.com/marketo-apis/api/mapi#tag/Identity/operation/identityUsingPOST) ein. Schließen Sie diese Parameter ein:
+Um den Massenimportauftrag zu erstellen, fügen Sie den benutzerdefinierten Objekt-API-Namen in den Pfad zum Endpunkt [Benutzerdefinierte Objekte importieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST) ein. Schließen Sie diese Parameter ein:
 
 - `file`: Der Name der Importdatei.
 - `format`: Das Dateitrennzeichenformat (`csv`, `tsv` oder `ssv`).
@@ -215,7 +215,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## Status des Abrufauftrags
 
-Nachdem Sie den Importauftrag erstellt haben, fragen Sie ihn alle 5-30 Sekunden ab. Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad an den Endpunkt [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET).
+Nachdem Sie den Importauftrag erstellt haben, fragen Sie ihn alle 5-30 Sekunden ab. Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad an den Endpunkt [Get Import Custom Object Status](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET).
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -247,9 +247,9 @@ Wenn der Auftrag abgeschlossen ist, listet die Antwort die Anzahl der verarbeite
 
 ## Fehler
 
-Das Attribut `numOfRowsFailed` in der Antwort [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
+Das Attribut `numOfRowsFailed` in der Antwort [Benutzerdefinierter Objektstatus abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectStatusUsingGET) gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
 
-Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad zum Endpunkt [Abrufen von Fehlern bei benutzerdefinierten Objekten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET). Der Endpunkt gibt eine Datei mit Fehlerdetails zurück. Wenn keine Fehlerdatei vorhanden ist, wird ein HTTP-404-Status-Code zurückgegeben.
+Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad zum Endpunkt [Abrufen von Fehlern bei benutzerdefinierten Objekten](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectFailuresUsingGET). Der Endpunkt gibt eine Datei mit Fehlerdetails zurück. Wenn keine Fehlerdatei vorhanden ist, wird ein HTTP-404-Status-Code zurückgegeben.
 
 Um einen Fehler zu demonstrieren, ändern Sie die Kopfzeile, indem Sie `vin` in ` vin` ändern und ein Leerzeichen zwischen dem Komma und dem `vin` einfügen.
 
@@ -302,7 +302,7 @@ Die Antwort zeigt an, dass das Deduplizierungsfeld `vin` fehlt.
 
 Das Attribut `numOfRowsWithWarning` in der Antwort Benutzerdefinierter Objektstatus abrufen gibt die Anzahl der Zeilen mit Warnungen an. Ein Wert größer als null bedeutet, dass Warnungen aufgetreten sind.
 
-Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad zum Endpunkt [Warnungen für benutzerdefinierte Objekte abrufen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET). Der Endpunkt gibt eine -Datei mit Warndetails zurück. Wenn keine Warndatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
+Übergeben Sie den Namen und die `batchId` der benutzerdefinierten Objekt-API im Pfad zum Endpunkt [Warnungen für benutzerdefinierte Objekte abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportCustomObjectWarningsUsingGET). Der Endpunkt gibt eine -Datei mit Warndetails zurück. Wenn keine Warndatei vorhanden ist, wird ein HTTP 404-Status-Code zurückgegeben.
 
 ```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

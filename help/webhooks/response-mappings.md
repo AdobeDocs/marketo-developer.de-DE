@@ -1,7 +1,7 @@
 ---
 title: Response Mappings
 feature: Webhooks
-description: Marketo Webhooks-Antwortzuordnungen für JSON und XML, Zuordnungsattribute zu Lead-Feldern mit SOAP-API-Namen, Punkt- und Array-Notation und Typkompatibilität.
+description: Marketo Webhooks-Antwortzuordnungen für JSON und XML, Zuordnungsattribute zu Lead-Feldern , Punkt- und Array-Notation und Typkompatibilität.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
 TQID: https://experienceleague.adobe.com/-OGDeKLPS1KmWGIKj6BGq5DGXoCSj5ip-dVr7-kKDro
 product_v2:
@@ -10,16 +10,16 @@ feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: bcf56d2102f2f60eac5ad3318d348fd020391e6b
 workflow-type: tm+mt
-source-wordcount: 374
+source-wordcount: 370
 ht-degree: 1%
 
 ---
 
 # Response Mappings
 
-Marketo kann Webhook-Daten aus JSON oder XML übersetzen und die Werte in Lead-Felder schreiben. Der Marketo-Feldparameter verwendet immer den [SOAP-API-Namen des Felds](../rest-api/fields.md).
+Marketo kann Webhook-Daten aus JSON oder XML übersetzen und die Werte in Lead-Felder schreiben. Der Marketo-Feldparameter verwendet immer den SOAP-API-Namen des Felds.
 
 Jeder Webhook kann über eine unbegrenzte Anzahl von Antwortzuordnungen verfügen. Um Zuordnungen hinzuzufügen oder zu bearbeiten, wählen [!UICONTROL Bearbeiten] im Bereich Antwortzuordnungen des Webhooks aus:
 

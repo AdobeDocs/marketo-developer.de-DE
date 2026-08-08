@@ -15,9 +15,9 @@ role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
 topic_v2:
   - id: df401a2a-327d-468c-a5e4-b7b7ccd071a0
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
-source-wordcount: 882
+source-wordcount: 866
 ht-degree: 0%
 
 ---
@@ -34,7 +34,6 @@ Entwerfen Sie Integrationen um die freigegebenen API-Beschränkungen für Ihre M
 - **Batch-Größe:** Lead-Datenbank unterstützt 300 Datensätze; Asset-Abfrage unterstützt 200 Datensätze.
 - **REST API Payload-Größe:** 1 MB.
 - **Größe der Massenimportdatei:** 10 MB.
-- Maximale Batch-Größe von **SOAP:** 300 Datensätze.
 - **Massenextraktionsaufträge:** Zwei werden ausgeführt und zehn in die Warteschlange gestellt, einschließlich.
 
 ## Schnelltipps
@@ -66,15 +65,15 @@ Jede API-fähige Marketo-Instanz verfügt über eine tägliche Zuordnung von min
 
 Die Kapazität wird von allen API-Services und Benutzern in einer Instanz gemeinsam genutzt. Beseitigen Sie redundante Aufrufe und Batch-Datensätze in so wenig Aufrufe wie möglich.
 
-Die aufrufeffizienteste Importmethode ist die Marketo-Massenimport-API, die für „Leads[/Personen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) &quot;[&#x200B; Objekte“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
+Die aufrufeffizienteste Importmethode ist die Marketo-Massenimport-API, die für „Leads[/Personen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) &quot;[&#x200B; Objekte“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
 
 ### Caching
 
 Die Ergebnisse aus den folgenden Vorgängen können in der Regel einen Tag oder länger Client-seitig zwischengespeichert werden, da sie sich selten ändern:
 
 - Ergebnisse von Describe Operations
-- [Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Partitionen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Aktivitätstypen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getAllActivityTypesUsingGET)
+- [Partitionen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadPartitionsUsingGET)
 
 Für Anwendungsfälle wie die Anreicherung von Lead- oder Aktivitätsdaten können Sie auch Asset-Typen wie Programme, E-Mails und Ordner zwischenspeichern.
 

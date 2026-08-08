@@ -21,9 +21,9 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: af0a3c77654f74d7cb5d2077518d764468a53ae0
+source-git-commit: 2019d398e32790d76735ef672e9ca4b48b8dd2bb
 workflow-type: tm+mt
-source-wordcount: 2018
+source-wordcount: 2216
 ht-degree: 1%
 
 ---
@@ -33,6 +33,10 @@ ht-degree: 1%
 >[!AVAILABILITY]
 >
 > Diese Funktion ist nur eingeschränkt verfügbar. Um den Zugriff anzufordern, füllen Sie [dieses Formular](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"} aus. Stellen Sie sicher, dass Sie die Munchkin ID Ihres Abonnements bereit haben.
+
+>[!NOTE]
+>
+>Das MCP Server-Team arbeitet daran, die Smart List- und Smart Campaign Asset-APIs für die Zusammenarbeit mit dem MCP Server zu aktivieren. Der Großteil dieser Arbeit, einschließlich der Zulassungsauflistung von Aktivitäten, Aktionen und Regeln, wird voraussichtlich im 3. Quartal 2026 abgeschlossen sein.
 
 Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Tools mit externen Services verbindet. Der [!DNL Marketo] MCP-Server verbindet Ihren KI-Assistenten mit [!DNL Marketo]. Es bietet mehr als 100 Vorgänge für Formulare, Programme, intelligente Kampagnen, Leads, E-Mails, Snippets, Listen und Ordner.
 
@@ -44,7 +48,7 @@ Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage
 >
 >Das Model Context Protocol (MCP) ist ein aufstrebender Open-Source-Standard, der Sicherheits- oder Zuverlässigkeitsrisiken mit sich bringen kann. Adobe MCP-Server-Integrationen und die zugehörige Dokumentation werden ohne Mängelgewähr und ohne Gewährleistung jeglicher Art bereitgestellt.
 >Die Verbindung von MCP-Clients oder -Servern mit Adobe-Produkten ist eine vom Kunden gewählte Konfiguration, und die Kunden sind dafür verantwortlich, die Sicherheit und Eignung jeder MCP-Integration zu bewerten. Adobe übernimmt keine Verantwortung für Probleme, die sich aus einer Fehlkonfiguration, einer fehlerhaften Verwendung des MCP, Sicherheitslücken in Drittanbieterimplementierungen oder unbeabsichtigten Aktionen ergeben, die über MCP-fähige Workflows ausgeführt werden.
->Um Risiken zu reduzieren, empfiehlt Adobe, Integrationen vor der produktiven Verwendung in einer Sandbox-Umgebung zu testen und alle MCP-initiierten Aktionen und Antworten sorgfältig zu überprüfen und zu validieren, bevor sie bestätigt oder sich darauf verlassen.
+>Um Risiken zu reduzieren, empfiehlt Adobe, Integrationen vor der produktiven Verwendung in einer Sandbox-Umgebung zu testen und alle MCP-initiierten Aktionen und Antworten sorgfältig zu überprüfen und zu validieren, bevor sie bestätigt oder sich auf sie verlassen.
 
 ## MCP-Grundlagen
 
