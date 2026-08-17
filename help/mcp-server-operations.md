@@ -28,7 +28,7 @@ Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügb
 >
 >Die `create` und `update`-Tools von Smart List und Smart Campaign sind für eine Version vom September 2026 geplant.
 
-Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
+Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 ## Massenexport
 
