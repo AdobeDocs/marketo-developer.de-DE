@@ -1,7 +1,6 @@
 ---
 title: MCP-Server für Marketo Engage
 description: Erfahren Sie, wie Sie einen KI-Assistenten mithilfe des Marketo Engage MCP-Servers mit Marketo verbinden. Konfigurieren Sie Claude Desktop, Cursor, Claude Code oder VS Code mit Ihren Marketo-Anmeldeinformationen.
-badgeBeta: label="Eingeschränkte Verfügbarkeit" type="informative" tooltip="Diese Funktion befindet sich derzeit in einer eingeschränkten Beta-Version"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
 autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
@@ -21,22 +20,19 @@ role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 4d690179b0ff8da03b6eb7d11566f511d491f369
+source-git-commit: 8fc4e9a161decdc0b39a7e98bdb17de035538a6a
 workflow-type: tm+mt
-source-wordcount: 2214
-ht-degree: 1%
+source-wordcount: 2144
+ht-degree: 4%
 
 ---
 
-# [!DNL Marketo Engage] MCP-Server
 
->[!AVAILABILITY]
->
-> Diese Funktion ist nur eingeschränkt verfügbar. Um den Zugriff anzufordern, füllen Sie [dieses Formular](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Wht7-jR7h0OUrtLBeN7O4Y-uSf63sAxCmWyqMJg8eMFUMVZSVExSNDA3T0I4SEcwRDFSVTBGWU01Uy4u&origin=QRCode){target="_blank"} aus. Stellen Sie sicher, dass Sie die Munchkin ID Ihres Abonnements bereit haben.
+# [!DNL Marketo Engage] MCP-Server
 
 >[!NOTE]
 >
->Das MCP Server-Team arbeitet daran, die Smart List- und Smart Campaign Asset-APIs für die Zusammenarbeit mit dem MCP Server zu aktivieren. Der Großteil dieser Arbeit, einschließlich der Zulassungsauflistung von Aktivitäten, Aktionen und Regeln, wird voraussichtlich im 3. Quartal 2026 abgeschlossen sein.
+>Die `create` und `update`-Tools von Smart List und Smart Campaign sind für eine Version vom September 2026 geplant.
 
 Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Tools mit externen Services verbindet. Der [!DNL Marketo] MCP-Server verbindet Ihren KI-Assistenten mit [!DNL Marketo]. Es bietet mehr als 100 Vorgänge für Formulare, Programme, intelligente Kampagnen, Leads, E-Mails, Snippets, Listen und Ordner.
 
