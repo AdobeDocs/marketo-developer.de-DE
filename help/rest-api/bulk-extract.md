@@ -10,9 +10,9 @@ feature_v2:
   - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
 workflow-type: tm+mt
-source-wordcount: 1549
+source-wordcount: 1525
 ht-degree: 1%
 
 ---
@@ -43,14 +43,14 @@ Die Massenextraktions-APIs verwenden dieselbe OAuth 2.0-Authentifizierungsmethod
 
 >[!IMPORTANT]
 >
->Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 31. August 2026 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
+>Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wurde am 31. August 2026 entfernt. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
 
 ## Beschränkungen
 
 - Maximale Anzahl gleichzeitiger Exportvorgänge: 2
 - Maximale Anzahl an Exportvorgängen in der Warteschlange, einschließlich gerade exportierender Aufträge: 10
 - Aufbewahrungszeitraum für Dateien: sieben Tage
-- Standardmäßige tägliche Exportzuweisung: 500 MB. Die Zuordnung wird täglich um 0:00 Uhr CST zurückgesetzt. Erhöhungen können erworben werden.
+- Die Zuordnung wird täglich um 12:00 Uhr CST/CDT zurückgesetzt, abhängig von der Sommerzeit. Erhöhungen können erworben werden.
 - Maximale Zeitspanne für den Datumsbereichsfilter (`createdAt` oder `updatedAt`): 31 Tage
 
 Massenfilter für die Lead-Extraktion für aktualisierte Daten und Smart-Listen sind für einige Abonnementtypen nicht verfügbar. Wenn diese Filter nicht verfügbar sind, gibt der Endpunkt Exportvorgang erstellen den Fehler „1035, Nicht unterstützter Filtertyp für Zielabonnement“ zurück. Wenden Sie sich an den Marketo-Support, um diese Funktion für Ihr Abonnement zu aktivieren.
