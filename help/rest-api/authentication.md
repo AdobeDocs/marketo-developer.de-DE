@@ -4,13 +4,11 @@ feature: REST API
 description: Authentifizieren Sie Marketo REST-APIs mit zwei OAuth 2.0-Legs, erstellen und verwenden Sie Zugriffstoken, wechseln Sie zum Autorisierungs-Header, verwalten Sie Ablauf, verarbeiten Sie 601- und 602-Fehler.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
 TQID: https://experienceleague.adobe.com/cIeI0m61CyIWq4HEosZ-QAsxzZb0WcrQRpCud2qysfY
-product_v2:
-  - id: b27e5950-9033-45ac-9f86-eb22e567f615
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 1a442b6008fbb8f05ad346f1b7185a5b2e22f0e4
+product_v2: id: b27e5950-9033-45ac-9f86-eb22e567f615
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+source-git-commit: eb4e99aff94f3106b96f999fc56a6db7c5598b1f
 workflow-type: tm+mt
-source-wordcount: 487
+source-wordcount: 563
 ht-degree: 0%
 
 ---
@@ -62,6 +60,8 @@ Jeder REST-API-Aufruf muss ein Zugriffstoken in einer HTTP-Kopfzeile enthalten.
 >[!IMPORTANT]
 >
 >Die Unterstützung für die Authentifizierung mit dem `access_token` Abfrageparameter wurde am 31. August 2026 entfernt. Bei der Neuentwicklung sollte ausschließlich der `Authorization`-Header verwendet werden.
+>Diese Änderung ist eine Sicherheitsanpassung, die den Best Practices für die Industrie und OAuth 2.0-Sicherheit entspricht, welche die Übertragung von Zugriffstoken in URLs ablehnen.  Bei vorhandenen Workflows, die sich auf diese Weise authentifizieren, treten möglicherweise bereits 603-Fehler (Zugriff verweigert) auf.
+>Priorisieren Sie die Aktualisierung Ihrer Integration auf die Verwendung der Header-basierten Authentifizierung vor dem 15. September 2026.  Wenn Sie zusätzliche Zeit benötigen, wenden Sie sich an den Adobe-Support, um die verfügbaren Optionen zu besprechen
 
 ### Wechseln zur Autorisierungs-Kopfzeile
 
