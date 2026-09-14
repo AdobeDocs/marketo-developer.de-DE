@@ -6,9 +6,7 @@ source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
 workflow-type: tm+mt
 source-wordcount: '65289'
 ht-degree: 0%
-
 ---
-
 # Blog-Archiv
 
 >[!INFO]
@@ -18,7 +16,7 @@ ht-degree: 0%
 >
 
 >[!IMPORTANT]
->Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo REST-API durchgeführt werden, und die vorhandenen Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen des Services zu vermeiden. Wenn Sie über einen Dienst verfügen, der die SOAP-API verwendet, finden Sie im [SOAP-API-Migrationshandbuch](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/soap/migration) Informationen zur Migration.
+>Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo REST-API durchgeführt werden, und die vorhandenen Services sollten bis zu diesem Datum migriert werden, um Unterbrechungen des Services zu vermeiden. Wenn Sie über einen Dienst verfügen, der die SOAP-API verwendet, finden Sie im [SOAP-API-Migrationshandbuch](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/migration) Informationen zur Migration.
 >
 
 >[!IMPORTANT]
@@ -326,7 +324,7 @@ Veröffentlicht am _2014-04-22_ von _Murta_
 
 ### Marketo Forms-Sicherheitsupdate
 
-Wir haben ein Limit für die Anzahl und Häufigkeit der Formularübermittlungen von einer einzelnen IP-Adresse aus eingeführt. Diese Beschränkung wird jetzt auf 30 Beiträge pro Minute durchgesetzt, um unsere Kunden vor böswilliger Verwendung von programmgesteuerten Formularübermittlungen zu schützen. Die [syncLead API](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/soap/leads/synclead) ist das empfohlene Integrationsvehikel für die programmgesteuerte Übermittlung neuer Kontakte in Marketo.
+Wir haben ein Limit für die Anzahl und Häufigkeit der Formularübermittlungen von einer einzelnen IP-Adresse aus eingeführt. Diese Beschränkung wird jetzt auf 30 Beiträge pro Minute durchgesetzt, um unsere Kunden vor böswilliger Verwendung von programmgesteuerten Formularübermittlungen zu schützen. Die [syncLead API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/leads/synclead) ist das empfohlene Integrationsvehikel für die programmgesteuerte Übermittlung neuer Kontakte in Marketo.
 
 Veröffentlicht am _2014-04-29_ von _Travis Kaufman_
 
@@ -1048,7 +1046,7 @@ Veröffentlicht am _2015-02-20_ von _Murta_
 
 ## Erstellen Sie ein benutzerdefiniertes Feld in Marketo und aktualisieren Sie dieses Feld über die API
 
-Angenommen, Sie verfügen über zusätzliche Daten zu Ihren Leads, die nicht in die standardmäßigen Marketo-Felder passen. Dieses benutzerdefinierte Feld könnte beispielsweise ein Drittanbieterwert sein. Sie können in Marketo ein benutzerdefiniertes Feld für die Bewertung von Drittanbietern erstellen und dann den Wert dieses Felds entweder über die Marketo-(REST[APIs) &#x200B;](https://developer.adobe.com/marketo-apis/) [SOAP-APIs &#x200B;](https://experienceleague.adobe.com/de/docs/marketo-developer/marketo/soap/activity-type-filters). Wir zeigen Ihnen zunächst, wie Sie ein benutzerdefiniertes Feld in Marketo erstellen und wie Sie dieses Feld mithilfe der REST-API aktualisieren können.
+Angenommen, Sie verfügen über zusätzliche Daten zu Ihren Leads, die nicht in die standardmäßigen Marketo-Felder passen. Dieses benutzerdefinierte Feld könnte beispielsweise ein Drittanbieterwert sein. Sie können in Marketo ein benutzerdefiniertes Feld für die Bewertung von Drittanbietern erstellen und dann den Wert dieses Felds entweder über die Marketo-(REST[APIs) &#x200B;](https://developer.adobe.com/marketo-apis/) [SOAP-APIs &#x200B;](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/soap/activity-type-filters). Wir zeigen Ihnen zunächst, wie Sie ein benutzerdefiniertes Feld in Marketo erstellen und wie Sie dieses Feld mithilfe der REST-API aktualisieren können.
 
 ### Erstellen eines benutzerdefinierten Felds in Marketo
 
@@ -8042,7 +8040,7 @@ in
 
 Sie sollten jetzt in der Lage sein, alle Abfragen zu entwerfen, die Sie für den Zugriff auf bestimmte Marketo-Daten benötigen, die über die REST-APIs verfügbar sind. Wir hoffen, dass Ihnen dieser Artikel gefallen hat und dass er Ihnen geholfen hat, die großen Vorteile von Excel und Marketo zusammen zu nutzen. Eine Beispielarbeitsmappe mit allen Abfragen finden Sie auch im zweiten Artikel.
 
-### Verweise
+### Referenzen
 
 #### Power Query
 
@@ -8173,7 +8171,7 @@ Und wenn man mit der 3D-Weltkarte fertig ist, kann man jetzt Spaß daran haben, 
 
 Wir haben gerade erst an der Oberfläche der Möglichkeiten für die Excel Power BI-Tools gekratzt. Wir empfehlen Ihnen, im Internet nach anderen großartigen Artikeln und Tutorials zu suchen, um Ihre Excel-Kenntnisse zu erweitern und die Berichte zu entwerfen, die Sie benötigen, um Ihre Geschäftsziele zu erreichen. Wir hoffen, dass Ihnen diese Artikel gefallen haben und dass sie Ihnen geholfen haben, die großen Vorteile von Excel und Marketo zusammen zu nutzen.
 
-### Verweise
+### Referenzen
 
 #### Machtachse
 
