@@ -6,27 +6,37 @@ autotag-review: '2026-06-02T13:31:15.329Z'
 TQID: 'https://experienceleague.adobe.com/PJJm7yv8HmbwMB2fsnfDCXs8zprDJK5Q5z2uiiCJRZI'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: b13bd2ad-8e65-49e5-9691-2a0d31067b35
+    internal-label: Integrations
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
   - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
   - id: e2290edd-b061-4880-9d79-dee306cf5aa9
+    internal-label: Implementation
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
 role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+    internal-label: Developer
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: 8fc4e9a161decdc0b39a7e98bdb17de035538a6a
+    internal-label: Artificial intelligence
+source-git-commit: b12faeb0cb1a3680f6e0e7a522c54931b3de2c5d
 workflow-type: tm+mt
-source-wordcount: 2144
+source-wordcount: '2099'
 ht-degree: 4%
-
 ---
-
 
 # [!DNL Marketo Engage] MCP-Server
 
@@ -38,7 +48,7 @@ Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Tools mit exte
 
 Wenn Ihr KI-Tool den MCP-Server aufruft, verwendet der Server die Anmeldeinformationen in dieser Anfrage, um den entsprechenden REST-API-Aufruf auszuführen. Sie müssen keine Server-seitige Software installieren, bereitstellen oder ausführen.
 
-Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
+Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
@@ -163,27 +173,6 @@ Sie benötigen außerdem:
 Wenn Ihre Cursor-MCP-Konfiguration bereits andere Server enthält, fügen Sie den `marketo` Eintrag unter `mcpServers` hinzu.
 Das folgende Beispiel zeigt den vollständigen `mcpServers`-Block unter **[!UICONTROL Einstellungen]** > **[!UICONTROL MCP]** oder `.cursor/mcp.json` in Ihrem Projektverzeichnis:
 
->[!BEGINTABS]
-
->[!TAB IMS-Token]
-
-```json
-{
-  "mcpServers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR-IMS-TOKEN",
-        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
-      }
-    }
-  }
-}
-```
-
->[!TAB Marketo-Client-Anmeldedaten]
-
 ```json
 {
   "mcpServers": {
@@ -200,26 +189,11 @@ Das folgende Beispiel zeigt den vollständigen `mcpServers`-Block unter **[!UICO
 }
 ```
 
->[!ENDTABS]
-
 Cursor neu starten.
 
 ### Claude-Code (CLI) {#claude-code}
 
 Führen Sie den folgenden Befehl an Ihrem Terminal aus und ersetzen Sie dabei Ihre Anmeldeinformationen:
-
->[!BEGINTABS]
-
->[!TAB IMS-Token]
-
-```bash
-claude mcp add --transport http marketo \
-  https://marketo-mcp.adobe.io/mcp \
-  --header "Authorization: Bearer YOUR-IMS-TOKEN" \
-  --header "x-gw-ims-org-id: YOUR-IMS-ORG-ID"
-```
-
->[!TAB Marketo-Client-Anmeldedaten]
 
 ```bash
 claude mcp add --transport http marketo \
@@ -229,28 +203,15 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
->[!ENDTABS]
-
 ### OpenAI-Code {#codex}
 
 1. Gehen Sie zu Einstellungen > MCP-Server > Server hinzufügen.
 1. Fügen Sie die Server-URL hinzu: `https://marketo-mcp.adobe.io/mcp`.
 1. Fügen Sie die Kopfzeilen für Ihre Authentifizierungsmethode hinzu:
 
->[!BEGINTABS]
-
->[!TAB IMS-Token]
-
-* Autorisierung: „Bearer YOUR-IMS-TOKEN“
-* x-gw-ims-org-id: „IHRE-IMS-ORG-ID“
-
->[!TAB Marketo-Client-Anmeldedaten]
-
 * X-Marketo-Client-ID: „IHRE-CLIENT-ID“
 * X-Marketo-Client-Secret: „IHR-CLIENT-GEHEIMNIS“
 * X-Marketo-Munchkin-ID: „IHRE-MUNCHKIN-ID“
-
->[!ENDTABS]
 
 1. Wählen Sie Speichern aus, um den Vorgang abzuschließen.
 
@@ -258,27 +219,6 @@ claude mcp add --transport http marketo \
 ### VS-Code mit GitHub Copilot {#vscode}
 
 Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+Umschalt+P]** auf macOS), geben Sie **[!UICONTROL MCP: Benutzerkonfiguration öffnen ein]** und drücken Sie die Eingabetaste. Dadurch wird `mcp.json` geöffnet. Fügen Sie den `marketo` Eintrag innerhalb des `servers` hinzu:
-
->[!BEGINTABS]
-
->[!TAB IMS-Token]
-
-```json
-{
-  "servers": {
-    "marketo": {
-      "type": "http",
-      "url": "https://marketo-mcp.adobe.io/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR-IMS-TOKEN",
-        "x-gw-ims-org-id": "YOUR-IMS-ORG-ID"
-      }
-    }
-  }
-}
-```
-
->[!TAB Marketo-Client-Anmeldedaten]
 
 ```json
 {
@@ -296,15 +236,13 @@ Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+U
 }
 ```
 
->[!ENDTABS]
-
 >[!NOTE]
 >
 >Verwenden Sie aus Sicherheitsgründen die Interpolation von Umgebungsvariablen in Konfigurationsdateien, anstatt Anmeldeinformationen direkt einzufügen. Sie können Variablen mithilfe von Syntax wie `${MARKETO_CLIENT_SECRET}` referenzieren und sie in Ihrer Umgebung festlegen. Dadurch wird verhindert, dass Anmeldeinformationen im Klartext in Dateien gespeichert werden, die der Versionskontrolle unterliegen.
 
 ### sammeln {#glean}
 
-Um Glean mit dem Marketo Engage MCP Server zu verbinden, [&#x200B; das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
+Um Glean mit dem Marketo Engage MCP Server zu verbinden, [ das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
 
 | Header | Wert |
 | ------ | ----- |
@@ -328,24 +266,11 @@ Sie benötigen keine tool-spezifische Bridge oder lokal installierte Software. W
 
 Senden Sie bei jeder Anfrage die Header für eine der folgenden Authentifizierungsmethoden. Wo Sie die Server-URL und die Header eingeben, hängt von Ihrem Tool ab. Konsultieren Sie daher die MCP-Dokumentation.
 
->[!BEGINTABS]
-
->[!TAB IMS-Token]
-
-| Header | Wert |
-| ------ | ----- |
-| `Authorization` | `Bearer YOUR-IMS-TOKEN` |
-| `x-gw-ims-org-id` | Ihre IMS-Organisations-ID |
-
->[!TAB Marketo-Client-Anmeldedaten]
-
 | Header | Wert |
 | ------ | ----- |
 | `X-Marketo-Client-Id` | Ihre Client-ID |
 | `X-Marketo-Client-Secret` | Ihr Client-Geheimnis |
 | `X-Marketo-Munchkin-Id` | Ihre Munchkin-Konto-ID |
-
->[!ENDTABS]
 
 Wenn Ihr Tool eine JSON-Konfiguration akzeptiert, beginnen Sie mit den [Cursor](#cursor)- oder [VS-Code](#vscode)-Beispielen und passen Sie die Schlüssel (`mcpServers`, `servers`) an das Schema Ihres Tools an.
 
