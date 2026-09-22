@@ -85,7 +85,7 @@ Tags gruppieren und kategorisieren Programmdaten für das Reporting. Verwenden S
 
 Als Marketo-Administrator können Sie erforderliche und optionale Tag-Typen erstellen, die Benutzende beim Erstellen eines Programms auswählen. Sie definieren die möglichen Werte für jeden Tag-Typ auf der Grundlage der Berichtsanforderungen Ihres Unternehmens.
 
-Um beispielsweise zu analysieren, welche Region die meisten Leads generiert, erstellen Sie einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie „Northeast“ und „Southeast“. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [ von Tags](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Um beispielsweise zu analysieren, welche Region die meisten Leads generiert, erstellen Sie einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie „Northeast“ und „Southeast“. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [&#x200B; von Tags](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
