@@ -5,24 +5,31 @@ exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
 TQID: https://experienceleague.adobe.com/0lfzor5EQJ0VqIh4fqlK29OiPmRCy6fnEtncJ38r-OM
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: c954475c-8548-4e33-a0b8-6b550d956115
+    internal-label: Marketing automation
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
   - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+    internal-label: Reporting
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+    internal-label: Reporting
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Administration
+source-git-commit: 8e1497d0d018bacb210b202d488e285a798e9dcf
 workflow-type: tm+mt
-source-wordcount: 1201
+source-wordcount: '1193'
 ht-degree: 2%
-
 ---
-
 # Erste Schritte
 
 Marketo Engage ist eine Marketing-Automatisierungsplattform für die Verwaltung personalisierter Multi-Channel-Programme und -Kampagnen für Interessenten und Kunden. Sie können die Plattform durch ihre Integrationspunkte erweitern.
@@ -38,17 +45,17 @@ Wenn entweder die native SFDC- oder MS Dynamics CRM-Verbindung in einer Marketo 
 - Unternehmen
 - Opportunity
 - Opportunity-Rolle
-- Verkäufer
+- Vertriebsmitarbeiter
 
 ![Datenmodell](assets/data_model.png)
 
 ## Person (Leads)
 
-Menschen sind die Grundlage der Marketing-Automatisierung. Marketo bezieht sich auf alle Nicht-Vertriebspersonen-Datensätze als Leads, unabhängig davon, ob der Vertrieb sie als Leads, Interessenten, Verdächtige oder Kontakte betrachtet.
+Menschen sind die Basis der Marketing-Automatisierung. Marketo bezieht sich auf alle Datensätze, die keine Vertriebsmitarbeiter sind, als Leads, unabhängig davon, ob der Vertrieb sie als Leads, Interessenten, Verdächtige oder Ansprechpartner betrachtet.
 
-Das Lead-Objekt enthält Standardfelder wie E-Mail, Vorname und Nachname. Sie können Felder hinzufügen, um andere Informationen zu speichern, und Sie können benutzerdefinierte Attribute auf dieselbe Weise lesen und schreiben wie Standardfelder. Die vollständige Feldliste finden Sie unter **[!UICONTROL Admin]** > **[!UICONTROL Feldverwaltung]** in Marketo.
+Das Lead-Objekt enthält Standardfelder wie E-Mail, Vorname und Nachname. Zum Speichern anderer Informationen können Sie Felder hinzufügen, und Sie können benutzerdefinierte Attribute auf dieselbe Weise lesen und schreiben wie Standardfelder. Die vollständige Feldliste finden Sie unter **[!UICONTROL Admin]** > **[!UICONTROL Feldverwaltung]** in Marketo.
 
-Marketo identifiziert Leads eindeutig anhand des ID-Felds. Sie müssen andere eindeutige Schlüssel außerhalb des Systems erzwingen.
+Marketo identifiziert Leads eindeutig anhand des ID-Felds. Erzwingen Sie andere eindeutige Schlüssel außerhalb des Systems.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
@@ -64,11 +71,11 @@ Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Act
 
 ## Programme und Kampagnen
 
-Ein Programm organisiert die entsprechenden Marketing-Maßnahmen eines Marketing-Experten an einem Ort. Ein E-Mail-Versand kann beispielsweise ein Programm sein.
+Ein Programm organisiert die entsprechenden Marketing-Maßnahmen eines Marketing-Experten an einem Ort. Eine E-Mail-Kampagne kann beispielsweise ein Programm sein.
 
-Ein Lead kann mehrere Aktionen oder Aktivitäten ausführen, die mit einem Programm verbunden sind. Dieser Prozess wird als Lead-Progression bezeichnet. Bei E-Mail-Blastprogrammen kann der Fortschritt aufzeichnen, wann Marketo die E-Mail sendet, wann die Person sie öffnet und ob die Person auf einen Link klickt.
+Ein Lead kann mehrere Aktionen oder Aktivitäten ausführen, die mit einem Programm verbunden sind. Dieser Prozess wird als Lead-Progression bezeichnet. Bei E-Mail-Kampagnenprogrammen kann der Fortschritt aufzeichnen, wann Marketo die E-Mail sendet, wann die Person sie öffnet und ob die Person auf einen Link klickt.
 
-Eine Kampagne erfüllt einen bestimmten Zweck und ein bestimmtes Ziel innerhalb eines Programms. Beispielsweise kann eine Kampagne eine Gruppe von Leads auswählen und eine E-Mail-Nachricht senden. Eine andere Kampagne kann einen Vertriebsmitarbeiter benachrichtigen, wenn ein Lead auf einen Link in der E-Mail-Nachricht klickt.
+Eine Kampagne erfüllt einen bestimmten Zweck und ein bestimmtes Ziel innerhalb eines Programms. Beispielsweise kann eine Kampagne eine Gruppe von Leads auswählen und eine E-Mail-Nachricht senden. Eine andere Kampagne kann einen Vertriebsmitarbeiter benachrichtigen, wenn ein Lead auf einen Link in der E-Mail-Kampagne klickt.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns)
 
@@ -78,7 +85,7 @@ Tags gruppieren und kategorisieren Programmdaten für das Reporting. Verwenden S
 
 Als Marketo-Administrator können Sie erforderliche und optionale Tag-Typen erstellen, die Benutzende beim Erstellen eines Programms auswählen. Sie definieren die möglichen Werte für jeden Tag-Typ auf der Grundlage der Berichtsanforderungen Ihres Unternehmens.
 
-Erstellen Sie beispielsweise einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie Nordost und Südost, um zu analysieren, welche Region die meisten Leads generiert. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen (wie Maria, David oder John) die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [&#x200B; von Tags](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
+Um beispielsweise zu analysieren, welche Region die meisten Leads generiert, erstellen Sie einen benutzerdefinierten Tag-Typ „Region“ mit Werten wie „Northeast“ und „Southeast“. Erstellen Sie einen Tag-Typ „Verantwortlicher“, um zu vergleichen, welche Programm-Verantwortlichen die größte Auswirkung auf die Erstellung von Leads und Opportunities haben. Weitere Informationen finden Sie unter [&#x200B; von Tags](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset)
 
@@ -89,7 +96,7 @@ In Listen werden Lead-Sammlungen organisiert. Marketo bietet zwei Typen:
 - Eine statische Liste ist eine feste Sammlung, aus der Marketing-Experten Leads hinzufügen oder entfernen können.
 - Eine Smart-Liste ist eine dynamische Sammlung, die auf definierten Merkmalen basiert.
 
-Beispielsweise wächst eine Smart-Liste mit dem Namen „Alle Leads, die die Preisseite auf unserer Website besucht haben“ weiter, je mehr Leads diese Seite besuchen. Weitere Informationen finden Sie in der Dokumentation zu [Marketo Engage](https://experienceleague.adobe.com/de/docs/marketo/using/home).
+Beispielsweise wächst eine Smart-Liste mit dem Namen „Alle Leads, die die Preisseite auf der Website besucht haben“ weiter, je mehr Leads diese Seite besuchen. Weitere Informationen finden Sie in der Dokumentation zu [Marketo Engage](https://experienceleague.adobe.com/de/docs/marketo/using/home).
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists)
 
@@ -139,10 +146,10 @@ Nachdem Sie ein benutzerdefiniertes Marketo-Objekt erstellt und veröffentlicht 
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects)
 
-## Vertriebspersonal
+## Vertriebsmitarbeiter
 
-Sie können die Datensätze von Vertriebspersonen und deren Lead-Beziehungen in Marketo verwalten, wenn keine native CRM-Integration aktiviert ist. Diese Datensätze enthalten Informationen wie Name, E-Mail und Tätigkeitsbezeichnung. Wenn ein Vertriebsmitarbeiter im Besitz eines Leads ist, können Sie diese Informationen zum Filtern von - und -Token verwenden.
+Sie können die Datensätze von Kundenbetreuern und deren Lead-Beziehungen in Marketo verwalten, wenn keine native CRM-Integration aktiviert ist. Diese Datensätze enthalten Informationen wie Name, E-Mail und Tätigkeitsbezeichnung. Wenn ein Vertriebsmitarbeiter im Besitz eines Leads ist, können Sie diese Informationen zum Filtern und Token verwenden.
 
-Verwalten Sie die Beziehung zu einer Verkaufsperson auf Lead-Ebene über das Feld „externalSalesPersonId“. Aktualisieren Sie dieses Feld über die [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST)-API.
+Verwalten Sie die Beziehung zu einem Vertriebsmitarbeiter auf Lead-Ebene über das Feld „externalSalesPersonId“. Aktualisieren Sie dieses Feld über die [Leads synchronisieren](https://developer.adobe.com/marketo-apis/api/mapi#operation/syncLeadUsingPOST)-API.
 
 Verwandte APIs: [REST](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
