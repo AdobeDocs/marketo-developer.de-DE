@@ -6,31 +6,37 @@ exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
 TQID: https://experienceleague.adobe.com/wQ2PQFabw8E5XYP4zJ2RMPcurRkoxA7UecpA-YuQuBc
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
 subfeature_v2:
   - id: d0251300-e25f-466f-9856-7e11ce8fa7aa
+    internal-label: Smart Lists
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 15a223e2511f405ebaebbba933acac1429514030
 workflow-type: tm+mt
-source-wordcount: 402
-ht-degree: 1%
-
+source-wordcount: '393'
+ht-degree: 2%
 ---
-
 # Intelligente Listen
 
 [Endpunkt-Referenz für Smart Lists](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists)
 
 Verwenden Sie die REST-APIs für Smart Lists, um Smart Lists abzufragen, zu klonen und zu löschen.
 
-Diese APIs unterstützen nur vom Benutzer erstellte Smart-Listen. Sie unterstützen keine [integrierten oder System-Smart-Listen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+>[!NOTE]
+>
+>Wenn Sie in der Anwendung den Operator „in“ für Mitglied der Liste oder Mitglied der Smart-Liste auswählen, wird er in der API-Antwort als „is“ angezeigt.
+> ![Im Benutzerfeld](assets/in-operator.png){width=600}
 
 ## Abfrage
 
-Abfragen von Smart[Listen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET)nach ID[&#x200B; (nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET)) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET).
+Abfragen von Smart[Listen ](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET)nach ID[ (nach ](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET)) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET).
 
 ### Nach ID
 
@@ -201,7 +207,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Durchsuchen
 
-Verwenden Sie den Endpunkt „Durchsuchen[&#x200B; zum Abrufen von Smart-Listen in Batches](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET). Der optionale Parameter `folder` erfasst die Abfrage für einen übergeordneten Ordner. Übergeben Sie sie als JSON-Objekt, das `id` und `type` enthält.
+Verwenden Sie den Endpunkt „Durchsuchen[ zum Abrufen von Smart-Listen in Batches](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET). Der optionale Parameter `folder` erfasst die Abfrage für einen übergeordneten Ordner. Übergeben Sie sie als JSON-Objekt, das `id` und `type` enthält.
 
 Verwenden Sie `offset` und `maxReturn` für die Paginierung. Verwenden Sie die optionalen `earliestUpdatedAt`- und `latestUpdatedAt`, um nach dem `updatedAt` Datumsbereich zu filtern.
 
@@ -255,7 +261,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 }
 ```
 
-## Klonen
+## Klon
 
 Senden einer `application/x-www-form-urlencoded` POST-Anfrage an [Klonen einer Smart-Liste](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneSmartListUsingPOST). Der `id` Pfadparameter identifiziert die Smart-Liste der Quellen.
 
