@@ -36,7 +36,7 @@ Verwenden Sie die REST-APIs für Smart Lists, um Smart Lists abzufragen, zu klon
 
 ## Abfrage
 
-Abfragen von Smart[Listen ](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET)nach ID[ (nach ](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET)) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET).
+Abfragen von Smart[Listen &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByIdUsingGET)nach ID[&#x200B; (nach &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListByNameUsingGET)) oder nach [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET).
 
 ### Nach ID
 
@@ -207,7 +207,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Durchsuchen
 
-Verwenden Sie den Endpunkt „Durchsuchen[ zum Abrufen von Smart-Listen in Batches](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET). Der optionale Parameter `folder` erfasst die Abfrage für einen übergeordneten Ordner. Übergeben Sie sie als JSON-Objekt, das `id` und `type` enthält.
+Verwenden Sie den Endpunkt „Durchsuchen[&#x200B; zum Abrufen von Smart-Listen in Batches](https://developer.adobe.com/marketo-apis/api/asset#operation/getSmartListsUsingGET). Der optionale Parameter `folder` erfasst die Abfrage für einen übergeordneten Ordner. Übergeben Sie sie als JSON-Objekt, das `id` und `type` enthält.
 
 Verwenden Sie `offset` und `maxReturn` für die Paginierung. Verwenden Sie die optionalen `earliestUpdatedAt`- und `latestUpdatedAt`, um nach dem `updatedAt` Datumsbereich zu filtern.
 
