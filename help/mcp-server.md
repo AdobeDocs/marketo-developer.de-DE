@@ -32,17 +32,13 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: b12faeb0cb1a3680f6e0e7a522c54931b3de2c5d
+source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
 workflow-type: tm+mt
-source-wordcount: '2099'
+source-wordcount: '2085'
 ht-degree: 4%
 ---
 
 # [!DNL Marketo Engage] MCP-Server
-
->[!NOTE]
->
->Die `create` und `update`-Tools von Smart List und Smart Campaign sind für eine Version vom September 2026 geplant.
 
 Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Tools mit externen Services verbindet. Der [!DNL Marketo] MCP-Server verbindet Ihren KI-Assistenten mit [!DNL Marketo]. Es bietet mehr als 100 Vorgänge für Formulare, Programme, intelligente Kampagnen, Leads, E-Mails, Snippets, Listen und Ordner.
 

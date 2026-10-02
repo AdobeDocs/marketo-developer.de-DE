@@ -5,28 +5,28 @@ autotag-review: '2026-06-02T13:31:42.084Z'
 TQID: 'https://experienceleague.adobe.com/qvrWbHOCsCCHctduNDxMhkE8JAKxZk8FCYfKvzxfcYA'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
-source-git-commit: c631b7c3d571f29083673f9b97d22230d109abfc
+    internal-label: Artificial intelligence
+source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
 workflow-type: tm+mt
-source-wordcount: 1228
-ht-degree: 50%
-
+source-wordcount: '1214'
+ht-degree: 51%
 ---
-
 
 # [!DNL Marketo Engage] MCP-Vorgänge
 
 Die folgenden Vorgänge sind über den [!DNL Marketo Engage] MCP-Server verfügbar. Der -Server stellt schreibgeschützte oder zerstörungsfreie Endpunkte bereit. Das KI-System kann keine `Delete` oder andere zerstörerische Vorgänge verwenden.
-
->[!NOTE]
->
->Die `create` und `update`-Tools von Smart List und Smart Campaign sind für eine Version vom September 2026 geplant.
 
 Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
 
