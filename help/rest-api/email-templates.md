@@ -34,7 +34,7 @@ ht-degree: 2%
 
 Jede neue E-Mail in Marketo basiert zunächst auf einer E-Mail-Vorlage. Obwohl Sie später die Verknüpfung einer E-Mail mit ihrer Vorlage aufheben können, indem Sie die HTML ersetzen, müssen Sie beim Erstellen der E-Mail eine Vorlage auswählen.
 
-Vorlagen sind HTML-Dokumente mit Metadaten wie einem Namen und einer Beschreibung. Die Vorlagen-HTML muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der die [bearbeitbaren Abschnittsanforderungen“ &#x200B;](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+Vorlagen sind HTML-Dokumente mit Metadaten wie einem Namen und einer Beschreibung. Die Vorlagen-HTML muss gültig sein und mindestens einen bearbeitbaren Abschnitt enthalten, der die [bearbeitbaren Abschnittsanforderungen“ ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Abfrage
 
@@ -212,7 +212,7 @@ Vorlagenabfragen geben nur Datensatz-Metadaten zurück. Verwenden Sie den Conten
 
 ## Erstellen und aktualisieren
 
-Um [&#x200B; Vorlage zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailTemplateUsingPOST) oder zu [aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) senden Sie das HTML-Dokument in einer `multipart/form-data` POST-Anfrage. Der `Content-Type` muss eine Begrenzung enthalten, wie in den RFCs für [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) und [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt) beschrieben.
+Um [ Vorlage zu erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createEmailTemplateUsingPOST) oder zu [aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) senden Sie das HTML-Dokument in einer `multipart/form-data` POST-Anfrage. Der `Content-Type` muss eine Begrenzung enthalten, wie in den RFCs für [multipart](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) und [multipart/form-data](https://www.ietf.org/rfc/rfc2388.txt) beschrieben.
 
 Das Erstellen einer Vorlage erfordert die folgenden Parameter:
 
@@ -283,7 +283,7 @@ Create email template using API
 }
 ```
 
-Um den Vorlageninhalt zu aktualisieren, rufen Sie den [Inhaltsendpunkt“ mit &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) E-Mail-Vorlagen-ID auf. Der Anfragetext akzeptiert nur den `content`.
+Um den Vorlageninhalt zu aktualisieren, rufen Sie den [Inhaltsendpunkt“ mit ](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailTemplateContentUsingPOST) E-Mail-Vorlagen-ID auf. Der Anfragetext akzeptiert nur den `content`.
 
 Der gesendete Inhalt ersetzt vollständig den vorhandenen Vorlageninhalt. Beim Aktualisieren einer genehmigten Version wird ein neuer Entwurf erstellt. Wenn ein Asset nur als Entwurf aktualisiert wird, wird der aktuelle Entwurf ersetzt.
 

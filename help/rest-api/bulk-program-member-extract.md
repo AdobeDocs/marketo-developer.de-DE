@@ -253,7 +253,7 @@ In jedem Auftrag muss entweder `programId` oder `programIds` angegeben werden. A
     <tr>
       <td>isExhausted</td>
       <td>Boolesch</td>
-      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
+      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
     </tr>
     <tr>
       <td>Kadenz des Nährwerts</td>
@@ -466,7 +466,7 @@ Diese Antwort zeigt an, dass der Auftrag noch verarbeitet wird, sodass die Datei
 
 ## Daten abrufen
 
-Um einen abgeschlossenen Export von Programmmitgliedern abzurufen, übergeben Sie die `exportId` an den Endpunkt [Abrufen der Elementdatei für &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportProgramMembersFileUsingGET).
+Um einen abgeschlossenen Export von Programmmitgliedern abzurufen, übergeben Sie die `exportId` an den Endpunkt [Abrufen der Elementdatei für ](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportProgramMembersFileUsingGET).
 
 Der Endpunkt gibt die Datei in dem Format zurück, das für den Auftrag konfiguriert wurde. Wenn ein angefordertes Programmmitgliedsfeld keine Daten enthält, enthält das entsprechende Exportfeld `null`.
 

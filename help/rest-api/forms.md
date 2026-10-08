@@ -928,7 +928,7 @@ Eine Feldgruppe ist eine optionale Feldergruppe. Die Feldliste der obersten Eben
 
 Ein Feld muss im Formular eindeutig sein. Dasselbe Feld kann nicht sowohl in der übergeordneten Feldliste des Formulars als auch in einer untergeordneten Feldgruppe angezeigt werden.
 
-Fügen Sie eine Feldgruppe mit dem Endpunkt [Feldgruppe zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST) hinzu. Die Feldgruppe wird dann in der Antwort [Felder für Formular &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET). Um Felder zum Feldset hinzuzufügen, verwenden Sie [Feldpositionen aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST), um sie in seine `fieldList` zu verschieben.
+Fügen Sie eine Feldgruppe mit dem Endpunkt [Feldgruppe zu Formular hinzufügen](https://developer.adobe.com/marketo-apis/api/asset#operation/addFieldSetUsingPOST) hinzu. Die Feldgruppe wird dann in der Antwort [Felder für Formular ](https://developer.adobe.com/marketo-apis/api/asset#operation/getFormFieldByFormVidUsingGET). Um Felder zum Feldset hinzuzufügen, verwenden Sie [Feldpositionen aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateFieldPositionsUsingPOST), um sie in seine `fieldList` zu verschieben.
 
 Senden Sie für diese Endpunkte die Daten als POST mit `application/x-www-form-urlencoded` und nicht als JSON.
 

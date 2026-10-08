@@ -344,7 +344,7 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Erstellen und aktualisieren
 
-[Zum &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST) eines Programms sind `folder`, `name`, `type` und `channel` erforderlich. Die optionalen Parameter sind `description`, `costs` und `tags`. Einige Abonnements erfordern Tags für bestimmte Programmtypen. Verwenden Sie Tags abrufen , um die Instanzanforderungen zu überprüfen.
+[Zum ](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST) eines Programms sind `folder`, `name`, `type` und `channel` erforderlich. Die optionalen Parameter sind `description`, `costs` und `tags`. Einige Abonnements erfordern Tags für bestimmte Programmtypen. Verwenden Sie Tags abrufen , um die Instanzanforderungen zu überprüfen.
 
 Beim [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST) können Sie nur die Beschreibung, den Namen, die `tags` und die `costs` ändern. Sie können den Kanal und den Typ nur während der Erstellung festlegen. Wenn Sie `costsDestructiveUpdate` auf `true` setzen, werden alle bestehenden Kosten gelöscht und durch die in der Anfrage enthaltenen Kosten ersetzt.
 

@@ -36,7 +36,7 @@ So aktivieren Sie diesen Prozess:
 1. Registrieren Sie das Schema in Ihrem App-Manifest.
 1. Fügen Sie Code hinzu, der Deep-Link-Ereignisse verarbeitet und Personen zum entsprechenden Inhalt weiterleitet.
 
-Informationen zu iOS finden Sie in der Apple-Dokumentation unter [&#x200B; eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+Informationen zu iOS finden Sie in der Apple-Dokumentation unter [ eines benutzerdefinierten URL-Schemas für Ihre App](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
 Informationen zu Android finden Sie in der Google-Dokumentation unter [Aktivieren von Deep-Links für App-Inhalte](https://developer.android.com/training/app-links/deep-linking).
 

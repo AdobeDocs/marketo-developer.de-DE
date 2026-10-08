@@ -71,7 +71,7 @@ Die Warteschlange kann maximal 10 Aufträge enthalten. Wenn Sie versuchen, einen
 
 Die APIs für die Massenextraktion basieren auf der Festplattengröße der Daten, die ein Massenextraktionsauftrag abruft. Um die Dateigröße in Byte zu ermitteln, lesen Sie das Attribut `fileSize` in der Statusantwort Abgeschlossen für einen Exportvorgang.
 
-Das tägliche Kontingent beträgt 500 MB und wird zwischen Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten geteilt. Wenn Sie das Kontingent überschreiten, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange aufnehmen, bis das Kontingent um Mitternacht ([) zurückgesetzt &#x200B;](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zum Zurücksetzen gibt die API den Fehler „1029, Export Daily Kontingent exceeded“ zurück. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
+Das tägliche Kontingent beträgt 500 MB und wird zwischen Leads, Aktivitäten, Programmmitgliedern und benutzerdefinierten Objekten geteilt. Wenn Sie das Kontingent überschreiten, können Sie keinen anderen Auftrag erstellen oder in die Warteschlange aufnehmen, bis das Kontingent um Mitternacht ([) zurückgesetzt ](https://en.wikipedia.org/wiki/Central_Time_Zone). Bis zum Zurücksetzen gibt die API den Fehler „1029, Export Daily Kontingent exceeded“ zurück. Abgesehen vom täglichen Kontingent gibt es keine maximale Dateigröße.
 
 Nachdem ein Auftrag in die Warteschlange gestellt oder verarbeitet wurde, wird er bis zum Ende ausgeführt, es sei denn, ein Fehler tritt auf oder Sie brechen den Auftrag ab. Wenn ein Auftrag fehlschlägt, müssen Sie ihn neu erstellen.
 

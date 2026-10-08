@@ -130,7 +130,7 @@ Wenn Sie `primaryAttributeValues` verwenden, müssen Sie auch den `activityTypeI
 
 ## Erstellen von Aufträgen
 
-Erstellen Sie einen Exportvorgang, um die abzurufenden Datensätze zu definieren. Verwenden [&#x200B; Endpunkts „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST).
+Erstellen Sie einen Exportvorgang, um die abzurufenden Datensätze zu definieren. Verwenden [ Endpunkts „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST).
 
 Für jeden Auftrag ist ein `createdAt` erforderlich. Die Parameter `startAt` und `endAt` Datum/Uhrzeit definieren die frühesten und letzten zulässigen Erstellungsdaten für Aktivitäten. Um nicht relevante Aktivitätstypen auszuschließen, schließen Sie auch den optionalen `activityTypeIds` ein.
 
