@@ -3,27 +3,33 @@ title: Paging-Token
 feature: REST API
 description: Verwenden Sie Paging-Token der Marketo REST-API, um Aktivitäten und Leads abzurufen. Sie umfassen datums- und positionsbasierte Token, ISO 8601 SinceDatetime und 414-Fehler.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-TQID: https://experienceleague.adobe.com/Ut05n-Y-qPJnvcNRs9liwE3NVBMbJlvaGyv-nExRsek
+TQID: 'https://experienceleague.adobe.com/Ut05n-Y-qPJnvcNRs9liwE3NVBMbJlvaGyv-nExRsek'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 377
+source-wordcount: '377'
 ht-degree: 2%
-
 ---
-
 # Paging-Token
 
 Marketo stellt Paging-Token bereit, mit denen Ergebnisse durchsucht oder Daten abgerufen werden können, die zu einem bestimmten Datum aktualisiert wurden.
 
-Einige Antworten geben lange Paging-Token-Zeichenfolgen zurück, was zu einem HTTP 414-Fehler führen kann. Siehe Informationen zum Umgang mit diesen [&#x200B; (](error-codes.md)).
+Einige Antworten geben lange Paging-Token-Zeichenfolgen zurück, was zu einem HTTP 414-Fehler führen kann. Siehe Informationen zum Umgang mit diesen [ (](error-codes.md)).
 
-Weitere Informationen finden Sie in [&#x200B; Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET)Token-API .
+Weitere Informationen finden Sie in [ Dokumentation zur Paging](https://developer.adobe.com/marketo-apis/api/mapi#operation/getActivitiesPagingTokenUsingGET)Token-API .
 
 ## Tokentypen
 

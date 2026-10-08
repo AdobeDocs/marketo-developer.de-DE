@@ -29,10 +29,12 @@ feature_v2:
 role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
     internal-label: Developer
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 6bbf9fa5b8192e02d7a465a652346545ae216450
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
 source-wordcount: '2209'
 ht-degree: 3%
@@ -44,7 +46,7 @@ Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Tools mit exte
 
 Wenn Ihr KI-Tool den MCP-Server aufruft, verwendet der Server die Anmeldeinformationen in dieser Anfrage, um den entsprechenden REST-API-Aufruf auszuführen. Sie müssen keine Server-seitige Software installieren, bereitstellen oder ausführen.
 
-Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
+Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
@@ -268,7 +270,7 @@ Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+U
 
 ### sammeln {#glean}
 
-Um Glean mit dem Marketo Engage MCP Server zu verbinden, [&#x200B; das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
+Um Glean mit dem Marketo Engage MCP Server zu verbinden, [ das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
 
 | Header | Wert |
 | ------ | ----- |

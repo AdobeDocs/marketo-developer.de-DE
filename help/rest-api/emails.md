@@ -3,31 +3,40 @@ title: E-Mails
 feature: REST API
 description: Erfahren Sie, wie Sie mit der Marketo Asset REST-API E-Mail-Assets nach ID, Name oder Ordnersuche abfragen und verwalten können, einschließlich Hinweisen zu prädiktiven Inhalten und A/B-Testbeschränkungen.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-TQID: https://experienceleague.adobe.com/t2FyPbwS836MvOe5rL0rVS7ibtzzZMmXwmgHBDZEr8Q
+TQID: 'https://experienceleague.adobe.com/t2FyPbwS836MvOe5rL0rVS7ibtzzZMmXwmgHBDZEr8Q'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1763
+source-wordcount: '1763'
 ht-degree: 2%
-
 ---
-
 # E-Mails
 
 [E-Mail-Endpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails)
 
 Verwenden Sie die E-Mail-REST-Endpunkte, um E-Mail-Assets abzufragen und zu verwalten.
 
-Wenn eine E-Mail [Marketo Predictive Content](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) enthält, schlagen die folgenden Endpunkte mit Fehlercode 709 und einer entsprechenden Fehlermeldung fehl:
+Wenn eine E-Mail [Marketo Predictive Content](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) enthält, schlagen die folgenden Endpunkte mit Fehlercode 709 und einer entsprechenden Fehlermeldung fehl:
 
 - [E-Mail-Inhalt abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET)
 - [Abschnitt zum Aktualisieren des E-Mail-Inhalts](https://developer.adobe.com/marketo-apis/api/asset#operation/updateEmailComponentContentUsingPOST)
@@ -37,7 +46,7 @@ Wenn eine E-Mail [Marketo Predictive Content](https://experienceleague.adobe.com
 
 E-Mails unterstützen dieselben Abfragemuster wie Vorlagen: [nach ID](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByIdUsingGET), [nach Name](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByNameUsingGET) und durch [Browsen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailUsingGET). Die Endpunkte „By-Name“ und „Durchsuchen“ unterstützen auch die Ordnerfilterung.
 
-Wenn eine E-Mail zu einem E-Mail-Programm gehört, das [A/B-Tests](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) verwendet, geben die folgenden Endpunkte diese E-Mail nicht zurück:
+Wenn eine E-Mail zu einem E-Mail-Programm gehört, das [A/B-Tests](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) verwendet, geben die folgenden Endpunkte diese E-Mail nicht zurück:
 
 - [E-Mail nach ID abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByIdUsingGET)
 - [E-Mail nach Namen abrufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailByNameUsingGET)
@@ -247,7 +256,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 ## Anfrageinhalt
 
-Um [&#x200B; bearbeitbaren Abschnitte einer E-Mail abzurufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET) fragen Sie deren Inhalt ab. Optional können Sie nach Status filtern, um Abschnitte aus der Version Genehmigt oder Entwurf zurückzugeben.
+Um [ bearbeitbaren Abschnitte einer E-Mail abzurufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET) fragen Sie deren Inhalt ab. Optional können Sie nach Status filtern, um Abschnitte aus der Version Genehmigt oder Entwurf zurückzugeben.
 
 ```http
 GET /rest/asset/v1/email/1356/content.json
@@ -535,7 +544,7 @@ Wenn die automatische Textkopie für ein eingebettetes Snippet deaktiviert ist, 
 
 ## Module
 
-Im E-Mail-Editor 1.0 ist ein Modul ein E-Mail-Abschnitt, der in der Vorlage definiert ist. Module können Elemente, Variablen und andere HTML-Inhalte enthalten, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) beschrieben.
+Im E-Mail-Editor 1.0 ist ein Modul ein E-Mail-Abschnitt, der in der Vorlage definiert ist. Module können Elemente, Variablen und andere HTML-Inhalte enthalten, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules) beschrieben.
 
 Verwenden Sie die Modul-APIs, um Module innerhalb einer E-Mail zu verwalten. Formatieren Sie den Anfragetext für Modulendpunkte, die HTTP-POST verwenden, als `application/x-www-form-urlencoded` und nicht als JSON.
 
@@ -909,7 +918,7 @@ name=MarketoVideo
 
 ## Variablen
 
-Im E-Mail-Editor 1.0 speichern Variablen Werte für E-Mail-Elemente. Definieren Sie jede Variable, indem Sie der HTML eine Marketo-spezifische Syntax hinzufügen, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables) beschrieben. Verwenden Sie die Variablen-APIs, um Variablen innerhalb einer E-Mail zu verwalten.
+Im E-Mail-Editor 1.0 speichern Variablen Werte für E-Mail-Elemente. Definieren Sie jede Variable, indem Sie der HTML eine Marketo-spezifische Syntax hinzufügen, wie unter [E-Mail-Vorlagensyntax](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables) beschrieben. Verwenden Sie die Variablen-APIs, um Variablen innerhalb einer E-Mail zu verwalten.
 
 ### Abfrage
 
@@ -1131,7 +1140,7 @@ Jedes Element im Ergebnis-Array beschreibt eine Variable.
 
 Variablen können für die gesamte E-Mail einen globalen Gültigkeitsbereich oder für ein Modul einen lokalen Gültigkeitsbereich haben. Jede Variable enthält `name`-, `value`- und `moduleScope`. Das boolesche `moduleScope` `false`-Attribut wird für globale Variablen und für lokale Variablen `true`. Eine lokale Variable enthält auch die `moduleId` des zugehörigen Moduls.
 
-#### Aktualisierung
+#### Update
 
 Um [Variable zu aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateVariableUsingPOST) übergeben Sie den neuen Wert im `value`. Geben Sie die E-Mail-ID und den Variablennamen als Pfadparameter an. Übergeben Sie beim Aktualisieren einer Modulvariablen auch `moduleId` , um das zugehörige Modul zu identifizieren.
 
@@ -1286,7 +1295,7 @@ POST /rest/asset/v1/email/{id}/delete.json
 }
 ```
 
-## Klonen
+## Klon
 
 Um eine E-Mail zu klonen, senden Sie eine `application/x-www-form-urlencoded` POST-Anfrage mit den folgenden Parametern:
 

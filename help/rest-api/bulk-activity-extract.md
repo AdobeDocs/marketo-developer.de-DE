@@ -3,24 +3,33 @@ title: Massenaktivität-Extrakt
 feature: REST API
 description: Marketo Bulk Activity Extract REST-API zum Exportieren von Aktivitätsdaten mit hohem Volumen unter Verwendung eines 31-tägigen Datumsbereichs, Aktivität und primären Attributfiltern für ETL und CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-TQID: https://experienceleague.adobe.com/lIlXNjatN-F77Dv3xsVkQ3hAWwLZ4wlSW0zKNkFJFMA
+TQID: 'https://experienceleague.adobe.com/lIlXNjatN-F77Dv3xsVkQ3hAWwLZ4wlSW0zKNkFJFMA'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
   - id: ea90ebee-5c84-42d9-8b21-006bdabc95a3
+    internal-label: Reporting
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Reporting
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1212
+source-wordcount: '1212'
 ht-degree: 7%
-
 ---
-
 # Massenaktivität-Extrakt
 
 [Referenz für Massenaktivität-Extraktionsendpunkt](https://developer.adobe.com/marketo-apis/api/mapi)
@@ -121,7 +130,7 @@ Wenn Sie `primaryAttributeValues` verwenden, müssen Sie auch den `activityTypeI
 
 ## Erstellen von Aufträgen
 
-Erstellen Sie einen Exportvorgang, um die abzurufenden Datensätze zu definieren. Verwenden [&#x200B; Endpunkts „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST).
+Erstellen Sie einen Exportvorgang, um die abzurufenden Datensätze zu definieren. Verwenden [ Endpunkts „Exportaktivitätsauftrag erstellen](https://developer.adobe.com/marketo-apis/api/mapi#operation/createExportActivitiesUsingPOST).
 
 Für jeden Auftrag ist ein `createdAt` erforderlich. Die Parameter `startAt` und `endAt` Datum/Uhrzeit definieren die frühesten und letzten zulässigen Erstellungsdaten für Aktivitäten. Um nicht relevante Aktivitätstypen auszuschließen, schließen Sie auch den optionalen `activityTypeIds` ein.
 

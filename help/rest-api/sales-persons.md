@@ -3,25 +3,31 @@ title: Vertriebspersonal
 feature: REST API
 description: Marketo-REST-API-Handbuch für Vertriebspersonendatensätze mit SFDC oder Dynamics Sync, unter Verwendung von externalSalesPersonId, um Leads zu verknüpfen und Abfragen, Upsert und Löschen durchzuführen.
 exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
-TQID: https://experienceleague.adobe.com/JwLNgM0zgztyoYJotCiSdGxMixnzA0kvkFbvq8kEkzE
+TQID: 'https://experienceleague.adobe.com/JwLNgM0zgztyoYJotCiSdGxMixnzA0kvkFbvq8kEkzE'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: c5f60233-d5ea-4453-a799-0ad258b4d399
+    internal-label: Database
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 363
+source-wordcount: '363'
 ht-degree: 0%
-
 ---
-
 # Vertriebspersonal
 
 [Endpunktreferenz für Vertriebspersonen](https://developer.adobe.com/marketo-apis/api/mapi#tag/Sales-Persons)
 
-Vertriebspersonen-APIs bieten schreibgeschützten Zugriff für Abonnements, für die [SFDC Sync](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert ist.
+Vertriebspersonen-APIs bieten schreibgeschützten Zugriff für Abonnements, für die [SFDC Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiviert ist.
 
 Vertriebspersonen sind Personendatensätze, die die Vertriebsinhaber von Lead-Datensätzen repräsentieren. Das Feld externalSalesPersonId in jedem Lead-Datensatz bezieht sich auf einen Lead und eine Verkaufsperson. Wenn dieses Feld ausgefüllt wird, füllt Marketo die entsprechenden Suchfelder für Lead-Inhaber im Lead-Datensatz. Sie können dann die zugehörigen Filter und Token verwenden.
 

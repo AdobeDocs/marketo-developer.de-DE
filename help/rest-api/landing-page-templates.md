@@ -3,22 +3,33 @@ title: Landingpage-Vorlagen
 feature: REST API, Landing Pages
 description: Verwalten Sie Landingpage-Vorlagen von Marketo über REST-API-Endpunkte für Freiform und geführte Typen, fragen Sie nach ID oder Namen ab, erstellen, aktualisieren Sie HTML, klonen Sie Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-TQID: https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY
+TQID: 'https://experienceleague.adobe.com/U9K1MG-q2gIgJMgfM3lt1S4olETt8ln9seOIKZUncBY'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: edda586e-0147-48f2-b791-992622a00783
+    internal-label: Landing pages
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 499
+source-wordcount: '499'
 ht-degree: 2%
-
 ---
-
 # Landingpage-Vorlagen
 
 [Endpunkt-Referenz für Landingpage-Vorlage](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates)
@@ -29,7 +40,7 @@ Landingpage-Vorlagen sind übergeordnete Ressourcen für Marketo-Landingpages. J
 
 Marketo bietet Freiform- und geführte Landingpage-Vorlagen. Freiformvorlagen bieten ein locker strukturiertes Bearbeitungserlebnis. Geführte Vorlagen können Elementtypen und Speicherorte auf Vorlagenebene einschränken.
 
-Einen detaillierten Vergleich finden Sie [Grundlegendes zu Freiform und geführten Landingpages](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Einen detaillierten Vergleich finden Sie [Grundlegendes zu Freiform und geführten Landingpages](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Abfrage
 
@@ -123,7 +134,7 @@ Content-Type: text/plain
 }
 ```
 
-## Klonen
+## Klon
 
 Klonen Sie eine Landingpage-Vorlage mit einer `application/x-www-url-formencoded` POST-Anfrage.
 
@@ -180,9 +191,9 @@ Landingpage-Vorlagen verwenden das Standardmodell Entwurf und Genehmigt . Aktual
 
 Vor der Genehmigung muss eine Vorlage die Anforderungen für ihren geführten oder Freiformtyp erfüllen. Diese Ressourcen anzeigen:
 
-- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Freiform-Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Geführte Landingpage-Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Beispiele für geführte Vorlagen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Löschen
 

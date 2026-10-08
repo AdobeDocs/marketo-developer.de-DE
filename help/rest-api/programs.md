@@ -3,25 +3,35 @@ title: Programme
 feature: REST API, Programs
 description: Marketo-Programmhandbuch für die Asset-REST-API, das Typen, Kanäle, Tags, Mitgliedschaftsstatus und Endpunkte abdeckt, um nach ID oder Namen zu erhalten, zu durchsuchen und nach Status zu filtern.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-TQID: https://experienceleague.adobe.com/5ILyahSn3Pp-lF6YPogVnkXjXP-QLtEmyLm7iKMIgo0
+TQID: 'https://experienceleague.adobe.com/5ILyahSn3Pp-lF6YPogVnkXjXP-QLtEmyLm7iKMIgo0'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: a7170d27-32ab-462b-a333-269abc654483
+    internal-label: Smart Campaigns
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: ebde5b41-29c9-4f5e-9ef6-1197e85409e3
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Data management
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 718
+source-wordcount: '718'
 ht-degree: 2%
-
 ---
-
 # Programme
 
 [Endpunkt-Referenz für Programme](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs)
@@ -334,7 +344,7 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Erstellen und aktualisieren
 
-[Zum &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST) eines Programms sind `folder`, `name`, `type` und `channel` erforderlich. Die optionalen Parameter sind `description`, `costs` und `tags`. Einige Abonnements erfordern Tags für bestimmte Programmtypen. Verwenden Sie Tags abrufen , um die Instanzanforderungen zu überprüfen.
+[Zum ](https://developer.adobe.com/marketo-apis/api/asset#operation/createProgramUsingPOST) eines Programms sind `folder`, `name`, `type` und `channel` erforderlich. Die optionalen Parameter sind `description`, `costs` und `tags`. Einige Abonnements erfordern Tags für bestimmte Programmtypen. Verwenden Sie Tags abrufen , um die Instanzanforderungen zu überprüfen.
 
 Beim [Aktualisieren](https://developer.adobe.com/marketo-apis/api/asset#operation/updateProgramUsingPOST) können Sie nur die Beschreibung, den Namen, die `tags` und die `costs` ändern. Sie können den Kanal und den Typ nur während der Erstellung festlegen. Wenn Sie `costsDestructiveUpdate` auf `true` setzen, werden alle bestehenden Kosten gelöscht und durch die in der Anfrage enthaltenen Kosten ersetzt.
 
@@ -501,7 +511,7 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 }
 ```
 
-## Klonen
+## Klon
 
 [Klonen von Programmen](https://developer.adobe.com/marketo-apis/api/asset#operation/cloneProgramUsingPOST) erfordert einen neuen Namen und einen übergeordneten Ordner. Die Beschreibung ist optional. Der `name` muss global eindeutig sein und darf 255 Zeichen nicht überschreiten.
 

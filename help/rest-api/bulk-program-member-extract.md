@@ -3,22 +3,29 @@ title: Massenprogramm-Mitgliederextraktion
 feature: REST API
 description: Verwenden Sie die Marketo Bulk Program Member Extract REST-APIs, um große Mitgliederdatensätze für ETL, Data Warehousing und Archivierung mit Berechtigungen und Feldmetadaten zu exportieren.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-TQID: https://experienceleague.adobe.com/w4qaVTKSe0EORaSiURB6WbJXi29JUdEgfkb2dnfuVFw
+TQID: 'https://experienceleague.adobe.com/w4qaVTKSe0EORaSiURB6WbJXi29JUdEgfkb2dnfuVFw'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1081
+source-wordcount: '1080'
 ht-degree: 5%
-
 ---
-
 # Massenprogramm-Mitgliederextraktion
 
 [Referenz zum Extraktionsendpunkt des Massenprogrammmitglieds](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Program-Members)
@@ -246,7 +253,7 @@ In jedem Auftrag muss entweder `programId` oder `programIds` angegeben werden. A
     <tr>
       <td>isExhausted</td>
       <td>Boolesch</td>
-      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
+      <td>Akzeptiert einen booleschen Wert, der zum Filtern von Programmmitgliedschaftsdatensätzen für <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">Personen, die nicht mehr genügend Inhalt haben</a> verwendet wird.</td>
     </tr>
     <tr>
       <td>Kadenz des Nährwerts</td>
@@ -459,7 +466,7 @@ Diese Antwort zeigt an, dass der Auftrag noch verarbeitet wird, sodass die Datei
 
 ## Daten abrufen
 
-Um einen abgeschlossenen Export von Programmmitgliedern abzurufen, übergeben Sie die `exportId` an den Endpunkt [Abrufen der Elementdatei für &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportProgramMembersFileUsingGET).
+Um einen abgeschlossenen Export von Programmmitgliedern abzurufen, übergeben Sie die `exportId` an den Endpunkt [Abrufen der Elementdatei für ](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportProgramMembersFileUsingGET).
 
 Der Endpunkt gibt die Datei in dem Format zurück, das für den Auftrag konfiguriert wurde. Wenn ein angefordertes Programmmitgliedsfeld keine Daten enthält, enthält das entsprechende Exportfeld `null`.
 

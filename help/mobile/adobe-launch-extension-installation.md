@@ -3,30 +3,35 @@ title: Installation der [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Installieren Sie die Adobe Launch Marketo-Erweiterung für Mobilgeräte. Befolgen Sie die Schritte zur Einrichtung von iOS und Android, Testgeräte, Berechtigungen und FCM für Push- und In-App-Nachrichten.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-TQID: https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U
+TQID: 'https://experienceleague.adobe.com/UZRHaRBISIZsE6E25Ee7CnnYwyZwi6w2YgOQJ-JL00U'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
   - id: ed6be6bb-75bb-4ea9-9a42-3bcaa65e1bcc
+    internal-label: Personalization
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: e0eb8757-182f-49f3-94a4-1587d16f5094
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Personalization
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 753
+source-wordcount: '753'
 ht-degree: 0%
-
 ---
-
 # Installation der [!DNL Adobe Launch]
 
 Installieren Sie die [!DNL Adobe Launch] Marketo-Erweiterung, um Push-Benachrichtigungen, In-App-Nachrichten oder beides zu senden.
 
 ## Voraussetzungen
 
-1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
+1. [Fügen Sie eine Anwendung in Marketo Admin hinzu](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) und rufen Sie den geheimen Anwendungsschlüssel und die Munchkin-ID ab.
 1. [Konfigurieren Sie die Eigenschaft im  [!DNL Adobe Launch] Portal](https://experience.adobe.com/#/@amc/data-collection/home).
 1. Konfigurieren Sie den Geheimschlüssel der Anwendung und die Munchkin-ID für die Eigenschaft im [!DNL Adobe Launch].
 1. Optional: [Einrichten von Push-Benachrichtigungen](push-notifications.md).
@@ -168,7 +173,7 @@ Die MME SDK für Android unterstützt die direkte Verwendung von Google [Firebas
 
 1. Integrieren Sie die neueste Marketo Android SDK in die Android-App. Weitere Informationen finden Sie in den Schritten [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurieren Sie die Firebase-App in der Firebase Console.
-   1. Erstellen oder Hinzufügen eines Projekts in der [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen oder Hinzufügen eines Projekts in der [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Begrüßungsbildschirm die Option **[!UICONTROL Firebase zu Ihrer Android-App hinzufügen]**.
@@ -226,7 +231,7 @@ Die MME SDK für Android unterstützt die direkte Verwendung von Google [Firebas
 
 Diese Fragen betreffen die Unterstützung von Firebase Cloud Messaging.
 
-**F: Wo finde ich Anleitungen, um auf die neueste Version des MME SDK zu aktualisieren?** Weitere Informationen finden [&#x200B; in den &#x200B;](installation.md) auf der Marketo Developer-Site.
+**F: Wo finde ich Anleitungen, um auf die neueste Version des MME SDK zu aktualisieren?** Weitere Informationen finden [ in den ](installation.md) auf der Marketo Developer-Site.
 
 **F: Ist es bei der Aktualisierung auf die neueste Version von SDK erforderlich, dass ich eine aktualisierte Version meiner Android-Anwendung für meine bestehenden Anwender veröffentliche?** Nein.
 

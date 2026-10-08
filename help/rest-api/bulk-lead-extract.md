@@ -3,18 +3,24 @@ title: Massenauszug von Blei
 feature: REST API
 description: Erfahren Sie, wie Sie mit Marketo-REST-APIs für die Massenextraktion von Leads Leads Datums-, Listen- und Smart-Listen-Filtern, benutzerdefinierten Feldern und CSV/TSV-Formaten exportieren können.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-TQID: https://experienceleague.adobe.com/4eMJR87fHDdccrVid3wHtspvBVQmrBGHYMlIwFCSdEI
+TQID: 'https://experienceleague.adobe.com/4eMJR87fHDdccrVid3wHtspvBVQmrBGHYMlIwFCSdEI'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1017
+source-wordcount: '1017'
 ht-degree: 3%
-
 ---
-
 # Massenauszug von Blei
 
 [Referenz zum Massenextraktionsendpunkt von Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Leads)
@@ -132,7 +138,7 @@ Die Enqueue-Antwort weist den `status` „In Warteschlange“ auf. Sobald ein Ex
 
 Sie können den Status nur für Aufträge abrufen, die von demselben API-Benutzer erstellt wurden.
 
-Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [&#x200B; Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
+Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [ Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
 
 Der Status wird nur einmal alle 60 Sekunden aktualisiert. Führen Sie keine häufigeren Befragungen durch; in fast allen Fällen ist dieses Intervall immer noch zu lang.
 

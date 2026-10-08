@@ -3,22 +3,33 @@ title: Massenextraktion benutzerdefinierter Objekte
 feature: REST API, Custom Objects
 description: Handbuch zu Marketo Bulk Custom Object Extract REST APIs zum Exportieren von Lead-verknüpften benutzerdefinierten Objekten mit UpdatedAt- und Listenfiltern, ausgewählten Feldern und…
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-TQID: https://experienceleague.adobe.com/KAT-vab2uZq8FrRbZLy30PCJNfq01znDDuSSWuIu7WE
+TQID: 'https://experienceleague.adobe.com/KAT-vab2uZq8FrRbZLy30PCJNfq01znDDuSSWuIu7WE'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: b3b8a63f-51fc-40f6-a7d2-a31c5d49fb45
+    internal-label: Configuration
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: ea4e3ff5-e7b9-4b4c-a5a0-dc27cc3f4275
+    internal-label: Custom objects
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 1186
+source-wordcount: '1186'
 ht-degree: 2%
-
 ---
-
 # Massenextraktion benutzerdefinierter Objekte
 
 [Massenreferenz zum Extrahieren benutzerdefinierter Objekte aus Endpunkten](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects)
@@ -27,7 +38,7 @@ Die REST-APIs zur Massenextraktion benutzerdefinierter Objekte rufen große Meng
 
 Die API exportiert benutzerdefinierte Marketo-Objektdatensätze der ersten Ebene, die direkt mit Leads verknüpft sind. Geben Sie den benutzerdefinierten Objektnamen und eine Liste verknüpfter Leads an. Für jeden Lead schreibt die API übereinstimmende verknüpfte benutzerdefinierte Objektdatensätze als Zeilen in die Exportdatei.
 
-Sie können benutzerdefinierte Objektdaten auf der Registerkarte [Benutzerdefiniertes Objekt“ der Detailseite des Leads in der Marketo-Benutzeroberfläche anzeigen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Sie können benutzerdefinierte Objektdaten auf der Registerkarte [Benutzerdefiniertes Objekt“ der Detailseite des Leads in der Marketo-Benutzeroberfläche anzeigen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Berechtigungen
 
@@ -69,7 +80,7 @@ Verwenden Sie den Endpunkt [Benutzerdefinierten Objektvorgang erstellen](https:/
 
 Die Anfrage verwendet die folgenden Parameter:
 
-- `apiName`: Erforderlicher Pfadparameter. Gibt das zu exportierende benutzerdefinierte Marketo-Objekt unter Verwendung des vom Endpunkt [Benutzerdefiniertes Objekt beschreiben“ zurückgegebenen &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) an. Benutzerdefinierte CRM-Objekte sind nicht zulässig.
+- `apiName`: Erforderlicher Pfadparameter. Gibt das zu exportierende benutzerdefinierte Marketo-Objekt unter Verwendung des vom Endpunkt [Benutzerdefiniertes Objekt beschreiben“ zurückgegebenen ](https://developer.adobe.com/marketo-apis/api/mapi#operation/describeUsingGET_1) an. Benutzerdefinierte CRM-Objekte sind nicht zulässig.
 - `filter`: Erforderlich. Gibt die verknüpften Leads durch Verweis auf eine statische Liste oder eine Smart-Liste an.
 - `fields`: Erforderlich. Gibt die API-Namen der benutzerdefinierten Objektattribute an, die in die Exportdatei aufgenommen werden sollen.
 - `format`: Optional. Gibt das Format der Exportdatei an.
@@ -357,7 +368,7 @@ Die Enqueue-Antwort gibt zunächst einen `Queued` zurück. Wenn ein Exportsteckp
 
 Sie können den Status nur für Aufträge abrufen, die von demselben API-Benutzer erstellt wurden.
 
-Da der Export asynchron ausgeführt wird, verwenden Sie den Endpunkt [Abrufen des benutzerdefinierten Objektauftragsstatus &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportCustomObjectsStatusUsingGET), um den Fortschritt abzufragen. Der Status wird nur einmal alle 60 Sekunden aktualisiert, führen Sie daher keine häufigeren Abfragen durch.
+Da der Export asynchron ausgeführt wird, verwenden Sie den Endpunkt [Abrufen des benutzerdefinierten Objektauftragsstatus ](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportCustomObjectsStatusUsingGET), um den Fortschritt abzufragen. Der Status wird nur einmal alle 60 Sekunden aktualisiert, führen Sie daher keine häufigeren Abfragen durch.
 
 Der Status kann `Created`, `Queued`, `Processing`, `Canceled`, `Completed` oder `Failed` sein.
 

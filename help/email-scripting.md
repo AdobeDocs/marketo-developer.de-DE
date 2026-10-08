@@ -3,26 +3,34 @@ title: E-Mail-Skripterstellung
 feature: Email Programs
 description: Erfahren Sie, wie Sie dynamische Marketo-E-Mails mit Apache Velocity-Token, Variablen und Velocity-Tools skripten und mit Beispiel senden und E-Mail-Vorschau testen können.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-TQID: https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4
+TQID: 'https://experienceleague.adobe.com/xFDjbGWGoWg4Ik6xqoU4L51FG5-1STZ5a0x0KpmwGd4'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
   - id: e64968b2-4ee5-47f9-8cae-0588f184b9eb
+    internal-label: Programs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: c0f0afc1-a5a8-4b01-8b43-cc38f9169499
+    internal-label: Email programs
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Administration
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 932
+source-wordcount: '932'
 ht-degree: 1%
-
 ---
-
 # E-Mail-Skripterstellung
 
-Eine ausführliche Erläuterung [&#x200B; Verhaltens der Velocity](https://velocity.apache.org/engine/devel/user-guide.html)Vorlagensprache finden Sie im Velocity-Benutzerhandbuch .
+Eine ausführliche Erläuterung [ Verhaltens der Velocity](https://velocity.apache.org/engine/devel/user-guide.html)Vorlagensprache finden Sie im Velocity-Benutzerhandbuch .
 
 [Apache Velocity](https://velocity.apache.org/) ist eine Java-basierte Sprache für die Vorlage und Skripterstellung von HTML-Inhalten. Verwenden Sie Velocity in E-Mail-Skript-Token von Marketo, um auf Daten zuzugreifen, die in Opportunities und benutzerdefinierten Objekten gespeichert sind, und um dynamische E-Mail-Inhalte zu erstellen.
 
@@ -111,7 +119,7 @@ Nachdem Sie das Skript in einem „Mein Token“-Programm definiert haben, verwe
 
 Testen Sie das Skript mit der Aktion [!UICONTROL Beispiel-E-Mail senden] im E-Mail-Designer von Marketo. Wählen Sie einen vorhandenen Lead im Feld [!UICONTROL Lead] aus, damit das Skript ordnungsgemäß verarbeitet wird.
 
-Wählen Sie beim Testen von `$TriggerObject` das auslösende Objekt mit dem Parameter [!UICONTROL Trigger &#x200B;] aus. Marketo verwendet das zuletzt aktualisierte Objekt dieses Typs als `$TriggerObject`.
+Wählen Sie beim Testen von `$TriggerObject` das auslösende Objekt mit dem Parameter [!UICONTROL Trigger ] aus. Marketo verwendet das zuletzt aktualisierte Objekt dieses Typs als `$TriggerObject`.
 
 ![E-Mail-Skript testen](assets/velocity-test.png)
 
@@ -129,7 +137,7 @@ Die Gesamtlänge aller E-Mail-Skript-Token in einer bestimmten E-Mail darf 100.0
 - Sie können auf benutzerdefinierte Objekte verweisen, die mit einem Lead, Kontakt oder Konto verbunden sind, jedoch nicht mit mehr als einem.
 - Benutzerdefinierte Objekte können nur über eine einzige Verbindung, einen Lead, einen Kontakt oder ein Konto referenziert werden
 - Aktivieren Sie das Kontrollkästchen im Skript-Editor für die Felder, die Sie verwenden oder nicht verarbeiten
-- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar. Die Datensätze werden vom zuletzt aktualisierten Index bei Index 0 zum ältesten bei Index 9 sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [Anweisungen befolgen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- Für jedes benutzerdefinierte Objekt sind die zehn zuletzt aktualisierten Datensätze pro Person/Kontakt zur Laufzeit verfügbar. Die Datensätze werden vom zuletzt aktualisierten Index bei Index 0 zum ältesten bei Index 9 sortiert. Sie können die Anzahl der verfügbaren Datensätze erhöhen, indem Sie [Anweisungen befolgen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Wenn Sie mehr als ein E-Mail-Skript in eine E-Mail einbeziehen, werden diese von oben nach unten ausgeführt. Der Umfang der Variablen, die im ersten auszuführenden Skript definiert sind, ist in nachfolgenden Skripten verfügbar.
 - Tools-Referenz: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - Ein Hinweis zu Token, die Zeilenumbruchzeichen &quot;\n“ oder &quot;\r\n“ enthalten. Wenn eine E-Mail über das Versandbeispiel oder eine Batch-Kampagne gesendet wird, werden Zeilenumbruchzeichen in Token durch Leerzeichen ersetzt. Wenn E-Mails über Trigger Campaign gesendet werden, bleiben Zeilenumbruchzeichen unberührt.

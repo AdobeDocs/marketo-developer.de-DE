@@ -3,18 +3,26 @@ title: Benutzerprofile
 feature: Mobile Marketing, Users and Roles
 description: Erfahren Sie, wie Sie Benutzerprofile in Marketo Mobile SDK in iOS und Android mit Swift Objective C und Java, Standard- und benutzerdefinierten Feldern erstellen und aktualisieren können, AssociateLead
 exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
-TQID: https://experienceleague.adobe.com/famIZ1O17Z7TTe2SBHqWSLLL-pp6Vx9M6xXhy2SbB-0
+TQID: 'https://experienceleague.adobe.com/famIZ1O17Z7TTe2SBHqWSLLL-pp6Vx9M6xXhy2SbB-0'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
+feature_v2:
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
+  - id: d1d0a9cd-295d-4976-8c39-ddae266f240e
+    internal-label: Administration
+subfeature_v2:
+  - id: fc5c4f1e-5467-43ac-94e9-0acfa71c517d
+    internal-label: Users and roles
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 116
+source-wordcount: '116'
 ht-degree: 1%
-
 ---
-
 # Benutzerprofile
 
 Erstellen oder aktualisieren Sie Benutzerprofile mit der Marketo Mobile SDK für iOS oder Android:
@@ -70,7 +78,7 @@ profile.setLinkedInId("linkedinid")
 profile.setTwitterId("twitterid")
 ```
 
-Fügen Sie weitere [Standardfelder“ &#x200B;](../rest-api/list-of-standard-fields.md).
+Fügen Sie weitere [Standardfelder“ ](../rest-api/list-of-standard-fields.md).
 
 >[!BEGINTABS]
 
@@ -140,7 +148,7 @@ marketo.associateLead(profile)
    }
    ```
 
-1. Fügen Sie weitere [Standardfelder“ &#x200B;](../rest-api/list-of-standard-fields.md).
+1. Fügen Sie weitere [Standardfelder“ ](../rest-api/list-of-standard-fields.md).
 
    ```java
    // Add other custom fields
