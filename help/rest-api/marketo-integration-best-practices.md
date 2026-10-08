@@ -75,7 +75,7 @@ Jede API-fähige Marketo-Instanz verfügt über eine tägliche Zuordnung von min
 
 Die Kapazität wird von allen API-Services und Benutzern in einer Instanz gemeinsam genutzt. Beseitigen Sie redundante Aufrufe und Batch-Datensätze in so wenig Aufrufe wie möglich.
 
-Die aufrufeffizienteste Importmethode ist die Marketo-Massenimport-API, die für „Leads[/Personen“ ](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) &quot;[ Objekte“ ](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
+Die aufrufeffizienteste Importmethode ist die Marketo-Massenimport-API, die für „Leads[/Personen“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/importLeadUsingPOST) &quot;[&#x200B; Objekte“ &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/importCustomObjectUsingPOST). Marketo bietet auch Massenextraktion für [Leads](bulk-lead-extract.md) und [Aktivitäten](bulk-activity-extract.md).
 
 ### Caching
 

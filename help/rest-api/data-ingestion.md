@@ -39,7 +39,7 @@ Die -API stellt Schnittstellen für fünf Objekttypen bereit:
 - Programmteilnehmer unterstützen „Einfüge- oder Aktualisierungs“- und Löschvorgänge.
 - Listen (statische Listen) unterstützen das Hinzufügen und Entfernen von Vorgängen.
 
-Lesen Sie [ Dokumentation zur Datenaufnahme-API](https://developer.adobe.com/marketo-apis/api/data-ingestion).
+Lesen Sie [&#x200B; Dokumentation zur Datenaufnahme-API](https://developer.adobe.com/marketo-apis/api/data-ingestion).
 
 >[!NOTE]
 >
