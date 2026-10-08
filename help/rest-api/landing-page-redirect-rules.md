@@ -153,7 +153,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Erstellen
 
-Rufen Sie [ Endpunkt „Umleitungsregel für Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageRedirectRuleUsingPOST) mit einer `application/x-www-form-urlencoded` POST-Anfrage auf. Die Anfrage verfügt über drei erforderliche Parameter.
+Rufen Sie [&#x200B; Endpunkt „Umleitungsregel für Landingpage erstellen](https://developer.adobe.com/marketo-apis/api/asset#operation/createLandingPageRedirectRuleUsingPOST) mit einer `application/x-www-form-urlencoded` POST-Anfrage auf. Die Anfrage verfügt über drei erforderliche Parameter.
 
 Der `hostname` gibt den Host-Namen der Landingpage an. Sie muss zu einer Branding-Domain oder einem Alias gehören und darf 255 Zeichen nicht überschreiten.
 
@@ -172,7 +172,7 @@ Der `redirectTo` gibt das Ziel als JSON-Objekt mit einem Typ-Wert-Paar an. Das `
 | Marketo | landingPageId | {„type“:„landingPageId“,„value“:„1774“} |
 | Nicht-Marketo | URL | {„type“:„url“,„value“:“www.contactLogs.com&quot;} |
 
-Weitere Informationen finden Sie unter &quot;[ einer Marketo-Landingpage zu einer anderen Seite ](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
+Weitere Informationen finden Sie unter &quot;[&#x200B; einer Marketo-Landingpage zu einer anderen Seite &#x200B;](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
 ```http
 POST /rest/asset/v1/redirectRules.json
@@ -215,7 +215,7 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 
 ## Update
 
-Der Endpunkt [Aktualisierung der Umleitungsregeln für ](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ benötigt einen `id`. Senden Sie die Aktualisierung als `application/x-www-form-urlencoded` POST-Anfrage.
+Der Endpunkt [Aktualisierung der Umleitungsregeln für &#x200B;](https://developer.adobe.com/marketo-apis/api/asset#operation/updateLandingPageRedirectRuleUsingPOST) Landingpage“ benötigt einen `id`. Senden Sie die Aktualisierung als `application/x-www-form-urlencoded` POST-Anfrage.
 
 Übergeben Sie einen oder mehrere dieser Parameter, um die zu aktualisierenden Attribute auszuwählen: `hostname`, `redirectFrom` oder `redirectTo`.
 

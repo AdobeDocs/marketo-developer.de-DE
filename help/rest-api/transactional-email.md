@@ -33,7 +33,7 @@ Verwenden Sie die [Kampagne anfragen](https://developer.adobe.com/marketo-apis/a
 - Erstellen und genehmigen Sie eine Transaktions-E-Mail in der Marketo-Instanz.
 - Trigger-Kampagne aktivieren, die „Kampagne ist angefordert, 1. Source: Web Service API“ und sendet die E-Mail.
 
-Erstellen [ genehmigen Sie zunächst die E-](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail gesetzlich als funktionsfähig eingestuft wird, konfigurieren Sie sie unter E-Mail-Aktionen > E-Mail-Einstellungen als funktionsfähig:
+Erstellen [&#x200B; genehmigen Sie zunächst die E-](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=de). Wenn die E-Mail gesetzlich als funktionsfähig eingestuft wird, konfigurieren Sie sie unter E-Mail-Aktionen > E-Mail-Einstellungen als funktionsfähig:
 
 ![request-campaign-email-settings](assets/request-campaign-email-settings.png)
 

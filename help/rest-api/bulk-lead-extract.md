@@ -138,7 +138,7 @@ Die Enqueue-Antwort weist den `status` „In Warteschlange“ auf. Sobald ein Ex
 
 Sie können den Status nur für Aufträge abrufen, die von demselben API-Benutzer erstellt wurden.
 
-Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [ Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
+Lead-Exportvorgänge werden asynchron ausgeführt. Abfrage [&#x200B; Endpunkts „Exportstatus des Leads abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getExportLeadsStatusUsingGET), um den Fortschritt des Auftrags zu verfolgen.
 
 Der Status wird nur einmal alle 60 Sekunden aktualisiert. Führen Sie keine häufigeren Befragungen durch; in fast allen Fällen ist dieses Intervall immer noch zu lang.
 

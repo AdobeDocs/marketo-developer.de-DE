@@ -81,7 +81,7 @@ Zielplattformen für die App hinzufügen: `$cordova platform add android` `$ cor
 1. Firebase Cloud Messaging-Unterstützung
 
 1. Konfigurieren Sie die Firebase-App in der Firebase Console.
-   1. Erstellen oder Hinzufügen eines Projekts in der [](https://console.firebase.google.com/)Firebase Console.
+   1. Erstellen oder Hinzufügen eines Projekts in der [&#128279;](https://console.firebase.google.com/)Firebase Console.
       1. Wählen Sie in [Firebase](https://console.firebase.google.com/)Konsole **[!UICONTROL Projekt hinzufügen]** aus.
       1. Wählen Sie Ihr GCM-Projekt aus der Liste der vorhandenen Google Cloud-Projekte aus und klicken Sie auf **[!UICONTROL Firebase hinzufügen]**.
       1. Wählen Sie im Firebase-Willkommensbildschirm „Firebase zu Ihrer Android-App hinzufügen“ aus.

@@ -28,7 +28,7 @@ ht-degree: 9%
 ---
 # Benutzerdefinierte Services
 
-Ein benutzerdefinierter Dienst stellt die Anmeldeinformationen bereit, die zur Authentifizierung bei Marketo und zum Abrufen eines Zugriffstokens vom Marketo ([ Service) verwendet ](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzigen Benutzer (nur API) beschränkt und leitet seine Berechtigungen von diesem Benutzer ab.
+Ein benutzerdefinierter Dienst stellt die Anmeldeinformationen bereit, die zur Authentifizierung bei Marketo und zum Abrufen eines Zugriffstokens vom Marketo ([&#x200B; Service) verwendet &#x200B;](https://developer.adobe.com/marketo-apis/api/identity#operation/identityUsingGET). Jeder benutzerdefinierte Dienst wird auf einen einzigen Benutzer (nur API) beschränkt und leitet seine Berechtigungen von diesem Benutzer ab.
 
 ## Rollen
 

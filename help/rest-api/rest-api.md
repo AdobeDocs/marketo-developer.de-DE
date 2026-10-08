@@ -38,7 +38,7 @@ Die REST-APIs lassen sich in zwei Kategorien einteilen:
 
 >[!NOTE]
 >
->Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo-REST[API ](./rest-api.md) werden.
+>Seit dem 31. Juli 2026 ist die SOAP-API veraltet und nicht mehr verfügbar. Alle neuen Entwicklungen sollten mit der Marketo-REST[API &#x200B;](./rest-api.md) werden.
 >
 
 >[!IMPORTANT]
@@ -108,7 +108,7 @@ Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
 >
 >Die Unterstützung für die Authentifizierung mit dem **access_token**-Abfrageparameter wird am 30. Juni 2025 entfernt. Wenn Ihr Projekt einen Abfrageparameter verwendet, um das Zugriffstoken zu übergeben, sollte es so bald wie möglich aktualisiert werden, um die **Authorization**-Kopfzeile zu verwenden. Für die neue Entwicklung sollte ausschließlich der **Authorization**-Header verwendet werden.
 
-Öffnen Sie eine neue Browser-Registerkarte und geben Sie die folgende URL ein. Ersetzen Sie die Platzhalter durch den Endpunkt und die E-Mail-Adresse für Ihre Instanz, um „Leads [ Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) aufzurufen.
+Öffnen Sie eine neue Browser-Registerkarte und geben Sie die folgende URL ein. Ersetzen Sie die Platzhalter durch den Endpunkt und die E-Mail-Adresse für Ihre Instanz, um „Leads [&#x200B; Filtertyp abrufen](https://developer.adobe.com/marketo-apis/api/mapi#operation/getLeadsByFilterUsingGET) aufzurufen.
 
 ```text
 <Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>

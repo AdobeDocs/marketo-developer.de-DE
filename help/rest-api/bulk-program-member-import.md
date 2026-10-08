@@ -140,7 +140,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## Status des Abrufauftrags
 
-Nachdem Sie den Importauftrag erstellt haben, fragen Sie ihn alle 5-30 Sekunden ab. Übergeben Sie den `batchId` Pfadparameter an den Endpunkt [Abrufen des Status von ](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)-Abonnenten des Importprogramms“.
+Nachdem Sie den Importauftrag erstellt haben, fragen Sie ihn alle 5-30 Sekunden ab. Übergeben Sie den `batchId` Pfadparameter an den Endpunkt [Abrufen des Status von &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)-Abonnenten des Importprogramms“.
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -170,7 +170,7 @@ Wenn der Auftrag abgeschlossen ist, listet die Antwort die Anzahl der verarbeite
 
 ## Fehler
 
-Das Attribut `numOfRowsFailed` in der Antwort [Abrufen des Status des ](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)-Mitglieds des Importprogramms“ gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
+Das Attribut `numOfRowsFailed` in der Antwort [Abrufen des Status des &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)-Mitglieds des Importprogramms“ gibt die Anzahl der fehlgeschlagenen Zeilen an. Ein Wert größer als null bedeutet, dass Fehler aufgetreten sind.
 
 Übergeben Sie den `batchId` Pfadparameter an den Endpunkt Abrufen von fehlgeschlagenen Datensätzen zu Importierprogrammmitgliederfehlern , um die Datensätze und ihre Ursachen abzurufen.
 
@@ -224,7 +224,7 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Warnungen
 
-Das Attribut `numOfRowsWithWarning` in der Antwort [Abrufen des Status des ](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)-Mitglieds des Importprogramms“ gibt die Anzahl der Zeilen mit Warnungen an. Ein Wert größer als null bedeutet, dass Warnungen aufgetreten sind.
+Das Attribut `numOfRowsWithWarning` in der Antwort [Abrufen des Status des &#x200B;](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberStatusUsingGET)-Mitglieds des Importprogramms“ gibt die Anzahl der Zeilen mit Warnungen an. Ein Wert größer als null bedeutet, dass Warnungen aufgetreten sind.
 
 Übergeben Sie den `batchId` Pfadparameter an den Endpunkt [Warnungen zum Abruf der Programmteilnehmer](https://developer.adobe.com/marketo-apis/api/mapi#operation/getImportProgramMemberWarningsUsingGET), um die betroffenen Datensätze und ihre Ursachen abzurufen.
 

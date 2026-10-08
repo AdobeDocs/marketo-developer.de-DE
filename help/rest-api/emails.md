@@ -256,7 +256,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 ## Anfrageinhalt
 
-Um [ bearbeitbaren Abschnitte einer E-Mail abzurufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET) fragen Sie deren Inhalt ab. Optional können Sie nach Status filtern, um Abschnitte aus der Version Genehmigt oder Entwurf zurückzugeben.
+Um [&#x200B; bearbeitbaren Abschnitte einer E-Mail abzurufen](https://developer.adobe.com/marketo-apis/api/asset#operation/getEmailContentByIdUsingGET) fragen Sie deren Inhalt ab. Optional können Sie nach Status filtern, um Abschnitte aus der Version Genehmigt oder Entwurf zurückzugeben.
 
 ```http
 GET /rest/asset/v1/email/1356/content.json
