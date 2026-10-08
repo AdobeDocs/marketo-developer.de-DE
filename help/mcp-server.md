@@ -32,10 +32,10 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 56fb36ccfa88bb90244f7756b0fba6ac787bfbfe
+source-git-commit: 6bbf9fa5b8192e02d7a465a652346545ae216450
 workflow-type: tm+mt
-source-wordcount: '2085'
-ht-degree: 4%
+source-wordcount: '2209'
+ht-degree: 3%
 ---
 
 # [!DNL Marketo Engage] MCP-Server
@@ -90,7 +90,7 @@ Je nach API-Nutzung kann MCP Daten übertragen, einschließlich potenziell sensi
 
 * Eine [!DNL Marketo] mit aktiviertem REST-API-Zugriff
 * Administratorzugriff zum Erstellen von API-Anmeldeinformationen in [!DNL Marketo] LaunchPoint
-* Eines der folgenden KI-Tools: Claude Desktop, Cursor, Codex, Claude Code (CLI) oder VS Code mit GitHub Copilot
+* Eines der folgenden KI-Tools: Claude Desktop, Cursor, Codex, Claude Code (CLI), VS Code mit GitHub Copilot oder ein anderer kompatibler MCP-Client wie Gemini CLI
 * Netzwerkzugriff auf die MCP-Server-URL: `https://marketo-mcp.adobe.io/mcp`
 
 ## Marketo-Anmeldedaten abrufen
@@ -122,6 +122,7 @@ Die Konfiguration unterscheidet sich je nach KI-Tool. Die folgenden Abschnitte e
 * [Cursor](#cursor)
 * [Claude Code CLI](#claude-code)
 * [OpenAI-Code](#codex)
+* [Gemini-CLI](#gemini-cli)
 * [VSCode mit GitHub Copilot](#vscode)
 * [sammeln](#glean)
 * [Weitere Tools](#other-tools)
@@ -211,6 +212,35 @@ claude mcp add --transport http marketo \
 
 1. Wählen Sie Speichern aus, um den Vorgang abzuschließen.
 
+### Gemini-CLI
+
+Um den Marketo Engage MCP-Server zur Gemini-CLI hinzuzufügen, fügen Sie dem `.gemini/mcp.json` in Ihrem Projektverzeichnis Folgendes hinzu.
+
+```json
+{
+  "mcpServers": {
+    "marketo": {
+      "httpUrl": "https://marketo-mcp.adobe.io/mcp",
+      "headers": {
+        "X-Marketo-Client-Id": "$MARKETO_CLIENT_ID",
+        "X-Marketo-Client-Secret": "$MARKETO_CLIENT_SECRET",
+        "X-Marketo-Munchkin-Id": "$MARKETO_MUNCHKIN_ID"
+      }
+    }
+  }
+}
+```
+
+Oder über die Befehlszeile:
+
+```bash
+gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp \
+  -H "X-Marketo-Client-Id: $MARKETO_CLIENT_ID" \
+  -H "X-Marketo-Client-Secret: $MARKETO_CLIENT_SECRET" \
+  -H "X-Marketo-Munchkin-Id: $MARKETO_MUNCHKIN_ID"
+```
+
+Starten Sie die Sitzung neu, um die neue MCP-Server-Konfiguration aufzunehmen.
 
 ### VS-Code mit GitHub Copilot {#vscode}
 
@@ -269,6 +299,10 @@ Senden Sie bei jeder Anfrage die Header für eine der folgenden Authentifizierun
 | `X-Marketo-Munchkin-Id` | Ihre Munchkin-Konto-ID |
 
 Wenn Ihr Tool eine JSON-Konfiguration akzeptiert, beginnen Sie mit den [Cursor](#cursor)- oder [VS-Code](#vscode)-Beispielen und passen Sie die Schlüssel (`mcpServers`, `servers`) an das Schema Ihres Tools an.
+
+>[!NOTE]
+>
+>Gemini CLI unterstützt Remote-MCP-Server über Streamable HTTP- und benutzerdefinierte Authentifizierungs-Header. Um ihn mit dem [!DNL Marketo] MCP-Server zu verbinden, verwenden Sie die obigen Verbindungsdetails und folgen Sie der [Gemini CLI MCP-Konfigurationsdokumentation](https://geminicli.com/docs/tools/mcp-server/){target="_blank"}. Fügen Sie einen Servereintrag unter `mcpServers` in Ihrem `settings.json` hinzu, legen Sie `httpUrl` auf `https://marketo-mcp.adobe.io/mcp` fest und geben Sie die drei Marketo-Authentifizierungskopfzeilen in `headers` an. Verwenden Sie `httpUrl`, nicht `url`, welche Gemini-CLI für den SSE-Transport verwendet. Diese Anleitung gilt für die Gemini-CLI, nicht für das Gemini-Web oder die Mobile App.
 
 ## Verfügbare Vorgänge
 
