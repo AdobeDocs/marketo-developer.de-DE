@@ -3,20 +3,23 @@ title: Aktivieren von Deep-Links
 feature: Mobile Marketing
 description: Erfahren Sie, wie Sie Deep-Links in Ihrer App für Marketo-Push-Nachrichten mithilfe von benutzerdefinierten URI-Schemata aktivieren, einschließlich Anleitungen zu iOS, Android und PhoneGap und Best Practices.
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
-TQID: https://experienceleague.adobe.com/UswOvHXGlfTrTUqr4Gsf3j2Z7Xpv2FF2luXeygT4qE0
+TQID: 'https://experienceleague.adobe.com/UswOvHXGlfTrTUqr4Gsf3j2Z7Xpv2FF2luXeygT4qE0'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: f71e690b-4480-4b67-9ef5-88f42f9cdfdb
+    internal-label: Resources
+  - id: 44b89f75-c1af-5353-8094-79b278102d46
+    internal-label: Mobile Marketing
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-source-git-commit: 3e6d310c5aec1a3435424fb122b71d825db5af0e
+    internal-label: Admin
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 363
+source-wordcount: '363'
 ht-degree: 5%
-
 ---
-
 # Aktivieren von Deep-Links
 
 Deep-Linking leitet Personen zu bestimmten Inhalten in Ihrer App. Wenn eine Person beispielsweise eine mobile Push-Nachricht auswählt, mit der ein violettes T-Shirt beworben wird, kann die App den Inhalt des violetten T-Shirts anstelle der Startseite öffnen.

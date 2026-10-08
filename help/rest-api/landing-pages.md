@@ -3,23 +3,35 @@ title: Landingpages
 feature: REST API, Landing Pages
 description: Verwenden Sie die Marketo-REST-API, um Metadaten und Inhalte abzufragen, Landingpages, einschließlich geführter und Freiformtypen, zu erstellen, zu aktualisieren, zu genehmigen, zu löschen und zu klonen.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-TQID: https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE
+TQID: 'https://experienceleague.adobe.com/NssOtB6BEMGOQzzauLI7AszLpN3fVcEeJcr9VNTkpJE'
 product_v2:
   - id: b27e5950-9033-45ac-9f86-eb22e567f615
+    internal-label: Marketo Engage
 feature_v2:
   - id: b0bb9048-d951-48d8-8232-45cf248a7e27
+    internal-label: Forms
   - id: f82558ea-6af5-44eb-a424-5b3389abb0a3
+    internal-label: Templates
+  - id: dca84292-69e9-4116-a575-667d31fa060d
+    internal-label: APIs
+  - id: c2dbad80-0f5c-4d96-a798-2a65f93b8721
+    internal-label: Assets
+subfeature_v2:
+  - id: cf1396d8-ab85-4e93-b35d-d9b573024abf
+    internal-label: REST APIs
+  - id: edda586e-0147-48f2-b791-992622a00783
+    internal-label: Landing pages
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
-source-git-commit: aeb0d5a176ffdd0910ee533353593bba95f91d08
+    internal-label: Metadata
+source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
 workflow-type: tm+mt
-source-wordcount: 864
+source-wordcount: '864'
 ht-degree: 2%
-
 ---
-
 # Landingpages
 
 [Referenz zum Landingpage-Endpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages)
@@ -127,7 +139,7 @@ Landingpages verwenden das Standardmodell „Entwurf und genehmigt“. Aktualisi
 
 Bevor Sie eine Landingpage löschen, stellen Sie sicher, dass sie nicht genehmigt ist und kein anderes Marketo-Asset darauf verweist. Löschen Sie Seiten einzeln mit dem Endpunkt [Landingpage löschen](https://developer.adobe.com/marketo-apis/api/asset#operation/deleteLandingPageByIdUsingPOST). Sie können diese API nicht verwenden, um Seiten mit eingebetteten Social-Media-Schaltflächen zu löschen.
 
-## Klonen
+## Klon
 
 Klonen Sie eine Landingpage mit einer `application/x-www-url-formencoded` POST-Anfrage.
 
