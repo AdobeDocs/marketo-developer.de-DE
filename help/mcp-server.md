@@ -323,7 +323,7 @@ Sie können jetzt dem Verbindungsfluss folgen und die Kopfzeilenwerte ausfüllen
 
 ### sammeln {#glean}
 
-Um Glean mit dem Marketo Engage MCP Server zu verbinden, [ das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
+Um Glean mit dem Marketo Engage MCP Server zu verbinden, [&#x200B; das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
 
 | Header | Wert |
 | ------ | ----- |
