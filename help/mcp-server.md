@@ -34,9 +34,9 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 5c356507ac2551edfbb1c60dba7b167d7ef0b4c0
 workflow-type: tm+mt
-source-wordcount: '2209'
+source-wordcount: '2137'
 ht-degree: 3%
 ---
 
@@ -46,7 +46,7 @@ Das Model Context Protocol (MCP) ist ein offener Standard, der KI-Tools mit exte
 
 Wenn Ihr KI-Tool den MCP-Server aufruft, verwendet der Server die Anmeldeinformationen in dieser Anfrage, um den entsprechenden REST-API-Aufruf auszuführen. Sie müssen keine Server-seitige Software installieren, bereitstellen oder ausführen.
 
-Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
+Weitere Informationen zum Umgang mit Daten mit Marketo AI und dem Marketo Engage MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
 
 >[!IMPORTANT]
 >
@@ -92,7 +92,6 @@ Je nach API-Nutzung kann MCP Daten übertragen, einschließlich potenziell sensi
 
 * Eine [!DNL Marketo] mit aktiviertem REST-API-Zugriff
 * Administratorzugriff zum Erstellen von API-Anmeldeinformationen in [!DNL Marketo] LaunchPoint
-* Eines der folgenden KI-Tools: Claude Desktop, Cursor, Codex, Claude Code (CLI), VS Code mit GitHub Copilot oder ein anderer kompatibler MCP-Client wie Gemini CLI
 * Netzwerkzugriff auf die MCP-Server-URL: `https://marketo-mcp.adobe.io/mcp`
 
 ## Marketo-Anmeldedaten abrufen
@@ -118,20 +117,15 @@ Wenn Sie bereits über diese verfügen, fahren Sie mit [KI-Tool konfigurieren](#
 
 ## Konfigurieren Ihres KI-Tools
 
-Die Konfiguration unterscheidet sich je nach KI-Tool. Die folgenden Abschnitte enthalten Verbindungsbeispiele für gängige Tools.
-
-* [Claude Desktop](#claude-desktop)
-* [Cursor](#cursor)
-* [Claude Code CLI](#claude-code)
-* [OpenAI-Code](#codex)
-* [Gemini-CLI](#gemini-cli)
-* [VSCode mit GitHub Copilot](#vscode)
-* [sammeln](#glean)
-* [Weitere Tools](#other-tools)
+Die Konfiguration unterscheidet sich je nach Tool geringfügig. Im Folgenden finden Sie Verbindungsbeispiele für gängige Tools.
 
 >[!TIP]
 >
 >Um eine Verbindung zu mehreren [!DNL Marketo]-Instanzen herzustellen, fügen Sie separate Einträge in Ihrer MCP-Konfiguration mit eindeutigen Namen hinzu: `marketo-prod` und `marketo-staging`, jeweils mit den entsprechenden Anmeldeinformationen.
+
+>[!BEGINTABS]
+
+>[!TAB Claude Desktop]
 
 ### Claude Desktop {#claude-desktop}
 
@@ -167,6 +161,8 @@ Sie benötigen außerdem:
 
 1. Starten Sie Claude Desktop neu.
 
+>[!TAB Cursor]
+
 ### Cursor {#cursor}
 
 Wenn Ihre Cursor-MCP-Konfiguration bereits andere Server enthält, fügen Sie den `marketo` Eintrag unter `mcpServers` hinzu.
@@ -190,6 +186,8 @@ Das folgende Beispiel zeigt den vollständigen `mcpServers`-Block unter **[!UICO
 
 Cursor neu starten.
 
+>[!TAB Claude-Code-CLI]
+
 ### Claude-Code (CLI) {#claude-code}
 
 Führen Sie den folgenden Befehl an Ihrem Terminal aus und ersetzen Sie dabei Ihre Anmeldeinformationen:
@@ -202,6 +200,8 @@ claude mcp add --transport http marketo \
   --header "X-Marketo-Munchkin-Id: YOUR-MUNCHKIN-ID"
 ```
 
+>[!TAB OpenAI-Codex]
+
 ### OpenAI-Code {#codex}
 
 1. Gehen Sie zu Einstellungen > MCP-Server > Server hinzufügen.
@@ -213,6 +213,8 @@ claude mcp add --transport http marketo \
 * X-Marketo-Munchkin-ID: „IHRE-MUNCHKIN-ID“
 
 1. Wählen Sie Speichern aus, um den Vorgang abzuschließen.
+
+>[!TAB Gemini CLI]
 
 ### Gemini-CLI
 
@@ -244,6 +246,8 @@ gemini mcp add --transport http -s user marketo https://marketo-mcp.adobe.io/mcp
 
 Starten Sie die Sitzung neu, um die neue MCP-Server-Konfiguration aufzunehmen.
 
+>[!TAB VS-Code mit GitHub Copilot]
+
 ### VS-Code mit GitHub Copilot {#vscode}
 
 Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+Umschalt+P]** auf macOS), geben Sie **[!UICONTROL MCP: Benutzerkonfiguration öffnen ein]** und drücken Sie die Eingabetaste. Dadurch wird `mcp.json` geöffnet. Fügen Sie den `marketo` Eintrag innerhalb des `servers` hinzu:
@@ -264,19 +268,70 @@ Drücken Sie **[!UICONTROL Strg+Umschalt+P]** (oder **[!UICONTROL Befehlstaste+U
 }
 ```
 
->[!NOTE]
->
->Verwenden Sie aus Sicherheitsgründen die Interpolation von Umgebungsvariablen in Konfigurationsdateien, anstatt Anmeldeinformationen direkt einzufügen. Sie können Variablen mithilfe von Syntax wie `${MARKETO_CLIENT_SECRET}` referenzieren und sie in Ihrer Umgebung festlegen. Dadurch wird verhindert, dass Anmeldeinformationen im Klartext in Dateien gespeichert werden, die der Versionskontrolle unterliegen.
+>[!TAB Copilot Studio]
+
+### CoPilot Studio
+
+Copilot Studio arbeitet etwas anders. Sie erstellen eine YAML-Definitionsdatei und dann erstellt Copilot Studio die Connector-Benutzeroberfläche daraus. Hier definieren Sie die benutzerdefinierten Kopfzeilen.
+
+Öffnen Sie beim Erstellen Ihres neuen Connectors den „Swagger-Editor“ und fügen Sie den folgenden Code ein:
+
+```yaml
+swagger: '2.0'
+info:
+  title: Marketo MCP Server
+  description: Connect to the Marketo MCP server.
+  version: 1.0.0
+host: marketo-mcp.adobe.io
+basePath: /
+schemes:
+  - https
+paths:
+  /mcp:
+    post:
+      summary: Marketo MCP Server
+      description: Invoke the Marketo MCP server.
+      operationId: InvokeServer
+      x-ms-agentic-protocol: mcp-streamable-1.0
+      parameters:
+        - name: MARKETO_MCP_PROD_CLIENT_ID
+          in: header
+          description: Client ID.
+          type: string
+          required: true
+        - name: MARKETO_MCP_PROD_CLIENT_SECRET
+          in: header
+          description: Client secret.
+          type: string
+          required: true
+        - name: MARKETO_MCP_PROD_MUNCHKIN_ID
+          in: header
+          description: Munchkin ID.
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Immediate Response
+securityDefinitions: {}
+security: []
+```
+
+Aktualisieren Sie den Connector, schließen Sie ihn dann und öffnen Sie ihn erneut.
+Sie können jetzt dem Verbindungsfluss folgen und die Kopfzeilenwerte ausfüllen.
+
+>[!TAB Glean]
 
 ### sammeln {#glean}
 
-Um Glean mit dem Marketo Engage MCP Server zu verbinden, [&#x200B; das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
+Um Glean mit dem Marketo Engage MCP Server zu verbinden, [ das Glean Support Team](https://docs.glean.com/release-notes/releases/2026-04-22-april-release#admin-features) die folgenden benutzerdefinierten Header konfigurieren.
 
 | Header | Wert |
 | ------ | ----- |
 | `X-Marketo-Client-Id` | Ihre Client-ID |
 | `X-Marketo-Client-Secret` | Ihr Client-Geheimnis |
 | `X-Marketo-Munchkin-Id` | Ihre Munchkin-Konto-ID |
+
+>[!TAB Weitere Tools]
 
 ### Weitere Tools {#other-tools}
 
@@ -302,9 +357,7 @@ Senden Sie bei jeder Anfrage die Header für eine der folgenden Authentifizierun
 
 Wenn Ihr Tool eine JSON-Konfiguration akzeptiert, beginnen Sie mit den [Cursor](#cursor)- oder [VS-Code](#vscode)-Beispielen und passen Sie die Schlüssel (`mcpServers`, `servers`) an das Schema Ihres Tools an.
 
->[!NOTE]
->
->Gemini CLI unterstützt Remote-MCP-Server über Streamable HTTP- und benutzerdefinierte Authentifizierungs-Header. Um ihn mit dem [!DNL Marketo] MCP-Server zu verbinden, verwenden Sie die obigen Verbindungsdetails und folgen Sie der [Gemini CLI MCP-Konfigurationsdokumentation](https://geminicli.com/docs/tools/mcp-server/){target="_blank"}. Fügen Sie einen Servereintrag unter `mcpServers` in Ihrem `settings.json` hinzu, legen Sie `httpUrl` auf `https://marketo-mcp.adobe.io/mcp` fest und geben Sie die drei Marketo-Authentifizierungskopfzeilen in `headers` an. Verwenden Sie `httpUrl`, nicht `url`, welche Gemini-CLI für den SSE-Transport verwendet. Diese Anleitung gilt für die Gemini-CLI, nicht für das Gemini-Web oder die Mobile App.
+>[!ENDTABS]
 
 ## Verfügbare Vorgänge
 
