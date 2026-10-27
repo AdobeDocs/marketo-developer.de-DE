@@ -21,20 +21,20 @@ role_v2:
 topic_v2:
   - id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
     internal-label: Metadata
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
 source-wordcount: '702'
 ht-degree: 0%
 ---
 # Opportunitys
 
-[Opportunity-Endpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
+[Opportunity-Endpunkt-Referenz](https://developer.adobe.com/marketo-apis/api/mapi#tag/Oppofrtunities)
 
 Marketo bietet APIs zum Lesen, Schreiben, Erstellen und Aktualisieren von Opportunity-Datensätzen. In Marketo verknüpft das Zwischenobjekt Opportunity-Rolle Opportunity-Datensätze mit Lead- und Kontakt-Datensätzen. Eine Opportunity kann daher mit vielen individuellen Leads verknüpft werden.
 
 Die -API macht beide Objekttypen verfügbar. Wie die meisten Lead-Datenbank-Objekttypen verfügt jeder über einen entsprechenden Describe-Aufruf, der Objektmetadaten zurückgibt.
 
-Opportunity-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=de) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=de) aktiviert ist.
+Opportunity-APIs bieten schreibgeschützten Zugriff für Abonnements, bei denen [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) oder [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiviert ist.
 
 ## beschreiben
 
