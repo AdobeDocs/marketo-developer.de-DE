@@ -332,7 +332,7 @@ Speichern oder aktualisieren Sie den Connector, kehren Sie zu Copilot Studio zur
 
 Um Glean mit dem [!DNL Marketo Engage] MCP-Server zu verbinden, befolgen Sie [Gleans Remote MCP Setup Instructions](https://docs.glean.com/administration/tools/connect-remote-mcp-servers-to-glean){target="_blank"}, um `https://marketo-mcp.adobe.io/mcp` hinzuzufügen. Überprüfen Sie zunächst den **[!UICONTROL Connectoren]**-Katalog. Bei einem benutzerdefinierten oder nicht aufgelisteten Server verwenden Sie **[!UICONTROL Admin Console]** > **[!UICONTROL Platform]** > **[!UICONTROL Tools]** > **[!UICONTROL Tools vom MCP-Server importieren]**.
 
-Das [Glean-Supportteam muss die unten ](https://docs.glean.com/administration/tools/mcp-custom-headers){target="_blank"} benutzerdefinierten Kopfzeilen konfigurieren. Fügen Sie den Server-Namen, die URL und die erforderlichen Kopfzeilennamen in Ihre Support-Anfrage ein und koordinieren Sie die sichere Handhabung der Werte der Anmeldeinformationen. Eine Standard-API-Schlüsselverbindung allein liefert nicht alle drei Kopfzeilen.
+Das [Glean-Supportteam muss die unten &#x200B;](https://docs.glean.com/administration/tools/mcp-custom-headers){target="_blank"} benutzerdefinierten Kopfzeilen konfigurieren. Fügen Sie den Server-Namen, die URL und die erforderlichen Kopfzeilennamen in Ihre Support-Anfrage ein und koordinieren Sie die sichere Handhabung der Werte der Anmeldeinformationen. Eine Standard-API-Schlüsselverbindung allein liefert nicht alle drei Kopfzeilen.
 
 | Header | Wert |
 | ------ | ----- |
