@@ -25,14 +25,14 @@ role_v2:
 topic_v2:
   - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
     internal-label: Administration
-source-git-commit: 5620f050ba834be3f6648650b5cc7d781ea394bf
+source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
 workflow-type: tm+mt
 source-wordcount: '1404'
 ht-degree: 7%
 ---
 # Benutzerverwaltung
 
-[User Management-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/user/)
+[User Management-Endpunktreferenz](https://developer.adobe.com/marketo-apis/api/user)
 
 Marketo User Management-Endpunkte führen CRUD-Vorgänge für Benutzerdatensätze aus. Um einen Benutzer zu erstellen, senden Sie eine Einladung. Der Benutzer legt dann ein Kennwort fest und greift zum ersten Mal auf Marketo zu.
 
