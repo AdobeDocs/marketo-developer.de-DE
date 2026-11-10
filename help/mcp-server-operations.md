@@ -21,9 +21,9 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
+source-git-commit: 3e6e6ecbd10bb38c347bae82bc5acba7cda40f79
 workflow-type: tm+mt
-source-wordcount: '260'
+source-wordcount: '257'
 ht-degree: 0%
 ---
 
@@ -52,7 +52,7 @@ Für Verbindungen, die [!DNL Marketo] Client-Anmeldeinformationen verwenden, wer
 * Push-Benachrichtigungs-Tools
 * In-App-Nachrichten- und In-App-Programm-Tools
 * Planen von Smart-Kampagnen mit `schedule_smart_campaign`
-* Tools für Benutzerverwaltung und Massendienst
+* User Management-Tools
 
 Der `schedule_campaign` wird für Verbindungen mit Client-Anmeldeinformationen unterstützt.
 
