@@ -21,9 +21,9 @@ role_v2:
 topic_v2:
   - id: bbbea26f-9621-49eb-9ab8-e06fb3bbce8c
     internal-label: Artificial intelligence
-source-git-commit: 1cdb28422994b772a0fa430e213facaf26817952
+source-git-commit: 3e6e6ecbd10bb38c347bae82bc5acba7cda40f79
 workflow-type: tm+mt
-source-wordcount: '260'
+source-wordcount: '257'
 ht-degree: 0%
 ---
 
@@ -52,10 +52,10 @@ Für Verbindungen, die [!DNL Marketo] Client-Anmeldeinformationen verwenden, wer
 * Push-Benachrichtigungs-Tools
 * In-App-Nachrichten- und In-App-Programm-Tools
 * Planen von Smart-Kampagnen mit `schedule_smart_campaign`
-* Tools für Benutzerverwaltung und Massendienst
+* User Management-Tools
 
 Der `schedule_campaign` wird für Verbindungen mit Client-Anmeldeinformationen unterstützt.
 
 Die verfügbaren Vorgänge hängen von Ihren API-Benutzerberechtigungen, den für Ihre [!DNL Marketo]-Instanz aktivierten Funktionen und allen Einschränkungen in Ihrem MCP-Client ab. Einige Vorgänge, die Daten ändern oder löschen, erfordern eine Bestätigung und zusätzlichen Zugriff. Unterstützung für eine Kategorie bedeutet nicht, dass auf jeden REST-Endpunkt zugegriffen werden kann.
 
-Anweisungen zur Verbindung und Beispielaufforderungen finden Sie auf der Seite [MCP Server](mcp-server.md#available-operations). Informationen zum Umgang mit Daten mit [!DNL Marketo] AI und dem [!DNL Marketo Engage] MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/de/docs/marketo/using/product-docs/marketo-ai/data-information).
+Anweisungen zur Verbindung und Beispielaufforderungen finden Sie auf der Seite [MCP Server](mcp-server.md#available-operations). Informationen zum Umgang mit Daten mit [!DNL Marketo] AI und dem [!DNL Marketo Engage] MCP-Server finden Sie auf der Seite [Dateninformationen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-ai/data-information).
